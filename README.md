@@ -1,2 +1,9 @@
-# frontend-shibahumanityhub
-Website MVP for the Shiba Humanity Hub — live impact, programs, wallet connect ready
+# 🌐 Shibahumanityhub — Frontend (Website MVP)
+
+Coming soon: The live website for the Humanity Hub.
+
+- Live impact dashboards
+- Wallet connect (testnet ready)
+- Program pages for $NIBBLES and $HOPSEED
+
+Built with Next.js + Tailwind. Zero-budget, fully open-source.
