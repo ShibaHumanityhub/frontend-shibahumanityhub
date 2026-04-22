@@ -7,127 +7,130 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    body { font-family: system-ui, sans-serif; }
+    body { font-family: system-ui, -apple-system, sans-serif; }
     .hero-bg { 
-      background: linear-gradient(135deg, #f59e0b, #b45309, #10b981); 
-      animation: gradientShift 15s ease infinite;
+      background: linear-gradient(135deg, #f59e0b, #10b981, #b45309);
+      animation: gradientShift 20s ease infinite;
     }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    .floating { animation: float 3s ease-in-out infinite; }
-    .heart { animation: heartbeat 1.5s ease infinite; }
-    .paw { animation: pawPrint 4s ease-in-out infinite; }
+    .float { animation: float 4s ease-in-out infinite; }
+    .heart { animation: heartbeat 1.8s ease infinite; }
+    .paw { animation: pawPrint 5s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
+    @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    @keyframes pawPrint { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(15deg); } }
   </style>
 </head>
 <body class="bg-zinc-950 text-white overflow-x-hidden">
 
-  <!-- HERO - High-end & Heartfelt -->
-  <header class="hero-bg py-24 text-center relative overflow-hidden">
+  <!-- HERO - 10x Heartfelt & Animated -->
+  <header class="hero-bg py-28 text-center relative overflow-hidden">
     <div class="absolute inset-0 pointer-events-none">
-      <div class="floating text-6xl absolute top-10 left-10">🐾</div>
-      <div class="floating text-5xl absolute top-20 right-12 delay-500">❤️</div>
-      <div class="paw text-7xl absolute bottom-12 left-1/4">🐶</div>
-      <div class="floating text-6xl absolute bottom-20 right-1/4 delay-700">👦</div>
-      <div class="heart text-5xl absolute top-1/3 left-1/3">😊</div>
-      <div class="floating text-7xl absolute top-1/4 right-1/4 delay-1000">🌼</div>
+      <div class="float text-7xl absolute top-12 left-8">🐾</div>
+      <div class="heart text-6xl absolute top-20 right-12">❤️</div>
+      <div class="paw text-8xl absolute bottom-16 left-1/4">🐶</div>
+      <div class="float text-7xl absolute bottom-20 right-1/4 delay-700">👦</div>
+      <div class="heart text-6xl absolute top-1/3 left-1/3">😊</div>
+      <div class="float text-7xl absolute top-1/4 right-1/4">🌼</div>
+      <div class="paw text-8xl absolute bottom-8 left-3/4 delay-1000">🐕</div>
     </div>
 
     <div class="max-w-5xl mx-auto px-6 relative z-10">
-      <h1 class="text-7xl font-bold mb-4 tracking-tighter">SHIBAHUMANITYHUB</h1>
-      <p class="text-3xl mb-6 text-amber-100">Since November 2025 — Where Crypto Meets Love</p>
+      <h1 class="text-7xl md:text-8xl font-bold mb-4 tracking-tighter">SHIBAHUMANITYHUB</h1>
+      <p class="text-3xl mb-8 text-amber-100">Since November 2025 — The Greatest Crypto Charity Movement Ever Built</p>
       
-      <div class="flex justify-center gap-8 text-2xl mb-10">
-        <div class="flex items-center gap-2">$NIBBLES <span class="text-amber-200 text-4xl">🐕</span></div>
-        <div class="flex items-center gap-2">$hopeseed <span class="text-emerald-300 text-4xl">🌱</span></div>
+      <div class="flex justify-center gap-10 text-3xl mb-12">
+        <div class="flex items-center gap-3">$NIBBLES <span class="text-amber-200 text-5xl">🐕</span></div>
+        <div class="flex items-center gap-3">$hopeseed <span class="text-emerald-300 text-5xl">🌱</span></div>
       </div>
 
-      <p class="text-2xl max-w-2xl mx-auto mb-10 leading-relaxed">
-        People helping people helping people.<br>
-        Every transaction brings <span class="text-amber-200">forever homes</span>, <span class="text-emerald-300">happy kids</span>, 
-        and <span class="text-amber-200">joyful elders</span>.
+      <p class="text-3xl max-w-3xl mx-auto mb-6 leading-tight font-light">
+        Every transaction saves lives.
+      </p>
+      <p class="text-2xl max-w-2xl mx-auto mb-12 text-amber-100">
+        Forever homes for senior dogs.<br>
+        Wish NFTs for sick kids.<br>
+        Joy for families and elders.
       </p>
 
       <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v1-April-2026.pdf" 
-         class="inline-block bg-white text-black font-bold text-2xl px-12 py-5 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">
+         class="inline-block bg-white text-black font-bold text-2xl px-14 py-6 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">
         📄 Download Whitepaper v1
       </a>
     </div>
   </header>
 
   <!-- LIVE CONTRACTS -->
-  <section class="py-16 bg-zinc-900">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-8 text-amber-300">Both Tokens LIVE on Testnet! 🐕🌱</h2>
+  <section class="py-20 bg-zinc-900">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-12 text-amber-300">Both Tokens LIVE on Testnet</h2>
       
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Mr. Nibbles -->
-        <div class="bg-zinc-800 rounded-3xl p-8">
-          <p class="text-amber-200 mb-2 text-xl">Mr. Nibbles ($NIBBLES)</p>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="bg-zinc-800 rounded-3xl p-10">
+          <div class="text-6xl mb-4">🐕</div>
+          <p class="text-amber-200 mb-2 text-3xl">Mr. Nibbles ($NIBBLES)</p>
           <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" 
-             target="_blank" class="text-blue-400 hover:underline break-all font-mono text-sm block">
+             target="_blank" class="text-blue-400 hover:underline break-all font-mono">
             0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2
           </a>
-          <p class="text-xs text-zinc-400 mt-4">4% tax • Forever homes for senior shelter dogs</p>
+          <p class="text-sm text-zinc-400 mt-6">4% tax • Golden Years Companion Program</p>
         </div>
 
-        <!-- hopeseed -->
-        <div class="bg-zinc-800 rounded-3xl p-8">
-          <p class="text-emerald-300 mb-2 text-xl">$hopeseed</p>
+        <div class="bg-zinc-800 rounded-3xl p-10">
+          <div class="text-6xl mb-4">🌱</div>
+          <p class="text-emerald-300 mb-2 text-3xl">$hopeseed</p>
           <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" 
-             target="_blank" class="text-blue-400 hover:underline break-all font-mono text-sm block">
+             target="_blank" class="text-blue-400 hover:underline break-all font-mono">
             0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61
           </a>
-          <p class="text-xs text-zinc-400 mt-4">4% tax • Wish NFTs & hope for kids and families</p>
+          <p class="text-sm text-zinc-400 mt-6">4% tax • Wish NFTs & Champions Table</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VISION - Heartfelt -->
+  <!-- VISION -->
   <section class="py-20 bg-zinc-950">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-16">Real Lives. Real Joy. On-Chain.</h2>
-      <div class="grid md:grid-cols-3 gap-10">
+      <h2 class="text-5xl font-bold text-center mb-16">Every transaction saves lives</h2>
+      <div class="grid md:grid-cols-3 gap-12">
         <div class="text-center">
           <div class="text-8xl mb-6">🐶</div>
-          <h3 class="text-3xl font-bold mb-3">Mr. Nibbles</h3>
+          <h3 class="text-3xl font-bold mb-4">Mr. Nibbles</h3>
           <p class="text-amber-200">Forever homes for senior shelter dogs. Golden Years Companion Program. Pure love on-chain.</p>
         </div>
         <div class="text-center">
           <div class="text-8xl mb-6">👧</div>
-          <h3 class="text-3xl font-bold mb-3">$hopeseed</h3>
-          <p class="text-emerald-300">Wish NFTs for sick kids. Champions Table meals. Hope and happiness for families.</p>
+          <h3 class="text-3xl font-bold mb-4">$hopeseed</h3>
+          <p class="text-emerald-300">Wish NFTs for sick kids. Champions Table meals. Seeds of hope and joy.</p>
         </div>
         <div class="text-center">
-          <div class="text-8xl mb-6">👴</div>
-          <h3 class="text-3xl font-bold mb-3">Elders & Community</h3>
-          <p class="text-amber-200">Therapy dogs, joy, and connection. Every transaction plants seeds of real change.</p>
+          <div class="text-8xl mb-6">👴❤️</div>
+          <h3 class="text-3xl font-bold mb-4">Joy for All</h3>
+          <p class="text-amber-200">Therapy dogs, family meals, and real human connection. Happiness, love, and change on-chain.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CALL TO ACTION -->
-  <section class="py-20 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-2xl mx-auto px-6">
-      <h2 class="text-5xl font-bold mb-6">Join the Movement of Love</h2>
-      <p class="text-2xl mb-10">Fork the repos. Build with us. Stake as a guardian. Be the change the world needs.</p>
+  <section class="py-24 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-5xl font-bold mb-8">Join the Movement of Love</h2>
+      <p class="text-3xl mb-12">Fork the repos. Build with us. Stake as a guardian.<br>Be part of something that actually saves lives.</p>
       <div class="flex flex-wrap justify-center gap-6">
-        <a href="https://github.com/ShibaHumanityhub" class="bg-white text-black px-10 py-5 rounded-3xl font-bold text-xl">GitHub Repos</a>
-        <a href="https://github.com/ShibaHumanityhub/whitepaper-and-vision/blob/main/TIMELINE.md" class="bg-white text-black px-10 py-5 rounded-3xl font-bold text-xl">Our Story Since 2025</a>
+        <a href="https://github.com/ShibaHumanityhub" class="bg-white text-black px-12 py-6 rounded-3xl font-bold text-2xl">GitHub Repos</a>
+        <a href="https://github.com/ShibaHumanityhub/whitepaper-and-vision/blob/main/TIMELINE.md" class="bg-white text-black px-12 py-6 rounded-3xl font-bold text-2xl">Our Story Since 2025</a>
       </div>
     </div>
   </section>
 
   <footer class="py-12 text-center text-zinc-400 bg-zinc-950">
-    <p class="text-lg">Shibahumanityhub • Since Nov 2025 • Built with love for every life we can save ❤️🐶🌱</p>
+    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
   </footer>
-
-  <script>
-    // Simple tailwind script already loaded
-  </script>
 </body>
 </html>
