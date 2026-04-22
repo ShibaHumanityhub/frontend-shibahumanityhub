@@ -10,20 +10,20 @@
     body { font-family: system-ui, -apple-system, sans-serif; }
     .hero-bg { 
       background: linear-gradient(135deg, #f59e0b, #10b981, #b45309);
-      animation: gradientShift 25s ease infinite;
+      animation: gradientShift 20s ease infinite;
     }
     @keyframes gradientShift { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
-    .float { animation: float 4s ease-in-out infinite; }
-    .heart { animation: heartbeat 2s ease infinite; }
-    .paw { animation: pawPrint 6s ease-in-out infinite; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
-    @keyframes heartbeat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
-    @keyframes pawPrint { 0%,100%{transform:rotate(0deg)} 50%{transform:rotate(12deg)} }
+    .float { animation: float 3.5s ease-in-out infinite; }
+    .heart { animation: heartbeat 1.8s ease infinite; }
+    .paw { animation: pawPrint 5s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-25px)} }
+    @keyframes heartbeat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
+    @keyframes pawPrint { 0%,100%{transform:rotate(0deg)} 50%{transform:rotate(10deg)} }
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
 
-  <!-- PREMIUM FIXED NAVBAR (Very Top) -->
+  <!-- PREMIUM FIXED NAVBAR (Top of Page) -->
   <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -39,4 +39,16 @@
       </div>
 
       <div class="flex items-center gap-4">
-        <span class="text-sm font-medium px-4 py-2 bg-amber-500/10 text-
+        <span class="text-sm font-medium px-4 py-2 bg-amber-500/10 text-amber-300 rounded-3xl border border-amber-500/30">
+          Every transaction saves lives ❤️
+        </span>
+        <a href="https://github.com/ShibaHumanityhub" class="bg-white text-black px-6 py-3 rounded-3xl font-bold text-sm hover:scale-105 transition">Join the Movement</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-bg pt-24 pb-32 text-center relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none opacity-70">
+      <div class="float text-8xl absolute top-12 left-10">🐾</div>
+      <div class
