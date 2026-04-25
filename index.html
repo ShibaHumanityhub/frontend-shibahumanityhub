@@ -1,212 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shibahumanityhub • Since Nov 2025</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    body { font-family: system-ui, -apple-system, sans-serif; }
-    .hero-bg { 
-      background: linear-gradient(135deg, #f59e0b, #10b981, #b45309);
-      animation: gradientShift 20s ease infinite;
+Shiba Barn Sanctuary Network"Permanent safe havens for unadoptable and sponsored dogs — where no soul is ever forgotten."Here’s something close to my heart.
+Too many dogs — the old ones, the injured ones, the ones with special needs or tough personalities — get labeled “unadoptable” and end up spending their lives in a cage or bouncing from shelter to shelter. They deserve so much better. The Shiba Barn Sanctuary Network changes that story for good. We’re buying beautiful acres of land outright and building real, permanent sanctuaries where these dogs can finally live out their days in warmth, safety, and love — never forgotten again.You’re not just writing a check. You’re helping create actual homes with heated barns, big play yards, splash pools, cozy cuddle rooms, and live-in guardians who treat every dog like family. Every barn is livestreamed 24/7 so the whole world can watch and fall in love right alongside us.This is mercy in action on a scale that lasts forever. And because we built it on $NIBBLES, every sponsorship keeps these barns thriving for years to come.Simple, heartfelt ways to help  Barn Supporter – $50 per month (covers food, bedding, and daily care for the residents)  
+Dedicated Barn Guardian – $150–$250 per month (full support plus personal updates on your favorite dogs)  
+Legacy Barn Sponsor – $500+ per month or one-time large gifts (names a whole section or even an entire barn wing)
+
+Why $NIBBLES makes this even more powerful
+When you pay with or hold $NIBBLES the impact grows:
+• Pay fully in $NIBBLES and the barn you support receives 20% more resources
+• Hold 50,000 or more $NIBBLES and get early alerts when new dogs arrive at the barns
+• Hold 250,000 or more $NIBBLES and become a Barn Founder with permanent recognition, private livestream access, and the chance to name a resident dog every year  What you actually get
+You get to watch the magic happen in real time. Every month you’ll receive personal photos and short videos of the dogs you’re helping — one napping in a sunbeam, another playing in the yard, or just getting belly rubs from a guardian. You can jump into the 24/7 livestream anytime and see the barn come alive. Everything is tracked on-chain so you know exactly where your money went. The guardians create daily heartwarming content, turning these barns into the most loved places in the rescue world.Real impact, real transparency
+Every barn is owned outright by the treasury — no rent, no risk, no landlords ever. Every dollar is tracked on the blockchain with zero middlemen. There’s a global interactive map so you can click any barn and jump straight into the live feed. One viral livestream of a once-unadoptable dog finally happy and playing can inspire thousands more to join the movement.The smart contract that makes it all work
+(clean, simple, and built for Shibarium)solidity
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+
+contract ShibaBarnSanctuary is Ownable, ReentrancyGuard {
+    IERC20 public immutable nibblesToken;
+
+    struct ShibaBarn {
+        string location;
+        uint256 totalDogs;
+        uint256 monthlyBudget;
+        address[] guardians;
+        string livestreamUrl;
     }
-    @keyframes gradientShift { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
-  </style>
-</head>
-<body class="bg-zinc-950 text-white">
 
-  <!-- PREMIUM FIXED NAVBAR -->
-  <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    mapping(uint256 => ShibaBarn) public barns;
+    uint256 public totalBarns;
 
-      <div class="flex items-center gap-4">
-        <div class="flex items-center gap-3">
-          <span class="text-3xl">🐕</span>
-          <h1 class="text-2xl font-bold tracking-tighter">SHIBAHUMANITYHUB</h1>
-        </div>
+    event NewBarnCreated(uint256 barnId, string location);
+    event BarnPayout(uint256 barnId, uint256 amount);
 
-        <div class="flex flex-col items-center gap-1 border-l border-amber-500/30 pl-4">
-          <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-white hover:text-[#1DA1F2]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.244 2.25l-7.165 8.159L4.5 2.25H1.5l7.5 10.5L3 21.75h3l6.75-7.5L21 21.75h4.5l-8.1-11.25L22.5 2.25h-4.256z"/>
-            </svg>
-          </a>
-          <a href="https://t.me/Shibahumanityhub" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-white hover:text-[#229ED9] text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M9.78 18.65l.3-4.28L19.5 8.4c.24-.22-.05-.33-.36-.13L6.6 14.6l-4.2-1.4c-.4-.13-.4-.4.08-.6l17.3-6.67c.35-.14.72.2.55.55L11.4 19.1c-.2.35-.6.35-.8 0L9.78 18.65z"/>
-            </svg>
-            <span>Telegram</span>
-          </a>
-        </div>
-      </div>
+    constructor(address _nibblesToken) Ownable(msg.sender) {
+        nibblesToken = IERC20(_nibblesToken);
+    }
 
-      <div class="hidden md:flex items-center gap-8 text-lg">
-        <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
-        <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
-        <a href="https://github.com/ShibaHumanityhub/whitepaper-and-vision/blob/main/shiba-humanity-hub-Whitepaper-v2.pdf" class="hover:text-amber-300 transition">Whitepaper v2</a>
-        <a href="https://github.com/ShibaHumanityhub" class="hover:text-amber-300 transition">GitHub</a>
-      </div>
+    function createBarn(string calldata location, string calldata livestreamUrl) external onlyOwner {
+        barns[totalBarns] = ShibaBarn({
+            location: location,
+            totalDogs: 0,
+            monthlyBudget: 0,
+            guardians: new address[](0),
+            livestreamUrl: livestreamUrl
+        });
+        emit NewBarnCreated(totalBarns, location);
+        totalBarns++;
+    }
 
-      <div class="flex items-center gap-4">
-        <span class="text-sm font-medium px-4 py-2 bg-amber-500/10 text-amber-300 rounded-3xl border border-amber-500/30">
-          Every transaction saves lives ❤️
-        </span>
-      </div>
+    // Monthly automatic payouts to guardians and barn expenses handled by treasury
+}
 
-    </div>
-  </nav>
+The bigger picture
+When we build permanent, beautiful sanctuaries that the whole world can watch, we create something truly special. Dogs who were once called unadoptable finally have a forever home, shelters have a real safety net, and $NIBBLES becomes the fuel that keeps mercy flowing forever. This network turns HumanityHub into the most powerful and visible rescue force on Earth.
 
-  <!-- HERO -->
-  <header class="hero-bg pt-24 pb-32 text-center relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <h1 class="text-7xl md:text-8xl font-bold tracking-tighter mb-6">SHIBAHUMANITYHUB</h1>
-      <p class="text-4xl mb-8 text-amber-100">Since November 2025</p>
-      
-      <div class="text-6xl md:text-7xl font-light max-w-4xl mx-auto leading-tight mb-12">
-        Every transaction saves lives.
-      </div>
-
-      <div class="flex justify-center gap-12 text-4xl mb-16">
-        <div class="flex items-center gap-4">$NIBBLES <span class="text-amber-200">🐕</span></div>
-        <div class="flex items-center gap-4">$hopeseed <span class="text-emerald-300">🌱</span></div>
-      </div>
-
-      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v2.pdf" 
-         class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">
-        📄 Download Whitepaper v2
-      </a>
-    </div>
-  </header>
-
-  <!-- ENHANCED EXPLANATION SECTION -->
-  <div class="max-w-5xl mx-auto px-6 py-16 -mt-8">
-    <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
-      <p class="text-2xl leading-relaxed text-white">
-        Shibahumanityhub is a decentralized on-chain charity movement powered by 
-        <span class="text-amber-200">$NIBBLES</span> and <span class="text-emerald-300">$hopeseed</span>.<br><br>
-        Every transaction directly funds real impact: forever homes for senior dogs, Wish NFTs for sick kids, meals for families, and more — with full transparency and no middlemen.
-      </p>
-    </div>
-  </div>
-
-  <!-- LIVE CONTRACTS -->
-  <section id="contracts" class="py-24 bg-zinc-900">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="bg-zinc-800 rounded-3xl p-12 text-center">
-          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg" alt="Mr. Nibbles Coin" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl shadow-2xl">
-          <p class="text-amber-200 mb-2 text-4xl">Mr. Nibbles ($NIBBLES)</p>
-          <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" target="_blank" class="text-blue-400 hover:underline break-all font-mono text-lg">
-            0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2
-          </a>
-          <p class="mt-8 text-zinc-400">4% tax • Forever homes for senior shelter dogs</p>
-        </div>
-
-        <div class="bg-zinc-800 rounded-3xl p-12 text-center">
-          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" alt="hopeseed Coin" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl shadow-2xl">
-          <p class="text-emerald-300 mb-2 text-4xl">$hopeseed</p>
-          <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" target="_blank" class="text-blue-400 hover:underline break-all font-mono text-lg">
-            0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61
-          </a>
-          <p class="mt-8 text-zinc-400">4% tax • Wish NFTs & hope for kids & families</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRAMS SECTION - NOW 12 FLAGSHIP PROGRAMS -->
-  <section id="programs" class="py-24 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-16">Programs That Save Lives</h2>
-
-      <!-- FEATURED 1 to 11 exactly as in the code you just pasted -->
-
-      <!-- FEATURED 12: SHIBA BARN SANCTUARY NETWORK -->
-      <div class="max-w-3xl mx-auto mb-16">
-        <div class="bg-gradient-to-br from-green-900/90 to-emerald-900/90 border border-green-400/30 rounded-3xl p-10 shadow-2xl">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Permanent Homes</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
-          </div>
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="text-4xl font-bold">Shiba Barn Sanctuary Network</h3>
-            <span class="text-5xl">🏡</span>
-          </div>
-          <p class="text-green-200 text-xl mb-6">Permanent safe havens for unadoptable and sponsored dogs — where no soul is ever forgotten.</p>
-          <p class="text-zinc-300 mb-8">
-            Here’s something close to my heart. Too many dogs — the old ones, the injured ones, the ones with special needs or tough personalities — get labeled “unadoptable” and end up spending their lives in a cage or bouncing from shelter to shelter. They deserve so much better. The Shiba Barn Sanctuary Network changes that story for good. We’re buying beautiful acres of land outright and building real, permanent sanctuaries where these dogs can finally live out their days in warmth, safety, and love — never forgotten again.
-          </p>
-          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
-            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Barn Supporter – $50/mo</div>
-            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Dedicated Barn Guardian – $150–$250/mo</div>
-            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Legacy Barn Sponsor – $500+/mo</div>
-            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">24/7 livestreamed barns</div>
-          </div>
-          <a href="#" onclick="sponsorProgram('shiba-barn-sanctuary')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
-            Sponsor a Shiba Barn →
-          </a>
-          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
-            <div>Permanent safe havens</div>
-            <div>20% extra care with $NIBBLES</div>
-            <div>24/7 livestreams</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Rest of the programs list (exactly as you had it) -->
-      <div class="grid md:grid-cols-2 gap-12">
-        <div>
-          <h3 class="text-3xl font-bold text-amber-200 mb-8 flex items-center gap-3"><span class="text-4xl">🐕</span> Mr. Nibbles Programs (16)</h3>
-          <div class="space-y-3">
-            <div class="bg-zinc-900 p-5 rounded-2xl">6. Golden Paws Retirement Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">7. Service Dog Freedom Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">9. Shiba Barns Sanctuary Network</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">10. Forever-Home Families Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">11. Shelter-to-barn Lifelong Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">12. Sponsor-A-Dog Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">13. Silver Paws Therapy Visits Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">14. Golden Years Companion Program</div>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="text-3xl font-bold text-emerald-300 mb-8 flex items-center gap-3"><span class="text-4xl">🌱</span> $hopeseed Programs (13)</h3>
-          <div class="space-y-3">
-            <div class="bg-zinc-900 p-5 rounded-2xl">1. Santas Workshop Live</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">2. No Hungry Weekend Backpack</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">3. Guardian Angel Wallet Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">4. Bullyproof Schools Initiative</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">5. College Bound Vault</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">6. Miracle Fight Fund</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">7. Birthday Guarantee Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">8. Pay-To-Play-It-Forward Gear Library</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">9. Wish NFT Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">10. Champions Table Program</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">11. Orphan Christmas</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">12. Dream Room Makeovers</div>
-            <div class="bg-zinc-900 p-5 rounded-2xl">13. Special Needs Support Bridge Program</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
