@@ -1,51 +1,65 @@
-<!-- K9 Lifeline Disaster Response Network Card -->
-<div class="program-card bg-white rounded-3xl shadow-xl overflow-hidden border border-amber-100 hover:border-amber-300 transition-all duration-300 group">
-  <div class="h-2 bg-gradient-to-r from-amber-400 to-orange-500"></div>
-  
-  <div class="p-8">
-    <div class="flex items-center gap-3 mb-6">
-      <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-3xl">🐾</div>
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-900">K9 Lifeline Disaster Response Network</h3>
-        <p class="text-orange-600 font-medium">Elite search-and-rescue dogs — first on the scene, saving lives anywhere on Earth in under 48 hours</p>
-      </div>
-    </div>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-    <p class="text-gray-600 leading-relaxed mb-8">
-      I keep thinking about the little girl pulled from the rubble in Turkey, or the couple found alive after the Maui fires. These dogs crawl into places no human can reach and change everything. When disaster strikes, every minute matters.
-    </p>
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-    <div class="bg-amber-50 rounded-2xl p-6 mb-8">
-      <h4 class="font-semibold text-amber-900 mb-4 flex items-center gap-2">
-        <span>💛</span> Why $NIBBLES makes these rescues real
-      </h4>
-      <ul class="space-y-3 text-sm">
-        <li class="flex gap-2"><span class="text-amber-500">•</span> Donate during a live alert → 30% of your $NIBBLES goes straight to that team’s lifelong care fund</li>
-        <li class="flex gap-2"><span class="text-amber-500">•</span> Hold 50,000 $NIBBLES → sponsor one full K9 unit for an entire year</li>
-        <li class="flex gap-2"><span class="text-amber-500">•</span> Hold 250,000 $NIBBLES → become a Lifeline Patron with naming rights, private updates &amp; soulbound Hero NFT</li>
-      </ul>
-    </div>
+interface ISoulboundHeroNFT {
+    function mintHeroNFT(address to, uint256 deploymentId, string memory missionSummary) external;
+}
 
-    <div class="grid grid-cols-2 gap-4 text-xs mb-8">
-      <div class="bg-white border border-gray-100 rounded-2xl p-4">
-        <div class="font-medium text-gray-900">Response Time</div>
-        <div class="text-amber-600">Wheels up in 12-24 hrs • On site in &lt;48 hrs</div>
-      </div>
-      <div class="bg-white border border-gray-100 rounded-2xl p-4">
-        <div class="font-medium text-gray-900">Live Feature</div>
-        <div class="text-amber-600">Real-time Deployment Map + mission stories</div>
-      </div>
-    </div>
+contract DisasterGuardiansK9Network is ReentrancyGuard {
+    IERC20 public immutable nibblesToken;
+    address public immutable charityTreasury;
+    ISoulboundHeroNFT public immutable heroNFT;
 
-    <a href="#deploy-now" 
-       onclick="showDeploymentModal()"
-       class="block w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-center py-4 rounded-2xl font-semibold transition-all group-hover:scale-[1.02] flex items-center justify-center gap-2">
-      <span>Deploy the Team Now with $NIBBLES</span>
-      <span class="text-xl">→</span>
-    </a>
+    struct K9Guardian {
+        uint256 dogId;
+        address handler;
+        string specialty;
+        uint256 missionCount;
+        uint256 careFundBalance;
+    }
 
-    <p class="text-center text-xs text-gray-400 mt-6">
-      Every donation launches real rescues • Soulbound Disaster Hero NFTs live on Shibarium
-    </p>
-  </div>
-</div>
+    struct Deployment {
+        uint256 deploymentId;
+        string location;
+        uint256 startTime;
+        uint256 totalFunds;
+        uint256 livesSaved;
+        bool completed;
+    }
+
+    mapping(uint256 => K9Guardian) public guardians;
+    mapping(uint256 => Deployment) public deployments;
+
+    uint256 public totalGuardians;
+    uint256 public totalDeployments;
+
+    event DisasterAlert(string location);
+    event DonationReceived(uint256 deploymentId, address donor, uint256 amount, uint256 bonusToCareFund);
+    event DeploymentCompleted(uint256 deploymentId, uint256 livesSaved);
+    event HeroNFTMinted(uint256 deploymentId, address recipient);
+
+    constructor(address _nibblesToken, address _treasury, address _heroNFT) {
+        nibblesToken = IERC20(_nibblesToken);
+        charityTreasury = _treasury;
+        heroNFT = ISoulboundHeroNFT(_heroNFT);
+    }
+
+    function donateToDeployment(uint256 deploymentId, uint256 amount) external nonReentrant {
+        require(amount > 0, "Donation must be greater than zero");
+        
+        // Full amount to treasury for immediate use
+        nibblesToken.transferFrom(msg.sender, charityTreasury, amount);
+        
+        // 25% bonus directly to the deployed K9 care fund
+        uint256 bonus = amount * 25 / 100;
+        // Note: In full version this would map to the specific guardian unit
+
+        emit DonationReceived(deploymentId, msg.sender, amount, bonus);
+    }
+
+    function completeDeployment(uint256 deploymentId, uint256 livesSaved) external {
+        // Only callable by authorized operators (owner or multi-sig in production)
+        Deployment storage dep...
