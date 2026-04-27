@@ -90,11 +90,11 @@
     </div>
   </section>
 
-  <!-- ONLY BARN POD - x50 HEARTFELT VERSION -->
+  <!-- PROGRAMS - NOW 2 CARDS (Barn Pod + Rescue Passport) -->
   <section id="programs" class="py-24 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
-      <p class="text-center text-zinc-400 mb-12">Hover or click the card to read the full heartfelt story.</p>
+      <p class="text-center text-zinc-400 mb-12">Hover or click any card to read the full heartfelt story.</p>
       <div class="grid place-items-center" id="program-grid"></div>
     </div>
   </section>
@@ -114,7 +114,7 @@
         title: "Corporate Barn Pod Sponsorship",
         category: "$NIBBLES",
         badgeColor: "emerald",
-        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/barnsponsorshippodpic.jpg",   <!-- warm, loving senior dogs in sunny barn -->
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/barnsponsorshippodpic.jpg",
         shortDesc: "Companies become real heroes by adopting entire pods of senior shelter dogs giving them the loving golden years they deserve, with live cams, naming rights, and pure joy for your team.",
         fullHTML: `
           <div class="flex items-center gap-3 mb-6">
@@ -132,6 +132,30 @@
             <div><strong>VIP Pod</strong><br>$1,000,000+</div>
           </div>
           <button onclick="sponsorProgram('corporate-barn-pod')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Become a Corporate Hero → Sponsor a Pod</button>
+        `
+      },
+      {
+        id: 1,
+        title: "Rescue Passport Soulbound NFTs",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://picsum.photos/id/1005/1200/800",
+        shortDesc: "Every dog’s full life story — written in stone on the blockchain, forever remembered.",
+        fullHTML: `
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Soulbound</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Forever Story</span>
+          </div>
+          <h2 class="text-4xl font-bold mb-3">Rescue Passport Soulbound NFTs</h2>
+          <p class="text-emerald-200 text-xl mb-6">Every dog’s full life story — written in stone on the blockchain, forever remembered.</p>
+          <p class="text-zinc-300 mb-8">I’ve seen too many rescue dogs lose pieces of their history the moment they enter the system. The Rescue Passport changes that. It’s their permanent digital story that travels with them from shelter to forever home.</p>
+          <div class="text-sm mb-8 flex flex-wrap gap-4">
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Vet records</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Training certificates</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Photos &amp; bark videos</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Full rescue timeline</div>
+          </div>
+          <button onclick="sponsorProgram('rescue-passport')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">See a Passport →</button>
         `
       }
     ];
@@ -164,7 +188,7 @@
     }
 
     function sponsorProgram(slug) {
-      alert("❤️ Thank you! Corporate Barn Pod Sponsorship is ready.\n\nOn mainnet you can sponsor instantly with $NIBBLES.");
+      alert("❤️ Thank you! This program is ready.\n\nOn mainnet you can sponsor instantly with $NIBBLES.");
     }
 
     function toggleMobileMenu() {
