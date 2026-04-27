@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,292 +14,681 @@
       animation: gradientShift 20s ease infinite;
     }
     @keyframes gradientShift { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
-    
-    /* Billionaire-level hover effect for program cards */
-    .program-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .program-card:hover {
-      transform: scale(1.08) translateY(-8px);
-      box-shadow: 0 35px 70px -15px rgb(0 0 0 / 0.35);
-    }
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
 
-  <!-- ULTRA PREMIUM FIXED NAVBAR -->
-  <nav class="bg-black/95 backdrop-blur-2xl border-b border-amber-400/20 fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+  <!-- PREMIUM FIXED NAVBAR - MOBILE OPTIMIZED -->
+  <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
+
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+        <!-- Brand -->
         <div class="flex items-center gap-3">
-          <span class="text-4xl">🐕</span>
-          <h1 class="text-2xl font-bold tracking-[-1.5px]">SHIBAHUMANITYHUB</h1>
+          <span class="text-3xl">🐕</span>
+          <h1 class="text-lg sm:text-xl md:text-2xl font-bold tracking-[-1px]">SHIBAHUMANITYHUB</h1>
         </div>
-        <span class="text-sm font-medium px-5 py-2 bg-gradient-to-r from-amber-500 to-emerald-500 text-white rounded-3xl shadow-inner">
+        
+        <!-- Tagline badge - now underneath on mobile -->
+        <span class="text-xs sm:text-sm font-medium px-4 py-1.5 bg-amber-500/10 text-amber-300 rounded-3xl border border-amber-500/30 self-start sm:self-auto">
           Every transaction saves lives ❤️
         </span>
       </div>
 
-      <div class="flex items-center gap-6">
-        <a href="https://x.com/Shibhumanityhub" target="_blank" class="text-white hover:text-[#1DA1F2] transition">𝕏</a>
-        <a href="https://t.me/Shibahumanityhub" target="_blank" class="text-white hover:text-[#229ED9] transition">Telegram</a>
-        <div class="hidden md:flex items-center gap-8 text-lg font-medium">
-          <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
-          <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
-          <a href="https://github.com/ShibaHumanityhub/whitepaper-and-vision/blob/main/shiba-humanity-hub-Whitepaper-v2.pdf" class="hover:text-amber-300 transition">Whitepaper v2</a>
-          <a href="https://github.com/ShibaHumanityhub" class="hover:text-amber-300 transition">GitHub</a>
-        </div>
+      <div class="flex items-center gap-4 border-l border-amber-500/30 pl-4">
+        <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-white hover:text-[#1DA1F2]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25l-7.165 8.159L4.5 2.25H1.5l7.5 10.5L3 21.75h3l6.75-7.5L21 21.75h4.5l-8.1-11.25L22.5 2.25h-4.256z"/>
+          </svg>
+        </a>
+        <a href="https://t.me/Shibahumanityhub" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-white hover:text-[#229ED9]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9.78 18.65l.3-4.28L19.5 8.4c.24-.22-.05-.33-.36-.13L6.6 14.6l-4.2-1.4c-.4-.13-.4-.4.08-.6l17.3-6.67c.35-.14.72.2.55.55L11.4 19.1c-.2.35-.6.35-.8 0L9.78 18.65z"/>
+          </svg>
+          <span class="text-xs sm:text-sm">Telegram</span>
+        </a>
       </div>
+
+      <div class="hidden md:flex items-center gap-8 text-lg">
+        <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
+        <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
+        <a href="https://github.com/ShibaHumanityhub/whitepaper-and-vision/blob/main/shiba-humanity-hub-Whitepaper-v2.pdf" class="hover:text-amber-300 transition">Whitepaper v2</a>
+        <a href="https://github.com/ShibaHumanityhub" class="hover:text-amber-300 transition">GitHub</a>
+      </div>
+
     </div>
   </nav>
 
-  <!-- HERO - BILLIONAIRE LEVEL -->
+  <!-- HERO - PERFECT ON MOBILE & DESKTOP -->
   <header class="hero-bg pt-40 pb-32 text-center relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <!-- FIXED STACKED TITLE - NO CUTOFF ON MOBILE -->
       <div class="flex flex-col items-center">
-        <h1 class="text-[48px] sm:text-7xl md:text-8xl lg:text-[92px] font-bold tracking-[-3px] leading-none">SHIBA</h1>
-        <h1 class="text-[48px] sm:text-7xl md:text-8xl lg:text-[92px] font-bold tracking-[-3px] leading-none -mt-4">HUMANITYHUB</h1>
+        <h1 class="text-[42px] sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-2.5px] leading-[1.05]">SHIBA</h1>
+        <h1 class="text-[42px] sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-2.5px] leading-[1.05] -mt-2 md:-mt-4">HUMANITYHUB</h1>
       </div>
-      <p class="text-4xl mt-6 text-amber-100">Since November 2025</p>
-      <div class="text-6xl md:text-7xl font-light max-w-5xl mx-auto leading-tight mt-8 mb-16">
+
+      <p class="text-4xl mb-8 text-amber-100">Since November 2025</p>
+      
+      <div class="text-5xl sm:text-6xl md:text-7xl font-light max-w-4xl mx-auto leading-tight mb-12">
         Every transaction saves lives.
       </div>
-      <div class="flex justify-center flex-wrap gap-x-16 gap-y-6 text-5xl mb-16 items-center">
-        <div class="flex items-center gap-5">$NIBBLES <span class="text-amber-200">🐕</span></div>
-        <div class="flex items-center gap-5">$hopeseed <span class="text-emerald-300">🌱</span></div>
+
+      <div class="flex justify-center flex-wrap gap-x-12 gap-y-4 text-4xl mb-16 items-center">
+        <div class="flex items-center gap-4">$NIBBLES <span class="text-amber-200">🐕</span></div>
+        <div class="flex items-center gap-4">$hopeseed <span class="text-emerald-300">🌱</span></div>
       </div>
+
       <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v2.pdf" 
-         class="inline-block bg-white text-black font-bold text-4xl px-20 py-9 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">
+         class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">
         📄 Download Whitepaper v2
       </a>
     </div>
   </header>
 
-  <!-- PREMIUM EXPLANATION -->
-  <div class="max-w-5xl mx-auto px-6 py-20 -mt-10">
-    <div class="bg-gradient-to-r from-amber-900/90 to-emerald-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-14 text-center shadow-2xl">
-      <p class="text-3xl leading-relaxed text-white">
-        Shibahumanityhub is the greatest crypto charity movement since Nov 2025.<br><br>
-        Powered by $NIBBLES and $hopeseed — every single transaction quietly funds real, lasting impact with full on-chain transparency.
+  <!-- ENHANCED EXPLANATION SECTION -->
+  <div class="max-w-5xl mx-auto px-6 py-16 -mt-8">
+    <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
+      <p class="text-2xl leading-relaxed text-white">
+        Shibahumanityhub is a decentralized on-chain charity movement powered by 
+        <span class="text-amber-200">$NIBBLES</span> and <span class="text-emerald-300">$hopeseed</span>.<br><br>
+        Every transaction directly funds real impact: forever homes for senior dogs, Wish NFTs for sick kids, meals for families, and more — with full transparency and no middlemen.
       </p>
     </div>
   </div>
 
-  <!-- LIVE CONTRACTS - PREMIUM -->
+  <!-- LIVE CONTRACTS -->
   <section id="contracts" class="py-24 bg-zinc-900">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
       <div class="grid md:grid-cols-2 gap-12">
-        <div class="bg-zinc-800 rounded-3xl p-12 text-center border border-amber-400/20">
-          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg" alt="Mr. Nibbles" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl shadow-2xl">
+        <div class="bg-zinc-800 rounded-3xl p-12 text-center">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg" alt="Mr. Nibbles Coin" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl shadow-2xl">
           <p class="text-amber-200 mb-2 text-4xl">Mr. Nibbles ($NIBBLES)</p>
-          <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" target="_blank" class="text-blue-400 hover:underline break-all font-mono text-lg">0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2</a>
+          <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" target="_blank" class="text-blue-400 hover:underline break-all font-mono text-lg">
+            0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2
+          </a>
           <p class="mt-8 text-zinc-400">4% tax • Forever homes for senior shelter dogs</p>
         </div>
-        <div class="bg-zinc-800 rounded-3xl p-12 text-center border border-emerald-400/20">
-          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" alt="hopeseed" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl shadow-2xl">
+
+        <div class="bg-zinc-800 rounded-3xl p-12 text-center">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" alt="hopeseed Coin" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl shadow-2xl">
           <p class="text-emerald-300 mb-2 text-4xl">$hopeseed</p>
-          <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" target="_blank" class="text-blue-400 hover:underline break-all font-mono text-lg">0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61</a>
+          <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" target="_blank" class="text-blue-400 hover:underline break-all font-mono text-lg">
+            0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61
+          </a>
           <p class="mt-8 text-zinc-400">4% tax • Wish NFTs & hope for kids & families</p>
         </div>
       </div>
     </div>
   </section>
-  <!-- PROGRAMS SECTION - COMPACT GRID - BILLIONAIRE QUALITY -->
+
+  <!-- PROGRAMS SECTION - NOW 16 FLAGSHIP PROGRAMS -->
   <section id="programs" class="py-24 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-5xl font-bold text-center mb-16">Programs That Save Lives</h2>
 
-      <!-- COMPACT GRID OF FEATURED PROGRAMS -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <!-- 1. Corporate Barn Pod -->
-        <div class="program-card bg-gradient-to-br from-amber-900/90 to-zinc-900 border border-amber-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">Corporate Impact</span>
-            <span class="px-4 py-1 bg-amber-500 text-white text-xs font-semibold rounded-2xl">$NIBBLES Powered</span>
+      <!-- FEATURED 1: Corporate Barn Pod Sponsorship -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="bg-gradient-to-br from-amber-900/90 to-zinc-900 border border-amber-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Corporate Impact</span>
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Corporate Barn Pod Sponsorship</h3>
-          <p class="text-amber-200 text-base mb-6">Giving senior shelter dogs the loving golden years they deserve.</p>
-          <a href="#" onclick="sponsorProgram('corporate-barn-pod')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Pod →</a>
-        </div>
-
-        <!-- 2. Silver Paws Therapy Visits -->
-        <div class="program-card bg-gradient-to-br from-amber-900/90 to-purple-900/90 border border-purple-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-purple-500 text-white text-xs font-semibold rounded-2xl">Elder Joy</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">$NIBBLES Powered</span>
+          <h3 class="text-4xl font-bold mb-3">Corporate Barn Pod Sponsorship</h3>
+          <p class="text-amber-200 text-xl mb-6">Where good companies become real heroes — giving senior shelter dogs the loving golden years they deserve.</p>
+          <p class="text-zinc-300 mb-8">
+            Too many beautiful senior dogs spend their final years in shelters. Your company can adopt an entire pod and give them the forever paradise they never thought they would see.
+          </p>
+          <div class="grid grid-cols-2 gap-6 mb-10 text-sm">
+            <div><strong>Starter Pod</strong><br>5 senior dogs — $1,250/mo</div>
+            <div><strong>Bronze Pod</strong><br>10 senior dogs — $2,500/mo</div>
+            <div><strong>Silver / Gold</strong><br>$5,000 – $10,000+/mo</div>
+            <div><strong>Diamond Pod</strong><br>$100k</div>
+            <div><strong>VIP Pod</strong><br>$1,000,000+</div>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Silver Paws Therapy Visits Program</h3>
-          <p class="text-purple-200 text-base mb-6">Certified therapy dogs bringing gentle companionship to elders who feel alone.</p>
-          <a href="#" onclick="sponsorProgram('silver-paws-therapy')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor Silver Paws →</a>
-        </div>
-
-        <!-- 3. Golden Years Companion -->
-        <div class="program-card bg-gradient-to-br from-amber-900/90 to-yellow-900/90 border border-amber-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-amber-500 text-white text-xs font-semibold rounded-2xl">Golden Years</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">$NIBBLES Powered</span>
+          <a href="#contact-corporate" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Become a Corporate Hero → Sponsor a Pod
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>100% tax-deductible</div>
+            <div>Live pod cams</div>
+            <div>$NIBBLES bonus impact</div>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Golden Years Companion Program</h3>
-          <p class="text-amber-200 text-base mb-6">Matching lonely seniors with calm adult shelter dogs.</p>
-          <a href="#" onclick="sponsorProgram('golden-years-companion')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Match a Companion →</a>
         </div>
-
-        <!-- 4. Santa’s Workshop Live -->
-        <div class="program-card bg-gradient-to-br from-emerald-800/90 to-cyan-900/90 border border-cyan-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">Live Giving</span>
-            <span class="px-4 py-1 bg-cyan-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Santa’s Workshop Live</h3>
-          <p class="text-emerald-200 text-base mb-6">24/7 live feed from the warehouse where hope moves every day.</p>
-          <a href="#" onclick="sponsorProgram('santas-workshop-live')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Watch Live →</a>
-        </div>
-
-        <!-- 5. No Hungry Weekend Backpacks -->
-        <div class="program-card bg-gradient-to-br from-teal-900/90 to-lime-900/90 border border-lime-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-teal-500 text-white text-xs font-semibold rounded-2xl">Weekend Relief</span>
-            <span class="px-4 py-1 bg-lime-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">No Hungry Weekend Backpacks</h3>
-          <p class="text-emerald-200 text-base mb-6">Every Friday kids get a backpack full of food, a tablet, and a surprise toy.</p>
-          <a href="#" onclick="sponsorProgram('no-hungry-weekend-backpacks')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Backpack →</a>
-        </div>
-
-        <!-- 6. Guardian Angel Wallet -->
-        <div class="program-card bg-gradient-to-br from-cyan-900/90 to-emerald-900/90 border border-emerald-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-cyan-500 text-white text-xs font-semibold rounded-2xl">Lifelong Hope</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Guardian Angel Wallet Program</h3>
-          <p class="text-emerald-200 text-base mb-6">Every foster teen gets a wallet that grows until they turn 18–21.</p>
-          <a href="#" onclick="sponsorProgram('guardian-angel-wallet')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Wallet →</a>
-        </div>
-
-        <!-- 7. Bullyproof Schools Initiative -->
-        <div class="program-card bg-gradient-to-br from-lime-900/90 to-emerald-900/90 border border-emerald-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-lime-500 text-white text-xs font-semibold rounded-2xl">Kindness Culture</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Bullyproof Schools Initiative</h3>
-          <p class="text-emerald-200 text-base mb-6">Making school feel safe with assemblies, metaverse escape, and kindness rewards.</p>
-          <a href="#" onclick="sponsorProgram('bullyproof-schools-initiative')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Make Your School Bullyproof →</a>
-        </div>
-
-        <!-- 8. College Bound Vault -->
-        <div class="program-card bg-gradient-to-br from-emerald-900/90 to-amber-900/90 border border-amber-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">Future Builder</span>
-            <span class="px-4 py-1 bg-amber-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">College Bound Vault</h3>
-          <p class="text-emerald-200 text-base mb-6">Foster teens get a vault that grows until they turn 18–21 for real next steps.</p>
-          <a href="#" onclick="sponsorProgram('college-bound-vault')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Vault →</a>
-        </div>
-
-      </div>
-        <!-- 9. Miracle Fight Fund -->
-        <div class="program-card bg-gradient-to-br from-cyan-900/90 to-sky-900/90 border border-sky-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-cyan-500 text-white text-xs font-semibold rounded-2xl">Miracle Flights</span>
-            <span class="px-4 py-1 bg-sky-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Miracle Fight Fund</h3>
-          <p class="text-emerald-200 text-base mb-6">Flights for sick kids and one parent to life-changing treatments anywhere in the world.</p>
-          <a href="#" onclick="sponsorProgram('miracle-fight-fund')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Miracle Flight →</a>
-        </div>
-
-        <!-- 10. Birthday Guarantee Program -->
-        <div class="program-card bg-gradient-to-br from-pink-900/90 to-rose-900/90 border border-pink-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-pink-500 text-white text-xs font-semibold rounded-2xl">Birthday Joy</span>
-            <span class="px-4 py-1 bg-rose-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Birthday Guarantee Program</h3>
-          <p class="text-emerald-200 text-base mb-6">No child ever misses a birthday again — cake, presents, and a sing-along.</p>
-          <a href="#" onclick="sponsorProgram('birthday-guarantee-program')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Guarantee a Birthday →</a>
-        </div>
-
-        <!-- 11. Wish NFT Program -->
-        <div class="program-card bg-gradient-to-br from-violet-900/90 to-emerald-900/90 border border-violet-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-violet-500 text-white text-xs font-semibold rounded-2xl">Dreams Fulfilled</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Wish NFT Program</h3>
-          <p class="text-emerald-200 text-base mb-6">Every seriously ill child gets their exact dream turned into a 1/1 NFT.</p>
-          <a href="#" onclick="sponsorProgram('wish-nft-program')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Wish NFT →</a>
-        </div>
-
-        <!-- 12. Pay-to-Play-It-Forward Gear Library -->
-        <div class="program-card bg-gradient-to-br from-amber-900/90 to-orange-900/90 border border-orange-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-amber-500 text-white text-xs font-semibold rounded-2xl">Circular Joy</span>
-            <span class="px-4 py-1 bg-orange-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Pay-to-Play-It-Forward Gear Library</h3>
-          <p class="text-emerald-200 text-base mb-6">Buy gear today. When they outgrow it, it goes to the next child.</p>
-          <a href="#" onclick="sponsorProgram('pay-to-play-it-forward-gear-library')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Start a Gear Chain →</a>
-        </div>
-
-        <!-- 13. Champions Table Program -->
-        <div class="program-card bg-gradient-to-br from-amber-900/90 to-emerald-900/90 border border-emerald-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-amber-500 text-white text-xs font-semibold rounded-2xl">No Shame at the Table</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Champions Table Program</h3>
-          <p class="text-emerald-200 text-base mb-6">Healthy meals and pride instead of shame at school.</p>
-          <a href="#" onclick="sponsorProgram('champions-table-program')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Champions Table →</a>
-        </div>
-
-        <!-- 14. Orphan Christmas -->
-        <div class="program-card bg-gradient-to-br from-red-900/90 to-emerald-900/90 border border-red-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-red-500 text-white text-xs font-semibold rounded-2xl">Holiday Magic</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Orphan Christmas</h3>
-          <p class="text-emerald-200 text-base mb-6">Live gift openings on Christmas Eve with donors in the chat.</p>
-          <a href="#" onclick="sponsorProgram('orphan-christmas')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor an Orphan Christmas Gift →</a>
-        </div>
-
-        <!-- 15. Dream Room Makeovers Program -->
-        <div class="program-card bg-gradient-to-br from-teal-900/90 to-cyan-900/90 border border-cyan-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-teal-500 text-white text-xs font-semibold rounded-2xl">Dream Escape</span>
-            <span class="px-4 py-1 bg-cyan-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Dream Room Makeovers Program</h3>
-          <p class="text-emerald-200 text-base mb-6">Turning hospital or bedroom walls into a child’s personal dream world.</p>
-          <a href="#" onclick="sponsorProgram('dream-room-makeovers-program')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Dream Room →</a>
-        </div>
-
-        <!-- 16. Special Needs Support Bridge Program -->
-        <div class="program-card bg-gradient-to-br from-cyan-900/90 to-emerald-900/90 border border-emerald-400/30 rounded-3xl p-8 shadow-2xl hover:scale-105 hover:shadow-3xl transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="px-4 py-1 bg-cyan-500 text-white text-xs font-semibold rounded-2xl">Lifelong Bridge</span>
-            <span class="px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-2xl">$hopeseed Powered</span>
-          </div>
-          <h3 class="text-2xl font-bold mb-3">Special Needs Support Bridge Program</h3>
-          <p class="text-emerald-200 text-base mb-6">Lifelong help with prescriptions, equipment, and support for special needs families.</p>
-          <a href="#" onclick="sponsorProgram('special-needs-support-bridge-program')" class="inline-block bg-white text-black font-bold text-lg px-8 py-4 rounded-3xl hover:scale-105 transition-all">Sponsor a Bridge →</a>
-        </div>
-
       </div>
 
-      <!-- DIVIDER -->
+      <!-- FEATURED 2: Rescue Passport Soulbound NFTs -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="bg-gradient-to-br from-emerald-900/90 to-zinc-900 border border-emerald-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Soulbound</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Forever Story</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Rescue Passport Soulbound NFTs</h3>
+            <span class="text-4xl">📜</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Every dog’s full life story — written in stone on the blockchain, forever remembered.</p>
+          <p class="text-zinc-300 mb-8">
+            I’ve seen too many rescue dogs lose pieces of their history the moment they enter the system. The Rescue Passport changes that. It’s their permanent digital story that travels with them from shelter to forever home.
+          </p>
+          <div class="text-sm mb-8 flex flex-wrap gap-4">
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Vet records</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Training certificates</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Photos &amp; bark videos</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Full rescue timeline</div>
+          </div>
+          <a href="#programs" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            See a Passport →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Transfers at adoption</div>
+            <div>$NIBBLES holder perks</div>
+            <div>Scan any QR code</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 3: Pay-It-Forward Adoption Chain -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="bg-gradient-to-br from-orange-900/90 to-amber-900/90 border border-orange-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Viral Kindness</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Pay-It-Forward Adoption Chain</h3>
+            <span class="text-5xl">🔗</span>
+          </div>
+          <p class="text-orange-200 text-xl mb-6">One adoption quietly pays for the next. Kindness that never stops.</p>
+          <p class="text-zinc-300 mb-8">
+            There is something beautiful about a stranger deciding their dog’s second chance should create another one. The Pay-It-Forward Chain makes that endless.
+          </p>
+          <div class="text-sm mb-8 flex flex-wrap gap-4">
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Anonymous gifts</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Chain milestones</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Live dashboard</div>
+          </div>
+          <a href="#programs" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Join the Chain →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>One adoption sparks the next</div>
+            <div>$NIBBLES doubles your link</div>
+            <div>Watch kindness spread live</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 4: New Beginnings Home Start Packs -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="bg-gradient-to-br from-amber-800/90 to-yellow-900/90 border border-yellow-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">First Days</span>
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">New Beginnings Home Start Packs</h3>
+            <span class="text-5xl">🏠</span>
+          </div>
+          <p class="text-yellow-200 text-xl mb-6">Give every adopted dog the perfect launch into their forever home.</p>
+          <p class="text-zinc-300 mb-8">
+            The first few weeks are the hardest. A scared dog in a new house. A family full of love but suddenly facing real costs. This pack takes that stress away so the dog can finally relax and stay forever.
+          </p>
+          <div class="text-sm mb-8 flex flex-wrap gap-4">
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">$50 Micro</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">$150 Starter</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">$300 Settle-in</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">$500 Full Launch</div>
+          </div>
+          <a href="#programs" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Fund a Pack →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>30-90 days covered</div>
+            <div>Privacy first</div>
+            <div>$NIBBLES makes it bigger</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 5: Healing Hearts Therapy Dog Network -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="bg-gradient-to-br from-orange-900/90 to-amber-900/90 border border-orange-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Healing Visits</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Healing Hearts Therapy Dog Network</h3>
+            <span class="text-5xl">🦮</span>
+          </div>
+          <p class="text-orange-200 text-xl mb-6">Certified shelter dogs on call — healing hearts one visit at a time.</p>
+          <p class="text-zinc-300 mb-8">
+            I’ve seen dogs that were hours away from being put down walk into a children’s hospital and light up the whole room. These dogs don’t just visit — they heal something deep in people that medicine alone often can’t reach.
+          </p>
+          <div class="text-sm mb-8 flex flex-wrap gap-4">
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">$75–150/hr</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Hospitals &amp; schools</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Live Healing Map</div>
+          </div>
+          <a href="#book-visit" onclick="showBookingModal()" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Book a Healing Visit with $NIBBLES →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>25% to dog’s care fund</div>
+            <div>Soulbound Therapy NFTs</div>
+            <div>Handlers earn bonuses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 6: K9 Lifeline Disaster Response Network -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="bg-gradient-to-br from-red-900/90 to-amber-900/90 border border-red-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Disaster Response</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">K9 Lifeline Disaster Response Network</h3>
+            <span class="text-5xl">🚨</span>
+          </div>
+          <p class="text-red-200 text-xl mb-6">Elite search-and-rescue dogs — first on the scene, saving lives anywhere on Earth in under 48 hours.</p>
+          <p class="text-zinc-300 mb-8">
+            I keep thinking about the little girl pulled from the rubble in Turkey, or the couple found alive after the Maui fires. These dogs crawl into places no human can reach and change everything. When disaster strikes, every minute matters.
+          </p>
+          <div class="text-sm mb-8 flex flex-wrap gap-4">
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Wheels up 12-24 hrs</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">On site &lt;48 hrs</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Live Deployment Map</div>
+          </div>
+          <a href="#deploy-now" onclick="showDeploymentModal()" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Deploy the Team Now with $NIBBLES →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>30% to team care fund</div>
+            <div>Soulbound Disaster Hero NFTs</div>
+            <div>Handlers get bonuses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 7: Second Chance K9 Prison Program -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="bg-gradient-to-br from-teal-900/90 to-zinc-900 border border-teal-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Redemption</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Second Chance K9 Prison Program</h3>
+            <span class="text-5xl">🔄</span>
+          </div>
+          <p class="text-teal-200 text-xl mb-6">Real second chances — for dogs and people who need them most.</p>
+          <p class="text-zinc-300 mb-8">
+            Inmates train shelter dogs labeled “difficult” inside medium-security facilities. Both learn trust, skills, and purpose through consistent daily work. Dogs become highly adoptable. Inmates gain certifications and real post-release opportunities.
+          </p>
+          <div class="text-sm mb-8 flex flex-wrap gap-4">
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Professional trainers</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">AKC CGC certifications</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Soulbound Rescue Story NFTs</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Post-release job pipeline</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('second-chance-k9')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Dog in Training →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Building trust one partnership at a time</div>
+            <div>Soulbound Story NFTs</div>
+            <div>Real impact, no hype</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 8: Rainbow Bridge Hospice & Sequoia Legacy Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-purple-900/90 to-amber-900/90 border border-purple-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Legacy</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Rainbow Bridge Hospice &amp; Sequoia Legacy Program</h3>
+            <span class="text-5xl">🌲</span>
+          </div>
+          <p class="text-purple-200 text-xl mb-6">No senior dog ever crosses the Rainbow Bridge cold or forgotten.</p>
+          <p class="text-zinc-300 mb-8">
+            Every terminal or very senior dog (12+ with a serious diagnosis) gets an epic, pain-free final chapter filled with love, bucket-list joy, and unlimited care. When they peacefully pass, we plant a giant Sequoia tree in their name that will stand for thousands of years.
+          </p>
+          <div class="text-sm mb-8 flex flex-wrap gap-4">
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Full hospice funding</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Bucket-list experiences</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Sequoia tree planted</div>
+            <div class="bg-zinc-800 px-4 py-2 rounded-2xl">Soulbound Legacy NFT</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('rainbow-bridge-hospice')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Senior Dog’s Final Chapter →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Pain-free final months</div>
+            <div>One tree = lifetime CO₂ offset</div>
+            <div>Live tree webcam</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 9: Golden Paws Retirement Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-yellow-900/90 border border-amber-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Honoring Heroes</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Golden Paws Retirement Program</h3>
+            <span class="text-5xl">🛋️</span>
+          </div>
+          <p class="text-amber-200 text-xl mb-6">Retired service dogs and senior shelter heroes finally get the sofa, the love, and the peace they earned — for life.</p>
+          <p class="text-zinc-300 mb-8">
+            Too many heroic service dogs and gentle senior shelter dogs spend their final years in a kennel after giving everything. Golden Paws changes that forever. Every retiring service dog and every senior (8+) now gets a permanent, zero-cost, loving forever home filled with comfort and dignity.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Starter Home – $250/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Full Golden Care – $450/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">$3,000 rolling vet fund</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Soulbound Honor NFT + vest</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('golden-paws-retirement')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Hero’s Forever Couch →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Zero-cost forever home</div>
+            <div>20% extra care with $NIBBLES</div>
+            <div>Family staking rewards</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 10: Service Dog Freedom Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-red-900/90 to-amber-900/90 border border-red-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Warrior Support</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Service Dog Freedom Program</h3>
+            <span class="text-5xl">🛡️</span>
+          </div>
+          <p class="text-red-200 text-xl mb-6">Veterans, disabled & PTSD warriors never fight alone again.</p>
+          <p class="text-zinc-300 mb-8">
+            Too many veterans and people living with PTSD, mobility challenges, or severe disabilities fight their battles alone every single day. Service Dog Freedom gives them a professionally trained battle buddy — 100% free for life.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">PTSD Freedom Dog – $300/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Mobility Freedom Dog – $350/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Unlimited emergency vet fund</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Soulbound Freedom Partner NFT</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('service-dog-freedom')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Warrior’s Battle Buddy →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Zero-cost for life</div>
+            <div>20% extra care with $NIBBLES</div>
+            <div>Handler staking rewards</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 11: Unified Rescue Registry -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-cyan-900/90 to-emerald-900/90 border border-cyan-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-cyan-500 text-white text-sm font-semibold rounded-2xl">Global Registry</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Unified Rescue Registry</h3>
+            <span class="text-5xl">🐾</span>
+          </div>
+          <p class="text-cyan-200 text-xl mb-6">Every shelter animal in the world — one click from being saved.</p>
+          <p class="text-zinc-300 mb-8">
+            Millions of precious dogs, cats, and shelter animals sit waiting in silence, often invisible to the world that could save them. The Unified Rescue Registry changes that completely. We've partnered with the Humane Society, ASPCA, local rescues, city shelters, and independent fosters to create one beautiful, transparent on-chain platform where every adoptable animal has a rich story, real-time updates, and the power for anyone to sponsor or “Pull Now” with a single click.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Quick Sponsor — $25/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Dedicated Guardian — $75–$150/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Emergency Pull — One-time rescue</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Shelter Booster — Clear whole rows</div>
+          </div>
+          <a href="#programs" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Browse the Registry & Save a Life with $NIBBLES →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Soulbound Rescue ID NFT</div>
+            <div>20% more impact with $NIBBLES</div>
+            <div>Live Wall of Saved Lives</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 12: Shiba Barn Sanctuary Network -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-orange-900/90 border border-amber-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Permanent Havens</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Shiba Barn Sanctuary Network</h3>
+            <span class="text-5xl">🏡</span>
+          </div>
+          <p class="text-amber-200 text-xl mb-6">Permanent safe havens for unadoptable and sponsored dogs — where no soul is ever forgotten.</p>
+          <p class="text-zinc-300 mb-8">
+            Some stories hit the deepest part of my heart — the gentle seniors, the injured, the special-needs dogs, and the big personalities labeled “unadoptable” who get left behind. They deserve dignity, warmth, and love in their final chapters.<br><br>
+            The Shiba Barn Sanctuary Network changes their story forever. We buy beautiful land outright and build real, permanent sanctuaries with heated barns, big play yards, splash pools, cozy cuddle rooms, and live-in guardians who treat every dog like family. Every barn streams live 24/7 so the whole world can watch these once-forgotten souls finally thrive.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Barn Supporter – $50/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Dedicated Barn Guardian – $150–$250/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Legacy Barn Sponsor – $500+/mo</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Major Gifts &amp; Naming Rights</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('shiba-barn-sanctuary')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Shiba Barn → Give Them Forever
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>24/7 livestreams</div>
+            <div>20% more resources with $NIBBLES</div>
+            <div>Personal updates &amp; naming rights</div>
+            <div>Land owned outright • On-chain</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 13: Forever-Home Families Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-yellow-900/90 border border-amber-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Forever Homes</span>
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Forever-Home Families Program</h3>
+            <span class="text-5xl">🏠</span>
+          </div>
+          <p class="text-amber-200 text-xl mb-6">Low-income families + shelter dogs = lifelong love, zero burden</p>
+          <p class="text-zinc-300 mb-8">
+            This one really hits me hard.<br><br>
+            I’ve watched too many good, big-hearted families walk out of the shelter with tears in their eyes because they simply couldn’t afford the food, the vet bills, the training, and the emergencies that come with giving a dog a real home. At the same time, thousands of wonderful adult and young shelter dogs sit waiting for the loud, chaotic, perfectly imperfect family life they were born for.
+          </p>
+          <p class="text-zinc-300 mb-8">
+            The Forever-Home Families Program fixes that story forever. We carefully screen and match responsible low-income families with the perfect shelter dog. Once matched, we remove every single financial barrier for the entire life of that dog — monthly support, a rolling emergency vet fund, and a welcome grant so the bond gets the strongest start.<br><br>
+            The check-ins are gentle and respectful. Everything is privacy-protected and stored on-chain. And with $NIBBLES these families become proud Guardians of the movement — they can stake, earn rewards, and share their own heartwarming stories that light up the world.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Careful family screening &amp; matching</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Lifetime zero-cost support</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Gentle wellness check-ins</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Family Guardian staking rewards</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Public “Family Tails” gallery</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Live impact counters</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('forever-home-families')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Forever-Home Family →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Privacy-protected on-chain</div>
+            <div>20% more impact with $NIBBLES</div>
+            <div>Families become Guardians</div>
+            <div>Real homes • Real love</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 14: Shelter-To-Barn Lifelong Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-orange-900/90 border border-amber-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Death Row Rescue</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Shelter-To-Barn Lifelong Program</h3>
+            <span class="text-5xl">🏡</span>
+          </div>
+          <p class="text-amber-200 text-xl mb-6">From death row to a warm, livestreamed barn bed — no dog is ever left behind again.</p>
+          <p class="text-zinc-300 mb-8">
+            This one really gets to me. I can’t stand the thought of a sweet dog running out of time on a shelter list when we have the power to change that story. The Shelter-To-Barn Lifelong Program turns those final, terrifying hours into a bridge to real safety and hope.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">① Real-time euthanasia lists from verified shelters</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">② Instant smart contract pull funding</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">③ Immediate transfer to Shiba Barns</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">④ Permanent adoption or lifelong sponsorship</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('shelter-to-barn')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Rescue a Dog from Death Row →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>72-hour rescue guarantee</div>
+            <div>Live transport tracking</div>
+            <div>Death Row Countdown timer</div>
+            <div>100% on-chain transparency</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED 15: Sponsor-A-Dog Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-orange-900/90 border border-amber-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Guardian Staking</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Sponsor-A-Dog Program</h3>
+            <span class="text-5xl">🐕</span>
+          </div>
+          <p class="text-amber-200 text-xl mb-6">Directly sponsor one special dog and help its guardian become a full-time storyteller of love.</p>
+          <p class="text-zinc-300 mb-8">
+            This one is very close to my heart. I want every sponsor to feel a real, lasting connection — not just send money and walk away. The Sponsor-A-Dog Program turns sponsorship into a joyful, ongoing relationship that rewards the guardian for sharing the dog’s life with all of us.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">① 20-25% of every sponsorship goes straight to the guardian in $NIBBLES</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">② Stake earnings for multipliers (Bronze 1.3x → Diamond 5x)</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">③ Proof-of-Care video uploads stored on-chain</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">④ Miss a week = tier drop, early withdraw = 50% slash</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('sponsor-a-dog')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Dog & Empower Its Guardian →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Guardians become full-time creators</div>
+            <div>Tokens locked for years</div>
+            <div>Endless heartwarming content</div>
+            <div>Real skin in the game</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW FEATURED 16: Silver Paws Therapy Visits Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-purple-900/90 border border-purple-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-purple-500 text-white text-sm font-semibold rounded-2xl">Elder Joy</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Silver Paws Therapy Visits Program</h3>
+            <span class="text-5xl">🦮</span>
+          </div>
+          <p class="text-purple-200 text-xl mb-6">Certified therapy dogs bringing gentle companionship and real comfort to elders who too often feel alone.</p>
+          <p class="text-zinc-300 mb-8">
+            We sponsor and send certified therapy dogs on regular visits to nursing homes, assisted living centers, and memory care units. These visits give our elders the warm, consistent love and attention they deserve — easing loneliness, calming anxiety, lifting spirits, and reminding them they’re still seen and deeply valued. Every single cost is covered 100% by the $NIBBLES treasury so facilities can welcome the joy with open arms.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Monthly sponsorships $500–$2,000</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Micro visit days from $50</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Soulbound Silver Paws Patron NFT</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Naming rights + private updates</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Live Silver Paws Visit Map</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Genuine heartwarming stories</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('silver-paws-therapy')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor Silver Paws Visits →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>100% funded by $NIBBLES</div>
+            <div>Handlers earn bonuses</div>
+            <div>Real comfort for our elders</div>
+          </div>
+        </div>
+      </div>
+            <!-- FEATURED 17: Golden Years Companion Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-yellow-900/90 border border-amber-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Golden Years</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Golden Years Companion Program</h3>
+            <span class="text-5xl">🐕</span>
+          </div>
+          <p class="text-amber-200 text-xl mb-6">Matching lonely seniors and widows with calm adult shelter dogs — so both finally have someone who needs them just as much as they need each other.</p>
+          <p class="text-zinc-300 mb-8">
+            I keep thinking about how many seniors sit alone in houses that got too quiet, and how many good adult shelter dogs have waited years for a real home. We match carefully screened seniors (especially widows and widowers) with steady dogs 5+ years old. Every single cost for the rest of their lives is covered 100% by the $NIBBLES treasury.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">$180–$250 monthly allowance</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Rolling emergency vet buffer</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">$800 Welcome Home grant</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Senior Guardian Staking</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Random wellness check-ins</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Golden Pairs gallery</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('golden-years-companion')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Match a Senior with Their Companion →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>100% funded by $NIBBLES</div>
+            <div>Lifetime zero-cost support</div>
+            <div>Seniors become Guardians</div>
+          </div>
+        </div>
+           <!-- DIVIDER: SEPARATION BETWEEN NIBBLES & HOPESEED -->
       <div class="max-w-5xl mx-auto my-24">
         <div class="flex flex-col items-center text-center">
           <div class="inline-flex items-center gap-6 bg-gradient-to-r from-amber-900/80 to-emerald-900/80 border border-white/20 rounded-3xl px-12 py-8 shadow-2xl">
-            <span class="text-6xl">🐕</span>
+            <span class="text-6xl drop-shadow-md">🐕</span>
             <div class="h-px w-16 bg-gradient-to-r from-amber-300/60 to-emerald-300/60"></div>
-            <span class="text-7xl">🌱</span>
+            <span class="text-7xl drop-shadow-md">🌱</span>
           </div>
+          
           <h2 class="text-5xl font-bold mt-10 tracking-[-1px]">Now meet the $hopeseed family</h2>
           <p class="text-emerald-200 text-2xl max-w-lg mt-4">
             Every $hopeseed transaction plants real hope for children, families, and communities.
@@ -306,25 +696,427 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      <!-- IMPROVED BOTTOM LIST -->
+            <!-- FEATURED 1: Santa’s Workshop Live -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-emerald-800/90 to-cyan-900/90 border border-cyan-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Live Giving</span>
+            <span class="px-4 py-1 bg-cyan-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Santa’s Workshop Live</h3>
+            <span class="text-6xl">🎄</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">24/7 live feed from the HopeSeed warehouse — where toys, clothes, and real hope move every single day so kids who feel forgotten finally know someone out there is thinking of them.</p>
+          <p class="text-zinc-300 mb-8">
+            I keep thinking about all the kids in shelters and foster homes who go month after month without ever getting something new that was picked just for them. We built a real year-round warehouse with a permanent 24/7 live stream so every $hopeseed holder can watch their kindness come to life in real time.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">24/7 Live Warehouse Stream</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Year-round toy &amp; clothing shipments</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Diamond Button Push Privilege</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">On-chain pallet tracking</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Volunteer shoutouts</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Real-time impact dashboard</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('santas-workshop-live')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Watch Live &amp; Support the Workshop →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>24/7 transparency</div>
+            <div>Year-round giving</div>
+            <div>Push the button yourself</div>
+          </div>
+        </div>
+      </div>
+      </div>           <!-- FEATURED 2: No Hungry Weekend Backpacks Global Edition -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-teal-900/90 to-lime-900/90 border border-lime-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-teal-500 text-white text-sm font-semibold rounded-2xl">Weekend Relief</span>
+            <span class="px-4 py-1 bg-lime-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">No Hungry Weekend Backpacks Global Edition</h3>
+            <span class="text-6xl">🎒</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Every Friday, thousands of kids quietly open a backpack that tells them they’re not forgotten — healthy food for the whole weekend, a tablet loaded with learning games, and a small surprise toy, all because $hopeseed holders cared enough to make it happen.</p>
+          <p class="text-zinc-300 mb-8">
+            I keep thinking about those kids who get excited for Friday but then spend the weekend trying not to show how hungry they really are. We took the proven weekend backpack model and made it global: real food, a prepaid tablet full of learning games, and a little surprise toy — all funded through $hopeseed so no child ever feels like a charity case.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Healthy weekend meals &amp; snacks</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Prepaid educational tablet</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Surprise joy toy</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Discreet Friday distribution</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Global partner network</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Live impact dashboard</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('no-hungry-weekend-backpacks')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Weekend Backpack →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Zero stigma • Real joy</div>
+            <div>Funded by every $hopeseed tx</div>
+            <div>Weekend Warrior NFTs</div>
+          </div>
+        </div>
+      </div>
+      </div>           <!-- FEATURED 3: Guardian Angel Wallet Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-cyan-900/90 to-emerald-900/90 border border-emerald-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-cyan-500 text-white text-sm font-semibold rounded-2xl">Lifelong Hope</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Guardian Angel Wallet Program</h3>
+            <span class="text-6xl">👼</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Every child who enters foster care or loses their parents gets their own Guardian Angel Wallet — a private $hopeseed wallet that starts growing the day they need it most and waits for them until they’re ready to stand on their own.</p>
+          <p class="text-zinc-300 mb-8">
+            Too many kids age out with nothing. This program gives every child entering the system a non-custodial Guardian Angel Wallet seeded with $hopeseed that quietly compounds through community donations and staking rewards. At 18–21 they get full control for real next steps — education, housing, certifications — plus small birthday gifts so they know they were never forgotten.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Instant wallet on entry</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Auto-staking &amp; compounding</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Annual birthday gifts</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Time-locked until 18–21</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Use-restricted for future needs</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Guardian Angel NFT badges</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('guardian-angel-wallet')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Guardian Angel Wallet →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Privacy-first • On-chain growth</div>
+            <div>Never forgotten</div>
+            <div>Real future-building funds</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 4: Bullyproof Schools Initiative -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-lime-900/90 to-emerald-900/90 border border-emerald-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-lime-500 text-white text-sm font-semibold rounded-2xl">Kindness Culture</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Bullyproof Schools Initiative</h3>
+            <span class="text-6xl">🛡️</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Making school feel safe again — real assemblies kids actually remember, a private virtual world they can escape to anytime, and real $hopeseed rewards for every genuine act of kindness.</p>
+          <p class="text-zinc-300 mb-8">
+            I’ve thought about this one a lot. Too many kids walk into school every single day carrying fear in their chest. This program changes that. We fund powerful assemblies that kids actually respect, plus a safe, invite-only metaverse campus where any student who feels overwhelmed or alone can step away, breathe, talk to a counselor, sit with a therapy dog on live cam, and just feel protected. We also reward real kindness with small $hopeseed tips kids can earn and feel proud of.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">High-impact school assemblies</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Safe metaverse campus</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Therapy dog live cams</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Kindness Streaks &amp; rewards</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Bullyproof Certified badge</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Live impact dashboard</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('bullyproof-schools-initiative')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Make Your School Bullyproof →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Real assemblies kids respect</div>
+            <div>Safe virtual escape</div>
+            <div>Kindness that gets rewarded</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 5: College Bound Vault -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-emerald-900/90 to-amber-900/90 border border-amber-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Future Builder</span>
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">College Bound Vault</h3>
+            <span class="text-6xl">🎓</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Every foster teen who ages out gets their own College Bound Vault — a private $hopeseed wallet that starts growing the day they need it most and waits until they’re ready to build a real life.</p>
+          <p class="text-zinc-300 mb-8">
+            I can’t stop thinking about that moment because I lived it. A kid turns 18 or 21, walks out of the foster system with a trash bag of clothes and nothing else — no money, no family, no plan. Just fear. That’s why we built the College Bound Vault: a secure wallet seeded with $hopeseed that quietly compounds through staking and community donations. The money stays locked until emancipation age, then releases only for real next steps — college tuition, trade school, certifications, or that first apartment deposit and rent.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Seeded on entry</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Auto-staking &amp; compounding</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Annual birthday gifts</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Time-locked until 18–21</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Use-restricted for real needs</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Future Builder NFT badges</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('college-bound-vault')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a College Bound Vault →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>From foster care to future</div>
+            <div>Compounds with love</div>
+            <div>Real hope on-chain</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 6: Miracle Fight Fund -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-cyan-900/90 to-sky-900/90 border border-sky-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-cyan-500 text-white text-sm font-semibold rounded-2xl">Miracle Flights</span>
+            <span class="px-4 py-1 bg-sky-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Miracle Fight Fund</h3>
+            <span class="text-6xl">✈️</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Every seriously ill child who needs a miracle gets a plane ticket for them and one parent, no matter how far the treatment is, because thousands of $hopeseed holders decided that little life was worth fighting for.</p>
+          <p class="text-zinc-300 mb-8">
+            This one really gets to me. I keep thinking about the parents who get that phone call, the one that drops their whole world, telling them their child is seriously ill and the only real hope is halfway across the globe. They are already drowning in fear, and then the cost of flights and lodging feels like one more impossible wall they cannot climb. So we built the Miracle Fight Fund. We cover the full round trip flights for the child and one parent, basic lodging near the hospital, and ground transport. Every journey is tracked live on a global map so every $hopeseed holder can watch their everyday transactions turn into real boarding passes and real hope.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Flights for child + one parent</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Lodging near treatment center</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Live global tracker map</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Direct sponsor option</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Vetted medical cases only</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Miracle Flight NFT badges</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('miracle-fight-fund')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Miracle Flight →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Real hope in the air</div>
+            <div>Live journey tracking</div>
+            <div>One flight at a time</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 7: Birthday Guarantee Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-pink-900/90 to-rose-900/90 border border-pink-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-pink-500 text-white text-sm font-semibold rounded-2xl">Birthday Joy</span>
+            <span class="px-4 py-1 bg-rose-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Birthday Guarantee Program</h3>
+            <span class="text-6xl">🎂</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Every child in foster care, a hospital bed, or a shelter gets a real birthday — cake, presents, and people singing to them in their own language — because no kid should ever feel as alone as I did on most of mine.</p>
+          <p class="text-zinc-300 mb-8">
+            I know this pain too well. When I was in foster care, most of my birthdays came and went with nothing. No cake, no presents, no one singing. Just another quiet, sad day I expected to go through alone. That emptiness never really left me. So we built the Birthday Guarantee Program so no child ever has to feel that way again.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Fresh cake or cupcakes</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Thoughtful presents</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Live multilingual Zoom sing-along</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Delivered 1-2 weeks early</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">No child ever missed</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Birthday Guardian NFTs</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('birthday-guarantee-program')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Guarantee a Birthday →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>No more forgotten days</div>
+            <div>Real joy delivered</div>
+            <div>Multilingual sing-alongs</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 8: Wish NFT Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-violet-900/90 to-emerald-900/90 border border-violet-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-violet-500 text-white text-sm font-semibold rounded-2xl">Dreams Fulfilled</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Wish NFT Program</h3>
+            <span class="text-6xl">🎁</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Every seriously ill child gets their exact dream turned into a one-of-a-kind NFT — so someone who cares can own the moment a sick kid lights up in their hospital bed with pure joy.</p>
+          <p class="text-zinc-300 mb-8">
+            I keep thinking about those kids lying in hospital beds hooked up to machines trying to be strong while their whole world is just four walls and pain. They still have dreams. A PS5, a VR headset, a tablet, something that lets them escape for a little while. Most of the time those wishes never come true. So we built the Wish NFT Program.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Child’s exact wish minted as 1/1 NFT</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Real item delivered to hospital bed</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Unboxing video from the child</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Lifelong personal updates</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Wish Guardian NFT badge</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Private update gallery</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('wish-nft-program')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Child’s Wish NFT →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Real joy in hospital beds</div>
+            <div>Lifelong emotional connection</div>
+            <div>One wish at a time</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 9: Pay-to-Play-It-Forward Gear Library -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-orange-900/90 border border-orange-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Circular Joy</span>
+            <span class="px-4 py-1 bg-orange-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Pay-to-Play-It-Forward Gear Library</h3>
+            <span class="text-6xl">⚽</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Buy a kid brand new cleats or a starter violin today. When they outgrow it, it gets passed clean to the next child who needs it, and years later you get a real message showing what your gift helped create.</p>
+          <p class="text-zinc-300 mb-8">
+            I remember what it felt like as a kid to want to play but have nothing to play with. That quiet ache of watching everyone else on the field or in the band while you sit on the sidelines. Too many children still feel that every single day. So we built the Pay-to-Play-It-Forward Gear Library.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">New gear or instruments</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Return when outgrown</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Refurbish and pass forward</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Lifelong donor updates</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Chain Builder NFTs</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Endless impact circle</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('pay-to-play-it-forward-gear-library')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Start a Gear Chain →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Circular giving</div>
+            <div>Real milestone updates</div>
+            <div>One gift keeps giving</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 10: Champions Table Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-amber-900/90 to-emerald-900/90 border border-emerald-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">No Shame at the Table</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Champions Table Program</h3>
+            <span class="text-6xl">🏆</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">I grew up poor, both before and during foster care. We never had good lunches, the cupboard was usually empty, and most nights it was just cheap noodles. Two Dollar Tuesdays at KFC felt like a real treat. I lived in a trailer park and knew exactly what it felt like to be the kid who was different because of what was on my tray. That quiet shame never left me. So we built the Champions Table Program.</p>
+          <p class="text-zinc-300 mb-8">
+            No kid should ever feel ashamed when they sit down to eat at school. We make sure every child in high-need schools gets healthy breakfasts, lunches, and snacks every day. We also fund school trips, sports, art, music, and special programs for foster and orphaned kids. The big difference is the live leaderboard in every cafeteria that proudly shows “This week’s Champions Table powered by thousands of $hopeseed holders.” It turns “free lunch” into something kids feel proud of instead of ashamed of.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Healthy daily meals</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">School trips &amp; sports</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Live Champions Leaderboard</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Art, music &amp; toys for foster kids</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">No more free lunch shame</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Champion Sponsor NFTs</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('champions-table-program')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Champions Table →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>Pride instead of shame</div>
+            <div>Real community support</div>
+            <div>Healthy meals every day</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 11: Orphan Christmas -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-red-900/90 to-emerald-900/90 border border-red-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-red-500 text-white text-sm font-semibold rounded-2xl">Holiday Magic</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Orphan Christmas</h3>
+            <span class="text-6xl">🎄</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">On Christmas Eve, kids who usually have no one get to open real gifts live on stream while the people who made it possible are right there in the chat, cheering them on and sharing the moment with them.</p>
+          <p class="text-zinc-300 mb-8">
+            I used to wake up on Christmas and sometimes get nothing at all. Other years it was just cheap gifts, mostly clothes. I would end up at my friends’ houses playing with their new stuff while trying not to show how empty it felt. That quiet loneliness on a day when every other kid seemed to have magic stayed with me for a long time. So we built Orphan Christmas.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Live gift openings on Dec 24</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Personalized presents for every child</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Donors join the live chat</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Real-time reactions &amp; hearts</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Santa’s Helper NFT badges</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Heartfelt thank-yous from kids</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('orphan-christmas')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor an Orphan Christmas Gift →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>No child alone on Christmas</div>
+            <div>Live global celebration</div>
+            <div>Real joy in real time</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 12: Dream Room Makeovers Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-teal-900/90 to-cyan-900/90 border border-cyan-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-teal-500 text-white text-sm font-semibold rounded-2xl">Dream Escape</span>
+            <span class="px-4 py-1 bg-cyan-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Dream Room Makeovers Program</h3>
+            <span class="text-6xl">🛏️</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">Imagine this: a child’s world becomes just four walls and pain for months or even years. The loneliness can be crushing. I never wanted any kid to feel that trapped. So we built the Dream Room Makeovers Program.</p>
+          <p class="text-zinc-300 mb-8">
+            We take their bedroom or hospital room and turn it into their own personal dream world — a spaceship, an underwater kingdom, a Fortnite battlefield, or a calm sensory oasis. We add custom decor, special lighting, interactive touches, and a high-quality VR headset so they can escape and explore whenever they want.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Full room transformation</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Custom dream theme</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Immersive VR headset</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Interactive lighting &amp; decor</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Before &amp; after reveals</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Dream Builder NFTs</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('dream-room-makeovers-program')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Dream Room Makeover →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>From prison to paradise</div>
+            <div>VR escape for bed-bound kids</div>
+            <div>Magic in every room</div>
+          </div>
+        </div>
+      </div>      <!-- FEATURED 13: Special Needs Support Bridge Program -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-gradient-to-br from-cyan-900/90 to-emerald-900/90 border border-emerald-400/30 rounded-3xl p-10 shadow-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-4 py-1 bg-cyan-500 text-white text-sm font-semibold rounded-2xl">Lifelong Bridge</span>
+            <span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span>
+          </div>
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="text-4xl font-bold">Special Needs Support Bridge Program</h3>
+            <span class="text-6xl">🦽</span>
+          </div>
+          <p class="text-emerald-200 text-xl mb-6">I grew up poor, both before and during foster care. The cupboard was usually empty, and most nights it was just cheap noodles. Two Dollar Tuesdays at KFC felt like a real treat. I know what it feels like when your family can’t afford the things you need to feel okay. That’s why we built the Special Needs Support Bridge Program.</p>
+          <p class="text-zinc-300 mb-8">
+            No family should ever have to choose between paying the rent and buying the medicine, wheelchair, hearing aids, or therapy supplies their child needs. We cover prescriptions, durable medical equipment, and all the related costs so their child can get what they need to move, communicate, learn, and simply feel better every single day.
+          </p>
+          <div class="text-sm mb-8 grid grid-cols-2 gap-4">
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Monthly support for prescriptions</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Adaptive equipment &amp; orthotics</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Hearing aids &amp; communication devices</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Gentle wellness check-ins</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Family Guardian Staking</div>
+            <div class="bg-zinc-800 px-4 py-3 rounded-2xl">Lifetime bridge of support</div>
+          </div>
+          <a href="#" onclick="sponsorProgram('special-needs-support-bridge-program')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all">
+            Sponsor a Special Needs Bridge →
+          </a>
+          <div class="mt-8 text-xs text-zinc-400 flex items-center gap-6">
+            <div>No more impossible choices</div>
+            <div>Lifetime respectful support</div>
+            <div>Real dignity for families</div>
+          </div>
+        </div>
+      </div>      <!-- BREATHING ROOM BEFORE BOTTOM LIST -->
+      <div class="h-16"></div>
+           <!-- COOL $HOPESEED PROGRAMS LIST - BOTTOM SECTION -->
       <div class="max-w-5xl mx-auto mt-24">
         <div class="text-center mb-12">
           <div class="inline-flex items-center gap-3 bg-emerald-900/60 border border-emerald-400/30 rounded-3xl px-8 py-4">
@@ -332,61 +1124,61 @@
             <h3 class="text-3xl font-bold text-emerald-300 tracking-tight">13 More Programs Powered by $hopeseed</h3>
           </div>
           <p class="text-zinc-400 mt-6 max-w-md mx-auto">
-            Every $hopeseed transaction quietly changes lives — kids, families, and communities.
+            Every single $hopeseed transaction quietly changes lives — kids, families, and communities.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-4">
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">1</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">1</span>
             <div class="text-zinc-300">Santas Workshop Live</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">2</span>
-            <div class="text-zinc-300">No Hungry Weekend Backpacks</div>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">2</span>
+            <div class="text-zinc-300">No Hungry Weekend Backpack</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">3</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">3</span>
             <div class="text-zinc-300">Guardian Angel Wallet Program</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">4</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">4</span>
             <div class="text-zinc-300">Bullyproof Schools Initiative</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">5</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">5</span>
             <div class="text-zinc-300">College Bound Vault</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">6</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">6</span>
             <div class="text-zinc-300">Miracle Fight Fund</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">7</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">7</span>
             <div class="text-zinc-300">Birthday Guarantee Program</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">8</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">8</span>
             <div class="text-zinc-300">Pay-To-Play-It-Forward Gear Library</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">9</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">9</span>
             <div class="text-zinc-300">Wish NFT Program</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">10</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">10</span>
             <div class="text-zinc-300">Champions Table Program</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">11</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">11</span>
             <div class="text-zinc-300">Orphan Christmas</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">12</span>
-            <div class="text-zinc-300">Dream Room Makeovers Program</div>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">12</span>
+            <div class="text-zinc-300">Dream Room Makeovers</div>
           </div>
           <div class="bg-zinc-900 hover:bg-emerald-900/10 border border-emerald-400/10 hover:border-emerald-400/30 transition-all duration-300 p-6 rounded-3xl flex gap-4 group">
-            <span class="text-emerald-400 text-3xl font-light group-hover:scale-110 transition">13</span>
+            <span class="text-emerald-400 text-2xl font-light group-hover:scale-110 transition">13</span>
             <div class="text-zinc-300">Special Needs Support Bridge Program</div>
           </div>
         </div>
@@ -395,202 +1187,9 @@
           <span>Every $hopeseed transaction plants real hope 🌱</span>
         </div>
       </div>
-
-    </div>
   </section>
 
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-        <!-- END OF PROGRAMS SECTION -->
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
-  <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
-      <p class="text-3xl mb-12">Fork the repos. Stake as a guardian. Share the love.</p>
-      <a href="https://github.com/ShibaHumanityhub" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all">Join on GitHub</a>
-    </div>
-  </section>
-
-  <footer class="py-12 text-center text-zinc-400 bg-black">
-    <p class="text-xl">Shibahumanityhub • Since Nov 2025 • Every transaction saves lives ❤️🐕🌱</p>
-  </footer>
-
-</body>
-</html>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALL TO ACTION - BILLIONAIRE LEVEL -->
+  <!-- CALL TO ACTION -->
   <section class="py-28 bg-gradient-to-r from-amber-600 to-emerald-600 text-center">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-6xl font-bold mb-8">Be part of the movement that actually saves lives</h2>
