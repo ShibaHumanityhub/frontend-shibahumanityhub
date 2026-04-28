@@ -1,89 +1,272 @@
-<!-- Corporate Barn Pod Sponsorship Modal -->
-<div id="modal-corporate-barn-pod" class="program-modal hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-  <div class="bg-white max-w-4xl w-full max-h-[95vh] overflow-hidden rounded-3xl shadow-2xl flex flex-col">
-    <!-- Header -->
-    <div class="px-8 pt-8 pb-4 border-b flex items-center justify-between">
-      <div>
-        <h2 class="text-3xl font-semibold text-emerald-900">Corporate Barn Pod Sponsorship</h2>
-        <p class="text-emerald-600 mt-1">Where good companies become real heroes and give senior shelter dogs the loving golden years they so richly deserve.</p>
-      </div>
-      <button onclick="closeProgramModal('corporate-barn-pod')" 
-              class="text-3xl text-emerald-400 hover:text-emerald-600 transition-colors">✕</button>
-    </div>
-    
-    <!-- Content -->
-    <div class="flex-1 overflow-auto p-8 space-y-10">
-      <!-- Photo -->
-      <img src="./assets/barnsponsorshippodpic.jpg" 
-           alt="Corporate Barn Pod Sponsorship"
-           class="w-full rounded-3xl shadow-inner">
-
-      <div class="prose prose-emerald-900 max-w-none text-lg leading-relaxed">
-        <p>Too many beautiful senior dogs spend their final years in shelters, quietly watching the world pass them by. Through this program, caring corporations step forward and change that story forever.</p>
-        <p>Your company can adopt an entire pod of these gentle souls — five, ten, or more — and give them the warm, loving forever paradise their loyal hearts have earned.</p>
-        <p>For a monthly commitment you are not just writing a check. You are funding lifetime comfort: the finest senior nutrition, full veterinary care, soft beds, daily enrichment, and the quiet joy these heroes deserve. Your team becomes part of something that truly matters — a living circle of mercy made possible through crypto kindness.</p>
-      </div>
-
-      <!-- Sponsorship Tiers -->
-      <div>
-        <h4 class="text-xl font-semibold text-emerald-900 mb-6">Sponsorship Tiers of Love</h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-emerald-50 p-6 rounded-3xl">
-            <div class="font-semibold text-emerald-800">Starter Pod</div>
-            <div class="text-3xl font-light text-emerald-900">5 senior dogs</div>
-            <div class="text-sm text-emerald-600 mt-1">$1,250 per month</div>
-          </div>
-          <div class="bg-emerald-50 p-6 rounded-3xl">
-            <div class="font-semibold text-emerald-800">Bronze Pod</div>
-            <div class="text-3xl font-light text-emerald-900">10 senior dogs</div>
-            <div class="text-sm text-emerald-600 mt-1">$2,500 per month</div>
-          </div>
-          <div class="bg-emerald-50 p-6 rounded-3xl">
-            <div class="font-semibold text-emerald-800">Silver Pod</div>
-            <div class="text-3xl font-light text-emerald-900">10 senior dogs</div>
-            <div class="text-sm text-emerald-600 mt-1">$5,000 per month</div>
-          </div>
-          <div class="bg-emerald-50 p-6 rounded-3xl">
-            <div class="font-semibold text-emerald-800">Gold Pod</div>
-            <div class="text-3xl font-light text-emerald-900">10 senior dogs</div>
-            <div class="text-sm text-emerald-600 mt-1">$10,000+ per month</div>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shibahumanityhub • Since Nov 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(135deg, #f59e0b, #10b981, #b45309); animation: gradientShift 20s ease infinite; }
+    @keyframes gradientShift { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
+    .program-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .program-card:hover { transform: translateY(-12px) scale(1.08); box-shadow: 0 40px 70px -20px rgb(245 158 11 / 0.5); }
+    .modal { animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    @keyframes modalPop { 0% {opacity:0; transform:scale(0.95);} 100% {opacity:1; transform:scale(1);} }
+  </style>
+</head>
+<body class="bg-zinc-950 text-white">
+  <!-- NAVBAR -->
+  <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">🐕</span>
+          <h1 class="text-lg sm:text-xl md:text-2xl font-bold tracking-[-1px]">SHIBAHUMANITYHUB</h1>
         </div>
+        <span class="text-xs sm:text-sm font-medium px-4 py-1.5 bg-amber-500/10 text-amber-300 rounded-3xl border border-amber-500/30 self-start sm:self-auto">
+          Every transaction saves lives ❤️
+        </span>
       </div>
-
-      <!-- NIBBLES Power -->
-      <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 rounded-3xl border border-emerald-200">
-        <h4 class="text-xl font-semibold text-emerald-900 mb-4">The $NIBBLES Difference — Where Kindness Multiplies</h4>
-        <p class="mb-6">When you pay with or hold $NIBBLES, your love reaches even further:</p>
-        <ul class="space-y-4 text-emerald-800">
-          <li class="flex gap-3">• Pay fully in $NIBBLES and your pod receives <span class="font-semibold">20% more care</span>. We turn your kindness into extra mercy</li>
-          <li class="flex gap-3">• Hold 50,000+ $NIBBLES and receive first pick of pods plus naming rights for one dog each year</li>
-          <li class="flex gap-3">• Hold 250,000+ $NIBBLES and become a Platinum Partner with permanent recognition and special experiences for your entire team</li>
-        </ul>
+      <div class="flex items-center gap-4 border-l border-amber-500/30 pl-4">
+        <a href="https://x.com/Shibhumanityhub" target="_blank" class="hover:text-[#1DA1F2]"><i class="fa-brands fa-x-twitter text-2xl"></i></a>
+        <a href="https://t.me/Shibahumanityhub" target="_blank" class="hover:text-[#229ED9]"><i class="fa-brands fa-telegram text-2xl"></i></a>
       </div>
-
-      <!-- What You Receive -->
-      <div>
-        <h4 class="text-xl font-semibold text-emerald-900 mb-4">What Your Company Actually Receives</h4>
-        <p class="text-zinc-700">Your logo appears on every dog’s vest. Their profiles proudly say “Sponsored by [Your Company]”. Every month you receive beautiful photos and videos of the seniors living their best lives, plus heartfelt stories shared across our channels. Your team can join volunteer days at the barn, meet their pod on private livestreams, and even have one team member name a new rescue each year. Everything is fully transparent with live pod cams and clear monthly reports.</p>
-      </div>
-
-      <!-- Closing heart -->
-      <p class="text-center italic text-emerald-700 text-xl leading-relaxed max-w-2xl mx-auto">
-        This is mercy in action. This is corporate hearts meeting shelter hearts. And because of $NIBBLES, more companies will discover the deep joy that comes from doing well while doing incredible good.
-      </p>
-    </div>
-
-    <!-- Footer buttons -->
-    <div class="p-8 border-t flex flex-col sm:flex-row gap-4">
-      <a href="https://shibarium.shib.io/" target="_blank" 
-         class="flex-1 text-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-5 rounded-3xl transition-colors">
-        Sponsor a Pod with $NIBBLES Now
-      </a>
-      <button onclick="closeProgramModal('corporate-barn-pod')" 
-              class="flex-1 text-center border-2 border-emerald-300 hover:border-emerald-400 font-semibold py-5 rounded-3xl transition-colors">
-        Close
+      <button onclick="toggleMobileMenu()" class="md:hidden text-3xl hover:text-amber-300 transition-colors">
+        <i id="hamburger-icon" class="fa-solid fa-bars"></i>
       </button>
+      <div class="hidden md:flex items-center gap-8 text-lg">
+        <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
+        <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
+        <a href="https://github.com/ShibaHumanityhub/whitepaper-and-vision/blob/main/shiba-humanity-hub-Whitepaper-v2.pdf" target="_blank" class="hover:text-amber-300 transition">Whitepaper v2</a>
+        <a href="https://github.com/ShibaHumanityhub" target="_blank" class="hover:text-amber-300 transition">GitHub</a>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-amber-500/30 px-6 py-6 text-lg">
+      <a href="#contracts" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Contracts</a>
+      <a href="#programs" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Programs</a>
+      <a href="https://github.com/ShibaHumanityhub/whitepaper-and-vision/blob/main/shiba-humanity-hub-Whitepaper-v2.pdf" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Whitepaper v2</a>
+      <a href="https://github.com/ShibaHumanityhub" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">GitHub</a>
+    </div>
+  </nav>
+  <!-- HERO -->
+  <header class="hero-bg pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-28 md:pb-32 text-center relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="flex flex-col items-center">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-2.5px] leading-[1.05]">SHIBA</h1>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-2.5px] leading-[1.05] -mt-1 md:-mt-4">HUMANITYHUB</h1>
+      </div>
+      <p class="text-3xl sm:text-4xl mb-6 sm:mb-8 text-amber-100">Since November 2025</p>
+      <div class="text-4xl sm:text-6xl md:text-7xl font-light max-w-4xl mx-auto leading-tight mb-10 sm:mb-12">Every transaction saves lives.</div>
+      <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-4 text-3xl sm:text-4xl mb-12 sm:mb-16 items-center">
+        <div class="flex items-center gap-4">$NIBBLES <span class="text-amber-200">🐕</span></div>
+        <div class="flex items-center gap-4">$hopeseed <span class="text-emerald-300">🌱</span></div>
+      </div>
+      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v2.pdf" target="_blank" class="inline-block bg-white text-black font-bold text-2xl sm:text-3xl px-10 sm:px-16 py-6 sm:py-8 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">📄 Download Whitepaper v2</a>
+    </div>
+  </header>
+  <!-- EXPLANATION -->
+  <div class="max-w-5xl mx-auto px-6 py-16 -mt-8">
+    <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
+      <p class="text-2xl leading-relaxed text-white">Shibahumanityhub is a decentralized on-chain charity movement powered by <span class="text-amber-200">$NIBBLES</span> and <span class="text-emerald-300">$hopeseed</span>.<br><br>Every transaction directly funds real impact with full transparency and no middlemen.</p>
     </div>
   </div>
-</div>
+  <!-- CONTRACTS -->
+  <section id="contracts" class="py-24 bg-zinc-900">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-zinc-800 rounded-3xl p-12 text-center">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg" alt="Mr. Nibbles" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl shadow-2xl" loading="lazy">
+          <p class="text-amber-200 mb-2 text-4xl">Mr. Nibbles ($NIBBLES)</p>
+          <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" target="_blank" class="text-blue-400 hover:underline break-all font-mono text-lg">0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2</a>
+        </div>
+        <div class="bg-zinc-800 rounded-3xl p-12 text-center">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" alt="hopeseed" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl shadow-2xl" loading="lazy">
+          <p class="text-emerald-300 mb-2 text-4xl">$hopeseed</p>
+          <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" target="_blank" class="text-blue-400 hover:underline break-all font-mono text-lg">0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROGRAMS -->
+  <section id="programs" class="py-24 bg-zinc-950">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
+      <p class="text-center text-zinc-400 mb-12">Hover or click any card to read the full heartfelt story.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8" id="program-grid"></div>
+    </div>
+  </section>
+  <!-- HOW YOU CAN HELP RIGHT NOW -->
+  <section class="py-20 bg-gradient-to-r from-emerald-900/30 to-amber-900/30">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">How You Can Help Right Now</h2>
+      <p class="text-xl text-zinc-300 mb-10">Every $NIBBLES transaction quietly funds real mercy. Choose your way to make a difference today.</p>
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v2.pdf" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all">📄 Read the full vision</a>
+        <button onclick="sponsorProgram('any')" class="bg-amber-500 hover:bg-amber-400 text-white rounded-3xl p-8 transition-all">❤️ Sponsor a program instantly</button>
+        <a href="https://x.com/Shibhumanityhub" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all">🐦 Join the movement on X</a>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="py-16 bg-black border-t border-amber-500/30">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="flex justify-center items-center gap-3 mb-6">
+        <span class="text-4xl">🐕</span>
+        <p class="text-2xl font-light text-amber-200">People helping people helping people.</p>
+      </div>
+      <p class="text-xl text-emerald-300 mb-8">Every transaction saves lives ❤️</p>
+      <div class="flex justify-center gap-8 text-3xl mb-10">
+        <a href="https://x.com/Shibhumanityhub" target="_blank" class="hover:text-[#1DA1F2]"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://t.me/Shibahumanityhub" target="_blank" class="hover:text-[#229ED9]"><i class="fa-brands fa-telegram"></i></a>
+      </div>
+      <p class="text-zinc-500 text-sm">© Shibahumanityhub • Since November 2025 • Built with pure love and $NIBBLES</p>
+      <p class="text-emerald-300 text-xs mt-6">Thank you for being part of this circle of mercy. Together we are changing lives, one loving transaction at a time.</p>
+    </div>
+  </footer>
+  <!-- MODAL -->
+  <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
+    <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">
+      <button onclick="hideModal()" class="absolute top-6 right-6 text-4xl text-zinc-400 hover:text-white">✕</button>
+      <div id="modal-content" class="prose prose-invert max-w-none"></div>
+    </div>
+  </div>
+  <script>
+    const programs = [
+                  {
+        id: 0,
+        title: "Corporate Barn Pod Sponsorship",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/barnsponsorshippodpic.jpg",
+        shortDesc: "Good companies become real heroes by adopting entire pods of senior shelter dogs and giving them the loving golden years they so richly deserve.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Corporate Impact</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Corporate Barn Pod Sponsorship</h2><p class="text-amber-200 text-xl mb-6">Where good companies become real heroes and give senior shelter dogs the loving golden years they so richly deserve.</p><p class="text-zinc-300 mb-8">Too many beautiful senior dogs spend their final years in shelters, quietly watching the world pass them by. Through this program, caring corporations step forward and change that story forever. Your company can adopt an entire pod of these gentle souls, five, ten, or more, and give them the forever paradise their loyal hearts have earned.</p><p class="text-zinc-300 mb-8">For a monthly commitment you are not just writing a check. You are funding lifetime comfort: the finest senior nutrition, full veterinary care, soft beds, daily enrichment, and the quiet joy these heroes deserve. Your team becomes part of something that truly matters, a living circle of mercy made possible through crypto kindness.</p><div class="grid grid-cols-2 gap-6 mb-10 text-sm"><div><strong>Starter Pod</strong><br>5 senior dogs, $1,250 per month</div><div><strong>Bronze Pod</strong><br>10 senior dogs, $2,500 per month</div><div><strong>Silver Pod</strong><br>10 senior dogs, $5,000 per month</div><div><strong>Gold Pod</strong><br>10 senior dogs, $10,000+ per month</div><div><strong>Custom and Multi-Pod</strong><br>For companies ready to go bigger</div></div><div class="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-3xl border border-amber-200 mb-10"><h4 class="text-xl font-semibold text-amber-900 mb-4">The $NIBBLES Difference, Where Kindness Multiplies</h4><p class="mb-6">When you pay with or hold $NIBBLES, your love reaches even further:</p><ul class="space-y-4 text-amber-800"><li class="flex gap-3">• Pay fully in $NIBBLES and your pod receives <span class="font-semibold">20% more care</span>. We turn your kindness into extra mercy</li><li class="flex gap-3">• Hold 50,000+ $NIBBLES and receive first pick of pods plus naming rights for one dog each year</li><li class="flex gap-3">• Hold 250,000+ $NIBBLES and become a Platinum Partner with permanent recognition and special experiences for your entire team</li></ul></div><p class="text-zinc-300 mb-8">Your logo appears on every dog’s vest. Their profiles proudly say “Sponsored by [Your Company]”. Every month we send beautiful photos and videos of the seniors living their best lives, plus at least four heartfelt stories shared across our channels so the world can see the real difference you are making. Your team can join volunteer days at the barn, meet their pod on private livestreams, and even have one team member name a new rescue each year. Everything is fully transparent with live pod cams and clear monthly reports.</p><p class="text-center italic text-amber-700 text-xl leading-relaxed max-w-2xl mx-auto">This is mercy in action. This is corporate hearts meeting shelter hearts. And because of $NIBBLES, more companies will discover that doing well and doing incredible good can happen in the same beautiful moment.</p><button onclick="sponsorProgram('corporate-barn-pod')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Become a Corporate Hero, Sponsor a Pod Today</button>`
+      },
+      {
+        id: 1,
+        title: "Rescue Passport Soulbound NFTs",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/rescuephotonftsoulbound.jpg",
+        shortDesc: "Every dog’s full life story written in stone on the blockchain, forever remembered.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">Soulbound</span><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Forever Story</span></div><h2 class="text-4xl font-bold mb-3">Rescue Passport Soulbound NFTs</h2><p class="text-emerald-200 text-xl mb-6">Every dog’s full life story written in stone on the blockchain, forever remembered.</p><p class="text-zinc-300 mb-8">I’ve seen too many rescue dogs lose pieces of their history the moment they enter the system. The Rescue Passport changes that. It’s their permanent digital story that travels with them from shelter to forever home.</p><div class="text-sm mb-8 flex flex-wrap gap-4"><div class="bg-zinc-800 px-4 py-2 rounded-2xl">Vet records</div><div class="bg-zinc-800 px-4 py-2 rounded-2xl">Training certificates</div><div class="bg-zinc-800 px-4 py-2 rounded-2xl">Photos &amp; bark videos</div><div class="bg-zinc-800 px-4 py-2 rounded-2xl">Full rescue timeline</div></div><button onclick="sponsorProgram('rescue-passport')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">See a Passport →</button>`
+      },
+      {
+        id: 2,
+        title: "Pay-It-Forward Adoption Chain",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Payitforwardadoptionchainphoto.jpg",
+        shortDesc: "One adoption pays for the next in an anonymous chain of kindness that keeps saving dogs forever.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Pay-It-Forward</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Pay-It-Forward Adoption Chain</h2><p class="text-amber-200 text-xl mb-6">One adoption pays for the next in an anonymous chain of kindness that keeps saving dogs forever.</p><p class="text-zinc-300 mb-8">A beautiful cycle of love: when someone adopts a dog, they also pay forward the cost of the next adoption. No one knows who started the chain. They only know that every click, every sponsorship, and every adoption keeps the kindness flowing.</p><div class="grid grid-cols-2 gap-6 mb-10 text-sm"><div><strong>Starter Chain</strong><br>1 adoption paid forward $250</div><div><strong>Kindness Chain</strong><br>5 adoptions paid forward $1,000</div><div><strong>Legacy Chain</strong><br>20 adoptions paid forward $4,000</div><div><strong>Eternal Chain</strong><br>Unlimited custom sponsorship</div></div><button onclick="sponsorProgram('pay-it-forward')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Join the Chain → Pay It Forward</button>`
+      },
+      {
+        id: 3,
+        title: "New Beginnings Home Start Packs",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/newbeginningshomestartpacks.jpg",
+        shortDesc: "Every new adoption gets the perfect start with premium food, cozy bedding, toys, training and vet care, turning just adopted into finally home.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">First Days</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">New Beginnings Home Start Packs</h2><p class="text-amber-200 text-xl mb-6">Every adoption is just the beginning of a forever story.</p><p class="text-zinc-300 mb-8">Those precious first days and weeks are full of adjustment, trust, and becoming family. These packs wrap precious souls (and their new humans) in love with premium food, cozy bedding, enrichment toys, training support, and essential veterinary follow-up care.</p><div class="grid grid-cols-2 gap-6 mb-10 text-sm"><div><strong>Starter Pack</strong><br>$50 Welcome kit</div><div><strong>Family Pack</strong><br>$150 Full first month</div><div><strong>Love Pack</strong><br>$300 Extended support</div><div><strong>Forever Pack</strong><br>$500 Complete new beginning</div></div><button onclick="sponsorProgram('new-beginnings')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Give a New Beginning → Sponsor a Pack</button>`
+      },
+      {
+        id: 4,
+        title: "Healing Hearts Therapy Dog Network",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/healingheartstherapydognetworkphoto.jpg",
+        shortDesc: "Trained therapy dogs bring comfort, joy, and healing to hospitals, nursing homes, schools, veterans, and anyone who needs a gentle heart beside them.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Healing Hearts</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Healing Hearts Therapy Dog Network</h2><p class="text-amber-200 text-xl mb-6">Sometimes the best medicine has four paws and a wagging tail.</p><p class="text-zinc-300 mb-8">Our therapy dogs visit hospitals, nursing homes, schools, veterans centers, and community spaces, offering comfort and connection to people who need it most. Every visit is a moment of pure love and healing made possible through your support.</p><div class="grid grid-cols-2 gap-6 mb-10 text-sm"><div><strong>Community Team</strong><br>2 dogs and handlers $500/mo</div><div><strong>Hospital Team</strong><br>5 dogs and handlers $1,250/mo</div><div><strong>Full Network</strong><br>10 dogs $2,500/mo</div><div><strong>Legacy Sponsor</strong><br>Custom annual support</div></div><button onclick="sponsorProgram('healing-hearts')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Sponsor a Healing Heart → Bring Comfort Today</button>`
+      },
+      {
+        id: 5,
+        title: "Global Disaster K9 Response Units",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/globaldisasterk9responseunitsphoto.jpg",
+        shortDesc: "Highly trained disaster response K9 teams deploy around the world to find and save lives when disasters strike.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Disaster Response</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Global Disaster K9 Response Units</h2><p class="text-amber-200 text-xl mb-6">When disaster strikes, these brave dogs are often the first hope for those trapped and alone.</p><p class="text-zinc-300 mb-8">Our K9 response units are specially trained to search collapsed buildings, flooded areas, and wildfire zones. They work alongside first responders to locate survivors and bring families back together. Every donation helps equip, train, and deploy these four-legged heroes wherever they are needed most.</p><div class="grid grid-cols-2 gap-6 mb-10 text-sm"><div><strong>Regional Unit</strong><br>2 K9 teams $750/mo</div><div><strong>National Unit</strong><br>5 K9 teams $2,000/mo</div><div><strong>Global Response</strong><br>Full deployment support $5,000/mo</div><div><strong>Legacy Sponsor</strong><br>Custom annual support</div></div><button onclick="sponsorProgram('global-disaster-k9')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Support Our Disaster Heroes → Deploy Hope Today</button>`
+      },
+      {
+        id: 6,
+        title: "Second Chance K9 Prison Program",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Secondchancek9prisonprogramphoto.jpg",
+        shortDesc: "Inmates train shelter dogs behind bars, giving both a second chance at life, love, and purpose.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Redemption</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Second Chance K9 Prison Program</h2><p class="text-amber-200 text-xl mb-6">Behind prison walls, broken hearts find healing when an inmate and a shelter dog are given a second chance together.</p><p class="text-zinc-300 mb-8">Men and women in prison learn patience, responsibility, and compassion while training shelter dogs who would otherwise have no future. When the dogs graduate, they go on to become therapy dogs, service dogs, or beloved family pets — and the inmates often walk out changed forever.</p><div class="grid grid-cols-2 gap-6 mb-10 text-sm"><div><strong>Starter Unit</strong><br>1 dog and handler $400/mo</div><div><strong>Training Wing</strong><br>4 dogs $1,200/mo</div><div><strong>Full Program</strong><br>8 dogs $2,500/mo</div><div><strong>Legacy Sponsor</strong><br>Custom annual support</div></div><button onclick="sponsorProgram('second-chance-k9')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Give a Second Chance → Sponsor a Dog Today</button>`
+      },
+      {
+        id: 7,
+        title: "Rainbow Bridge Hospice & Sequoia Legacy Program",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Rainbowbridgehospice&sequoialegacyprogram.jpg",
+        shortDesc: "No senior dog ever crosses the Rainbow Bridge cold or forgotten. Every terminal or very senior dog spends their final months living like royalty — surrounded by love, free of pain, and given every joy their heart can hold.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Rainbow Bridge</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+          <h2 class="text-4xl font-bold mb-3">Rainbow Bridge Hospice & Sequoia Legacy Program</h2>
+          <p class="text-amber-200 text-xl mb-6">No senior dog ever crosses the Rainbow Bridge cold or forgotten.</p>
+          <p class="text-zinc-300 mb-8">Every terminal or very senior dog (12+ years old with a serious diagnosis) deserves to spend their final months living like royalty — surrounded by love, free of pain, and given every joy their heart can hold. This program makes that possible. We fully fund their last chapter with unlimited medical care and a true bucket-list experience. Then, when they peacefully cross the Rainbow Bridge, we plant a giant Sequoia tree in their name — a living legacy that will stand for thousands of years and offset more carbon than an entire human lifetime.</p>
+          <p class="text-zinc-300 mb-8">It turns goodbye into something beautiful that keeps giving back to the Earth long after they’re gone.</p>
+          <div class="grid grid-cols-2 gap-6 mb-10 text-sm">
+            <div><strong>Comfort Care</strong><br>1 dog $300/mo</div>
+            <div><strong>Dignity Package</strong><br>3 dogs $800/mo</div>
+            <div><strong>Full Hospice Wing</strong><br>8 dogs $2,000/mo</div>
+            <div><strong>Legacy Sponsor</strong><br>Custom annual support</div>
+          </div>
+          <button onclick="sponsorProgram('rainbow-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Honor a Life → Sponsor a Legacy</button>`
+      },
+      {
+        id: 8,
+        title: "Golden Paws Retirement Program",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/goldenpawsretirementprogram.jpg",
+        shortDesc: "Retired service dogs and senior shelter heroes finally get the sofa, the sunbeams, and the loving forever homes they have so richly earned.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Golden Years</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Golden Paws Retirement Program</h2><p class="text-amber-200 text-xl mb-6">Retired service dogs and senior shelter heroes finally get the sofa, the sunbeams, and the loving forever homes they have so richly earned.</p><p class="text-zinc-300 mb-8">Heroic service dogs — military, police, PTSD, mobility, and medical-alert heroes — and gentle senior shelter dogs (8+ years old) now receive the peaceful, comfortable forever homes their loyal hearts have earned.</p><p class="text-zinc-300 mb-8">Caring families open their homes so these precious souls can finally rest, be spoiled with premium senior food, joint supplements, grooming, medications, and full veterinary care. A one-time Welcome Home grant turns any house into a true retirement paradise with orthopedic beds, ramps, and thoughtful touches that say “you are home now.”</p><div class="grid grid-cols-2 gap-6 mb-10 text-sm"><div><strong>Starter Retirement Home</strong><br>1 senior hero — $250/mo</div><div><strong>Comfort Retirement Home</strong><br>Moderate needs — $350/mo</div><div><strong>Full Golden Care Home</strong><br>Retired service dog — $450/mo</div><div><strong>Legacy Family Pod</strong><br>Two heroes — $700+/mo</div></div><p class="text-amber-300 mb-6">Pay fully in $NIBBLES and we add 20% more care. Hold 50,000+ $NIBBLES for priority matching and naming rights. Hold 250,000+ and become a Guardian Family with permanent recognition and special moments.</p><button onclick="sponsorProgram('golden-paws-retirement')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Give a Hero Their Golden Years → Sponsor with Love</button>`
+      }
+    ];
+    function renderProgramGrid() {
+      const grid = document.getElementById('program-grid');
+      grid.innerHTML = programs.map(p => `
+        <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 rounded-3xl p-6 hover:border-amber-400/50 overflow-hidden">
+          <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
+          <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
+          <p class="text-zinc-400 text-base">${p.shortDesc}</p>
+        </div>
+      `).join('');
+    }
+    function showProgramModal(id) {
+      const program = programs.find(p => p.id === id);
+      if (!program) return;
+      const modal = document.getElementById('program-modal');
+      const content = document.getElementById('modal-content');
+      content.innerHTML = program.fullHTML;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function hideModal() {
+      document.getElementById('program-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+    function sponsorProgram(slug) {
+      alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives. On mainnet you will be able to sponsor instantly with $NIBBLES.");
+    }
+    let isMenuOpen = false;
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('hamburger-icon');
+      menu.classList.toggle('hidden');
+      isMenuOpen = !isMenuOpen;
+      icon.classList.toggle('fa-bars', !isMenuOpen);
+      icon.classList.toggle('fa-xmark', isMenuOpen);
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
+    window.onload = renderProgramGrid;
+  </script>
+</body>
+</html>
