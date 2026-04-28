@@ -18,7 +18,6 @@
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
-
   <!-- NAVBAR, HERO, EXPLANATION, CONTRACTS - UNCHANGED -->
   <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
@@ -49,7 +48,6 @@
       <a href="https://github.com/ShibaHumanityhub" target="_blank" onclick="toggleMobileMenu()" class="block py-3">GitHub</a>
     </div>
   </nav>
-
   <header class="hero-bg pt-40 pb-32 text-center relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 relative z-10">
       <div class="flex flex-col items-center">
@@ -65,13 +63,11 @@
       <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v2.pdf" target="_blank" class="inline-block bg-white text-black font-bold text-3xl px-16 py-8 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">📄 Download Whitepaper v2</a>
     </div>
   </header>
-
   <div class="max-w-5xl mx-auto px-6 py-16 -mt-8">
     <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
       <p class="text-2xl leading-relaxed text-white">Shibahumanityhub is a decentralized on-chain charity movement powered by <span class="text-amber-200">$NIBBLES</span> and <span class="text-emerald-300">$hopeseed</span>.<br><br>Every transaction directly funds real impact — with full transparency and no middlemen.</p>
     </div>
   </div>
-
   <section id="contracts" class="py-24 bg-zinc-900">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
@@ -89,16 +85,15 @@
       </div>
     </div>
   </section>
-
-  <!-- PROGRAMS - 3 COLUMNS ON MOBILE -->
+  <!-- PROGRAMS - NOW PERFECTLY RESPONSIVE ON MOBILE -->
   <section id="programs" class="py-24 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
       <p class="text-center text-zinc-400 mb-12">Hover or click any card to read the full heartfelt story.</p>
-      <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6" id="program-grid"></div>
+      <!-- FIXED RESPONSIVE GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="program-grid"></div>
     </div>
   </section>
-
   <!-- MODAL -->
   <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
     <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">
@@ -106,7 +101,6 @@
       <div id="modal-content" class="prose prose-invert max-w-none"></div>
     </div>
   </div>
-
   <script>
     const programs = [
       {
@@ -183,7 +177,6 @@
         `
       }
     ];
-
     function renderProgramGrid() {
       const grid = document.getElementById('program-grid');
       grid.innerHTML = programs.map(p => `
@@ -195,7 +188,6 @@
         </div>
       `).join('');
     }
-
     function showProgramModal(id) {
       const program = programs.find(p => p.id === id);
       if (!program) return;
@@ -205,20 +197,16 @@
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
-
     function hideModal() {
       document.getElementById('program-modal').classList.add('hidden');
       document.body.style.overflow = 'auto';
     }
-
     function sponsorProgram(slug) {
       alert("❤️ Thank you! This program is ready.\n\nOn mainnet you can sponsor instantly with $NIBBLES.");
     }
-
     function toggleMobileMenu() {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     }
-
     window.onload = renderProgramGrid;
   </script>
 </body>
