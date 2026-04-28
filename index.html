@@ -18,7 +18,6 @@
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
-
   <!-- NAVBAR -->
   <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
@@ -52,7 +51,6 @@
       <a href="https://github.com/ShibaHumanityhub" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">GitHub</a>
     </div>
   </nav>
-
   <!-- HERO -->
   <header class="hero-bg pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-28 md:pb-32 text-center relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 relative z-10">
@@ -69,14 +67,12 @@
       <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v2.pdf" target="_blank" class="inline-block bg-white text-black font-bold text-2xl sm:text-3xl px-10 sm:px-16 py-6 sm:py-8 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">📄 Download Whitepaper v2</a>
     </div>
   </header>
-
   <!-- EXPLANATION -->
   <div class="max-w-5xl mx-auto px-6 py-16 -mt-8">
     <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
       <p class="text-2xl leading-relaxed text-white">Shibahumanityhub is a decentralized on-chain charity movement powered by <span class="text-amber-200">$NIBBLES</span> and <span class="text-emerald-300">$hopeseed</span>.<br><br>Every transaction directly funds real impact with full transparency and no middlemen.</p>
     </div>
   </div>
-
   <!-- CONTRACTS -->
   <section id="contracts" class="py-24 bg-zinc-900">
     <div class="max-w-6xl mx-auto px-6 text-center">
@@ -95,7 +91,6 @@
       </div>
     </div>
   </section>
-
   <!-- PROGRAMS -->
   <section id="programs" class="py-24 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-6">
@@ -104,7 +99,6 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8" id="program-grid"></div>
     </div>
   </section>
-
   <!-- HOW YOU CAN HELP RIGHT NOW -->
   <section class="py-20 bg-gradient-to-r from-emerald-900/30 to-amber-900/30">
     <div class="max-w-5xl mx-auto px-6 text-center">
@@ -117,7 +111,6 @@
       </div>
     </div>
   </section>
-
   <!-- FOOTER -->
   <footer class="py-16 bg-black border-t border-amber-500/30">
     <div class="max-w-7xl mx-auto px-6 text-center">
@@ -134,7 +127,6 @@
       <p class="text-emerald-300 text-xs mt-6">Thank you for being part of this circle of mercy. Together we are changing lives, one loving transaction at a time.</p>
     </div>
   </footer>
-
   <!-- MODAL -->
   <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
     <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">
@@ -142,7 +134,6 @@
       <div id="modal-content" class="prose prose-invert max-w-none"></div>
     </div>
   </div>
-
   <script>
     const programs = [
       {
@@ -227,9 +218,17 @@
             <div><strong>Legacy Sponsor</strong><br>Custom annual support</div>
           </div>
           <button onclick="sponsorProgram('rainbow-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Honor a Life → Sponsor a Legacy</button>`
+      },
+      {
+        id: 8,
+        title: "Golden Paws Retirement Program",
+        category: "$NIBBLES",
+        badgeColor: "emerald",
+        image: "https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/goldenpawsretirementprogram.jpg",
+        shortDesc: "Retired service dogs and senior shelter heroes finally get the sofa, the sunbeams, and the loving forever homes they have so richly earned.",
+        fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Golden Years</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Golden Paws Retirement Program</h2><p class="text-amber-200 text-xl mb-6">Retired service dogs and senior shelter heroes finally get the sofa, the sunbeams, and the loving forever homes they have so richly earned.</p><p class="text-zinc-300 mb-8">Heroic service dogs — military, police, PTSD, mobility, and medical-alert heroes — and gentle senior shelter dogs (8+ years old) now receive the peaceful, comfortable forever homes their loyal hearts have earned.</p><p class="text-zinc-300 mb-8">Caring families open their homes so these precious souls can finally rest, be spoiled with premium senior food, joint supplements, grooming, medications, and full veterinary care. A one-time Welcome Home grant turns any house into a true retirement paradise with orthopedic beds, ramps, and thoughtful touches that say “you are home now.”</p><div class="grid grid-cols-2 gap-6 mb-10 text-sm"><div><strong>Starter Retirement Home</strong><br>1 senior hero — $250/mo</div><div><strong>Comfort Retirement Home</strong><br>Moderate needs — $350/mo</div><div><strong>Full Golden Care Home</strong><br>Retired service dog — $450/mo</div><div><strong>Legacy Family Pod</strong><br>Two heroes — $700+/mo</div></div><p class="text-amber-300 mb-6">Pay fully in $NIBBLES and we add 20% more care. Hold 50,000+ $NIBBLES for priority matching and naming rights. Hold 250,000+ and become a Guardian Family with permanent recognition and special moments.</p><button onclick="sponsorProgram('golden-paws-retirement')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full">Give a Hero Their Golden Years → Sponsor with Love</button>`
       }
     ];
-
     function renderProgramGrid() {
       const grid = document.getElementById('program-grid');
       grid.innerHTML = programs.map(p => `
@@ -241,7 +240,6 @@
         </div>
       `).join('');
     }
-
     function showProgramModal(id) {
       const program = programs.find(p => p.id === id);
       if (!program) return;
@@ -251,16 +249,13 @@
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
-
     function hideModal() {
       document.getElementById('program-modal').classList.add('hidden');
       document.body.style.overflow = 'auto';
     }
-
     function sponsorProgram(slug) {
       alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives. On mainnet you will be able to sponsor instantly with $NIBBLES.");
     }
-
     let isMenuOpen = false;
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
@@ -270,9 +265,7 @@
       icon.classList.toggle('fa-bars', !isMenuOpen);
       icon.classList.toggle('fa-xmark', isMenuOpen);
     }
-
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
-
     window.onload = renderProgramGrid;
   </script>
 </body>
