@@ -15,6 +15,8 @@
     .program-card:hover { transform: translateY(-12px) scale(1.08); box-shadow: 0 40px 70px -20px rgb(245 158 11 / 0.5); }
     .modal { animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
     @keyframes modalPop { 0% {opacity:0; transform:scale(0.95);} 100% {opacity:1; transform:scale(1);} }
+    .modal-close { transition: all 0.2s ease; }
+    .modal-close:hover { transform: rotate(90deg); color: #fff; }
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
@@ -51,7 +53,8 @@
       <a href="https://github.com/ShibaHumanityhub" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">GitHub</a>
     </div>
   </nav>
-  <!-- HERO -->
+
+  <!-- HERO - warmer & more emotional -->
   <header class="hero-bg pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-28 md:pb-32 text-center relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 relative z-10">
       <div class="flex flex-col items-center">
@@ -59,7 +62,10 @@
         <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-2.5px] leading-[1.05] -mt-1 md:-mt-4">HUMANITYHUB</h1>
       </div>
       <p class="text-3xl sm:text-4xl mb-6 sm:mb-8 text-amber-100">Since November 2025</p>
-      <div class="text-4xl sm:text-6xl md:text-7xl font-light max-w-4xl mx-auto leading-tight mb-10 sm:mb-12">Every transaction saves lives.</div>
+      <div class="text-4xl sm:text-6xl md:text-7xl font-light max-w-4xl mx-auto leading-tight mb-10 sm:mb-12">
+        Every single transaction quietly changes a life.<br>
+        <span class="text-amber-200">Real mercy. Real love. Real homes.</span>
+      </div>
       <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-4 text-3xl sm:text-4xl mb-12 sm:mb-16 items-center">
         <div class="flex items-center gap-4">$NIBBLES <span class="text-amber-200">🐕</span></div>
         <div class="flex items-center gap-4">$hopeseed <span class="text-emerald-300">🌱</span></div>
@@ -67,12 +73,14 @@
       <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v2.pdf" target="_blank" class="inline-block bg-white text-black font-bold text-2xl sm:text-3xl px-10 sm:px-16 py-6 sm:py-8 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl">📄 Download Whitepaper v2</a>
     </div>
   </header>
+
   <!-- EXPLANATION -->
   <div class="max-w-5xl mx-auto px-6 py-16 -mt-8">
     <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
       <p class="text-2xl leading-relaxed text-white">Shibahumanityhub is a decentralized on-chain charity movement powered by <span class="text-amber-200">$NIBBLES</span> and <span class="text-emerald-300">$hopeseed</span>.<br><br>Every transaction directly funds real impact with full transparency and no middlemen.</p>
     </div>
   </div>
+
   <!-- CONTRACTS -->
   <section id="contracts" class="py-24 bg-zinc-900">
     <div class="max-w-6xl mx-auto px-6 text-center">
@@ -91,14 +99,16 @@
       </div>
     </div>
   </section>
-  <!-- PROGRAMS -->
+
+  <!-- PROGRAMS - improved mobile spacing -->
   <section id="programs" class="py-24 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
-      <p class="text-center text-zinc-400 mb-12">Hover or click any card to read the full heartfelt story.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8" id="program-grid"></div>
+      <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8" id="program-grid"></div>
     </div>
   </section>
+
   <!-- HOW YOU CAN HELP RIGHT NOW -->
   <section class="py-20 bg-gradient-to-r from-emerald-900/30 to-amber-900/30">
     <div class="max-w-5xl mx-auto px-6 text-center">
@@ -111,6 +121,7 @@
       </div>
     </div>
   </section>
+
   <!-- FOOTER -->
   <footer class="py-16 bg-black border-t border-amber-500/30">
     <div class="max-w-7xl mx-auto px-6 text-center">
@@ -127,13 +138,15 @@
       <p class="text-emerald-300 text-xs mt-6">Thank you for being part of this circle of mercy. Together we are changing lives, one loving transaction at a time.</p>
     </div>
   </footer>
-  <!-- MODAL -->
-  <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
+
+  <!-- MODAL - improved UX -->
+  <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4">
     <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">
-      <button onclick="hideModal()" class="absolute top-6 right-6 text-4xl text-zinc-400 hover:text-white">✕</button>
+      <button onclick="hideModal()" class="modal-close absolute top-6 right-6 text-5xl text-zinc-400 hover:text-white">✕</button>
       <div id="modal-content" class="prose prose-invert max-w-none"></div>
     </div>
   </div>
+
   <script>
     const programs = [
       {
@@ -580,6 +593,7 @@
           <button onclick="sponsorProgram('forever-home-families')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Create a Forever Home → Sponsor a Family Today</button>`
       }
     ];
+
     function renderProgramGrid() {
       const grid = document.getElementById('program-grid');
       grid.innerHTML = programs.map(p => `
@@ -591,6 +605,7 @@
         </div>
       `).join('');
     }
+
     function showProgramModal(id) {
       const program = programs.find(p => p.id === id);
       if (!program) return;
@@ -600,13 +615,16 @@
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
+
     function hideModal() {
       document.getElementById('program-modal').classList.add('hidden');
       document.body.style.overflow = 'auto';
     }
+
     function sponsorProgram(slug) {
       alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives. On mainnet you will be able to sponsor instantly with $NIBBLES.");
     }
+
     let isMenuOpen = false;
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
@@ -616,6 +634,7 @@
       icon.classList.toggle('fa-bars', !isMenuOpen);
       icon.classList.toggle('fa-xmark', isMenuOpen);
     }
+
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
     window.onload = renderProgramGrid;
   </script>
