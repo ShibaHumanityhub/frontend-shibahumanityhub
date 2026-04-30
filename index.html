@@ -804,8 +804,7 @@
     }
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
-    window.onload = renderProgramGrid;
-      // === NEW CODE TO SHOW YOUR PROGRAMS IN THE ELEGANT SEPARATED LAYOUT ===
+     // === NEW CODE TO SHOW YOUR PROGRAMS IN THE ELEGANT SEPARATED LAYOUT ===
   function renderNibblesGrid() {
     const grid = document.getElementById('nibbles-grid');
     if (!grid) return;
@@ -819,25 +818,23 @@
     `).join('');
   }
 
-    function setupFeatured() {
-    // Change these 3 lines with your real first hopeseed project
+  function setupFeatured() {
     document.getElementById('featured-title').innerHTML = `Your Real Project Title Here<br><span class="text-emerald-400 text-2xl">— First Official $hopeseed Impact —</span>`;
     document.getElementById('featured-desc').innerHTML = `Paste the powerful, emotional description of your very first real-world $hopeseed project here.<br><br>Make it heartfelt — tell the story, the lives it will change, and why it matters.`;
-    
-    // ←←← REPLACE THIS WITH YOUR REAL HIGH-RES PHOTO URL
     document.getElementById('featured-image').src = "https://via.placeholder.com/800x600/052e16/10b981?text=REPLACE+WITH+YOUR+REAL+PHOTO";
-  }
   }
 
   function donateToFeatured() {
     alert("🌍 Thank you! This $hopeseed project just got closer to reality.");
   }
 
-  // Change the onload to use the new render
+  // Load the new layout when the page opens
   window.onload = function() {
     renderNibblesGrid();
-    setupFeaturedHopeseed();
+    setupFeatured();
   };
-  </script>
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
+</script>
 </body>
 </html>
