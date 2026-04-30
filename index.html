@@ -100,27 +100,66 @@
     </div>
   </section>
 
-  <!-- PROGRAMS - improved mobile spacing -->
-  <section id="programs" class="py-24 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
-      <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8" id="program-grid"></div>
-    </div>
-  </section>
+  <!-- PROGRAMS SECTION – BILLION-DOLLAR UPGRADE -->
+<section id="programs" class="py-24 bg-zinc-950 relative overflow-hidden">
+  <!-- Subtle background glow layer -->
+  <div class="absolute inset-0 bg-[radial-gradient(at_top_right,#10b981_0%,transparent_50%)] opacity-20"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(at_bottom_left,#f59e0b_0%,transparent_50%)] opacity-20"></div>
 
-  <!-- HOW YOU CAN HELP RIGHT NOW -->
-  <section class="py-20 bg-gradient-to-r from-emerald-900/30 to-amber-900/30">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">How You Can Help Right Now</h2>
-      <p class="text-xl text-zinc-300 mb-10">Every $NIBBLES transaction quietly funds real mercy. Choose your way to make a difference today.</p>
-      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-Whitepaper-v2.pdf" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all">📄 Read the full vision</a>
-        <button onclick="sponsorProgram('any')" class="bg-amber-500 hover:bg-amber-400 text-white rounded-3xl p-8 transition-all">❤️ Sponsor a program instantly</button>
-        <a href="https://x.com/Shibhumanityhub" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all">🐦 Join the movement on X</a>
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-6xl font-bold text-center mb-4 bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">
+      Our Programs
+    </h2>
+    <p class="text-xl text-zinc-400 text-center mb-16 max-w-2xl mx-auto">
+      People helping people helping people. Every transaction saves lives.
+    </p>
+
+    <!-- MR. NIBBLES PROGRAMS -->
+    <div class="mb-20">
+      <div class="flex items-center gap-4 mb-8">
+        <img src="https://shibahumanityhub.github.io/frontend-shibahumanityhub/assets/nibbles-logo.png" alt="Mr. Nibbles" class="w-12 h-12">
+        <h3 class="text-4xl font-bold text-amber-400">Mr. Nibbles Programs 🐕</h3>
+        <span class="px-4 py-1 bg-amber-400/10 text-amber-400 text-sm font-medium rounded-full">17 Rescue & Sanctuary Initiatives</span>
+      </div>
+      <div id="nibbles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cards will appear here soon -->
       </div>
     </div>
-  </section>
+
+    <!-- FEATURED HOPeseed PROJECT (perfect spot for your first photo) -->
+    <div class="mb-20">
+      <div class="flex items-center gap-4 mb-8">
+        <img src="https://shibahumanityhub.github.io/frontend-shibahumanityhub/assets/hopeseed-logo.png" alt="$hopeseed" class="w-12 h-12">
+        <h3 class="text-4xl font-bold text-emerald-400">$hopeseed Programs 🌱</h3>
+        <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-sm font-medium rounded-full">13 Global Impact Projects</span>
+      </div>
+      
+      <div id="featured-hopeseed" class="bg-gradient-to-br from-emerald-900/30 to-zinc-900 border border-emerald-400/30 rounded-3xl p-8 mb-12 flex flex-col lg:flex-row gap-8 items-center hover:scale-[1.02] transition-all duration-500 shadow-2xl">
+        <div class="lg:w-1/2">
+          <div class="text-emerald-400 text-sm font-semibold tracking-widest mb-2">FEATURED PROJECT #1</div>
+          <h4 id="featured-title" class="text-4xl font-bold mb-4">Your First Hopeseed Project Name Goes Here</h4>
+          <p id="featured-desc" class="text-zinc-300 text-lg leading-relaxed mb-6">
+            Paste your project description here. High-impact, photo-ready, and ready to inspire.
+          </p>
+          <button onclick="donateToFeatured()" 
+                  class="px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-2xl flex items-center gap-3 transition-all">
+            Support This Project <span class="text-2xl">🌍</span>
+          </button>
+        </div>
+        <div class="lg:w-1/2">
+          <img id="featured-image" 
+               src="https://via.placeholder.com/800x600/052e16/10b981?text=PLACE+YOUR+HIGH-RES+PHOTO+HERE" 
+               alt="Featured Hopeseed Project" 
+               class="w-full rounded-3xl shadow-2xl object-cover aspect-video">
+        </div>
+      </div>
+
+      <div id="hopeseed-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Other hopeseed cards will appear here soon -->
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer class="py-16 bg-black border-t border-amber-500/30">
