@@ -599,6 +599,57 @@
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
     window.onload = renderProgramGrid;
+   <script>
+    const programs = [ /* your full array with all 17 programs stays exactly here */ ];
+
+    function renderProgramGrid() {
+      const grid = document.getElementById('program-grid');
+      if (!grid) return;
+      grid.innerHTML = programs.map(p => `
+        <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 rounded-3xl p-6 hover:border-amber-400/50 hover:scale-[1.03] transition-all shadow-xl">
+          <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
+          <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
+          <p class="text-zinc-400 text-base">${p.shortDesc}</p>
+        </div>
+      `).join('');
+    }
+
+    function showProgramModal(id) {
+      const program = programs.find(p => p.id === id);
+      if (!program) return;
+      const modal = document.getElementById('program-modal');
+      const content = document.getElementById('modal-content');
+      content.innerHTML = program.fullHTML;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideModal() {
+      document.getElementById('program-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function sponsorProgram(slug) {
+      alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives. On mainnet you will be able to sponsor instantly with $NIBBLES.");
+    }
+
+    let isMenuOpen = false;
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('hamburger-icon');
+      menu.classList.toggle('hidden');
+      isMenuOpen = !isMenuOpen;
+      icon.classList.toggle('fa-bars', !isMenuOpen);
+      icon.classList.toggle('fa-xmark', isMenuOpen);
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
+
+    // Load the programs when the page opens
+    window.onload = function() {
+      renderProgramGrid();
+    };
   </script>
 </body>
 </html>
