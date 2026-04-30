@@ -819,10 +819,14 @@
     `).join('');
   }
 
-  function setupFeaturedHopeseed() {
-    document.getElementById('featured-title').textContent = "Your First Hopeseed Project Name Goes Here";
-    document.getElementById('featured-desc').innerHTML = `Paste your real project description here.<br><br>High-impact, photo-ready, and ready to inspire the world.`;
-    document.getElementById('featured-image').src = "https://via.placeholder.com/800x600/052e16/10b981?text=UPLOAD+YOUR+HIGH-RES+PHOTO+HERE";
+    function setupFeatured() {
+    // Change these 3 lines with your real first hopeseed project
+    document.getElementById('featured-title').innerHTML = `Your Real Project Title Here<br><span class="text-emerald-400 text-2xl">— First Official $hopeseed Impact —</span>`;
+    document.getElementById('featured-desc').innerHTML = `Paste the powerful, emotional description of your very first real-world $hopeseed project here.<br><br>Make it heartfelt — tell the story, the lives it will change, and why it matters.`;
+    
+    // ←←← REPLACE THIS WITH YOUR REAL HIGH-RES PHOTO URL
+    document.getElementById('featured-image').src = "https://via.placeholder.com/800x600/052e16/10b981?text=REPLACE+WITH+YOUR+REAL+PHOTO";
+  }
   }
 
   function donateToFeatured() {
