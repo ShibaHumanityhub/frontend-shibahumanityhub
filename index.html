@@ -805,6 +805,35 @@
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
     window.onload = renderProgramGrid;
+      // === NEW CODE TO SHOW YOUR PROGRAMS IN THE ELEGANT SEPARATED LAYOUT ===
+  function renderNibblesGrid() {
+    const grid = document.getElementById('nibbles-grid');
+    if (!grid) return;
+    grid.innerHTML = programs.map(p => `
+      <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 rounded-3xl p-6 hover:border-amber-400/50 hover:scale-[1.03] transition-all shadow-xl">
+        <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
+        <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
+        <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
+        <p class="text-zinc-400 text-base">${p.shortDesc}</p>
+      </div>
+    `).join('');
+  }
+
+  function setupFeaturedHopeseed() {
+    document.getElementById('featured-title').textContent = "Your First Hopeseed Project Name Goes Here";
+    document.getElementById('featured-desc').innerHTML = `Paste your real project description here.<br><br>High-impact, photo-ready, and ready to inspire the world.`;
+    document.getElementById('featured-image').src = "https://via.placeholder.com/800x600/052e16/10b981?text=UPLOAD+YOUR+HIGH-RES+PHOTO+HERE";
+  }
+
+  function donateToFeatured() {
+    alert("🌍 Thank you! This $hopeseed project just got closer to reality.");
+  }
+
+  // Change the onload to use the new render
+  window.onload = function() {
+    renderNibblesGrid();
+    setupFeaturedHopeseed();
+  };
   </script>
 </body>
 </html>
