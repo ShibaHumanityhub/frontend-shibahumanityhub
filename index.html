@@ -649,9 +649,7 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
 
     // Load the programs when the page opens
-    window.onload = function() {
-      renderProgramGrid();
-    };
+        window.onload = renderProgramGrid;
   </script>
 </body>
 </html>
