@@ -99,45 +99,15 @@
     </div>
   </section>
 
- <!-- PROGRAMS SECTION – PREMIUM DIVIDER -->
-<section id="programs" class="py-24 bg-zinc-950 relative overflow-hidden">
-  <!-- Elegant background glows -->
-  <div class="absolute inset-0 bg-[radial-gradient(at_top_right,#10b981_0%,transparent_50%)] opacity-20"></div>
-  <div class="absolute inset-0 bg-[radial-gradient(at_bottom_left,#f59e0b_0%,transparent_50%)] opacity-20"></div>
-
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
-    <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
-
-    <!-- MR. NIBBLES PROGRAMS (kept exactly as you have it) -->
-    <div id="program-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8"></div>
-
-    <!-- PREMIUM HIGH-END DIVIDER -->
-    <div class="flex items-center justify-center my-20">
-      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent"></div>
-      <div class="mx-8 flex items-center gap-4 px-8 py-3 bg-zinc-900 border border-emerald-400/30 rounded-3xl">
-        <span class="text-5xl">🌱</span>
-        <div class="text-center">
-          <span class="text-emerald-400 text-3xl font-light tracking-[4px] uppercase">$hopeseed</span>
-          <div class="text-xs text-emerald-400/70 tracking-widest">GLOBAL IMPACT PROJECTS</div>
-        </div>
-        <span class="text-5xl">🌱</span>
-      </div>
-      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent"></div>
+  <!-- PROGRAMS - improved mobile spacing -->
+  <section id="programs" class="py-24 bg-zinc-950">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
+      <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8" id="program-grid"></div>
     </div>
+  </section>
 
-    <!-- $HOPeseed PROGRAMS (ready for you to add cards later) -->
-    <div>
-      <div class="flex items-center gap-4 mb-8 justify-center">
-        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" alt="$hopeseed" class="w-9 h-9 object-contain">
-        <h3 class="text-4xl font-bold text-emerald-400">$hopeseed Programs 🌱</h3>
-        <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-sm font-medium rounded-full">13 Global Impact Projects</span>
-      </div>
-
-      <div id="hopeseed-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-    </div>
-  </div>
-</section>
   <!-- HOW YOU CAN HELP RIGHT NOW -->
   <section class="py-20 bg-gradient-to-r from-emerald-900/30 to-amber-900/30">
     <div class="max-w-5xl mx-auto px-6 text-center">
@@ -599,57 +569,6 @@
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
     window.onload = renderProgramGrid;
-     <script>
-    const programs = [
-      // ←←← YOUR FULL 17 PROGRAMS ARRAY IS ALREADY ABOVE THIS — DO NOT DELETE IT
-    ];
-
-    function renderProgramGrid() {
-      const grid = document.getElementById('program-grid');
-      if (!grid) return;
-      grid.innerHTML = programs.map(p => `
-        <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 rounded-3xl p-6 hover:border-amber-400/50 hover:scale-[1.03] transition-all shadow-xl">
-          <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
-          <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
-          <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-        </div>
-      `).join('');
-    }
-
-    function showProgramModal(id) {
-      const program = programs.find(p => p.id === id);
-      if (!program) return;
-      const modal = document.getElementById('program-modal');
-      const content = document.getElementById('modal-content');
-      content.innerHTML = program.fullHTML;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function hideModal() {
-      document.getElementById('program-modal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
-
-    function sponsorProgram(slug) {
-      alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives. On mainnet you will be able to sponsor instantly with $NIBBLES.");
-    }
-
-    let isMenuOpen = false;
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const icon = document.getElementById('hamburger-icon');
-      menu.classList.toggle('hidden');
-      isMenuOpen = !isMenuOpen;
-      icon.classList.toggle('fa-bars', !isMenuOpen);
-      icon.classList.toggle('fa-xmark', isMenuOpen);
-    }
-
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
-
-    // Load the programs when the page opens
-        window.onload = renderProgramGrid;
   </script>
 </body>
 </html>
