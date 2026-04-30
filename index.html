@@ -99,14 +99,62 @@
     </div>
   </section>
 
-  <!-- PROGRAMS - improved mobile spacing -->
-  <section id="programs" class="py-24 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
-      <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8" id="program-grid"></div>
+  <!-- PROGRAMS SECTION – PREMIUM DIVIDER + SEPARATED LAYOUT -->
+<section id="programs" class="py-24 bg-zinc-950 relative overflow-hidden">
+  <!-- Elegant background glows -->
+  <div class="absolute inset-0 bg-[radial-gradient(at_top_right,#10b981_0%,transparent_50%)] opacity-20"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(at_bottom_left,#f59e0b_0%,transparent_50%)] opacity-20"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
+    <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
+
+    <!-- MR. NIBBLES PROGRAMS (kept exactly as you had it) -->
+    <div id="program-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8"></div>
+
+    <!-- PREMIUM DIVIDER – high-end separation -->
+    <div class="flex items-center justify-center my-20">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent"></div>
+      <div class="mx-8 flex items-center gap-3 text-emerald-400">
+        <span class="text-4xl">🌱</span>
+        <span class="text-2xl font-light tracking-[3px] uppercase">$hopeseed</span>
+        <span class="text-4xl">🌱</span>
+      </div>
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent"></div>
     </div>
-  </section>
+
+    <!-- $HOPeseed PROGRAMS -->
+    <div>
+      <div class="flex items-center gap-4 mb-8 justify-center">
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" alt="$hopeseed" class="w-9 h-9 object-contain">
+        <h3 class="text-4xl font-bold text-emerald-400">$hopeseed Programs 🌱</h3>
+        <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-sm font-medium rounded-full">13 Global Impact Projects</span>
+      </div>
+
+      <!-- Featured Hopeseed Project -->
+      <div id="featured-hopeseed" class="bg-gradient-to-br from-emerald-900/50 to-zinc-900 border border-emerald-400/60 rounded-3xl p-10 mb-12 flex flex-col lg:flex-row gap-10 items-center hover:scale-[1.02] transition-all duration-500 shadow-2xl">
+        <div class="lg:w-1/2">
+          <div class="text-emerald-400 text-sm font-semibold tracking-widest mb-3">FEATURED PROJECT #1</div>
+          <h4 id="featured-title" class="text-4xl font-bold mb-4 leading-tight">Your First Hopeseed Project Name Goes Here</h4>
+          <p id="featured-desc" class="text-zinc-300 text-lg leading-relaxed mb-8">
+            Paste your powerful, emotional description here. High-impact, photo-ready, and ready to inspire the world.
+          </p>
+          <button onclick="donateToFeatured()" class="px-10 py-5 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-3xl flex items-center gap-4 text-lg transition-all shadow-xl">
+            Support This Project <span class="text-3xl">🌍</span>
+          </button>
+        </div>
+        <div class="lg:w-1/2">
+          <img id="featured-image" 
+               src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" 
+               alt="Featured Hopeseed Project" 
+               class="w-full rounded-3xl shadow-2xl object-contain bg-zinc-950 p-6">
+        </div>
+      </div>
+
+      <div id="hopeseed-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+  </div>
+</section>
 
   <!-- HOW YOU CAN HELP RIGHT NOW -->
   <section class="py-20 bg-gradient-to-r from-emerald-900/30 to-amber-900/30">
