@@ -598,16 +598,19 @@
 
     // The rest of your script (renderProgramGrid, showProgramModal, etc.) stays exactly the same];
 
-    function renderProgramGrid() {
+       function renderProgramGrid() {
       const grid = document.getElementById('program-grid');
-      grid.innerHTML = programs.map(p => `
-        <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 rounded-3xl p-6 hover:border-amber-400/50 overflow-hidden">
-          <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-          <div class="flex gap-2 mb-4"><span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
-          <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
-          <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-        </div>
-      `).join('');
+      if (!grid) return;
+      grid.innerHTML = programs
+        .filter(p => p.category === "$NIBBLES")
+        .map(p => `
+          <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 rounded-3xl p-6 hover:border-amber-400/50 overflow-hidden">
+            <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
+            <div class="flex gap-2 mb-4"><span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
+            <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
+            <p class="text-zinc-400 text-base">${p.shortDesc}</p>
+          </div>
+        `).join('');
     }
 
     function showProgramModal(id) {
