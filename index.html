@@ -974,87 +974,14 @@
       renderHopeseedGrid();
     };
   </script>
-             <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (FINAL VERSION - WORKS ON CHROME) === -->
-  <script>
-    function startMercyGlow() {
-      console.log("🚀 Mercy Glow FINAL version started");
-
-      const header = document.querySelector('header');
-      if (!header) return;
-
-      // Remove old canvas if any
-      const oldCanvas = document.getElementById('mercyCanvas');
-      if (oldCanvas) oldCanvas.remove();
-
-      const mercyCanvas = document.createElement('canvas');
-      mercyCanvas.id = 'mercyCanvas';
-      mercyCanvas.style.position = 'absolute';
-      mercyCanvas.style.top = '0';
-      mercyCanvas.style.left = '0';
-      mercyCanvas.style.width = '100%';
-      mercyCanvas.style.height = '100%';
-      mercyCanvas.style.zIndex = '-1';
-      mercyCanvas.style.opacity = '0.92';
-      mercyCanvas.style.pointerEvents = 'none';
-      header.appendChild(mercyCanvas);
-
-      const mCtx = mercyCanvas.getContext('2d');
-      let mParticles = [];
-
-      function mResize() {
-        mercyCanvas.width = window.innerWidth;
-        mercyCanvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', mResize);
-      mResize();
-
-      class MercyParticle {
-        constructor() {
-          this.x = Math.random() * mercyCanvas.width;
-          this.y = Math.random() * mercyCanvas.height * 1.5;
-          this.size = Math.random() * 11 + 5;
-          this.speed = Math.random() * 0.55 + 0.25;
-          this.type = Math.random() > 0.5 ? 'paw' : 'heart';
-        }
-        update() {
-          this.y -= this.speed;
-          if (this.y < 0) this.y = mercyCanvas.height;
-        }
-        draw() {
-          mCtx.save();
-          mCtx.globalAlpha = 0.88;
-          if (this.type === 'heart') {
-            mCtx.fillStyle = '#ff9a9e';
-            mCtx.font = '26px system-ui';
-            mCtx.fillText('♡', this.x, this.y);
-          } else {
-            mCtx.fillStyle = '#fcd34d';
-            mCtx.font = '30px system-ui';
-            mCtx.fillText('🐾', this.x, this.y);
-          }
-          mCtx.restore();
-        }
-      }
-
-      function mAnimate() {
-        mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-        if (mParticles.length < 85) mParticles.push(new MercyParticle());
-        
-        for (let i = 0; i < mParticles.length; i++) {
-          mParticles[i].update();
-          mParticles[i].draw();
-        }
-        requestAnimationFrame(mAnimate);
-      }
-      mAnimate();
-      console.log("✨ Final mercy glow running — should be visible now!");
+                 /* === Gentle Shiba Mercy Glow Background (Step 2) === */
+    #shiba-mercy-glow {
+      background: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
     }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startMercyGlow);
-    } else {
-      startMercyGlow();
-    }
-  </script>
-</body>
-</html>
