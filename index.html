@@ -33,13 +33,12 @@
 </head>
 <body class="bg-zinc-950 text-white">
   <!-- NAVBAR -->
-  <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
-      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-        <div class="flex items-center gap-3">
-          <span class="text-3xl"></span>
-          <h1 class="text-lg sm:text-xl md:text-2xl font-bold tracking-[-1px]">SHIBAHUMANITYHUB</h1>
-        </div>
+  <div class="hidden md:flex items-center gap-8 text-lg">
+  <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
+  <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
+  <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="hover:text-amber-300 transition">Whitepaper v2</a>
+  <a href="https://github.com/ShibaHumanityhub" target="_blank" class="hover:text-amber-300 transition">GitHub</a>
+</div>
                 <span class="text-xs sm:text-sm font-medium px-4 py-1.5 bg-amber-500/10 text-amber-300 rounded-3xl border border-amber-500/30 self-start sm:self-auto">
           Every transaction saves lives ❤️
         </span>
@@ -160,19 +159,11 @@
   </section>
 
   <!-- HOW YOU CAN HELP RIGHT NOW -->
-  <section class="py-20 bg-gradient-to-r from-emerald-900/30 to-amber-900/30">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">How You Can Help Right Now</h2>
-      <p class="text-xl text-zinc-300 mb-10">Every $NIBBLES transaction quietly funds real mercy. Choose your way to make a difference today.</p>
-      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all"> Read the full vision</a>
-
-" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all"> Read the full vision</a>
-        <button onclick="sponsorProgram('any')" class="bg-amber-500 hover:bg-amber-400 text-white rounded-3xl p-8 transition-all"> Sponsor a program instantly</button>
-        <a href="https://x.com/Shibhumanityhub" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all"> Join the movement on X</a>
-      </div>
-    </div>
-  </section>
+  <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+  <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all"> Read the full vision</a>
+  <button onclick="sponsorProgram('any')" class="bg-amber-500 hover:bg-amber-400 text-white rounded-3xl p-8 transition-all"> Sponsor a program instantly</button>
+  <a href="https://x.com/Shibhumanityhub" target="_blank" class="bg-white text-black rounded-3xl p-8 hover:scale-105 transition-all"> Join the movement on X</a>
+</div>
 
   <!-- FOOTER -->
   <footer class="py-16 bg-black border-t border-amber-500/30">
