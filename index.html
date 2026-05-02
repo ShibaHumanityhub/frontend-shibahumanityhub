@@ -32,34 +32,39 @@
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
-  <!-- NAVBAR -->
-  <div class="hidden md:flex items-center gap-8 text-lg">
-  <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
-  <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
-  <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="hover:text-amber-300 transition">Whitepaper v2</a>
-  <a href="https://github.com/ShibaHumanityhub" target="_blank" class="hover:text-amber-300 transition">GitHub</a>
-</div>
-                <span class="text-xs sm:text-sm font-medium px-4 py-1.5 bg-amber-500/10 text-amber-300 rounded-3xl border border-amber-500/30 self-start sm:self-auto">
+   <!-- NAVBAR -->
+  <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl"></span>
+          <h1 class="text-lg sm:text-xl md:text-2xl font-bold tracking-[-1px]">SHIBAHUMANITYHUB</h1>
+        </div>
+        <span class="text-xs sm:text-sm font-medium px-4 py-1.5 bg-amber-500/10 text-amber-300 rounded-3xl border border-amber-500/30 self-start sm:self-auto">
           Every transaction saves lives ❤️
         </span>
       </div>
+
       <div class="flex items-center gap-4 border-l border-amber-500/30 pl-4">
         <a href="https://x.com/Shibhumanityhub" target="_blank" class="hover:text-[#1DA1F2]"><i class="fa-brands fa-x-twitter text-2xl"></i></a>
         <a href="https://t.me/Shibahumanityhub" target="_blank" class="hover:text-[#229ED9]"><i class="fa-brands fa-telegram text-2xl"></i></a>
       </div>
+
       <button onclick="toggleMobileMenu()" class="md:hidden text-3xl hover:text-amber-300 transition-colors">
         <i id="hamburger-icon" class="fa-solid fa-bars"></i>
       </button>
+
+      <!-- Desktop Menu -->
       <div class="hidden md:flex items-center gap-8 text-lg">
         <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
         <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
         <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="hover:text-amber-300 transition">Whitepaper v2</a>
-
-" target="_blank" class="hover:text-amber-300 transition">Whitepaper v2</a>
         <a href="https://github.com/ShibaHumanityhub" target="_blank" class="hover:text-amber-300 transition">GitHub</a>
       </div>
     </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-amber-500/30 px-6 py-6 text-lg">
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-amber-500/30 px-6 py-6 text-lg">
       <a href="#contracts" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Contracts</a>
       <a href="#programs" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Programs</a>
       <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Whitepaper v2</a>
