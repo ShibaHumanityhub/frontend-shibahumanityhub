@@ -974,20 +974,13 @@
       renderHopeseedGrid();
     };
   </script>
-        <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (TEST VERSION - BIG & BRIGHT) === -->
+         <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (HIGH VISIBILITY TEST) === -->
   <script>
     function startMercyGlow() {
       console.log("🚀 Mercy Glow script STARTED");
 
       const container = document.getElementById('shiba-mercy-glow');
-      if (!container) {
-        console.error("❌ shiba-mercy-glow div not found!");
-        return;
-      }
-
-      // Remove any old canvas
-      const oldCanvas = document.getElementById('mercyCanvas');
-      if (oldCanvas) oldCanvas.remove();
+      if (!container) return;
 
       const mercyCanvas = document.createElement('canvas');
       mercyCanvas.id = 'mercyCanvas';
@@ -996,12 +989,10 @@
       mercyCanvas.style.left = '0';
       mercyCanvas.style.width = '100%';
       mercyCanvas.style.height = '100%';
-      mercyCanvas.style.zIndex = '-2';
+      mercyCanvas.style.zIndex = '5';           // ← This is the key fix
       mercyCanvas.style.opacity = '0.95';
       mercyCanvas.style.pointerEvents = 'none';
       container.appendChild(mercyCanvas);
-
-      console.log("✅ Canvas created and appended");
 
       const mCtx = mercyCanvas.getContext('2d');
       let mParticles = [];
@@ -1017,8 +1008,8 @@
         constructor() {
           this.x = Math.random() * mercyCanvas.width;
           this.y = Math.random() * mercyCanvas.height * 1.5;
-          this.size = Math.random() * 8 + 4;
-          this.speed = Math.random() * 0.5 + 0.3;
+          this.size = Math.random() * 12 + 6;
+          this.speed = Math.random() * 0.7 + 0.4;
           this.type = Math.random() > 0.5 ? 'paw' : 'heart';
         }
         update() {
@@ -1027,14 +1018,14 @@
         }
         draw() {
           mCtx.save();
-          mCtx.globalAlpha = 0.9;
+          mCtx.globalAlpha = 0.95;
           if (this.type === 'heart') {
             mCtx.fillStyle = '#ff6b9d';
-            mCtx.font = '22px system-ui';
+            mCtx.font = '28px system-ui';
             mCtx.fillText('♡', this.x, this.y);
           } else {
             mCtx.fillStyle = '#fcd34d';
-            mCtx.font = '26px system-ui';
+            mCtx.font = '32px system-ui';
             mCtx.fillText('🐾', this.x, this.y);
           }
           mCtx.restore();
@@ -1043,7 +1034,7 @@
 
       function mAnimate() {
         mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-        if (mParticles.length < 80) mParticles.push(new MercyParticle());
+        if (mParticles.length < 90) mParticles.push(new MercyParticle());
         
         for (let i = 0; i < mParticles.length; i++) {
           mParticles[i].update();
@@ -1052,7 +1043,7 @@
         requestAnimationFrame(mAnimate);
       }
       mAnimate();
-      console.log("✨ Animation started - floating paws and hearts should be visible now!");
+      console.log("✨ Animation running with BIG visible particles!");
     }
 
     if (document.readyState === 'loading') {
