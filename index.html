@@ -974,17 +974,17 @@
       renderHopeseedGrid();
     };
   </script>
-           <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (FINAL FIXED VERSION) === -->
+             <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (FINAL VERSION - WORKS ON CHROME) === -->
   <script>
     function startMercyGlow() {
-      console.log("🚀 Mercy Glow script STARTED");
+      console.log("🚀 Mercy Glow FINAL version started");
 
       const header = document.querySelector('header');
       if (!header) return;
 
-      // Remove any old canvas
-      const old = document.getElementById('mercyCanvas');
-      if (old) old.remove();
+      // Remove old canvas if any
+      const oldCanvas = document.getElementById('mercyCanvas');
+      if (oldCanvas) oldCanvas.remove();
 
       const mercyCanvas = document.createElement('canvas');
       mercyCanvas.id = 'mercyCanvas';
@@ -993,8 +993,8 @@
       mercyCanvas.style.left = '0';
       mercyCanvas.style.width = '100%';
       mercyCanvas.style.height = '100%';
-      mercyCanvas.style.zIndex = '-1';           // ← Now correctly layered
-      mercyCanvas.style.opacity = '0.95';
+      mercyCanvas.style.zIndex = '-1';
+      mercyCanvas.style.opacity = '0.92';
       mercyCanvas.style.pointerEvents = 'none';
       header.appendChild(mercyCanvas);
 
@@ -1012,8 +1012,8 @@
         constructor() {
           this.x = Math.random() * mercyCanvas.width;
           this.y = Math.random() * mercyCanvas.height * 1.5;
-          this.size = Math.random() * 10 + 5;
-          this.speed = Math.random() * 0.6 + 0.3;
+          this.size = Math.random() * 11 + 5;
+          this.speed = Math.random() * 0.55 + 0.25;
           this.type = Math.random() > 0.5 ? 'paw' : 'heart';
         }
         update() {
@@ -1022,14 +1022,14 @@
         }
         draw() {
           mCtx.save();
-          mCtx.globalAlpha = 0.85;
+          mCtx.globalAlpha = 0.88;
           if (this.type === 'heart') {
             mCtx.fillStyle = '#ff9a9e';
-            mCtx.font = '24px system-ui';
+            mCtx.font = '26px system-ui';
             mCtx.fillText('♡', this.x, this.y);
           } else {
             mCtx.fillStyle = '#fcd34d';
-            mCtx.font = '28px system-ui';
+            mCtx.font = '30px system-ui';
             mCtx.fillText('🐾', this.x, this.y);
           }
           mCtx.restore();
@@ -1038,7 +1038,7 @@
 
       function mAnimate() {
         mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-        if (mParticles.length < 80) mParticles.push(new MercyParticle());
+        if (mParticles.length < 85) mParticles.push(new MercyParticle());
         
         for (let i = 0; i < mParticles.length; i++) {
           mParticles[i].update();
@@ -1047,7 +1047,7 @@
         requestAnimationFrame(mAnimate);
       }
       mAnimate();
-      console.log("✨ Floating paws & hearts are now active!");
+      console.log("✨ Final mercy glow running — should be visible now!");
     }
 
     if (document.readyState === 'loading') {
