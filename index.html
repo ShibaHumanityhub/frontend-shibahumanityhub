@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,17 +18,17 @@
     .modal-close { transition: all 0.2s ease; }
     .modal-close:hover { transform: rotate(90deg); color: #fff; }
 
-    /* === Gentle Shiba Mercy Glow Background (Step 2) === */
+    /* === Gentle Shiba Mercy Glow Background (FINAL - particles now fully visible) === */
     #shiba-mercy-glow {
-      background: linear-gradient(135deg, #f59e0b, #10b981, #b45309);
-      animation: gradientShift 25s ease infinite;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: 0;
       overflow: hidden;
+      background: transparent;               /* ← CRITICAL FIX: was hiding canvas */
+      pointer-events: none;
     }
   </style>
 </head>
@@ -73,8 +74,8 @@
   </nav>
 
   <!-- HERO - warmer & more emotional + Shiba Mercy Glow -->
-<header class="hero-bg pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-28 md:pb-32 text-center relative overflow-hidden" style="background: rgba(245, 158, 11, 0.4) !important;">
-  <!-- Mercy Glow Background Layer -->
+<header class="hero-bg pt-28 sm:pt-36 md:pt-40 pb-20 sm:pb-28 md:pb-32 text-center relative overflow-hidden" style="background: rgba(245, 158, 11, 0.3) !important;">
+  <!-- Mercy Glow Background Layer (canvas will now sit cleanly inside this) -->
   <div id="shiba-mercy-glow" class="absolute inset-0 z-0 pointer-events-none"></div>
   
   <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
@@ -91,12 +92,14 @@
   <div class="flex items-center gap-4">$NIBBLES <span class="text-amber-200">🐕</span></div>
   <div class="flex items-center gap-4">$hopeseed <span class="text-emerald-300">🌱</span></div>
 </div>
-   <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-   target="_blank" 
-   class="inline-flex items-center gap-4 bg-white text-black font-bold text-2xl sm:text-3xl px-10 sm:px-16 py-6 sm:py-8 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl group">
-  <span class="text-5xl group-hover:rotate-12 transition-transform">🦴</span>
-  Download Whitepaper v2
-</a>
+    
+    <!-- Premium Bone Button (replaces old text-only button) -->
+    <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" 
+       class="inline-flex items-center justify-center gap-x-4 bg-white text-black font-bold text-2xl sm:text-3xl px-10 sm:px-16 py-6 sm:py-8 rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl group">
+      <i class="fa-solid fa-bone text-5xl text-amber-500 group-hover:rotate-12 transition-transform"></i>
+      <span>Download Whitepaper v2</span>
+    </a>
+  </div>
 </header>
 
   <!-- EXPLANATION -->
@@ -892,9 +895,7 @@
       },
     ];
 
-    // The rest of your script (renderProgramGrid, showProgramModal, etc.) stays exactly the same];
-
-       function renderProgramGrid() {
+    function renderProgramGrid() {
       const grid = document.getElementById('program-grid');
       if (!grid) return;
       grid.innerHTML = programs
@@ -939,7 +940,8 @@
     }
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
-        function renderHopeseedGrid() {
+
+    function renderHopeseedGrid() {
       const grid = document.getElementById('hopeseed-grid');
       if (!grid) return;
       grid.innerHTML = programs
@@ -953,32 +955,23 @@
           </div>
         `).join('');
     }
-        function renderHopeseedGrid() {
-      const grid = document.getElementById('hopeseed-grid');
-      if (!grid) return;
-      grid.innerHTML = programs
-        .filter(p => p.category === "$hopeseed")
-        .map(p => `
-          <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 rounded-3xl p-6 hover:border-emerald-400/50 hover:scale-[1.03] transition-all shadow-xl">
-            <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
-            <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
-            <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-          </div>
-        `).join('');
-    }
-        window.onload = function() {
+
+    window.onload = function() {
       renderProgramGrid();
       renderHopeseedGrid();
     };
   </script>
-             <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (FINAL VERSION - WORKS ON CHROME) === -->
+
+  <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (FINAL - now fully visible with floating paws & hearts) === -->
   <script>
     function startMercyGlow() {
       console.log("🚀 Mercy Glow FINAL version started");
 
-      const header = document.querySelector('header');
-      if (!header) return;
+      const mercyContainer = document.getElementById('shiba-mercy-glow');
+      if (!mercyContainer) {
+        console.error("Mercy container not found");
+        return;
+      }
 
       // Remove old canvas if any
       const oldCanvas = document.getElementById('mercyCanvas');
@@ -991,17 +984,17 @@
       mercyCanvas.style.left = '0';
       mercyCanvas.style.width = '100%';
       mercyCanvas.style.height = '100%';
-      mercyCanvas.style.zIndex = '-1';
-      mercyCanvas.style.opacity = '0.92';
+      mercyCanvas.style.zIndex = '1';           // ← CRITICAL FIX: now sits above transparent container
+      mercyCanvas.style.opacity = '0.95';
       mercyCanvas.style.pointerEvents = 'none';
-      header.appendChild(mercyCanvas);
+      mercyContainer.appendChild(mercyCanvas);
 
       const mCtx = mercyCanvas.getContext('2d');
       let mParticles = [];
 
       function mResize() {
-        mercyCanvas.width = window.innerWidth;
-        mercyCanvas.height = window.innerHeight;
+        mercyCanvas.width = mercyContainer.offsetWidth;
+        mercyCanvas.height = mercyContainer.offsetHeight;
       }
       window.addEventListener('resize', mResize);
       mResize();
@@ -1010,24 +1003,34 @@
         constructor() {
           this.x = Math.random() * mercyCanvas.width;
           this.y = Math.random() * mercyCanvas.height * 1.5;
-          this.size = Math.random() * 11 + 5;
-          this.speed = Math.random() * 0.55 + 0.25;
-          this.type = Math.random() > 0.5 ? 'paw' : 'heart';
+          this.size = Math.random() * 12 + 6;
+          this.speed = Math.random() * 0.65 + 0.35;
+          this.type = Math.random() > 0.48 ? 'paw' : 'heart';
+          this.swing = Math.random() * Math.PI * 2;
         }
         update() {
           this.y -= this.speed;
-          if (this.y < 0) this.y = mercyCanvas.height;
+          this.swing += 0.02;
+          this.x += Math.sin(this.swing) * 0.8;   // gentle floating sway
+          if (this.y < 0) {
+            this.y = mercyCanvas.height;
+            this.x = Math.random() * mercyCanvas.width;
+          }
         }
         draw() {
           mCtx.save();
-          mCtx.globalAlpha = 0.88;
+          // Soft mercy glow
+          mCtx.shadowColor = this.type === 'heart' ? '#fda4af' : '#fcd34d';
+          mCtx.shadowBlur = 12;
+          mCtx.globalAlpha = 0.92;
+          
           if (this.type === 'heart') {
-            mCtx.fillStyle = '#ff9a9e';
-            mCtx.font = '26px system-ui';
+            mCtx.fillStyle = '#fda4af';
+            mCtx.font = `${this.size * 1.8}px system-ui`;
             mCtx.fillText('♡', this.x, this.y);
           } else {
             mCtx.fillStyle = '#fcd34d';
-            mCtx.font = '30px system-ui';
+            mCtx.font = `${this.size * 1.9}px system-ui`;
             mCtx.fillText('🐾', this.x, this.y);
           }
           mCtx.restore();
@@ -1036,7 +1039,7 @@
 
       function mAnimate() {
         mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-        if (mParticles.length < 85) mParticles.push(new MercyParticle());
+        if (mParticles.length < 110) mParticles.push(new MercyParticle());
         
         for (let i = 0; i < mParticles.length; i++) {
           mParticles[i].update();
@@ -1045,7 +1048,7 @@
         requestAnimationFrame(mAnimate);
       }
       mAnimate();
-      console.log("✨ Final mercy glow running — should be visible now!");
+      console.log("✨ Final mercy glow with floating golden paws 🐾 and hearts ♡ is now visible!");
     }
 
     if (document.readyState === 'loading') {
