@@ -83,6 +83,69 @@
   @media (max-width: 320px) { 
     .hero-title { letter-spacing: -2.1px; font-size: clamp(2rem, 7.5vw, 3.6rem); } 
   }
+                  /* === PREMIUM TOKEN CARDS - HIGH-END GLOW & COLOR FREQUENCY === */
+.token-card {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #27272a, #18181b);
+}
+
+.token-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, 
+    transparent 30%, 
+    rgba(251, 191, 36, 0.25) 50%, 
+    transparent 70%);
+  opacity: 0;
+  transition: all 0.6s ease;
+  border-radius: 1.75rem;
+  z-index: 1;
+  filter: blur(8px);
+}
+
+.token-card:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: 0 0 90px -10px rgb(251 191 36),
+              0 35px 70px -15px rgb(251 191 36);
+}
+
+.token-card:hover::before {
+  opacity: 1;
+  animation: glowFrequency 4s linear infinite;
+}
+
+.token-card.nibbles:hover {
+  box-shadow: 0 0 90px -10px rgb(251 191 36),
+              0 35px 70px -15px rgb(251 191 36);
+}
+
+.token-card.hopeseed:hover {
+  box-shadow: 0 0 90px -10px rgb(16 185 129),
+              0 35px 70px -15px rgb(16 185 129);
+}
+
+.token-card.hopeseed::before {
+  background: linear-gradient(90deg, 
+    transparent 30%, 
+    rgba(16, 185, 129, 0.25) 50%, 
+    transparent 70%);
+}
+
+@keyframes glowFrequency {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Heartfelt token description styling */
+.token-description {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #e5e5e5;
+  font-weight: 400;
+}
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
