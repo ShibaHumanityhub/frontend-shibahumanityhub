@@ -8,11 +8,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
                 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
   body { 
     font-family: 'Inter', system-ui, sans-serif; 
   }
 
-  /* === HIGH-FREQUENCY CINEMATIC COLORS === */
+  /* === BILLION-DOLLAR HERO TITLE (grabs you) === */
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -7px;
+    line-height: 1.02;
+    text-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    animation: titlePulse 8s ease-in-out infinite;
+  }
+  @keyframes titlePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.96; }
+  }
+
+  /* === HEARTFELT LOVING MANTRA (new font) === */
+  .mantra-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 1.85rem;
+    line-height: 1.35;
+    letter-spacing: -0.5px;
+    color: #f5e8c7;
+  }
+
+  /* High-frequency cinematic background */
   .hero-bg { 
     background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
     background-size: 400% 400%;
@@ -27,58 +52,13 @@
     100% {background-position: 0% 50%}
   }
 
-  /* Hero title — grabs you by the face */
-  .hero-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    letter-spacing: -7px;
-    line-height: 1.02;
-    text-shadow: 
-      0 0 40px rgba(251, 191, 36, 0.6),
-      0 20px 60px rgba(0, 0, 0, 0.7);
-    animation: titlePulse 8s ease-in-out infinite;
-  }
-  @keyframes titlePulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%      { opacity: 0.95; transform: scale(1.02); }
-  }
-
-  /* Program cards & headings get premium weight */
-  h2, h3, .program-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    letter-spacing: -1.8px;
-  }
-
-  /* Premium button with magnetic hover */
+  /* Premium button */
   .tesla-btn {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-  .tesla-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(251,191,36,0.3), transparent);
-    transform: translateX(-150%);
-    transition: transform 0.6s;
-  }
-  .tesla-btn:hover::before {
-    transform: translateX(300%);
   }
   .tesla-btn:hover {
     transform: scale(1.08);
     box-shadow: 0 0 40px 15px rgba(251, 191, 36, 0.4);
-  }
-
-  /* Card shimmer on hover */
-  .program-card {
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .program-card:hover {
-    transform: translateY(-20px) scale(1.04);
-    box-shadow: 0 40px 80px -20px rgba(251, 191, 36, 0.6);
   }
 </style>
 </head>
