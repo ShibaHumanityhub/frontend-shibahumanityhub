@@ -6,14 +6,14 @@
   <title>Shibahumanityhub • Since Nov 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-                <style>
+               <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
   body { 
     font-family: 'Inter', system-ui, sans-serif; 
   }
 
-  /* === BILLION-DOLLAR HERO TITLE (grabs you) === */
+  /* === BILLION-DOLLAR HERO TITLE === */
   .hero-title {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -27,7 +27,7 @@
     50% { opacity: 0.96; }
   }
 
-  /* === HEARTFELT LOVING MANTRA (new font) === */
+  /* === HEARTFELT MANTRA === */
   .mantra-text {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
@@ -37,7 +37,7 @@
     color: #f5e8c7;
   }
 
-  /* High-frequency cinematic background */
+  /* === HIGH-FREQUENCY BACKGROUND === */
   .hero-bg { 
     background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
     background-size: 400% 400%;
@@ -52,13 +52,47 @@
     100% {background-position: 0% 50%}
   }
 
-  /* Premium button */
-  .tesla-btn {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* === SUPERCHARGED x50 WHITEPAPER BUTTON === */
+  .super-cta-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgb(251 191 36);
   }
-  .tesla-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 40px 15px rgba(251, 191, 36, 0.4);
+
+  .super-cta-btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 80px 30px rgba(251, 191, 36, 0.7);
+  }
+
+  .bone-icon {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  .super-cta-btn:hover .bone-icon {
+    animation: boneWag 0.6s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.9));
+  }
+
+  @keyframes boneWag {
+    from { transform: rotate(-18deg); }
+    to   { transform: rotate(18deg); }
+  }
+
+  .super-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 40%;
+    height: 300%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: skewX(-25deg);
+    animation: shine 4s linear infinite;
+  }
+  @keyframes shine {
+    100% { transform: translateX(300%); }
   }
 </style>
 </head>
