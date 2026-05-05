@@ -146,6 +146,45 @@
   color: #e5e5e5;
   font-weight: 400;
 }
+
+/* CONTRACT ADDRESS - PERFECT FIT ON SKINNY MOBILE */
+.contract-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.contract-link .label {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.contract-link .address {
+  word-break: break-all;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  font-family: monospace;
+  text-align: center;
+  max-width: 100%;
+  color: #60a5fa;
+}
+
+@media (min-width: 640px) {
+  .contract-link {
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  .contract-link .address {
+    font-size: 0.875rem;
+    text-align: left;
+  }
+}
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
