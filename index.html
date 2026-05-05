@@ -8,96 +8,98 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-    body { 
-      font-family: 'Inter', system-ui, sans-serif; 
-    }
+  body { font-family: 'Inter', system-ui, sans-serif; }
 
-    .hero-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      line-height: 1.02;
-      text-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
-      animation: titlePulse 8s ease-in-out infinite;
-      letter-spacing: -6px;
-      font-size: clamp(2.8rem, 9vw, 9rem);
-    }
-    @keyframes titlePulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.96; }
-    }
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.02;
+    text-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+    animation: titlePulse 8s ease-in-out infinite;
+    letter-spacing: -6px;
+    font-size: clamp(2.8rem, 9vw, 9rem);
+  }
+  @keyframes titlePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.96; }
+  }
 
-    .hero-bg { 
-      background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
-      background-size: 400% 400%;
-      animation: gradientShift 25s ease infinite;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-    @keyframes gradientShift {
-      0%   {background-position: 0% 50%}
-      50%  {background-position: 100% 50%}
-      100% {background-position: 0% 50%}
-    }
+  .hero-bg { 
+    background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
+    background-size: 400% 400%;
+    animation: gradientShift 25s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  @keyframes gradientShift {
+    0%   {background-position: 0% 50%}
+    50%  {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
+  }
 
-    .super-cta-btn {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 25px 50px -12px rgb(251 191 36);
-    }
+  .super-cta-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgb(251 191 36);
+  }
 
-    .super-cta-btn:hover {
-      transform: scale(1.12);
-      box-shadow: 0 0 80px 30px rgba(251, 191, 36, 0.7);
-    }
+  .super-cta-btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 80px 30px rgba(251, 191, 36, 0.7);
+  }
 
-    .bone-icon {
-      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-    .super-cta-btn:hover .bone-icon {
-      animation: boneWag 0.6s ease-in-out infinite alternate;
-      filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.9));
-    }
+  .bone-icon {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  .super-cta-btn:hover .bone-icon {
+    animation: boneWag 0.6s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.9));
+  }
 
-    @keyframes boneWag {
-      from { transform: rotate(-18deg); }
-      to   { transform: rotate(18deg); }
-    }
+  @keyframes boneWag {
+    from { transform: rotate(-18deg); }
+    to   { transform: rotate(18deg); }
+  }
 
-    .super-cta-btn::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 40%;
-      height: 300%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
-      transform: skewX(-25deg);
-      animation: shine 4s linear infinite;
-    }
-    @keyframes shine {
-      100% { transform: translateX(300%); }
-    }
+  .super-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 40%;
+    height: 300%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: skewX(-25deg);
+    animation: shine 4s linear infinite;
+  }
+  @keyframes shine {
+    100% { transform: translateX(300%); }
+  }
 
-    /* MAGIC SKINNY MOBILE FIXES - BILLIONAIRE QUALITY */
-    @media (max-width: 640px) {
-      .hero-title { letter-spacing: -3.5px; font-size: clamp(2.8rem, 9vw, 4.8rem); }
-    }
-    @media (max-width: 380px) {
-      .hero-title { letter-spacing: -2.8px; font-size: clamp(2.5rem, 8.5vw, 4.2rem); }
-      .super-cta-btn { padding: 0.9rem 1.1rem; font-size: 1rem; }
-      .super-cta-btn .bone-icon { font-size: 2.4rem; }
-    }
-    @media (max-width: 360px) {
-      .hero-title { letter-spacing: -2.2px; font-size: clamp(2.3rem, 8vw, 4rem); }
-    }
-  </style>
+  /* ULTRA-AGGRESSIVE SKINNY MOBILE FIXES - PERFECT FIT + FAIR SPACING */
+  @media (max-width: 640px) {
+    .hero-title { letter-spacing: -3.8px; font-size: clamp(2.8rem, 9vw, 4.8rem); }
+  }
+  @media (max-width: 380px) {
+    .hero-title { letter-spacing: -3px; font-size: clamp(2.5rem, 8.5vw, 4.2rem); }
+    .super-cta-btn { padding: 0.85rem 1rem; }
+    .super-cta-btn .bone-icon { font-size: 2.3rem; }
+  }
+  @media (max-width: 360px) {
+    .hero-title { letter-spacing: -2.5px; font-size: clamp(2.2rem, 8vw, 3.9rem); }
+    .super-cta-btn { padding: 0.75rem 0.9rem; max-width: 100%; }
+  }
+  @media (max-width: 320px) {
+    .hero-title { letter-spacing: -2px; font-size: clamp(2rem, 7.5vw, 3.6rem); }
+  }
+</style>
 </head>
 <body class="bg-zinc-950 text-white">
 
