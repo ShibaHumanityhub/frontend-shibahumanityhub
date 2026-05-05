@@ -94,6 +94,31 @@
   @keyframes shine {
     100% { transform: translateX(300%); }
   }
+
+  /* === MOBILE OPTIMIZATIONS === */
+  @media (max-width: 640px) {
+    .hero-title {
+      letter-spacing: -4px;
+      font-size: 3.2rem;
+    }
+    
+    .super-cta-btn {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      font-size: 1.1rem;
+    }
+    
+    .super-cta-btn .bone-icon {
+      font-size: 2.8rem;
+    }
+    
+    .mantra-text {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+  }
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
