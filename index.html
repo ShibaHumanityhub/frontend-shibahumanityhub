@@ -12,8 +12,10 @@
   body { 
     font-family: 'Inter', system-ui, sans-serif; 
     overflow-x: hidden; 
+    line-height: 1.7; /* warmer, more human, easier to read */
   }
 
+  /* HERO TITLE - kept exactly as is (already perfect) */
   .hero-title {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -24,6 +26,22 @@
     font-size: clamp(2.8rem, 9vw, 9rem);
   }
   @keyframes titlePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.96; } }
+
+  /* MAIN SECTION HEADINGS - now luxurious + heartfelt */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+  }
+
+  /* TOKEN & PROGRAM CARD TITLES - premium modern punch */
+  h3,
+  .text-4xl.font-semibold {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -1px;
+  }
 
   .hero-bg { 
     background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
@@ -83,108 +101,109 @@
   @media (max-width: 320px) { 
     .hero-title { letter-spacing: -2.1px; font-size: clamp(2rem, 7.5vw, 3.6rem); } 
   }
-                  /* === PREMIUM TOKEN CARDS - HIGH-END GLOW & COLOR FREQUENCY === */
-.token-card {
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(145deg, #27272a, #18181b);
-}
 
-.token-card::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(90deg, 
-    transparent 30%, 
-    rgba(251, 191, 36, 0.25) 50%, 
-    transparent 70%);
-  opacity: 0;
-  transition: all 0.6s ease;
-  border-radius: 1.75rem;
-  z-index: 1;
-  filter: blur(8px);
-}
+  /* === PREMIUM TOKEN CARDS - HIGH-END GLOW & COLOR FREQUENCY === */
+  .token-card {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #27272a, #18181b);
+  }
 
-.token-card:hover {
-  transform: scale(1.04) translateY(-4px);
-  box-shadow: 0 0 90px -10px rgb(251 191 36),
-              0 35px 70px -15px rgb(251 191 36);
-}
+  .token-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(90deg, 
+      transparent 30%, 
+      rgba(251, 191, 36, 0.25) 50%, 
+      transparent 70%);
+    opacity: 0;
+    transition: all 0.6s ease;
+    border-radius: 1.75rem;
+    z-index: 1;
+    filter: blur(8px);
+  }
 
-.token-card:hover::before {
-  opacity: 1;
-  animation: glowFrequency 4s linear infinite;
-}
+  .token-card:hover {
+    transform: scale(1.04) translateY(-4px);
+    box-shadow: 0 0 90px -10px rgb(251 191 36),
+                0 35px 70px -15px rgb(251 191 36);
+  }
 
-.token-card.nibbles:hover {
-  box-shadow: 0 0 90px -10px rgb(251 191 36),
-              0 35px 70px -15px rgb(251 191 36);
-}
+  .token-card:hover::before {
+    opacity: 1;
+    animation: glowFrequency 4s linear infinite;
+  }
 
-.token-card.hopeseed:hover {
-  box-shadow: 0 0 90px -10px rgb(16 185 129),
-              0 35px 70px -15px rgb(16 185 129);
-}
+  .token-card.nibbles:hover {
+    box-shadow: 0 0 90px -10px rgb(251 191 36),
+                0 35px 70px -15px rgb(251 191 36);
+  }
 
-.token-card.hopeseed::before {
-  background: linear-gradient(90deg, 
-    transparent 30%, 
-    rgba(16, 185, 129, 0.25) 50%, 
-    transparent 70%);
-}
+  .token-card.hopeseed:hover {
+    box-shadow: 0 0 90px -10px rgb(16 185 129),
+                0 35px 70px -15px rgb(16 185 129);
+  }
 
-@keyframes glowFrequency {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
+  .token-card.hopeseed::before {
+    background: linear-gradient(90deg, 
+      transparent 30%, 
+      rgba(16, 185, 129, 0.25) 50%, 
+      transparent 70%);
+  }
 
-/* Heartfelt token description styling */
-.token-description {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #e5e5e5;
-  font-weight: 400;
-}
+  @keyframes glowFrequency {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
 
-/* CONTRACT ADDRESS - PERFECT FIT ON SKINNY MOBILE */
-.contract-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-}
+  /* TOKEN DESCRIPTION - warmer & more heartfelt */
+  .token-description {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #e5e5e5;
+    font-weight: 400;
+  }
 
-.contract-link .label {
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-
-.contract-link .address {
-  word-break: break-all;
-  font-size: 0.78rem;
-  line-height: 1.35;
-  font-family: monospace;
-  text-align: center;
-  max-width: 100%;
-  color: #60a5fa;
-}
-
-@media (min-width: 640px) {
+  /* CONTRACT ADDRESS - PERFECT FIT ON SKINNY MOBILE */
   .contract-link {
-    flex-direction: row;
-    gap: 12px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 8px;
+    width: 100%;
   }
+
+  .contract-link .label {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
   .contract-link .address {
-    font-size: 0.875rem;
-    text-align: left;
+    word-break: break-all;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    font-family: monospace;
+    text-align: center;
+    max-width: 100%;
+    color: #60a5fa;
   }
-}
+
+  @media (min-width: 640px) {
+    .contract-link {
+      flex-direction: row;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+    .contract-link .address {
+      font-size: 0.875rem;
+      text-align: left;
+    }
+  }
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
