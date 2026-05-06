@@ -6,62 +6,241 @@
   <title>Shibahumanityhub • Since Nov 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-                /* SUPERCHARGED PROGRAM CARDS - GLOW THAT ACTUALLY HITS */
-.program-card {
+                <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+  body { 
+    font-family: 'Inter', system-ui, sans-serif; 
+    overflow-x: hidden; 
+    line-height: 1.7; /* warmer, more human, easier to read */
+  }
+
+  /* HERO TITLE - kept exactly as is (already perfect) */
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.02;
+    text-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+    animation: titlePulse 8s ease-in-out infinite;
+    letter-spacing: -6px;
+    font-size: clamp(2.8rem, 9vw, 9rem);
+  }
+  @keyframes titlePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.96; } }
+
+  /* MAIN SECTION HEADINGS - now luxurious + heartfelt */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+  }
+
+  /* TOKEN & PROGRAM CARD TITLES - premium modern punch */
+  h3,
+  .text-4xl.font-semibold {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -1px;
+  }
+
+  .hero-bg { 
+    background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
+    background-size: 400% 400%;
+    animation: gradientShift 25s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  @keyframes gradientShift {
+    0%   {background-position: 0% 50%}
+    50%  {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
+  }
+
+  .super-cta-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgb(251 191 36);
+  }
+  .super-cta-btn:hover { transform: scale(1.12); box-shadow: 0 0 80px 30px rgba(251, 191, 36, 0.7); }
+
+  .bone-icon { transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+  .super-cta-btn:hover .bone-icon { animation: boneWag 0.6s ease-in-out infinite alternate; filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.9)); }
+
+  @keyframes boneWag { from { transform: rotate(-18deg); } to { transform: rotate(18deg); } }
+
+  .super-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 40%;
+    height: 300%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: skewX(-25deg);
+    animation: shine 4s linear infinite;
+  }
+  @keyframes shine { 100% { transform: translateX(300%); } }
+
+  /* 10000000000000x BETTER MOBILE - MATCHES DESKTOP LUXURY PERFECTLY */
+  @media (max-width: 640px) { 
+    .hero-title { letter-spacing: -3.8px; font-size: clamp(2.8rem, 9vw, 4.8rem); } 
+  }
+  @media (max-width: 380px) { 
+    .hero-title { letter-spacing: -3.1px; font-size: clamp(2.5rem, 8.5vw, 4.1rem); } 
+    .super-cta-btn { padding: 0.85rem 1rem; }
+  }
+  @media (max-width: 360px) { 
+    .hero-title { letter-spacing: -2.6px; font-size: clamp(2.2rem, 8vw, 3.85rem); } 
+    .hero-bg { padding-top: 5rem; }
+  }
+  @media (max-width: 320px) { 
+    .hero-title { letter-spacing: -2.1px; font-size: clamp(2rem, 7.5vw, 3.6rem); } 
+  }
+
+  /* === PREMIUM TOKEN CARDS - HIGH-END GLOW & COLOR FREQUENCY === */
+  .token-card {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #27272a, #18181b);
+  }
+
+  .token-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(90deg, 
+      transparent 30%, 
+      rgba(251, 191, 36, 0.25) 50%, 
+      transparent 70%);
+    opacity: 0;
+    transition: all 0.6s ease;
+    border-radius: 1.75rem;
+    z-index: 1;
+    filter: blur(8px);
+  }
+
+  .token-card:hover {
+    transform: scale(1.04) translateY(-4px);
+    box-shadow: 0 0 90px -10px rgb(251 191 36),
+                0 35px 70px -15px rgb(251 191 36);
+  }
+
+  .token-card:hover::before {
+    opacity: 1;
+    animation: glowFrequency 4s linear infinite;
+  }
+
+  .token-card.nibbles:hover {
+    box-shadow: 0 0 90px -10px rgb(251 191 36),
+                0 35px 70px -15px rgb(251 191 36);
+  }
+
+  .token-card.hopeseed:hover {
+    box-shadow: 0 0 90px -10px rgb(16 185 129),
+                0 35px 70px -15px rgb(16 185 129);
+  }
+
+  .token-card.hopeseed::before {
+    background: linear-gradient(90deg, 
+      transparent 30%, 
+      rgba(16, 185, 129, 0.25) 50%, 
+      transparent 70%);
+  }
+
+  @keyframes glowFrequency {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* TOKEN DESCRIPTION - warmer & more heartfelt */
+  .token-description {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #e5e5e5;
+    font-weight: 400;
+  }
+
+  /* CONTRACT ADDRESS - PERFECT FIT ON SKINNY MOBILE */
+  .contract-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .contract-link .label {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .contract-link .address {
+    word-break: break-all;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    font-family: monospace;
+    text-align: center;
+    max-width: 100%;
+    color: #60a5fa;
+  }
+
+  @media (min-width: 640px) {
+    .contract-link {
+      flex-direction: row;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+    .contract-link .address {
+      font-size: 0.875rem;
+      text-align: left;
+    }
+  }
+                  /* HOW YOU CAN HELP - HEARTFELT + BILLION-DOLLAR CALL TO ACTION */
+.help-section {
+  background: linear-gradient(135deg, #18181b, #27272a);
+}
+
+.help-card {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #27272a, #18181b);
-  border: 1px solid rgba(251, 191, 36, 0.25);
 }
 
-.program-card::before {
+.help-card::before {
   content: '';
   position: absolute;
-  inset: -3px;
-  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.6), transparent);
+  inset: -2px;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.15), transparent);
   opacity: 0;
-  transition: all 0.5s ease;
-  border-radius: 1.75rem;
-  z-index: 1;
-  filter: blur(20px);
-}
-
-.program-card:hover {
-  transform: scale(1.12) translateY(-14px);
-  box-shadow: 0 0 160px -30px rgb(251 191 36),
-              0 60px 100px -30px rgb(251 191 36);
-  border-color: rgb(251 191 36);
-}
-
-.program-card:hover::before {
-  opacity: 1;
-  animation: glowFrequency 2.5s linear infinite;
-}
-
-.program-card img {
   transition: all 0.6s ease;
+  border-radius: 1.75rem;
 }
 
-.program-card:hover img {
-  transform: scale(1.12);
+.help-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 80px -20px rgb(251 191 36);
 }
 
-/* HOPeseed - STRONGER EMERALD GLOW */
-.hopeseed-card {
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  background: linear-gradient(145deg, #1f2a24, #18181b);
+.help-card:hover::before {
+  opacity: 1;
+  animation: glowFrequency 3s linear infinite;
 }
 
-.hopeseed-card::before {
-  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.65), transparent);
+.help-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
-
-.hopeseed-card:hover {
-  box-shadow: 0 0 160px -30px rgb(16 185 129),
-              0 60px 100px -30px rgb(16 185 129);
-  border-color: rgb(16 185 129);
-}
+</style>
 </head>
 <body class="bg-zinc-950 text-white">
    <!-- NAVBAR -->
@@ -1031,17 +1210,15 @@
       },
     ];
 
-        function renderProgramGrid() {
+    function renderProgramGrid() {
       const grid = document.getElementById('program-grid');
       if (!grid) return;
       grid.innerHTML = programs
         .filter(p => p.category === "$NIBBLES")
         .map(p => `
-          <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer rounded-3xl p-6 overflow-hidden">
+          <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 rounded-3xl p-6 hover:border-amber-400/50 overflow-hidden">
             <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4">
-              <span class="text-xs bg-amber-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
-            </div>
+            <div class="flex gap-2 mb-4"><span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
             <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
             <p class="text-zinc-400 text-base">${p.shortDesc}</p>
           </div>
@@ -1079,17 +1256,15 @@
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
 
-        function renderHopeseedGrid() {
+    function renderHopeseedGrid() {
       const grid = document.getElementById('hopeseed-grid');
       if (!grid) return;
       grid.innerHTML = programs
         .filter(p => p.category === "$hopeseed")
         .map(p => `
-          <div onclick="showProgramModal(${p.id})" class="program-card hopeseed-card cursor-pointer rounded-3xl p-6 overflow-hidden">
+          <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 rounded-3xl p-6 hover:border-emerald-400/50 hover:scale-[1.03] transition-all shadow-xl">
             <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4">
-              <span class="text-xs bg-emerald-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
-            </div>
+            <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
             <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
             <p class="text-zinc-400 text-base">${p.shortDesc}</p>
           </div>
