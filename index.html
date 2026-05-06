@@ -240,62 +240,6 @@
   font-weight: 700;
   letter-spacing: -1px;
 }
-                  /* 1000X AMPLIFIED PROGRAMS GRID - LIVING, LUXURIOUS, HEARTFELT + COLOR MATCHED */
-.program-card {
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(145deg, #27272a, #18181b);
-  border: 1px solid rgba(251, 191, 36, 0.2);
-}
-
-.program-card::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.35), transparent);
-  opacity: 0;
-  transition: all 0.6s ease;
-  border-radius: 1.75rem;
-  z-index: 1;
-  filter: blur(14px);
-}
-
-.program-card:hover {
-  transform: scale(1.08) translateY(-12px);
-  box-shadow: 0 0 120px -25px rgb(251 191 36),
-              0 50px 90px -25px rgb(251 191 36);
-  border-color: rgba(251, 191, 36, 0.6);
-}
-
-.program-card:hover::before {
-  opacity: 1;
-  animation: glowFrequency 3s linear infinite;
-}
-
-.program-card img {
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.program-card:hover img {
-  transform: scale(1.1);
-}
-
-/* === HOPeseed CARDS - STRONG EMERALD MATCHING COLOR === */
-.hopeseed-card {
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  background: linear-gradient(145deg, #1f2a24, #18181b);
-}
-
-.hopeseed-card::before {
-  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.35), transparent);
-}
-
-.hopeseed-card:hover {
-  box-shadow: 0 0 120px -25px rgb(16 185 129),
-              0 50px 90px -25px rgb(16 185 129);
-  border-color: rgba(16, 185, 129, 0.7);
-}
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
@@ -435,41 +379,41 @@
   </div>
 </section>
 
-  <!-- PROGRAMS - 1000X AMPLIFIED LIVING GRID -->
+  <!-- PROGRAMS - improved mobile spacing -->
   <section id="programs" class="py-24 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
       <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
       <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
-      
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8" id="program-grid"></div>
-      
-      <!-- CLEAN PREMIUM DIVIDER -->
-      <div class="flex items-center justify-center my-16 sm:my-20">
-        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
-        <div class="mx-6 px-8 py-4 bg-zinc-900 border border-emerald-400/30 rounded-3xl shadow-xl flex items-center gap-6">
-          <div class="text-center">
-            <span class="text-amber-400 text-2xl font-light tracking-[3px] uppercase">MR. NIBBLES</span>
-          </div>
-          <div class="text-center">
-            <span class="text-emerald-400 text-2xl font-light tracking-[3px] uppercase">$hopeseed</span>
-            <div class="text-xs text-emerald-400/70 tracking-widest">GLOBAL IMPACT PROJECTS</div>
-          </div>
-        </div>
-        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent"></div>
-      </div> 
-      
-      <!-- $HOPeseed PROGRAMS SECTION -->
-      <div>
-        <div class="flex items-center gap-4 mb-8 justify-center">
-          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" 
-               alt="$hopeseed" 
-               class="w-9 h-9 object-contain">
-          <h3 class="text-4xl font-bold text-emerald-400">$hopeseed Programs</h3>
-          <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-sm font-medium rounded-full">13 Global Impact Projects</span>
-        </div>
+                                                      <!-- SIMPLE PREMIUM DIVIDER -->
+          <div class="flex items-center justify-center my-16 sm:my-20">
+  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
+  <div class="mx-3 sm:mx-6 flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 bg-zinc-900 border border-emerald-400/30 rounded-3xl shadow-2xl">
+    <div class="text-center">
+      <span class="text-amber-400 text-xl sm:text-3xl font-light tracking-[2px] sm:tracking-[3px] uppercase">MR. NIBBLES</span>
+    </div>
+    <div class="text-center">
+      <span class="text-emerald-400 text-xl sm:text-3xl font-light tracking-[2px] sm:tracking-[3px] uppercase">$hopeseed</span>
+      <div class="text-xs text-emerald-400/70 tracking-widest">GLOBAL IMPACT PROJECTS</div>
+    </div>
+  </div>
+  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent"></div>
+</div>
+         
+    <!-- $HOPeseed PROGRAMS SECTION -->
+    <div>
+      <div class="flex items-center gap-4 mb-8 justify-center">
+  <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" 
+       alt="$hopeseed" 
+       class="w-9 h-9 object-contain">
+  <h3 class="text-4xl font-bold text-emerald-400">$hopeseed Programs</h3>
+  <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-sm font-medium rounded-full">13 Global Impact Projects</span>
+</div>
 
-        <div id="hopeseed-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+      <div id="hopeseed-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Your first Hopeseed project cards will go here soon -->
       </div>
+    </div>
     </div>
   </section>
 
@@ -1328,118 +1272,105 @@
     }
 
     window.onload = function() {
-              function renderProgramGrid() {
-      const grid = document.getElementById('program-grid');
-      if (!grid) return;
-      grid.innerHTML = programs
-        .filter(p => p.category === "$NIBBLES")
-        .map(p => `
-          <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer rounded-3xl p-6 overflow-hidden">
-            <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4">
-              <span class="text-xs bg-amber-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
-            </div>
-            <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
-            <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-          </div>
-        `).join('');
-    }
-
-    function renderHopeseedGrid() {
-      const grid = document.getElementById('hopeseed-grid');
-      if (!grid) return;
-      grid.innerHTML = programs
-        .filter(p => p.category === "$hopeseed")
-        .map(p => `
-          <div onclick="showProgramModal(${p.id})" class="program-card hopeseed-card cursor-pointer rounded-3xl p-6 overflow-hidden">
-            <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4">
-              <span class="text-xs bg-emerald-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
-            </div>
-            <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
-            <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-          </div>
-        `).join('');
-    }
+      renderProgramGrid();
+      renderHopeseedGrid();
     };
   </script>
 
   <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (FINAL - now fully visible with floating paws & hearts) === -->
-    <script>
-    const programs = [
-      // ←←← YOUR FULL PROGRAMS ARRAY GOES HERE (keep everything exactly as you have it) ←←←
-      // (paste all 30+ entries from your current code — nothing changes here)
-    ];
+  <script>
+    function startMercyGlow() {
+      console.log("🚀 Mercy Glow FINAL version started");
 
-    function renderProgramGrid() {
-      const grid = document.getElementById('program-grid');
-      if (!grid) return;
-      grid.innerHTML = programs
-        .filter(p => p.category === "$NIBBLES")
-        .map(p => `
-          <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer rounded-3xl p-6 overflow-hidden">
-            <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4">
-              <span class="text-xs bg-amber-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
-            </div>
-            <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
-            <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-          </div>
-        `).join('');
+      const mercyContainer = document.getElementById('shiba-mercy-glow');
+      if (!mercyContainer) {
+        console.error("Mercy container not found");
+        return;
+      }
+
+      // Remove old canvas if any
+      const oldCanvas = document.getElementById('mercyCanvas');
+      if (oldCanvas) oldCanvas.remove();
+
+      const mercyCanvas = document.createElement('canvas');
+      mercyCanvas.id = 'mercyCanvas';
+      mercyCanvas.style.position = 'absolute';
+      mercyCanvas.style.top = '0';
+      mercyCanvas.style.left = '0';
+      mercyCanvas.style.width = '100%';
+      mercyCanvas.style.height = '100%';
+      mercyCanvas.style.zIndex = '1';           // ← CRITICAL FIX: now sits above transparent container
+      mercyCanvas.style.opacity = '0.95';
+      mercyCanvas.style.pointerEvents = 'none';
+      mercyContainer.appendChild(mercyCanvas);
+
+      const mCtx = mercyCanvas.getContext('2d');
+      let mParticles = [];
+
+      function mResize() {
+        mercyCanvas.width = mercyContainer.offsetWidth;
+        mercyCanvas.height = mercyContainer.offsetHeight;
+      }
+      window.addEventListener('resize', mResize);
+      mResize();
+
+      class MercyParticle {
+        constructor() {
+          this.x = Math.random() * mercyCanvas.width;
+          this.y = Math.random() * mercyCanvas.height * 1.5;
+          this.size = Math.random() * 12 + 6;
+          this.speed = Math.random() * 0.65 + 0.35;
+          this.type = Math.random() > 0.48 ? 'paw' : 'heart';
+          this.swing = Math.random() * Math.PI * 2;
+        }
+        update() {
+          this.y -= this.speed;
+          this.swing += 0.02;
+          this.x += Math.sin(this.swing) * 0.8;   // gentle floating sway
+          if (this.y < 0) {
+            this.y = mercyCanvas.height;
+            this.x = Math.random() * mercyCanvas.width;
+          }
+        }
+        draw() {
+          mCtx.save();
+          // Soft mercy glow
+          mCtx.shadowColor = this.type === 'heart' ? '#fda4af' : '#fcd34d';
+          mCtx.shadowBlur = 12;
+          mCtx.globalAlpha = 0.92;
+          
+          if (this.type === 'heart') {
+            mCtx.fillStyle = '#fda4af';
+            mCtx.font = `${this.size * 1.8}px system-ui`;
+            mCtx.fillText('♡', this.x, this.y);
+          } else {
+            mCtx.fillStyle = '#fcd34d';
+            mCtx.font = `${this.size * 1.9}px system-ui`;
+            mCtx.fillText('🐾', this.x, this.y);
+          }
+          mCtx.restore();
+        }
+      }
+
+      function mAnimate() {
+        mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
+        if (mParticles.length < 110) mParticles.push(new MercyParticle());
+        
+        for (let i = 0; i < mParticles.length; i++) {
+          mParticles[i].update();
+          mParticles[i].draw();
+        }
+        requestAnimationFrame(mAnimate);
+      }
+      mAnimate();
+      console.log("✨ Final mercy glow with floating golden paws 🐾 and hearts ♡ is now visible!");
     }
 
-    function renderHopeseedGrid() {
-      const grid = document.getElementById('hopeseed-grid');
-      if (!grid) return;
-      grid.innerHTML = programs
-        .filter(p => p.category === "$hopeseed")
-        .map(p => `
-          <div onclick="showProgramModal(${p.id})" class="program-card hopeseed-card cursor-pointer rounded-3xl p-6 overflow-hidden">
-            <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4">
-              <span class="text-xs bg-emerald-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
-            </div>
-            <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
-            <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-          </div>
-        `).join('');
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startMercyGlow);
+    } else {
+      startMercyGlow();
     }
-
-    function showProgramModal(id) {
-      const program = programs.find(p => p.id === id);
-      if (!program) return;
-      const modal = document.getElementById('program-modal');
-      const content = document.getElementById('modal-content');
-      content.innerHTML = program.fullHTML;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function hideModal() {
-      document.getElementById('program-modal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
-
-    function sponsorProgram(slug) {
-      alert("Thank you from the bottom of our hearts!\n\nYour support is already changing lives. On mainnet you will be able to sponsor instantly with $NIBBLES.");
-    }
-
-    let isMenuOpen = false;
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const icon = document.getElementById('hamburger-icon');
-      menu.classList.toggle('hidden');
-      isMenuOpen = !isMenuOpen;
-      icon.classList.toggle('fa-bars', !isMenuOpen);
-      icon.classList.toggle('fa-xmark', isMenuOpen);
-    }
-
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
-
-    window.onload = function() {
-      renderProgramGrid();
-      renderHopeseedGrid();
-    };
   </script>
 </body>
 </html>
