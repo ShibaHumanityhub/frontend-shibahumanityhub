@@ -233,6 +233,37 @@ h3, .text-4xl.font-semibold {
   border-color: rgb(16 185 129) !important;
   transform: scale(1.12) translateY(-12px) !important;
 }
+                  /* 3D HERO TOKENS - ULTRA PREMIUM */
+.perspective-container {
+  perspective: 1200px;
+}
+.token-3d {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.token-3d-inner {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 25px 50px -12px rgb(251 191 36),
+              0 0 80px -20px rgb(251 191 36);
+  border-radius: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #27272a, #18181b);
+  border: 2px solid rgba(251, 191, 36, 0.3);
+}
+.token-3d:hover .token-3d-inner {
+  transform: rotateY(12deg) rotateX(8deg) scale(1.08);
+  box-shadow: 0 40px 80px -20px rgb(251 191 36),
+              0 0 120px 30px rgb(251 191 36);
+}
+.hopeseed-3d .token-3d-inner {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 25px 50px -12px rgb(16 185 129),
+              0 0 80px -20px rgb(16 185 129);
+}
+.hopeseed-3d:hover .token-3d-inner {
+  box-shadow: 0 40px 80px -20px rgb(16 185 129),
+              0 0 120px 30px rgb(16 185 129);
+}
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
