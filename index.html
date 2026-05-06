@@ -1365,99 +1365,81 @@
   </script>
 
   <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (FINAL - now fully visible with floating paws & hearts) === -->
-  <script>
-    function startMercyGlow() {
-      console.log("🚀 Mercy Glow FINAL version started");
+    <script>
+    const programs = [
+      // ←←← YOUR FULL PROGRAMS ARRAY GOES HERE (keep everything exactly as you have it) ←←←
+      // (paste all 30+ entries from your current code — nothing changes here)
+    ];
 
-      const mercyContainer = document.getElementById('shiba-mercy-glow');
-      if (!mercyContainer) {
-        console.error("Mercy container not found");
-        return;
-      }
-
-      // Remove old canvas if any
-      const oldCanvas = document.getElementById('mercyCanvas');
-      if (oldCanvas) oldCanvas.remove();
-
-      const mercyCanvas = document.createElement('canvas');
-      mercyCanvas.id = 'mercyCanvas';
-      mercyCanvas.style.position = 'absolute';
-      mercyCanvas.style.top = '0';
-      mercyCanvas.style.left = '0';
-      mercyCanvas.style.width = '100%';
-      mercyCanvas.style.height = '100%';
-      mercyCanvas.style.zIndex = '1';           // ← CRITICAL FIX: now sits above transparent container
-      mercyCanvas.style.opacity = '0.95';
-      mercyCanvas.style.pointerEvents = 'none';
-      mercyContainer.appendChild(mercyCanvas);
-
-      const mCtx = mercyCanvas.getContext('2d');
-      let mParticles = [];
-
-      function mResize() {
-        mercyCanvas.width = mercyContainer.offsetWidth;
-        mercyCanvas.height = mercyContainer.offsetHeight;
-      }
-      window.addEventListener('resize', mResize);
-      mResize();
-
-      class MercyParticle {
-        constructor() {
-          this.x = Math.random() * mercyCanvas.width;
-          this.y = Math.random() * mercyCanvas.height * 1.5;
-          this.size = Math.random() * 12 + 6;
-          this.speed = Math.random() * 0.65 + 0.35;
-          this.type = Math.random() > 0.48 ? 'paw' : 'heart';
-          this.swing = Math.random() * Math.PI * 2;
-        }
-        update() {
-          this.y -= this.speed;
-          this.swing += 0.02;
-          this.x += Math.sin(this.swing) * 0.8;   // gentle floating sway
-          if (this.y < 0) {
-            this.y = mercyCanvas.height;
-            this.x = Math.random() * mercyCanvas.width;
-          }
-        }
-        draw() {
-          mCtx.save();
-          // Soft mercy glow
-          mCtx.shadowColor = this.type === 'heart' ? '#fda4af' : '#fcd34d';
-          mCtx.shadowBlur = 12;
-          mCtx.globalAlpha = 0.92;
-          
-          if (this.type === 'heart') {
-            mCtx.fillStyle = '#fda4af';
-            mCtx.font = `${this.size * 1.8}px system-ui`;
-            mCtx.fillText('♡', this.x, this.y);
-          } else {
-            mCtx.fillStyle = '#fcd34d';
-            mCtx.font = `${this.size * 1.9}px system-ui`;
-            mCtx.fillText('🐾', this.x, this.y);
-          }
-          mCtx.restore();
-        }
-      }
-
-      function mAnimate() {
-        mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-        if (mParticles.length < 110) mParticles.push(new MercyParticle());
-        
-        for (let i = 0; i < mParticles.length; i++) {
-          mParticles[i].update();
-          mParticles[i].draw();
-        }
-        requestAnimationFrame(mAnimate);
-      }
-      mAnimate();
-      console.log("✨ Final mercy glow with floating golden paws 🐾 and hearts ♡ is now visible!");
+    function renderProgramGrid() {
+      const grid = document.getElementById('program-grid');
+      if (!grid) return;
+      grid.innerHTML = programs
+        .filter(p => p.category === "$NIBBLES")
+        .map(p => `
+          <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer rounded-3xl p-6 overflow-hidden">
+            <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
+            <div class="flex gap-2 mb-4">
+              <span class="text-xs bg-amber-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
+            </div>
+            <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
+            <p class="text-zinc-400 text-base">${p.shortDesc}</p>
+          </div>
+        `).join('');
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startMercyGlow);
-    } else {
-      startMercyGlow();
+    function renderHopeseedGrid() {
+      const grid = document.getElementById('hopeseed-grid');
+      if (!grid) return;
+      grid.innerHTML = programs
+        .filter(p => p.category === "$hopeseed")
+        .map(p => `
+          <div onclick="showProgramModal(${p.id})" class="program-card hopeseed-card cursor-pointer rounded-3xl p-6 overflow-hidden">
+            <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
+            <div class="flex gap-2 mb-4">
+              <span class="text-xs bg-emerald-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
+            </div>
+            <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
+            <p class="text-zinc-400 text-base">${p.shortDesc}</p>
+          </div>
+        `).join('');
     }
+
+    function showProgramModal(id) {
+      const program = programs.find(p => p.id === id);
+      if (!program) return;
+      const modal = document.getElementById('program-modal');
+      const content = document.getElementById('modal-content');
+      content.innerHTML = program.fullHTML;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideModal() {
+      document.getElementById('program-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function sponsorProgram(slug) {
+      alert("Thank you from the bottom of our hearts!\n\nYour support is already changing lives. On mainnet you will be able to sponsor instantly with $NIBBLES.");
+    }
+
+    let isMenuOpen = false;
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('hamburger-icon');
+      menu.classList.toggle('hidden');
+      isMenuOpen = !isMenuOpen;
+      icon.classList.toggle('fa-bars', !isMenuOpen);
+      icon.classList.toggle('fa-xmark', isMenuOpen);
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
+
+    window.onload = function() {
+      renderProgramGrid();
+      renderHopeseedGrid();
+    };
   </script>
 </body>
 </html>
