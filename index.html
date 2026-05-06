@@ -7,214 +7,188 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
                 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-  body { 
-    font-family: 'Inter', system-ui, sans-serif; 
-    overflow-x: hidden; 
-    line-height: 1.7; /* warmer, more human, easier to read */
-  }
-
-  /* HERO TITLE - kept exactly as is (already perfect) */
-  .hero-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    line-height: 1.02;
-    text-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
-    animation: titlePulse 8s ease-in-out infinite;
-    letter-spacing: -6px;
-    font-size: clamp(2.8rem, 9vw, 9rem);
-  }
-  @keyframes titlePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.96; } }
-
-  /* MAIN SECTION HEADINGS - now luxurious + heartfelt */
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    line-height: 1.15;
-  }
-
-  /* TOKEN & PROGRAM CARD TITLES - premium modern punch */
-  h3,
-  .text-4xl.font-semibold {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    letter-spacing: -1px;
-  }
-
-  .hero-bg { 
-    background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
-    background-size: 400% 400%;
-    animation: gradientShift 25s ease infinite;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  @keyframes gradientShift {
-    0%   {background-position: 0% 50%}
-    50%  {background-position: 100% 50%}
-    100% {background-position: 0% 50%}
-  }
-
-  .super-cta-btn {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgb(251 191 36);
-  }
-  .super-cta-btn:hover { transform: scale(1.12); box-shadow: 0 0 80px 30px rgba(251, 191, 36, 0.7); }
-
-  .bone-icon { transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
-  .super-cta-btn:hover .bone-icon { animation: boneWag 0.6s ease-in-out infinite alternate; filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.9)); }
-
-  @keyframes boneWag { from { transform: rotate(-18deg); } to { transform: rotate(18deg); } }
-
-  .super-cta-btn::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 40%;
-    height: 300%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
-    transform: skewX(-25deg);
-    animation: shine 4s linear infinite;
-  }
-  @keyframes shine { 100% { transform: translateX(300%); } }
-
-  /* 10000000000000x BETTER MOBILE - MATCHES DESKTOP LUXURY PERFECTLY */
-  @media (max-width: 640px) { 
-    .hero-title { letter-spacing: -3.8px; font-size: clamp(2.8rem, 9vw, 4.8rem); } 
-  }
-  @media (max-width: 380px) { 
-    .hero-title { letter-spacing: -3.1px; font-size: clamp(2.5rem, 8.5vw, 4.1rem); } 
-    .super-cta-btn { padding: 0.85rem 1rem; }
-  }
-  @media (max-width: 360px) { 
-    .hero-title { letter-spacing: -2.6px; font-size: clamp(2.2rem, 8vw, 3.85rem); } 
-    .hero-bg { padding-top: 5rem; }
-  }
-  @media (max-width: 320px) { 
-    .hero-title { letter-spacing: -2.1px; font-size: clamp(2rem, 7.5vw, 3.6rem); } 
-  }
-
-  /* === PREMIUM TOKEN CARDS - HIGH-END GLOW & COLOR FREQUENCY === */
-  .token-card {
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(145deg, #27272a, #18181b);
-  }
-
-  .token-card::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(90deg, 
-      transparent 30%, 
-      rgba(251, 191, 36, 0.25) 50%, 
-      transparent 70%);
-    opacity: 0;
-    transition: all 0.6s ease;
-    border-radius: 1.75rem;
-    z-index: 1;
-    filter: blur(8px);
-  }
-
-  .token-card:hover {
-    transform: scale(1.04) translateY(-4px);
-    box-shadow: 0 0 90px -10px rgb(251 191 36),
-                0 35px 70px -15px rgb(251 191 36);
-  }
-
-  .token-card:hover::before {
-    opacity: 1;
-    animation: glowFrequency 4s linear infinite;
-  }
-
-  .token-card.nibbles:hover {
-    box-shadow: 0 0 90px -10px rgb(251 191 36),
-                0 35px 70px -15px rgb(251 191 36);
-  }
-
-  .token-card.hopeseed:hover {
-    box-shadow: 0 0 90px -10px rgb(16 185 129),
-                0 35px 70px -15px rgb(16 185 129);
-  }
-
-  .token-card.hopeseed::before {
-    background: linear-gradient(90deg, 
-      transparent 30%, 
-      rgba(16, 185, 129, 0.25) 50%, 
-      transparent 70%);
-  }
-
-  @keyframes glowFrequency {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-  }
-
-  /* TOKEN DESCRIPTION - warmer & more heartfelt */
-  .token-description {
-    font-size: 1.1rem;
-    line-height: 1.65;
-    color: #e5e5e5;
-    font-weight: 400;
-  }
-
-  /* CONTRACT ADDRESS - PERFECT FIT ON SKINNY MOBILE */
-  .contract-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-  }
-
-  .contract-link .label {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.85;
-  }
-
-  .contract-link .address {
-    word-break: break-all;
-    font-size: 0.78rem;
-    line-height: 1.35;
-    font-family: monospace;
-    text-align: center;
-    max-width: 100%;
-    color: #60a5fa;
-  }
-
-  @media (min-width: 640px) {
-    .contract-link {
-      flex-direction: row;
-      gap: 12px;
-      justify-content: center;
-      align-items: center;
-    }
-    .contract-link .address {
-      font-size: 0.875rem;
-      text-align: left;
-    }
-  }
-                  /* HOW YOU CAN HELP - HEARTFELT + BILLION-DOLLAR CALL TO ACTION */
-.help-section {
-  background: linear-gradient(135deg, #18181b, #27272a);
+body { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  overflow-x: hidden; 
+  line-height: 1.7;
 }
 
+/* HERO TITLE - kept perfect */
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1.02;
+  text-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+  animation: titlePulse 8s ease-in-out infinite;
+  letter-spacing: -6px;
+  font-size: clamp(2.8rem, 9vw, 9rem);
+}
+@keyframes titlePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.96; } }
+
+/* MAIN SECTION HEADINGS */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+}
+
+/* TOKEN & PROGRAM CARD TITLES */
+h3, .text-4xl.font-semibold {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.hero-bg { 
+  background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
+  background-size: 400% 400%;
+  animation: gradientShift 25s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+@keyframes gradientShift {
+  0%   {background-position: 0% 50%}
+  50%  {background-position: 100% 50%}
+  100% {background-position: 0% 50%}
+}
+
+/* SUPER CTA BUTTON */
+.super-cta-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgb(251 191 36);
+}
+.super-cta-btn:hover { transform: scale(1.12); box-shadow: 0 0 80px 30px rgba(251, 191, 36, 0.7); }
+
+.bone-icon { transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+.super-cta-btn:hover .bone-icon { animation: boneWag 0.6s ease-in-out infinite alternate; filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.9)); }
+@keyframes boneWag { from { transform: rotate(-18deg); } to { transform: rotate(18deg); } }
+
+.super-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 40%;
+  height: 300%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+  transform: skewX(-25deg);
+  animation: shine 4s linear infinite;
+}
+@keyframes shine { 100% { transform: translateX(300%); } }
+
+/* MOBILE HERO OPTIMIZATIONS */
+@media (max-width: 640px) { 
+  .hero-title { letter-spacing: -3.8px; font-size: clamp(2.8rem, 9vw, 4.8rem); } 
+}
+@media (max-width: 380px) { 
+  .hero-title { letter-spacing: -3.1px; font-size: clamp(2.5rem, 8.5vw, 4.1rem); } 
+  .super-cta-btn { padding: 0.85rem 1rem; }
+}
+@media (max-width: 360px) { 
+  .hero-title { letter-spacing: -2.6px; font-size: clamp(2.2rem, 8vw, 3.85rem); } 
+  .hero-bg { padding-top: 5rem; }
+}
+@media (max-width: 320px) { 
+  .hero-title { letter-spacing: -2.1px; font-size: clamp(2rem, 7.5vw, 3.6rem); } 
+}
+
+/* PREMIUM TOKEN CARDS */
+.token-card {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #27272a, #18181b);
+}
+.token-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, transparent 30%, rgba(251, 191, 36, 0.25) 50%, transparent 70%);
+  opacity: 0;
+  transition: all 0.6s ease;
+  border-radius: 1.75rem;
+  z-index: 1;
+  filter: blur(8px);
+}
+.token-card:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: 0 0 90px -10px rgb(251 191 36), 0 35px 70px -15px rgb(251 191 36);
+}
+.token-card:hover::before {
+  opacity: 1;
+  animation: glowFrequency 4s linear infinite;
+}
+.token-card.hopeseed:hover {
+  box-shadow: 0 0 90px -10px rgb(16 185 129), 0 35px 70px -15px rgb(16 185 129);
+}
+.token-card.hopeseed::before {
+  background: linear-gradient(90deg, transparent 30%, rgba(16, 185, 129, 0.25) 50%, transparent 70%);
+}
+@keyframes glowFrequency {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* TOKEN DESCRIPTION */
+.token-description {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #e5e5e5;
+  font-weight: 400;
+}
+
+/* CONTRACT ADDRESS - MOBILE PERFECT */
+.contract-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.contract-link .label {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.contract-link .address {
+  word-break: break-all;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  font-family: monospace;
+  text-align: center;
+  max-width: 100%;
+  color: #60a5fa;
+}
+@media (min-width: 640px) {
+  .contract-link {
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  .contract-link .address {
+    font-size: 0.875rem;
+    text-align: left;
+  }
+}
+
+/* HELP SECTION */
+.help-section { background: linear-gradient(135deg, #18181b, #27272a); }
 .help-card {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
-
 .help-card::before {
   content: '';
   position: absolute;
@@ -224,48 +198,35 @@
   transition: all 0.6s ease;
   border-radius: 1.75rem;
 }
-
 .help-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 0 80px -20px rgb(251 191 36);
 }
-
 .help-card:hover::before {
   opacity: 1;
   animation: glowFrequency 3s linear infinite;
 }
-
 .help-card h3 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   letter-spacing: -1px;
 }
-                  /* STRONG AS FUCK GLOW - PASTE THIS AT THE VERY BOTTOM OF <style> */
+
+/* === 1000X AMPLIFIED PROGRAM CARDS === */
+.program-card {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #27272a, #18181b);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
 .program-card:hover {
-  box-shadow: 0 0 180px -20px rgb(251 191 36),
-              0 0 80px 20px rgb(251 191 36) !important;
-  transform: scale(1.1) translateY(-8px);
+  transform: scale(1.08) translateY(-12px);
+  box-shadow: 0 0 120px -25px rgb(251 191 36), 0 50px 90px -25px rgb(251 191 36);
+  border-color: rgba(251, 191, 36, 0.5);
 }
 
-.hopeseed-card:hover {
-  box-shadow: 0 0 180px -20px rgb(16 185 129),
-              0 0 80px 20px rgb(16 185 129) !important;
-  transform: scale(1.1) translateY(-8px);
-}
-                  /* STRONG GREEN GLOW FOR HOPeseed CARDS ONLY */
-.hopeseed-card:hover {
-  box-shadow: 0 0 180px -20px rgb(16 185 129),
-              0 0 90px 30px rgb(16 185 129) !important;
-  border-color: rgb(16 185 129);
-}
-                  /* FINAL STRONG GREEN GLOW FOR HOPeseed CARDS - THIS OVERRIDES EVERYTHING */
-.hopeseed-card:hover {
-  box-shadow: 0 0 200px -20px rgb(16 185 129) !important,
-              0 0 100px 40px rgb(16 185 129) !important;
-  border-color: rgb(16 185 129) !important;
-  transform: scale(1.12) translateY(-12px) !important;
-}
-                  /* FORCE STRONG EMERALD GREEN GLOW ON HOPeseed CARDS ONLY - PASTE AT VERY BOTTOM */
+/* FINAL STRONG EMERALD GREEN GLOW FOR HOPeseed CARDS ONLY */
 .hopeseed-card:hover {
   box-shadow: 0 0 220px -30px rgb(16 185 129) !important,
               0 0 110px 40px rgb(16 185 129) !important;
