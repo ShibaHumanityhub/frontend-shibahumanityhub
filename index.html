@@ -241,96 +241,52 @@
   letter-spacing: -1px;
 }
                   /* SUPERCHARGED NAVBAR - NEXT LEVEL LUXURY */
-nav {
-  border-bottom: 1px solid rgba(251, 191, 36, 0.25);
-  box-shadow: 0 4px 30px -10px rgba(251, 191, 36, 0.15);
-}
-
-.navbar-logo {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -2px;
-  transition: all 0.4s ease;
-}
-
-.navbar-logo:hover {
-  color: #fcd34d;
-  text-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
-}
-
-.nav-badge {
-  background: linear-gradient(90deg, #451a03, #78350f);
-  border: 1px solid #fcd34d;
-  box-shadow: 0 0 25px -5px rgba(251, 191, 36, 0.5);
-  transition: all 0.4s ease;
-}
-
-.nav-badge:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px -5px rgba(251, 191, 36, 0.7);
-}
-
-.desktop-menu a {
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.desktop-menu a:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background: #fcd34d;
-  transition: width 0.3s ease;
-}
-
-.desktop-menu a:hover:after {
-  width: 100%;
-}
-</style>
-</head>
-<body class="bg-zinc-950 text-white">
-   <!-- NAVBAR -->
-  <nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
-      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-        <div class="flex items-center gap-3">
-          <span class="text-3xl"></span>
-          <h1 class="text-lg sm:text-xl md:text-2xl font-bold tracking-[-1px]">SHIBAHUMANITYHUB</h1>
-        </div>
-        <span class="text-xs sm:text-sm font-medium px-4 py-1.5 bg-amber-500/10 text-amber-300 rounded-3xl border border-amber-500/30 self-start sm:self-auto">
-  Every transaction saves lives
-</span>
+<!-- SUPERCHARGED NAVBAR - NEXT LEVEL QUALITY -->
+<nav class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
+    
+    <!-- Logo + Badge -->
+    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+      <div class="flex items-center gap-3">
+        <h1 class="navbar-logo text-2xl md:text-3xl tracking-[-1.5px] text-white">SHIBAHUMANITYHUB</h1>
       </div>
-
-      <div class="flex items-center gap-4 border-l border-amber-500/30 pl-4">
-        <a href="https://x.com/Shibhumanityhub" target="_blank" class="hover:text-[#1DA1F2]"><i class="fa-brands fa-x-twitter text-2xl"></i></a>
-        <a href="https://t.me/Shibahumanityhub" target="_blank" class="hover:text-[#229ED9]"><i class="fa-brands fa-telegram text-2xl"></i></a>
-      </div>
-
-      <button onclick="toggleMobileMenu()" class="md:hidden text-3xl hover:text-amber-300 transition-colors">
-        <i id="hamburger-icon" class="fa-solid fa-bars"></i>
-      </button>
-
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center gap-8 text-lg">
-        <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
-        <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
-        <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="hover:text-amber-300 transition">Whitepaper v2</a>
-        <a href="https://github.com/ShibaHumanityhub" target="_blank" class="hover:text-amber-300 transition">GitHub</a>
-      </div>
+      <span class="nav-badge text-xs sm:text-sm font-medium px-5 py-2 rounded-3xl text-amber-200 border border-amber-400/40 self-start sm:self-auto">
+        Every transaction saves lives
+      </span>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-amber-500/30 px-6 py-6 text-lg">
-      <a href="#contracts" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Contracts</a>
-      <a href="#programs" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Programs</a>
-      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Whitepaper v2</a>
-      <a href="https://github.com/ShibaHumanityhub" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">GitHub</a>
+    <!-- Social Icons -->
+    <div class="flex items-center gap-5 border-l border-amber-500/30 pl-6">
+      <a href="https://x.com/Shibhumanityhub" target="_blank" class="hover:text-[#1DA1F2] transition-colors">
+        <i class="fa-brands fa-x-twitter text-2xl"></i>
+      </a>
+      <a href="https://t.me/Shibahumanityhub" target="_blank" class="hover:text-[#229ED9] transition-colors">
+        <i class="fa-brands fa-telegram text-2xl"></i>
+      </a>
     </div>
-  </nav>
+
+    <!-- Mobile Hamburger -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-3xl hover:text-amber-300 transition-colors">
+      <i id="hamburger-icon" class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-9 text-lg desktop-menu">
+      <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
+      <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
+      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="hover:text-amber-300 transition">Whitepaper v2</a>
+      <a href="https://github.com/ShibaHumanityhub" target="_blank" class="hover:text-amber-300 transition">GitHub</a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-amber-500/30 px-6 py-6 text-lg">
+    <a href="#contracts" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Contracts</a>
+    <a href="#programs" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Programs</a>
+    <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">Whitepaper v2</a>
+    <a href="https://github.com/ShibaHumanityhub" target="_blank" onclick="toggleMobileMenu()" class="block py-3 hover:text-amber-300">GitHub</a>
+  </div>
+</nav>
 
  <!-- HERO - MOBILE MAGIC (matches desktop premium look perfectly) -->
 <header class="hero-bg pt-20 sm:pt-28 md:pt-40 pb-12 sm:pb-20 md:pb-28 text-center relative overflow-hidden min-h-screen flex items-center">
