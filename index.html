@@ -240,6 +240,55 @@
   font-weight: 700;
   letter-spacing: -1px;
 }
+                  /* SUPERCHARGED NAVBAR - NEXT LEVEL LUXURY */
+nav {
+  border-bottom: 1px solid rgba(251, 191, 36, 0.25);
+  box-shadow: 0 4px 30px -10px rgba(251, 191, 36, 0.15);
+}
+
+.navbar-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -2px;
+  transition: all 0.4s ease;
+}
+
+.navbar-logo:hover {
+  color: #fcd34d;
+  text-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
+}
+
+.nav-badge {
+  background: linear-gradient(90deg, #451a03, #78350f);
+  border: 1px solid #fcd34d;
+  box-shadow: 0 0 25px -5px rgba(251, 191, 36, 0.5);
+  transition: all 0.4s ease;
+}
+
+.nav-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px -5px rgba(251, 191, 36, 0.7);
+}
+
+.desktop-menu a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.desktop-menu a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: #fcd34d;
+  transition: width 0.3s ease;
+}
+
+.desktop-menu a:hover:after {
+  width: 100%;
+}
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
