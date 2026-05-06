@@ -204,6 +204,42 @@
       text-align: left;
     }
   }
+                  /* HOW YOU CAN HELP - HEARTFELT + BILLION-DOLLAR CALL TO ACTION */
+.help-section {
+  background: linear-gradient(135deg, #18181b, #27272a);
+}
+
+.help-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.help-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.15), transparent);
+  opacity: 0;
+  transition: all 0.6s ease;
+  border-radius: 1.75rem;
+}
+
+.help-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 80px -20px rgb(251 191 36);
+}
+
+.help-card:hover::before {
+  opacity: 1;
+  animation: glowFrequency 3s linear infinite;
+}
+
+.help-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
