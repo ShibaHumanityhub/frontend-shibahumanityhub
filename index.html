@@ -1328,7 +1328,7 @@
     }
 
     window.onload = function() {
-          function renderProgramGrid() {
+              function renderProgramGrid() {
       const grid = document.getElementById('program-grid');
       if (!grid) return;
       grid.innerHTML = programs
@@ -1336,7 +1336,9 @@
         .map(p => `
           <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer rounded-3xl p-6 overflow-hidden">
             <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
+            <div class="flex gap-2 mb-4">
+              <span class="text-xs bg-amber-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
+            </div>
             <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
             <p class="text-zinc-400 text-base">${p.shortDesc}</p>
           </div>
@@ -1351,7 +1353,9 @@
         .map(p => `
           <div onclick="showProgramModal(${p.id})" class="program-card hopeseed-card cursor-pointer rounded-3xl p-6 overflow-hidden">
             <img src="${p.image}" loading="lazy" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-            <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
+            <div class="flex gap-2 mb-4">
+              <span class="text-xs bg-emerald-500 text-white px-3 py-1 rounded-2xl font-medium">${p.category}</span>
+            </div>
             <h3 class="text-3xl font-semibold mb-3 leading-tight">${p.title}</h3>
             <p class="text-zinc-400 text-base">${p.shortDesc}</p>
           </div>
