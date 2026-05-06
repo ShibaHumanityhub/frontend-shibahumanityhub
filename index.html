@@ -240,6 +240,55 @@
   font-weight: 700;
   letter-spacing: -1px;
 }
+                  /* 1000X AMPLIFIED PROGRAMS GRID - LIVING, LUXURIOUS, HEARTFELT */
+.program-card {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #27272a, #18181b);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.program-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.35), transparent);
+  opacity: 0;
+  transition: all 0.6s ease;
+  border-radius: 1.75rem;
+  z-index: 1;
+  filter: blur(14px);
+}
+
+.program-card:hover {
+  transform: scale(1.08) translateY(-12px);
+  box-shadow: 0 0 120px -25px rgb(251 191 36),
+              0 50px 90px -25px rgb(251 191 36);
+  border-color: rgba(251, 191, 36, 0.5);
+}
+
+.program-card:hover::before {
+  opacity: 1;
+  animation: glowFrequency 3s linear infinite;
+}
+
+.program-card img {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.program-card:hover img {
+  transform: scale(1.1);
+}
+
+.hopeseed-card {
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.hopeseed-card:hover {
+  box-shadow: 0 0 120px -25px rgb(16 185 129),
+              0 50px 90px -25px rgb(16 185 129);
+}
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
@@ -379,41 +428,41 @@
   </div>
 </section>
 
-  <!-- PROGRAMS - improved mobile spacing -->
+  <!-- PROGRAMS - 1000X AMPLIFIED LIVING GRID -->
   <section id="programs" class="py-24 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
       <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
+      
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8" id="program-grid"></div>
-                                                      <!-- SIMPLE PREMIUM DIVIDER -->
-          <div class="flex items-center justify-center my-16 sm:my-20">
-  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
-  <div class="mx-3 sm:mx-6 flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 bg-zinc-900 border border-emerald-400/30 rounded-3xl shadow-2xl">
-    <div class="text-center">
-      <span class="text-amber-400 text-xl sm:text-3xl font-light tracking-[2px] sm:tracking-[3px] uppercase">MR. NIBBLES</span>
-    </div>
-    <div class="text-center">
-      <span class="text-emerald-400 text-xl sm:text-3xl font-light tracking-[2px] sm:tracking-[3px] uppercase">$hopeseed</span>
-      <div class="text-xs text-emerald-400/70 tracking-widest">GLOBAL IMPACT PROJECTS</div>
-    </div>
-  </div>
-  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent"></div>
-</div>
-         
-    <!-- $HOPeseed PROGRAMS SECTION -->
-    <div>
-      <div class="flex items-center gap-4 mb-8 justify-center">
-  <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" 
-       alt="$hopeseed" 
-       class="w-9 h-9 object-contain">
-  <h3 class="text-4xl font-bold text-emerald-400">$hopeseed Programs</h3>
-  <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-sm font-medium rounded-full">13 Global Impact Projects</span>
-</div>
+      
+      <!-- CLEAN PREMIUM DIVIDER -->
+      <div class="flex items-center justify-center my-16 sm:my-20">
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
+        <div class="mx-6 px-8 py-4 bg-zinc-900 border border-emerald-400/30 rounded-3xl shadow-xl flex items-center gap-6">
+          <div class="text-center">
+            <span class="text-amber-400 text-2xl font-light tracking-[3px] uppercase">MR. NIBBLES</span>
+          </div>
+          <div class="text-center">
+            <span class="text-emerald-400 text-2xl font-light tracking-[3px] uppercase">$hopeseed</span>
+            <div class="text-xs text-emerald-400/70 tracking-widest">GLOBAL IMPACT PROJECTS</div>
+          </div>
+        </div>
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent"></div>
+      </div> 
+      
+      <!-- $HOPeseed PROGRAMS SECTION -->
+      <div>
+        <div class="flex items-center gap-4 mb-8 justify-center">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" 
+               alt="$hopeseed" 
+               class="w-9 h-9 object-contain">
+          <h3 class="text-4xl font-bold text-emerald-400">$hopeseed Programs</h3>
+          <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-sm font-medium rounded-full">13 Global Impact Projects</span>
+        </div>
 
-      <div id="hopeseed-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Your first Hopeseed project cards will go here soon -->
+        <div id="hopeseed-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
       </div>
-    </div>
     </div>
   </section>
 
