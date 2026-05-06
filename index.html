@@ -240,7 +240,7 @@
   font-weight: 700;
   letter-spacing: -1px;
 }
-                  /* 1000X AMPLIFIED PROGRAMS GRID - LIVING, LUXURIOUS, HEARTFELT */
+                  /* 1000X AMPLIFIED PROGRAMS GRID - LIVING, LUXURIOUS, HEARTFELT + COLOR MATCHED */
 .program-card {
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -265,7 +265,7 @@
   transform: scale(1.08) translateY(-12px);
   box-shadow: 0 0 120px -25px rgb(251 191 36),
               0 50px 90px -25px rgb(251 191 36);
-  border-color: rgba(251, 191, 36, 0.5);
+  border-color: rgba(251, 191, 36, 0.6);
 }
 
 .program-card:hover::before {
@@ -281,13 +281,20 @@
   transform: scale(1.1);
 }
 
+/* === HOPeseed CARDS - STRONG EMERALD MATCHING COLOR === */
 .hopeseed-card {
-  border-color: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: linear-gradient(145deg, #1f2a24, #18181b);
+}
+
+.hopeseed-card::before {
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.35), transparent);
 }
 
 .hopeseed-card:hover {
   box-shadow: 0 0 120px -25px rgb(16 185 129),
               0 50px 90px -25px rgb(16 185 129);
+  border-color: rgba(16, 185, 129, 0.7);
 }
 </style>
 </head>
