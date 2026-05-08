@@ -134,9 +134,9 @@ body {
     animation: shine 2.3s linear infinite;
   }
 
-        /* === WARM VIBRANT HERO GRADIENT (exactly the style you want) === */
+        /* === WARM CINEMATIC HERO GRADIENT + LUXURY TITLE (leveled up) === */
 .hero-bg { 
-  background: linear-gradient(135deg, #0a1729, #1a3a4a, #c89f3f, #e88a9e);
+  background: linear-gradient(135deg, #0a1729, #1a2e42, #c89f3f, #e88a9e, #f5d0a8);
   background-size: 400% 400%;
   animation: gradientShift 25s ease infinite;
   min-height: 100vh;
@@ -152,19 +152,27 @@ body {
   100% {background-position: 0% 50%}
 }
 
-/* === SHIBAHUMANITYHUB TITLE - split style you asked for === */
+/* === PREMIUM SPLIT TITLE - stronger glow, perfect mobile === */
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   line-height: 1.02;
-  text-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
-  animation: titlePulse 8s ease-in-out infinite;
   letter-spacing: -6px;
   font-size: clamp(2.8rem, 9vw, 9rem);
+  text-shadow: 
+    0 0 40px rgba(251,191,36,0.9),
+    0 25px 70px rgba(0,0,0,0.85),
+    0 0 120px rgba(232,138,158,0.6);
+  animation: titlePulse 8s ease-in-out infinite,
+             titleGlow 6s ease-in-out infinite alternate;
 }
 @keyframes titlePulse { 
-  0%, 100% { opacity: 1; } 
-  50% { opacity: 0.96; } 
+  0%, 100% { opacity: 1; transform: scale(1); } 
+  50% { opacity: 0.96; transform: scale(1.015); } 
+}
+@keyframes titleGlow {
+  0%   { text-shadow: 0 0 40px rgba(251,191,36,0.9), 0 25px 70px rgba(0,0,0,0.85), 0 0 120px rgba(232,138,158,0.6); }
+  100% { text-shadow: 0 0 70px rgba(251,191,36,1), 0 35px 100px rgba(0,0,0,0.9), 0 0 180px rgba(232,138,158,0.85); }
 }
 
   /* === PASTE ALL YOUR REMAINING ORIGINAL CSS HERE (starting from MAIN SECTION HEADINGS) === */
@@ -218,7 +226,7 @@ body {
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-20 w-full">
     <div class="flex flex-col items-center">
       <h1 class="hero-title text-white leading-none">SHIBA</h1>
-      <h1 class="hero-title text-white -mt-1 sm:-mt-3 md:-mt-6">HUMANITYHUB</h1>
+      <h1 class="hero-title text-white -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
     </div>
     
     <p class="text-2xl sm:text-4xl md:text-5xl font-light text-amber-100 max-w-3xl mx-auto mt-6 sm:mt-9 leading-tight">
@@ -229,7 +237,13 @@ body {
       Real mercy. Real love. Real homes.
     </p>
 
-    <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-6 text-3xl sm:text-4xl mt-12 sm:mt-16 mb-14">
+    <!-- Small alive impact line -->
+    <div class="mt-8 flex justify-center items-center gap-3 text-amber-200/80 text-sm tracking-widest font-medium">
+      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+      2,847 TRANSACTIONS • $184K IN REAL MERCY FUNDED
+    </div>
+
+    <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-6 text-3xl sm:text-4xl mt-10 sm:mt-12 mb-14">
       <div class="flex items-center gap-4">$NIBBLES</div>
       <div class="flex items-center gap-4">$hopeseed</div>
     </div>
