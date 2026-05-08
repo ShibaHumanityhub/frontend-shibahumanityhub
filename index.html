@@ -134,7 +134,7 @@ body {
     animation: shine 2.3s linear infinite;
   }
 
-  /* === x50 CHILL LUXURY HERO GRADIENT - slow, beautiful, emotional === */
+    /* === x50 CHILL LUXURY HERO GRADIENT - slower, beautiful, emotional rhythm === */
   .hero-bg { 
     background: linear-gradient(135deg, 
       #0a1729 0%, 
@@ -145,12 +145,20 @@ body {
       #a78bfa 80%, 
       #0a1729 100%);
     background-size: 420% 420%;
-    animation: gradientShift 48s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    animation: gradientShift 72s cubic-bezier(0.42, 0, 0.58, 1) infinite;
     min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+  }
+
+  @keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    25%  { background-position: 100% 38%; }
+    50%  { background-position: 0% 62%; }
+    75%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   @keyframes gradientShift {
@@ -1228,100 +1236,106 @@ body {
     };
   </script>
 
-  <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND (FINAL - now fully visible with floating paws & hearts) === -->
-  <script>
-    function startMercyGlow() {
-      console.log("🚀 Mercy Glow FINAL version started");
+  <!-- === GENTLE SHIBA MERCY GLOW BACKGROUND - more hearts/paws, high frequency, color-changing === -->
+<script>
+  function startMercyGlow() {
+    console.log("🚀 Mercy Glow upgraded - more particles, color shifting, high frequency rhythm");
 
-      const mercyContainer = document.getElementById('shiba-mercy-glow');
-      if (!mercyContainer) {
-        console.error("Mercy container not found");
-        return;
+    const mercyContainer = document.getElementById('shiba-mercy-glow');
+    if (!mercyContainer) return;
+
+    const oldCanvas = document.getElementById('mercyCanvas');
+    if (oldCanvas) oldCanvas.remove();
+
+    const mercyCanvas = document.createElement('canvas');
+    mercyCanvas.id = 'mercyCanvas';
+    mercyCanvas.style.position = 'absolute';
+    mercyCanvas.style.top = '0';
+    mercyCanvas.style.left = '0';
+    mercyCanvas.style.width = '100%';
+    mercyCanvas.style.height = '100%';
+    mercyCanvas.style.zIndex = '1';
+    mercyCanvas.style.opacity = '0.97';
+    mercyCanvas.style.pointerEvents = 'none';
+    mercyCanvas.style.maxWidth = '100vw';
+    mercyContainer.appendChild(mercyCanvas);
+
+    const mCtx = mercyCanvas.getContext('2d');
+    let mParticles = [];
+
+    function mResize() {
+      mercyCanvas.width = Math.min(mercyContainer.offsetWidth, window.innerWidth);
+      mercyCanvas.height = mercyContainer.offsetHeight;
+    }
+    window.addEventListener('resize', mResize);
+    window.addEventListener('orientationchange', mResize);
+    mResize();
+
+    const colors = ['#fcd34d', '#fda4af', '#a78bfa', '#10b981', '#f59e0b']; // golden, pink, violet, emerald, amber
+
+    class MercyParticle {
+      constructor() {
+        this.x = Math.random() * mercyCanvas.width;
+        this.y = Math.random() * mercyCanvas.height * 1.6;
+        this.size = Math.random() * 14 + 7;
+        this.speed = Math.random() * 0.95 + 0.45;           // slightly faster flow
+        this.type = Math.random() > 0.42 ? 'paw' : 'heart'; // more balanced mix
+        this.swing = Math.random() * Math.PI * 2;
+        this.colorIndex = Math.floor(Math.random() * colors.length);
+        this.colorShiftSpeed = Math.random() * 0.025 + 0.015; // high frequency color change
       }
-
-      // Remove old canvas if any
-      const oldCanvas = document.getElementById('mercyCanvas');
-      if (oldCanvas) oldCanvas.remove();
-
-      const mercyCanvas = document.createElement('canvas');
-      mercyCanvas.id = 'mercyCanvas';
-      mercyCanvas.style.position = 'absolute';
-      mercyCanvas.style.top = '0';
-      mercyCanvas.style.left = '0';
-      mercyCanvas.style.width = '100%';
-      mercyCanvas.style.height = '100%';
-      mercyCanvas.style.zIndex = '1';           // ← CRITICAL FIX: now sits above transparent container
-      mercyCanvas.style.opacity = '0.95';
-      mercyCanvas.style.pointerEvents = 'none';
-      mercyContainer.appendChild(mercyCanvas);
-
-      const mCtx = mercyCanvas.getContext('2d');
-      let mParticles = [];
-
-      function mResize() {
-        mercyCanvas.width = mercyContainer.offsetWidth;
-        mercyCanvas.height = mercyContainer.offsetHeight;
-      }
-      window.addEventListener('resize', mResize);
-      mResize();
-
-      class MercyParticle {
-        constructor() {
+      update() {
+        this.y -= this.speed;
+        this.swing += 0.028;
+        this.x += Math.sin(this.swing) * 1.1;
+        this.colorIndex = (this.colorIndex + this.colorShiftSpeed) % colors.length;
+        if (this.y < 0) {
+          this.y = mercyCanvas.height;
           this.x = Math.random() * mercyCanvas.width;
-          this.y = Math.random() * mercyCanvas.height * 1.5;
-          this.size = Math.random() * 12 + 6;
-          this.speed = Math.random() * 0.65 + 0.35;
-          this.type = Math.random() > 0.48 ? 'paw' : 'heart';
-          this.swing = Math.random() * Math.PI * 2;
-        }
-        update() {
-          this.y -= this.speed;
-          this.swing += 0.02;
-          this.x += Math.sin(this.swing) * 0.8;   // gentle floating sway
-          if (this.y < 0) {
-            this.y = mercyCanvas.height;
-            this.x = Math.random() * mercyCanvas.width;
-          }
-        }
-        draw() {
-          mCtx.save();
-          // Soft mercy glow
-          mCtx.shadowColor = this.type === 'heart' ? '#fda4af' : '#fcd34d';
-          mCtx.shadowBlur = 12;
-          mCtx.globalAlpha = 0.92;
-          
-          if (this.type === 'heart') {
-            mCtx.fillStyle = '#fda4af';
-            mCtx.font = `${this.size * 1.8}px system-ui`;
-            mCtx.fillText('♡', this.x, this.y);
-          } else {
-            mCtx.fillStyle = '#fcd34d';
-            mCtx.font = `${this.size * 1.9}px system-ui`;
-            mCtx.fillText('🐾', this.x, this.y);
-          }
-          mCtx.restore();
         }
       }
-
-      function mAnimate() {
-        mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-        if (mParticles.length < 110) mParticles.push(new MercyParticle());
+      draw() {
+        mCtx.save();
+        const currentColor = colors[Math.floor(this.colorIndex)];
+        mCtx.shadowColor = currentColor;
+        mCtx.shadowBlur = 18;
+        mCtx.globalAlpha = 0.94;
         
-        for (let i = 0; i < mParticles.length; i++) {
-          mParticles[i].update();
-          mParticles[i].draw();
+        mCtx.fillStyle = currentColor;
+        if (this.type === 'heart') {
+          mCtx.font = `${this.size * 1.85}px system-ui`;
+          mCtx.fillText('♡', this.x, this.y);
+        } else {
+          mCtx.font = `${this.size * 1.95}px system-ui`;
+          mCtx.fillText('🐾', this.x, this.y);
         }
-        requestAnimationFrame(mAnimate);
+        mCtx.restore();
       }
-      mAnimate();
-      console.log("✨ Final mercy glow with floating golden paws 🐾 and hearts ♡ is now visible!");
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startMercyGlow);
-    } else {
-      startMercyGlow();
+    function mAnimate() {
+      mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
+      
+      // High frequency spawning - more particles
+      if (mParticles.length < 240) { 
+        mParticles.push(new MercyParticle());
+      }
+      
+      for (let i = 0; i < mParticles.length; i++) {
+        mParticles[i].update();
+        mParticles[i].draw();
+      }
+      requestAnimationFrame(mAnimate);
     }
-  </script>
+    mAnimate();
+    console.log("✨ Mercy glow now has more hearts & paws with beautiful color shifting!");
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startMercyGlow);
+  } else {
+    startMercyGlow();
+  }
+</script>
 </body>
 </html>
