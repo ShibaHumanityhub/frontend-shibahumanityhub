@@ -91,18 +91,18 @@
     animation: shine 2.3s linear infinite;
   }
 
-  /* === HERO BACKGROUND - ULTRA VIBRANT LIVING GRADIENT (billion-dollar shift) === */
+  /* === HERO BACKGROUND - x50 CINEMATIC LIVING GRADIENT (deep, emotional, addictive) === */
   .hero-bg { 
     background: linear-gradient(135deg, 
       #0a1729 0%, 
-      #1a2a3f 20%, 
-      #1e3a4a 35%, 
-      #c89f3f 50%, 
-      #e88a9e 65%, 
-      #a78bfa 80%, 
+      #112233 18%, 
+      #1e3a4a 32%, 
+      #c89f3f 48%, 
+      #e88a9e 62%, 
+      #a78bfa 78%, 
       #0a1729 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 28s ease infinite;
+    background-size: 500% 500%;
+    animation: gradientShift 32s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -112,58 +112,58 @@
 
   @keyframes gradientShift {
     0%   { background-position: 0% 50%; }
-    25%  { background-position: 100% 50%; }
-    50%  { background-position: 0% 50%; }
+    25%  { background-position: 100% 30%; }
+    50%  { background-position: 0% 70%; }
     75%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
 
-  /* === SUPERCHARGED HERO TITLE - BILLION-DOLLAR MAGNET (grab-you-by-the-face) === */
+  /* === x50 SUPERCHARGED HERO TITLE - magnetic, breathing, billion-dollar energy === */
   .hero-title {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    line-height: 1.02;
-    letter-spacing: -7px;
-    font-size: clamp(3rem, 10vw, 9.5rem);
+    line-height: 0.95;
+    letter-spacing: -8px;
+    font-size: clamp(3.2rem, 11vw, 10rem);
     text-shadow: 
-      0 0 40px rgba(251, 191, 36, 0.6),
-      0 25px 70px rgba(0, 0, 0, 0.9),
-      0 0 120px rgba(232, 138, 158, 0.5);
-    animation: titleBreath 6s ease-in-out infinite,
-               titleGlow 4s ease-in-out infinite alternate;
+      0 0 60px rgba(251, 191, 36, 0.8),
+      0 30px 90px rgba(0, 0, 0, 0.95),
+      0 0 160px rgba(232, 138, 158, 0.7),
+      0 0 220px rgba(167, 139, 250, 0.4);
+    animation: titleBreath 5s ease-in-out infinite,
+               titleGlowPulse 3.5s ease-in-out infinite alternate;
     position: relative;
+    z-index: 2;
   }
 
   .hero-title::before {
     content: '';
     position: absolute;
-    top: -30%;
-    left: -30%;
-    width: 160%;
-    height: 160%;
+    inset: -40%;
     background: linear-gradient(120deg, 
-      transparent 30%, 
-      rgba(255,255,255,0.85) 50%, 
-      transparent 70%);
-    transform: skewX(-25deg);
-    animation: titleShine 3.5s linear infinite;
-    opacity: 0.25;
+      transparent 35%, 
+      rgba(255,255,255,0.95) 50%, 
+      transparent 65%);
+    transform: skewX(-28deg);
+    animation: titleShine 2.8s linear infinite;
+    opacity: 0.35;
     pointer-events: none;
+    z-index: 1;
   }
 
   @keyframes titleBreath {
     0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.015); }
+    50%      { transform: scale(1.028); }
   }
 
-  @keyframes titleGlow {
-    0%   { text-shadow: 0 0 40px rgba(251, 191, 36, 0.6), 0 25px 70px rgba(0,0,0,0.9); }
-    100% { text-shadow: 0 0 80px rgba(251, 191, 36, 0.9), 0 35px 90px rgba(232,138,158,0.7); }
+  @keyframes titleGlowPulse {
+    0%   { text-shadow: 0 0 60px rgba(251, 191, 36, 0.8), 0 30px 90px rgba(0,0,0,0.95), 0 0 160px rgba(232,138,158,0.7); }
+    100% { text-shadow: 0 0 100px rgba(251, 191, 36, 1), 0 45px 110px rgba(0,0,0,0.95), 0 0 240px rgba(232,138,158,0.9), 0 0 280px rgba(167,139,250,0.6); }
   }
 
   @keyframes titleShine {
-    0%   { transform: translateX(-150%) skewX(-25deg); }
-    100% { transform: translateX(300%) skewX(-25deg); }
+    0%   { transform: translateX(-180%) skewX(-28deg); }
+    100% { transform: translateX(320%) skewX(-28deg); }
   }
 
   /* === PASTE ALL YOUR REMAINING ORIGINAL CSS HERE (starting from MAIN SECTION HEADINGS) === */
