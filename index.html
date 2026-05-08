@@ -260,12 +260,13 @@ body {
     </div>
   </nav>
 
-<!-- HERO - NOW AWARD-WINNING (Tom + Elon + Vitalik blended) -->
+<!-- HERO - NOW TRULY MAGICAL (Elon vision + Tom Bilyeu storytelling + Vitalik authenticity) -->
 <header class="hero-bg pt-20 sm:pt-28 md:pt-40 pb-12 sm:pb-20 md:pb-28 text-center relative overflow-hidden min-h-screen flex items-center">
   <div id="shiba-mercy-glow" class="absolute inset-0 pointer-events-none"></div>
   
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-20 w-full">
-       <div class="inline-flex flex-col items-center mx-auto px-8 sm:px-16 py-4 sm:py-6 rounded-[4rem] bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl">
+    <!-- Premium rounded container (lines already fixed) -->
+    <div class="inline-flex flex-col items-center mx-auto px-8 sm:px-16 py-4 sm:py-6 rounded-[4rem] bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl">
       <h1 class="hero-title text-white leading-none">SHIBA</h1>
       <h1 class="hero-title text-white -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
     </div>
@@ -276,13 +277,13 @@ body {
     </p>
     
     <p class="text-xl sm:text-2xl text-amber-200 mt-8 max-w-2xl mx-auto">
-      This is not charity. This is the first decentralized movement where love is literally programmed into the code.
+      This is not charity. This is the first decentralized movement where love is literally programmed into the code — transparent, unstoppable, and built by all of us.
     </p>
 
-    <!-- Subtle proof line - real, humble, Elon-style transparency -->
+    <!-- Elon-style vision line -->
     <div class="mt-10 flex justify-center items-center gap-3 text-amber-200/70 text-sm tracking-widest font-medium">
       <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-      LIVE ON TESTNET • ALREADY FUNDING REAL MERCY
+      LIVE ON TESTNET • ALREADY FUNDING REAL MERCY • NO MIDDLEMEN • FULL TRANSPARENCY
     </div>
 
     <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-6 text-3xl sm:text-4xl mt-12 sm:mt-14 mb-14">
@@ -298,7 +299,6 @@ body {
     </a>
   </div>
 </header>
-
   <!-- EXPLANATION -->
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 -mt-8">
     <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
@@ -1263,7 +1263,7 @@ body {
     };
   </script>
 
-<!-- === FRESHENED MERCY GLOW - buttery smooth colors + movements === -->
+<!-- === MAGICAL MERCY GLOW - buttery smooth, cinematic, pulls you in === -->
 <script>
   function startMercyGlow() {
     const mercyContainer = document.getElementById('shiba-mercy-glow');
@@ -1277,7 +1277,7 @@ body {
     mercyCanvas.style.width = '100%';
     mercyCanvas.style.height = '100%';
     mercyCanvas.style.zIndex = '1';
-    mercyCanvas.style.opacity = '0.95';
+    mercyCanvas.style.opacity = '0.96';
     mercyCanvas.style.pointerEvents = 'none';
     mercyContainer.appendChild(mercyCanvas);
 
@@ -1300,18 +1300,18 @@ body {
     class MercyParticle {
       constructor() {
         this.x = Math.random() * mercyCanvas.width / dpr;
-        this.y = Math.random() * mercyCanvas.height * 1.5;
-        this.size = Math.random() * 16 + 9;
-        this.speed = Math.random() * 0.75 + 0.35;
-        this.type = Math.random() > 0.4 ? 'paw' : 'heart';
+        this.y = Math.random() * mercyCanvas.height * 1.6;
+        this.size = Math.random() * 17 + 9;
+        this.speed = Math.random() * 0.7 + 0.32;
+        this.type = Math.random() > 0.38 ? 'paw' : 'heart';
         this.swing = Math.random() * Math.PI * 2;
         this.colorIndex = Math.random() * colors.length;
       }
       update() {
         this.y -= this.speed;
-        this.swing += 0.008;                    // smoother sway
-        this.x += Math.sin(this.swing) * 0.9;
-        this.colorIndex += 0.0038;              // ultra-smooth color change
+        this.swing += 0.0075;
+        this.x += Math.sin(this.swing) * 0.95;
+        this.colorIndex += 0.0032;
         if (this.y < 0) {
           this.y = mercyCanvas.height / dpr;
           this.x = Math.random() * (mercyCanvas.width / dpr);
@@ -1335,8 +1335,8 @@ body {
         const b = Math.floor(b1 + (b2 - b1) * t);
 
         mCtx.shadowColor = `rgb(${r},${g},${b})`;
-        mCtx.shadowBlur = 34;
-        mCtx.globalAlpha = 0.91;
+        mCtx.shadowBlur = 36;
+        mCtx.globalAlpha = 0.92;
         mCtx.fillStyle = `rgb(${r},${g},${b})`;
 
         if (this.type === 'heart') {
@@ -1352,7 +1352,7 @@ body {
 
     function mAnimate() {
       mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-      if (mParticles.length < 240) mParticles.push(new MercyParticle());
+      if (mParticles.length < 245) mParticles.push(new MercyParticle());
 
       for (let i = 0; i < mParticles.length; i++) {
         mParticles[i].update();
@@ -1361,7 +1361,7 @@ body {
       requestAnimationFrame(mAnimate);
     }
     mAnimate();
-    console.log("✨ Freshened mercy glow — smoother colors & movements activated");
+    console.log("✨ Magical mercy glow activated — landing page now pulls you in");
   }
 
   if (document.readyState === 'loading') {
