@@ -1236,16 +1236,11 @@ body {
     };
   </script>
 
- <!-- === 50x PREMIUM MERCY GLOW - ultra smooth, no lines, perfect scroll blend === -->
+ <!-- === x1000 MILLION QUALITY MERCY GLOW - ultra cinematic, buttery smooth, no glitch ever === -->
 <script>
   function startMercyGlow() {
-    console.log("🚀 Mercy Glow now 50x premium — silky smooth, no lines");
-
     const mercyContainer = document.getElementById('shiba-mercy-glow');
     if (!mercyContainer) return;
-
-    const oldCanvas = document.getElementById('mercyCanvas');
-    if (oldCanvas) oldCanvas.remove();
 
     const mercyCanvas = document.createElement('canvas');
     mercyCanvas.id = 'mercyCanvas';
@@ -1255,43 +1250,49 @@ body {
     mercyCanvas.style.width = '100%';
     mercyCanvas.style.height = '100%';
     mercyCanvas.style.zIndex = '1';
-    mercyCanvas.style.opacity = '0.90';
+    mercyCanvas.style.opacity = '0.94';
     mercyCanvas.style.pointerEvents = 'none';
     mercyContainer.appendChild(mercyCanvas);
 
     const mCtx = mercyCanvas.getContext('2d');
     let mParticles = [];
-    let dpr = window.devicePixelRatio || 1;   // ← THIS KILLS THE LINES
+    let dpr = window.devicePixelRatio || 1;
 
     function mResize() {
       const rect = mercyContainer.getBoundingClientRect();
       mercyCanvas.width = rect.width * dpr;
       mercyCanvas.height = rect.height * dpr;
       mCtx.scale(dpr, dpr);
-      mercyCanvas.style.width = rect.width + 'px';
-      mercyCanvas.style.height = rect.height + 'px';
     }
     window.addEventListener('resize', mResize);
     window.addEventListener('orientationchange', mResize);
     mResize();
 
-    const colors = ['#fcd34d', '#f5d0a8', '#fda4af', '#10b981'];
+    // Rich, luxurious color palette for buttery blending
+    const colors = [
+      '#fcd34d', '#f5d0a8', '#fda4af', 
+      '#e88a9e', '#c89f3f', '#10b981'
+    ];
 
     class MercyParticle {
       constructor() {
         this.x = Math.random() * mercyCanvas.width / dpr;
-        this.y = Math.random() * mercyCanvas.height / dpr * 1.4;
-        this.size = Math.random() * 13 + 6;
-        this.speed = Math.random() * 0.68 + 0.32;
-        this.type = Math.random() > 0.4 ? 'paw' : 'heart';
+        this.y = Math.random() * mercyCanvas.height / dpr * 1.6;
+        this.size = Math.random() * 15 + 8;
+        this.speed = Math.random() * 0.55 + 0.25;
+        this.type = Math.random() > 0.38 ? 'paw' : 'heart';
         this.swing = Math.random() * Math.PI * 2;
+        this.swingSpeed = Math.random() * 0.018 + 0.009;
         this.colorIndex = Math.random() * colors.length;
+        this.colorShiftSpeed = Math.random() * 0.012 + 0.006; // ultra gentle
+        this.breath = Math.random() * Math.PI * 2;
       }
       update() {
         this.y -= this.speed;
-        this.swing += 0.011;                    // super smooth sway
-        this.x += Math.sin(this.swing) * 0.8;
-        this.colorIndex += 0.006;               // very gentle color blend
+        this.swing += this.swingSpeed;
+        this.x += Math.sin(this.swing) * 1.1;
+        this.colorIndex += this.colorShiftSpeed;
+        this.breath += 0.028;
         if (this.y < 0) {
           this.y = mercyCanvas.height / dpr;
           this.x = Math.random() * (mercyCanvas.width / dpr);
@@ -1300,16 +1301,32 @@ body {
       draw() {
         mCtx.save();
         const idx = Math.floor(this.colorIndex) % colors.length;
-        mCtx.shadowColor = colors[idx];
-        mCtx.shadowBlur = 26;
-        mCtx.globalAlpha = 0.92;
-        mCtx.fillStyle = colors[idx];
+        const nextIdx = (idx + 1) % colors.length;
+        const t = this.colorIndex % 1; // fractional part for smooth lerp
+
+        // True color lerping for buttery smooth transitions
+        const r1 = parseInt(colors[idx].slice(1,3),16);
+        const g1 = parseInt(colors[idx].slice(3,5),16);
+        const b1 = parseInt(colors[idx].slice(5,7),16);
+        const r2 = parseInt(colors[nextIdx].slice(1,3),16);
+        const g2 = parseInt(colors[nextIdx].slice(3,5),16);
+        const b2 = parseInt(colors[nextIdx].slice(5,7),16);
+
+        const r = Math.floor(r1 + (r2 - r1) * t);
+        const g = Math.floor(g1 + (g2 - g1) * t);
+        const b = Math.floor(b1 + (b2 - b1) * t);
+
+        mCtx.shadowColor = `rgb(${r},${g},${b})`;
+        mCtx.shadowBlur = 32;
+        mCtx.globalAlpha = 0.88 + Math.sin(this.breath) * 0.12; // gentle breathing
+
+        mCtx.fillStyle = `rgb(${r},${g},${b})`;
 
         if (this.type === 'heart') {
-          mCtx.font = `${this.size * 1.92}px system-ui`;
+          mCtx.font = `${this.size * 1.95}px system-ui`;
           mCtx.fillText('♡', this.x, this.y);
         } else {
-          mCtx.font = `${this.size * 2.08}px system-ui`;
+          mCtx.font = `${this.size * 2.12}px system-ui`;
           mCtx.fillText('🐾', this.x, this.y);
         }
         mCtx.restore();
@@ -1318,7 +1335,7 @@ body {
 
     function mAnimate() {
       mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-      if (mParticles.length < 165) mParticles.push(new MercyParticle());
+      if (mParticles.length < 210) mParticles.push(new MercyParticle());
 
       for (let i = 0; i < mParticles.length; i++) {
         mParticles[i].update();
@@ -1327,7 +1344,8 @@ body {
       requestAnimationFrame(mAnimate);
     }
     mAnimate();
-    console.log("✨ Mercy glow is now perfectly smooth — no more cheap lines!");
+
+    console.log("✨ Mercy glow is now x1000 million cinematic quality — buttery smooth movement & color transitions");
   }
 
   if (document.readyState === 'loading') {
