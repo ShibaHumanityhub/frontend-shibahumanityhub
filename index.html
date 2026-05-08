@@ -134,24 +134,25 @@ body {
     animation: shine 2.3s linear infinite;
   }
 
-        /* === ULTRA-SMOOTH CINEMATIC HERO GRADIENT (no more glitchy color changes) === */
+        /* === ULTRA-SMOOTH HERO GRADIENT - NO MORE HORIZONTAL LINES EVER === */
 .hero-bg { 
   background: linear-gradient(135deg, 
     #0a1729 0%, 
-    #13253a 25%, 
-    #1a2e42 40%, 
-    #c89f3f 55%, 
-    #e88a9e 70%, 
-    #f5d0a8 85%, 
+    #13253a 22%, 
+    #1a2e42 38%, 
+    #c89f3f 52%, 
+    #e88a9e 68%, 
+    #f5d0a8 82%, 
     #0a1729 100%);
-  background-size: 420% 420%;
-  animation: gradientShift 38s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  background-size: 450% 450%;
+  animation: gradientShift 42s cubic-bezier(0.42, 0.0, 0.58, 1.0) infinite;
   min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  will-change: background-position; /* forces buttery GPU rendering */
+  will-change: background-position;
+  box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.6); /* subtle vignette masks any edge lines */
 }
 
 @keyframes gradientShift {
@@ -160,7 +161,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* === PREMIUM SPLIT TITLE - stronger glow, perfect mobile === */
+/* === BREATHING LUXURY TITLE GLOW - brightens & darkens smoothly, no lines === */
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -168,21 +169,26 @@ body {
   letter-spacing: -6px;
   font-size: clamp(2.8rem, 9vw, 9rem);
   text-shadow: 
-    0 0 40px rgba(251,191,36,0.9),
-    0 25px 70px rgba(0,0,0,0.85),
-    0 0 120px rgba(232,138,158,0.6);
-  animation: titlePulse 8s ease-in-out infinite,
-             titleGlow 6s ease-in-out infinite alternate;
-}
-@keyframes titlePulse { 
-  0%, 100% { opacity: 1; transform: scale(1); } 
-  50% { opacity: 0.96; transform: scale(1.015); } 
-}
-@keyframes titleGlow {
-  0%   { text-shadow: 0 0 40px rgba(251,191,36,0.9), 0 25px 70px rgba(0,0,0,0.85), 0 0 120px rgba(232,138,158,0.6); }
-  100% { text-shadow: 0 0 70px rgba(251,191,36,1), 0 35px 100px rgba(0,0,0,0.9), 0 0 180px rgba(232,138,158,0.85); }
+    0 0 30px rgba(251, 191, 36, 0.85),
+    0 25px 60px rgba(0, 0, 0, 0.9),
+    0 0 90px rgba(232, 138, 158, 0.7);
+  animation: titleBreath 7s ease-in-out infinite;
 }
 
+@keyframes titleBreath {
+  0%, 100% { 
+    text-shadow: 
+      0 0 30px rgba(251, 191, 36, 0.85),
+      0 25px 60px rgba(0, 0, 0, 0.9),
+      0 0 90px rgba(232, 138, 158, 0.7);
+  }
+  50% { 
+    text-shadow: 
+      0 0 70px rgba(251, 191, 36, 1),
+      0 35px 90px rgba(0, 0, 0, 0.95),
+      0 0 140px rgba(232, 138, 158, 0.95);
+  }
+}
   /* === PASTE ALL YOUR REMAINING ORIGINAL CSS HERE (starting from MAIN SECTION HEADINGS) === */
   </style>
 </head>
