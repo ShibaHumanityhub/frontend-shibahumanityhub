@@ -58,6 +58,20 @@
     animation: shine 2s linear infinite;
   }
 
+  /* === COOL BONE WAG ON HOVER (happy tail wag + glow) === */
+  .bone-icon {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  .super-cta-btn:hover .bone-icon {
+    animation: boneWag 0.65s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgb(251 191 36));
+  }
+
+  @keyframes boneWag {
+    0%, 100% { transform: rotate(-18deg) scale(1); }
+    50%      { transform: rotate(18deg) scale(1.15); }
+  }
+
   .premium-sponsor-btn {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -91,18 +105,18 @@
     animation: shine 2.3s linear infinite;
   }
 
-  /* === HERO BACKGROUND - x50 CINEMATIC LIVING GRADIENT (deep, emotional, addictive) === */
+  /* === x50 CHILL LUXURY HERO GRADIENT - slow, beautiful, emotional === */
   .hero-bg { 
     background: linear-gradient(135deg, 
       #0a1729 0%, 
-      #112233 18%, 
-      #1e3a4a 32%, 
-      #c89f3f 48%, 
-      #e88a9e 62%, 
-      #a78bfa 78%, 
+      #112233 22%, 
+      #1e3a4a 38%, 
+      #c89f3f 52%, 
+      #e88a9e 66%, 
+      #a78bfa 80%, 
       #0a1729 100%);
-    background-size: 500% 500%;
-    animation: gradientShift 32s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    background-size: 420% 420%;
+    animation: gradientShift 48s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -112,13 +126,13 @@
 
   @keyframes gradientShift {
     0%   { background-position: 0% 50%; }
-    25%  { background-position: 100% 30%; }
-    50%  { background-position: 0% 70%; }
+    25%  { background-position: 100% 35%; }
+    50%  { background-position: 0% 65%; }
     75%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
 
-  /* === x50 SUPERCHARGED HERO TITLE - magnetic, breathing, billion-dollar energy === */
+  /* === x50 SUPERCHARGED TITLE - calm, breathing, premium luxury === */
   .hero-title {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -126,12 +140,11 @@
     letter-spacing: -8px;
     font-size: clamp(3.2rem, 11vw, 10rem);
     text-shadow: 
-      0 0 60px rgba(251, 191, 36, 0.8),
-      0 30px 90px rgba(0, 0, 0, 0.95),
-      0 0 160px rgba(232, 138, 158, 0.7),
-      0 0 220px rgba(167, 139, 250, 0.4);
-    animation: titleBreath 5s ease-in-out infinite,
-               titleGlowPulse 3.5s ease-in-out infinite alternate;
+      0 0 50px rgba(251, 191, 36, 0.7),
+      0 30px 80px rgba(0, 0, 0, 0.95),
+      0 0 140px rgba(232, 138, 158, 0.6);
+    animation: titleBreath 9s ease-in-out infinite,
+               titleGlow 5s ease-in-out infinite alternate;
     position: relative;
     z-index: 2;
   }
@@ -141,29 +154,28 @@
     position: absolute;
     inset: -40%;
     background: linear-gradient(120deg, 
-      transparent 35%, 
-      rgba(255,255,255,0.95) 50%, 
-      transparent 65%);
-    transform: skewX(-28deg);
-    animation: titleShine 2.8s linear infinite;
-    opacity: 0.35;
+      transparent 38%, 
+      rgba(255,255,255,0.9) 50%, 
+      transparent 62%);
+    transform: skewX(-25deg);
+    animation: titleShine 4.5s linear infinite;
+    opacity: 0.28;
     pointer-events: none;
-    z-index: 1;
   }
 
   @keyframes titleBreath {
     0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.028); }
+    50%      { transform: scale(1.018); }
   }
 
-  @keyframes titleGlowPulse {
-    0%   { text-shadow: 0 0 60px rgba(251, 191, 36, 0.8), 0 30px 90px rgba(0,0,0,0.95), 0 0 160px rgba(232,138,158,0.7); }
-    100% { text-shadow: 0 0 100px rgba(251, 191, 36, 1), 0 45px 110px rgba(0,0,0,0.95), 0 0 240px rgba(232,138,158,0.9), 0 0 280px rgba(167,139,250,0.6); }
+  @keyframes titleGlow {
+    0%   { text-shadow: 0 0 50px rgba(251, 191, 36, 0.7), 0 30px 80px rgba(0,0,0,0.95); }
+    100% { text-shadow: 0 0 85px rgba(251, 191, 36, 0.95), 0 40px 100px rgba(232,138,158,0.8); }
   }
 
   @keyframes titleShine {
-    0%   { transform: translateX(-180%) skewX(-28deg); }
-    100% { transform: translateX(320%) skewX(-28deg); }
+    0%   { transform: translateX(-160%) skewX(-25deg); }
+    100% { transform: translateX(280%) skewX(-25deg); }
   }
 
   /* === PASTE ALL YOUR REMAINING ORIGINAL CSS HERE (starting from MAIN SECTION HEADINGS) === */
