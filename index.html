@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Shibahumanityhub • Since Nov 2025</title>
 
   <!-- FAVICON - WORKING -->
@@ -16,13 +16,42 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-  body { 
-    font-family: 'Inter', system-ui, sans-serif; 
-    overflow-x: hidden; 
-    line-height: 1.7;
-  }
+/* =============== MOBILE BLACK GAP KILLER (fixes right-side overflow) =============== */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Force hero + sections to stay inside phone screen */
+.hero-bg, section, .max-w-7xl, .max-w-6xl, .max-w-5xl, .token-card {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+body { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  overflow-x: hidden; 
+  line-height: 1.7;
+}
+
+/* Make token images fit perfectly on skinny mobile */
+.token-card img {
+  max-width: 100% !important;
+  height: auto !important;
+  width: 100% !important;
+  max-height: 260px !important;
+  object-fit: contain;
+}
 
   /* === x50 PREMIUM BUTTONS - LUXURY SHINE & GLOW === */
   .super-cta-btn {
