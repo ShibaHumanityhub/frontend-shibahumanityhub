@@ -134,22 +134,30 @@ body {
     animation: shine 2.3s linear infinite;
   }
 
-        /* === WARM CINEMATIC HERO GRADIENT + LUXURY TITLE (leveled up) === */
+        /* === ULTRA-SMOOTH CINEMATIC HERO GRADIENT (no more glitchy color changes) === */
 .hero-bg { 
-  background: linear-gradient(135deg, #0a1729, #1a2e42, #c89f3f, #e88a9e, #f5d0a8);
-  background-size: 400% 400%;
-  animation: gradientShift 25s ease infinite;
+  background: linear-gradient(135deg, 
+    #0a1729 0%, 
+    #13253a 25%, 
+    #1a2e42 40%, 
+    #c89f3f 55%, 
+    #e88a9e 70%, 
+    #f5d0a8 85%, 
+    #0a1729 100%);
+  background-size: 420% 420%;
+  animation: gradientShift 38s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+  will-change: background-position; /* forces buttery GPU rendering */
 }
 
 @keyframes gradientShift {
-  0%   {background-position: 0% 50%}
-  50%  {background-position: 100% 50%}
-  100% {background-position: 0% 50%}
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* === PREMIUM SPLIT TITLE - stronger glow, perfect mobile === */
