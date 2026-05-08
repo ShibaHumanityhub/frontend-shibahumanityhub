@@ -134,25 +134,25 @@ body {
     animation: shine 2.3s linear infinite;
   }
 
-        /* === ULTRA-SMOOTH HERO GRADIENT - NO MORE HORIZONTAL LINES EVER === */
+/* === FRESHENED ULTRA-SMOOTH HERO GRADIENT + SHARPER SHINIER BUTTON === */
 .hero-bg { 
   background: linear-gradient(135deg, 
     #0a1729 0%, 
-    #13253a 22%, 
-    #1a2e42 38%, 
-    #c89f3f 52%, 
-    #e88a9e 68%, 
-    #f5d0a8 82%, 
+    #13253a 20%, 
+    #1a2e42 35%, 
+    #c89f3f 50%, 
+    #e88a9e 65%, 
+    #f5d0a8 80%, 
     #0a1729 100%);
-  background-size: 450% 450%;
-  animation: gradientShift 42s cubic-bezier(0.42, 0.0, 0.58, 1.0) infinite;
+  background-size: 500% 500%;
+  animation: gradientShift 55s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   will-change: background-position;
-  box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.6); /* subtle vignette masks any edge lines */
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.65);
 }
 
 @keyframes gradientShift {
@@ -161,7 +161,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* === BREATHING LUXURY TITLE GLOW - brightens & darkens smoothly, no lines === */
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -169,26 +168,54 @@ body {
   letter-spacing: -6px;
   font-size: clamp(2.8rem, 9vw, 9rem);
   text-shadow: 
-    0 0 30px rgba(251, 191, 36, 0.85),
-    0 25px 60px rgba(0, 0, 0, 0.9),
-    0 0 90px rgba(232, 138, 158, 0.7);
-  animation: titleBreath 7s ease-in-out infinite;
+    0 0 40px rgba(251, 191, 36, 0.9),
+    0 25px 70px rgba(0, 0, 0, 0.95),
+    0 0 110px rgba(232, 138, 158, 0.8);
+  animation: titleBreath 8s ease-in-out infinite;
 }
 
 @keyframes titleBreath {
-  0%, 100% { 
-    text-shadow: 
-      0 0 30px rgba(251, 191, 36, 0.85),
-      0 25px 60px rgba(0, 0, 0, 0.9),
-      0 0 90px rgba(232, 138, 158, 0.7);
-  }
-  50% { 
-    text-shadow: 
-      0 0 70px rgba(251, 191, 36, 1),
-      0 35px 90px rgba(0, 0, 0, 0.95),
-      0 0 140px rgba(232, 138, 158, 0.95);
-  }
+  0%, 100% { text-shadow: 0 0 40px rgba(251, 191, 36, 0.9), 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 110px rgba(232, 138, 158, 0.8); }
+  50%      { text-shadow: 0 0 80px rgba(251, 191, 36, 1), 0 35px 100px rgba(0, 0, 0, 0.98), 0 0 160px rgba(232, 138, 158, 1); }
 }
+
+/* === SHARPER + SHINIER WHITEPAPER BUTTON === */
+.super-cta-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1.8px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
+  color: #0f172a;
+  box-shadow: 
+    0 0 60px -10px rgb(251 191 36),
+    0 25px 70px -15px rgb(251 191 36),
+    0 0 120px 30px rgba(251, 191, 36, 0.6);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px;
+}
+
+.super-cta-btn:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 
+    0 0 110px -10px rgb(251 191 36),
+    0 40px 100px -20px rgb(251 191 36),
+    0 0 160px 50px rgba(251, 191, 36, 0.75);
+}
+
+.super-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 40%;
+  height: 280%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.98), transparent);
+  transform: skewX(-28deg);
+  animation: shine 1.6s linear infinite;
+}
+
   /* === PASTE ALL YOUR REMAINING ORIGINAL CSS HERE (starting from MAIN SECTION HEADINGS) === */
   </style>
 </head>
