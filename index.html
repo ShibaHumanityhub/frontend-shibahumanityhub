@@ -132,7 +132,7 @@
     100% { background-position: 0% 50%; }
   }
 
-  /* === x50 SUPERCHARGED TITLE - calm, breathing, premium luxury === */
+  /* === x50 MINDBLOWING TITLE - breathing, growing, premium luxury (no crossing shine) === */
   .hero-title {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -140,42 +140,24 @@
     letter-spacing: -8px;
     font-size: clamp(3.2rem, 11vw, 10rem);
     text-shadow: 
-      0 0 50px rgba(251, 191, 36, 0.7),
-      0 30px 80px rgba(0, 0, 0, 0.95),
-      0 0 140px rgba(232, 138, 158, 0.6);
-    animation: titleBreath 9s ease-in-out infinite,
-               titleGlow 5s ease-in-out infinite alternate;
+      0 0 60px rgba(251, 191, 36, 0.75),
+      0 35px 90px rgba(0, 0, 0, 0.95),
+      0 0 160px rgba(232, 138, 158, 0.65),
+      0 0 220px rgba(167, 139, 250, 0.35);
+    animation: titleBreath 8s ease-in-out infinite,
+               titleGlow 4.8s ease-in-out infinite alternate;
     position: relative;
     z-index: 2;
   }
 
-  .hero-title::before {
-    content: '';
-    position: absolute;
-    inset: -40%;
-    background: linear-gradient(120deg, 
-      transparent 38%, 
-      rgba(255,255,255,0.9) 50%, 
-      transparent 62%);
-    transform: skewX(-25deg);
-    animation: titleShine 4.5s linear infinite;
-    opacity: 0.28;
-    pointer-events: none;
-  }
-
   @keyframes titleBreath {
     0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.018); }
+    50%      { transform: scale(1.025); }
   }
 
   @keyframes titleGlow {
-    0%   { text-shadow: 0 0 50px rgba(251, 191, 36, 0.7), 0 30px 80px rgba(0,0,0,0.95); }
-    100% { text-shadow: 0 0 85px rgba(251, 191, 36, 0.95), 0 40px 100px rgba(232,138,158,0.8); }
-  }
-
-  @keyframes titleShine {
-    0%   { transform: translateX(-160%) skewX(-25deg); }
-    100% { transform: translateX(280%) skewX(-25deg); }
+    0%   { text-shadow: 0 0 60px rgba(251, 191, 36, 0.75), 0 35px 90px rgba(0,0,0,0.95), 0 0 160px rgba(232,138,158,0.65); }
+    100% { text-shadow: 0 0 95px rgba(251, 191, 36, 0.95), 0 45px 110px rgba(0,0,0,0.95), 0 0 240px rgba(232,138,158,0.85), 0 0 280px rgba(167,139,250,0.5); }
   }
 
   /* === PASTE ALL YOUR REMAINING ORIGINAL CSS HERE (starting from MAIN SECTION HEADINGS) === */
