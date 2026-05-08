@@ -220,11 +220,11 @@ body {
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center gap-8 text-lg">
         <a href="#contracts" class="hover:text-amber-300 transition">Contracts</a>
-        <a href="#programs" class="hover:text-amber-300 transition">Programs</a>
+        <a href="#programs" class="hover:text-amber-300 transition">Featured Programs</a>
+        <a href="#all-programs" class="hover:text-amber-300 transition font-semibold">All Programs</a>
         <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" download="shiba-humanity-hub-whitepaper-v2.pdf" class="hover:text-amber-300 transition">Whitepaper v2</a>
         <a href="https://github.com/ShibaHumanityhub" target="_blank" class="hover:text-amber-300 transition">GitHub</a>
       </div>
-    </div>
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-amber-500/30 px-6 py-6 text-lg">
@@ -334,66 +334,60 @@ body {
   </div>
 </div>
 
-  <!-- PROGRAMS - improved mobile spacing -->
+    <!-- FEATURED TOP PROGRAMS - Main landing page (most heartfelt & highest impact) -->
   <section id="programs" class="py-24 bg-zinc-950">
-
-                      <!-- HOW YOU CAN HELP RIGHT NOW - WARM, HUMAN, AND FULL OF HEART -->
-  <section class="help-section py-20 bg-zinc-950">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <h2 class="text-5xl font-bold text-white">How You Can Help Right Now</h2>
-        <p class="text-amber-200 text-2xl mt-4 max-w-2xl mx-auto">
-          Your love, your action, every transaction you make quietly becomes mercy for someone who needs it most.
-        </p>
+        <h2 class="text-5xl font-bold">Top Programs That Change Lives</h2>
+        <p class="text-amber-200 mt-4 text-xl">Most heartfelt. Highest impact. Chosen by real mercy.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        
-        <!-- Card 1 - GOLDEN WHITEPAPER BUTTON -->
-        <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
-          <h3 class="text-3xl mb-3">Read the Full Vision</h3>
-          <p class="text-zinc-400 mb-8 leading-relaxed">
-            Step into the complete story. See where we’re going, why this matters so deeply, and how every transaction is already changing lives in real ways.
-          </p>
-                    <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-             download="shiba-humanity-hub-whitepaper-v2.pdf"
-             class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl">
-            <i class="fa-solid fa-bone bone-icon text-3xl"></i>
-            Download Whitepaper v2
-          </a>
+      <!-- $NIBBLES Top -->
+      <div class="mb-16">
+        <div class="flex items-center gap-3 mb-8 justify-center">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg" class="w-9 h-9" alt="">
+          <h3 class="text-4xl font-bold text-amber-400">$NIBBLES • Top 5 Most Heartfelt</h3>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="top-nibbles-grid"></div>
+      </div>
 
-        <!-- Card 2 - Sponsor -->
-        <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
-          <div class="mx-auto mb-6 inline-flex items-center justify-center bg-emerald-400 text-black text-xs font-bold px-5 py-2 rounded-3xl shadow-md">
-            MOST IMPACTFUL
-          </div>
-          <h3 class="text-3xl mb-3">Sponsor a Program</h3>
-          <p class="text-zinc-400 mb-8 leading-relaxed">
-            Choose any program that touches your heart and become the reason a dog finds safety or a child feels truly loved and seen today.
-          </p>
-                     <button onclick="sponsorProgram('any')" 
-                  class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full">
-            Sponsor With Love Right Now
-          </button>
+      <!-- $hopeseed Top -->
+      <div>
+        <div class="flex items-center gap-3 mb-8 justify-center">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" class="w-9 h-9" alt="">
+          <h3 class="text-4xl font-bold text-emerald-400">$hopeseed • Top 5 Most Heartfelt</h3>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="top-hopeseed-grid"></div>
+      </div>
 
-        <!-- Card 3 - Join on X -->
-        <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
-          <h3 class="text-3xl mb-3">Join the Movement</h3>
-          <p class="text-zinc-400 mb-8 leading-relaxed">
-            Become part of something bigger. Follow along, share the love, and watch real mercy unfold together with so many other kind hearts around the world.
-          </p>
-          <a href="https://x.com/Shibhumanityhub" target="_blank"
-             class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full justify-center">
-            <i class="fa-brands fa-x-twitter"></i>
-            Join us on X
-          </a>
-        </div>
-
+      <div class="text-center mt-16">
+        <a href="#all-programs" onclick="document.getElementById('all-programs').scrollIntoView({ behavior: 'smooth' })" 
+           class="inline-flex items-center gap-3 bg-white text-black hover:bg-amber-300 px-10 py-6 rounded-3xl text-xl font-semibold transition-all">
+          SEE ALL PROGRAMS →
+        </a>
       </div>
     </div>
   </section>
+
+  <!-- ALL PROGRAMS - God-tier full showcase (miracle artwork level) -->
+  <section id="all-programs" class="py-24 bg-gradient-to-b from-zinc-950 to-black relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-6xl font-bold tracking-tighter">Every Program. Every Soul.</h2>
+        <p class="text-emerald-300 text-2xl mt-4">All 30+ programs • Filter • Full stories</p>
+      </div>
+
+      <!-- Category tabs -->
+      <div class="flex justify-center gap-4 mb-12 border-b border-white/10 pb-4">
+        <button onclick="filterPrograms('all')" id="tab-all" class="px-8 py-4 rounded-3xl font-semibold bg-white text-black">All Programs</button>
+        <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" class="px-8 py-4 rounded-3xl font-semibold hover:bg-amber-400/10">🐾 $NIBBLES</button>
+        <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" class="px-8 py-4 rounded-3xl font-semibold hover:bg-emerald-400/10">🌱 $hopeseed</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="all-programs-grid"></div>
+    </div>
+  </section>
+  
        <!-- FOOTER - GRATEFUL, PROFESSIONAL, AND FULL OF LOVE -->
   <footer class="py-20 bg-black border-t border-amber-500/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
@@ -1199,7 +1193,7 @@ body {
     };
   </script>
 
- <!-- === x1000 MILLION QUALITY MERCY GLOW - ultra cinematic, buttery smooth, no glitch ever === -->
+<!-- === MIRACLE MERCY GLOW - god-level cinematic, buttery smooth, divine floating artwork === -->
 <script>
   function startMercyGlow() {
     const mercyContainer = document.getElementById('shiba-mercy-glow');
@@ -1213,7 +1207,7 @@ body {
     mercyCanvas.style.width = '100%';
     mercyCanvas.style.height = '100%';
     mercyCanvas.style.zIndex = '1';
-    mercyCanvas.style.opacity = '0.94';
+    mercyCanvas.style.opacity = '0.96';
     mercyCanvas.style.pointerEvents = 'none';
     mercyContainer.appendChild(mercyCanvas);
 
@@ -1231,31 +1225,30 @@ body {
     window.addEventListener('orientationchange', mResize);
     mResize();
 
-    // Rich, luxurious color palette for buttery blending
-    const colors = [
-      '#fcd34d', '#f5d0a8', '#fda4af', 
-      '#e88a9e', '#c89f3f', '#10b981'
-    ];
+    // Divine, luxurious color palette
+    const colors = ['#fcd34d', '#f5d0a8', '#fda4af', '#e88a9e', '#c89f3f', '#10b981', '#a78bfa'];
 
     class MercyParticle {
       constructor() {
         this.x = Math.random() * mercyCanvas.width / dpr;
-        this.y = Math.random() * mercyCanvas.height / dpr * 1.6;
-        this.size = Math.random() * 15 + 8;
-        this.speed = Math.random() * 0.55 + 0.25;
-        this.type = Math.random() > 0.38 ? 'paw' : 'heart';
+        this.y = Math.random() * mercyCanvas.height / dpr * 1.8;
+        this.size = Math.random() * 16 + 9;
+        this.baseSize = this.size;
+        this.speed = Math.random() * 0.48 + 0.22;
+        this.type = Math.random() > 0.35 ? 'paw' : 'heart';
         this.swing = Math.random() * Math.PI * 2;
-        this.swingSpeed = Math.random() * 0.018 + 0.009;
+        this.swingSpeed = Math.random() * 0.014 + 0.007;
         this.colorIndex = Math.random() * colors.length;
-        this.colorShiftSpeed = Math.random() * 0.012 + 0.006; // ultra gentle
+        this.colorShiftSpeed = Math.random() * 0.009 + 0.004;
         this.breath = Math.random() * Math.PI * 2;
       }
       update() {
         this.y -= this.speed;
         this.swing += this.swingSpeed;
-        this.x += Math.sin(this.swing) * 1.1;
+        this.x += Math.sin(this.swing) * 1.15;
         this.colorIndex += this.colorShiftSpeed;
-        this.breath += 0.028;
+        this.breath += 0.022;
+        this.size = this.baseSize + Math.sin(this.breath) * 3; // gentle breathing size pulse
         if (this.y < 0) {
           this.y = mercyCanvas.height / dpr;
           this.x = Math.random() * (mercyCanvas.width / dpr);
@@ -1265,9 +1258,8 @@ body {
         mCtx.save();
         const idx = Math.floor(this.colorIndex) % colors.length;
         const nextIdx = (idx + 1) % colors.length;
-        const t = this.colorIndex % 1; // fractional part for smooth lerp
+        const t = this.colorIndex % 1;
 
-        // True color lerping for buttery smooth transitions
         const r1 = parseInt(colors[idx].slice(1,3),16);
         const g1 = parseInt(colors[idx].slice(3,5),16);
         const b1 = parseInt(colors[idx].slice(5,7),16);
@@ -1280,16 +1272,16 @@ body {
         const b = Math.floor(b1 + (b2 - b1) * t);
 
         mCtx.shadowColor = `rgb(${r},${g},${b})`;
-        mCtx.shadowBlur = 32;
-        mCtx.globalAlpha = 0.88 + Math.sin(this.breath) * 0.12; // gentle breathing
+        mCtx.shadowBlur = 38;
+        mCtx.globalAlpha = 0.86 + Math.sin(this.breath) * 0.14;
 
         mCtx.fillStyle = `rgb(${r},${g},${b})`;
 
         if (this.type === 'heart') {
-          mCtx.font = `${this.size * 1.95}px system-ui`;
+          mCtx.font = `${this.size * 1.98}px system-ui`;
           mCtx.fillText('♡', this.x, this.y);
         } else {
-          mCtx.font = `${this.size * 2.12}px system-ui`;
+          mCtx.font = `${this.size * 2.15}px system-ui`;
           mCtx.fillText('🐾', this.x, this.y);
         }
         mCtx.restore();
@@ -1298,7 +1290,18 @@ body {
 
     function mAnimate() {
       mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-      if (mParticles.length < 210) mParticles.push(new MercyParticle());
+
+      // Ultra gentle central vignette for divine depth
+      const gradient = mCtx.createRadialGradient(
+        mercyCanvas.width / (2 * dpr), mercyCanvas.height / (2 * dpr), 80,
+        mercyCanvas.width / (2 * dpr), mercyCanvas.height / (2 * dpr), Math.max(mercyCanvas.width, mercyCanvas.height) / dpr
+      );
+      gradient.addColorStop(0, 'rgba(10,23,41,0)');
+      gradient.addColorStop(1, 'rgba(10,23,41,0.35)');
+      mCtx.fillStyle = gradient;
+      mCtx.fillRect(0, 0, mercyCanvas.width / dpr, mercyCanvas.height / dpr);
+
+      if (mParticles.length < 260) mParticles.push(new MercyParticle());
 
       for (let i = 0; i < mParticles.length; i++) {
         mParticles[i].update();
@@ -1308,7 +1311,7 @@ body {
     }
     mAnimate();
 
-    console.log("✨ Mercy glow is now x1000 million cinematic quality — buttery smooth movement & color transitions");
+    console.log("✨ MIRACLE MERCY GLOW ACTIVATED — god-tier cinematic floating artwork. Divine.");
   }
 
   if (document.readyState === 'loading') {
