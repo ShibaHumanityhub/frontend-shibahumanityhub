@@ -161,7 +161,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* === BREATHING LUXURY TITLE GLOW - brightens & darkens smoothly, no lines === */
+/* === BILLIONAIRE-LEVEL TITLE GLOW - rounded, breathing, zero lines === */
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -169,24 +169,26 @@ body {
   letter-spacing: -6px;
   font-size: clamp(2.8rem, 9vw, 9rem);
   text-shadow: 
-    0 0 30px rgba(251, 191, 36, 0.85),
-    0 25px 60px rgba(0, 0, 0, 0.9),
-    0 0 90px rgba(232, 138, 158, 0.7);
-  animation: titleBreath 7s ease-in-out infinite;
+    0 0 40px rgba(251, 191, 36, 0.95),
+    0 20px 60px rgba(0, 0, 0, 0.85),
+    0 0 100px rgba(232, 138, 158, 0.75),
+    0 0 160px rgba(251, 191, 36, 0.4);
+  animation: titleBreath 6.5s ease-in-out infinite;
 }
 
 @keyframes titleBreath {
   0%, 100% { 
     text-shadow: 
-      0 0 30px rgba(251, 191, 36, 0.85),
-      0 25px 60px rgba(0, 0, 0, 0.9),
-      0 0 90px rgba(232, 138, 158, 0.7);
+      0 0 40px rgba(251, 191, 36, 0.95),
+      0 20px 60px rgba(0, 0, 0, 0.85),
+      0 0 100px rgba(232, 138, 158, 0.75);
   }
   50% { 
     text-shadow: 
       0 0 70px rgba(251, 191, 36, 1),
-      0 35px 90px rgba(0, 0, 0, 0.95),
-      0 0 140px rgba(232, 138, 158, 0.95);
+      0 30px 90px rgba(0, 0, 0, 0.95),
+      0 0 160px rgba(232, 138, 158, 0.95),
+      0 0 220px rgba(251, 191, 36, 0.5);
   }
 }
   /* === PASTE ALL YOUR REMAINING ORIGINAL CSS HERE (starting from MAIN SECTION HEADINGS) === */
@@ -233,39 +235,35 @@ body {
     </div>
   </nav>
 
-<!-- HERO - NOW AWARD-WINNING (Tom + Elon + Vitalik blended) -->
+<!-- HERO - NOW FLAWLESS BILLIONAIRE QUALITY (no lines, rounded glowing edges) -->
 <header class="hero-bg pt-20 sm:pt-28 md:pt-40 pb-12 sm:pb-20 md:pb-28 text-center relative overflow-hidden min-h-screen flex items-center">
   <div id="shiba-mercy-glow" class="absolute inset-0 pointer-events-none"></div>
   
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-20 w-full">
-    <div class="flex flex-col items-center">
+    
+    <!-- Title container - masks lines + adds rounded premium glow -->
+    <div class="inline-flex flex-col items-center mx-auto px-8 py-4 rounded-[4rem] bg-black/30 backdrop-blur-md border border-white/10 shadow-2xl">
       <h1 class="hero-title text-white leading-none">SHIBA</h1>
       <h1 class="hero-title text-white -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
     </div>
     
-    <p class="text-3xl sm:text-5xl md:text-6xl font-light text-amber-100 max-w-4xl mx-auto mt-8 sm:mt-10 leading-[1.15]">
-      People helping people helping people.<br>
-      <span class="text-emerald-300">Every transaction saves lives.</span>
+    <p class="text-2xl sm:text-4xl md:text-5xl font-light text-amber-100 max-w-3xl mx-auto mt-8 sm:mt-10 leading-tight">
+      Every single transaction quietly changes a life.
     </p>
     
-    <p class="text-xl sm:text-2xl text-amber-200 mt-8 max-w-2xl mx-auto">
-      This is not charity. This is the first decentralized movement where love is literally programmed into the code.
+    <p class="text-xl sm:text-2xl text-amber-200 mt-7 max-w-xl mx-auto">
+      Real mercy. Real love. Real homes.
     </p>
-
-    <!-- Subtle proof line - real, humble, Elon-style transparency -->
-    <div class="mt-10 flex justify-center items-center gap-3 text-amber-200/70 text-sm tracking-widest font-medium">
-      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-      LIVE ON TESTNET • ALREADY FUNDING REAL MERCY
-    </div>
 
     <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-6 text-3xl sm:text-4xl mt-12 sm:mt-14 mb-14">
       <div class="flex items-center gap-4">$NIBBLES</div>
       <div class="flex items-center gap-4">$hopeseed</div>
     </div>
     
+    <!-- Whitepaper button - rounded edges, no corner lines -->
     <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
        download="shiba-humanity-hub-whitepaper-v2.pdf"
-       class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl">
+       class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl shadow-inner">
       <i class="fa-solid fa-bone bone-icon text-4xl"></i>
       Download Whitepaper v2
     </a>
