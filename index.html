@@ -1215,11 +1215,88 @@ body {
     `).join('');
 }
 
-    window.onload = function() {
-      renderProgramGrid();
-      renderHopeseedGrid();
-    };
+      // === NEW TOP GRIDS + ALL PROGRAMS GALLERY (keeps ALL your programs safe) ===
+  const topNibbles = [7, 2, 4, 16, 8];
+  const topHopeseed = [17, 19, 22, 23, 28];
+
+  function renderTopGrids() {
+    const nibblesGrid = document.getElementById('top-nibbles-grid');
+    if (nibblesGrid) {
+      nibblesGrid.innerHTML = topNibbles.map(id => {
+        const p = programs.find(pr => pr.id === id);
+        return `<div onclick="showProgramModal(${p.id})" class="cursor-pointer bg-zinc-900 border border-amber-400/30 hover:border-amber-400 rounded-3xl p-8 transition-all hover:-translate-y-2">
+          <img src="${p.image}" class="w-full h-56 object-contain rounded-2xl mb-6" alt="">
+          <span class="text-xs bg-amber-400 text-black px-5 py-2 rounded-3xl">MOST HEARTFELT</span>
+          <h4 class="text-2xl font-semibold mt-6 mb-3">${p.title}</h4>
+          <p class="text-zinc-400">${p.shortDesc}</p>
+        </div>`;
+      }).join('');
+    }
+
+    const hopeseedGrid = document.getElementById('top-hopeseed-grid');
+    if (hopeseedGrid) {
+      hopeseedGrid.innerHTML = topHopeseed.map(id => {
+        const p = programs.find(pr => pr.id === id);
+        return `<div onclick="showProgramModal(${p.id})" class="cursor-pointer bg-zinc-900 border border-emerald-400/30 hover:border-emerald-400 rounded-3xl p-8 transition-all hover:-translate-y-2">
+          <img src="${p.image}" class="w-full h-56 object-contain rounded-2xl mb-6" alt="">
+          <span class="text-xs bg-emerald-400 text-black px-5 py-2 rounded-3xl">MOST HEARTFELT</span>
+          <h4 class="text-2xl font-semibold mt-6 mb-3">${p.title}</h4>
+          <p class="text-zinc-400">${p.shortDesc}</p>
+        </div>`;
+      }).join('');
+    }
+  }
+
+  function renderAllPrograms(filter = 'all') {
+    const grid = document.getElementById('all-programs-grid');
+    if (!grid) return;
+
+    let filtered = programs;
+    if (filter === '$NIBBLES') filtered = programs.filter(p => p.category === '$NIBBLES');
+    if (filter === '$hopeseed') filtered = programs.filter(p => p.category === '$hopeseed');
+
+    grid.innerHTML = filtered.map(p => `
+      <div onclick="showProgramModal(${p.id})" class="group cursor-pointer bg-zinc-900 border border-white/10 hover:border-amber-400/60 rounded-3xl overflow-hidden transition-all hover:-translate-y-3">
+        <img src="${p.image}" class="w-full h-64 object-contain bg-black/30 p-8 transition-all group-hover:scale-105" alt="">
+        <div class="p-8">
+          <span class="text-xs px-5 py-2 rounded-3xl ${p.category === '$NIBBLES' ? 'bg-amber-400 text-black' : 'bg-emerald-400 text-black'}">${p.category}</span>
+          <h4 class="text-2xl font-semibold mt-6 mb-4">${p.title}</h4>
+          <p class="text-zinc-400 line-clamp-4">${p.shortDesc}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterPrograms(cat) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'bg-white', 'text-black'));
+    if (cat === 'all') document.getElementById('tab-all').classList.add('active', 'bg-white', 'text-black');
+    if (cat === '$NIBBLES') document.getElementById('tab-nibbles').classList.add('active', 'bg-white', 'text-black');
+    if (cat === '$hopeseed') document.getElementById('tab-hopeseed').classList.add('active', 'bg-white', 'text-black');
+    renderAllPrograms(cat);
+  }
+
+  // === UPDATED ONLOAD (keeps everything you already had) ===
+  window.onload = function() {
+    renderProgramGrid();
+    renderHopeseedGrid();
+    renderTopGrids();
+    renderAllPrograms('all');
+  };
   </script>
+  
+  // === TOP FEATURED PROGRAMS (most heartfelt) ===
+  const topNibbles = [7, 2, 4, 16, 8];
+  const topHopeseed = [17, 19, 22, 23, 28];
+
+  function renderTopGrids() {
+    const nibblesGrid = document.getElementById('top-nibbles-grid');
+    if (nibblesGrid) {
+      nibblesGrid.innerHTML = topNibbles.map(id => {
+        const p = programs.find(pr => pr.id === id);
+        return `<div onclick="showProgramModal(${p.id})" class="cursor-pointer bg-zinc-900 border border-amber-400/30 hover:border-amber-400 rounded-3xl p-8 transition-all hover:-translate-y-2">
+          <img src="${p.image}" class="w-full h-56 object-contain rounded-2xl mb-6" alt="">
+          <span class="text-xs bg-amber-400 text-black px-5 py-2 rounded-3xl">MOST HEARTFELT</span>
+          <h4 class="text-2xl
 
 <!-- === MIRACLE MERCY GLOW - god-level cinematic, buttery smooth, divine floating artwork === -->
 <script>
