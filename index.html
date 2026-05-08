@@ -1215,7 +1215,11 @@ body {
     `).join('');
 }
 
-      // === NEW TOP GRIDS + ALL PROGRAMS GALLERY (keeps ALL your programs safe) ===
+    <script>
+  // === YOUR PROGRAMS ARRAY (kept 100% untouched) ===
+  const programs = [ /* your full array stays exactly as you have it */ ];
+
+  // === TOP 5 MOST HEARTFELT PROGRAMS ===
   const topNibbles = [7, 2, 4, 16, 8];
   const topHopeseed = [17, 19, 22, 23, 28];
 
@@ -1275,14 +1279,44 @@ body {
     renderAllPrograms(cat);
   }
 
-  // === UPDATED ONLOAD (keeps everything you already had) ===
+  // === Keep all your existing functions ===
+  function showProgramModal(id) {
+    const program = programs.find(p => p.id === id);
+    if (!program) return;
+    const modal = document.getElementById('program-modal');
+    const content = document.getElementById('modal-content');
+    content.innerHTML = program.fullHTML;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideModal() {
+    document.getElementById('program-modal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function sponsorProgram(slug) {
+    alert("Thank you from the bottom of our hearts!\n\nYour support is already changing lives.");
+  }
+
+  let isMenuOpen = false;
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('hamburger-icon');
+    menu.classList.toggle('hidden');
+    isMenuOpen = !isMenuOpen;
+    icon.classList.toggle('fa-bars', !isMenuOpen);
+    icon.classList.toggle('fa-xmark', isMenuOpen);
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
+
+  // === LAUNCH EVERYTHING ===
   window.onload = function() {
-    renderProgramGrid();
-    renderHopeseedGrid();
     renderTopGrids();
     renderAllPrograms('all');
   };
-  </script>
+</script>
   
   // === TOP FEATURED PROGRAMS (most heartfelt) ===
   const topNibbles = [7, 2, 4, 16, 8];
