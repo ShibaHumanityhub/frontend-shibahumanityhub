@@ -228,41 +228,38 @@ body {
   </div>
 </nav>
 
-<!-- HERO - NOW FLAWLESS BILLIONAIRE QUALITY (no lines, rounded glowing edges) -->
+<!-- === HERO - BILLIONAIRE QUALITY (no more cheap lines) === -->
 <header class="hero-bg pt-20 sm:pt-28 md:pt-40 pb-12 sm:pb-20 md:pb-28 text-center relative overflow-hidden min-h-screen flex items-center">
   <div id="shiba-mercy-glow" class="absolute inset-0 pointer-events-none"></div>
   
-  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-20 w-full">
-    
-    <!-- Title container - masks lines + adds rounded premium glow -->
-    <div class="inline-flex flex-col items-center mx-auto px-8 py-4 rounded-[4rem] bg-black/30 backdrop-blur-md border border-white/10 shadow-2xl">
-      <h1 class="hero-title text-white leading-none">SHIBA</h1>
-      <h1 class="hero-title text-white -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-30 w-full">
+    <!-- Premium rounded container that completely masks canvas lines -->
+    <div class="inline-flex flex-col items-center mx-auto px-10 py-6 sm:px-16 sm:py-8 rounded-[4rem] bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/80">
+      <h1 class="hero-title text-white tracking-[-6px] text-7xl sm:text-8xl md:text-[9rem] leading-none">SHIBA</h1>
+      <h1 class="hero-title text-white -mt-4 sm:-mt-6 md:-mt-8 tracking-[-6px] text-7xl sm:text-8xl md:text-[9rem] leading-none">HUMANITYHUB</h1>
     </div>
-    
-    <p class="text-2xl sm:text-4xl md:text-5xl font-light text-amber-100 max-w-3xl mx-auto mt-8 sm:mt-10 leading-tight">
-      Every single transaction quietly changes a life.
-    </p>
-    
-    <p class="text-xl sm:text-2xl text-amber-200 mt-7 max-w-xl mx-auto">
-      Real mercy. Real love. Real homes.
+
+    <p class="mt-10 text-2xl sm:text-3xl font-light text-white/90 max-w-2xl mx-auto">
+      People helping people helping people.<br>
+      Every transaction saves lives.
     </p>
 
-    <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-6 text-3xl sm:text-4xl mt-12 sm:mt-14 mb-14">
-      <div class="flex items-center gap-4">$NIBBLES</div>
-      <div class="flex items-center gap-4">$hopeseed</div>
+    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+      <a onclick="window.location.href='#programs'" 
+         class="super-cta-btn px-10 py-5 text-2xl rounded-3xl bg-gradient-to-r from-amber-400 to-emerald-400 text-black font-bold flex items-center gap-3 hover:scale-105 transition-all">
+        <i class="fa-solid fa-heart-pulse"></i>
+        JOIN THE MOVEMENT
+      </a>
+      
+      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Whitepaper_v2.pdf" 
+         target="_blank"
+         class="group flex items-center gap-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-5 rounded-3xl border border-white/20 transition-all">
+        <span class="text-xl font-semibold">Download Whitepaper v2</span>
+        <i class="fa-solid fa-bone text-2xl group-active:rotate-12 transition-transform"></i>
+      </a>
     </div>
-    
-    <!-- Whitepaper button - rounded edges, no corner lines -->
-    <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-       download="shiba-humanity-hub-whitepaper-v2.pdf"
-       class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl shadow-inner">
-      <i class="fa-solid fa-bone bone-icon text-4xl"></i>
-      Download Whitepaper v2
-    </a>
   </div>
 </header>
-
   <!-- MERCY CHAIN - Eye-catching bridge that pulls you in and makes you scroll (next-level) -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 -mt-8 relative">
   <div class="bg-gradient-to-br from-zinc-900/95 to-black/95 backdrop-blur-2xl border border-amber-300/20 rounded-3xl p-12 sm:p-16 shadow-2xl overflow-hidden">
@@ -1332,7 +1329,7 @@ body {
           <span class="text-xs bg-amber-400 text-black px-5 py-2 rounded-3xl">MOST HEARTFELT</span>
           <h4 class="text-2xl
 
-<!-- === MIRACLE MERCY GLOW - god-level cinematic, buttery smooth, divine floating artwork === -->
+<!-- === x1000 MILLION QUALITY MERCY GLOW - ultra cinematic, buttery smooth, no glitch ever === -->
 <script>
   function startMercyGlow() {
     const mercyContainer = document.getElementById('shiba-mercy-glow');
@@ -1364,30 +1361,25 @@ body {
     window.addEventListener('orientationchange', mResize);
     mResize();
 
-    // Divine, luxurious color palette
-    const colors = ['#fcd34d', '#f5d0a8', '#fda4af', '#e88a9e', '#c89f3f', '#10b981', '#a78bfa'];
+    const colors = ['#fcd34d', '#f5d0a8', '#fda4af', '#e88a9e', '#c89f3f', '#10b981'];
 
     class MercyParticle {
       constructor() {
         this.x = Math.random() * mercyCanvas.width / dpr;
-        this.y = Math.random() * mercyCanvas.height / dpr * 1.8;
+        this.y = Math.random() * mercyCanvas.height * 1.4;
         this.size = Math.random() * 16 + 9;
-        this.baseSize = this.size;
-        this.speed = Math.random() * 0.48 + 0.22;
-        this.type = Math.random() > 0.35 ? 'paw' : 'heart';
+        this.speed = Math.random() * 0.8 + 0.35;
+        this.type = Math.random() > 0.4 ? 'paw' : 'heart';
         this.swing = Math.random() * Math.PI * 2;
-        this.swingSpeed = Math.random() * 0.014 + 0.007;
         this.colorIndex = Math.random() * colors.length;
-        this.colorShiftSpeed = Math.random() * 0.009 + 0.004;
         this.breath = Math.random() * Math.PI * 2;
       }
       update() {
         this.y -= this.speed;
-        this.swing += this.swingSpeed;
-        this.x += Math.sin(this.swing) * 1.15;
-        this.colorIndex += this.colorShiftSpeed;
-        this.breath += 0.022;
-        this.size = this.baseSize + Math.sin(this.breath) * 3; // gentle breathing size pulse
+        this.swing += 0.009;                    // super smooth sway
+        this.x += Math.sin(this.swing) * 0.75;
+        this.colorIndex += 0.0045;              // extremely gentle color blend
+        this.breath += 0.018;
         if (this.y < 0) {
           this.y = mercyCanvas.height / dpr;
           this.x = Math.random() * (mercyCanvas.width / dpr);
@@ -1411,8 +1403,8 @@ body {
         const b = Math.floor(b1 + (b2 - b1) * t);
 
         mCtx.shadowColor = `rgb(${r},${g},${b})`;
-        mCtx.shadowBlur = 38;
-        mCtx.globalAlpha = 0.86 + Math.sin(this.breath) * 0.14;
+        mCtx.shadowBlur = 32;
+        mCtx.globalAlpha = 0.88 + Math.sin(this.breath) * 0.12; // gentle breathing
 
         mCtx.fillStyle = `rgb(${r},${g},${b})`;
 
