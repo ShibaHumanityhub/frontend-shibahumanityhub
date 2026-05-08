@@ -15,6 +15,79 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  /* === x50 PREMIUM BUTTONS - LUXURY SHINE & GLOW === */
+
+/* Whitepaper Button - Ultra Gold Luxury */
+.super-cta-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1.8px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
+  color: #0f172a;
+  box-shadow: 
+    0 0 50px -10px rgb(251 191 36),
+    0 25px 60px -15px rgb(251 191 36),
+    0 0 100px 25px rgba(251, 191, 36, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.super-cta-btn:hover {
+  transform: scale(1.12) translateY(-6px);
+  box-shadow: 
+    0 0 100px -15px rgb(251 191 36),
+    0 40px 90px -20px rgb(251 191 36),
+    0 0 140px 40px rgba(251, 191, 36, 0.7);
+}
+
+.super-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 50%;
+  height: 300%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.95), transparent);
+  transform: skewX(-25deg);
+  animation: shine 2s linear infinite;
+}
+
+/* Sponsor Button - Emerald/Gold Premium Gradient */
+.premium-sponsor-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #10b981, #fcd34d, #10b981);
+  color: #0f172a;
+  box-shadow: 
+    0 0 50px -10px rgb(16 185 129),
+    0 25px 60px -15px rgb(16 185 129),
+    0 0 100px 25px rgba(16, 185, 129, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-sponsor-btn:hover {
+  transform: scale(1.12) translateY(-6px);
+  box-shadow: 
+    0 0 100px -15px rgb(16 185 129),
+    0 40px 90px -20px rgb(16 185 129),
+    0 0 140px 40px rgba(16, 185, 129, 0.7);
+}
+
+.premium-sponsor-btn::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 50%;
+  height: 300%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
+  transform: skewX(-25deg);
+  animation: shine 2.3s linear infinite;
+}
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
