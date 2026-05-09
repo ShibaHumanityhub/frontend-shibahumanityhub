@@ -52,22 +52,6 @@ html, body {
     0 25px 50px -20px rgba(236, 72, 153, 0.5),
     inset 0 2px 0 rgba(255,255,255,0.2);
 }
-/* === AWARD-WINNING BILLION-DOLLAR HERO TITLE - FLYWHEEL ×50 === */
-.hero-title-wrapper {
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem 3rem;
-  border-radius: 4rem;
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgba(251, 191, 36, 0.3);
-  box-shadow: 
-    0 0 80px -20px rgba(251, 191, 36, 0.7),
-    0 25px 50px -20px rgba(236, 72, 153, 0.5),
-    inset 0 2px 0 rgba(255,255,255,0.2);
-}
     .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -328,12 +312,12 @@ html, body {
         <div class="flex items-center gap-4">$hopeseed</div>
       </div>
       
-      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-         download="shiba-humanity-hub-whitepaper-v2.pdf"
-         class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl mx-auto">
-        <i class="fa-solid fa-bone bone-icon text-4xl"></i>
-        Download Whitepaper v2
-      </a>
+          <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
+       download="shiba-humanity-hub-whitepaper-v2.pdf"
+       class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl mx-auto">
+      <i class="fa-solid fa-bone bone-icon text-4xl"></i>
+      Download Whitepaper v2
+    </a>
     </div>
 </header>
   <!-- EXPLANATION -->
@@ -543,10 +527,8 @@ html, body {
       From senior dog sanctuaries and therapy dogs to orphan Christmas miracles, guardian angel wallets, and special-needs family support — browse every single one.
     </p>
     
-    <a href="all-programs.html" 
-       class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl")
-
-
+        <a href="all-programs.html" 
+       class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl mx-auto">
       <span>🐾 View All 30 Programs</span>
       <i class="fa-solid fa-paw text-4xl"></i>
     </a>
@@ -1388,7 +1370,7 @@ html, body {
         const b = Math.floor(b1 + (b2 - b1) * t);
 
         mCtx.shadowColor = `rgb(${r},${g},${b})`;
-        mCtx.shadowBlur = 36;
+        mCtx.shadowBlur = 24;           // lighter
         mCtx.globalAlpha = 0.92;
         mCtx.fillStyle = `rgb(${r},${g},${b})`;
 
@@ -1405,7 +1387,7 @@ html, body {
 
     function mAnimate() {
       mCtx.clearRect(0, 0, mercyCanvas.width, mercyCanvas.height);
-      if (mParticles.length < 245) mParticles.push(new MercyParticle());
+      if (mParticles.length < 140) mParticles.push(new MercyParticle());   // lighter
 
       for (let i = 0; i < mParticles.length; i++) {
         mParticles[i].update();
@@ -1414,7 +1396,7 @@ html, body {
       requestAnimationFrame(mAnimate);
     }
     mAnimate();
-    console.log("✨ Magical mercy glow activated — landing page now pulls you in");
+    console.log("✨ Mercy glow now lighter & faster — same beauty, zero jank");
   }
 
   if (document.readyState === 'loading') {
