@@ -5,28 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>All Programs • Shibahumanityhub</title>
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg?v=20250508-final" sizes="32x32">
 
-  <!-- TAILWIND + FONT AWESOME -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-  body { 
-    font-family: 'Inter', system-ui, sans-serif; 
-    background: linear-gradient(135deg, #0a1729 0%, #1a2a3f 100%);
-  }
-  .program-card { 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-  }
-  .program-card:hover { 
-    transform: translateY(-8px); 
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4); 
-    border-color: #fcd34d !important;
-  }
-</style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    
+    .program-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(39, 39, 42, 0.95);
+      backdrop-filter: blur(12px);
+    }
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgb(251 191 36 / 0.3);
+      border-color: #fcd34d;
+    }
+
+    @media (max-width: 480px) {
+      .program-card { padding: 18px; }
+      .program-card img { height: 210px; }
+      h3 { font-size: 1.45rem; }
+    }
+  </style>
 </head>
 <body class="bg-zinc-950 text-white">
 
@@ -40,30 +44,30 @@
     </div>
   </nav>
 
-  <div class="pt-24 pb-12 max-w-7xl mx-auto px-6">
-    <h1 class="text-6xl font-bold text-center mb-4">All 30 Programs</h1>
+  <div class="pt-24 pb-12 max-w-7xl mx-auto px-4 sm:px-6">
+    <h1 class="text-5xl sm:text-6xl font-bold text-center mb-4 tracking-[-1px]">All 30 Programs</h1>
     <p class="text-center text-zinc-400 text-xl max-w-2xl mx-auto">Every program is a living story of mercy. Click any card to read the full heartfelt details.</p>
 
     <!-- TABS -->
-    <div class="flex justify-center gap-4 mt-12 mb-10">
+    <div class="flex justify-center gap-4 mt-12 mb-10 flex-wrap">
       <button onclick="filterPrograms('all')" id="tab-all" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
       <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
       <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
     </div>
 
     <!-- GRID -->
-    <div id="all-programs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+    <div id="all-programs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"></div>
   </div>
 
   <!-- MODAL -->
   <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4">
-    <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">
+    <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-8 sm:p-10 relative">
       <button onclick="hideModal()" class="absolute top-6 right-6 text-5xl text-zinc-400 hover:text-white">✕</button>
       <div id="modal-content" class="prose prose-invert max-w-none"></div>
     </div>
   </div>
 
-   <script>
+ <script>
     const programs = [
             {
         id: 0,
@@ -764,7 +768,7 @@
           <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding is there, these families will no longer carry that heavy weight alone. Their children will get the medicine, equipment, and support they need to thrive. Parents will have real peace of mind and space to simply love and raise their kids. This is the kind of steady, respectful care the world needs. One family, one child, one beautiful bridge to a better day at a time.</p>
           <button onclick="sponsorProgram('special-needs-support-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Build A Lifelong Bridge For These Families</button>`
       },
-    ];
+  ];
 
     function renderAllPrograms(cat = 'all') {
       const grid = document.getElementById('all-programs-grid');
@@ -774,11 +778,11 @@
       if (cat === '$hopeseed') filtered = programs.filter(p => p.category === '$hopeseed');
 
       grid.innerHTML = filtered.map(p => `
-        <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-white/10 hover:border-amber-400 rounded-3xl p-6 transition-all">
-          <img src="${p.image}" class="w-full h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
+        <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer border border-white/10 hover:border-amber-400 rounded-3xl p-5 sm:p-6 transition-all">
+          <img src="${p.image}" class="w-full h-52 sm:h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
-          <h3 class="text-3xl font-semibold mb-3">${p.title}</h3>
-          <p class="text-zinc-400">${p.shortDesc}</p>
+          <h3 class="text-2xl sm:text-3xl font-semibold mb-3">${p.title}</h3>
+          <p class="text-zinc-400 text-base">${p.shortDesc}</p>
         </div>
       `).join('');
     }
@@ -810,7 +814,7 @@
 
     window.onload = () => {
       renderAllPrograms('all');
-      console.log("✅ All 30 programs loaded perfectly");
+      console.log("✅ All 30 programs loaded - top quality version");
     };
   </script>
 </body>
