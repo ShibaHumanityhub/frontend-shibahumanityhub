@@ -343,44 +343,99 @@ body {
   </div>
 </section>
 
-  <!-- PROGRAMS - improved mobile spacing -->
-  <section id="programs" class="py-24 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-      <h2 class="text-5xl font-bold text-center mb-8">Programs That Save Lives</h2>
-      <p class="text-center text-zinc-400 mb-12">Hover or tap any card to read the full heartfelt story.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8" id="program-grid"></div>
-                                                      <!-- SIMPLE PREMIUM DIVIDER -->
-          <div class="flex items-center justify-center my-16 sm:my-20">
-  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
-  <div class="mx-3 sm:mx-6 flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 bg-zinc-900 border border-emerald-400/30 rounded-3xl shadow-2xl">
-    <div class="text-center">
-      <span class="text-amber-400 text-xl sm:text-3xl font-light tracking-[2px] sm:tracking-[3px] uppercase">MR. NIBBLES</span>
+ <!-- === FEATURED PROGRAMS - ONLY THE MOST HEARTFELT 8 === -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-white">Featured Programs That Change Lives</h2>
+      <p class="text-amber-200 text-2xl mt-4 max-w-2xl mx-auto">The 8 most powerful stories of mercy we are building right now.</p>
     </div>
-    <div class="text-center">
-      <span class="text-emerald-400 text-xl sm:text-3xl font-light tracking-[2px] sm:tracking-[3px] uppercase">$hopeseed</span>
-      <div class="text-xs text-emerald-400/70 tracking-widest">GLOBAL IMPACT PROJECTS</div>
-    </div>
-  </div>
-  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent"></div>
-</div>
-         
-    <!-- $HOPeseed PROGRAMS SECTION -->
-    <div>
-      <div class="flex items-center gap-4 mb-8 justify-center">
-  <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" 
-       alt="$hopeseed" 
-       class="w-9 h-9 object-contain">
-  <h3 class="text-4xl font-bold text-emerald-400">$hopeseed Programs</h3>
-  <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-sm font-medium rounded-full">13 Global Impact Projects</span>
-</div>
 
-      <div id="hopeseed-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Your first Hopeseed project cards will go here soon -->
+    <!-- $NIBBLES Featured -->
+    <div class="mb-20">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="text-5xl">🐾</span>
+        <h3 class="text-4xl font-bold text-amber-300">$NIBBLES Programs</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- 1 -->
+        <div onclick="window.location='all-programs.html'" class="cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Rainbowbridgehospice&sequoialegacyprogram.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Rainbow Bridge">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Rainbow Bridge Hospice &amp; Sequoia Legacy</h3>
+          <p class="text-zinc-400 text-base">No senior dog ever crosses the Rainbow Bridge cold or forgotten. Every hero gets a Sequoia tree planted in their name.</p>
+        </div>
+
+        <!-- 2 -->
+        <div onclick="window.location='all-programs.html'" class="cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/healingheartstherapydognetworkphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Healing Hearts">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Healing Hearts Therapy Dog Network</h3>
+          <p class="text-zinc-400 text-base">Certified shelter dogs visiting hospitals, nursing homes, and schools — bringing comfort where medicine alone cannot reach.</p>
+        </div>
+
+        <!-- 3 -->
+        <div onclick="window.location='all-programs.html'" class="cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/globaldisasterk9responseunitsphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Disaster K9">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Global Disaster K9 Response Units</h3>
+          <p class="text-zinc-400 text-base">Elite search-and-rescue dogs and handlers ready 24/7 to save lives when disaster strikes anywhere on Earth.</p>
+        </div>
+
+        <!-- 4 -->
+        <div onclick="window.location='all-programs.html'" class="cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/servicedogfreedomprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Service Dog Freedom">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Service Dog Freedom Program</h3>
+          <p class="text-zinc-400 text-base">Veterans, disabled, and PTSD warriors receive a loyal service dog — completely free for life.</p>
+        </div>
       </div>
     </div>
-    </div>
-  </section>
 
+    <!-- $hopeseed Featured -->
+    <div>
+      <div class="flex items-center gap-4 mb-10">
+        <span class="text-5xl">🌱</span>
+        <h3 class="text-4xl font-bold text-emerald-300">$hopeseed Programs</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- 1 -->
+        <div onclick="window.location='all-programs.html'" class="cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/orphanxmasphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Orphan Christmas">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Orphan Christmas</h3>
+          <p class="text-zinc-400 text-base">On Christmas Eve, orphaned and foster kids open real personalized gifts live while the world cheers with them.</p>
+        </div>
+
+        <!-- 2 -->
+        <div onclick="window.location='all-programs.html'" class="cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/guardianangelwalletprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Guardian Angel Wallet">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Guardian Angel Wallet Program</h3>
+          <p class="text-zinc-400 text-base">Every foster child gets a private wallet that grows from the day they enter care — so they never start from zero.</p>
+        </div>
+
+        <!-- 3 -->
+        <div onclick="window.location='all-programs.html'" class="cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/miraclefightfundphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Miracle Fight Fund">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Miracle Fight Fund</h3>
+          <p class="text-zinc-400 text-base">Seriously ill children and one parent get free flights to life-saving treatment anywhere in the world.</p>
+        </div>
+
+        <!-- 4 -->
+        <div onclick="window.location='all-programs.html'" class="cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/dreamroommakeoversphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Dream Room Makeovers">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Dream Room Makeovers Program</h3>
+          <p class="text-zinc-400 text-base">Children trapped in hospital beds wake up in their own magical dream room — a spaceship, underwater kingdom, or calm oasis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
                       <!-- HOW YOU CAN HELP RIGHT NOW - WARM, HUMAN, AND FULL OF HEART -->
   <section class="help-section py-20 bg-zinc-950">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
