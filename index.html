@@ -35,31 +35,54 @@ html, body {
   overflow-x: hidden !important;
 }
 
-/* === MIND-BLOWING PREMIUM TITLE - billionaire flywheel glow === */
--wrapper {
+
+/* === AWARD-WINNING BILLION-DOLLAR HERO TITLE - FLYWHEEL ×50 === */
+.hero-title-wrapper {
   position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  border-radius: 4rem;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 
+    0 0 80px -20px rgba(251, 191, 36, 0.7),
+    0 25px 50px -20px rgba(236, 72, 153, 0.5),
+    inset 0 2px 0 rgba(255,255,255,0.2);
 }
- {
+
+.hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  line-height: 1.0;
-  letter-spacing: -7px;
-  font-size: clamp(3.2rem, 10vw, 9.8rem);
-  background: linear-gradient(92deg, #fcd34d 0%, #f59e0b 25%, #ec4899 50%, #f59e0b 75%, #fcd34d 100%);
+  line-height: 0.95;
+  letter-spacing: -8px;
+  font-size: clamp(3.8rem, 11vw, 10.5rem);
+  background: linear-gradient(92deg, #fcd34d 0%, #f59e0b 20%, #ec4899 45%, #f59e0b 70%, #fcd34d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 300% 300%;
-  position: relative;
-  text-shadow: 0 0 40px rgba(251,191,36,0.6), 0 0 80px rgba(251,191,36,0.4), 0 25px 60px rgba(236,72,153,0.3), 0 0 140px rgba(232,138,158,0.25);
-  animation: titleBreath 7s ease-in-out infinite;
-  z-index: 2;
+  background-size: 400% 400%;
+  text-shadow: 
+    0 0 60px rgba(251, 191, 36, 0.9),
+    0 0 120px rgba(251, 191, 36, 0.6),
+    0 25px 80px rgba(236, 72, 153, 0.7),
+    0 0 180px rgba(232, 138, 158, 0.5);
+  animation: titleBreath 6s ease-in-out infinite;
 }
 
 @keyframes titleBreath {
-  0%, 100% { transform: scale(1); background-position: 0% 50%; text-shadow: 0 0 40px rgba(251,191,36,0.6), 0 0 80px rgba(251,191,36,0.4), 0 25px 60px rgba(236,72,153,0.3), 0 0 140px rgba(232,138,158,0.25); }
-  50% { transform: scale(1.028); background-position: 100% 50%; text-shadow: 0 0 70px rgba(251,191,36,0.95), 0 0 130px rgba(251,191,36,0.65), 0 35px 90px rgba(236,72,153,0.55), 0 0 200px rgba(232,138,158,0.45); }
+  0%, 100% { 
+    transform: scale(1); 
+    background-position: 0% 50%; 
+    text-shadow: 0 0 60px rgba(251,191,36,0.9), 0 0 120px rgba(251,191,36,0.6), 0 25px 80px rgba(236,72,153,0.7), 0 0 180px rgba(232,138,158,0.5);
+  }
+  50% { 
+    transform: scale(1.035); 
+    background-position: 100% 50%; 
+    text-shadow: 0 0 90px rgba(251,191,36,1), 0 0 160px rgba(251,191,36,0.8), 0 35px 110px rgba(236,72,153,0.9), 0 0 240px rgba(232,138,158,0.7);
+  }
 }
-@keyframes shineSweep { 0% { left: -150%; } 100% { left: 250%; } }
 
 /* Cards and sections on mobile */
 .token-card, .program-card, .help-card {
@@ -189,23 +212,7 @@ html, body {
   100% { background-position: 0% 50%; }
 }
 
- {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -6px;
-  font-size: clamp(2.8rem, 9vw, 9rem);
-  text-shadow: 
-    0 0 40px rgba(251, 191, 36, 0.9),
-    0 25px 70px rgba(0, 0, 0, 0.95),
-    0 0 110px rgba(232, 138, 158, 0.8);
-  animation: titleBreath 8s ease-in-out infinite;
-}
 
-@keyframes titleBreath {
-  0%, 100% { text-shadow: 0 0 40px rgba(251, 191, 36, 0.9), 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 110px rgba(232, 138, 158, 0.8); }
-  50%      { text-shadow: 0 0 80px rgba(251, 191, 36, 1), 0 35px 100px rgba(0, 0, 0, 0.98), 0 0 160px rgba(232, 138, 158, 1); }
-}
 
 /* === SHARPER + SHINIER WHITEPAPER BUTTON === */
 .super-cta-btn {
@@ -252,11 +259,12 @@ html, body {
 <nav class="bg-black/90 backdrop-blur-md fixed w-full z-50">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
-    <!-- PREMIUM GOLD COIN BRAND LOGO - BILLION DOLLAR FLYWHEEL -->
+    
+<!-- PREMIUM GOLD COIN BRAND LOGO - FLYWHEEL ×50 -->
 <a href="index.html" class="flex items-center gap-3 group">
   <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo.jpg" 
        alt="Shibahumanityhub" 
-       class="w-9 h-9 md:w-11 md:h-11 object-contain drop-shadow-[0_0_20px_#fcd34d] transition-all duration-300 group-hover:scale-110 group-active:scale-95">
+       class="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_25px_#fcd34d] transition-all duration-300 group-hover:scale-110">
   <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-amber-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
 </a>
 
@@ -281,11 +289,9 @@ html, body {
 <header class="hero-bg pt-20 sm:pt-28 md:pt-40 pb-12 sm:pb-20 md:pb-28 text-center relative overflow-hidden min-h-screen flex items-center">
   <div id="shiba-mercy-glow" class="absolute inset-0 pointer-events-none"></div>
   
-  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-20 w-full">
-    <!-- Premium rounded container (lines already fixed) -->
-    <div class="inline-flex flex-col items-center mx-auto px-8 sm:px-16 py-4 sm:py-6 rounded-[4rem] bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl">
-      <h1 class="hero-title text-white leading-none">SHIBA</h1>
-      <h1 class="hero-title text-white -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
+      <div class="hero-title-wrapper">
+      <h1 class="hero-title">SHIBA</h1>
+      <h1 class="hero-title -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
     </div>
     
     <p class="text-3xl sm:text-5xl md:text-6xl font-light text-amber-100 max-w-4xl mx-auto mt-8 sm:mt-10 leading-[1.15]">
@@ -475,12 +481,12 @@ html, body {
           <p class="text-zinc-400 mb-8 leading-relaxed">
             Step into the complete story. See where we’re going, why this matters so deeply, and how every transaction is already changing lives in real ways.
           </p>
-                    <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-             download="shiba-humanity-hub-whitepaper-v2.pdf"
-             class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl"
-            <i class="fa-solid fa-bone bone-icon text-3xl"></i>
-            Download Whitepaper v2
-          </a>
+                       <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
+       download="shiba-humanity-hub-whitepaper-v2.pdf"
+       class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl">
+      <i class="fa-solid fa-bone bone-icon text-4xl"></i>
+      Download Whitepaper v2
+    </a>
         </div>
 
         <!-- Card 2 - Sponsor -->
