@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-/* =============== MOBILE BLACK GAP KILLER + SKINNY PHONE FIX =============== */
+/* =============== MOBILE BLACK GAP KILLER (fixes right-side overflow) =============== */
 html, body {
   margin: 0 !important;
   padding: 0 !important;
@@ -27,9 +27,13 @@ html, body {
   overflow-x: hidden !important;
   box-sizing: border-box;
 }
-*, *::before, *::after { box-sizing: border-box; }
 
-.hero-bg, section, .max-w-7xl, .max-w-6xl, .max-w-5xl, .token-card, .program-card {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Force hero + sections to stay inside phone screen */
+.hero-bg, section, .max-w-7xl, .max-w-6xl, .max-w-5xl, .token-card {
   max-width: 100% !important;
   overflow-x: hidden !important;
 }
@@ -40,6 +44,7 @@ body {
   line-height: 1.7;
 }
 
+/* Make token images fit perfectly on skinny mobile */
 .token-card img {
   max-width: 100% !important;
   height: auto !important;
@@ -48,96 +53,40 @@ body {
   object-fit: contain;
 }
 
-/* === MIND-BLOWING PREMIUM TITLE (king-of-hearts luxury) === */
-.hero-title-wrapper {
-  position: relative;
-}
-.hero-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  line-height: 1.0;
-  letter-spacing: -7px;
-  font-size: clamp(3.2rem, 10vw, 9.8rem);
-  background: linear-gradient(92deg, #fcd34d 0%, #f59e0b 25%, #ec4899 50%, #f59e0b 75%, #fcd34d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 300% 300%;
-  position: relative;
-  text-shadow: 0 0 40px rgba(251,191,36,0.6), 0 0 80px rgba(251,191,36,0.4), 0 25px 60px rgba(236,72,153,0.3), 0 0 140px rgba(232,138,158,0.25);
-  animation: titleBreath 7s ease-in-out infinite;
-  z-index: 2;
-}
-.hero-title::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  left: -150%;
-  width: 40%;
-  height: 140%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
-  transform: skewX(-15deg);
-  animation: shineSweep 8s linear infinite;
-  opacity: 0.75;
-  z-index: 3;
-  pointer-events: none;
-}
-@keyframes titleBreath {
-  0%, 100% { transform: scale(1); background-position: 0% 50%; text-shadow: 0 0 40px rgba(251,191,36,0.6), 0 0 80px rgba(251,191,36,0.4), 0 25px 60px rgba(236,72,153,0.3), 0 0 140px rgba(232,138,158,0.25); }
-  50% { transform: scale(1.028); background-position: 100% 50%; text-shadow: 0 0 70px rgba(251,191,36,0.95), 0 0 130px rgba(251,191,36,0.65), 0 35px 90px rgba(236,72,153,0.55), 0 0 200px rgba(232,138,158,0.45); }
-}
-@keyframes shineSweep { 0% { left: -150%; } 100% { left: 250%; } }
+  /* === x50 PREMIUM BUTTONS - LUXURY SHINE & GLOW === */
+  .super-cta-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1.8px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
+    color: #0f172a;
+    box-shadow: 
+      0 0 50px -10px rgb(251 191 36),
+      0 25px 60px -15px rgb(251 191 36),
+      0 0 100px 25px rgba(251, 191, 36, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .super-cta-btn:hover {
+    transform: scale(1.12) translateY(-6px);
+    box-shadow: 
+      0 0 100px -15px rgb(251 191 36),
+      0 40px 90px -20px rgb(251 191 36),
+      0 0 140px 40px rgba(251, 191, 36, 0.7);
+  }
+  .super-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 50%;
+    height: 300%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.95), transparent);
+    transform: skewX(-25deg);
+    animation: shine 2s linear infinite;
+  }
 
-@media (max-width: 380px) {
-  .hero-title { letter-spacing: -3.8px !important; font-size: 3.25rem !important; }
-  .hero-title-wrapper { padding-left: 1rem !important; padding-right: 1rem !important; }
-}
-
-/* Premium buttons (your exact original shine + bone wag kept) */
-.super-cta-btn, .premium-sponsor-btn {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -1.8px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.super-cta-btn { background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f); color: #0f172a; }
-.premium-sponsor-btn { background: linear-gradient(145deg, #10b981, #fcd34d, #10b981); color: #0f172a; }
-.super-cta-btn:hover, .premium-sponsor-btn:hover { transform: scale(1.08) translateY(-4px); }
-.bone-icon { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
-.super-cta-btn:hover .bone-icon { animation: boneWag 0.65s ease-in-out infinite; filter: drop-shadow(0 0 12px rgb(251 191 36)); }
-@keyframes boneWag { 0%, 100% { transform: rotate(-18deg) scale(1); } 50% { transform: rotate(18deg) scale(1.15); } }
-
-/* Hero gradient (your exact original) */
-.hero-bg { 
-  background: linear-gradient(135deg, #0a1729 0%, #13253a 20%, #1a2e42 35%, #c89f3f 50%, #e88a9e 65%, #f5d0a8 80%, #0a1729 100%);
-  background-size: 500% 500%;
-  animation: gradientShift 55s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.65);
-}
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Program cards */
-.program-card {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(39,39,42,0.95);
-  backdrop-filter: blur(12px);
-}
-.program-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgb(251 191 36 / 0.3);
-}
-</style>
- 
   /* === COOL BONE WAG ON HOVER (happy tail wag + glow) === */
   .bone-icon {
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -291,13 +240,15 @@ body {
   </div>
 </nav>
 
-<!-- HERO with MIND-BLOWING TITLE -->
+<!-- HERO - NOW TRULY MAGICAL (Elon vision + Tom Bilyeu storytelling + Vitalik authenticity) -->
 <header class="hero-bg pt-20 sm:pt-28 md:pt-40 pb-12 sm:pb-20 md:pb-28 text-center relative overflow-hidden min-h-screen flex items-center">
   <div id="shiba-mercy-glow" class="absolute inset-0 pointer-events-none"></div>
+  
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-20 w-full">
-    <div class="hero-title-wrapper inline-flex flex-col items-center mx-auto px-8 sm:px-16 py-6 rounded-[4rem] bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl">
-      <h1 class="hero-title leading-none">SHIBA</h1>
-      <h1 class="hero-title">HUMANITYHUB</h1>
+    <!-- Premium rounded container (lines already fixed) -->
+    <div class="inline-flex flex-col items-center mx-auto px-8 sm:px-16 py-4 sm:py-6 rounded-[4rem] bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl">
+      <h1 class="hero-title text-white leading-none">SHIBA</h1>
+      <h1 class="hero-title text-white -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
     </div>
     
     <p class="text-3xl sm:text-5xl md:text-6xl font-light text-amber-100 max-w-4xl mx-auto mt-8 sm:mt-10 leading-[1.15]">
@@ -309,6 +260,7 @@ body {
       This is not charity. This is the first decentralized movement where love is literally programmed into the code — transparent, unstoppable, and built by all of us.
     </p>
 
+    <!-- Elon-style vision line -->
     <div class="mt-10 flex justify-center items-center gap-3 text-amber-200/70 text-sm tracking-widest font-medium">
       <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
       LIVE ON TESTNET • ALREADY FUNDING REAL MERCY • NO MIDDLEMEN • FULL TRANSPARENCY
@@ -327,7 +279,6 @@ body {
     </a>
   </div>
 </header>
-  
   <!-- EXPLANATION -->
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 -mt-8">
     <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
@@ -392,70 +343,78 @@ body {
   </div>
 </section>
 
-<!-- === NEW MAGICAL 4-PROGRAM SECTION (side-by-side, grabs your face) === -->
-<section class="py-24 bg-gradient-to-b from-zinc-950 to-black relative overflow-hidden">
+ <!-- === FEATURED PROGRAMS - ONLY THE MOST HEARTFELT 8 === -->
+<section class="py-24 bg-zinc-950">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-5xl md:text-6xl font-bold tracking-[-2px] bg-gradient-to-r from-amber-300 to-emerald-300 bg-clip-text text-transparent">Programs Born From Love</h2>
-      <p class="mt-4 text-2xl text-amber-100 max-w-2xl mx-auto">Real stories. Real mercy. Every transaction becomes hope you can feel in your heart.</p>
+      <h2 class="text-5xl font-bold text-white">Featured Programs That Change Lives</h2>
+      <p class="text-amber-200 text-2xl mt-4 max-w-2xl mx-auto">The 8 most powerful stories of mercy we are building right now.</p>
     </div>
 
-    <!-- $NIBBLES -->
-    <div class="mb-24">
-      <div class="flex items-center gap-4 mb-10 justify-center md:justify-start">
-        <div class="px-8 py-3 bg-amber-500/10 text-amber-400 rounded-3xl font-bold text-3xl border border-amber-400/30 flex items-center gap-3 shadow-inner">
-          🐾 $NIBBLES
-        </div>
-        <h3 class="text-4xl font-semibold text-white">Saving Paws &amp; Changing Lives</h3>
+    <!-- $NIBBLES Featured -->
+    <div class="mb-20">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="text-5xl">🐾</span>
+        <h3 class="text-4xl font-bold text-amber-300">$NIBBLES Programs</h3>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div onclick="showProgramModal(7)" class="program-card group cursor-pointer p-8 rounded-3xl border border-amber-400/30 hover:border-amber-400">
-          <div class="flex justify-between items-start">
-            <span class="text-7xl group-hover:scale-110 transition-transform">🌈</span>
-            <div class="text-right"><span class="text-emerald-400 font-bold text-3xl">Senior Heroes</span></div>
-          </div>
-          <h4 class="text-3xl font-bold mt-8 mb-2">Rainbow Bridge Hospice &amp; Sequoia Legacy</h4>
-          <p class="text-amber-100">No senior dog ever crosses the Rainbow Bridge cold or forgotten. They leave with dignity, love, and a living Sequoia tree planted in their name.</p>
-          <button onclick="event.stopImmediatePropagation(); sponsorProgram('rainbow-bridge')" class="mt-10 premium-sponsor-btn w-full py-6 text-lg rounded-3xl">Sponsor This Mission of Dignity</button>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div onclick="showProgramModal(0)" class="cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Rainbowbridgehospice&sequoialegacyprogram.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Rainbow Bridge">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Rainbow Bridge Hospice &amp; Sequoia Legacy</h3>
+          <p class="text-zinc-400 text-base">No senior dog ever crosses the Rainbow Bridge cold or forgotten.</p>
         </div>
-        <div onclick="showProgramModal(4)" class="program-card group cursor-pointer p-8 rounded-3xl border border-amber-400/30 hover:border-amber-400">
-          <div class="flex justify-between items-start">
-            <span class="text-7xl group-hover:scale-110 transition-transform">❤️</span>
-            <div class="text-right"><span class="text-emerald-400 font-bold text-3xl">Healing Hearts</span></div>
-          </div>
-          <h4 class="text-3xl font-bold mt-8 mb-2">Healing Hearts Therapy Dog Network</h4>
-          <p class="text-amber-100">Certified shelter dogs visiting hospitals, nursing homes, and schools — turning unwanted dogs into healers of human hearts.</p>
-          <button onclick="event.stopImmediatePropagation(); sponsorProgram('healing-hearts')" class="mt-10 premium-sponsor-btn w-full py-6 text-lg rounded-3xl">Sponsor A Healing Hero</button>
+        <div onclick="showProgramModal(4)" class="cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/healingheartstherapydognetworkphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Healing Hearts">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Healing Hearts Therapy Dog Network</h3>
+          <p class="text-zinc-400 text-base">Certified shelter dogs visiting hospitals, nursing homes, and schools.</p>
+        </div>
+        <div onclick="showProgramModal(5)" class="cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/globaldisasterk9responseunitsphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Disaster K9">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Global Disaster K9 Response Units</h3>
+          <p class="text-zinc-400 text-base">Elite search-and-rescue dogs ready 24/7 to save lives.</p>
+        </div>
+        <div onclick="showProgramModal(16)" class="cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/servicedogfreedomprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Service Dog Freedom">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Service Dog Freedom Program</h3>
+          <p class="text-zinc-400 text-base">Veterans and disabled warriors receive a loyal service dog — free for life.</p>
         </div>
       </div>
     </div>
 
-    <!-- $hopeseed -->
+    <!-- $hopeseed Featured -->
     <div>
-      <div class="flex items-center gap-4 mb-10 justify-center md:justify-start">
-        <div class="px-8 py-3 bg-emerald-500/10 text-emerald-400 rounded-3xl font-bold text-3xl border border-emerald-400/30 flex items-center gap-3 shadow-inner">
-          🌱 $hopeseed
-        </div>
-        <h3 class="text-4xl font-semibold text-white">Planting Hope for Humanity</h3>
+      <div class="flex items-center gap-4 mb-10">
+        <span class="text-5xl">🌱</span>
+        <h3 class="text-4xl font-bold text-emerald-300">$hopeseed Programs</h3>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div onclick="showProgramModal(17)" class="program-card group cursor-pointer p-8 rounded-3xl border border-emerald-400/30 hover:border-emerald-400">
-          <div class="flex justify-between items-start">
-            <span class="text-7xl group-hover:scale-110 transition-transform">🎄</span>
-            <div class="text-right"><span class="text-amber-300 font-bold text-3xl">Christmas Magic</span></div>
-          </div>
-          <h4 class="text-3xl font-bold mt-8 mb-2">Orphan Christmas</h4>
-          <p class="text-amber-100">Every orphan and foster child wakes up to a real personalized Christmas morning filled with love, gifts, and a global family cheering for them.</p>
-          <button onclick="event.stopImmediatePropagation(); sponsorProgram('orphan-christmas')" class="mt-10 premium-sponsor-btn w-full py-6 text-lg rounded-3xl">Make Christmas Magical</button>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div onclick="showProgramModal(17)" class="cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/orphanxmasphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Orphan Christmas">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Orphan Christmas</h3>
+          <p class="text-zinc-400 text-base">Every orphan and foster child gets a real personalized Christmas morning.</p>
         </div>
-        <div onclick="showProgramModal(19)" class="program-card group cursor-pointer p-8 rounded-3xl border border-emerald-400/30 hover:border-emerald-400">
-          <div class="flex justify-between items-start">
-            <span class="text-7xl group-hover:scale-110 transition-transform">👼</span>
-            <div class="text-right"><span class="text-amber-300 font-bold text-3xl">Guardian Angel</span></div>
-          </div>
-          <h4 class="text-3xl font-bold mt-8 mb-2">Guardian Angel Wallet Program</h4>
-          <p class="text-amber-100">Every foster child gets a private wallet seeded with love that grows from day one — so they never age out feeling alone.</p>
-          <button onclick="event.stopImmediatePropagation(); sponsorProgram('guardian-angel-wallet')" class="mt-10 premium-sponsor-btn w-full py-6 text-lg rounded-3xl">Become A Guardian Angel</button>
+        <div onclick="showProgramModal(19)" class="cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/guardianangelwalletprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Guardian Angel Wallet">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Guardian Angel Wallet Program</h3>
+          <p class="text-zinc-400 text-base">Every foster child gets a private wallet that grows from day one.</p>
+        </div>
+        <div onclick="showProgramModal(22)" class="cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/miraclefightfundphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Miracle Fight Fund">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Miracle Fight Fund</h3>
+          <p class="text-zinc-400 text-base">Seriously ill children and one parent get free flights to life-saving treatment.</p>
+        </div>
+        <div onclick="showProgramModal(28)" class="cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 transition-all hover:-translate-y-2">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/dreamroommakeoversphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Dream Room Makeovers">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Dream Room Makeovers Program</h3>
+          <p class="text-zinc-400 text-base">Children in hospital beds wake up in their own magical dream room.</p>
         </div>
       </div>
     </div>
