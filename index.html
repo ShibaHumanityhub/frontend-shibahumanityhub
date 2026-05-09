@@ -35,21 +35,44 @@ html, body {
   overflow-x: hidden !important;
 }
 
-/* Title scaling for skinny phones */
+/* === MIND-BLOWING PREMIUM TITLE - billionaire flywheel glow === */
+.hero-title-wrapper {
+  position: relative;
+}
 .hero-title {
-  font-size: clamp(2.8rem, 9vw, 9rem) !important;
-  letter-spacing: -6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -7px;
+  font-size: clamp(3.2rem, 10vw, 9.8rem);
+  background: linear-gradient(92deg, #fcd34d 0%, #f59e0b 25%, #ec4899 50%, #f59e0b 75%, #fcd34d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  position: relative;
+  text-shadow: 0 0 40px rgba(251,191,36,0.6), 0 0 80px rgba(251,191,36,0.4), 0 25px 60px rgba(236,72,153,0.3), 0 0 140px rgba(232,138,158,0.25);
+  animation: titleBreath 7s ease-in-out infinite;
+  z-index: 2;
 }
-@media (max-width: 380px) {
-  .hero-title { 
-    font-size: 3.1rem !important; 
-    letter-spacing: -3.5px !important; 
-  }
-  .hero-title-wrapper {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
+.hero-title::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -150%;
+  width: 40%;
+  height: 140%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-15deg);
+  animation: shineSweep 8s linear infinite;
+  opacity: 0.75;
+  z-index: 3;
+  pointer-events: none;
 }
+@keyframes titleBreath {
+  0%, 100% { transform: scale(1); background-position: 0% 50%; text-shadow: 0 0 40px rgba(251,191,36,0.6), 0 0 80px rgba(251,191,36,0.4), 0 25px 60px rgba(236,72,153,0.3), 0 0 140px rgba(232,138,158,0.25); }
+  50% { transform: scale(1.028); background-position: 100% 50%; text-shadow: 0 0 70px rgba(251,191,36,0.95), 0 0 130px rgba(251,191,36,0.65), 0 35px 90px rgba(236,72,153,0.55), 0 0 200px rgba(232,138,158,0.45); }
+}
+@keyframes shineSweep { 0% { left: -150%; } 100% { left: 250%; } }
 
 /* Cards and sections on mobile */
 .token-card, .program-card, .help-card {
