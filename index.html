@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 /* =============== ULTRA-STRONG MOBILE FIX FOR ALL SIZES + SKINNY PHONES =============== */
 html, body {
@@ -41,53 +41,89 @@ html, body {
   overflow-x: hidden !important;
 }
 
-
-/* === AWARD-WINNING BILLION-DOLLAR HERO TITLE - FLYWHEEL ×50 === */
+/* === MIND-BLOWING BILLION-DOLLAR HERO TITLE — NEXT LEVEL LUXURY (Tesla × Elon × Vitalik) === */
 .hero-title-wrapper {
   position: relative;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 3rem;
+  padding: 1.75rem 3.5rem;
   border-radius: 4rem;
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgba(251, 191, 36, 0.3);
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(32px);
+  border: 2px solid rgba(251, 191, 36, 0.45);
   box-shadow: 
-    0 0 80px -20px rgba(251, 191, 36, 0.7),
-    0 25px 50px -20px rgba(236, 72, 153, 0.5),
-    inset 0 2px 0 rgba(255,255,255,0.2);
+    0 0 100px -30px rgba(251, 191, 36, 0.85),
+    0 35px 70px -25px rgba(236, 72, 153, 0.6),
+    0 0 160px -40px rgba(16, 185, 129, 0.4),
+    inset 0 3px 0 rgba(255,255,255,0.25);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-    .hero-title {
+
+.hero-title-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 0 130px -25px rgba(251, 191, 36, 0.95),
+    0 45px 90px -30px rgba(236, 72, 153, 0.75),
+    0 0 200px -50px rgba(16, 185, 129, 0.55),
+    inset 0 4px 0 rgba(255,255,255,0.35);
+}
+
+.hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -8px;
-  font-size: clamp(3.8rem, 11vw, 10.5rem);
-  background: linear-gradient(92deg, #fcd34d 0%, #f59e0b 20%, #ec4899 45%, #f59e0b 70%, #fcd34d 100%);
+  line-height: 0.92;
+  letter-spacing: -9px;
+  font-size: clamp(3.8rem, 11.5vw, 11rem);
+  background: linear-gradient(92deg, 
+    #fcd34d 0%, 
+    #f59e0b 15%, 
+    #ec4899 33%, 
+    #10b981 52%, 
+    #f59e0b 70%, 
+    #fcd34d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 400% 400%;
+  background-size: 420% 420%;
   text-shadow: 
-    0 0 60px rgba(251, 191, 36, 0.9),
-    0 0 120px rgba(251, 191, 36, 0.6),
-    0 25px 80px rgba(236, 72, 153, 0.7),
-    0 0 180px rgba(232, 138, 158, 0.5);
-  animation: titleBreath 6s ease-in-out infinite;
+    0 0 40px rgba(251, 191, 36, 0.95),
+    0 0 80px rgba(251, 191, 36, 0.75),
+    0 0 140px rgba(236, 72, 153, 0.8),
+    0 0 200px rgba(16, 185, 129, 0.55),
+    0 25px 60px rgba(232, 138, 158, 0.6),
+    4px 4px 0 rgba(251, 191, 36, 0.15),
+    -4px -4px 0 rgba(251, 191, 36, 0.15);
+  animation: titleBreath 7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  filter: drop-shadow(0 0 60px rgba(251, 191, 36, 0.6));
 }
 
 @keyframes titleBreath {
   0%, 100% { 
     transform: scale(1); 
     background-position: 0% 50%; 
-    text-shadow: 0 0 60px rgba(251,191,36,0.9), 0 0 120px rgba(251,191,36,0.6), 0 25px 80px rgba(236,72,153,0.7), 0 0 180px rgba(232,138,158,0.5);
+    text-shadow: 
+      0 0 40px rgba(251,191,36,0.95),
+      0 0 80px rgba(251,191,36,0.75),
+      0 0 140px rgba(236,72,153,0.8),
+      0 0 200px rgba(16,185,129,0.55),
+      0 25px 60px rgba(232,138,158,0.6),
+      4px 4px 0 rgba(251,191,36,0.15),
+      -4px -4px 0 rgba(251,191,36,0.15);
   }
   50% { 
-    transform: scale(1.035); 
+    transform: scale(1.028); 
     background-position: 100% 50%; 
-    text-shadow: 0 0 90px rgba(251,191,36,1), 0 0 160px rgba(251,191,36,0.8), 0 35px 110px rgba(236,72,153,0.9), 0 0 240px rgba(232,138,158,0.7);
+    text-shadow: 
+      0 0 65px rgba(251,191,36,1),
+      0 0 110px rgba(251,191,36,0.9),
+      0 0 180px rgba(236,72,153,0.95),
+      0 0 260px rgba(16,185,129,0.7),
+      0 35px 85px rgba(232,138,158,0.75),
+      6px 6px 0 rgba(251,191,36,0.2),
+      -6px -6px 0 rgba(251,191,36,0.2);
   }
 }
+
 /* Cards and sections on mobile */
 .token-card, .program-card, .help-card {
   padding: 20px !important;
@@ -108,41 +144,41 @@ html, body {
   font-size: 1.1rem;
 }
 
-  /* === COOL BONE WAG ON HOVER (happy tail wag + glow) === */
-  .bone-icon {
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  }
-  .super-cta-btn:hover .bone-icon {
-    animation: boneWag 0.65s ease-in-out infinite;
-    filter: drop-shadow(0 0 12px rgb(251 191 36));
-  }
+/* === COOL BONE WAG ON HOVER (happy tail wag + glow) === */
+.bone-icon {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.super-cta-btn:hover .bone-icon {
+  animation: boneWag 0.65s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgb(251 191 36));
+}
 
-  @keyframes boneWag {
-    0%, 100% { transform: rotate(-18deg) scale(1); }
-    50%      { transform: rotate(18deg) scale(1.15); }
-  }
+@keyframes boneWag {
+  0%, 100% { transform: rotate(-18deg) scale(1); }
+  50%      { transform: rotate(18deg) scale(1.15); }
+}
 
-   .premium-sponsor-btn {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(145deg, #10b981, #fcd34d, #10b981);
-    color: #0f172a;
-    box-shadow: 
-      0 0 50px -10px rgb(16 185 129),
-      0 25px 60px -15px rgb(16 185 129),
-      0 0 100px 25px rgba(16, 185, 129, 0.5);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .premium-sponsor-btn:hover {
-    transform: scale(1.12) translateY(-6px);
-    box-shadow: 
-      0 0 100px -15px rgb(16 185 129),
-      0 40px 90px -20px rgb(16 185 129),
-      0 0 140px 40px rgba(16, 185, 129, 0.7);
-  }
+.premium-sponsor-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #10b981, #fcd34d, #10b981);
+  color: #0f172a;
+  box-shadow: 
+    0 0 50px -10px rgb(16 185 129),
+    0 25px 60px -15px rgb(16 185 129),
+    0 0 100px 25px rgba(16, 185, 129, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.premium-sponsor-btn:hover {
+  transform: scale(1.12) translateY(-6px);
+  box-shadow: 
+    0 0 100px -15px rgb(16 185 129),
+    0 40px 90px -20px rgb(16 185 129),
+    0 0 140px 40px rgba(16, 185, 129, 0.7);
+}
 
 /* === FRESHENED ULTRA-SMOOTH HERO GRADIENT + SHARPER SHINIER BUTTON === */
 .hero-bg { 
@@ -170,8 +206,6 @@ html, body {
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
-
 
 /* === SHARPER + SHINIER WHITEPAPER BUTTON === */
 .super-cta-btn {
@@ -209,12 +243,12 @@ html, body {
   transform: skewX(-28deg);
   animation: shine 1.6s linear infinite;
 }
-    /* === SHINE ANIMATION FOR GOLD BUTTONS === */
+/* === SHINE ANIMATION FOR GOLD BUTTONS === */
 @keyframes shine {
   0%   { transform: translateX(-150%) skewX(-28deg); }
   100% { transform: translateX(300%) skewX(-28deg); }
 }
-  </style>
+</style>
 </head>
 <body class="bg-zinc-950 text-white">
          <!-- === BILLIONAIRE NAVBAR - PERFECT ON FOLD 7 CLOSED + ALL SKINNY PHONES === -->
@@ -482,23 +516,7 @@ html, body {
 
       </div>
     </div>
-  
- <!-- === BIG CALL-TO-ACTION - ALL PROGRAMS (updated with golden paw) === -->
-<section class="py-20 bg-gradient-to-b from-zinc-950 to-black border-t border-white/10">
-  <div class="max-w-4xl mx-auto text-center px-6">
-    <p class="text-amber-300 text-sm tracking-[2px] font-medium mb-4">30+ LIVING PROGRAMS • REAL MERCY IN ACTION</p>
-    <h2 class="text-5xl md:text-6xl font-bold leading-none mb-6">Every program is a living story of mercy.</h2>
-    <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
-      From senior dog sanctuaries and therapy dogs to orphan Christmas miracles, guardian angel wallets, and special-needs family support — browse every single one.
-    </p>
-    
-        <a href="all-programs.html" 
-       class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl mx-auto">
-      <span>🐾 View All 30 Programs</span>
-      <i class="fa-solid fa-paw text-4xl"></i>
-    </a>
-  </div>
-</section>
+  </section>
     
        <!-- FOOTER - GRATEFUL, PROFESSIONAL, AND FULL OF LOVE -->
   <footer class="py-20 bg-black border-t border-amber-500/30">
