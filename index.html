@@ -272,57 +272,29 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* MERCY FLYWHEEL — DEEP PREMIUM CIRCULAR LOGO + ICONIC GLOW */
+/* === PAW + HEART MERCY FLYWHEEL — SLOW, PROFESSIONAL, UNSTOPPABLE === */
 .navbar-logo-img {
-  filter: drop-shadow(0 0 28px #fcd34d);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 35px #fcd34d);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navbar-logo-img:hover {
-  filter: drop-shadow(0 0 40px #10b981);
-  transform: scale(1.09);
+  filter: drop-shadow(0 0 55px #10b981);
+  transform: scale(1.13);
 }
 
-/* Famous Mercy Flywheel Halo — slow, loving, iconic rotation */
+/* Slow, elegant 40-second rotation around the paw + heart emblem */
 @keyframes flywheel {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
-/* Final Fold 7 hero breathing room */
-@media (max-width: 380px) {
-  .hero-bg {
-    min-height: 100vh !important;
-    padding-top: 68px !important;
-  }
-}
-   /* === FINAL ELON-LEVEL MERCY FLYWHEEL — UNSTOPPABLE + CLEAN === */
-.navbar-logo-img {
-  filter: drop-shadow(0 0 32px #fcd34d);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.navbar-logo-img:hover {
-  filter: drop-shadow(0 0 50px #10b981);
-  transform: scale(1.13);
-}
-
-/* Stronger, thicker, glowing halo with perfect rhythm */
+/* Thicker, glowing halo for premium flywheel energy */
 .relative.flex-shrink-0 > .absolute {
-  animation: flywheel 22s linear infinite;
-  border-width: 4px;
+  animation: flywheel 40s linear infinite;
+  border-width: 3.5px;
   box-shadow: 
-    0 0 30px -4px rgb(251 191 36),
-    0 0 60px -8px rgb(16 185 129);
-}
-
-/* Final Fold 7 breathing room */
-@media (max-width: 380px) {
-  .hero-bg {
-    min-height: 100vh !important;
-    padding-top: 68px !important;
-  }
-  .hero-title {
-    letter-spacing: -6px !important;
-  }
+    0 0 35px -5px rgb(251 191 36),
+    0 0 70px -10px rgb(16 185 129);
 }
 </style>
 </head>
@@ -332,15 +304,15 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- MERCY FLYWHEEL LOGO — CIRCULAR + FAMOUS BILLIONAIRE TREATMENT -->
+<!-- MERCY FLYWHEEL LOGO — PAW + HEART EMBLEM + SLOW PROFESSIONAL ROTATION -->
 <a href="index.html" class="flex items-center gap-3 group">
   <div class="relative flex-shrink-0">
     <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
          alt="Shibahumanityhub" 
          class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-cover rounded-full transition-all duration-700 group-hover:scale-110 ring-2 ring-amber-300/30"
          loading="lazy" decoding="async" width="288" height="288">
-    <!-- Mercy Flywheel Halo (rotating around the perfect circle) -->
-    <div class="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-amber-300 via-emerald-300 to-amber-300 bg-clip-border animate-[flywheel_25s_linear_infinite]"></div>
+    <!-- Slow Mercy Flywheel Halo around the paw + heart emblem -->
+    <div class="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-amber-300 via-emerald-300 to-amber-300 bg-clip-border animate-[flywheel_40s_linear_infinite]"></div>
   </div>
   <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-emerald-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
 </a>
