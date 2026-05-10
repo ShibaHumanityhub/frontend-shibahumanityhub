@@ -272,28 +272,28 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* === FINAL PAW + HEART MERCY FLYWHEEL — SLOW, PROFESSIONAL, UNSTOPPABLE === */
+/* === TIGHT PAW + HEART MERCY FLYWHEEL — PERFECTLY FITTED + SLOW ROTATION === */
 .navbar-logo-img {
   filter: drop-shadow(0 0 35px #fcd34d);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navbar-logo-img:hover {
-  filter: drop-shadow(0 0 55px #10b981);
+  filter: drop-shadow(0 0 60px #10b981);
   transform: scale(1.13);
 }
 
-/* Slow 40-second elegant rotation around the paw + heart */
 @keyframes flywheel {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
 .mercy-halo {
-  animation: flywheel 40s linear infinite;
-  border-width: 3.5px;
+  animation: flywheel 35s linear infinite;
+  border-width: 4px;
   box-shadow: 
-    0 0 35px -5px rgb(251 191 36),
-    0 0 70px -10px rgb(16 185 129);
+    0 0 40px -6px rgb(251 191 36),
+    0 0 80px -12px rgb(16 185 129),
+    0 0 130px -20px rgb(251 191 36);
 }
 </style>
 </head>
