@@ -272,35 +272,6 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* Hero Title — Calmer, Deeper, More Heartfelt Billionaire Glow */
-.hero-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  line-height: 0.92;
-  letter-spacing: -9px;
-  font-size: clamp(3.8rem, 11.5vw, 11rem);
-  background: linear-gradient(92deg, 
-    #fcd34d 0%, 
-    #f59e0b 25%, 
-    #10b981 50%, 
-    #ec4899 75%, 
-    #fcd34d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 300% 300%;
-  text-shadow: 
-    0 0 40px rgba(251, 191, 36, 0.9),
-    0 0 80px rgba(16, 185, 129, 0.7),
-    0 0 120px rgba(236, 72, 153, 0.5);
-  animation: titleBreath 75s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-  filter: drop-shadow(0 0 50px rgba(251, 191, 36, 0.6));
-}
-
-@keyframes titleBreath {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
-}
-
 /* MERCY FLYWHEEL — DEEP PREMIUM CIRCULAR LOGO + ICONIC GLOW */
 .navbar-logo-img {
   filter: drop-shadow(0 0 28px #fcd34d);
@@ -322,6 +293,35 @@ html, body {
   .hero-bg {
     min-height: 100vh !important;
     padding-top: 68px !important;
+  }
+}
+   /* === FINAL ELON-LEVEL MERCY FLYWHEEL — UNSTOPPABLE + CLEAN === */
+.navbar-logo-img {
+  filter: drop-shadow(0 0 32px #fcd34d);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar-logo-img:hover {
+  filter: drop-shadow(0 0 50px #10b981);
+  transform: scale(1.13);
+}
+
+/* Stronger, thicker, glowing halo with perfect rhythm */
+.relative.flex-shrink-0 > .absolute {
+  animation: flywheel 22s linear infinite;
+  border-width: 4px;
+  box-shadow: 
+    0 0 30px -4px rgb(251 191 36),
+    0 0 60px -8px rgb(16 185 129);
+}
+
+/* Final Fold 7 breathing room */
+@media (max-width: 380px) {
+  .hero-bg {
+    min-height: 100vh !important;
+    padding-top: 68px !important;
+  }
+  .hero-title {
+    letter-spacing: -6px !important;
   }
 }
 </style>
@@ -364,8 +364,6 @@ html, body {
 
 <!-- HERO - NOW TRULY MAGICAL (Elon vision + Tom Bilyeu storytelling + Vitalik authenticity) -->
 <header class="hero-bg pt-20 sm:pt-28 md:pt-40 pb-12 sm:pb-20 md:pb-28 text-center relative overflow-hidden min-h-screen flex items-center">
-  <div id="shiba-mercy-glow" class="absolute inset-0 pointer-events-none"></div>
-  
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
                   <div class="hero-title-wrapper mx-auto">
         <h1 class="hero-title">SHIBA</h1>
