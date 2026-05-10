@@ -41,7 +41,7 @@ html, body {
   overflow-x: hidden !important;
 }
 
-/* === MIND-BLOWING BILLION-DOLLAR HERO TITLE — NEXT LEVEL LUXURY (Tesla × Elon × Vitalik) === */
+/* === MIND-BLOWING BILLION-DOLLAR HERO TITLE — AMPLIFIED LUXURY (slow living gradient + staggered letter glow) === */
 .hero-title-wrapper {
   position: relative;
   display: inline-flex;
@@ -75,6 +75,10 @@ html, body {
   line-height: 0.92;
   letter-spacing: -9px;
   font-size: clamp(3.8rem, 11.5vw, 11rem);
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
   background: linear-gradient(92deg, 
     #fcd34d 0%, 
     #f59e0b 15%, 
@@ -90,38 +94,59 @@ html, body {
     0 0 80px rgba(251, 191, 36, 0.75),
     0 0 140px rgba(236, 72, 153, 0.8),
     0 0 200px rgba(16, 185, 129, 0.55),
-    0 25px 60px rgba(232, 138, 158, 0.6),
-    4px 4px 0 rgba(251, 191, 36, 0.15),
-    -4px -4px 0 rgba(251, 191, 36, 0.15);
-  animation: titleBreath 7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    0 25px 60px rgba(232, 138, 158, 0.6);
+  animation: titleBreath 90s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   filter: drop-shadow(0 0 60px rgba(251, 191, 36, 0.6));
 }
 
+.hero-letter {
+  display: inline-block;
+  animation: letterPulse 12s ease-in-out infinite;
+}
+
+.hero-letter:nth-child(1) { animation-delay: 0s; }
+.hero-letter:nth-child(2) { animation-delay: 0.6s; }
+.hero-letter:nth-child(3) { animation-delay: 1.2s; }
+.hero-letter:nth-child(4) { animation-delay: 1.8s; }
+.hero-letter:nth-child(5) { animation-delay: 2.4s; }
+.hero-letter:nth-child(6) { animation-delay: 3s; }
+.hero-letter:nth-child(7) { animation-delay: 3.6s; }
+.hero-letter:nth-child(8) { animation-delay: 4.2s; }
+.hero-letter:nth-child(9) { animation-delay: 4.8s; }
+.hero-letter:nth-child(10) { animation-delay: 5.4s; }
+.hero-letter:nth-child(11) { animation-delay: 6s; }
+.hero-letter:nth-child(12) { animation-delay: 6.6s; }
+.hero-letter:nth-child(13) { animation-delay: 7.2s; }
+.hero-letter:nth-child(14) { animation-delay: 7.8s; }
+.hero-letter:nth-child(15) { animation-delay: 8.4s; }
+.hero-letter:nth-child(16) { animation-delay: 9s; }
+.hero-letter:nth-child(17) { animation-delay: 9.6s; }
+.hero-letter:nth-child(18) { animation-delay: 10.2s; }
+
 @keyframes titleBreath {
   0%, 100% { 
-    transform: scale(1); 
     background-position: 0% 50%; 
     text-shadow: 
       0 0 40px rgba(251,191,36,0.95),
       0 0 80px rgba(251,191,36,0.75),
       0 0 140px rgba(236,72,153,0.8),
       0 0 200px rgba(16,185,129,0.55),
-      0 25px 60px rgba(232,138,158,0.6),
-      4px 4px 0 rgba(251,191,36,0.15),
-      -4px -4px 0 rgba(251,191,36,0.15);
+      0 25px 60px rgba(232,138,158,0.6);
   }
   50% { 
-    transform: scale(1.028); 
     background-position: 100% 50%; 
     text-shadow: 
-      0 0 65px rgba(251,191,36,1),
-      0 0 110px rgba(251,191,36,0.9),
-      0 0 180px rgba(236,72,153,0.95),
-      0 0 260px rgba(16,185,129,0.7),
-      0 35px 85px rgba(232,138,158,0.75),
-      6px 6px 0 rgba(251,191,36,0.2),
-      -6px -6px 0 rgba(251,191,36,0.2);
+      0 0 70px rgba(251,191,36,1),
+      0 0 120px rgba(251,191,36,0.9),
+      0 0 190px rgba(236,72,153,0.95),
+      0 0 280px rgba(16,185,129,0.7),
+      0 35px 90px rgba(232,138,158,0.75);
   }
+}
+
+@keyframes letterPulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.035); filter: brightness(1.15); }
 }
 
 /* Cards and sections on mobile */
@@ -191,7 +216,7 @@ html, body {
     #f5d0a8 80%, 
     #0a1729 100%);
   background-size: 500% 500%;
-  animation: gradientShift 55s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  animation: gradientShift 90s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -287,9 +312,13 @@ html, body {
   <div id="shiba-mercy-glow" class="absolute inset-0 pointer-events-none"></div>
   
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-      <div class="hero-title-wrapper mx-auto">
-        <h1 class="hero-title">SHIBA</h1>
-        <h1 class="hero-title -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
+            <div class="hero-title-wrapper mx-auto">
+        <h1 class="hero-title">
+          <span class="hero-letter">S</span><span class="hero-letter">H</span><span class="hero-letter">I</span><span class="hero-letter">B</span><span class="hero-letter">A</span>
+        </h1>
+        <h1 class="hero-title -mt-2 sm:-mt-4 md:-mt-7">
+          <span class="hero-letter">H</span><span class="hero-letter">U</span><span class="hero-letter">M</span><span class="hero-letter">A</span><span class="hero-letter">N</span><span class="hero-letter">I</span><span class="hero-letter">T</span><span class="hero-letter">Y</span><span class="hero-letter">H</span><span class="hero-letter">U</span><span class="hero-letter">B</span>
+        </h1>
       </div>
       
       <p class="text-3xl sm:text-5xl md:text-6xl font-light text-amber-100 max-w-4xl mx-auto mt-8 sm:mt-10 leading-[1.15]">
