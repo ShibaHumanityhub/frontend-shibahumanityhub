@@ -27,6 +27,7 @@
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
+
 /* =============== ULTRA-STRONG MOBILE FIX FOR ALL SIZES + SKINNY FOLD 7 CLOSED =============== */
 html, body {
   margin: 0 !important;
@@ -44,34 +45,43 @@ html, body {
   overflow-x: hidden !important;
 }
 
-/* === EXTREME SKINNY FOLD 7 CLOSED MODE (360px and below) === */
-@media (max-width: 400px) {
+/* === NUCLEAR SKINNY FOLD 7 CLOSED MODE (380px and below) === */
+@media (max-width: 380px) {
   .hero-title {
-    font-size: clamp(2.8rem, 9.5vw, 4.5rem) !important;
-    letter-spacing: -6px !important;
+    font-size: clamp(2.4rem, 8.8vw, 3.8rem) !important;
+    letter-spacing: -5px !important;
   }
   .hero-title-wrapper {
-    padding: 1.25rem 2rem !important;
-    border-radius: 3rem !important;
+    padding: 0.9rem 1.4rem !important;
+    border-radius: 2.5rem !important;
+    margin: 0 12px !important;
+  }
+  .hero-title-wrapper h1:first-child {
+    margin-bottom: -8px !important;
   }
   nav .max-w-7xl {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
   .navbar-logo-img {
-    width: 38px !important;
-    height: 38px !important;
+    width: 44px !important;
+    height: 44px !important;
   }
   section {
-    padding-top: 2.5rem !important;
-    padding-bottom: 2.5rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
-  .grid.md\\:grid-cols-3 {
+  .grid.md\\:grid-cols-3, .grid.grid-cols-2 {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    gap: 14px !important;
   }
-  .grid.grid-cols-2 {
-    grid-template-columns: 1fr !important;
+  .token-card, .program-card, .help-card {
+    padding: 18px !important;
+  }
+  .super-cta-btn, .premium-sponsor-btn {
+    font-size: 1.05rem !important;
+    padding: 18px 24px !important;
+    min-height: 52px !important;
   }
 }
 
@@ -79,6 +89,7 @@ html, body {
 .token-card, .program-card, .help-card {
   padding: 20px !important;
 }
+    
 /* === MIND-BLOWING BILLION-DOLLAR HERO TITLE — PREMIUM & BUTTERY SMOOTH (Elon/Vitalik quality) === */
 .hero-title-wrapper {
   position: relative;
@@ -260,13 +271,21 @@ html, body {
   0%   { transform: translateX(-150%) skewX(-28deg); }
   100% { transform: translateX(300%) skewX(-28deg); }
 }
-    /* x50 Flywheel Logo Glow */
+    /* x50 Flywheel Logo Glow — extra pop on Fold 7 */
 .navbar-logo-img {
-  filter: drop-shadow(0 0 18px #fcd34d);
-  transition: filter 0.4s ease;
+  filter: drop-shadow(0 0 22px #fcd34d);
+  transition: filter 0.3s ease;
 }
 .navbar-logo-img:hover {
-  filter: drop-shadow(0 0 28px #10b981);
+  filter: drop-shadow(0 0 32px #10b981);
+}
+
+/* Final Fold 7 hero breathing room */
+@media (max-width: 380px) {
+  .hero-bg {
+    min-height: 100vh !important;
+    padding-top: 68px !important;
+  }
 }
 </style>
 </head>
@@ -276,11 +295,11 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- x50 SUPERCHARGED FLYWHEEL LOGO — PREMIUM FACE GRAB -->
+<!-- x50 SUPERCHARGED FLYWHEEL LOGO — PREMIUM FACE GRAB (Fold 7 closed optimized) -->
 <a href="index.html" class="flex items-center gap-3 group">
   <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
        alt="Shibahumanityhub" 
-       class="navbar-logo-img w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_25px_#fcd34d] transition-all duration-300 group-hover:scale-110 group-active:scale-125"
+       class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-contain drop-shadow-[0_0_30px_#fcd34d] transition-all duration-300 group-hover:scale-110 group-active:scale-125"
        loading="lazy" decoding="async" width="288" height="288">
   <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-amber-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
 </a>
