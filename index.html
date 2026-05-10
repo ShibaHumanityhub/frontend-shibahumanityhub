@@ -272,7 +272,7 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* === PAW + HEART MERCY FLYWHEEL — SLOW, PROFESSIONAL, UNSTOPPABLE === */
+/* === FINAL PAW + HEART MERCY FLYWHEEL — SLOW, PROFESSIONAL, UNSTOPPABLE === */
 .navbar-logo-img {
   filter: drop-shadow(0 0 35px #fcd34d);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -282,14 +282,13 @@ html, body {
   transform: scale(1.13);
 }
 
-/* Slow, elegant 40-second rotation around the paw + heart emblem */
+/* Slow 40-second elegant rotation around the paw + heart */
 @keyframes flywheel {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
-/* Thicker, glowing halo for premium flywheel energy */
-.relative.flex-shrink-0 > .absolute {
+.mercy-halo {
   animation: flywheel 40s linear infinite;
   border-width: 3.5px;
   box-shadow: 
@@ -312,7 +311,7 @@ html, body {
          class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-cover rounded-full transition-all duration-700 group-hover:scale-110 ring-2 ring-amber-300/30"
          loading="lazy" decoding="async" width="288" height="288">
     <!-- Slow Mercy Flywheel Halo around the paw + heart emblem -->
-    <div class="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-amber-300 via-emerald-300 to-amber-300 bg-clip-border animate-[flywheel_40s_linear_infinite]"></div>
+    <div class="mercy-halo absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-amber-300 via-emerald-300 to-amber-300 bg-clip-border"></div>
   </div>
   <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-emerald-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
 </a>
