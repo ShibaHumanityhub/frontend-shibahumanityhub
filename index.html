@@ -271,13 +271,49 @@ html, body {
   0%   { transform: translateX(-150%) skewX(-28deg); }
   100% { transform: translateX(300%) skewX(-28deg); }
 }
-    /* x50 Flywheel Logo Glow — extra pop on Fold 7 */
+   /* MERCY FLYWHEEL — FAMOUS BILLIONAIRE LOGO GLOW (loving + unstoppable) */
 .navbar-logo-img {
-  filter: drop-shadow(0 0 22px #fcd34d);
-  transition: filter 0.3s ease;
+  filter: drop-shadow(0 0 25px #fcd34d);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navbar-logo-img:hover {
-  filter: drop-shadow(0 0 32px #10b981);
+  filter: drop-shadow(0 0 35px #10b981);
+  transform: scale(1.08);
+}
+
+/* Famous Flywheel Halo Animation — 25s slow loving rotation */
+@keyframes flywheel {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Hero Title — Calmer, Deeper, More Heartfelt Billionaire Glow */
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -9px;
+  font-size: clamp(3.8rem, 11.5vw, 11rem);
+  background: linear-gradient(92deg, 
+    #fcd34d 0%, 
+    #f59e0b 25%, 
+    #10b981 50%, 
+    #ec4899 75%, 
+    #fcd34d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  text-shadow: 
+    0 0 40px rgba(251, 191, 36, 0.9),
+    0 0 80px rgba(16, 185, 129, 0.7),
+    0 0 120px rgba(236, 72, 153, 0.5);
+  animation: titleBreath 75s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  filter: drop-shadow(0 0 50px rgba(251, 191, 36, 0.6));
+}
+
+@keyframes titleBreath {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
 }
 
 /* Final Fold 7 hero breathing room */
@@ -295,13 +331,17 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- x50 SUPERCHARGED FLYWHEEL LOGO — PREMIUM FACE GRAB (Fold 7 closed optimized) -->
+<!-- MERCY FLYWHEEL LOGO — FAMOUS BILLIONAIRE TREATMENT (heartfelt + unstoppable) -->
 <a href="index.html" class="flex items-center gap-3 group">
-  <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
-       alt="Shibahumanityhub" 
-       class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-contain drop-shadow-[0_0_30px_#fcd34d] transition-all duration-300 group-hover:scale-110 group-active:scale-125"
-       loading="lazy" decoding="async" width="288" height="288">
-  <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-amber-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+  <div class="relative">
+    <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
+         alt="Shibahumanityhub" 
+         class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-contain transition-all duration-700 group-hover:scale-110"
+         loading="lazy" decoding="async" width="288" height="288">
+    <!-- Mercy Flywheel Halo -->
+    <div class="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-amber-300 via-emerald-300 to-amber-300 bg-clip-border animate-[flywheel_25s_linear_infinite]"></div>
+  </div>
+  <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-emerald-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
 </a>
 
     <!-- Desktop menu (hidden on skinny) -->
