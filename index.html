@@ -272,7 +272,7 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* === TIGHT PAW + HEART MERCY FLYWHEEL — PERFECTLY FITTED + SLOW ROTATION === */
+/* === PAW + HEART SHAPED MERCY FLYWHEEL — EXACT SHAPE YOU ASKED FOR === */
 .navbar-logo-img {
   filter: drop-shadow(0 0 35px #fcd34d);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -282,18 +282,20 @@ html, body {
   transform: scale(1.13);
 }
 
+.mercy-halo {
+  animation: flywheel 35s linear infinite;
+  filter: 
+    drop-shadow(0 0 25px #fcd34d)
+    drop-shadow(0 0 45px #10b981)
+    drop-shadow(0 0 65px #ec4899)
+    brightness(1.4) contrast(1.2);
+  opacity: 0.85;
+  transform: scale(1.18); /* slightly larger so it frames the paw + heart perfectly */
+}
+
 @keyframes flywheel {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
-}
-
-.mercy-halo {
-  animation: flywheel 35s linear infinite;
-  border-width: 4px;
-  box-shadow: 
-    0 0 40px -6px rgb(251 191 36),
-    0 0 80px -12px rgb(16 185 129),
-    0 0 130px -20px rgb(251 191 36);
 }
 </style>
 </head>
@@ -303,15 +305,20 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- MERCY FLYWHEEL LOGO — PAW + HEART EMBLEM + TIGHT FRAMING HALO -->
+<!-- MERCY FLYWHEEL LOGO — PAW + HEART SHAPED HALO (EXACT SHAPE YOU WANTED) -->
 <a href="index.html" class="flex items-center gap-3 group">
   <div class="relative flex-shrink-0">
+    <!-- Main logo -->
     <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
          alt="Shibahumanityhub" 
          class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-cover rounded-full transition-all duration-700 group-hover:scale-110 ring-2 ring-amber-300/30"
          loading="lazy" decoding="async" width="288" height="288">
-    <!-- Tight Mercy Flywheel Halo shaped to fit the paw + heart emblem -->
-    <div class="mercy-halo absolute inset-[-4px] rounded-full border-2 border-transparent bg-gradient-to-r from-amber-300 via-emerald-300 to-amber-300 bg-clip-border"></div>
+    
+    <!-- Paw + Heart Shaped Mercy Flywheel Halo (follows exact logo shape) -->
+    <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
+         alt="" 
+         class="mercy-halo absolute inset-0 w-11 h-11 md:w-12 md:h-12 object-cover rounded-full pointer-events-none"
+         loading="lazy" decoding="async" width="288" height="288">
   </div>
   <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-emerald-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
 </a>
