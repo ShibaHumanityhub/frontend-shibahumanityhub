@@ -282,30 +282,49 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* === PAW + HEART SHAPED MERCY FLYWHEEL — DEBUG MODE (FAST + BRIGHT) === */
-.navbar-logo-img {
-  filter: drop-shadow(0 0 35px #fcd34d);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.navbar-logo-img:hover {
-  filter: drop-shadow(0 0 60px #10b981);
-  transform: scale(1.13);
+/* === 3D PAW + HEART LOGO WITH DEPTH & ROTATION (PREMIUM) === */
+.perspective-container {
+  perspective: 1000px;
 }
 
-.mercy-halo {
-  animation: flywheel 8s linear infinite; /* FAST for testing */
-  filter:
-    drop-shadow(0 0 30px #fcd34d)
-    drop-shadow(0 0 55px #10b981)
-    drop-shadow(0 0 80px #ec4899)
-    brightness(1.6) contrast(1.3);
-  opacity: 0.92;
-  transform: scale(1.22); /* snug around the exact paw + heart shape */
+.logo-3d-wrapper {
+  width: 52px;
+  height: 52px;
 }
 
-@keyframes flywheel {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.logo-3d-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.logo-3d-wrapper:hover .logo-3d-inner {
+  transform: rotateY(360deg) rotateX(28deg);
+}
+
+.navbar-logo-3d {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 9999px;
+  box-shadow: 
+    0 25px 50px -12px rgb(0 0 0 / 0.4),
+    inset 0 0 25px rgba(255,255,255,0.25),
+    0 0 40px rgba(251, 191, 36, 0.6);
+  transition: all 0.4s ease;
+}
+
+/* Skinny Fold 7 fix */
+@media (max-width: 380px) {
+  .logo-3d-wrapper {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  .perspective-container {
+    perspective: 600px;
+  }
 }
 </style>
 </head>
@@ -315,20 +334,15 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- MERCY FLYWHEEL LOGO — EXACT PAW + HEART SHAPED HALO (DEBUG MODE) -->
-<a href="index.html" class="flex items-center gap-3 group">
-  <div class="relative flex-shrink-0">
-    <!-- Main logo -->
-    <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
-         alt="Shibahumanityhub" 
-         class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-cover rounded-full transition-all duration-700 group-hover:scale-110 ring-2 ring-amber-300/30"
-         loading="lazy" decoding="async" width="288" height="288">
-    
-    <!-- EXACT PAW + HEART SHAPED HALO (rotates with the real logo shape) -->
-    <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
-         alt="" 
-         class="mercy-halo absolute inset-0 w-11 h-11 md:w-12 md:h-12 object-cover rounded-full pointer-events-none"
-         loading="lazy" decoding="async" width="288" height="288">
+<!-- 3D MERCY FLYWHEEL LOGO — PAW + HEART WITH DEPTH & ROTATION -->
+<a href="index.html" class="flex items-center gap-3 group perspective-container">
+  <div class="logo-3d-wrapper relative flex-shrink-0">
+    <div class="logo-3d-inner">
+      <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
+           alt="Shibahumanityhub" 
+           class="navbar-logo-3d w-full h-full object-contain rounded-full shadow-2xl"
+           loading="lazy" decoding="async">
+    </div>
   </div>
   <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-emerald-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
 </a>
