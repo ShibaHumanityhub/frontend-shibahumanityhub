@@ -27,7 +27,7 @@
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-/* =============== ULTRA-STRONG MOBILE FIX FOR ALL SIZES + SKINNY PHONES =============== */
+/* =============== ULTRA-STRONG MOBILE FIX FOR ALL SIZES + SKINNY FOLD 7 CLOSED =============== */
 html, body {
   margin: 0 !important;
   padding: 0 !important;
@@ -44,6 +44,41 @@ html, body {
   overflow-x: hidden !important;
 }
 
+/* === EXTREME SKINNY FOLD 7 CLOSED MODE (360px and below) === */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: clamp(2.8rem, 9.5vw, 4.5rem) !important;
+    letter-spacing: -6px !important;
+  }
+  .hero-title-wrapper {
+    padding: 1.25rem 2rem !important;
+    border-radius: 3rem !important;
+  }
+  nav .max-w-7xl {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .navbar-logo-img {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  .grid.md\\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .grid.grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Cards stay thumb-friendly */
+.token-card, .program-card, .help-card {
+  padding: 20px !important;
+}
 /* === MIND-BLOWING BILLION-DOLLAR HERO TITLE — PREMIUM & BUTTERY SMOOTH (Elon/Vitalik quality) === */
 .hero-title-wrapper {
   position: relative;
@@ -225,6 +260,14 @@ html, body {
   0%   { transform: translateX(-150%) skewX(-28deg); }
   100% { transform: translateX(300%) skewX(-28deg); }
 }
+    /* x50 Flywheel Logo Glow */
+.navbar-logo-img {
+  filter: drop-shadow(0 0 18px #fcd34d);
+  transition: filter 0.4s ease;
+}
+.navbar-logo-img:hover {
+  filter: drop-shadow(0 0 28px #10b981);
+}
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
@@ -233,12 +276,12 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- PREMIUM GOLD COIN BRAND LOGO - NEW LOGO -->
+<!-- x50 SUPERCHARGED FLYWHEEL LOGO — PREMIUM FACE GRAB -->
 <a href="index.html" class="flex items-center gap-3 group">
   <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
-     alt="Shibahumanityhub" 
-     class="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_25px_#fcd34d] transition-all duration-300 group-hover:scale-110"
-     loading="lazy" decoding="async" width="288" height="288">
+       alt="Shibahumanityhub" 
+       class="navbar-logo-img w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_25px_#fcd34d] transition-all duration-300 group-hover:scale-110 group-active:scale-125"
+       loading="lazy" decoding="async" width="288" height="288">
   <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-amber-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
 </a>
 
