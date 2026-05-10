@@ -282,7 +282,7 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* === PAW + HEART SHAPED MERCY FLYWHEEL — EXACT SHAPE YOU ASKED FOR === */
+/* === PAW + HEART SHAPED MERCY FLYWHEEL — DEBUG MODE (FAST + BRIGHT) === */
 .navbar-logo-img {
   filter: drop-shadow(0 0 35px #fcd34d);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -293,19 +293,19 @@ html, body {
 }
 
 .mercy-halo {
-  animation: flywheel 35s linear infinite;
-  filter: 
-    drop-shadow(0 0 25px #fcd34d)
-    drop-shadow(0 0 45px #10b981)
-    drop-shadow(0 0 65px #ec4899)
-    brightness(1.4) contrast(1.2);
-  opacity: 0.85;
-  transform: scale(1.18); /* slightly larger so it frames the paw + heart perfectly */
+  animation: flywheel 8s linear infinite; /* FAST for testing */
+  filter:
+    drop-shadow(0 0 30px #fcd34d)
+    drop-shadow(0 0 55px #10b981)
+    drop-shadow(0 0 80px #ec4899)
+    brightness(1.6) contrast(1.3);
+  opacity: 0.92;
+  transform: scale(1.22); /* snug around the exact paw + heart shape */
 }
 
 @keyframes flywheel {
   from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 </style>
 </head>
@@ -315,7 +315,7 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- MERCY FLYWHEEL LOGO — PAW + HEART SHAPED HALO (EXACT SHAPE YOU WANTED) -->
+<!-- MERCY FLYWHEEL LOGO — EXACT PAW + HEART SHAPED HALO (DEBUG MODE) -->
 <a href="index.html" class="flex items-center gap-3 group">
   <div class="relative flex-shrink-0">
     <!-- Main logo -->
@@ -324,7 +324,7 @@ html, body {
          class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-cover rounded-full transition-all duration-700 group-hover:scale-110 ring-2 ring-amber-300/30"
          loading="lazy" decoding="async" width="288" height="288">
     
-    <!-- Paw + Heart Shaped Mercy Flywheel Halo (follows exact logo shape) -->
+    <!-- EXACT PAW + HEART SHAPED HALO (rotates with the real logo shape) -->
     <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
          alt="" 
          class="mercy-halo absolute inset-0 w-11 h-11 md:w-12 md:h-12 object-cover rounded-full pointer-events-none"
