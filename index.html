@@ -282,44 +282,40 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* === PREMIUM GENTLE SIDE-TO-SIDE 3D FLYWHEEL — USING NEW 3D LOGO === */
+/* === BILLIONAIRE-QUALITY GENTLE SIDE-TO-SIDE 3D ROTATION — TRANSPARENT LOGO === */
 .perspective-container {
-  perspective: 1200px;
+  perspective: 1400px;
 }
 
 .logo-3d-wrapper {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
 }
 
 .logo-3d-inner {
   width: 100%;
   height: 100%;
-  transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: transform 0.9s cubic-bezier(0.45, 0.05, 0.55, 0.95);
   transform-style: preserve-3d;
   position: relative;
-  animation: gentleSideRotate 18s ease-in-out infinite;
+  animation: gentleSideRotate 14s ease-in-out infinite;
 }
 
 @keyframes gentleSideRotate {
-  0%, 100% { transform: rotateY(-18deg) rotateX(8deg); }
-  50%      { transform: rotateY(18deg) rotateX(-8deg); }
+  0%, 100% { transform: rotateY(-15deg) rotateX(8deg); }
+  50%      { transform: rotateY(15deg) rotateX(-8deg); }
 }
 
 .logo-3d-wrapper:hover .logo-3d-inner {
   animation-play-state: paused;
-  transform: rotateY(35deg) rotateX(25deg) scale(1.08);
+  transform: rotateY(40deg) rotateX(25deg) scale(1.08);
 }
 
 .navbar-logo-3d {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 9999px;
-  box-shadow: 
-    0 25px 50px -12px rgb(0 0 0 / 0.5),
-    inset 0 0 30px rgba(255,255,255,0.35),
-    0 0 50px rgba(251, 191, 36, 0.7);
+  filter: drop-shadow(0 25px 35px rgba(251, 191, 36, 0.75));
   transition: all 0.4s ease;
 }
 
@@ -330,7 +326,7 @@ html, body {
     height: 44px !important;
   }
   .perspective-container {
-    perspective: 800px;
+    perspective: 900px;
   }
 }
 </style>
@@ -341,13 +337,13 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- PREMIUM 3D GENTLE SIDE-TO-SIDE FLYWHEEL — NEW LOGO -->
+<!-- PREMIUM TRANSPARENT 3D GENTLE SIDE-TO-SIDE FLYWHEEL -->
 <a href="index.html" class="flex items-center gap-3 group perspective-container">
   <div class="logo-3d-wrapper relative flex-shrink-0">
     <div class="logo-3d-inner">
-      <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub3dlogo.jpg" 
+      <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d.jpg" 
            alt="Shibahumanityhub" 
-           class="navbar-logo-3d w-full h-full object-contain shadow-2xl"
+           class="navbar-logo-3d w-full h-full object-contain"
            loading="lazy" decoding="async">
     </div>
   </div>
