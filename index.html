@@ -220,8 +220,11 @@ html, body {
   transform: skewX(-28deg);
   animation: shine 1.6s linear infinite;
 }
-
-  /* === PASTE ALL YOUR REMAINING ORIGINAL CSS HERE (starting from MAIN SECTION HEADINGS) === */
+    /* === SHINE ANIMATION FOR GOLD BUTTONS === */
+@keyframes shine {
+  0%   { transform: translateX(-150%) skewX(-28deg); }
+  100% { transform: translateX(300%) skewX(-28deg); }
+}
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
