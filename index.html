@@ -45,7 +45,7 @@ html, body {
   overflow-x: hidden !important;
 }
 
-/* === NUCLEAR SKINNY FOLD 7 CLOSED MODE (380px and below) === */
+/* === NUCLEAR SKINNY FOLD 7 CLOSED MODE (380px and below) — NOW WITH PERFECT LOGO FIT === */
 @media (max-width: 380px) {
   .hero-title {
     font-size: clamp(2.4rem, 8.8vw, 3.8rem) !important;
@@ -60,12 +60,22 @@ html, body {
     margin-bottom: -8px !important;
   }
   nav .max-w-7xl {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
-  .navbar-logo-img {
+  /* TIGHT LOGO + PAW+HEART HALO FIT ON FOLD 7 CLOSED */
+  .relative.flex-shrink-0 {
     width: 44px !important;
     height: 44px !important;
+    overflow: hidden !important;
+  }
+  .navbar-logo-img,
+  .mercy-halo {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .mercy-halo {
+    transform: scale(1.12) !important; /* snug fit around paw + heart */
   }
   section {
     padding-top: 2rem !important;
