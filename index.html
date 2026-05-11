@@ -219,6 +219,14 @@ section {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.15); }
 }
+    @keyframes pawPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+    /* Extra polish for paw button */
+.group:hover i {
+  animation: pawPulse 0.8s ease-in-out infinite;
+}
   </style>
 </head>
 <body>
@@ -234,13 +242,13 @@ section {
       <span class="hidden sm:block text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
     
-    <!-- BRILLIANT PAW BUTTON -->
-    <a href="all-programs.html" 
-       class="bg-amber-400 hover:bg-amber-300 text-black font-bold px-7 py-3.5 rounded-3xl text-base flex items-center gap-2.5 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-      All Programs
-      <i class="fa-solid fa-paw text-2xl group-active:scale-110 transition-transform" 
-         style="filter: drop-shadow(0 0 8px #fcd34d) drop-shadow(0 0 14px #f59e0b); animation: pawPulse 2s ease-in-out infinite;"></i>
-    </a>
+    <!-- BRILLIANT PAW BUTTON - EVEN MORE PREMIUM -->
+<a href="all-programs.html" 
+   class="bg-gradient-to-r from-amber-400 to-yellow-300 hover:from-amber-300 hover:to-yellow-200 text-black font-bold px-8 py-3.5 rounded-3xl text-base flex items-center gap-2.5 shadow-xl hover:shadow-2xl transition-all duration-300 group border border-amber-200/50">
+  All Programs
+  <i class="fa-solid fa-paw text-2xl group-active:scale-110 transition-transform" 
+     style="filter: drop-shadow(0 0 10px #fcd34d) drop-shadow(0 0 18px #f59e0b); animation: pawPulse 1.8s ease-in-out infinite;"></i>
+</a>
   </div>
 </nav>
 
