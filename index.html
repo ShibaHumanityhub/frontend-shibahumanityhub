@@ -75,24 +75,21 @@
   line-height: 0.85;
   letter-spacing: -0.075em;
   font-size: clamp(3.8rem, 13vw, 13rem);
-  background: linear-gradient(92deg, 
+    background: linear-gradient(92deg, 
     #fefce8 0%, 
-    #fcd34d 8%, 
-    #fbbf24 18%, 
-    #f59e0b 32%, 
-    #ec4899 48%, 
+    #fcd34d 12%, 
+    #fbbf24 25%, 
+    #d97706 45%, 
     #10b981 65%, 
-    #34d399 78%, 
-    #fbbf24 92%, 
+    #34d399 80%, 
     #fefce8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 280% 280%;
-  text-shadow: 
-    0 0 50px rgba(251, 191, 36, 0.95),
-    0 0 90px rgba(236, 72, 153, 0.75),
-    0 0 160px rgba(16, 185, 129, 0.65),
-    0 30px 80px rgba(234, 179, 8, 0.6);
+    text-shadow: 
+    0 0 60px rgba(251, 191, 36, 0.9),
+    0 0 110px rgba(16, 185, 129, 0.7),
+    0 40px 90px rgba(234, 179, 8, 0.5);
   animation: titleBreath 22s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite,
              titleSuperGlow 7s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 70px rgba(251, 191, 36, 0.85));
@@ -303,11 +300,11 @@
 <body class="bg-zinc-950 text-white">
 
 <!-- === BILLIONAIRE NAVBAR === -->
-<nav class="bg-black/90 backdrop-blur-md fixed w-full z-50">
+<nav class="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-amber-500/20">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     
     <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-2.5 group perspective-container">
+    <a href="index.html" class="flex items-center gap-3 group perspective-container">
       <div class="logo-3d-wrapper relative flex-shrink-0 rounded-full overflow-hidden">
         <div class="logo-3d-inner">
           <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
@@ -316,7 +313,7 @@
                loading="lazy" decoding="async">
         </div>
       </div>
-      <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-emerald-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+      <span class="hidden sm:block text-xl md:text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
 
     <!-- Desktop Menu -->
@@ -327,9 +324,7 @@
       <a href="#" class="hover:text-amber-300 transition-colors">Join the Movement</a>
     </div>
 
-    <!-- All Programs Button -->
-    <a href="all-programs.html" 
-       class="bg-amber-400 hover:bg-amber-300 text-black font-bold px-5 py-2.5 text-sm rounded-3xl transition-all flex items-center gap-2">
+    <a href="all-programs.html" class="bg-amber-400 hover:bg-amber-300 text-black font-bold px-5 py-2.5 text-sm rounded-3xl transition-all flex items-center gap-2">
       <span>All Programs</span>
       <i class="fa-solid fa-paw text-base"></i>
     </a>
