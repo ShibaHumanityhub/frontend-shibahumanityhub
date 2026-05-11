@@ -1412,6 +1412,67 @@
   window.onload = function() {
     console.log("✅ Shibahumanityhub landing page loaded perfectly");
   };
+    <!-- === FINAL NUCLEAR MOBILE OVERRIDE — THIS GOES RIGHT BEFORE </body> === -->
+<style>
+@media (max-width: 380px) {
+  .hero-title, .hero-title-wrapper h1 {
+    font-size: clamp(2.5rem, 10vw, 3.8rem) !important;
+    letter-spacing: -2.8px !important;
+    line-height: 0.85 !important;
+  }
+
+  .hero-title-wrapper {
+    padding: 1.5rem 2.4rem !important;
+    border-radius: 3rem !important;
+    margin: 30px 16px 40px !important;
+    box-shadow: 0 0 130px -30px rgba(251, 191, 36, 0.95),
+                0 45px 100px -30px rgba(16, 185, 129, 0.85) !important;
+  }
+
+  .hero-bg p {
+    font-size: 1.6rem !important;
+    line-height: 1.35 !important;
+    padding: 0 20px !important;
+  }
+
+  .hero-bg p.text-xl {
+    font-size: 1.25rem !important;
+  }
+
+  .logo-3d-wrapper {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  nav .max-w-7xl {
+    padding: 14px 12px !important;
+  }
+
+  section {
+    padding-top: 3.2rem !important;
+    padding-bottom: 3.2rem !important;
+  }
+
+  .grid.grid-cols-2, .grid.md\\:grid-cols-2, .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .token-card, .program-card, .help-card {
+    padding: 24px !important;
+  }
+
+  .super-cta-btn, .premium-sponsor-btn {
+    padding: 24px 36px !important;
+    font-size: 1.3rem !important;
+    min-height: 68px !important;
+  }
+
+  .flex.justify-center.items-center.gap-3 {
+    gap: 8px !important;
+  }
+}
+</style>
 </script>
 </body>
 </html>
