@@ -105,81 +105,67 @@
   to   { filter: drop-shadow(0 0 110px rgba(251, 191, 36, 0.98)) brightness(1.25); }
 }
 
-/* =============== ULTRA-PREMIUM SKINNY PHONE (FOLD 7 CLOSED + ALL ≤380px) — HEARTFELT & UNFORGETTABLE =============== */
+/* =============== NUCLEAR SKINNY PHONE PERFECTION (≤380px) — LUXURY + HEART =============== */
 @media (max-width: 380px) {
-  /* Hero Title — feels as big and emotional as desktop but perfectly balanced */
   .hero-title {
-    font-size: clamp(2.35rem, 9.1vw, 3.55rem) !important;
-    letter-spacing: -2.5px !important;
-    line-height: 0.88 !important;
+    font-size: clamp(2.4rem, 9.4vw, 3.6rem) !important;
+    letter-spacing: -2.6px !important;
+    line-height: 0.87 !important;
   }
 
-  /* Hero wrapper — luxurious breathing room, glass-like premium depth */
   .hero-title-wrapper {
-    padding: 1.1rem 1.8rem !important;
-    border-radius: 2.5rem !important;
-    margin: 0 10px !important;
-    box-shadow: 
-      0 0 100px -20px rgba(251, 191, 36, 0.85),
-      0 30px 70px -15px rgba(16, 185, 129, 0.6) !important;
+    padding: 1.25rem 2rem !important;
+    border-radius: 2.75rem !important;
+    margin: 0 12px !important;
+    box-shadow: 0 0 110px -20px rgba(251, 191, 36, 0.9),
+                0 35px 80px -20px rgba(16, 185, 129, 0.75) !important;
   }
 
-  /* Navbar logo + text — clean, never cramped */
-  .logo-3d-wrapper {
-    width: 52px !important;
-    height: 52px !important;
-  }
-  nav .max-w-7xl {
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-  }
-  .hidden.sm\\:block {
-    font-size: 1.15rem !important;
-    letter-spacing: -0.5px !important;
-  }
-
-  /* Hero subtitle + story text — bigger, warmer, more emotional */
-  .hero-bg p.text-3xl,
-  .hero-bg p.text-2xl {
-    font-size: 1.45rem !important;
+  .hero-bg p {
+    font-size: 1.48rem !important;
     line-height: 1.35 !important;
-    padding: 0 12px !important;
+    padding: 0 14px !important;
   }
+
   .hero-bg p.text-xl {
-    font-size: 1.15rem !important;
-    line-height: 1.4 !important;
+    font-size: 1.18rem !important;
   }
 
-  /* Sections — generous breathing room so it feels expensive */
+  .logo-3d-wrapper {
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  nav .max-w-7xl {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
   section {
-    padding-top: 2.4rem !important;
-    padding-bottom: 2.4rem !important;
+    padding-top: 2.8rem !important;
+    padding-bottom: 2.8rem !important;
   }
 
-  /* Cards & Grids — single column, premium spacing */
   .grid.grid-cols-2,
   .grid.md\\:grid-cols-2,
   .grid.lg\\:grid-cols-4 {
     grid-template-columns: 1fr !important;
-    gap: 14px !important;
+    gap: 16px !important;
   }
 
   .token-card, .program-card, .help-card {
-    padding: 18px !important;
+    padding: 20px !important;
   }
 
-  /* Buttons — huge, touch-friendly, luxurious */
   .super-cta-btn, .premium-sponsor-btn {
-    padding: 18px 24px !important;
-    font-size: 1.15rem !important;
-    min-height: 58px !important;
-    border-radius: 9999px !important;
+    padding: 20px 28px !important;
+    font-size: 1.2rem !important;
+    min-height: 62px !important;
   }
 
-  /* Explanation box — extra warmth on mobile */
   .max-w-5xl .bg-gradient-to-r {
-    padding: 1.75rem !important;
-    border-radius: 2rem !important;
+    padding: 2rem !important;
+    margin: 0 12px !important;
   }
 }
     /* Rest of your original styles (kept intact + minor polish) */
@@ -379,9 +365,9 @@
         This is not another charity. This is the first decentralized movement where <span class="text-amber-300 font-medium">love is literally programmed into the blockchain</span> — transparent, unstoppable, and built by every single one of us.
       </p>
 
-      <div class="mt-10 flex justify-center items-center gap-3 text-amber-200/70 text-sm tracking-widest font-medium">
-        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-        LIVE ON TESTNET • ALREADY FUNDING REAL MERCY • NO MIDDLEMEN • FULL TRANSPARENCY
+       <div class="mt-10 flex justify-center items-center gap-3 text-amber-200/70 text-sm tracking-widest font-medium">
+        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse flex-shrink-0"></div>
+        <span>LIVE ON TESTNET • ALREADY FUNDING REAL MERCY • NO MIDDLEMEN • FULL TRANSPARENCY</span>
       </div>
 
       <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-6 text-3xl sm:text-4xl mt-12 sm:mt-14 mb-14">
