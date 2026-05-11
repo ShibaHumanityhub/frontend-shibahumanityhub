@@ -4,82 +4,454 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Shibahumanityhub • Since Nov 2025</title>
-  <meta name="description" content="People helping people helping people. Every transaction saves lives.">
+    <meta name="description" content="Shibahumanityhub — People helping people helping people. Every $NIBBLES and $hopeseed transaction directly saves lives. Decentralized on-chain charity since Nov 2025.">
+  <meta property="og:title" content="Shibahumanityhub • Since Nov 2025">
+  <meta property="og:description" content="Love programmed into the code. Real mercy. No middlemen.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo.jpg">
+  <meta property="og:url" content="https://shibahumanityhub.com">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" sizes="32x32">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" sizes="180x180">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg">
+  <meta name="apple-mobile-web-app-title" content="Shibahumanityhub">
+
+  <meta property="og:image" content="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-    html, body { margin:0; padding:0; overflow-x:hidden; }
-    * { box-sizing:border-box; }
+    /* =============== CORE FIXES + ULTRA PREMIUM HERO =============== */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      box-sizing: border-box;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
 
-    .hero-bg {
-      background: linear-gradient(135deg, #0a1729 0%, #13253a 30%, #1a2e42 50%, #c89f3f 70%, #e88a9e 85%, #0a1729 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 80s ease infinite;
-      min-height: 100vh;
+    .hero-bg, section, .max-w-7xl, .max-w-6xl, .max-w-5xl, .token-card, .program-card, .help-card {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
     }
 
-    @keyframes gradientShift { 0%,100% {background-position:0% 50%} 50% {background-position:100% 50%} }
+    /* =============== MIND-BLOWING HERO TITLE — ELON / VITALIK / BILYEU TIER =============== */
+    .hero-title-wrapper {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.75rem 3.5rem;
+      border-radius: 4rem;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(40px);
+      border: 2px solid rgba(251, 191, 36, 0.55);
+      box-shadow: 
+        0 0 120px -30px rgba(251, 191, 36, 0.9),
+        0 40px 80px -25px rgba(236, 72, 153, 0.7),
+        0 0 180px -40px rgba(16, 185, 129, 0.55),
+        inset 0 4px 0 rgba(255,255,255,0.3);
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 10;
+    }
+
+    .hero-title-wrapper:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 
+        0 0 160px -25px rgba(251, 191, 36, 0.95),
+        0 50px 100px -30px rgba(236, 72, 153, 0.8),
+        0 0 220px -50px rgba(16, 185, 129, 0.65),
+        inset 0 5px 0 rgba(255,255,255,0.4);
+    }
 
     .hero-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.8rem, 13vw, 13rem);
-      line-height: 0.85;
-      letter-spacing: -0.07em;
-      background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 60px rgba(251,191,36,0.9), 0 0 120px rgba(16,185,129,0.7);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.075em;
+  font-size: clamp(3.8rem, 13vw, 13rem);
+    background: linear-gradient(92deg, 
+    #fefce8 0%, 
+    #fcd34d 12%, 
+    #fbbf24 25%, 
+    #d97706 45%, 
+    #10b981 65%, 
+    #34d399 80%, 
+    #fefce8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 280% 280%;
+    text-shadow: 
+    0 0 60px rgba(251, 191, 36, 0.9),
+    0 0 110px rgba(16, 185, 129, 0.7),
+    0 40px 90px rgba(234, 179, 8, 0.5);
+  animation: titleBreath 22s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite,
+             titleSuperGlow 7s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 70px rgba(251, 191, 36, 0.85));
+}
+
+@keyframes titleBreath {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes titleSuperGlow {
+  from { filter: drop-shadow(0 0 70px rgba(251, 191, 36, 0.85)) brightness(1.05); }
+  to   { filter: drop-shadow(0 0 110px rgba(251, 191, 36, 0.98)) brightness(1.25); }
+}
+
+/* =============== NUCLEAR SKINNY PHONE PERFECTION (≤380px) — LUXURY + HEART =============== */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: clamp(2.4rem, 9.4vw, 3.6rem) !important;
+    letter-spacing: -2.6px !important;
+    line-height: 0.87 !important;
+  }
+
+  .hero-title-wrapper {
+    padding: 1.25rem 2rem !important;
+    border-radius: 2.75rem !important;
+    margin: 0 12px !important;
+    box-shadow: 0 0 110px -20px rgba(251, 191, 36, 0.9),
+                0 35px 80px -20px rgba(16, 185, 129, 0.75) !important;
+  }
+
+  .hero-bg p {
+    font-size: 1.48rem !important;
+    line-height: 1.35 !important;
+    padding: 0 14px !important;
+  }
+
+  .hero-bg p.text-xl {
+    font-size: 1.18rem !important;
+  }
+
+  .logo-3d-wrapper {
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  nav .max-w-7xl {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  section {
+    padding-top: 2.8rem !important;
+    padding-bottom: 2.8rem !important;
+  }
+
+  .grid.grid-cols-2,
+  .grid.md\\:grid-cols-2,
+  .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .token-card, .program-card, .help-card {
+    padding: 20px !important;
+  }
+
+  .super-cta-btn, .premium-sponsor-btn {
+    padding: 20px 28px !important;
+    font-size: 1.2rem !important;
+    min-height: 62px !important;
+  }
+
+  .max-w-5xl .bg-gradient-to-r {
+    padding: 2rem !important;
+    margin: 0 12px !important;
+  }
+}
+    /* Rest of your original styles (kept intact + minor polish) */
+    .hero-bg { 
+      background: linear-gradient(135deg, 
+        #0a1729 0%, 
+        #13253a 20%, 
+        #1a2e42 35%, 
+        #c89f3f 50%, 
+        #e88a9e 65%, 
+        #f5d0a8 80%, 
+        #0a1729 100%);
+      background-size: 500% 500%;
+      animation: gradientShift 90s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      will-change: background-position;
+      box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.65);
     }
 
-    /* NUCLEAR MOBILE FIX */
-    @media (max-width: 380px) {
-      .hero-title { font-size: clamp(2.7rem, 11vw, 4rem) !important; letter-spacing: -2.6px !important; }
-      .hero-title-wrapper { padding: 1.8rem 2.8rem !important; margin: 30px 12px !important; border-radius: 3rem !important; }
-      .hero-bg p { font-size: 1.65rem !important; line-height: 1.35 !important; }
-      .logo-3d-wrapper { width: 60px !important; height: 60px !important; }
-      section { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
-      .grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-      .super-cta-btn, .premium-sponsor-btn { padding: 28px 40px !important; font-size: 1.35rem !important; }
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
+
+    .super-cta-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -1.8px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
+      color: #0f172a;
+      box-shadow: 
+        0 0 60px -10px rgb(251 191 36),
+        0 25px 70px -15px rgb(251 191 36),
+        0 0 120px 30px rgba(251, 191, 36, 0.6);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 9999px;
+    }
+
+    .super-cta-btn:hover {
+      transform: scale(1.08) translateY(-4px);
+      box-shadow: 
+        0 0 110px -10px rgb(251 191 36),
+        0 40px 100px -20px rgb(251 191 36),
+        0 0 160px 50px rgba(251, 191, 36, 0.75);
+    }
+
+    .bone-icon {
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    .super-cta-btn:hover .bone-icon {
+      animation: boneWag 0.65s ease-in-out infinite;
+      filter: drop-shadow(0 0 12px rgb(251 191 36));
+    }
+
+    @keyframes boneWag {
+      0%, 100% { transform: rotate(-18deg) scale(1); }
+      50%      { transform: rotate(18deg) scale(1.15); }
+    }
+
+  /* LOGO 3D - ULTRA PREMIUM BILLIONAIRE DEPTH */
+.perspective-container { perspective: 2000px; }
+
+.logo-3d-wrapper {
+  width: 76px;                    /* Slightly bigger for presence */
+  height: 76px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  filter: 
+    drop-shadow(0 0 25px rgba(251, 191, 36, 0.6))    /* Gold glow */
+    drop-shadow(0 0 45px rgba(16, 185, 129, 0.5))    /* Emerald glow */
+    drop-shadow(0 10px 30px rgba(0, 0, 0, 0.7));     /* Depth shadow */
+  border: 3px solid rgba(251, 191, 36, 0.6);         /* Metallic rim */
+  box-shadow: 
+    inset 0 0 25px rgba(255,255,255,0.25),           /* Inner highlight */
+    0 0 60px rgba(251, 191, 36, 0.4);
+  transition: all 0.4s ease;
+}
+
+.logo-3d-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  animation: gentleSideRotate 35s ease-in-out infinite;
+}
+
+@keyframes gentleSideRotate {
+  0%, 100% { transform: rotateY(-12deg) rotateX(8deg); }
+  50%      { transform: rotateY(12deg) rotateX(-8deg); }
+}
+
+.logo-3d-wrapper:hover .logo-3d-inner {
+  animation-play-state: paused;
+  transform: rotateY(38deg) rotateX(25deg) scale(1.12);
+}
+/* Skinny phone fix */
+@media (max-width: 380px) {
+  .logo-3d-wrapper { 
+    width: 54px !important; 
+    height: 54px !important; 
+  }
+}
+    /* PREMIUM SPONSOR BUTTONS - BILLIONAIRE TIER */
+.premium-sponsor-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1.4px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #10b981, #34d399, #10b981);
+  color: #0f172a;
+  box-shadow: 
+    0 0 50px -10px rgb(16 185 129),
+    0 25px 60px -15px rgb(16 185 129),
+    0 0 100px 20px rgba(16, 185, 129, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px;
+}
+
+.premium-sponsor-btn:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 
+    0 0 80px -10px rgb(16 185 129),
+    0 35px 80px -20px rgb(16 185 129),
+    0 0 140px 30px rgba(16, 185, 129, 0.7);
+}
+
+.premium-sponsor-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 40%;
+  height: 280%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.95), transparent);
+  transform: skewX(-28deg);
+  animation: shine 2s linear infinite;
+}
+    /* =============== FINAL NUCLEAR SKINNY MOBILE OVERRIDE — MUST BE LAST IN <style> =============== */
+@media (max-width: 380px) {
+  .hero-title, .hero-title-wrapper h1 {
+    font-size: clamp(2.45rem, 9.8vw, 3.7rem) !important;
+    letter-spacing: -2.4px !important;
+    line-height: 0.86 !important;
+  }
+
+  .hero-title-wrapper {
+    padding: 1.4rem 2.2rem !important;
+    border-radius: 3rem !important;
+    margin: 20px 12px 30px !important;
+    box-shadow: 0 0 120px -25px rgba(251, 191, 36, 0.95),
+                0 40px 90px -25px rgba(16, 185, 129, 0.8) !important;
+  }
+
+  .hero-bg p.text-3xl,
+  .hero-bg p.text-5xl {
+    font-size: 1.55rem !important;
+    line-height: 1.3 !important;
+    padding: 0 16px !important;
+  }
+
+  .hero-bg p.text-2xl,
+  .hero-bg p.text-xl {
+    font-size: 1.22rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .logo-3d-wrapper {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  nav .max-w-7xl {
+    padding: 12px 10px !important;
+  }
+
+  .hidden.sm\\:block {
+    font-size: 1.2rem !important;
+  }
+
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .grid.grid-cols-2,
+  .grid.md\\:grid-cols-2,
+  .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .token-card, .program-card, .help-card {
+    padding: 22px !important;
+  }
+
+  .super-cta-btn, .premium-sponsor-btn {
+    padding: 22px 32px !important;
+    font-size: 1.25rem !important;
+    min-height: 66px !important;
+  }
+
+  .max-w-5xl.mx-auto {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
 
+<!-- === BILLIONAIRE NAVBAR === -->
 <nav class="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-amber-500/20">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="#" class="flex items-center gap-3">
-      <div class="logo-3d-wrapper w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400/60">
-        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" class="w-full h-full object-cover" alt="Logo">
+    
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-3 group perspective-container">
+      <div class="logo-3d-wrapper relative flex-shrink-0 rounded-full overflow-hidden">
+        <div class="logo-3d-inner">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
+               alt="Shibahumanityhub" 
+               class="navbar-logo-3d w-full h-full object-cover rounded-full"
+               loading="lazy" decoding="async">
+        </div>
       </div>
-      <span class="hidden sm:block text-2xl font-bold bg-gradient-to-r from-amber-200 to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+      <span class="hidden sm:block text-xl md:text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
-    <a href="#" class="bg-amber-400 text-black font-bold px-6 py-3 rounded-3xl">All Programs</a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 text-lg">
+      <a href="index.html" class="hover:text-amber-300 transition-colors">Home</a>
+      <a href="all-programs.html" class="hover:text-amber-300 transition-colors font-semibold">All Programs</a>
+      <a href="#" class="hover:text-amber-300 transition-colors">Whitepaper</a>
+      <a href="#" class="hover:text-amber-300 transition-colors">Join the Movement</a>
+    </div>
+
+    <a href="all-programs.html" class="bg-amber-400 hover:bg-amber-300 text-black font-bold px-5 py-2.5 text-sm rounded-3xl transition-all flex items-center gap-2">
+      <span>All Programs</span>
+      <i class="fa-solid fa-paw text-base"></i>
+    </a>
   </div>
 </nav>
 
-<header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="hero-title-wrapper mx-auto bg-zinc-900/70 backdrop-blur-3xl border border-amber-400/40 rounded-3xl">
-      <h1 class="hero-title">SHIBA</h1>
-      <h1 class="hero-title -mt-4">HUMANITYHUB</h1>
+  <!-- HERO - NOW ABSOLUTELY CINEMATIC -->
+  <header class="hero-bg pt-20 sm:pt-28 md:pt-40 pb-12 sm:pb-20 md:pb-28 text-center relative overflow-hidden min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+      <div class="hero-title-wrapper mx-auto">
+        <h1 class="hero-title">SHIBA</h1>
+        <h1 class="hero-title -mt-2 sm:-mt-4 md:-mt-7">HUMANITYHUB</h1>
+      </div>
+      
+      <p class="text-3xl sm:text-5xl md:text-6xl font-light text-amber-100 max-w-4xl mx-auto mt-8 sm:mt-10 leading-[1.15]">
+        People helping people helping people.<br>
+        <span class="text-emerald-300">Every single transaction saves lives.</span>
+      </p>
+
+      <p class="text-xl sm:text-2xl text-amber-200 mt-8 max-w-2xl mx-auto font-light">
+        This is not another charity. This is the first decentralized movement where <span class="text-amber-300 font-medium">love is literally programmed into the blockchain</span> — transparent, unstoppable, and built by every single one of us.
+      </p>
+
+       <div class="mt-10 flex justify-center items-center gap-3 text-amber-200/70 text-sm tracking-widest font-medium">
+        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse flex-shrink-0"></div>
+        <span>LIVE ON TESTNET • ALREADY FUNDING REAL MERCY • NO MIDDLEMEN • FULL TRANSPARENCY</span>
+      </div>
+
+      <div class="flex justify-center flex-wrap gap-x-8 sm:gap-x-12 gap-y-6 text-3xl sm:text-4xl mt-12 sm:mt-14 mb-14">
+        <div class="flex items-center gap-4">$NIBBLES</div>
+        <div class="flex items-center gap-4">$hopeseed</div>
+      </div>
+      
+      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
+         download="shiba-humanity-hub-whitepaper-v2.pdf"
+         class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl mx-auto">
+        <i class="fa-solid fa-bone bone-icon text-4xl"></i>
+        Download Whitepaper v2
+      </a>
     </div>
-
-    <p class="text-2xl sm:text-4xl mt-10 text-amber-100 font-light">People helping people helping people.<br><span class="text-emerald-300">Every transaction saves lives.</span></p>
-
-    <div class="mt-12 flex justify-center items-center gap-3 text-sm tracking-widest text-amber-200/80">
-      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-      LIVE ON TESTNET • REAL MERCY • NO MIDDLEMEN
-    </div>
-
-    <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-       class="mt-12 inline-block bg-gradient-to-r from-amber-400 to-yellow-300 text-black font-bold text-xl px-14 py-7 rounded-3xl shadow-xl hover:scale-105 transition">
-      Download Whitepaper v2
-    </a>
-  </div>
-</header>
-  
+  </header>
   <!-- EXPLANATION -->
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 -mt-8">
     <div class="bg-gradient-to-r from-amber-900/80 to-emerald-900/80 backdrop-blur-md border border-amber-400/30 rounded-3xl p-10 text-center shadow-2xl">
@@ -536,54 +908,83 @@
   window.onload = function() {
     console.log("✅ Shibahumanityhub landing page loaded perfectly");
   };
-     </script>
-
-  <!-- === FINAL NUCLEAR MOBILE OVERRIDE (MUST BE AFTER ALL OTHER STYLES) === -->
-  <style>
-  @media (max-width: 380px) {
-    .hero-title, .hero-title-wrapper h1 {
-      font-size: clamp(2.55rem, 10.2vw, 3.85rem) !important;
-      letter-spacing: -2.6px !important;
-      line-height: 0.86 !important;
-    }
-
-    .hero-title-wrapper {
-      padding: 1.6rem 2.5rem !important;
-      border-radius: 3rem !important;
-      margin: 30px 12px 40px !important;
-      box-shadow: 0 0 130px -30px rgba(251, 191, 36, 0.95),
-                  0 45px 100px -30px rgba(16, 185, 129, 0.85) !important;
-    }
-
-    .hero-bg p {
-      font-size: 1.6rem !important;
-      line-height: 1.35 !important;
-      padding: 0 20px !important;
-    }
-
-    .hero-bg p.text-xl { font-size: 1.25rem !important; }
-
-    .logo-3d-wrapper { width: 58px !important; height: 58px !important; }
-
-    nav .max-w-7xl { padding: 14px 12px !important; }
-
-    section { padding-top: 3.2rem !important; padding-bottom: 3.2rem !important; }
-
-    .grid.grid-cols-2,
-    .grid.md\\:grid-cols-2,
-    .grid.lg\\:grid-cols-4 {
-      grid-template-columns: 1fr !important;
-      gap: 20px !important;
-    }
-
-    .token-card, .program-card, .help-card { padding: 24px !important; }
-
-    .super-cta-btn, .premium-sponsor-btn {
-      padding: 24px 36px !important;
-      font-size: 1.3rem !important;
-      min-height: 68px !important;
-    }
+    <!-- === FINAL NUCLEAR MOBILE OVERRIDE — THIS GOES RIGHT BEFORE </body> === -->
+<style>
+@media (max-width: 380px) {
+  .hero-title, .hero-title-wrapper h1 {
+    font-size: clamp(2.5rem, 10vw, 3.8rem) !important;
+    letter-spacing: -2.8px !important;
+    line-height: 0.85 !important;
   }
-  </style>
+
+  .hero-title-wrapper {
+    padding: 1.5rem 2.4rem !important;
+    border-radius: 3rem !important;
+    margin: 30px 16px 40px !important;
+    box-shadow: 0 0 130px -30px rgba(251, 191, 36, 0.95),
+                0 45px 100px -30px rgba(16, 185, 129, 0.85) !important;
+  }
+
+  .hero-bg p {
+    font-size: 1.6rem !important;
+    line-height: 1.35 !important;
+    padding: 0 20px !important;
+  }
+
+  .hero-bg p.text-xl {
+    font-size: 1.25rem !important;
+  }
+
+  .logo-3d-wrapper {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  nav .max-w-7xl {
+    padding: 14px 12px !important;
+  }
+
+  section {
+    padding-top: 3.2rem !important;
+    padding-bottom: 3.2rem !important;
+  }
+
+  .grid.grid-cols-2, .grid.md\\:grid-cols-2, .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .token-card, .program-card, .help-card {
+    padding: 24px !important;
+  }
+
+  .super-cta-btn, .premium-sponsor-btn {
+    padding: 24px 36px !important;
+    font-size: 1.3rem !important;
+    min-height: 68px !important;
+  }
+
+  .flex.justify-center.items-center.gap-3 {
+    gap: 8px !important;
+  }
+}
+</style>
+    <!-- === FINAL FORCE MOBILE FIX === -->
+<style>
+@media (max-width: 380px) {
+  .hero-title { font-size: 2.6rem !important; letter-spacing: -2.2px !important; line-height: 0.9 !important; }
+  .hero-title-wrapper { padding: 1.6rem 2.5rem !important; margin: 30px 12px !important; border-radius: 2.5rem !important; }
+  
+  nav .max-w-7xl { padding: 12px 10px !important; }
+  .logo-3d-wrapper { width: 56px !important; height: 56px !important; }
+  
+  section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  
+  .grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  
+  .super-cta-btn, .premium-sponsor-btn { padding: 20px 30px !important; font-size: 1.25rem !important; }
+}
+</style>
+</script>
 </body>
 </html>
