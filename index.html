@@ -105,50 +105,81 @@
   to   { filter: drop-shadow(0 0 110px rgba(251, 191, 36, 0.98)) brightness(1.25); }
 }
 
-/* =============== TIGHT FOLD 7 CLOSED + SKINNY PHONE PERFECTION =============== */
+/* =============== ULTRA-PREMIUM SKINNY PHONE (FOLD 7 CLOSED + ALL ≤380px) — HEARTFELT & UNFORGETTABLE =============== */
 @media (max-width: 380px) {
+  /* Hero Title — feels as big and emotional as desktop but perfectly balanced */
   .hero-title {
-    font-size: clamp(2.1rem, 8.2vw, 3.3rem) !important;
-    letter-spacing: -2.8px !important;
-    line-height: 0.9 !important;
+    font-size: clamp(2.35rem, 9.1vw, 3.55rem) !important;
+    letter-spacing: -2.5px !important;
+    line-height: 0.88 !important;
   }
 
+  /* Hero wrapper — luxurious breathing room, glass-like premium depth */
   .hero-title-wrapper {
-    padding: 0.85rem 1.3rem !important;
-    border-radius: 1.8rem !important;
-    margin: 0 8px !important;
+    padding: 1.1rem 1.8rem !important;
+    border-radius: 2.5rem !important;
+    margin: 0 10px !important;
+    box-shadow: 
+      0 0 100px -20px rgba(251, 191, 36, 0.85),
+      0 30px 70px -15px rgba(16, 185, 129, 0.6) !important;
   }
 
+  /* Navbar logo + text — clean, never cramped */
   .logo-3d-wrapper {
-    width: 46px !important;
-    height: 46px !important;
+    width: 52px !important;
+    height: 52px !important;
   }
-
   nav .max-w-7xl {
-    padding-left: 6px !important;
-    padding-right: 6px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
-
   .hidden.sm\\:block {
-    font-size: 1.05rem !important;
+    font-size: 1.15rem !important;
+    letter-spacing: -0.5px !important;
   }
 
+  /* Hero subtitle + story text — bigger, warmer, more emotional */
+  .hero-bg p.text-3xl,
+  .hero-bg p.text-2xl {
+    font-size: 1.45rem !important;
+    line-height: 1.35 !important;
+    padding: 0 12px !important;
+  }
+  .hero-bg p.text-xl {
+    font-size: 1.15rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Sections — generous breathing room so it feels expensive */
   section {
-    padding-top: 1.8rem !important;
-    padding-bottom: 1.8rem !important;
+    padding-top: 2.4rem !important;
+    padding-bottom: 2.4rem !important;
   }
 
-  .grid.grid-cols-2 {
-    gap: 10px !important;
+  /* Cards & Grids — single column, premium spacing */
+  .grid.grid-cols-2,
+  .grid.md\\:grid-cols-2,
+  .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
   }
 
   .token-card, .program-card, .help-card {
-    padding: 14px !important;
+    padding: 18px !important;
   }
 
+  /* Buttons — huge, touch-friendly, luxurious */
   .super-cta-btn, .premium-sponsor-btn {
-    padding: 14px 18px !important;
-    font-size: 1rem !important;
+    padding: 18px 24px !important;
+    font-size: 1.15rem !important;
+    min-height: 58px !important;
+    border-radius: 9999px !important;
+  }
+
+  /* Explanation box — extra warmth on mobile */
+  .max-w-5xl .bg-gradient-to-r {
+    padding: 1.75rem !important;
+    border-radius: 2rem !important;
   }
 }
     /* Rest of your original styles (kept intact + minor polish) */
