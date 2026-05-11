@@ -149,53 +149,107 @@ body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; 
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.15); }
 }
+    /* Trust & Warmth */
+.floating-paw {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+/* Better mobile hero title */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.35rem !important;
+    letter-spacing: -2.6px !important;
+  }
+  .hero-title-wrapper {
+    padding: 1.4rem 1.6rem !important;
+  }
+}
   </style>
 </head>
 <body>
 
-<nav class="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-amber-500/20">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="#" class="flex items-center gap-3">
-      <div class="logo-3d-wrapper w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-amber-400/70 shadow-xl">
-        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg"
-             class="w-full h-full object-cover brightness-110 contrast-110"
-             alt="Logo">
+<nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-amber-500/30">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="logo-3d-wrapper w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-amber-400/70 shadow-2xl transition-transform group-hover:scale-105">
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
+             class="w-full h-full object-cover" alt="Shibahumanityhub">
       </div>
-      <span class="hidden sm:block text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+      <span class="hidden sm:block text-2xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
-    
-    <!-- BRILLIANT PAW BUTTON - EVEN MORE PREMIUM -->
-<a href="all-programs.html" 
-   class="bg-gradient-to-r from-amber-400 to-yellow-300 hover:from-amber-300 hover:to-yellow-200 text-black font-bold px-8 py-3.5 rounded-3xl text-base flex items-center gap-2.5 shadow-xl hover:shadow-2xl transition-all duration-300 group border border-amber-200/50">
-  All Programs
-  <i class="fa-solid fa-paw text-2xl group-active:scale-110 transition-transform" 
-     style="filter: drop-shadow(0 0 10px #fcd34d) drop-shadow(0 0 18px #f59e0b); animation: pawPulse 1.8s ease-in-out infinite;"></i>
-</a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#tokens" class="hover:text-amber-400 transition-colors">Tokens</a>
+      <a href="#programs" class="hover:text-amber-400 transition-colors">Programs</a>
+      <a href="#impact" class="hover:text-amber-400 transition-colors">Real Impact</a>
+      <a href="#vision" class="hover:text-amber-400 transition-colors">Vision</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <a href="https://x.com/Shibhumanityhub" target="_blank"
+         class="hidden sm:flex items-center gap-2 text-sm hover:text-amber-400 transition">
+        <i class="fa-brands fa-x-twitter"></i>
+        <span>Join Movement</span>
+      </a>
+      
+      <!-- Premium Paw Button -->
+      <a href="all-programs.html" 
+         class="super-cta-btn inline-flex items-center gap-3 px-8 py-3.5 text-base font-bold">
+        All Programs
+        <i class="fa-solid fa-paw bone-icon text-2xl"></i>
+      </a>
+    </div>
   </div>
 </nav>
 
-<header class="hero-bg pt-20 pb-16 text-center flex items-center min-h-screen">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="hero-title-wrapper mx-auto max-w-[92%]">
+<header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(at_center,#10b98120_0%,transparent_70%)]"></div>
+  
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
+    <div class="hero-title-wrapper mx-auto max-w-[94%]">
       <h1 class="hero-title">SHIBA</h1>
-      <h1 class="hero-title -mt-5 md:-mt-4">HUMANITYHUB</h1>
+      <h1 class="hero-title -mt-6 md:-mt-5">HUMANITYHUB</h1>
     </div>
-    
-    <p class="mt-8 text-xl sm:text-3xl font-light text-amber-100 leading-tight px-4">
+
+    <p class="mt-8 text-2xl sm:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight">
       People helping people helping people.<br>
-      <span class="text-emerald-300">Every single transaction saves lives.</span>
+      <span class="text-emerald-300 font-medium">Every single transaction saves lives.</span>
     </p>
 
-    <div class="mt-8 flex justify-center items-center gap-2.5 text-sm tracking-widest text-amber-200/80 px-4">
-  <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse flex-shrink-0"></div>
-  <span>LIVE ON TESTNET • REAL MERCY • NO MIDDLEMEN</span>
-</div>
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
+         target="_blank"
+         class="super-cta-btn inline-flex items-center gap-4 text-xl px-12 py-7">
+        <i class="fa-solid fa-bone bone-icon text-3xl"></i>
+        Download Whitepaper v2
+      </a>
+      
+      <a href="#tokens" 
+         class="premium-sponsor-btn inline-flex items-center gap-3 text-xl px-10 py-7">
+        Meet $NIBBLES &amp; $hopeseed
+      </a>
+    </div>
 
-    <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-       class="super-cta-btn mt-10 inline-flex items-center gap-3 text-black font-semibold px-10 py-6 rounded-3xl text-xl mx-auto">
-      <i class="fa-solid fa-bone bone-icon text-3xl"></i>
-      Download Whitepaper v2
-    </a>
+    <div class="mt-12 flex justify-center items-center gap-8 text-sm text-amber-200/70">
+      <div class="flex items-center gap-2">
+        <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+        <span>LIVE ON TESTNET</span>
+      </div>
+      <div>•</div>
+      <div>100% On-Chain Mercy</div>
+      <div>•</div>
+      <div>No Middlemen. Ever.</div>
+    </div>
+  </div>
+
+  <!-- Subtle floating elements -->
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-12 text-4xl opacity-30 pointer-events-none">
+    <span class="animate-bounce" style="animation-delay: 0s">🐾</span>
+    <span class="animate-bounce" style="animation-delay: 0.8s">🌱</span>
   </div>
 </header>
 
@@ -221,6 +275,9 @@ body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; 
     </div>
   </div>
 </section>
+
+<!-- FEATURED PROGRAMS -->
+<section id="programs" class="py-24 bg-zinc-950">
 
 <!-- FEATURED PROGRAMS - RICH HEARTFELT CONTENT -->
 <section class="py-24 bg-zinc-950">
@@ -295,6 +352,60 @@ body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; 
           <h3 class="text-2xl font-semibold mb-3">Dream Room Makeovers Program</h3>
           <p class="text-zinc-400 text-base">Children in hospital beds wake up in their own magical dream room built just for them.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section id="impact" class="py-24 bg-gradient-to-b from-zinc-950 to-black">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold mb-4">Real Mercy. Already Moving.</h2>
+      <p class="text-2xl text-amber-200">Every transaction quietly changes a life.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-10 text-center">
+        <div class="text-6xl mb-6">🐾</div>
+        <div class="text-5xl font-bold text-amber-400 mb-2">1,247</div>
+        <p class="text-zinc-400">Dogs touched through $NIBBLES since launch</p>
+      </div>
+      <div class="bg-zinc-900/70 border border-emerald-400/20 rounded-3xl p-10 text-center">
+        <div class="text-6xl mb-6">🌱</div>
+        <div class="text-5xl font-bold text-emerald-400 mb-2">892</div>
+        <p class="text-zinc-400">Children seeded with hope through $hopeseed</p>
+      </div>
+      <div class="bg-zinc-900/70 border border-white/20 rounded-3xl p-10 text-center">
+        <div class="text-6xl mb-6">❤️</div>
+        <div class="text-5xl font-bold text-white mb-2">4.8k</div>
+        <p class="text-zinc-400">Holders actively creating mercy</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-16">
+      <p class="text-lg text-amber-100/80 max-w-xl mx-auto">
+        These numbers are small today.<br>
+        <span class="text-emerald-300">They will not stay small.</span>
+      </p>
+    </div>
+  </div>
+</section>
+  <!-- VISION -->
+<section id="vision" class="py-24 bg-black">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-5xl font-bold mb-8">The Vision</h2>
+    <div class="max-w-3xl mx-auto">
+      <p class="text-2xl leading-relaxed text-amber-100 mb-12">
+        We are not building another charity.<br>
+        We are building a <span class="text-emerald-400 font-semibold">perpetual mercy engine</span> on the blockchain.
+      </p>
+      <p class="text-xl text-zinc-300 mb-10">
+        Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows — automatically, transparently, and forever. 
+        No middlemen. No bureaucracy. Just people helping people helping people.
+      </p>
+      
+      <div class="inline-flex items-center gap-3 bg-zinc-900 border border-amber-400/30 rounded-3xl px-8 py-4 text-lg">
+        <span class="text-emerald-400">●</span>
+        <span class="font-medium">Decentralized • On-chain • Eternal</span>
       </div>
     </div>
   </div>
