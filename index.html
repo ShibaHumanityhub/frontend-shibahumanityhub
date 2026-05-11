@@ -312,6 +312,75 @@
   transform: skewX(-28deg);
   animation: shine 2s linear infinite;
 }
+    /* =============== FINAL NUCLEAR SKINNY MOBILE OVERRIDE — MUST BE LAST IN <style> =============== */
+@media (max-width: 380px) {
+  .hero-title, .hero-title-wrapper h1 {
+    font-size: clamp(2.45rem, 9.8vw, 3.7rem) !important;
+    letter-spacing: -2.4px !important;
+    line-height: 0.86 !important;
+  }
+
+  .hero-title-wrapper {
+    padding: 1.4rem 2.2rem !important;
+    border-radius: 3rem !important;
+    margin: 20px 12px 30px !important;
+    box-shadow: 0 0 120px -25px rgba(251, 191, 36, 0.95),
+                0 40px 90px -25px rgba(16, 185, 129, 0.8) !important;
+  }
+
+  .hero-bg p.text-3xl,
+  .hero-bg p.text-5xl {
+    font-size: 1.55rem !important;
+    line-height: 1.3 !important;
+    padding: 0 16px !important;
+  }
+
+  .hero-bg p.text-2xl,
+  .hero-bg p.text-xl {
+    font-size: 1.22rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .logo-3d-wrapper {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  nav .max-w-7xl {
+    padding: 12px 10px !important;
+  }
+
+  .hidden.sm\\:block {
+    font-size: 1.2rem !important;
+  }
+
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .grid.grid-cols-2,
+  .grid.md\\:grid-cols-2,
+  .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .token-card, .program-card, .help-card {
+    padding: 22px !important;
+  }
+
+  .super-cta-btn, .premium-sponsor-btn {
+    padding: 22px 32px !important;
+    font-size: 1.25rem !important;
+    min-height: 66px !important;
+  }
+
+  .max-w-5xl.mx-auto {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
   </style>
 </head>
 <body class="bg-zinc-950 text-white">
