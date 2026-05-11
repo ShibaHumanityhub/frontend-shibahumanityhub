@@ -7,8 +7,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
+/* Billion-dollar title treatment */
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 0 60px rgba(251,191,36,0.9),
+    0 0 120px rgba(16,185,129,0.7),
+    0 4px 20px rgba(0,0,0,0.6);
+}
     * { box-sizing: border-box; }
     body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; }
 
@@ -200,7 +211,28 @@
 .premium-sponsor-btn {
   box-shadow: 0 0 60px -10px rgb(16 185 129), 0 30px 70px -20px rgb(16 185 129), 0 0 130px 35px rgba(16,185,129,0.65) !important;
 }
-
+/* =============== ULTRA-SKINNY MOBILE FIX (Fold 7 closed) =============== */
+@media (max-width: 380px) {
+  .hero-title-wrapper {
+    padding: 1.1rem 1.4rem !important;
+    margin: 12px 12px 20px !important;
+    border-radius: 2rem !important;
+  }
+  
+  .hero-title, .hero-title-wrapper h1 {
+    font-size: 2.45rem !important;
+    letter-spacing: -2.8px !important;
+    line-height: 0.82 !important;
+  }
+  
+  .hero-title-wrapper h1:first-child {
+    margin-bottom: -18px !important;
+  }
+  
+  .hero-title-wrapper h1:last-child {
+    margin-top: -8px !important;
+  }
+}
 /* Richer flow & luxury spacing */
 section {
   padding-top: 5.5rem !important;
@@ -252,23 +284,26 @@ section {
   </div>
 </nav>
 
-<header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen">
+<header class="hero-bg pt-20 pb-16 text-center flex items-center min-h-screen">
   <div class="max-w-5xl mx-auto px-6">
-    <div class="hero-title-wrapper mx-auto">
+    <div class="hero-title-wrapper mx-auto max-w-[92%]">
       <h1 class="hero-title">SHIBA</h1>
-      <h1 class="hero-title -mt-4">HUMANITYHUB</h1>
+      <h1 class="hero-title -mt-5 md:-mt-4">HUMANITYHUB</h1>
     </div>
-    <p class="mt-10 text-2xl sm:text-4xl font-light text-amber-100 leading-tight">
+    
+    <p class="mt-8 text-xl sm:text-3xl font-light text-amber-100 leading-tight px-4">
       People helping people helping people.<br>
       <span class="text-emerald-300">Every single transaction saves lives.</span>
     </p>
-    <div class="mt-10 flex justify-center items-center gap-3 text-sm tracking-widest text-amber-200/80">
+
+    <div class="mt-8 flex justify-center items-center gap-3 text-xs sm:text-sm tracking-widest text-amber-200/80">
       <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
       LIVE ON TESTNET • REAL MERCY • NO MIDDLEMEN
     </div>
+
     <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-       class="super-cta-btn mt-12 inline-flex items-center gap-3 text-black font-semibold px-14 py-7 rounded-3xl text-2xl mx-auto">
-      <i class="fa-solid fa-bone bone-icon text-4xl"></i>
+       class="super-cta-btn mt-10 inline-flex items-center gap-3 text-black font-semibold px-10 py-6 rounded-3xl text-xl mx-auto">
+      <i class="fa-solid fa-bone bone-icon text-3xl"></i>
       Download Whitepaper v2
     </a>
   </div>
