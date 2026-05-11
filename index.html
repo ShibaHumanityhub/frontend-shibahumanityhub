@@ -108,53 +108,58 @@
   to   { filter: drop-shadow(0 0 110px rgba(251, 191, 36, 0.98)) brightness(1.25); }
 }
 
-   /* =============== PERFECT FOLD 7 CLOSED + SKINNY PHONE FIX =============== */
+/* =============== TIGHT FOLD 7 CLOSED MODE (380px and below) =============== */
 @media (max-width: 380px) {
   .hero-title {
-    font-size: clamp(2.35rem, 8.8vw, 3.6rem) !important;
-    letter-spacing: -3.5px !important;
-    line-height: 0.92 !important;
+    font-size: clamp(2.2rem, 8.5vw, 3.4rem) !important;
+    letter-spacing: -3px !important;
+    line-height: 0.88 !important;
   }
 
   .hero-title-wrapper {
-    padding: 1rem 1.5rem !important;
+    padding: 0.9rem 1.4rem !important;
     border-radius: 2rem !important;
-    margin: 0 10px !important;
+    margin: 0 8px !important;
   }
 
   .logo-3d-wrapper {
-    width: 50px !important;
-    height: 50px !important;
+    width: 48px !important;
+    height: 48px !important;
   }
 
   nav .max-w-7xl {
-    padding-left: 8px !important;
-    padding-right: 8px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  /* Make navbar text smaller on skinny */
+  .hidden.sm\\:block {
+    font-size: 1.1rem !important;
   }
 
   section {
-    padding-top: 2.2rem !important;
-    padding-bottom: 2.2rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
 
   .grid.grid-cols-2, .grid.md\\:grid-cols-3, .grid.lg\\:grid-cols-4 {
     grid-template-columns: 1fr !important;
-    gap: 12px !important;
+    gap: 10px !important;
   }
 
   .token-card, .program-card, .help-card {
-    padding: 16px !important;
+    padding: 14px !important;
   }
 
   .super-cta-btn, .premium-sponsor-btn {
-    padding: 16px 20px !important;
-    font-size: 1.05rem !important;
-    min-height: 52px !important;
+    padding: 14px 18px !important;
+    font-size: 1rem !important;
+    min-height: 48px !important;
   }
 
-  .text-5xl { font-size: 2.1rem !important; }
-  .text-4xl { font-size: 1.7rem !important; }
-  .text-3xl { font-size: 1.45rem !important; }
+  .text-5xl { font-size: 2rem !important; }
+  .text-4xl { font-size: 1.65rem !important; }
+  .text-3xl { font-size: 1.4rem !important; }
 }
     /* Rest of your original styles (kept intact + minor polish) */
     .hero-bg { 
