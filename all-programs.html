@@ -4,72 +4,292 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>All Programs • Shibahumanityhub</title>
-
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg?v=20250508-final" sizes="32x32">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+
+    * { box-sizing: border-box; }
+    body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #0a1729 0%, #13253a 30%, #1a2e42 50%, #c89f3f 70%, #e88a9e 85%, #0a1729 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 80s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    @keyframes gradientShift { 0%,100% {background-position:0% 50%} 50% {background-position:100% 50%} }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.9rem, 11.5vw, 5.5rem);
+      line-height: 0.85;
+      letter-spacing: -0.08em;
+      background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 80px rgba(251,191,36,0.95), 0 0 140px rgba(16,185,129,0.8);
+    }
+
+    .hero-title-wrapper {
+      padding: 2rem 3rem;
+      border-radius: 3rem;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(40px);
+      border: 2px solid rgba(251,191,36,0.5);
+      box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
+    }
+
+    /* PREMIUM BUTTONS */
+    .super-cta-btn, .premium-sponsor-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -1.8px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 9999px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .super-cta-btn {
+      background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
+      color: #0f172a;
+      box-shadow: 0 0 60px -10px rgb(251 191 36), 0 25px 70px -15px rgb(251 191 36), 0 0 120px 30px rgba(251,191,36,0.6);
+    }
+    .premium-sponsor-btn {
+      background: linear-gradient(145deg, #10b981, #34d399, #10b981);
+      color: #0f172a;
+      box-shadow: 0 0 50px -10px rgb(16 185 129), 0 25px 60px -15px rgb(16 185 129), 0 0 100px 20px rgba(16,185,129,0.5);
+    }
+    .super-cta-btn:hover, .premium-sponsor-btn:hover {
+      transform: scale(1.08) translateY(-4px);
+      box-shadow: 0 0 140px -20px rgb(251 191 36);
+    }
+    .bone-icon {
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    .super-cta-btn:hover .bone-icon {
+      animation: boneWag 0.65s ease-in-out infinite;
+    }
+    @keyframes boneWag {
+      0%, 100% { transform: rotate(-18deg) scale(1); }
+      50%      { transform: rotate(18deg) scale(1.15); }
+    }
+    .super-cta-btn::before, .premium-sponsor-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 40%; height: 280%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.95), transparent);
+      transform: skewX(-28deg);
+      animation: shine 2s linear infinite;
+    }
+    @keyframes shine { 100% { transform: translateX(300%); } }
+
+    /* PROGRAM CARDS - BILLIONAIRE HOVER */
     .program-card {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      background: rgba(39, 39, 42, 0.95);
-      backdrop-filter: blur(12px);
+      border: 2px solid transparent;
     }
     .program-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px -12px rgb(251 191 36 / 0.3);
-      border-color: #fcd34d;
+      transform: scale(1.06) translateY(-8px);
+      border-color: rgba(251,191,36,0.4);
+      box-shadow: 0 0 60px -10px rgba(251,191,36,0.6),
+                  0 25px 50px -15px rgba(16,185,129,0.5);
     }
 
+    /* Mobile perfection */
     @media (max-width: 480px) {
-      .program-card { padding: 18px; }
-      .program-card img { height: 210px; }
-      h3 { font-size: 1.45rem; }
+      .hero-title { font-size: 2.95rem !important; letter-spacing: -2.6px !important; }
+      .hero-title-wrapper { padding: 1.9rem 2.6rem !important; margin: 30px 12px !important; }
+      .logo-3d-wrapper { width: 60px !important; height: 60px !important; }
+      nav .max-w-7xl { padding: 14px 10px !important; }
+      section { padding: 3.8rem 1rem !important; }
+      .super-cta-btn, .premium-sponsor-btn { padding: 26px 36px !important; font-size: 1.3rem !important; }
     }
   </style>
 </head>
-<body class="bg-zinc-950 text-white">
+<body>
 
-  <!-- NAVBAR -->
-  <nav class="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <a href="index.html" class="text-3xl font-bold tracking-[-1px]">SHIBAHUMANITYHUB</a>
-      <a href="index.html" class="text-amber-300 hover:text-white flex items-center gap-2 text-lg">
-        <i class="fa-solid fa-arrow-left"></i> Back to Home
-      </a>
-    </div>
-  </nav>
-
-  <div class="pt-24 pb-12 max-w-7xl mx-auto px-4 sm:px-6">
-    <h1 class="text-5xl sm:text-6xl font-bold text-center mb-4 tracking-[-1px]">All 30 Programs</h1>
-    <p class="text-center text-zinc-400 text-xl max-w-2xl mx-auto">Every program is a living story of mercy. Click any card to read the full heartfelt details.</p>
-
-    <!-- TABS -->
-    <div class="flex justify-center gap-4 mt-12 mb-10 flex-wrap">
-      <button onclick="filterPrograms('all')" id="tab-all" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
-      <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
-      <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
-    </div>
-
-    <!-- GRID -->
-    <div id="all-programs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"></div>
+<nav class="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-amber-500/20">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="#" class="flex items-center gap-3">
+      <div class="logo-3d-wrapper w-16 h-16 rounded-full overflow-hidden border border-amber-400/60">
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" class="w-full h-full object-cover" alt="Logo">
+      </div>
+      <span class="hidden sm:block text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+    </a>
+        <a href="index.html" class="bg-amber-400 hover:bg-amber-300 text-black font-bold px-6 py-3 rounded-3xl text-sm flex items-center gap-2">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to Home
+    </a>
   </div>
+</nav>
 
-  <!-- MODAL -->
-  <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4">
-    <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-8 sm:p-10 relative">
-      <button onclick="hideModal()" class="absolute top-6 right-6 text-5xl text-zinc-400 hover:text-white">✕</button>
-      <div id="modal-content" class="prose prose-invert max-w-none"></div>
+<header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="hero-title-wrapper mx-auto">
+      <h1 class="hero-title">ALL PROGRAMS</h1>
+    </div>
+    <p class="mt-10 text-2xl sm:text-4xl font-light text-amber-100 leading-tight">
+      29 living stories of mercy.<br>
+      <span class="text-emerald-300">Every single transaction saves lives.</span>
+    </p>
+    <div class="mt-10 flex justify-center items-center gap-3 text-sm tracking-widest text-amber-200/80">
+      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+      CLICK ANY CARD • FULL HEARTFELT DETAILS
     </div>
   </div>
+</header>
 
- <script>
-    const programs = [
-            {
+<!-- CONTRACTS -->
+<section class="py-24 bg-zinc-900">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- $NIBBLES CARD -->
+      <div class="token-card bg-zinc-800 rounded-3xl p-12 text-center">
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl" alt="Mr. Nibbles">
+        <p class="text-amber-200 mb-3 text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
+        <p class="text-zinc-400 mb-8">Every transaction quietly becomes mercy for dogs who once had none.</p>
+        <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" target="_blank" class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30">0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2</a>
+      </div>
+      <!-- $hopeseed CARD -->
+      <div class="token-card bg-zinc-800 rounded-3xl p-12 text-center">
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl" alt="hopeseed">
+        <p class="text-emerald-300 mb-3 text-4xl font-semibold">$hopeseed</p>
+        <p class="text-zinc-400 mb-8">Every transaction plants a seed of hope for children who need it most.</p>
+        <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" target="_blank" class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30">0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROGRAMS - COOL HOVER + SPLIT -->
+<section class="py-24 bg-zinc-950">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold">Featured Programs That Change Lives</h2>
+      <p class="text-amber-200 text-2xl mt-4">The 8 most powerful stories of mercy we are building right now.</p>
+    </div>
+
+    <!-- $NIBBLES -->
+    <div class="mb-20">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="text-5xl">🐾</span>
+        <h3 class="text-4xl font-bold text-amber-300">$NIBBLES Programs</h3>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div onclick="showProgramModal(0)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Rainbowbridgehospice&sequoialegacyprogram.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Rainbow Bridge Hospice &amp; Sequoia Legacy</h3>
+          <p class="text-zinc-400 text-base">No senior dog ever crosses the Rainbow Bridge cold or forgotten.</p>
+        </div>
+        <div onclick="showProgramModal(4)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/healingheartstherapydognetworkphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Healing Hearts Therapy Dog Network</h3>
+          <p class="text-zinc-400 text-base">Certified shelter dogs visiting hospitals, nursing homes, and schools.</p>
+        </div>
+        <div onclick="showProgramModal(5)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/globaldisasterk9responseunitsphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Global Disaster K9 Response Units</h3>
+          <p class="text-zinc-400 text-base">Elite search-and-rescue dogs ready 24/7 to save lives.</p>
+        </div>
+        <div onclick="showProgramModal(16)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/servicedogfreedomprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Service Dog Freedom Program</h3>
+          <p class="text-zinc-400 text-base">Veterans and disabled warriors receive a loyal service dog — free for life.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- $hopeseed -->
+    <div>
+      <div class="flex items-center gap-4 mb-10">
+        <span class="text-5xl">🌱</span>
+        <h3 class="text-4xl font-bold text-emerald-300">$hopeseed Programs</h3>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div onclick="showProgramModal(17)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/orphanxmasphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Orphan Christmas</h3>
+          <p class="text-zinc-400 text-base">Every orphan and foster child gets a real personalized Christmas morning.</p>
+        </div>
+        <div onclick="showProgramModal(19)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/guardianangelwalletprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Guardian Angel Wallet Program</h3>
+          <p class="text-zinc-400 text-base">Every foster child gets a private wallet that grows from day one.</p>
+        </div>
+        <div onclick="showProgramModal(22)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/miraclefightfundphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Miracle Fight Fund</h3>
+          <p class="text-zinc-400 text-base">Seriously ill children and one parent get free flights to life-saving treatment.</p>
+        </div>
+        <div onclick="showProgramModal(28)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
+          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/dreamroommakeoversphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
+          <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
+          <h3 class="text-2xl font-semibold mb-3">Dream Room Makeovers Program</h3>
+          <p class="text-zinc-400 text-base">Children in hospital beds wake up in their own magical dream room.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW YOU CAN HELP -->
+<section class="py-20 bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
+        <h3 class="text-3xl mb-3">Read the Full Vision</h3>
+        <p class="text-zinc-400 mb-8">Step into the complete story. See where we’re going and how every transaction is already changing lives.</p>
+        <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl w-full justify-center">
+          <i class="fa-solid fa-bone bone-icon text-4xl"></i>
+          Download Whitepaper v2
+        </a>
+      </div>
+      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
+        <div class="mx-auto mb-6 inline-flex items-center justify-center bg-emerald-400 text-black text-xs font-bold px-5 py-2 rounded-3xl shadow-md">MOST IMPACTFUL</div>
+        <h3 class="text-3xl mb-3">Sponsor a Program</h3>
+        <p class="text-zinc-400 mb-8">Choose any program that touches your heart and become the reason a dog finds safety or a child feels truly loved.</p>
+        <button onclick="sponsorProgram('any')" class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full">Sponsor With Love Right Now</button>
+      </div>
+      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
+        <h3 class="text-3xl mb-3">Join the Movement</h3>
+        <p class="text-zinc-400 mb-8">Become part of something bigger. Follow along and watch real mercy unfold together.</p>
+        <a href="https://x.com/Shibhumanityhub" target="_blank" class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full justify-center">
+          <i class="fa-brands fa-x-twitter"></i>
+          Join us on X
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-20 bg-black border-t border-amber-500/30 text-center">
+  <p class="text-3xl font-light text-amber-200 mb-6">Thank you for being here.</p>
+  <p class="text-2xl font-light text-amber-100">People helping people helping people.</p>
+  <p class="text-emerald-300 text-xs mt-10">© Shibahumanityhub • Since November 2025 • Built with pure love and $NIBBLES</p>
+</footer>
+
+<!-- MODAL -->
+<div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4">
+  <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">
+    <button onclick="hideModal()" class="absolute top-6 right-6 text-5xl text-zinc-400 hover:text-white">✕</button>
+    <div id="modal-content" class="prose prose-invert max-w-none"></div>
+  </div>
+</div>
+
+<script>
+const programs = [{
         id: 0,
         title: "Corporate Barn Pod Sponsorship",
         category: "$NIBBLES",
@@ -767,55 +987,13 @@
           </div>
           <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding is there, these families will no longer carry that heavy weight alone. Their children will get the medicine, equipment, and support they need to thrive. Parents will have real peace of mind and space to simply love and raise their kids. This is the kind of steady, respectful care the world needs. One family, one child, one beautiful bridge to a better day at a time.</p>
           <button onclick="sponsorProgram('special-needs-support-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Build A Lifelong Bridge For These Families</button>`
-      },
-  ];
+  function sponsorProgram() {
+    alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives.");
+  }
 
-    function renderAllPrograms(cat = 'all') {
-      const grid = document.getElementById('all-programs-grid');
-      let filtered = programs;
-
-      if (cat === '$NIBBLES') filtered = programs.filter(p => p.category === '$NIBBLES');
-      if (cat === '$hopeseed') filtered = programs.filter(p => p.category === '$hopeseed');
-
-      grid.innerHTML = filtered.map(p => `
-        <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer border border-white/10 hover:border-amber-400 rounded-3xl p-5 sm:p-6 transition-all">
-          <img src="${p.image}" class="w-full h-52 sm:h-64 object-contain rounded-2xl mb-6" alt="${p.title}">
-          <div class="flex gap-2 mb-4"><span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
-          <h3 class="text-2xl sm:text-3xl font-semibold mb-3">${p.title}</h3>
-          <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-        </div>
-      `).join('');
-    }
-
-    function filterPrograms(cat) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'bg-amber-400', 'text-black'));
-      document.getElementById('tab-' + (cat === 'all' ? 'all' : cat.toLowerCase().replace('$',''))).classList.add('active', 'bg-amber-400', 'text-black');
-      renderAllPrograms(cat);
-    }
-
-    function showProgramModal(id) {
-      const program = programs.find(p => p.id === id);
-      if (!program) return;
-      const modal = document.getElementById('program-modal');
-      const content = document.getElementById('modal-content');
-      content.innerHTML = program.fullHTML;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function hideModal() {
-      document.getElementById('program-modal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
-
-    function sponsorProgram(slug) {
-      alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives.");
-    }
-
-    window.onload = () => {
-      renderAllPrograms('all');
-      console.log("✅ All 30 programs loaded - top quality version");
-    };
-  </script>
+  window.onload = function() {
+    console.log("✅ All 29 programs loaded with full details");
+  };
+</script>
 </body>
 </html>
