@@ -282,7 +282,7 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* === X50 PREMIUM 3D GENTLE ROTATION - shibahumanityhublogo3d-new.jpg === */
+/* === ROUNDED 3D GENTLE ROTATION - Circular like old mercy halo === */
 .perspective-container {
   perspective: 1800px;
 }
@@ -290,7 +290,10 @@ html, body {
 .logo-3d-wrapper {
   width: 68px;
   height: 68px;
-  filter: drop-shadow(0 0 35px rgba(59, 130, 246, 0.4));
+  border-radius: 9999px;
+  overflow: hidden;
+  filter: drop-shadow(0 0 35px rgba(59, 130, 246, 0.5));
+  background: rgba(0, 0, 0, 0.3); /* subtle backing for clean circle */
 }
 
 .logo-3d-inner {
@@ -308,28 +311,27 @@ html, body {
 
 .logo-3d-wrapper:hover .logo-3d-inner {
   animation-play-state: paused;
-  transform: rotateY(38deg) rotateX(22deg) scale(1.1);
+  transform: rotateY(38deg) rotateX(22deg) scale(1.08);
 }
 
 .navbar-logo-3d {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   filter: 
     drop-shadow(0 0 25px rgba(251, 191, 36, 0.8)) 
-    drop-shadow(0 0 40px rgba(59, 130, 246, 0.7)) 
-    drop-shadow(0 0 65px rgba(16, 185, 129, 0.6));
-  transition: filter 0.6s ease;
+    drop-shadow(0 0 45px rgba(59, 130, 246, 0.7)) 
+    drop-shadow(0 0 70px rgba(16, 185, 129, 0.6));
 }
 
 .logo-3d-wrapper:hover .navbar-logo-3d {
   filter: 
     drop-shadow(0 0 35px rgba(251, 191, 36, 0.95)) 
-    drop-shadow(0 0 55px rgba(59, 130, 246, 0.9)) 
-    drop-shadow(0 0 85px rgba(16, 185, 129, 0.85));
+    drop-shadow(0 0 60px rgba(59, 130, 246, 0.9)) 
+    drop-shadow(0 0 90px rgba(16, 185, 129, 0.85));
 }
 
-/* Skinny Fold 7 closed perfect fit */
+/* Skinny Fold 7 */
 @media (max-width: 380px) {
   .logo-3d-wrapper { 
     width: 52px !important; 
@@ -344,13 +346,13 @@ html, body {
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo shrinks on skinny phones -->
     
-<!-- X50 3D GENTLE ROTATING LOGO - shibahumanityhublogo3d-new.jpg -->
+<!-- ROUNDED 3D LOGO - Circular like the old white one -->
 <a href="index.html" class="flex items-center gap-4 group perspective-container">
-  <div class="logo-3d-wrapper relative flex-shrink-0">
+  <div class="logo-3d-wrapper relative flex-shrink-0 rounded-full overflow-hidden">
     <div class="logo-3d-inner">
       <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
            alt="Shibahumanityhub" 
-           class="navbar-logo-3d"
+           class="navbar-logo-3d w-full h-full object-cover rounded-full"
            loading="lazy" decoding="async">
     </div>
   </div>
