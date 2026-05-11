@@ -108,26 +108,54 @@
   to   { filter: drop-shadow(0 0 110px rgba(251, 191, 36, 0.98)) brightness(1.25); }
 }
 
-    /* Skinny phone perfection */
-    @media (max-width: 380px) {
-      .hero-title {
-        font-size: clamp(2.6rem, 9.5vw, 4.2rem) !important;
-        letter-spacing: -4px !important;
-      }
-      .hero-title-wrapper {
-  padding: 2rem 4rem;
-  border: 3px solid rgba(251, 191, 36, 0.7);
-  box-shadow: 
-    0 0 140px -20px rgba(251, 191, 36, 0.95),
-    0 0 80px -10px rgba(16, 185, 129, 0.6),
-    inset 0 6px 0 rgba(255,255,255,0.4);
-}
-      .logo-3d-wrapper {
-        width: 48px !important;
-        height: 48px !important;
-      }
-    }
+   /* =============== PERFECT FOLD 7 CLOSED + SKINNY PHONE FIX =============== */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: clamp(2.35rem, 8.8vw, 3.6rem) !important;
+    letter-spacing: -3.5px !important;
+    line-height: 0.92 !important;
+  }
 
+  .hero-title-wrapper {
+    padding: 1rem 1.5rem !important;
+    border-radius: 2rem !important;
+    margin: 0 10px !important;
+  }
+
+  .logo-3d-wrapper {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  nav .max-w-7xl {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  section {
+    padding-top: 2.2rem !important;
+    padding-bottom: 2.2rem !important;
+  }
+
+  .grid.grid-cols-2, .grid.md\\:grid-cols-3, .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .token-card, .program-card, .help-card {
+    padding: 16px !important;
+  }
+
+  .super-cta-btn, .premium-sponsor-btn {
+    padding: 16px 20px !important;
+    font-size: 1.05rem !important;
+    min-height: 52px !important;
+  }
+
+  .text-5xl { font-size: 2.1rem !important; }
+  .text-4xl { font-size: 1.7rem !important; }
+  .text-3xl { font-size: 1.45rem !important; }
+}
     /* Rest of your original styles (kept intact + minor polish) */
     .hero-bg { 
       background: linear-gradient(135deg, 
@@ -281,7 +309,7 @@
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     
     <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-5 group perspective-container">
+    <a href="index.html" class="flex items-center gap-3 group perspective-container">
       <div class="logo-3d-wrapper relative flex-shrink-0 rounded-full overflow-hidden">
         <div class="logo-3d-inner">
           <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
