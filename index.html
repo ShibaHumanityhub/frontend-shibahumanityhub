@@ -9,49 +9,33 @@
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-/* Billion-dollar title treatment */
+* { box-sizing: border-box; }
+body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; }
+
+/* Billion-dollar hero title */
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
+  font-size: clamp(2.9rem, 11.5vw, 5.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.08em;
+  background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 
-    0 0 60px rgba(251,191,36,0.9),
-    0 0 120px rgba(16,185,129,0.7),
+    0 0 80px rgba(251,191,36,0.95), 
+    0 0 140px rgba(16,185,129,0.8),
     0 4px 20px rgba(0,0,0,0.6);
 }
-    * { box-sizing: border-box; }
-    body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; }
 
-    .hero-bg {
-      background: linear-gradient(135deg, #0a1729 0%, #13253a 30%, #1a2e42 50%, #c89f3f 70%, #e88a9e 85%, #0a1729 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 80s ease infinite;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-    @keyframes gradientShift { 0%,100% {background-position:0% 50%} 50% {background-position:100% 50%} }
-
-    .hero-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.9rem, 11.5vw, 5.5rem);
-      line-height: 0.85;
-      letter-spacing: -0.08em;
-      background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 80px rgba(251,191,36,0.95), 0 0 140px rgba(16,185,129,0.8);
-    }
-
-    .hero-title-wrapper {
-      padding: 2rem 3rem;
-      border-radius: 3rem;
-      background: rgba(15,23,42,0.85);
-      backdrop-filter: blur(40px);
-      border: 2px solid rgba(251,191,36,0.5);
-      box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
-    }
+.hero-title-wrapper {
+  padding: 2rem 3rem;
+  border-radius: 3rem;
+  background: rgba(15,23,42,0.85);
+  backdrop-filter: blur(40px);
+  border: 2px solid rgba(251,191,36,0.5);
+  box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
+}
 
     /* PREMIUM BUTTONS */
     .super-cta-btn, .premium-sponsor-btn {
@@ -110,85 +94,7 @@
       box-shadow: 0 0 60px -10px rgba(251,191,36,0.6),
                   0 25px 50px -15px rgba(16,185,129,0.5);
     }
-
-/* =============== FINAL ULTRA-SKINNY FOLD 7 PERFECTION =============== */
-@media (max-width: 380px) {
-  .hero-title, .hero-title-wrapper h1 {
-    font-size: 2.62rem !important;
-    letter-spacing: -2.4px !important;
-    line-height: 0.9 !important;
-  }
-  .hero-title-wrapper h1:first-child {
-    margin-bottom: -12px !important;
-  }
-  .hero-title-wrapper {
-    padding: 1.35rem 1.85rem !important;
-    margin: 18px 10px 26px !important;
-  }
-  .logo-3d-wrapper {
-    width: 48px !important;
-    height: 48px !important;
-  }
-  nav .max-w-7xl {
-    padding: 10px 8px !important;
-  }
-  .token-card {
-    padding: 1.4rem !important;
-  }
-  .token-card a {
-    font-size: 0.9rem !important;
-    word-break: break-all !important;
-    line-height: 1.3 !important;
-  }
-  .program-card img {
-    height: 168px !important;
-    object-fit: contain !important;
-  }
-  section {
-    padding-top: 2.6rem !important;
-    padding-bottom: 2.6rem !important;
-  }
-  .super-cta-btn, .premium-sponsor-btn {
-    padding: 20px 24px !important;
-    font-size: 1.18rem !important;
-  }
-}
-    /* =============== PERFECT FOLD 7 CLOSED + SKINNY MOBILE POLISH =============== */
-@media (max-width: 380px) {
-  .hero-title-wrapper {
-    padding: 1.3rem 1.8rem !important;
-    margin: 18px 10px 24px !important;
-  }
-  .hero-title-wrapper h1:first-child {
-    margin-bottom: -14px !important;
-  }
-  .hero-title, .hero-title-wrapper h1 {
-    font-size: 2.58rem !important;
-    letter-spacing: -2.45px !important;
-    line-height: 0.89 !important;
-  }
-  .logo-3d-wrapper {
-    width: 48px !important;
-    height: 48px !important;
-  }
-  nav .max-w-7xl {
-    padding: 10px 8px !important;
-  }
-  .token-card {
-    padding: 1.35rem !important;
-  }
-  .token-card a {
-    font-size: 0.88rem !important;
-    word-break: break-all !important;
-  }
-  .program-card img {
-    height: 165px !important;
-  }
-  section {
-    padding-top: 2.5rem !important;
-    padding-bottom: 2.5rem !important;
-  }
-}
+    
     /* =============== SUPERCHARGED PREMIUM UPGRADES =============== */
 .hero-bg {
   background: linear-gradient(135deg, #0a1729 0%, #13253a 25%, #1a2e42 45%, #c89f3f 65%, #e88a9e 80%, #0a1729 100%);
@@ -211,76 +117,37 @@
 .premium-sponsor-btn {
   box-shadow: 0 0 60px -10px rgb(16 185 129), 0 30px 70px -20px rgb(16 185 129), 0 0 130px 35px rgba(16,185,129,0.65) !important;
 }
-/* =============== ULTRA-SKINNY MOBILE FIX (Fold 7 closed) =============== */
+ /* =============== FINAL BILLION-DOLLAR SKINNY MOBILE FIX =============== */
 @media (max-width: 380px) {
   .hero-title-wrapper {
-    padding: 1.1rem 1.4rem !important;
-    margin: 12px 12px 20px !important;
+    padding: 1.0rem 1.3rem !important;
+    margin: 8px 12px 16px !important;
     border-radius: 2rem !important;
+    max-width: 94% !important;
   }
   
   .hero-title, .hero-title-wrapper h1 {
-    font-size: 2.45rem !important;
-    letter-spacing: -2.8px !important;
-    line-height: 0.82 !important;
+    font-size: 2.35rem !important;
+    letter-spacing: -2.95px !important;
+    line-height: 0.78 !important;
   }
   
   .hero-title-wrapper h1:first-child {
-    margin-bottom: -18px !important;
+    margin-bottom: -22px !important;
   }
   
   .hero-title-wrapper h1:last-child {
-    margin-top: -8px !important;
+    margin-top: -12px !important;
   }
-}
-/* Richer flow & luxury spacing */
-section {
-  padding-top: 5.5rem !important;
-  padding-bottom: 5.5rem !important;
-}
 
-.program-card {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.program-card:hover {
-  transform: scale(1.08) translateY(-12px) !important;
-  box-shadow: 0 0 80px -15px rgba(251,191,36,0.7), 0 30px 60px -20px rgba(16,185,129,0.6) !important;
-}
-    @keyframes pawPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-    @keyframes pawPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-    /* Extra polish for paw button */
-.group:hover i {
-  animation: pawPulse 0.8s ease-in-out infinite;
-}
-    /* =============== SKINNY MOBILE LIVE INDICATOR FIX =============== */
-@media (max-width: 380px) {
-  .hero-title-wrapper {
-    padding: 1.05rem 1.35rem !important;
-    margin: 10px 12px 18px !important;
-  }
-  
-  .hero-title, .hero-title-wrapper h1 {
-    font-size: 2.42rem !important;
-    letter-spacing: -2.85px !important;
-    line-height: 0.81 !important;
-  }
-  
-  .hero-title-wrapper h1:first-child {
-    margin-bottom: -19px !important;
-  }
-  
-  /* Live dot fix */
   .flex.items-center.gap-2\.5 {
     gap: 8px !important;
-    font-size: 0.875rem !important;
+    font-size: 0.85rem !important;
   }
+}
+    @keyframes pawPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
 }
   </style>
 </head>
