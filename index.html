@@ -21,19 +21,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
- <style>
+<style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-  /* CORE */
+  /* CORE RESET */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden !important;
     box-sizing: border-box;
   }
-  * { box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; }
 
-  /* HERO TITLE - DESKTOP FIRST */
+  /* PREMIUM HERO */
   .hero-title-wrapper {
     position: relative;
     display: inline-flex;
@@ -71,53 +71,7 @@
     to   { filter: drop-shadow(0 0 110px rgba(251, 191, 36, 0.98)) brightness(1.25); }
   }
 
-  /* NUCLEAR MOBILE OVERRIDE — LAST AND STRONGEST */
-  @media (max-width: 380px) {
-    .hero-title, .hero-title-wrapper h1 {
-      font-size: clamp(2.6rem, 10.5vw, 3.9rem) !important;
-      letter-spacing: -2.8px !important;
-      line-height: 0.85 !important;
-    }
-
-    .hero-title-wrapper {
-      padding: 1.7rem 2.6rem !important;
-      border-radius: 3rem !important;
-      margin: 30px 12px 40px !important;
-      box-shadow: 0 0 140px -30px rgba(251, 191, 36, 0.95),
-                  0 50px 110px -30px rgba(16, 185, 129, 0.85) !important;
-    }
-
-    .hero-bg p {
-      font-size: 1.65rem !important;
-      line-height: 1.35 !important;
-      padding: 0 20px !important;
-    }
-
-    .hero-bg p.text-xl { font-size: 1.28rem !important; }
-
-    .logo-3d-wrapper { width: 58px !important; height: 58px !important; }
-
-    nav .max-w-7xl { padding: 14px 12px !important; }
-
-    section { padding-top: 3.4rem !important; padding-bottom: 3.4rem !important; }
-
-    .grid.grid-cols-2,
-    .grid.md\\:grid-cols-2,
-    .grid.lg\\:grid-cols-4 { 
-      grid-template-columns: 1fr !important; 
-      gap: 22px !important; 
-    }
-
-    .token-card, .program-card, .help-card { padding: 26px !important; }
-
-    .super-cta-btn, .premium-sponsor-btn {
-      padding: 26px 38px !important;
-      font-size: 1.32rem !important;
-      min-height: 70px !important;
-    }
-  }
-
-  /* Rest of your styles (hero-bg, buttons, logo 3D, etc.) stay the same */
+  /* HERO BACKGROUND */
   .hero-bg { 
     background: linear-gradient(135deg, #0a1729 0%, #13253a 20%, #1a2e42 35%, #c89f3f 50%, #e88a9e 65%, #f5d0a8 80%, #0a1729 100%);
     background-size: 500% 500%;
@@ -134,7 +88,62 @@
     50% { background-position: 100% 50%; }
   }
 
-  /* ... keep all your .super-cta-btn, .logo-3d-wrapper, .premium-sponsor-btn etc. exactly as they are ... */
+  /* BUTTONS & LOGO (keep your existing ones) */
+  .super-cta-btn, .premium-sponsor-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1.4px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 9999px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* NUCLEAR MOBILE — THIS MUST BE THE LAST MEDIA QUERY */
+  @media (max-width: 380px) {
+    .hero-title, .hero-title-wrapper h1 {
+      font-size: clamp(2.65rem, 10.8vw, 3.95rem) !important;
+      letter-spacing: -2.7px !important;
+      line-height: 0.84 !important;
+    }
+
+    .hero-title-wrapper {
+      padding: 1.8rem 2.8rem !important;
+      border-radius: 3.2rem !important;
+      margin: 32px 14px 45px !important;
+      box-shadow: 0 0 150px -35px rgba(251, 191, 36, 0.95),
+                  0 55px 120px -35px rgba(16, 185, 129, 0.9) !important;
+    }
+
+    .hero-bg p {
+      font-size: 1.68rem !important;
+      line-height: 1.32 !important;
+      padding: 0 22px !important;
+    }
+
+    .hero-bg p.text-xl { font-size: 1.3rem !important; }
+
+    .logo-3d-wrapper { width: 60px !important; height: 60px !important; }
+
+    nav .max-w-7xl { padding: 16px 12px !important; }
+
+    section { padding-top: 3.6rem !important; padding-bottom: 3.6rem !important; }
+
+    .grid.grid-cols-2,
+    .grid.md\\:grid-cols-2,
+    .grid.lg\\:grid-cols-4 { 
+      grid-template-columns: 1fr !important; 
+      gap: 24px !important; 
+    }
+
+    .token-card, .program-card, .help-card { padding: 28px !important; }
+
+    .super-cta-btn, .premium-sponsor-btn {
+      padding: 28px 40px !important;
+      font-size: 1.35rem !important;
+      min-height: 72px !important;
+    }
+  }
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
