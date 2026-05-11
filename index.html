@@ -368,14 +368,79 @@
 
 <script>
 const programs = [
-  {id:0,title:"Corporate Barn Pod Sponsorship",category:"$NIBBLES",fullHTML:`<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Corporate Impact</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Corporate Barn Pod Sponsorship</h2><p class="text-amber-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p><p class="text-zinc-300 mb-8">Right now, too many beautiful senior dogs sit in shelters, quietly watching the world pass them by. They have given their whole lives to people...</p><p class="text-zinc-300 mb-8">Through the Corporate Barn Pod Sponsorship, companies have the chance to step into their highest purpose. A single pod of five to ten senior dogs will live out their golden years in our Shiba Barns...</p>`},
-  {id:4,title:"Healing Hearts Therapy Dog Network",category:"$NIBBLES",fullHTML:`<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Healing Hearts</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Healing Hearts Therapy Dog Network</h2><p class="text-amber-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p><p class="text-zinc-300 mb-8">I have seen dogs that were hours away from being put down walk into a children’s hospital room and suddenly the whole place lights up...</p>`},
-  {id:5,title:"Global Disaster K9 Response Units",category:"$NIBBLES",fullHTML:`<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Disaster Response</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Global Disaster K9 Response Units</h2><p class="text-amber-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p><p class="text-zinc-300 mb-8">When disaster hits, every single minute matters...</p>`},
-  {id:16,title:"Service Dog Freedom Program",category:"$NIBBLES",fullHTML:`<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Freedom Partner</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div><h2 class="text-4xl font-bold mb-3">Service Dog Freedom Program</h2><p class="text-amber-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p><p class="text-zinc-300 mb-8">Too many veterans and people living with PTSD, mobility challenges...</p>`},
-  {id:17,title:"Orphan Christmas",category:"$hopeseed",fullHTML:`<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Holiday Magic</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div><h2 class="text-4xl font-bold mb-3">Orphan Christmas</h2><p class="text-emerald-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p><p class="text-zinc-300 mb-8">All over the world there are children who wake up on Christmas morning feeling unseen...</p>`},
-  {id:19,title:"Guardian Angel Wallet Program",category:"$hopeseed",fullHTML:`<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Guardian Angel</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div><h2 class="text-4xl font-bold mb-3">Guardian Angel Wallet Program</h2><p class="text-emerald-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p><p class="text-zinc-300 mb-8">I grew up in foster care. I lived exactly this...</p>`},
-  {id:22,title:"Miracle Fight Fund",category:"$hopeseed",fullHTML:`<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Miracle Fight</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div><h2 class="text-4xl font-bold mb-3">Miracle Fight Fund</h2><p class="text-emerald-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p><p class="text-zinc-300 mb-8">This one really gets to me...</p>`},
-  {id:28,title:"Dream Room Makeovers Program",category:"$hopeseed",fullHTML:`<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Room Magic</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div><h2 class="text-4xl font-bold mb-3">Dream Room Makeovers Program</h2><p class="text-emerald-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p><p class="text-zinc-300 mb-8">All over the world there are children whose world becomes just four walls and pain...</p>`}
+  {
+    id: 0,
+    title: "Corporate Barn Pod Sponsorship",
+    category: "$NIBBLES",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Corporate Impact</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Corporate Barn Pod Sponsorship</h2>
+      <p class="text-amber-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p>
+      <p class="text-zinc-300 mb-8">Right now, too many beautiful senior dogs sit in shelters, quietly watching the world pass them by. They have given their whole lives to people, and in their final years they deserve warm beds, good food, and real love.</p>
+      <p class="text-zinc-300 mb-8">Through the Corporate Barn Pod Sponsorship, companies have the chance to step into their highest purpose. A single pod of five to ten senior dogs will live out their golden years in our Shiba Barns — fully cared for, with daily enrichment, expert veterinary care, and the peaceful retirement every loyal heart has earned.</p>`
+  },
+  {
+    id: 4,
+    title: "Healing Hearts Therapy Dog Network",
+    category: "$NIBBLES",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Healing Hearts</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Healing Hearts Therapy Dog Network</h2>
+      <p class="text-amber-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p>
+      <p class="text-zinc-300 mb-8">I have seen dogs that were hours away from being put down walk into a children’s hospital room and suddenly the whole place lights up. These are not just visits. These dogs heal something deep inside people that medicine alone often cannot touch.</p>`
+  },
+  {
+    id: 5,
+    title: "Global Disaster K9 Response Units",
+    category: "$NIBBLES",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Disaster Response</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Global Disaster K9 Response Units</h2>
+      <p class="text-amber-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p>
+      <p class="text-zinc-300 mb-8">When disaster hits, every single minute matters. We will keep a small, elite team of fully trained search-and-rescue dogs and handlers ready 24/7.</p>`
+  },
+  {
+    id: 16,
+    title: "Service Dog Freedom Program",
+    category: "$NIBBLES",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Freedom Partner</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Service Dog Freedom Program</h2>
+      <p class="text-amber-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p>
+      <p class="text-zinc-300 mb-8">Too many veterans and people living with PTSD wake up every single day fighting battles no one else can see. Through Service Dog Freedom, we change that forever.</p>`
+  },
+  {
+    id: 17,
+    title: "Orphan Christmas",
+    category: "$hopeseed",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Holiday Magic</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Orphan Christmas</h2>
+      <p class="text-emerald-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p>
+      <p class="text-zinc-300 mb-8">All over the world there are children who wake up on Christmas morning feeling unseen, forgotten, and completely alone. We want to change that with every beat of our hearts.</p>`
+  },
+  {
+    id: 19,
+    title: "Guardian Angel Wallet Program",
+    category: "$hopeseed",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Guardian Angel</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Guardian Angel Wallet Program</h2>
+      <p class="text-emerald-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p>
+      <p class="text-zinc-300 mb-8">I grew up in foster care. I lived exactly this. This program wraps every child in quiet, lasting love from the very first day.</p>`
+  },
+  {
+    id: 22,
+    title: "Miracle Fight Fund",
+    category: "$hopeseed",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Miracle Fight</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Miracle Fight Fund</h2>
+      <p class="text-emerald-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p>
+      <p class="text-zinc-300 mb-8">This one really gets to me. We cover the full round trip flights for the child and one parent so they never have to choose between hope and home.</p>`
+  },
+  {
+    id: 28,
+    title: "Dream Room Makeovers Program",
+    category: "$hopeseed",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Room Magic</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Dream Room Makeovers Program</h2>
+      <p class="text-emerald-200 text-xl mb-6">This is the exact program we will launch the moment we have the funding.</p>
+      <p class="text-zinc-300 mb-8">All over the world there are children whose world becomes just four walls and pain. We change that with all our hearts by turning their space into their own personal magic world.</p>`
+  }
 ];
 
 function showProgramModal(id) {
