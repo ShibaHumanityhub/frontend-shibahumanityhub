@@ -357,6 +357,16 @@ html, body {
     width: 52px !important; 
     height: 52px !important; 
   }
+  /* Final Touch — Smooth Scroll + Extra Polish */
+html { scroll-behavior: smooth; }
+
+.title-breath {
+  animation: titleBreath 14s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+}
+@keyframes titleBreath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.018); }
 }
 </style>
 </head>
