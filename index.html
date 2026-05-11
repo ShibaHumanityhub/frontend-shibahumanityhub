@@ -282,118 +282,69 @@ html, body {
   100% { transform: translateX(300%) skewX(-28deg); }
 }
 
-/* === MAGIC BLACK SQUARE BLEND + FAINT GLOW FLYWHEEL === */
-.perspective-container {
-  perspective: 1400px;
+/* === PAW + HEART SHAPED MERCY FLYWHEEL — DEBUG MODE (FAST + BRIGHT) === */
+.navbar-logo-img {
+  filter: drop-shadow(0 0 35px #fcd34d);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar-logo-img:hover {
+  filter: drop-shadow(0 0 60px #10b981);
+  transform: scale(1.13);
 }
 
-.logo-3d-wrapper {
-  width: 56px;
-  height: 56px;
-  filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.25));
+.mercy-halo {
+  animation: flywheel 8s linear infinite; /* FAST for testing */
+  filter:
+    drop-shadow(0 0 30px #fcd34d)
+    drop-shadow(0 0 55px #10b981)
+    drop-shadow(0 0 80px #ec4899)
+    brightness(1.6) contrast(1.3);
+  opacity: 0.92;
+  transform: scale(1.22); /* snug around the exact paw + heart shape */
 }
 
-.logo-3d-inner {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.9s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  transform-style: preserve-3d;
-  animation: gentleSideRotate 22s ease-in-out infinite;
+@keyframes flywheel {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
-
-@keyframes gentleSideRotate {
-  0%, 100% { transform: rotateY(-10deg) rotateX(6deg); }
-  50%      { transform: rotateY(10deg) rotateX(-6deg); }
-}
-
-.logo-3d-wrapper:hover .logo-3d-inner {
-  animation-play-state: paused;
-  transform: rotateY(28deg) rotateX(18deg) scale(1.06);
-}
-
-.navbar-logo-3d {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: 
-    drop-shadow(0 0 12px rgba(251, 191, 36, 0.6)) 
-    drop-shadow(0 0 25px rgba(16, 185, 129, 0.4))
-    drop-shadow(0 0 40px rgba(251, 191, 36, 0.25));
-  transition: filter 0.6s ease;
-}
-
-.logo-3d-wrapper:hover .navbar-logo-3d {
-  filter: 
-    drop-shadow(0 0 18px rgba(251, 191, 36, 0.85)) 
-    drop-shadow(0 0 35px rgba(16, 185, 129, 0.65))
-    drop-shadow(0 0 55px rgba(251, 191, 36, 0.35));
-}
-
-/* SKINNY FOLD 7 CLOSED PERFECT FIT */
-@media (max-width: 380px) {
-  .logo-3d-wrapper {
-    width: 44px !important;
-    height: 44px !important;
-  }
-  /* X50 MAGIC BLEND + SMOOTH */
-.perspective-container { perspective: 1800px; }
-.logo-3d-wrapper { width: 64px; height: 64px; }
-.logo-3d-inner { animation: gentleSideRotate 26s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-@keyframes gentleSideRotate {
-  0%, 100% { transform: rotateY(-7deg) rotateX(4deg); }
-  50% { transform: rotateY(7deg) rotateX(-4deg); }
-}
-.navbar-logo-3d {
-  width: 100%; height: 100%; object-fit: contain;
-  filter: 
-    drop-shadow(0 0 20px rgba(251,191,36,0.6)) 
-    drop-shadow(0 0 35px rgba(16,185,129,0.45)) 
-    drop-shadow(0 0 55px rgba(251,191,36,0.25));
-}
-.logo-3d-wrapper:hover .navbar-logo-3d {
-  filter: brightness(1.2) drop-shadow(0 0 45px rgba(234,179,8,0.9));
-}
-
-.title-breath { animation: titleBreath 14s ease-in-out infinite; }
-@keyframes titleBreath { 0%,100% { transform: scale(1); } 50% { transform: scale(1.015); } }
-
-html { scroll-behavior: smooth; }
-}
-    
 </style>
 </head>
 <body class="bg-zinc-950 text-white">
-
-  <!-- X50 ULTRA PREMIUM NAV — GLASS + MAGIC BLEND + BUTTERY SMOOTH -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-3xl border-b border-white/10">
-  <div class="max-w-screen-2xl mx-auto px-6 py-6 flex items-center justify-between">
-    <!-- LOGO -->
-    <a href="index.html" class="flex items-center gap-4 group perspective-container">
-      <div class="logo-3d-wrapper relative flex-shrink-0">
-        <div class="logo-3d-inner">
-          <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d.jpg" 
-               alt="Shibahumanityhub" 
-               class="navbar-logo-3d"
-               loading="lazy" decoding="async">
-        </div>
-      </div>
-      <div class="hidden sm:block">
-        <span class="text-3xl md:text-4xl font-bold tracking-[-2.8px] bg-gradient-to-r from-amber-100 via-white to-emerald-100 bg-clip-text text-transparent title-breath">SHIBAHUMANITYHUB</span>
-        <p class="text-[10px] tracking-[1.8px] text-emerald-400/90 font-medium -mt-1">PEOPLE HELPING PEOPLE HELPING PEOPLE</p>
-      </div>
-    </a>
-
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-10 text-sm font-semibold tracking-wide">
-      <a href="#programs" class="hover:text-amber-300 transition-colors">Programs</a>
-      <a href="#tokens" class="hover:text-amber-300 transition-colors">Tokens</a>
-      <a href="#how-to-help" class="hover:text-amber-300 transition-colors">How to Help</a>
-      <a href="https://puppyscan.shib.io" target="_blank" class="hover:text-emerald-300 transition-colors">Live On-Chain</a>
+         <!-- === BILLIONAIRE NAVBAR - PERFECT ON FOLD 7 CLOSED + ALL SKINNY PHONES === -->
+<nav class="bg-black/90 backdrop-blur-md fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo shrinks on skinny phones -->
+    
+<!-- MERCY FLYWHEEL LOGO — EXACT PAW + HEART SHAPED HALO (DEBUG MODE) -->
+<a href="index.html" class="flex items-center gap-3 group">
+  <div class="relative flex-shrink-0">
+    <!-- Main logo -->
+    <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
+         alt="Shibahumanityhub" 
+         class="navbar-logo-img w-11 h-11 md:w-12 md:h-12 object-cover rounded-full transition-all duration-700 group-hover:scale-110 ring-2 ring-amber-300/30"
+         loading="lazy" decoding="async" width="288" height="288">
+    
+    <!-- EXACT PAW + HEART SHAPED HALO (rotates with the real logo shape) -->
+    <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhub-logo-new.jpg" 
+         alt="" 
+         class="mercy-halo absolute inset-0 w-11 h-11 md:w-12 md:h-12 object-cover rounded-full pointer-events-none"
+         loading="lazy" decoding="async" width="288" height="288">
+  </div>
+  <span class="hidden sm:block text-2xl md:text-3xl font-bold tracking-[-1.5px] bg-gradient-to-r from-amber-300 via-white to-emerald-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+</a>
+    <!-- Desktop menu (hidden on skinny) -->
+    <div class="hidden md:flex items-center gap-8 text-lg">
+      <a href="index.html" class="hover:text-amber-300 transition-colors">Home</a>
+      <a href="all-programs.html" class="hover:text-amber-300 transition-colors font-semibold">All Programs</a>
+      <a href="#" class="hover:text-amber-300 transition-colors">Whitepaper</a>
+      <a href="#" class="hover:text-amber-300 transition-colors">Join the Movement</a>
     </div>
 
-    <a href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/whitepaper.pdf" 
-       class="px-8 py-4 bg-gradient-to-r from-amber-300 to-emerald-300 hover:from-amber-400 hover:to-emerald-400 text-zinc-950 font-bold rounded-3xl flex items-center gap-3 transition-all active:scale-95 shadow-xl shadow-emerald-500/30">
-      <i class="fas fa-file-pdf"></i> WHITEPAPER
+    <!-- Compact All Programs button for skinny phones -->
+    <a href="all-programs.html" 
+       class="bg-amber-400 hover:bg-amber-300 text-black font-bold px-5 py-2.5 text-sm rounded-3xl transition-all flex items-center gap-2">
+      <span>All Programs</span>
+      <i class="fa-solid fa-paw text-base"></i>
     </a>
   </div>
 </nav>
