@@ -259,6 +259,29 @@ section {
 .group:hover i {
   animation: pawPulse 0.8s ease-in-out infinite;
 }
+    /* =============== SKINNY MOBILE LIVE INDICATOR FIX =============== */
+@media (max-width: 380px) {
+  .hero-title-wrapper {
+    padding: 1.05rem 1.35rem !important;
+    margin: 10px 12px 18px !important;
+  }
+  
+  .hero-title, .hero-title-wrapper h1 {
+    font-size: 2.42rem !important;
+    letter-spacing: -2.85px !important;
+    line-height: 0.81 !important;
+  }
+  
+  .hero-title-wrapper h1:first-child {
+    margin-bottom: -19px !important;
+  }
+  
+  /* Live dot fix */
+  .flex.items-center.gap-2\.5 {
+    gap: 8px !important;
+    font-size: 0.875rem !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -296,10 +319,10 @@ section {
       <span class="text-emerald-300">Every single transaction saves lives.</span>
     </p>
 
-    <div class="mt-8 flex justify-center items-center gap-3 text-xs sm:text-sm tracking-widest text-amber-200/80">
-      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-      LIVE ON TESTNET • REAL MERCY • NO MIDDLEMEN
-    </div>
+    <div class="mt-8 flex justify-center items-center gap-2.5 text-sm tracking-widest text-amber-200/80 px-4">
+  <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse flex-shrink-0"></div>
+  <span>LIVE ON TESTNET • REAL MERCY • NO MIDDLEMEN</span>
+</div>
 
     <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
        class="super-cta-btn mt-10 inline-flex items-center gap-3 text-black font-semibold px-10 py-6 rounded-3xl text-xl mx-auto">
