@@ -178,6 +178,43 @@
     padding-bottom: 2.5rem !important;
   }
 }
+    /* =============== SUPERCHARGED PREMIUM UPGRADES =============== */
+.hero-bg {
+  background: linear-gradient(135deg, #0a1729 0%, #13253a 25%, #1a2e42 45%, #c89f3f 65%, #e88a9e 80%, #0a1729 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 70s ease infinite;
+}
+
+.hero-title-wrapper {
+  box-shadow: 
+    0 0 140px -30px rgba(251, 191, 36, 0.95),
+    0 50px 100px -30px rgba(236, 72, 153, 0.7),
+    0 0 200px -40px rgba(16, 185, 129, 0.65),
+    inset 0 6px 0 rgba(255,255,255,0.35) !important;
+}
+
+.super-cta-btn {
+  box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36), 0 0 140px 40px rgba(251,191,36,0.7) !important;
+}
+
+.premium-sponsor-btn {
+  box-shadow: 0 0 60px -10px rgb(16 185 129), 0 30px 70px -20px rgb(16 185 129), 0 0 130px 35px rgba(16,185,129,0.65) !important;
+}
+
+/* Richer flow & luxury spacing */
+section {
+  padding-top: 5.5rem !important;
+  padding-bottom: 5.5rem !important;
+}
+
+.program-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.program-card:hover {
+  transform: scale(1.08) translateY(-12px) !important;
+  box-shadow: 0 0 80px -15px rgba(251,191,36,0.7), 0 30px 60px -20px rgba(16,185,129,0.6) !important;
+}
   </style>
 </head>
 <body>
@@ -185,9 +222,11 @@
 <nav class="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-amber-500/20">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <a href="#" class="flex items-center gap-3">
-      <div class="logo-3d-wrapper w-16 h-16 rounded-full overflow-hidden border border-amber-400/60">
-        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" class="w-full h-full object-cover" alt="Logo">
-      </div>
+      <div class="logo-3d-wrapper w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-amber-400/70 shadow-xl">
+  <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
+       class="w-full h-full object-cover brightness-110 contrast-110" 
+       alt="Logo">
+</div>
       <span class="hidden sm:block text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
    <a href="#" class="bg-amber-400 hover:bg-amber-300 text-black font-bold px-6 py-3 rounded-3xl text-sm flex items-center gap-2">
