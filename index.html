@@ -7,37 +7,38 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
-* { box-sizing: border-box; }
-body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; }
-
-/* Billion-dollar hero title */
-.hero-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: clamp(2.9rem, 11.5vw, 5.5rem);
-  line-height: 0.85;
-  letter-spacing: -0.08em;
-  background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 
-    0 0 80px rgba(251,191,36,0.95), 
-    0 0 140px rgba(16,185,129,0.8),
-    0 4px 20px rgba(0,0,0,0.6);
+    /* Final Mobile Safety Net */
+@media (max-width: 480px) {
+  .hero-title-wrapper { padding: 1.2rem 1.5rem !important; }
+  .hero-title { font-size: 2.35rem !important; letter-spacing: -2.8px !important; }
 }
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-.hero-title-wrapper {
-  padding: 2rem 3rem;
-  border-radius: 3rem;
-  background: rgba(15,23,42,0.85);
-  backdrop-filter: blur(40px);
-  border: 2px solid rgba(251,191,36,0.5);
-  box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
-}
+    * { box-sizing: border-box; }
+    body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
 
-    /* PREMIUM BUTTONS */
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 10vw, 5.5rem);
+      line-height: 0.85;
+      letter-spacing: -0.08em;
+      background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 80px rgba(251,191,36,0.95), 0 0 140px rgba(16,185,129,0.8);
+    }
+
+    .hero-title-wrapper {
+      padding: 2rem 3rem;
+      border-radius: 3rem;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(40px);
+      border: 2px solid rgba(251,191,36,0.5);
+      box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
+    }
+
+    /* Premium Buttons */
     .super-cta-btn, .premium-sponsor-btn {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -50,172 +51,67 @@ body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; 
     .super-cta-btn {
       background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
       color: #0f172a;
-      box-shadow: 0 0 60px -10px rgb(251 191 36), 0 25px 70px -15px rgb(251 191 36), 0 0 120px 30px rgba(251,191,36,0.6);
+      box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36);
     }
     .premium-sponsor-btn {
       background: linear-gradient(145deg, #10b981, #34d399, #10b981);
       color: #0f172a;
-      box-shadow: 0 0 50px -10px rgb(16 185 129), 0 25px 60px -15px rgb(16 185 129), 0 0 100px 20px rgba(16,185,129,0.5);
     }
     .super-cta-btn:hover, .premium-sponsor-btn:hover {
       transform: scale(1.08) translateY(-4px);
-      box-shadow: 0 0 140px -20px rgb(251 191 36);
     }
-    .bone-icon {
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-    .super-cta-btn:hover .bone-icon {
-      animation: boneWag 0.65s ease-in-out infinite;
-    }
-    @keyframes boneWag {
-      0%, 100% { transform: rotate(-18deg) scale(1); }
-      50%      { transform: rotate(18deg) scale(1.15); }
-    }
-       
-/* New flowing shine - warmer & more organic */
-.super-cta-btn::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -150%;
-  width: 60%; height: 280%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
-  transform: skewX(-25deg);
-  animation: warmShine 2.8s linear infinite;
-}
-@keyframes warmShine {
-  0%   { transform: translateX(-150%) skewX(-25deg); }
-  100% { transform: translateX(400%) skewX(-25deg); }
-}
-    /* PROGRAM CARDS - BILLIONAIRE HOVER */
-    .program-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 2px solid transparent;
-    }
-    .program-card:hover {
-      transform: scale(1.06) translateY(-8px);
-      border-color: rgba(251,191,36,0.4);
-      box-shadow: 0 0 60px -10px rgba(251,191,36,0.6),
-                  0 25px 50px -15px rgba(16,185,129,0.5);
-    }
-    
-    /* =============== SUPERCHARGED PREMIUM UPGRADES =============== */
-.hero-bg {
-  background: linear-gradient(135deg, #0a1729 0%, #13253a 25%, #1a2e42 45%, #c89f3f 65%, #e88a9e 80%, #0a1729 100%);
-  background-size: 300% 300%;
-  animation: gradientShift 70s ease infinite;
-}
 
-.hero-title-wrapper {
-  box-shadow: 
-    0 0 140px -30px rgba(251, 191, 36, 0.95),
-    0 50px 100px -30px rgba(236, 72, 153, 0.7),
-    0 0 200px -40px rgba(16, 185, 129, 0.65),
-    inset 0 6px 0 rgba(255,255,255,0.35) !important;
-}
+    /* Warm Shine */
+    .super-cta-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -150%;
+      width: 60%; height: 280%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
+      transform: skewX(-25deg);
+      animation: warmShine 2.8s linear infinite;
+    }
+    @keyframes warmShine {
+      0% { transform: translateX(-150%) skewX(-25deg); }
+      100% { transform: translateX(400%) skewX(-25deg); }
+    }
 
-.super-cta-btn {
-  box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36), 0 0 140px 40px rgba(251,191,36,0.7) !important;
-}
+    .bone-icon { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+    .super-cta-btn:hover .bone-icon { animation: boneWag 0.65s ease-in-out infinite; }
+    @keyframes boneWag { 0%,100% { transform: rotate(-18deg) scale(1); } 50% { transform: rotate(18deg) scale(1.15); } }
 
-.premium-sponsor-btn {
-  box-shadow: 0 0 60px -10px rgb(16 185 129), 0 30px 70px -20px rgb(16 185 129), 0 0 130px 35px rgba(16,185,129,0.65) !important;
-}
- /* =============== FINAL BILLION-DOLLAR SKINNY MOBILE FIX =============== */
-@media (max-width: 380px) {
-  .hero-title-wrapper {
-    padding: 1.0rem 1.3rem !important;
-    margin: 8px 12px 16px !important;
-    border-radius: 2rem !important;
-    max-width: 94% !important;
-  }
-  
-  .hero-title, .hero-title-wrapper h1 {
-    font-size: 2.35rem !important;
-    letter-spacing: -2.95px !important;
-    line-height: 0.78 !important;
-  }
-  
-  .hero-title-wrapper h1:first-child {
-    margin-bottom: -22px !important;
-  }
-  
-  .hero-title-wrapper h1:last-child {
-    margin-top: -12px !important;
-  }
-
-  .flex.items-center.gap-2\.5 {
-    gap: 8px !important;
-    font-size: 0.85rem !important;
-  }
-}
-    @keyframes pawPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-    /* Trust & Warmth */
-.floating-paw {
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-25px); }
-}
-
-/* Better mobile hero title */
+    /* Mobile Hero Fixes */
+    @media (max-width: 640px) {
+      .hero-title-wrapper {
+        padding: 1.4rem 1.6rem !important;
+        margin: 12px 16px 20px !important;
+        border-radius: 2.25rem !important;
+      }
+      .hero-title { font-size: 2.45rem !important; letter-spacing: -2.7px !important; line-height: 0.82 !important; }
+      .hero-title-wrapper h1:first-child { margin-bottom: -18px !important; }
+      .hero-title-wrapper h1:last-child { margin-top: -8px !important; }
+    }
+    /* Final Mobile Hero Polish */
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 2.35rem !important;
-    letter-spacing: -2.6px !important;
+  .hero-title { 
+    font-size: 2.35rem !important; 
+    letter-spacing: -2.8px !important; 
+    line-height: 0.8 !important; 
   }
   .hero-title-wrapper {
-    padding: 1.4rem 1.6rem !important;
-  }
-}
-    /* Nav active state hint */
-nav a:hover {
-  color: #fcd34d;
-}
-
-/* Better token card spacing */
-.token-card {
-  transition: all 0.4s ease;
-}
-.token-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 60px -10px rgba(251,191,36,0.5);
-}
-    /* Ultra-clean mobile experience */
-@media (max-width: 640px) {
-  .hero-title-wrapper {
-    padding: 1.4rem 1.6rem !important;
-    margin: 12px 16px 20px !important;
-    border-radius: 2.25rem !important;
-  }
-  
-  nav .max-w-7xl {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  section {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-  }
-  
-  .program-card {
-    padding: 1.25rem !important;
+    padding: 1.2rem 1.5rem !important;
   }
 }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-amber-500/30">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
     <a href="#" class="flex items-center gap-3 group">
       <div class="logo-3d-wrapper w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-amber-400/70 shadow-2xl transition-transform group-hover:scale-105 flex-shrink-0">
-        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
-             class="w-full h-full object-cover" alt="Shibahumanityhub">
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" class="w-full h-full object-cover" alt="Shibahumanityhub">
       </div>
       <span class="hidden sm:block text-xl sm:text-2xl font-bold tracking-[-1.2px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
@@ -223,25 +119,17 @@ nav a:hover {
     <div class="hidden md:flex items-center gap-8 text-sm font-medium">
       <a href="#tokens" class="hover:text-amber-400 transition-colors">Tokens</a>
       <a href="#programs" class="hover:text-amber-400 transition-colors">Programs</a>
-      <a href="#impact" class="hover:text-amber-400 transition-colors">Real Impact</a>
+      <a href="#impact" class="hover:text-amber-400 transition-colors">Impact</a>
       <a href="#vision" class="hover:text-amber-400 transition-colors">Vision</a>
     </div>
 
-    <div class="flex items-center gap-3">
-      <a href="https://x.com/Shibhumanityhub" target="_blank"
-         class="hidden sm:flex items-center gap-2 text-sm hover:text-amber-400 transition">
-        <i class="fa-brands fa-x-twitter"></i>
-      </a>
-      
-      <a href="all-programs.html" 
-         class="super-cta-btn inline-flex items-center gap-2.5 px-6 py-3 text-sm sm:text-base font-bold">
-        All Programs
-        <i class="fa-solid fa-paw bone-icon text-xl"></i>
-      </a>
-    </div>
+    <a href="all-programs.html" class="super-cta-btn inline-flex items-center gap-2.5 px-6 py-3 text-sm sm:text-base font-bold">
+      All Programs <i class="fa-solid fa-paw bone-icon text-xl"></i>
+    </a>
   </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen relative overflow-hidden">
   <div class="absolute inset-0 bg-[radial-gradient(at_center,#10b98120_0%,transparent_70%)]"></div>
   
@@ -271,10 +159,7 @@ nav a:hover {
     </div>
 
     <div class="mt-12 flex justify-center items-center gap-8 text-sm text-amber-200/70 flex-wrap">
-      <div class="flex items-center gap-2">
-        <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
-        <span>LIVE ON TESTNET</span>
-      </div>
+      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>LIVE ON TESTNET</div>
       <div class="hidden sm:block">•</div>
       <div>100% On-Chain Mercy</div>
       <div class="hidden sm:block">•</div>
@@ -282,15 +167,14 @@ nav a:hover {
     </div>
   </div>
 
-  <!-- Floating elements -->
   <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-12 text-4xl opacity-30 pointer-events-none">
-    <span class="animate-bounce" style="animation-delay: 0s">🐾</span>
-    <span class="animate-bounce" style="animation-delay: 0.8s">🌱</span>
+    <span class="animate-bounce">🐾</span>
+    <span class="animate-bounce" style="animation-delay:0.8s">🌱</span>
   </div>
 </header>
-
-<!-- CONTRACTS -->
-<section class="py-24 bg-zinc-900">
+  
+<!-- TOKENS -->
+<section id="tokens" class="py-24 bg-zinc-900">
   <div class="max-w-6xl mx-auto px-6 text-center">
     <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
     <div class="grid md:grid-cols-2 gap-12">
