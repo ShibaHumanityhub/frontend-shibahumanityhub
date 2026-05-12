@@ -58,6 +58,59 @@
       section { padding: 3.8rem 1rem !important; }
     }
   </style>
+  <style>
+  /* ... your existing styles stay exactly the same ... */
+
+  /* === EPIC DIVIDER & PREMIUM SECTIONS === */
+  .programs-section {
+    padding: 4rem 0;
+  }
+  .section-header {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    letter-spacing: -0.05em;
+  }
+  .mercy-divider {
+    position: relative;
+    padding: 5rem 0;
+    background: linear-gradient(90deg, #0a1729, #13253a, #0a1729);
+    overflow: hidden;
+  }
+  .mercy-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #fcd34d, #10b981, #fcd34d, transparent);
+    box-shadow: 0 0 40px #fcd34d, 0 0 80px #10b981;
+  }
+  .divider-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+  .divider-text {
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(92deg, #fefce8 0%, #fcd34d 30%, #10b981 70%, #fefce8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    letter-spacing: -0.04em;
+    text-shadow: 0 0 60px rgba(251,191,36,0.6);
+  }
+  .program-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+  }
+  .program-card:hover {
+    transform: scale(1.06) translateY(-12px);
+    border-color: rgba(251,191,36,0.5);
+    box-shadow: 0 0 80px -20px rgba(251,191,36,0.8),
+                0 30px 60px -20px rgba(16,185,129,0.6);
+  }
+</style>
 </head>
 <body>
 
@@ -113,26 +166,25 @@
   </div>
 </section>
 
-<!-- ALL PROGRAMS GRID + TABS -->
+<!-- ALL PROGRAMS GRID + TABS + EPIC DIVIDER -->
 <section class="py-24 bg-zinc-950">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="text-5xl font-bold">All 29 Programs</h2>
-      <p class="text-amber-200 text-2xl mt-4">Every program is a living story of mercy. Click any card to read the full details.</p>
+      <p class="text-amber-200 text-2xl mt-4">Every program is a living story of mercy.<br>Click any card to read the full details.</p>
     </div>
 
     <!-- TABS -->
-    <div class="flex justify-center gap-4 mb-12 flex-wrap">
+    <div class="flex justify-center gap-4 mb-16 flex-wrap">
       <button onclick="filterPrograms('all')" id="tab-all" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
       <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
       <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
     </div>
 
-    <!-- FULL GRID -->
-    <div id="all-programs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+    <!-- FULL GRID (now with elegant division when "All" is selected) -->
+    <div id="all-programs-grid" class="space-y-20"></div>
   </div>
 </section>
-
 <!-- HOW YOU CAN HELP + FOOTER + MODAL (unchanged) -->
 <section class="py-20 bg-zinc-950">
   <div class="max-w-6xl mx-auto px-6">
@@ -879,27 +931,96 @@ const programs = [{
       }
 ];   // ← THIS ] WAS MISSING - NOW FIXED
 
-// === ALL FUNCTIONS ===
+// === EPIC RENDER FUNCTIONS ===
+function createCardHTML(p) {
+  return `
+    <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden group">
+      <div class="relative overflow-hidden rounded-2xl mb-6">
+        <img src="${p.image}" class="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105" alt="${p.title}">
+      </div>
+      <div class="flex gap-2 mb-4">
+        <span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl font-medium">${p.category}</span>
+      </div>
+      <h3 class="text-2xl font-semibold mb-3 leading-tight">${p.title}</h3>
+      <p class="text-zinc-400 text-base line-clamp-3">${p.shortDesc}</p>
+    </div>
+  `;
+}
+
 function renderAllPrograms(cat = 'all') {
   const grid = document.getElementById('all-programs-grid');
-  let filtered = programs;
-  if (cat === '$NIBBLES') filtered = programs.filter(p => p.category === '$NIBBLES');
-  if (cat === '$hopeseed') filtered = programs.filter(p => p.category === '$hopeseed');
+  grid.innerHTML = '';
 
-  grid.innerHTML = filtered.map(p => `
-    <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
-      <img src="${p.image}" class="w-full h-64 object-contain rounded-2xl mb-6" alt="">
-      <div class="flex gap-2 mb-4"><span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl">${p.category}</span></div>
-      <h3 class="text-2xl font-semibold mb-3">${p.title}</h3>
-      <p class="text-zinc-400 text-base">${p.shortDesc}</p>
-    </div>
-  `).join('');
+  if (cat === 'all') {
+    // $NIBBLES SECTION
+    const nibbles = programs.filter(p => p.category === '$NIBBLES');
+    grid.innerHTML += `
+      <div class="programs-section">
+        <div class="flex items-center justify-center gap-4 mb-8">
+          <span class="text-6xl">🐾</span>
+          <h2 class="section-header text-amber-300">$NIBBLES • Mercy Programs</h2>
+          <span class="text-6xl">🐾</span>
+        </div>
+        <p class="text-center text-amber-200/90 text-xl max-w-3xl mx-auto mb-14">Every transaction quietly becomes mercy for dogs who once had none.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          ${nibbles.map(p => createCardHTML(p)).join('')}
+        </div>
+      </div>
+    `;
+
+    // EPIC MERCY DIVIDER
+    grid.innerHTML += `
+      <div class="mercy-divider my-16">
+        <div class="divider-content max-w-4xl mx-auto px-6">
+          <div class="flex justify-center items-center gap-8 text-5xl mb-8 opacity-90">
+            <span>🐾</span>
+            <span class="text-6xl text-emerald-400">♡</span>
+            <span>🌱</span>
+          </div>
+          <h3 class="divider-text">29 Living Stories of Mercy</h3>
+          <p class="text-amber-100/80 text-lg mt-6 max-w-lg mx-auto leading-relaxed">
+            People helping people helping people.<br>
+            Every single transaction saves lives.
+          </p>
+        </div>
+      </div>
+    `;
+
+    // $hopeseed SECTION
+    const hopeseed = programs.filter(p => p.category === '$hopeseed');
+    grid.innerHTML += `
+      <div class="programs-section">
+        <div class="flex items-center justify-center gap-4 mb-8">
+          <span class="text-6xl">🌱</span>
+          <h2 class="section-header text-emerald-300">$hopeseed • Hope Programs</h2>
+          <span class="text-6xl">🌱</span>
+        </div>
+        <p class="text-center text-emerald-200/90 text-xl max-w-3xl mx-auto mb-14">Every transaction plants a seed of hope for children who need it most.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          ${hopeseed.map(p => createCardHTML(p)).join('')}
+        </div>
+      </div>
+    `;
+  } else {
+    // Single category view
+    let filtered = programs.filter(p => p.category === cat);
+    grid.innerHTML = `
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        ${filtered.map(p => createCardHTML(p)).join('')}
+      </div>
+    `;
+  }
 }
 
 function filterPrograms(cat) {
-  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'bg-amber-400', 'text-black'));
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active', 'bg-amber-400', 'text-black');
+  });
+  
   const tabId = cat === 'all' ? 'tab-all' : `tab-${cat.toLowerCase().replace('$','')}`;
-  document.getElementById(tabId).classList.add('active', 'bg-amber-400', 'text-black');
+  const activeTab = document.getElementById(tabId);
+  if (activeTab) activeTab.classList.add('active', 'bg-amber-400', 'text-black');
+  
   renderAllPrograms(cat);
 }
 
@@ -924,7 +1045,7 @@ function sponsorProgram() {
 
 window.onload = function() {
   renderAllPrograms('all');
-  console.log("✅ All 29 programs now live with interactive grid");
+  console.log("✅ Epic All Programs page with premium cinematic divider loaded");
 };
 </script>
 </body>
