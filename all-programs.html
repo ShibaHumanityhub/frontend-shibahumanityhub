@@ -64,6 +64,7 @@
   }
 </style>
   <style>
+ <style>
   /* === EPIC DIVIDER & PREMIUM SECTIONS === */
   .programs-section {
     padding: 4rem 0;
@@ -218,34 +219,34 @@
 <section class="py-20 bg-zinc-950">
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid md:grid-cols-3 gap-8">
-      <!-- 1. Read the Full Vision -->
-      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/40 transition-all duration-300 group">
+      <!-- Vision -->
+      <div class="bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/20 hover:border-amber-400 transition-all">
         <h3 class="text-3xl mb-3">Read the Full Vision</h3>
         <p class="text-zinc-400 mb-8">Step into the complete story. See where we’re going and how every transaction is already changing lives.</p>
         <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" 
-           class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl w-full justify-center hover:scale-105 transition-all">
+           class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl w-full justify-center">
           <i class="fa-solid fa-bone bone-icon text-4xl"></i>
           Download Whitepaper v2
         </a>
       </div>
 
-      <!-- 2. Sponsor a Program (Most Impactful) -->
-      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-emerald-400/20 hover:border-emerald-400/50 transition-all duration-300 group">
+      <!-- Sponsor -->
+      <div class="bg-zinc-900 rounded-3xl p-10 text-center border border-emerald-400/30 hover:border-emerald-400 transition-all">
         <div class="mx-auto mb-6 inline-flex items-center justify-center bg-emerald-400 text-black text-xs font-bold px-5 py-2 rounded-3xl shadow-md">MOST IMPACTFUL</div>
         <h3 class="text-3xl mb-3">Sponsor a Program</h3>
         <p class="text-zinc-400 mb-8">Choose any program that touches your heart and become the reason a dog finds safety or a child feels truly loved.</p>
         <button onclick="sponsorProgram('any')" 
-                class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full hover:scale-105 transition-all">
+                class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full">
           Sponsor With Love Right Now
         </button>
       </div>
 
-      <!-- 3. Join the Movement -->
-      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/40 transition-all duration-300 group">
+      <!-- Join Movement -->
+      <div class="bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/20 hover:border-amber-400 transition-all">
         <h3 class="text-3xl mb-3">Join the Movement</h3>
         <p class="text-zinc-400 mb-8">Become part of something bigger. Follow along and watch real mercy unfold together.</p>
         <a href="https://x.com/Shibhumanityhub" target="_blank" 
-           class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full justify-center hover:scale-105 transition-all">
+           class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full justify-center">
           <i class="fa-brands fa-x-twitter"></i>
           Join us on X
         </a>
@@ -976,7 +977,7 @@ const programs = [{
           <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding is there, these families will no longer carry that heavy weight alone. Their children will get the medicine, equipment, and support they need to thrive. Parents will have real peace of mind and space to simply love and raise their kids. This is the kind of steady, respectful care the world needs. One family, one child, one beautiful bridge to a better day at a time.</p>
           <button onclick="sponsorProgram('special-needs-support-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Build A Lifelong Bridge For These Families</button>`
       }
-];   // ← THIS ] WAS MISSING - NOW FIXED
+];   //
 
 // === EPIC RENDER FUNCTIONS ===
 function createCardHTML(p) {
@@ -995,7 +996,6 @@ function createCardHTML(p) {
     </div>
   `;
 }
-
 function renderAllPrograms(cat = 'all') {
   const grid = document.getElementById('all-programs-grid');
   grid.innerHTML = '';
