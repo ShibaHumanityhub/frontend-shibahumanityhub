@@ -12,12 +12,8 @@
     * { box-sizing: border-box; }
     body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
 
-    /* HERO BACKGROUND */
-    .hero-bg {
-      background: linear-gradient(180deg, #0a0f1c 0%, #1a2338 100%);
-    }
+    .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #1a2338 100%); }
 
-    /* LEGENDARY HERO */
     .hero-title {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -44,7 +40,6 @@
       .hero-title { font-size: 2.22rem !important; letter-spacing: -2.95px !important; line-height: 0.79 !important; }
     }
 
-    /* Buttons */
     .super-cta-btn, .premium-sponsor-btn {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -62,31 +57,42 @@
     .super-cta-btn:hover .bone-icon { animation: boneWag 0.55s ease-in-out infinite; }
     @keyframes boneWag { 0%,100% { transform: rotate(-20deg) scale(1); } 50% { transform: rotate(20deg) scale(1.18); } }
 
-    /* FLOATING HEARTS & PAWS - Fixed & Rich */
-    .program-card {
-      position: relative;
-      overflow: hidden;
-    }
-    .program-card::before, .program-card::after {
-      position: absolute;
-      pointer-events: none;
-      z-index: 1;
-      animation: floatOrganic 8s linear infinite;
-      opacity: 0.16;
-    }
-    .program-card::before { content: '❤️'; font-size: 1.6rem; color: #f472b6; }
-    .program-card::after  { content: '🐾'; font-size: 1.9rem; color: #fcd34d; }
+/* SUPERCHARGED FLOATING HEARTS & PAWS */
+.program-card {
+  position: relative;
+  overflow: hidden;
+}
+.program-card::before, .program-card::after {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatOrganic linear infinite;
+  opacity: 0.22;
+}
+.program-card::before { content: '❤️'; font-size: 1.7rem; color: #f472b6; }
+.program-card::after  { content: '🐾'; font-size: 2.1rem; color: #fcd34d; }
 
-    /* Unique per card */
-    .program-card:nth-child(odd)::before { top: 18%; left: 15%; animation-duration: 7.8s; }
-    .program-card:nth-child(odd)::after  { bottom: 22%; right: 20%; animation-duration: 11.2s; animation-delay: 2s; }
-    .program-card:nth-child(even)::before { top: 25%; right: 18%; animation-duration: 9.5s; }
-    .program-card:nth-child(even)::after  { bottom: 30%; left: 22%; animation-duration: 8.4s; animation-delay: 1.4s; }
+.program-card:nth-child(1)::before { top: 12%; left: 10%; animation-duration: 7.2s; }
+.program-card:nth-child(1)::after  { bottom: 20%; right: 15%; animation-duration: 10.8s; animation-delay: 1.2s; }
 
-    @keyframes floatOrganic {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      50% { transform: translate(18px, -38px) rotate(22deg); }
-    }
+.program-card:nth-child(2)::before { top: 25%; right: 18%; animation-duration: 8.9s; }
+.program-card:nth-child(2)::after  { bottom: 30%; left: 12%; animation-duration: 7.8s; animation-delay: 2.4s; }
+
+.program-card:nth-child(3)::before { top: 18%; left: 22%; animation-duration: 9.5s; }
+.program-card:nth-child(3)::after  { bottom: 25%; right: 20%; animation-duration: 11.5s; }
+
+.program-card:nth-child(4)::before { top: 15%; right: 12%; animation-duration: 8.1s; }
+.program-card:nth-child(4)::after  { bottom: 28%; left: 25%; animation-duration: 9.2s; animation-delay: 0.8s; }
+
+.program-card:nth-child(5)::before,
+.program-card:nth-child(6)::before,
+.program-card:nth-child(7)::before,
+.program-card:nth-child(8)::before { top: 20%; left: 15%; animation-duration: 8.5s; }
+
+@keyframes floatOrganic {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(22px, -45px) rotate(28deg); }
+}
 
     .program-card img {
       width: 100%;
@@ -99,7 +105,6 @@
       .program-card img { height: 165px; }
     }
 
-    /* Logo Smoke */
     .logo-3d-wrapper {
       position: relative;
     }
@@ -154,11 +159,9 @@
   
   <div class="max-w-5xl mx-auto px-6 relative z-10 w-full">
     <div class="hero-title-wrapper mx-auto max-w-[94%]">
-      <!-- Desktop -->
       <h1 class="hero-title hidden md:block">SHIBA</h1>
       <h1 class="hero-title -mt-6 md:-mt-5 hidden md:block">HUMANITYHUB</h1>
       
-      <!-- Skinny Mobile - Single Word Masterpiece -->
       <h1 class="hero-title md:hidden text-[2.35rem] leading-none tracking-[-3.2px]">
         <span class="font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">SHIBA</span>
         <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-400 bg-clip-text text-transparent">HUMANITY</span>
@@ -172,8 +175,7 @@
     </p>
 
     <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 px-4">
-      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank"
-         class="super-cta-btn inline-flex items-center justify-center gap-4 text-xl px-10 py-6 w-full sm:w-auto">
+      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="super-cta-btn inline-flex items-center justify-center gap-4 text-xl px-10 py-6 w-full sm:w-auto">
         <i class="fa-solid fa-bone bone-icon text-3xl"></i>
         Download Whitepaper v2
       </a>
@@ -619,75 +621,21 @@ const programs = [
       },
 ];
 
-function showProgramModal(id) {
-  const program = programs.find(p => p.id === id);
-  if (!program) return;
-  document.getElementById('modal-content').innerHTML = program.fullHTML;
-  document.getElementById('program-modal').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-}
+function showProgramModal(id) { ... }
+function hideModal() { ... }
+function sponsorProgram() { ... }
 
-function hideModal() {
-  document.getElementById('program-modal').classList.add('hidden');
-  document.body.style.overflow = 'auto';
-}
-
-function sponsorProgram() {
-  alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives.");
-}
-</script>
-  <script>
-// Smooth scroll for nav links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     if (this.getAttribute('href') === '#') return;
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 });
 
-// Simple mobile menu (can be expanded later)
 console.log('%cShibahumanityhub loaded — People helping people helping people.', 'color:#fcd34d; font-family:monospace;');
-    // === FLOATING HEARTS & PAWS ===
-function createFloatingParticles(card) {
-  const container = card.querySelector('.floating-elements');
-  if (!container) return;
-
-  const isNibbles = card.classList.contains('nibbles-card');
-  const emojis = isNibbles ? ['🐾', '❤️', '🐾', '💛'] : ['❤️', '🌱', '💚', '❤️'];
-
-  setInterval(() => {
-    const particle = document.createElement('div');
-    particle.className = 'float-particle';
-    particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    
-    particle.style.left = Math.random() * 85 + 7 + '%';
-    particle.style.animationDuration = (2.8 + Math.random() * 2.2) + 's';
-    particle.style.opacity = 0.7 + Math.random() * 0.3;
-    
-    container.appendChild(particle);
-    setTimeout(() => particle.remove(), 8000);
-  }, 650);
-}
-
-function initFloatingParticles() {
-  document.querySelectorAll('.program-card').forEach(card => {
-    if (!card.hasAttribute('data-particles-init')) {
-      createFloatingParticles(card);
-      card.setAttribute('data-particles-init', 'true');
-    }
-  });
-}
-
-// Re-init particles after render
-const originalRender = renderAllPrograms;
-renderAllPrograms = function(cat = 'all') {
-  originalRender.call(this, cat);
-  setTimeout(initFloatingParticles, 400);
-};
 </script>
 </body>
 </html>
