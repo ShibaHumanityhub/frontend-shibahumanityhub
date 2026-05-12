@@ -1196,6 +1196,43 @@ window.onload = function() {
   renderAllPrograms('all');
   console.log("✅ Epic All Programs page with premium cinematic divider loaded");
 };
+  // === FLOATING HEARTS & PAWS ===
+function createFloatingParticles(card) {
+  const container = card.querySelector('.floating-elements');
+  if (!container) return;
+
+  const isNibbles = card.classList.contains('nibbles-card');
+  const emojis = isNibbles ? ['🐾', '❤️', '🐾', '💛'] : ['❤️', '🌱', '💚', '❤️'];
+
+  setInterval(() => {
+    const particle = document.createElement('div');
+    particle.className = 'float-particle';
+    particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    
+    particle.style.left = Math.random() * 85 + 7 + '%';
+    particle.style.animationDuration = (2.8 + Math.random() * 2.2) + 's';
+    particle.style.opacity = 0.7 + Math.random() * 0.3;
+    
+    container.appendChild(particle);
+    setTimeout(() => particle.remove(), 8000);
+  }, 650);
+}
+
+function initFloatingParticles() {
+  document.querySelectorAll('.program-card').forEach(card => {
+    if (!card.hasAttribute('data-particles-init')) {
+      createFloatingParticles(card);
+      card.setAttribute('data-particles-init', 'true');
+    }
+  });
+}
+
+// Re-init particles after render
+const originalRender = renderAllPrograms;
+renderAllPrograms = function(cat = 'all') {
+  originalRender.call(this, cat);
+  setTimeout(initFloatingParticles, 400);
+};
 </script>
 </body>
 </html>
