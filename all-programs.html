@@ -187,6 +187,7 @@
   .program-card {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
+    position: relative;
   }
 
   /* $NIBBLES Cards - Amber Glow */
@@ -203,6 +204,32 @@
     border-color: rgba(16,185,129,0.6);
     box-shadow: 0 0 80px -20px rgba(16,185,129,0.9),
                 0 30px 60px -20px rgba(16,185,129,0.7);
+  }
+
+  /* FLOATING HEARTS & PAWS */
+  .floating-elements {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .float-particle {
+    position: absolute;
+    font-size: 18px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    animation: floatUp linear forwards;
+    text-shadow: 0 0 8px currentColor;
+  }
+
+  @keyframes floatUp {
+    0%   { transform: translateY(120px) scale(0.6); opacity: 0; }
+    20%  { opacity: 0.85; }
+    80%  { opacity: 0.85; }
+    100% { transform: translateY(-200px) scale(1.15); opacity: 0; }
   }
 </style>
 </head>
@@ -1053,15 +1080,19 @@ function createCardHTML(p) {
   const cardClass = p.category === '$NIBBLES' ? 'nibbles-card' : 'hopeseed-card';
   
   return `
-    <div onclick="showProgramModal(${p.id})" class="program-card ${cardClass} cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden group">
-      <div class="relative overflow-hidden rounded-2xl mb-6">
+    <div onclick="showProgramModal(${p.id})" class="program-card ${cardClass} cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden group relative">
+      <!-- Floating Elements -->
+      <div class="floating-elements absolute inset-0 pointer-events-none"></div>
+      
+      <div class="relative overflow-hidden rounded-2xl mb-6 z-10">
         <img src="${p.image}" class="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105" alt="${p.title}">
       </div>
-      <div class="flex gap-2 mb-4">
+      
+      <div class="flex gap-2 mb-4 z-10 relative">
         <span class="text-xs bg-${p.badgeColor}-600 px-3 py-1 rounded-2xl font-medium">${p.category}</span>
       </div>
-      <h3 class="text-2xl font-semibold mb-3 leading-tight">${p.title}</h3>
-      <p class="text-zinc-400 text-base line-clamp-3">${p.shortDesc}</p>
+      <h3 class="text-2xl font-semibold mb-3 leading-tight z-10 relative">${p.title}</h3>
+      <p class="text-zinc-400 text-base line-clamp-3 z-10 relative">${p.shortDesc}</p>
     </div>
   `;
 }
