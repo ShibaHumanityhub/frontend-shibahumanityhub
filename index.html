@@ -34,21 +34,12 @@
       box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
     }
 
-    /* SKINNY MOBILE - SINGLE WORD MASTERPIECE */
     @media (max-width: 390px) {
-      .hero-title-wrapper {
-        padding: 1.0rem 1.2rem !important;
-        margin: 10px 12px 20px !important;
-        border-radius: 2rem !important;
-      }
-      .hero-title {
-        font-size: 2.22rem !important;
-        letter-spacing: -2.95px !important;
-        line-height: 0.79 !important;
-      }
+      .hero-title-wrapper { padding: 1.0rem 1.2rem !important; margin: 10px 12px 20px !important; border-radius: 2rem !important; }
+      .hero-title { font-size: 2.22rem !important; letter-spacing: -2.95px !important; line-height: 0.79 !important; }
     }
 
-    /* Premium Buttons + Bone Wag */
+    /* Buttons & Bone Wag */
     .super-cta-btn, .premium-sponsor-btn {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -58,78 +49,52 @@
       border-radius: 9999px;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .super-cta-btn {
-      background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
-      color: #0f172a;
-      box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36);
-    }
-    .premium-sponsor-btn {
-      background: linear-gradient(145deg, #10b981, #34d399, #10b981);
-      color: #0f172a;
-    }
-    .super-cta-btn:hover, .premium-sponsor-btn:hover {
-      transform: scale(1.08) translateY(-4px);
-    }
+    .super-cta-btn { background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f); color: #0f172a; box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36); }
+    .premium-sponsor-btn { background: linear-gradient(145deg, #10b981, #34d399, #10b981); color: #0f172a; }
+    .super-cta-btn:hover, .premium-sponsor-btn:hover { transform: scale(1.08) translateY(-4px); }
 
-    .bone-icon {
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-      display: inline-block;
-    }
-    .super-cta-btn:hover .bone-icon,
-    .help-card .super-cta-btn:hover .bone-icon {
+    .bone-icon { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); display: inline-block; }
+    .super-cta-btn:hover .bone-icon, .help-card .super-cta-btn:hover .bone-icon {
       animation: boneWag 0.55s ease-in-out infinite;
     }
-    @keyframes boneWag {
-      0%, 100% { transform: rotate(-20deg) scale(1); }
-      50%      { transform: rotate(20deg) scale(1.18); }
+    @keyframes boneWag { 0%,100% { transform: rotate(-20deg) scale(1); } 50% { transform: rotate(20deg) scale(1.18); } }
+
+    /* RICH FLOATING HEARTS & PAWS - Multiple per card, truly organic */
+    .program-card {
+      position: relative;
+      overflow: hidden;
     }
+    .program-card::before, .program-card::after, .program-card .extra-float {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      animation: floatOrganic 8s linear infinite;
+      opacity: 0.14;
+    }
+    .program-card::before { content: '❤️'; font-size: 1.5rem; color: #f472b6; }
+    .program-card::after  { content: '🐾'; font-size: 1.75rem; color: #fcd34d; }
 
-    /* RICH FLOATING HEARTS & PAWS - Multiple per card */
-.program-card {
-  position: relative;
-  overflow: hidden;
-}
+    /* Multiple unique elements per card */
+    .program-card:nth-child(1)::before { top: 15%; left: 12%; animation-duration: 7.2s; }
+    .program-card:nth-child(1)::after  { bottom: 25%; right: 18%; animation-duration: 10.5s; animation-delay: 1.8s; }
+    .program-card:nth-child(1) .extra-float { content: '❤️'; top: 55%; left: 25%; animation-duration: 9s; animation-delay: 0.5s; }
 
-/* Multiple floating elements */
-.program-card::before,
-.program-card::after,
-.program-card .extra-float {
-  position: absolute;
-  pointer-events: none;
-  z-index: 1;
-  animation: floatOrganic 8s linear infinite;
-  opacity: 0.13;
-}
+    .program-card:nth-child(2)::before { top: 22%; right: 15%; animation-duration: 9.1s; }
+    .program-card:nth-child(2)::after  { bottom: 35%; left: 20%; animation-duration: 8.3s; animation-delay: 2.4s; }
+    .program-card:nth-child(2) .extra-float { content: '🐾'; top: 40%; right: 22%; animation-duration: 11s; animation-delay: 1.2s; }
 
-.program-card::before  { content: '❤️'; font-size: 1.5rem; color: #f472b6; }
-.program-card::after   { content: '🐾'; font-size: 1.75rem; color: #fcd34d; }
+    .program-card:nth-child(3)::before { bottom: 28%; left: 22%; animation-duration: 11s; }
+    .program-card:nth-child(3)::after  { top: 45%; right: 15%; animation-duration: 7.8s; animation-delay: 3.1s; }
+    .program-card:nth-child(3) .extra-float { content: '❤️'; top: 30%; left: 18%; animation-duration: 8.5s; animation-delay: 0.8s; }
 
-.program-card .extra-float {
-  position: absolute;
-  font-size: 1.4rem;
-}
+    .program-card:nth-child(4)::before { top: 25%; left: 28%; animation-duration: 8.7s; }
+    .program-card:nth-child(4)::after  { bottom: 20%; right: 25%; animation-duration: 9.8s; animation-delay: 2.7s; }
+    .program-card:nth-child(4) .extra-float { content: '🐾'; top: 60%; left: 15%; animation-duration: 10.2s; animation-delay: 1.5s; }
 
-/* Unique positions + more elements per card */
-.program-card:nth-child(1)::before { top: 15%; left: 12%; animation-duration: 7.2s; }
-.program-card:nth-child(1)::after  { bottom: 25%; right: 18%; animation-duration: 10.5s; animation-delay: 1.8s; }
-
-.program-card:nth-child(2)::before { top: 22%; right: 15%; animation-duration: 9.1s; }
-.program-card:nth-child(2)::after  { bottom: 35%; left: 20%; animation-duration: 8.3s; animation-delay: 2.4s; }
-
-.program-card:nth-child(3)::before { bottom: 28%; left: 22%; animation-duration: 11s; }
-.program-card:nth-child(3)::after  { top: 45%; right: 15%; animation-duration: 7.8s; animation-delay: 3.1s; }
-
-.program-card:nth-child(4)::before { top: 25%; left: 28%; animation-duration: 8.7s; }
-.program-card:nth-child(4)::after  { bottom: 20%; right: 25%; animation-duration: 9.8s; animation-delay: 2.7s; }
-
-/* Extra floating elements */
-.program-card:nth-child(odd) .extra-float:nth-child(1) { content: '❤️'; top: 35%; left: 25%; color: #f472b6; animation-duration: 9.5s; }
-.program-card:nth-child(even) .extra-float:nth-child(1) { content: '🐾'; top: 40%; right: 22%; color: #fcd34d; animation-duration: 8.2s; }
-
-@keyframes floatOrganic {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(12px, -35px) rotate(15deg); }
-}
+    @keyframes floatOrganic {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(15px, -35px) rotate(18deg); }
+    }
 
     /* Program Images */
     .program-card img {
@@ -139,37 +104,34 @@
       border-radius: 1rem;
       margin-bottom: 1rem;
     }
-
     @media (max-width: 480px) {
       .program-card img { height: 170px; }
     }
-    /* GENTLE SMOKE AURA AROUND LOGO - Emerald & Gold */
-.logo-3d-wrapper {
-  position: relative;
-}
 
-.logo-3d-wrapper::before,
-.logo-3d-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: -25%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(52,211,153,0.25) 20%, transparent 70%);
-  animation: smokePulse 8s ease-in-out infinite;
-  z-index: -1;
-  filter: blur(12px);
-}
-
-.logo-3d-wrapper::after {
-  background: radial-gradient(circle, rgba(251,191,36,0.25) 20%, transparent 70%);
-  animation-delay: 3s;
-  animation-duration: 10s;
-}
-
-@keyframes smokePulse {
-  0%, 100% { transform: scale(0.85); opacity: 0.6; }
-  50% { transform: scale(1.15); opacity: 0.9; }
-}
+    /* GENTLE SMOKE AURA AROUND LOGO */
+    .logo-3d-wrapper {
+      position: relative;
+    }
+    .logo-3d-wrapper::before,
+    .logo-3d-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -30%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(52,211,153,0.35) 20%, transparent 70%);
+      animation: smokePulse 8s ease-in-out infinite;
+      z-index: -1;
+      filter: blur(18px);
+    }
+    .logo-3d-wrapper::after {
+      background: radial-gradient(circle, rgba(251,191,36,0.35) 20%, transparent 70%);
+      animation-delay: 3.2s;
+      animation-duration: 11s;
+    }
+    @keyframes smokePulse {
+      0%, 100% { transform: scale(0.85); opacity: 0.55; }
+      50% { transform: scale(1.18); opacity: 0.85; }
+    }
   </style>
 </head>
 <body>
