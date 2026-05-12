@@ -102,8 +102,47 @@
   0% { transform: translateX(-150%) skewX(-25deg); }
   100% { transform: translateX(400%) skewX(-25deg); }
 }
-</style>
-  <style>
+    /* === BUTTON STYLES FROM MAIN PAGE (EXACT MATCH) === */
+.super-cta-btn, .premium-sponsor-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1.8px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.super-cta-btn {
+  background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
+  color: #0f172a;
+  box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36);
+}
+
+.premium-sponsor-btn {
+  background: linear-gradient(145deg, #10b981, #34d399, #10b981);
+  color: #0f172a;
+}
+
+.super-cta-btn:hover, .premium-sponsor-btn:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 0 90px -10px rgb(251 191 36);
+}
+
+.super-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -150%;
+  width: 60%; height: 280%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
+  transform: skewX(-25deg);
+  animation: warmShine 2.8s linear infinite;
+}
+@keyframes warmShine {
+  0% { transform: translateX(-150%) skewX(-25deg); }
+  100% { transform: translateX(400%) skewX(-25deg); }
+}
+  </style>
  <style>
   /* === EPIC DIVIDER & PREMIUM SECTIONS === */
   .programs-section {
