@@ -43,24 +43,27 @@
     }
 
     .program-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 2px solid transparent;
-    }
-    .program-card:hover {
-      transform: scale(1.06) translateY(-8px);
-      border-color: rgba(251,191,36,0.4);
-      box-shadow: 0 0 60px -10px rgba(251,191,36,0.6), 0 25px 50px -15px rgba(16,185,129,0.5);
-    }
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+  }
 
-    @media (max-width: 480px) {
-      .hero-title { font-size: 2.95rem !important; letter-spacing: -2.6px !important; }
-      .hero-title-wrapper { padding: 1.9rem 2.6rem !important; margin: 30px 12px !important; }
-      section { padding: 3.8rem 1rem !important; }
-    }
-  </style>
+  /* $NIBBLES Cards - Amber Glow */
+  .nibbles-card:hover {
+    transform: scale(1.06) translateY(-12px);
+    border-color: rgba(251,191,36,0.5);
+    box-shadow: 0 0 80px -20px rgba(251,191,36,0.8),
+                0 30px 60px -20px rgba(16,185,129,0.6);
+  }
+
+  /* $hopeseed Cards - Emerald Glow */
+  .hopeseed-card:hover {
+    transform: scale(1.06) translateY(-12px);
+    border-color: rgba(16,185,129,0.6);
+    box-shadow: 0 0 80px -20px rgba(16,185,129,0.9),
+                0 30px 60px -20px rgba(16,185,129,0.7);
+  }
+</style>
   <style>
-  /* ... your existing styles stay exactly the same ... */
-
   /* === EPIC DIVIDER & PREMIUM SECTIONS === */
   .programs-section {
     padding: 4rem 0;
@@ -100,15 +103,26 @@
     letter-spacing: -0.04em;
     text-shadow: 0 0 60px rgba(251,191,36,0.6);
   }
+
   .program-card {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
   }
-  .program-card:hover {
+
+  /* $NIBBLES Cards - Amber Glow */
+  .nibbles-card:hover {
     transform: scale(1.06) translateY(-12px);
     border-color: rgba(251,191,36,0.5);
     box-shadow: 0 0 80px -20px rgba(251,191,36,0.8),
                 0 30px 60px -20px rgba(16,185,129,0.6);
+  }
+
+  /* $hopeseed Cards - Emerald Glow */
+  .hopeseed-card:hover {
+    transform: scale(1.06) translateY(-12px);
+    border-color: rgba(16,185,129,0.6);
+    box-shadow: 0 0 80px -20px rgba(16,185,129,0.9),
+                0 30px 60px -20px rgba(16,185,129,0.7);
   }
 </style>
 </head>
@@ -948,8 +962,10 @@ const programs = [{
 
 // === EPIC RENDER FUNCTIONS ===
 function createCardHTML(p) {
+  const cardClass = p.category === '$NIBBLES' ? 'nibbles-card' : 'hopeseed-card';
+  
   return `
-    <div onclick="showProgramModal(${p.id})" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden group">
+    <div onclick="showProgramModal(${p.id})" class="program-card ${cardClass} cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden group">
       <div class="relative overflow-hidden rounded-2xl mb-6">
         <img src="${p.image}" class="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105" alt="${p.title}">
       </div>
