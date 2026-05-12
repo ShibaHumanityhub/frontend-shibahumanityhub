@@ -7,40 +7,34 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    /* === ULTRA SKINNY MOBILE HERO FIX (360px–380px) === */
+    /* ==================== ULTIMATE SKINNY MOBILE HERO FIX ==================== */
     @media (max-width: 380px) {
       .hero-title-wrapper {
-        padding: 0.9rem 1.1rem !important;
+        padding: 0.85rem 1.1rem !important;
         margin: 8px 12px 18px !important;
         border-radius: 1.75rem !important;
         max-width: 94% !important;
-        background: rgba(15,23,42,0.92) !important;
+        background: rgba(15,23,42,0.95) !important;
       }
       
       .hero-title {
-        font-size: 2.18rem !important;
-        letter-spacing: -3.1px !important;
-        line-height: 0.74 !important;
+        font-size: 2.15rem !important;
+        letter-spacing: -3.15px !important;
+        line-height: 0.73 !important;
       }
       
       .hero-title-wrapper h1:first-child {
-        margin-bottom: -26px !important;
+        margin-bottom: -27px !important;
       }
       .hero-title-wrapper h1:last-child {
-        margin-top: -14px !important;
+        margin-top: -15px !important;
       }
 
-      /* Logo */
-      .logo-3d-wrapper {
-        width: 50px !important;
-        height: 50px !important;
-      }
-
-      /* Buttons */
-      .super-cta-btn, .premium-sponsor-btn {
-        font-size: 0.9rem !important;
-        padding: 12px 16px !important;
-        letter-spacing: -0.8px !important;
+      /* Extra safety for buttons and logo */
+      .logo-3d-wrapper { width: 48px !important; height: 48px !important; }
+      .super-cta-btn, .premium-sponsor-btn { 
+        font-size: 0.88rem !important; 
+        padding: 12px 16px !important; 
       }
     }
 
@@ -110,18 +104,13 @@
     .super-cta-btn:hover .bone-icon { animation: boneWag 0.65s ease-in-out infinite; }
     @keyframes boneWag { 0%,100% { transform: rotate(-18deg) scale(1); } 50% { transform: rotate(18deg) scale(1.15); } }
 
-    /* General Responsive */
+    /* General Mobile */
     @media (max-width: 640px) {
       .hero-title-wrapper { padding: 1.4rem 1.6rem !important; margin: 12px 16px 20px !important; border-radius: 2.25rem !important; }
-      .hero-title { font-size: 2.45rem !important; letter-spacing: -2.7px !important; }
     }
     @media (max-width: 480px) {
       .hero-title { font-size: 2.35rem !important; letter-spacing: -2.8px !important; }
     }
-
-    .program-card, .token-card { transition: all 0.4s ease; }
-    .program-card:hover { transform: scale(1.06) translateY(-8px); }
-    .token-card:hover { transform: translateY(-8px); }
   </style>
 </head>
 <body>
@@ -197,20 +186,32 @@
 <section id="tokens" class="py-24 bg-zinc-900">
   <div class="max-w-6xl mx-auto px-6 text-center">
     <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
-    <div class="grid md:grid-cols-2 gap-12">
+    
+    <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
       <!-- $NIBBLES CARD -->
-      <div class="token-card bg-zinc-800 rounded-3xl p-12 text-center">
-        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl" alt="Mr. Nibbles">
-        <p class="text-amber-200 mb-3 text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
-        <p class="text-zinc-400 mb-8">Every transaction quietly becomes mercy for dogs who once had none.</p>
-        <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" target="_blank" class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30">0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2</a>
+      <div class="token-card bg-zinc-800 rounded-3xl p-8 md:p-12 text-center">
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/Mr.NIbbles%20logo.jpg" 
+             class="mx-auto mb-8 w-60 h-60 md:w-72 md:h-72 object-contain rounded-3xl" alt="Mr. Nibbles">
+        <p class="text-amber-200 mb-3 text-3xl md:text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
+        <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction quietly becomes mercy for dogs who once had none.</p>
+        <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" 
+           target="_blank" 
+           class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono">
+          0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2
+        </a>
       </div>
+
       <!-- $hopeseed CARD -->
-      <div class="token-card bg-zinc-800 rounded-3xl p-12 text-center">
-        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" class="mx-auto mb-8 w-72 h-72 object-contain rounded-3xl" alt="hopeseed">
-        <p class="text-emerald-300 mb-3 text-4xl font-semibold">$hopeseed</p>
-        <p class="text-zinc-400 mb-8">Every transaction plants a seed of hope for children who need it most.</p>
-        <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" target="_blank" class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30">0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61</a>
+      <div class="token-card bg-zinc-800 rounded-3xl p-8 md:p-12 text-center">
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/hopeseed-logo.jpg" 
+             class="mx-auto mb-8 w-60 h-60 md:w-72 md:h-72 object-contain rounded-3xl" alt="hopeseed">
+        <p class="text-emerald-300 mb-3 text-3xl md:text-4xl font-semibold">$hopeseed</p>
+        <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction plants a seed of hope for children who need it most.</p>
+        <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" 
+           target="_blank" 
+           class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono">
+          0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61
+        </a>
       </div>
     </div>
   </div>
