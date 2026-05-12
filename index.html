@@ -84,40 +84,52 @@
       50%      { transform: rotate(20deg) scale(1.18); }
     }
 
-    /* UNIQUE FLOATING HEARTS & PAWS */
-    .program-card {
-      position: relative;
-      overflow: hidden;
-    }
-    .program-card::before,
-    .program-card::after {
-      position: absolute;
-      font-size: 1.5rem;
-      opacity: 0.13;
-      pointer-events: none;
-      z-index: 1;
-      animation: floatOrganic 8s linear infinite;
-    }
-    .program-card::before { content: '❤️'; }
-    .program-card::after { content: '🐾'; font-size: 1.75rem; }
+    /* RICH FLOATING HEARTS & PAWS - Multiple per card */
+.program-card {
+  position: relative;
+  overflow: hidden;
+}
 
-    /* Unique per card */
-    .program-card:nth-child(1)::before { top: 18%; left: 15%; animation-duration: 7.2s; }
-    .program-card:nth-child(1)::after  { bottom: 25%; right: 20%; animation-duration: 10.5s; animation-delay: 1.8s; }
+/* Multiple floating elements */
+.program-card::before,
+.program-card::after,
+.program-card .extra-float {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatOrganic 8s linear infinite;
+  opacity: 0.13;
+}
 
-    .program-card:nth-child(2)::before { top: 32%; right: 18%; animation-duration: 9.1s; }
-    .program-card:nth-child(2)::after  { bottom: 35%; left: 12%; animation-duration: 8.3s; animation-delay: 2.4s; }
+.program-card::before  { content: '❤️'; font-size: 1.5rem; color: #f472b6; }
+.program-card::after   { content: '🐾'; font-size: 1.75rem; color: #fcd34d; }
 
-    .program-card:nth-child(3)::before { bottom: 28%; left: 22%; animation-duration: 11s; }
-    .program-card:nth-child(3)::after  { top: 45%; right: 15%; animation-duration: 7.8s; animation-delay: 3.1s; }
+.program-card .extra-float {
+  position: absolute;
+  font-size: 1.4rem;
+}
 
-    .program-card:nth-child(4)::before { top: 25%; left: 28%; animation-duration: 8.7s; }
-    .program-card:nth-child(4)::after  { bottom: 20%; right: 25%; animation-duration: 9.8s; animation-delay: 2.7s; }
+/* Unique positions + more elements per card */
+.program-card:nth-child(1)::before { top: 15%; left: 12%; animation-duration: 7.2s; }
+.program-card:nth-child(1)::after  { bottom: 25%; right: 18%; animation-duration: 10.5s; animation-delay: 1.8s; }
 
-    @keyframes floatOrganic {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      50% { transform: translate(15px, -35px) rotate(18deg); }
-    }
+.program-card:nth-child(2)::before { top: 22%; right: 15%; animation-duration: 9.1s; }
+.program-card:nth-child(2)::after  { bottom: 35%; left: 20%; animation-duration: 8.3s; animation-delay: 2.4s; }
+
+.program-card:nth-child(3)::before { bottom: 28%; left: 22%; animation-duration: 11s; }
+.program-card:nth-child(3)::after  { top: 45%; right: 15%; animation-duration: 7.8s; animation-delay: 3.1s; }
+
+.program-card:nth-child(4)::before { top: 25%; left: 28%; animation-duration: 8.7s; }
+.program-card:nth-child(4)::after  { bottom: 20%; right: 25%; animation-duration: 9.8s; animation-delay: 2.7s; }
+
+/* Extra floating elements */
+.program-card:nth-child(odd) .extra-float:nth-child(1) { content: '❤️'; top: 35%; left: 25%; color: #f472b6; animation-duration: 9.5s; }
+.program-card:nth-child(even) .extra-float:nth-child(1) { content: '🐾'; top: 40%; right: 22%; color: #fcd34d; animation-duration: 8.2s; }
+
+@keyframes floatOrganic {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(12px, -35px) rotate(15deg); }
+}
 
     /* Program Images */
     .program-card img {
@@ -131,6 +143,33 @@
     @media (max-width: 480px) {
       .program-card img { height: 170px; }
     }
+    /* GENTLE SMOKE AURA AROUND LOGO - Emerald & Gold */
+.logo-3d-wrapper {
+  position: relative;
+}
+
+.logo-3d-wrapper::before,
+.logo-3d-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52,211,153,0.25) 20%, transparent 70%);
+  animation: smokePulse 8s ease-in-out infinite;
+  z-index: -1;
+  filter: blur(12px);
+}
+
+.logo-3d-wrapper::after {
+  background: radial-gradient(circle, rgba(251,191,36,0.25) 20%, transparent 70%);
+  animation-delay: 3s;
+  animation-duration: 10s;
+}
+
+@keyframes smokePulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0.9; }
+}
   </style>
 </head>
 <body>
