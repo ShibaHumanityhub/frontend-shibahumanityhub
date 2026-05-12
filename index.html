@@ -140,8 +140,16 @@
   
   <div class="max-w-5xl mx-auto px-6 relative z-10 w-full">
     <div class="hero-title-wrapper mx-auto max-w-[94%]">
-      <h1 class="hero-title">SHIBA</h1>
-      <h1 class="hero-title -mt-6 md:-mt-5">HUMANITYHUB</h1>
+      <!-- Desktop: Two lines -->
+      <h1 class="hero-title hidden md:block">SHIBA</h1>
+      <h1 class="hero-title -mt-6 md:-mt-5 hidden md:block">HUMANITYHUB</h1>
+      
+      <!-- Mobile Skinny: Single colored word -->
+      <h1 class="hero-title md:hidden text-[2.35rem] leading-none tracking-[-3.2px]">
+        <span class="font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">SHIBA</span>
+        <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-400 bg-clip-text text-transparent">HUMANITY</span>
+        <span class="font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">HUB</span>
+      </h1>
     </div>
 
     <p class="mt-8 text-2xl sm:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight px-4">
@@ -164,7 +172,10 @@
     </div>
 
     <div class="mt-12 flex justify-center items-center gap-8 text-sm text-amber-200/70 flex-wrap">
-      <div class="flex items-center gap-2"><div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>LIVE ON TESTNET</div>
+      <div class="flex items-center gap-2">
+        <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+        <span>LIVE ON TESTNET</span>
+      </div>
       <div class="hidden sm:block">•</div>
       <div>100% On-Chain Mercy</div>
       <div class="hidden sm:block">•</div>
