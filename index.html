@@ -107,6 +107,39 @@
     @media (max-width: 480px) {
       .hero-title { font-size: 2.38rem !important; letter-spacing: -2.7px !important; }
     }
+    /* Floating Hearts & Paws - Gentle Multicolor */
+.program-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.program-card::before,
+.program-card::after {
+  content: '❤️';
+  position: absolute;
+  font-size: 1.4rem;
+  opacity: 0.15;
+  animation: floatHeart 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.program-card::after {
+  content: '🐾';
+  animation-delay: 2.5s;
+  font-size: 1.6rem;
+  opacity: 0.12;
+}
+
+@keyframes floatHeart {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(12deg); }
+}
+
+/* Gentle color variation per card */
+.program-card:nth-child(odd)::before { color: #f472b6; animation-duration: 7.5s; }
+.program-card:nth-child(even)::before { color: #34d399; animation-duration: 9s; }
+.program-card:nth-child(3n)::after { color: #fcd34d; }
   </style>
 </head>
 <body>
