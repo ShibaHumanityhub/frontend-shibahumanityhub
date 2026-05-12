@@ -12,7 +12,7 @@
     * { box-sizing: border-box; }
     body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
 
-    /* LEGENDARY HERO TITLE */
+    /* LEGENDARY HERO */
     .hero-title {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -34,7 +34,7 @@
       box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
     }
 
-    /* SKINNY MOBILE LEGENDARY TITLE */
+    /* SKINNY MOBILE - SINGLE WORD MASTERPIECE */
     @media (max-width: 390px) {
       .hero-title-wrapper {
         padding: 1.0rem 1.2rem !important;
@@ -48,7 +48,7 @@
       }
     }
 
-    /* Premium Buttons */
+    /* Premium Buttons + Bone Wag */
     .super-cta-btn, .premium-sponsor-btn {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -71,21 +71,20 @@
       transform: scale(1.08) translateY(-4px);
     }
 
-    .super-cta-btn::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -150%;
-      width: 60%; height: 280%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
-      transform: skewX(-25deg);
-      animation: warmShine 2.8s linear infinite;
+    .bone-icon {
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      display: inline-block;
     }
-    @keyframes warmShine {
-      0% { transform: translateX(-150%) skewX(-25deg); }
-      100% { transform: translateX(400%) skewX(-25deg); }
+    .super-cta-btn:hover .bone-icon,
+    .help-card .super-cta-btn:hover .bone-icon {
+      animation: boneWag 0.55s ease-in-out infinite;
+    }
+    @keyframes boneWag {
+      0%, 100% { transform: rotate(-20deg) scale(1); }
+      50%      { transform: rotate(20deg) scale(1.18); }
     }
 
-    /* Floating Hearts & Paws - Organic & Random */
+    /* UNIQUE FLOATING HEARTS & PAWS */
     .program-card {
       position: relative;
       overflow: hidden;
@@ -94,20 +93,33 @@
     .program-card::after {
       position: absolute;
       font-size: 1.5rem;
-      opacity: 0.14;
+      opacity: 0.13;
       pointer-events: none;
       z-index: 1;
-      animation: floatGentle 9s ease-in-out infinite;
+      animation: floatOrganic 8s linear infinite;
     }
-    .program-card::before { content: '❤️'; color: #f472b6; }
-    .program-card::after { content: '🐾'; color: #fcd34d; font-size: 1.7rem; animation-delay: 3.2s; }
+    .program-card::before { content: '❤️'; }
+    .program-card::after { content: '🐾'; font-size: 1.75rem; }
 
-    @keyframes floatGentle {
+    /* Unique per card */
+    .program-card:nth-child(1)::before { top: 18%; left: 15%; animation-duration: 7.2s; }
+    .program-card:nth-child(1)::after  { bottom: 25%; right: 20%; animation-duration: 10.5s; animation-delay: 1.8s; }
+
+    .program-card:nth-child(2)::before { top: 32%; right: 18%; animation-duration: 9.1s; }
+    .program-card:nth-child(2)::after  { bottom: 35%; left: 12%; animation-duration: 8.3s; animation-delay: 2.4s; }
+
+    .program-card:nth-child(3)::before { bottom: 28%; left: 22%; animation-duration: 11s; }
+    .program-card:nth-child(3)::after  { top: 45%; right: 15%; animation-duration: 7.8s; animation-delay: 3.1s; }
+
+    .program-card:nth-child(4)::before { top: 25%; left: 28%; animation-duration: 8.7s; }
+    .program-card:nth-child(4)::after  { bottom: 20%; right: 25%; animation-duration: 9.8s; animation-delay: 2.7s; }
+
+    @keyframes floatOrganic {
       0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      50% { transform: translate(12px, -32px) rotate(15deg); }
+      50% { transform: translate(15px, -35px) rotate(18deg); }
     }
 
-    /* Program Images - Clean & Powerful */
+    /* Program Images */
     .program-card img {
       width: 100%;
       height: 195px;
@@ -356,11 +368,13 @@
       </p>
       
       <div class="inline-flex items-center gap-3 bg-zinc-900 border border-amber-400/30 rounded-3xl px-8 py-4 text-lg">
-        <span class="text-emerald-400">●</span>
-        <span class="font-medium">Decentralized • On-chain • Eternal</span>
-      </div>
-    </div>
-  </div>
+  <span class="text-emerald-400">●</span>
+  <span class="font-medium">Decentralized</span>
+  <span class="text-amber-400">•</span>
+  <span class="font-medium">On-chain</span>
+  <span class="text-yellow-300">•</span>
+  <span class="font-medium">Eternal</span>
+</div>
 </section>
 <!-- HOW YOU CAN HELP -->
 <section class="py-20 bg-zinc-950">
