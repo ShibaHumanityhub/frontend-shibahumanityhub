@@ -39,7 +39,7 @@
       .hero-title { font-size: 2.22rem !important; letter-spacing: -2.95px !important; line-height: 0.79 !important; }
     }
 
-    /* Buttons & Bone Wag */
+    /* Buttons */
     .super-cta-btn, .premium-sponsor-btn {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -54,17 +54,17 @@
     .super-cta-btn:hover, .premium-sponsor-btn:hover { transform: scale(1.08) translateY(-4px); }
 
     .bone-icon { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); display: inline-block; }
-    .super-cta-btn:hover .bone-icon, .help-card .super-cta-btn:hover .bone-icon {
-      animation: boneWag 0.55s ease-in-out infinite;
-    }
+    .super-cta-btn:hover .bone-icon { animation: boneWag 0.55s ease-in-out infinite; }
     @keyframes boneWag { 0%,100% { transform: rotate(-20deg) scale(1); } 50% { transform: rotate(20deg) scale(1.18); } }
 
-    /* RICH FLOATING HEARTS & PAWS - Multiple per card, truly organic */
+    /* RICH FLOATING HEARTS & PAWS - Multiple per card */
     .program-card {
       position: relative;
       overflow: hidden;
     }
-    .program-card::before, .program-card::after, .program-card .extra-float {
+    .program-card::before,
+    .program-card::after,
+    .program-card .extra-float {
       position: absolute;
       pointer-events: none;
       z-index: 1;
@@ -93,7 +93,7 @@
 
     @keyframes floatOrganic {
       0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      50% { transform: translate(15px, -35px) rotate(18deg); }
+      50% { transform: translate(12px, -35px) rotate(18deg); }
     }
 
     /* Program Images */
