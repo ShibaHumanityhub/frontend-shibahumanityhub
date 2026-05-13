@@ -682,6 +682,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 console.log('%cShibahumanityhub loaded — People helping people helping people.', 'color:#fcd34d; font-family:monospace;');
+  // === AUTO DOWNLOAD BLUEPRINT AFTER FORM SUBMISSION ===
+document.getElementById('mercy-form').addEventListener('submit', function(e) {
+  // Let Formspree send the email first
+  setTimeout(() => {
+    window.open(
+      'https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/The-Mercy-Blueprint-ShibaHumanityhub.pdf', 
+      '_blank'
+    );
+  }, 1200);
+});
 
 </script>
 </body>
