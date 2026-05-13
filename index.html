@@ -191,6 +191,51 @@
     <span class="animate-bounce" style="animation-delay:0.8s">🌱</span>
   </div>
 </header>
+ <!-- === THE MERCY BLUEPRINT – HEARTFELT LEAD MAGNET === -->
+<section class="py-24 bg-zinc-950 border-t border-b border-amber-400/20">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="bg-zinc-900/95 backdrop-blur-xl rounded-3xl p-12 md:p-16 border border-amber-400/30 shadow-2xl">
+      
+      <div class="mx-auto mb-8 flex justify-center">
+        <span class="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-400 to-amber-400 text-black font-bold px-8 py-3 rounded-3xl text-lg shadow-lg">
+          ❤️ Written With Love For You
+        </span>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6 text-amber-100">
+        Get The Mercy Blueprint
+      </h2>
+      
+      <p class="text-xl md:text-2xl text-zinc-300 max-w-2xl mx-auto leading-relaxed mb-10">
+        I poured my heart into this for you.<br>
+        Inside you’ll find the full story, how every transaction quietly saves lives, 
+        and how you can become part of something truly meaningful.
+      </p>
+
+      <form id="mercy-form" class="max-w-lg mx-auto">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <input 
+            type="email" 
+            id="email" 
+            placeholder="your@email.com" 
+            required
+            class="flex-1 bg-zinc-800 border border-amber-400/40 focus:border-emerald-400 rounded-3xl px-8 py-7 text-lg placeholder-zinc-400 outline-none transition-all">
+          
+          <button 
+            type="submit"
+            class="super-cta-btn px-12 py-7 rounded-3xl font-bold text-xl whitespace-nowrap flex items-center gap-3 hover:scale-105 transition-all">
+            <span>Send It To Me With Love</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+
+      <p class="text-sm text-zinc-500 mt-8">
+        I promise: No spam. Only love, real updates, and stories of mercy.
+      </p>
+    </div>
+  </div>
+</section>
   
 <!-- TOKENS -->
 <section id="tokens" class="py-24 bg-zinc-900">
@@ -637,6 +682,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 console.log('%cShibahumanityhub loaded — People helping people helping people.', 'color:#fcd34d; font-family:monospace;');
+ // Heartfelt Lead Magnet Form
+document.getElementById('mercy-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('email').value.trim();
+  
+  if (email) {
+    alert("❤️ Thank you from the bottom of my heart...\n\nThe Mercy Blueprint is on its way to you right now.\n\nYou're now part of the Circle of Mercy. Welcome home.");
+    
+    console.log(`New beautiful soul joined the movement: ${email}`);
+    
+    document.getElementById('email').value = '';
+  }
+});
 </script>
 </body>
 </html>
