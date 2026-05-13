@@ -12,63 +12,43 @@
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-    * { box-sizing: border-box; }
-    body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
 
-    .hero-bg {
-      background: linear-gradient(135deg, #0a1729 0%, #13253a 30%, #1a2e42 50%, #c89f3f 70%, #e88a9e 85%, #0a1729 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 80s ease infinite;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-    @keyframes gradientShift { 0%,100% {background-position:0% 50%} 50% {background-position:100% 50%} }
-
-    .hero-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.9rem, 11.5vw, 5.5rem);
-      line-height: 0.85;
-      letter-spacing: -0.08em;
-      background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 80px rgba(251,191,36,0.95), 0 0 140px rgba(16,185,129,0.8);
-    }
-
-    .hero-title-wrapper {
-      padding: 2rem 3rem;
-      border-radius: 3rem;
-      background: rgba(15,23,42,0.85);
-      backdrop-filter: blur(40px);
-      border: 2px solid rgba(251,191,36,0.5);
-      box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
-    }
-
-    .program-card {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid transparent;
+  .hero-bg {
+    background: linear-gradient(180deg, #0a0f1c 0%, #1a2338 100%);
   }
 
-  /* $NIBBLES Cards - Amber Glow */
-  .nibbles-card:hover {
-    transform: scale(1.06) translateY(-12px);
-    border-color: rgba(251,191,36,0.5);
-    box-shadow: 0 0 80px -20px rgba(251,191,36,0.8),
-                0 30px 60px -20px rgba(16,185,129,0.6);
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
+    line-height: 0.85;
+    letter-spacing: -0.08em;
+    background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 80px rgba(251,191,36,0.95), 0 0 140px rgba(16,185,129,0.8);
   }
 
-  /* $hopeseed Cards - Emerald Glow */
-  .hopeseed-card:hover {
-    transform: scale(1.06) translateY(-12px);
-    border-color: rgba(16,185,129,0.6);
-    box-shadow: 0 0 80px -20px rgba(16,185,129,0.9),
-                0 30px 60px -20px rgba(16,185,129,0.7);
+  .hero-title-wrapper {
+    padding: 2rem 3rem;
+    border-radius: 3rem;
+    background: rgba(15,23,42,0.88);
+    backdrop-filter: blur(40px);
+    border: 2px solid rgba(251,191,36,0.5);
+    box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
   }
-    /* Bottom Button Styles - Exact Match to Main Page */
+
+  @media (max-width: 390px) {
+    .hero-title-wrapper { padding: 1.0rem 1.2rem !important; margin: 10px 12px 20px !important; border-radius: 2rem !important; }
+    .hero-title { font-size: 2.22rem !important; letter-spacing: -2.95px !important; line-height: 0.79 !important; }
+  }
+
+ /* Premium button styles — exact match to index.html */
 .super-cta-btn, .premium-sponsor-btn {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -78,21 +58,17 @@
   border-radius: 9999px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.super-cta-btn {
-  background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
-  color: #0f172a;
-  box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36);
+.super-cta-btn { 
+  background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f); 
+  color: #0f172a; 
+  box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36); 
 }
-
-.premium-sponsor-btn {
-  background: linear-gradient(145deg, #10b981, #34d399, #10b981);
-  color: #0f172a;
+.premium-sponsor-btn { 
+  background: linear-gradient(145deg, #10b981, #34d399, #10b981); 
+  color: #0f172a; 
 }
-
-.super-cta-btn:hover, .premium-sponsor-btn:hover {
-  transform: scale(1.08) translateY(-4px);
-  box-shadow: 0 0 90px -10px rgb(251 191 36);
+.super-cta-btn:hover, .premium-sponsor-btn:hover { 
+  transform: scale(1.08) translateY(-4px); 
 }
 
 .super-cta-btn::before {
@@ -108,47 +84,57 @@
   0% { transform: translateX(-150%) skewX(-25deg); }
   100% { transform: translateX(400%) skewX(-25deg); }
 }
-    /* === BUTTON STYLES FROM MAIN PAGE (EXACT MATCH) === */
-.super-cta-btn, .premium-sponsor-btn {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -1.8px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 9999px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.super-cta-btn {
-  background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f);
-  color: #0f172a;
-  box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36);
-}
+  /* Program cards — desynced floating hearts & paws (exact match to index.html) */
+  .program-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .program-card::before, .program-card::after {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatOrganic linear infinite;
+    opacity: 0.22;
+  }
+  .program-card::before { content: '❤️'; font-size: 1.7rem; color: #f472b6; }
+  .program-card::after  { content: '🐾'; font-size: 2.1rem; color: #fcd34d; }
 
-.premium-sponsor-btn {
-  background: linear-gradient(145deg, #10b981, #34d399, #10b981);
-  color: #0f172a;
-}
+ /* Individual card positions for desynced movement — exact match to index.html */
+.program-card:nth-child(1)::before { top: 12%; left: 10%; animation-duration: 7.2s; }
+.program-card:nth-child(1)::after  { bottom: 20%; right: 15%; animation-duration: 10.8s; animation-delay: 1.2s; }
 
-.super-cta-btn:hover, .premium-sponsor-btn:hover {
-  transform: scale(1.08) translateY(-4px);
-  box-shadow: 0 0 90px -10px rgb(251 191 36);
-}
+.program-card:nth-child(2)::before { top: 25%; right: 18%; animation-duration: 8.9s; }
+.program-card:nth-child(2)::after  { bottom: 30%; left: 12%; animation-duration: 7.8s; animation-delay: 2.4s; }
 
-.super-cta-btn::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -150%;
-  width: 60%; height: 280%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
-  transform: skewX(-25deg);
-  animation: warmShine 2.8s linear infinite;
-}
-@keyframes warmShine {
-  0% { transform: translateX(-150%) skewX(-25deg); }
-  100% { transform: translateX(400%) skewX(-25deg); }
-}
-  </style>
+.program-card:nth-child(3)::before { top: 18%; left: 22%; animation-duration: 9.5s; }
+.program-card:nth-child(3)::after  { bottom: 25%; right: 20%; animation-duration: 11.5s; }
+
+.program-card:nth-child(4)::before { top: 15%; right: 12%; animation-duration: 8.1s; }
+.program-card:nth-child(4)::after  { bottom: 28%; left: 25%; animation-duration: 9.2s; animation-delay: 0.8s; }
+
+.program-card:nth-child(5)::before,
+.program-card:nth-child(6)::before,
+.program-card:nth-child(7)::before,
+.program-card:nth-child(8)::before,
+.program-card:nth-child(9)::before,
+.program-card:nth-child(10)::before { top: 20%; left: 15%; animation-duration: 8.5s; }
+  @keyframes floatOrganic {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(22px, -45px) rotate(28deg); }
+  }
+
+  .program-card img {
+    width: 100%;
+    height: 195px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 480px) {
+    .program-card img { height: 165px; }
+  }
+</style>
  <style>
   /* === EPIC DIVIDER & PREMIUM SECTIONS === */
   .programs-section {
@@ -1223,7 +1209,7 @@ function initFloatingParticles() {
 
 window.onload = function() {
   renderAllPrograms('all');
-  console.log("✅ All Programs Page Loaded Successfully with Floating Particles & Epic Divider");
+  console.log('%c✅ All Programs Page Loaded — Legendary Quality Achieved', 'color:#fcd34d; font-family:monospace;');
 };
 </script>
 </body>
