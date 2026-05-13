@@ -191,53 +191,47 @@
     <span class="animate-bounce" style="animation-delay:0.8s">🌱</span>
   </div>
 </header>
-<!-- === SUPERCHARGED MERCY BLUEPRINT LEAD MAGNET === -->
+<!-- === THE MERCY BLUEPRINT – HEARTFELT LEAD MAGNET === -->
 <section class="py-24 bg-gradient-to-b from-zinc-950 to-black border-t-2 border-b-2 border-amber-400/30 relative overflow-hidden">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <div class="bg-zinc-900/95 backdrop-blur-2xl rounded-3xl p-12 md:p-16 border border-amber-400/40 shadow-2xl">
       
-      <!-- Emotional accents -->
-      <div class="absolute -top-4 right-8 text-6xl opacity-10 animate-pulse">❤️</div>
-      <div class="absolute -bottom-6 left-12 text-7xl opacity-10">🐾</div>
+      <div class="mx-auto mb-8 flex justify-center">
+        <span class="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-400 to-amber-400 text-black font-bold px-8 py-3 rounded-3xl text-lg shadow-lg">
+          ❤️ A Gift From Our Hearts
+        </span>
+      </div>
 
-      <span class="inline-block mb-6 px-8 py-3 bg-gradient-to-r from-red-500 to-rose-500 text-white font-bold rounded-3xl text-sm tracking-widest shadow-inner">
-        THIS ONE'S FOR YOU
-      </span>
-
-      <h2 class="text-5xl md:text-6xl font-bold leading-none mb-6 text-white">
-        The Mercy Blueprint
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6 text-amber-100">
+        Download The Mercy Blueprint
       </h2>
       
-      <p class="text-2xl md:text-3xl text-amber-100 max-w-2xl mx-auto leading-tight mb-10">
-        I wrote this with tears in my eyes.<br>
-        It shows exactly how <span class="text-emerald-400 font-semibold">every single transaction</span> is already saving real lives — 
-        and how <span class="underline decoration-emerald-400">you</span> can become part of something that matters.
+      <p class="text-xl md:text-2xl text-zinc-300 max-w-2xl mx-auto leading-relaxed mb-10">
+        I poured my heart into this for you.<br>
+        Inside you’ll discover the full story, how every transaction quietly saves lives, 
+        and how you can become part of something truly meaningful.
       </p>
 
       <form id="mercy-form" class="max-w-lg mx-auto">
-        <div class="flex flex-col sm:flex-row gap-4 items-center">
+        <div class="flex flex-col sm:flex-row gap-4">
           <input 
             type="email" 
             id="email" 
             placeholder="your@email.com" 
             required
-            class="flex-1 bg-zinc-800 border border-amber-400/50 focus:border-emerald-400 rounded-3xl px-8 py-7 text-lg placeholder-zinc-400 outline-none transition-all">
-
+            class="flex-1 bg-zinc-800 border border-amber-400/40 focus:border-emerald-400 rounded-3xl px-8 py-7 text-lg placeholder-zinc-400 outline-none transition-all">
+          
           <button 
             type="submit"
-            class="super-cta-btn group flex items-center gap-4 px-10 py-7 rounded-3xl font-bold text-xl whitespace-nowrap hover:scale-105 transition-all">
-            <div class="w-10 h-10 bg-white rounded-2xl flex items-center justify-center overflow-hidden border border-amber-400 shadow">
-              <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
-                   class="w-8 h-8 object-cover rounded-xl" alt="">
-            </div>
-            <span>Send Me The Blueprint</span>
+            class="super-cta-btn px-12 py-7 rounded-3xl font-bold text-xl whitespace-nowrap flex items-center gap-3 hover:scale-105 transition-all">
+            <span>Send It To Me</span>
+            <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
       </form>
 
-      <p class="text-sm text-emerald-300/90 mt-8">
-        Over 1,200 kind hearts have already received it.<br>
-        No spam. Only real stories and love.
+      <p class="text-sm text-zinc-500 mt-8">
+        Promised: No spam. Only love, updates, and real stories of mercy.
       </p>
     </div>
   </div>
@@ -688,17 +682,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 console.log('%cShibahumanityhub loaded — People helping people helping people.', 'color:#fcd34d; font-family:monospace;');
- // Heartfelt Lead Magnet Form
+
+// === HEARTFELT LEAD MAGNET FORM ===
 document.getElementById('mercy-form').addEventListener('submit', function(e) {
   e.preventDefault();
   
   const email = document.getElementById('email').value.trim();
   
   if (email) {
-    alert("❤️ Thank you from the bottom of my heart...\n\nThe Mercy Blueprint is on its way to you right now.\n\nYou're now part of the Circle of Mercy. Welcome home.");
+    // Trigger PDF download
+    window.open('https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/The-Mercy-Blueprint-ShibaHumanityhub.pdf', '_blank');
     
-    console.log(`New beautiful soul joined the movement: ${email}`);
+    alert("❤️ Thank you from the bottom of my heart...\n\nThe Mercy Blueprint is downloading right now.\n\nYou're now part of the Circle of Mercy. Welcome home.");
     
+    // Clear the form
     document.getElementById('email').value = '';
   }
 });
