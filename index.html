@@ -235,6 +235,16 @@
       </div>
     </form>
 
+    <!-- Success Message Area -->
+    <div id="success-message" class="hidden mt-8 p-6 bg-emerald-900/30 border border-emerald-400 rounded-3xl">
+      <p class="text-emerald-300 text-xl mb-4">Thank you! ❤️ Your Blueprint is ready.</p>
+      <a id="direct-download-btn" href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/The-Mercy-Blueprint-ShibaHumanityhub.pdf" 
+         target="_blank"
+         class="inline-block bg-white text-black font-bold px-10 py-5 rounded-3xl hover:scale-105 transition-all text-xl">
+        📥 Download The Mercy Blueprint Now
+      </a>
+    </div>
+
     <p class="text-xs text-zinc-500 mt-6">We respect your inbox. Zero spam ever.</p>
   </div>
 </section>
@@ -683,26 +693,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// === RELIABLE MERCY BLUEPRINT DOWNLOAD ===
+// === LEAD MAGNET SUCCESS HANDLER ===
 document.getElementById('mercy-form').addEventListener('submit', function() {
   const btn = document.getElementById('submit-btn');
+  const success = document.getElementById('success-message');
+  
   if (btn) btn.innerHTML = 'Sending... ❤️';
-
+  
   setTimeout(() => {
-    window.open(
-      'https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/The-Mercy-Blueprint-ShibaHumanityhub.pdf', 
-      '_blank'
-    );
+    if (btn) btn.style.display = 'none';
+    if (success) success.classList.remove('hidden');
     
-    // Reset button text
-    if (btn) {
-      btn.innerHTML = `
-        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
-             class="w-9 h-9 object-contain flex-shrink-0" alt="Logo">
-        <span>Send Me The Blueprint</span>
-      `;
-    }
-  }, 1000);
+    // Auto-click the download link
+    setTimeout(() => {
+      document.getElementById('direct-download-btn').click();
+    }, 600);
+  }, 1200);
 });
 </script>
 </body>
