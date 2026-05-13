@@ -721,6 +721,26 @@ document.getElementById('mercy-form').addEventListener('submit', function() {
 });
 
 console.log('%cShibahumanityhub loaded — People helping people helping people.', 'color:#fcd34d; font-family:monospace;');
+
+// === LEAD MAGNET SUCCESS HANDLER ===
+document.getElementById('mercy-form').addEventListener('submit', function() {
+  const btn = document.getElementById('submit-btn');
+  const success = document.getElementById('success-message');
+  
+  if (btn) btn.innerHTML = 'Sending... ❤️';
+  
+  setTimeout(() => {
+    if (btn) btn.style.display = 'none';
+    if (success) success.classList.remove('hidden');
+    
+    setTimeout(() => {
+      document.getElementById('direct-download-btn').click();
+    }, 800);
+  }, 1200);
+});
+</script>
+</body>
+</html>
 </script>
 </body>
 </html>
