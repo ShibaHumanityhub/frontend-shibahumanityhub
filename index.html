@@ -704,43 +704,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Mercy Blueprint form success handler
-document.getElementById('mercy-form').addEventListener('submit', function() {
+// === LEAD MAGNET SUCCESS HANDLER ===
+document.getElementById('mercy-form').addEventListener('submit', function(e) {
   const btn = document.getElementById('submit-btn');
   const success = document.getElementById('success-message');
   
   if (btn) btn.innerHTML = 'Sending... ❤️';
-  
+
   setTimeout(() => {
     if (btn) btn.style.display = 'none';
     if (success) success.classList.remove('hidden');
+
+    // Auto-download the blueprint immediately
     setTimeout(() => {
-      document.getElementById('direct-download-btn').click();
-    }, 600);
+      const downloadLink = document.getElementById('direct-download-btn');
+      if (downloadLink) downloadLink.click();
+    }, 800);
   }, 1200);
 });
 
 console.log('%cShibahumanityhub loaded — People helping people helping people.', 'color:#fcd34d; font-family:monospace;');
-
-// === LEAD MAGNET SUCCESS HANDLER ===
-document.getElementById('mercy-form').addEventListener('submit', function() {
-  const btn = document.getElementById('submit-btn');
-  const success = document.getElementById('success-message');
-  
-  if (btn) btn.innerHTML = 'Sending... ❤️';
-  
-  setTimeout(() => {
-    if (btn) btn.style.display = 'none';
-    if (success) success.classList.remove('hidden');
-    
-    setTimeout(() => {
-      document.getElementById('direct-download-btn').click();
-    }, 800);
-  }, 1200);
-});
-</script>
-</body>
-</html>
 </script>
 </body>
 </html>
