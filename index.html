@@ -1363,7 +1363,6 @@ document.getElementById('mercy-form').addEventListener('submit', function(e) {
     if (btn) btn.style.display = 'none';
     if (success) success.classList.remove('hidden');
 
-    // Auto-download the blueprint immediately
     setTimeout(() => {
       const downloadLink = document.getElementById('direct-download-btn');
       if (downloadLink) downloadLink.click();
