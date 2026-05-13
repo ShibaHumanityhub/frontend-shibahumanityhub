@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Shibahumanityhub • Since Nov 2025</title>
 
-<!-- FAVICON - Glowing Paw + Emerald Heart -->
-<link rel="icon" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/favicon.png">
+<!-- BIGGER & BETTER FAVICON -->
+<link rel="icon" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/favicon.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/favicon.png" sizes="180x180">
 <link rel="shortcut icon" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/favicon.png">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
@@ -1199,6 +1200,7 @@ function sponsorProgram() {
 
 window.onload = function() {
   renderAllPrograms('all');
+  initFloatingParticles();
   console.log("✅ Epic All Programs page with premium cinematic divider loaded");
 };
   // === FLOATING HEARTS & PAWS ===
@@ -1223,21 +1225,24 @@ function createFloatingParticles(card) {
   }, 650);
 }
 
-function initFloatingParticles() {
-  document.querySelectorAll('.program-card').forEach(card => {
-    if (!card.hasAttribute('data-particles-init')) {
-      createFloatingParticles(card);
-      card.setAttribute('data-particles-init', 'true');
-    }
-  });
+function showProgramModal(id) {
+  const program = programs.find(p => p.id === id);
+  if (!program) return;
+  
+  const modal = document.getElementById('program-modal');
+  const content = document.getElementById('modal-content');
+  content.innerHTML = program.fullHTML;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
 }
 
-// Re-init particles after render
-const originalRender = renderAllPrograms;
-renderAllPrograms = function(cat = 'all') {
-  originalRender.call(this, cat);
-  setTimeout(initFloatingParticles, 400);
-};
-</script>
+function hideModal() {
+  document.getElementById('program-modal').classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
+function sponsorProgram(programId) {
+  alert("❤️ Thank you so much!\n\nYour love and support is already helping change lives.\n\nTogether we are building real mercy.");
+}
 </body>
 </html>
