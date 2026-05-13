@@ -1087,7 +1087,6 @@ function createCardHTML(p) {
   
   return `
     <div onclick="showProgramModal(${p.id})" class="program-card ${cardClass} cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden group relative">
-      <!-- Floating Elements -->
       <div class="floating-elements absolute inset-0 pointer-events-none"></div>
       
       <div class="relative overflow-hidden rounded-2xl mb-6 z-10">
@@ -1102,12 +1101,12 @@ function createCardHTML(p) {
     </div>
   `;
 }
+
 function renderAllPrograms(cat = 'all') {
   const grid = document.getElementById('all-programs-grid');
   grid.innerHTML = '';
 
   if (cat === 'all') {
-    // $NIBBLES SECTION
     const nibbles = programs.filter(p => p.category === '$NIBBLES');
     grid.innerHTML += `
       <div class="programs-section">
@@ -1123,7 +1122,6 @@ function renderAllPrograms(cat = 'all') {
       </div>
     `;
 
-    // EPIC MERCY DIVIDER
     grid.innerHTML += `
       <div class="mercy-divider my-16">
         <div class="divider-content max-w-4xl mx-auto px-6">
@@ -1141,7 +1139,6 @@ function renderAllPrograms(cat = 'all') {
       </div>
     `;
 
-    // $hopeseed SECTION
     const hopeseed = programs.filter(p => p.category === '$hopeseed');
     grid.innerHTML += `
       <div class="programs-section">
@@ -1157,7 +1154,6 @@ function renderAllPrograms(cat = 'all') {
       </div>
     `;
   } else {
-    // Single category view
     let filtered = programs.filter(p => p.category === cat);
     grid.innerHTML = `
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -1165,20 +1161,18 @@ function renderAllPrograms(cat = 'all') {
       </div>
     `;
   }
+  setTimeout(initFloatingParticles, 300);
 }
 
 function filterPrograms(cat) {
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.classList.remove('active', 'bg-amber-400', 'text-black');
-  });
-  
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'bg-amber-400', 'text-black'));
   const tabId = cat === 'all' ? 'tab-all' : `tab-${cat.toLowerCase().replace('$','')}`;
   const activeTab = document.getElementById(tabId);
   if (activeTab) activeTab.classList.add('active', 'bg-amber-400', 'text-black');
-  
   renderAllPrograms(cat);
 }
 
+// === MODAL FUNCTIONS ===
 function showProgramModal(id) {
   const program = programs.find(p => p.id === id);
   if (!program) return;
@@ -1195,15 +1189,10 @@ function hideModal() {
 }
 
 function sponsorProgram() {
-  alert("❤️ Thank you from the bottom of our hearts!\n\nYour support is already changing lives.");
+  alert("❤️ Thank you so much!\n\nYour support is already changing lives.\n\nTogether we are building real mercy.");
 }
 
-window.onload = function() {
-  renderAllPrograms('all');
-  initFloatingParticles();
-  console.log("✅ Epic All Programs page with premium cinematic divider loaded");
-};
-  // === FLOATING HEARTS & PAWS ===
+// === FLOATING PARTICLES ===
 function createFloatingParticles(card) {
   const container = card.querySelector('.floating-elements');
   if (!container) return;
@@ -1215,34 +1204,27 @@ function createFloatingParticles(card) {
     const particle = document.createElement('div');
     particle.className = 'float-particle';
     particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    
     particle.style.left = Math.random() * 85 + 7 + '%';
     particle.style.animationDuration = (2.8 + Math.random() * 2.2) + 's';
     particle.style.opacity = 0.7 + Math.random() * 0.3;
-    
     container.appendChild(particle);
     setTimeout(() => particle.remove(), 8000);
   }, 650);
 }
 
-function showProgramModal(id) {
-  const program = programs.find(p => p.id === id);
-  if (!program) return;
-  
-  const modal = document.getElementById('program-modal');
-  const content = document.getElementById('modal-content');
-  content.innerHTML = program.fullHTML;
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+function initFloatingParticles() {
+  document.querySelectorAll('.program-card').forEach(card => {
+    if (!card.hasAttribute('data-particles-init')) {
+      createFloatingParticles(card);
+      card.setAttribute('data-particles-init', 'true');
+    }
+  });
 }
 
-function hideModal() {
-  document.getElementById('program-modal').classList.add('hidden');
-  document.body.style.overflow = 'auto';
-}
-
-function sponsorProgram(programId) {
-  alert("❤️ Thank you so much!\n\nYour love and support is already helping change lives.\n\nTogether we are building real mercy.");
-}
+window.onload = function() {
+  renderAllPrograms('all');
+  console.log("✅ All Programs Page Loaded Successfully with Floating Particles & Epic Divider");
+};
+</script>
 </body>
 </html>
