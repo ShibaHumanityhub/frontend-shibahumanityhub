@@ -63,6 +63,59 @@
 
     .bone-icon { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); display: inline-block; }
     .super-cta-btn:hover .bone-icon { animation: boneWag 0.55s ease-in-out infinite; }
+    /* === PREMIUM LEAD MAGNET BUTTON - x50 BILLIONAIRE HEARTFELT QUALITY === */
+.super-cta-btn.lead-magnet-btn {
+  position: relative;
+  overflow: hidden;
+  animation: ctaBreath 4s ease-in-out infinite;
+  box-shadow: 0 0 60px -10px rgb(251 191 36),
+              0 30px 70px -20px rgb(16 185 129);
+}
+
+@keyframes ctaBreath {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
+.super-cta-btn.lead-magnet-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 40%;
+  height: 300%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: shineSweep 5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes shineSweep {
+  0%   { transform: translateX(-150%) skewX(-25deg); }
+  100% { transform: translateX(300%) skewX(-25deg); }
+}
+
+.super-cta-btn.lead-magnet-btn:hover {
+  transform: scale(1.08) translateY(-4px) !important;
+  box-shadow: 0 0 100px 20px rgb(251 191 36),
+              0 40px 110px -10px rgb(16 185 129);
+}
+
+.super-cta-btn.lead-magnet-btn img {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(1.1);
+}
+
+.super-cta-btn.lead-magnet-btn:hover img {
+  transform: scale(1.12) rotate(8deg);
+  filter: brightness(1.3);
+}
     @keyframes boneWag { 0%,100% { transform: rotate(-20deg) scale(1); } 50% { transform: rotate(20deg) scale(1.18); } }
 
 /* SUPERCHARGED FLOATING HEARTS & PAWS */
@@ -224,12 +277,12 @@
           required 
           class="flex-1 bg-zinc-900 border border-amber-400/40 focus:border-emerald-400 rounded-3xl px-8 py-7 text-lg placeholder-zinc-400 outline-none transition-all w-full">
         
-        <button 
+       <button 
   type="submit" 
   id="submit-btn"
-  class="super-cta-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-7 rounded-3xl text-xl w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-all min-w-[200px]">
+  class="super-cta-btn lead-magnet-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-7 rounded-3xl text-xl w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-all min-w-[200px]">
   <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
-       class="w-10 h-10 object-cover rounded-full ring-2 ring-white/30 shadow-lg flex-shrink-0" 
+       class="w-10 h-10 object-cover rounded-full ring-2 ring-white/30 shadow-xl flex-shrink-0" 
        alt="Shibahumanityhub">
   <span>Send Me The Blueprint</span>
 </button>
