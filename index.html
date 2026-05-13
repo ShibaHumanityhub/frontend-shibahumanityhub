@@ -198,6 +198,7 @@
     <span class="animate-bounce" style="animation-delay:0.8s">🌱</span>
   </div>
 </header>
+  
 <!-- === THE MERCY BLUEPRINT – HEARTFELT LEAD MAGNET === -->
 <section class="py-24 bg-gradient-to-b from-zinc-950 to-black border-t border-b border-amber-400/20">
   <div class="max-w-4xl mx-auto px-6 text-center">
@@ -225,6 +226,7 @@
         
         <button 
           type="submit" 
+          id="submit-btn"
           class="super-cta-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-7 rounded-3xl text-xl w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-all min-w-[200px]">
           <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
                class="w-9 h-9 object-contain flex-shrink-0" alt="Logo">
@@ -681,14 +683,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
- // === RELIABLE INSTANT BLUEPRINT DOWNLOAD ===
+// === RELIABLE MERCY BLUEPRINT DOWNLOAD ===
 document.getElementById('mercy-form').addEventListener('submit', function() {
-  console.log("✅ Form submitted — Opening Mercy Blueprint...");
-  
-  // Immediate download for best user experience
+  const btn = document.getElementById('submit-btn');
+  if (btn) btn.innerHTML = 'Sending... ❤️';
+
   setTimeout(() => {
-    window.open('https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/The-Mercy-Blueprint-ShibaHumanityhub.pdf', '_blank');
-  }, 800);
+    window.open(
+      'https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/The-Mercy-Blueprint-ShibaHumanityhub.pdf', 
+      '_blank'
+    );
+    
+    // Reset button text
+    if (btn) {
+      btn.innerHTML = `
+        <img src="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/shibahumanityhublogo3d-new.jpg" 
+             class="w-9 h-9 object-contain flex-shrink-0" alt="Logo">
+        <span>Send Me The Blueprint</span>
+      `;
+    }
+  }, 1000);
 });
 </script>
 </body>
