@@ -347,6 +347,72 @@
   </div>
 </section>
 
+<!-- LIVING MERCY ON SHIBARIUM - READ-ONLY TRANSPARENCY & PERSONAL CIRCLES -->
+<section id="onchain" class="py-24 bg-zinc-900 border-t border-b border-amber-400/20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-5xl font-bold mb-4">Living Mercy on Shibarium</h2>
+      <p class="text-2xl text-amber-200">The contracts are real. The circles are waiting. Connect quietly to see where you already stand.</p>
+      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">Every balance you hold is already part of the story. No pressure. No signatures. Just truth.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+      <!-- $NIBBLES -->
+      <div class="bg-zinc-800 rounded-3xl p-8 border border-amber-400/30">
+        <div class="flex items-center gap-4 mb-6">
+          <img src="assets/logos/Mr.NIbbles logo.jpg" class="w-14 h-14 rounded-2xl object-contain" alt="Mr. Nibbles">
+          <div>
+            <p class="text-amber-200 text-2xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
+            <p class="text-sm text-amber-300/70">Mercy for dogs who once had none</p>
+          </div>
+        </div>
+        <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2</a>
+        <div id="nibbles-balance" class="text-3xl font-semibold text-amber-100 mb-2 hidden">—</div>
+        <div id="nibbles-circle" class="text-sm text-amber-300 mb-4 hidden"></div>
+        <p class="text-xs text-zinc-500">When the funding comes through, these holdings quietly unlock the Circles of Mercy described in every program above.</p>
+      </div>
+
+      <!-- $hopeseed -->
+      <div class="bg-zinc-800 rounded-3xl p-8 border border-emerald-400/30">
+        <div class="flex items-center gap-4 mb-6">
+          <img src="assets/logos/hopeseed-logo.jpg" class="w-14 h-14 rounded-2xl object-contain" alt="hopeseed">
+          <div>
+            <p class="text-emerald-300 text-2xl font-semibold">$hopeseed</p>
+            <p class="text-sm text-emerald-300/70">Seeds of hope for children who need it most</p>
+          </div>
+        </div>
+        <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61</a>
+        <div id="hopeseed-balance" class="text-3xl font-semibold text-emerald-100 mb-2 hidden">—</div>
+        <div id="hopeseed-circle" class="text-sm text-emerald-300 mb-4 hidden"></div>
+        <p class="text-xs text-zinc-500">Your quiet holding plants real seeds. The thresholds below are the same ones written into the programs you just read.</p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button onclick="connectShibariumWallet()" class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-xl px-10 py-6 rounded-3xl">
+        Connect Wallet (read-only)
+      </button>
+      <p class="mt-4 text-xs text-zinc-500 max-w-md mx-auto">Read-only. No signatures. We will never ask you to send tokens here. This is simply to show you the circles you already belong to.</p>
+      <div id="wallet-status" class="mt-3 text-sm text-emerald-300 hidden"></div>
+    </div>
+
+    <div id="your-circles" class="hidden mt-12 max-w-4xl mx-auto bg-black/40 border border-white/10 rounded-3xl p-10">
+      <h3 class="text-3xl font-semibold text-center mb-8 text-white">Your Quiet Place in the Circles</h3>
+      <div class="grid md:grid-cols-2 gap-6 text-sm">
+        <div class="bg-zinc-900/60 rounded-2xl p-6">
+          <div class="font-semibold text-amber-300 mb-2">With $NIBBLES</div>
+          <div id="nibbles-circles-list" class="text-amber-100 space-y-1"></div>
+        </div>
+        <div class="bg-zinc-900/60 rounded-2xl p-6">
+          <div class="font-semibold text-emerald-300 mb-2">With $hopeseed</div>
+          <div id="hopeseed-circles-list" class="text-emerald-100 space-y-1"></div>
+        </div>
+      </div>
+      <p class="text-center mt-8 text-xs text-zinc-400 italic">These are the same thresholds written into the 29 programs. When the funding comes through, every token you hold becomes part of the mercy that actually reaches dogs and children.</p>
+    </div>
+  </div>
+</section>
+
 <!-- FEATURED PROGRAMS -->
 <section id="programs" class="py-24 bg-zinc-950">
   <div class="max-w-7xl mx-auto px-6">
@@ -591,7 +657,140 @@ document.getElementById('mercy-form').addEventListener('submit', function(e) {
   }, 1200);
 });
 
-console.log('%cShibahumanityhub loaded — People helping people helping people.', 'color:#fcd34d; font-family:monospace;');
+// === PHASE 2: LIVING MERCY ON SHIBARIUM - READ-ONLY WALLET (vanilla, graceful, no hype) ===
+const SHIBARIUM_TESTNET = {
+  chainId: '0x2cf', // 719 - Puppynet
+  chainName: 'Shibarium Puppynet (Testnet)',
+  rpcUrl: 'https://puppynet.shibrpc.com',
+  nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
+  blockExplorerUrl: 'https://puppyscan.shib.io'
+};
+
+const NIBBLES_ADDRESS = '0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2';
+const HOPESEED_ADDRESS = '0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61';
+
+async function connectShibariumWallet() {
+  const statusEl = document.getElementById('wallet-status');
+  const nibblesBalEl = document.getElementById('nibbles-balance');
+  const hopeseedBalEl = document.getElementById('hopeseed-balance');
+  const nibblesCircleEl = document.getElementById('nibbles-circle');
+  const hopeseedCircleEl = document.getElementById('hopeseed-circle');
+  const circlesPanel = document.getElementById('your-circles');
+
+  if (!window.ethereum) {
+    statusEl.textContent = 'No wallet detected. You can still explore every program and the contracts above.';
+    statusEl.classList.remove('hidden');
+    return;
+  }
+
+  try {
+    statusEl.textContent = 'Connecting quietly...';
+    statusEl.classList.remove('hidden');
+
+    // Request accounts (read-only intent)
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    if (!accounts || accounts.length === 0) throw new Error('No accounts');
+
+    const userAddress = accounts[0];
+
+    // Check / switch to Shibarium testnet
+    let chainId = await window.ethereum.request({ method: 'eth_chainId' });
+    if (chainId !== SHIBARIUM_TESTNET.chainId) {
+      try {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: SHIBARIUM_TESTNET.chainId }]
+        });
+      } catch (switchError) {
+        if (switchError.code === 4902) {
+          // Add network
+          await window.ethereum.request({
+            method: 'wallet_addEthereumChain',
+            params: [{
+              chainId: SHIBARIUM_TESTNET.chainId,
+              chainName: SHIBARIUM_TESTNET.chainName,
+              rpcUrls: [SHIBARIUM_TESTNET.rpcUrl],
+              nativeCurrency: SHIBARIUM_TESTNET.nativeCurrency,
+              blockExplorerUrls: [SHIBARIUM_TESTNET.blockExplorerUrl]
+            }]
+          });
+        } else {
+          throw switchError;
+        }
+      }
+    }
+
+    // Fetch balances (pure RPC, no libs)
+    const [nibblesBal, hopeseedBal] = await Promise.all([
+      getTokenBalance(NIBBLES_ADDRESS, userAddress, SHIBARIUM_TESTNET.rpcUrl),
+      getTokenBalance(HOPESEED_ADDRESS, userAddress, SHIBARIUM_TESTNET.rpcUrl)
+    ]);
+
+    // Display balances
+    nibblesBalEl.textContent = `${nibblesBal.toLocaleString()} $NIBBLES`;
+    hopeseedBalEl.textContent = `${hopeseedBal.toLocaleString()} $hopeseed`;
+    nibblesBalEl.classList.remove('hidden');
+    hopeseedBalEl.classList.remove('hidden');
+
+    // Determine circles using the exact thresholds from the 29 programs
+    const nibblesCircle = getMercyCircle(nibblesBal);
+    const hopeseedCircle = getMercyCircle(hopeseedBal);
+
+    nibblesCircleEl.textContent = nibblesCircle;
+    hopeseedCircleEl.textContent = hopeseedCircle;
+    nibblesCircleEl.classList.remove('hidden');
+    hopeseedCircleEl.classList.remove('hidden');
+
+    // Populate the personal circles panel with loving language
+    document.getElementById('nibbles-circles-list').innerHTML = buildCircleList('$NIBBLES', nibblesBal, nibblesCircle);
+    document.getElementById('hopeseed-circles-list').innerHTML = buildCircleList('$hopeseed', hopeseedBal, hopeseedCircle);
+
+    circlesPanel.classList.remove('hidden');
+
+    statusEl.textContent = `Connected: ${userAddress.slice(0,6)}...${userAddress.slice(-4)} (testnet) — Your holdings are already part of the mercy.`;
+    statusEl.classList.remove('hidden');
+
+  } catch (err) {
+    console.warn('Wallet connection note:', err);
+    statusEl.textContent = 'Connection paused. The contracts above are still fully visible on Puppyscan. You can explore everything without a wallet.';
+    statusEl.classList.remove('hidden');
+  }
+}
+
+async function getTokenBalance(tokenAddress, userAddress, rpcUrl) {
+  // Standard ERC-20 balanceOf call
+  const data = '0x70a08231000000000000000000000000' + userAddress.slice(2).padStart(64, '0');
+  const response = await fetch(rpcUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      jsonrpc: '2.0',
+      id: 1,
+      method: 'eth_call',
+      params: [{ to: tokenAddress, data: data }, 'latest']
+    })
+  });
+  const json = await response.json();
+  if (json.error) throw new Error(json.error.message);
+  const raw = BigInt(json.result || '0x0');
+  return Number(raw) / 1e18;
+}
+
+function getMercyCircle(balance) {
+  if (balance >= 250000) return 'Eternal Guardian Circle — permanent recognition when the funding comes through.';
+  if (balance >= 100000) return 'Guardian Circle — regular impact updates and deeper support.';
+  if (balance >= 25000) return 'Mercy Circle — quietly funding the next link in the chain.';
+  return 'Supporter — every token still adds to the living mercy.';
+}
+
+function buildCircleList(token, balance, circleText) {
+  let html = `<div class="mb-3">You hold <strong>${balance.toLocaleString()}</strong> ${token}.</div>`;
+  html += `<div class="text-xs leading-relaxed">${circleText}</div>`;
+  html += `<div class="mt-3 text-[10px] text-zinc-400">These are the exact thresholds written into the programs. When the funding comes through, your holding becomes real mercy for dogs or children.</div>`;
+  return html;
+}
+
+console.log('%cShibahumanityhub loaded — People helping people helping people. (Phase 2 wallet prototype active)', 'color:#fcd34d; font-family:monospace;');
 </script>
 </body>
 </html>
