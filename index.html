@@ -189,8 +189,70 @@
       0%, 100% { transform: scale(0.8); opacity: 0.5; }
       50% { transform: scale(1.25); opacity: 0.9; }
     }
+
+    /* Phase 4: Premium motion system - breathing, ripples, not hype */
+    :root {
+      --ease-mercy: cubic-bezier(0.4, 0, 0.2, 1);
+      --dur-breath: 0.7s;
+      --dur-ripple: 1.2s;
+    }
+
+    .program-card {
+      transition: transform var(--dur-breath) var(--ease-mercy), 
+                  box-shadow var(--dur-breath) var(--ease-mercy),
+                  border-color 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+
+    .program-card::after {
+      content: '▶︎';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8rem;
+      color: rgba(255,255,255,0.85);
+      opacity: 0;
+      text-shadow: 0 0 12px rgba(0,0,0,0.8);
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 10;
+    }
+    .program-card:hover::after {
+      opacity: 0.75;
+    }
+
+    /* Gentle chain-link pulse for engine viz */
+    #engine-viz .flex-1.relative {
+      transition: box-shadow 0.4s ease;
+    }
+    #engine-viz:hover .flex-1.relative {
+      box-shadow: 0 0 20px -5px rgba(251,191,36,0.25);
+    }
+
+    /* Reduced motion safety (Phase 4) */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .program-card:hover {
+        transform: none !important;
+      }
+    }
+
+    /* Modal polish */
+    #program-modal .modal {
+      transition: transform 0.25s var(--ease-mercy), opacity 0.2s ease;
+    }
   </style>
 <script src="js/programs-data.js"></script>
+<script src="js/shared-animations.js"></script>
 
 <body>
 
@@ -1048,6 +1110,12 @@ if (document.readyState === 'loading') {
 }
 
 console.log('%cShibahumanityhub loaded — People helping people helping people. (Phase 2 wallet + Phase 3 engine prototype active)', 'color:#fcd34d; font-family:monospace;');
+
+// Phase 4: Premium micro-interactions & animations
+if (window.initPremiumAnimations) {
+  // Already auto-inits in shared-animations.js on DOMContentLoaded, but call again for safety after all content
+  setTimeout(() => window.initPremiumAnimations(), 50);
+}
 </script>
 </body>
 </html>

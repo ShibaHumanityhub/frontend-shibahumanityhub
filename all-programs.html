@@ -223,8 +223,56 @@
     80%  { opacity: 0.85; }
     100% { transform: translateY(-200px) scale(1.15); opacity: 0; }
   }
+
+  /* Phase 4: Premium motion system - breathing, ripples (dupe for this page until shared CSS) */
+  :root {
+    --ease-mercy: cubic-bezier(0.4, 0, 0.2, 1);
+    --dur-breath: 0.7s;
+    --dur-ripple: 1.2s;
+  }
+
+  .program-card {
+    transition: transform var(--dur-breath) var(--ease-mercy), 
+                box-shadow var(--dur-breath) var(--ease-mercy),
+                border-color 0.3s ease;
+  }
+
+  .program-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  .program-card::after {
+    content: '▶︎';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    color: rgba(255,255,255,0.85);
+    opacity: 0;
+    text-shadow: 0 0 12px rgba(0,0,0,0.8);
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+  }
+  .program-card:hover::after {
+    opacity: 0.75;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .program-card:hover {
+      transform: none !important;
+    }
+  }
 </style>
 <script src="js/programs-data.js"></script>
+<script src="js/shared-animations.js"></script>
 
 <body>
 
@@ -519,6 +567,11 @@ function initFloatingParticles() {
 window.onload = function() {
   renderAllPrograms('all');
   console.log('%c✅ All Programs Page Loaded — Legendary Quality Achieved', 'color:#fcd34d; font-family:monospace;');
+
+  // Phase 4: init unified premium animations (particles, hovers, reveals)
+  if (window.initPremiumAnimations) {
+    window.initPremiumAnimations();
+  }
 };
 </script>
 </body>
