@@ -1,4 +1,4 @@
-﻿const programs = const programs = [            {
+const programs = [            {
     id: 0,
     title: "Corporate Barn Pod Sponsorship",
     category: "$NIBBLES",
@@ -7,9 +7,9 @@
     shortDesc: "Good companies becoming real heroes by giving senior shelter dogs the loving golden years they deserve.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Corporate Impact</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Corporate Barn Pod Sponsorship</h2>
-      <p class="text-amber-200 text-xl mb-6">Right now, too many beautiful senior dogs sit in shelters, quietly watching the world pass them by. They have given their whole lives to people, and in their final years they deserve warm beds, good food, and real love â€” not a cold kennel.</p>
-      <p class="text-zinc-300 mb-8">Through the Corporate Barn Pod Sponsorship, companies have the chance to step into their highest purpose. A single pod of five to ten senior dogs will live out their golden years in our Shiba Barns â€” fully cared for, with daily enrichment, expert veterinary care, and the peaceful retirement every loyal heart has earned.</p>
-      <p class="text-zinc-300 mb-8">This is more than a donation. It is a living partnership. Your companyâ€™s name will be on the barn, on the dogsâ€™ vests, and in every story we share with the world. Your team will get to meet their pod through livestreams and volunteer days. Real impact. Real stories. Real lives forever changed.</p>
+      <p class="text-amber-200 text-xl mb-6">Right now, too many beautiful senior dogs sit in shelters, quietly watching the world pass them by. They have given their whole lives to people, and in their final years they deserve warm beds, good food, and real love — not a cold kennel.</p>
+      <p class="text-zinc-300 mb-8">Through the Corporate Barn Pod Sponsorship, companies have the chance to step into their highest purpose. A single pod of five to ten senior dogs will live out their golden years in our Shiba Barns — fully cared for, with daily enrichment, expert veterinary care, and the peaceful retirement every loyal heart has earned.</p>
+      <p class="text-zinc-300 mb-8">This is more than a donation. It is a living partnership. Your company’s name will be on the barn, on the dogs’ vests, and in every story we share with the world. Your team will get to meet their pod through livestreams and volunteer days. Real impact. Real stories. Real lives forever changed.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
       <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -23,15 +23,15 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the exact peaceful golden life that senior dogs will finally get in our Shiba Barns â€” warm, safe, and full of love.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the exact peaceful golden life that senior dogs will finally get in our Shiba Barns — warm, safe, and full of love.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€“ How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Pod</strong><br>5 senior dogs â€¢ $1,250 per month. Your company helps five dogs finally feel loved again</div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Bronze / Silver Pod</strong><br>10 senior dogs â€¢ $2,500 to $5,000 per month. Your name lives on the barn and in their daily lives</div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Gold Pod</strong><br>10 or more senior dogs â€¢ $10,000+ per month. Naming rights, livestream access, and a forever place in their story</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Pod</strong><br>5 senior dogs • $1,250 per month. Your company helps five dogs finally feel loved again</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Bronze / Silver Pod</strong><br>10 senior dogs • $2,500 to $5,000 per month. Your name lives on the barn and in their daily lives</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Gold Pod</strong><br>10 or more senior dogs • $10,000+ per month. Naming rights, livestream access, and a forever place in their story</div>
         </div>
       </div>
 
@@ -45,13 +45,13 @@
     category: "$NIBBLES",
     badgeColor: "emerald",
     image: "assets/images/rescuephotonftsoulbound.jpg",
-    shortDesc: "Every dogâ€™s full life story permanently written on the blockchain, never forgotten again.",
+    shortDesc: "Every dog’s full life story permanently written on the blockchain, never forgotten again.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Soulbound Legacy</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Rescue Passport Soulbound NFTs</h2>
       <p class="text-amber-200 text-xl mb-6">Every rescue dog finally gets a permanent, living digital soul on the blockchain.</p>
-      <p class="text-zinc-300 mb-8">Too many rescue dogs walk into a shelter and basically disappear from history. Their stories, their little quirks, the exact day they were saved â€” it all gets lost forever.</p>
-      <p class="text-zinc-300 mb-8">The Rescue Passport changes that forever. The moment a dog enters our world, we mint a soulbound NFT â€” a permanent, non-transferable digital soul that lives on the blockchain and can never be sold, lost, or faked. It becomes their living, growing Rescue Passport.</p>
-      <p class="text-zinc-300 mb-8">Every vet visit, every training moment, every happy photo or bark video gets added safely on-chain. When they finally go to their forever home, the passport gently moves to the new familyâ€™s wallet and stays bound to them for life.</p>
+      <p class="text-zinc-300 mb-8">Too many rescue dogs walk into a shelter and basically disappear from history. Their stories, their little quirks, the exact day they were saved — it all gets lost forever.</p>
+      <p class="text-zinc-300 mb-8">The Rescue Passport changes that forever. The moment a dog enters our world, we mint a soulbound NFT — a permanent, non-transferable digital soul that lives on the blockchain and can never be sold, lost, or faked. It becomes their living, growing Rescue Passport.</p>
+      <p class="text-zinc-300 mb-8">Every vet visit, every training moment, every happy photo or bark video gets added safely on-chain. When they finally go to their forever home, the passport gently moves to the new family’s wallet and stays bound to them for life.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
       <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -65,11 +65,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch every rescue dogâ€™s full life story become a permanent, glowing soulbound passport on the blockchain.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch every rescue dog’s full life story become a permanent, glowing soulbound passport on the blockchain.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€“ How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>First 100 Passports</strong><br>Launch the registry for the next 100 rescued dogs</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Regional Registry</strong><br>Full registry + live tracking for one shelter or rescue group</div>
@@ -77,7 +77,7 @@
         </div>
       </div>
 
-      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every single rescue dog will finally have their whole beautiful journey honored and remembered forever. No more stories lost to time. Just a permanent, gentle proof that their second chance truly mattered â€” a soulbound legacy that grows with them and travels softly with their forever family. This is how we turn forgotten lives into living legends on the blockchain.</p>
+      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every single rescue dog will finally have their whole beautiful journey honored and remembered forever. No more stories lost to time. Just a permanent, gentle proof that their second chance truly mattered — a soulbound legacy that grows with them and travels softly with their forever family. This is how we turn forgotten lives into living legends on the blockchain.</p>
 
       <button onclick="sponsorProgram('rescue-passport')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Bring the First Rescue Passports to Life</button>`
   },
@@ -159,7 +159,7 @@
         </div>
       </div>
 
-      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every adopted dog will get the strongest possible start. Scared shelter dogs will relax into their new beds and play in their new yards with families who feel supported instead of overwhelmed. This is how we turn nervous beginnings into forever homes â€” one loving pack at a time.</p>
+      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every adopted dog will get the strongest possible start. Scared shelter dogs will relax into their new beds and play in their new yards with families who feel supported instead of overwhelmed. This is how we turn nervous beginnings into forever homes — one loving pack at a time.</p>
 
       <button onclick="sponsorProgram('new-beginnings')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch New Beginnings Home Start Packs</button>`
   },
@@ -215,7 +215,7 @@
       <h2 class="text-4xl font-bold mb-3">Global Disaster K9 Response Units</h2>
       <p class="text-amber-200 text-xl mb-6">When disaster hits, every single minute matters. I keep thinking about the little girl they pulled from the rubble or the elderly couple found alive after everyone else had stopped looking.</p>
       <p class="text-zinc-300 mb-8">Those moments when a dog crawls through places no human can reach and changes everything.</p>
-      <p class="text-zinc-300 mb-8">We will keep a small, elite team of fully trained search-and-rescue dogs and handlers ready 24/7. Many of the dogs will come from our own rescue programs â€” dogs that once had no hope and now get to give that same gift of hope back to the world.</p>
+      <p class="text-zinc-300 mb-8">We will keep a small, elite team of fully trained search-and-rescue dogs and handlers ready 24/7. Many of the dogs will come from our own rescue programs — dogs that once had no hope and now get to give that same gift of hope back to the world.</p>
       <p class="text-zinc-300 mb-8">Every time a disaster strikes, $NIBBLES holders will be able to click and know their everyday transactions just helped send a real rescue team. This is mercy in motion. This is second chances saving lives.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -230,11 +230,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a child and their K9 Lifeline hero â€” disaster response dogs bringing hope when it matters most.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a child and their K9 Lifeline hero — disaster response dogs bringing hope when it matters most.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€” How $NIBBLES Makes These Rescues Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy — How $NIBBLES Makes These Rescues Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -242,7 +242,7 @@
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
             <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
-            <strong>Hold 250,000+ $NIBBLES</strong><br>Send $NIBBLES during a live alert â€” 30% goes straight into that teamâ€™s lifelong care fund
+            <strong>Hold 250,000+ $NIBBLES</strong><br>Send $NIBBLES during a live alert — 30% goes straight into that team’s lifelong care fund
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
@@ -265,7 +265,7 @@
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Redemption</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Second Chance K9 Prison Program</h2>
       <p class="text-amber-200 text-xl mb-6">Some shelter dogs are labeled difficult, reactive, fearful, or high energy and end up with very few options. At the same time, many inmates are quietly looking for purpose, structure, and a real reason to believe in themselves again.</p>
-      <p class="text-zinc-300 mb-8">This program brings the two together in the most beautiful way. Inside medium security correctional facilities, inmates train shelter dogs in a structured, professional program. The dogs learn to become calm, confident, and highly adoptable. The inmates gain real dog handling skills, nationally recognized certifications, and something even more powerful â€” a sense of responsibility and pride that often stays with them long after they leave.</p>
+      <p class="text-zinc-300 mb-8">This program brings the two together in the most beautiful way. Inside medium security correctional facilities, inmates train shelter dogs in a structured, professional program. The dogs learn to become calm, confident, and highly adoptable. The inmates gain real dog handling skills, nationally recognized certifications, and something even more powerful — a sense of responsibility and pride that often stays with them long after they leave.</p>
       <p class="text-zinc-300 mb-8">Dogs that society had written off get a second chance at life. People that society had written off get a second chance at purpose. Both sides heal each other in ways no one expected.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -284,7 +284,7 @@
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€” How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy — How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Hold 25,000+ $NIBBLES</strong><br>Sponsor a dog in training and receive regular photo and video updates</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Fund professional trainers, supplies, and program operations</div>
@@ -328,7 +328,7 @@
         <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy - How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Hold 25,000+ $NIBBLES</strong><br>Fund hospice care, medical supplies, and bucket list experiences</div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Plant a Sequoia tree in the dogâ€™s name and receive updates</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Plant a Sequoia tree in the dog’s name and receive updates</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Hold 250,000+ $NIBBLES</strong><br>Full legacy access with soulbound NFT and tree dedication</div>
         </div>
       </div>
@@ -362,15 +362,15 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the joy of a senior hero finally getting their golden years â€” warm, safe, and full of love.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the joy of a senior hero finally getting their golden years — warm, safe, and full of love.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€“ How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Retirement Home</strong><br>1 senior hero â€¢ $250 per month</div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Comfort / Full Golden Care Home</strong><br>1 senior with higher needs â€¢ $350 â€“ $450 per month</div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Legacy Family Pod</strong><br>2 heroes â€¢ $700+ per month â€” your name stays with them forever</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Retirement Home</strong><br>1 senior hero • $250 per month</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Comfort / Full Golden Care Home</strong><br>1 senior with higher needs • $350 – $450 per month</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Legacy Family Pod</strong><br>2 heroes • $700+ per month — your name stays with them forever</div>
         </div>
       </div>
 
@@ -384,11 +384,11 @@
     category: "$NIBBLES",
     badgeColor: "emerald",
     image: "assets/images/unifiedrescueregistryphoto.jpg",
-    shortDesc: "Every rescued dog gets a permanent, soulbound digital passport on the blockchain that follows them for life â€” powered by $NIBBLES.",
+    shortDesc: "Every rescued dog gets a permanent, soulbound digital passport on the blockchain that follows them for life — powered by $NIBBLES.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Soulbound Legacy</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Unified Rescue Registry</h2>
-      <p class="text-amber-200 text-xl mb-6">Every rescue dog deserves to be seen, remembered, and loved forever â€” not just for a moment, but for their entire life.</p>
-      <p class="text-zinc-300 mb-8">The Unified Rescue Registry gives every dog their own permanent, soulbound digital passport on the blockchain. Their full journey, medical history, personality, and forever family story travels with them â€” forever.</p>
+      <p class="text-amber-200 text-xl mb-6">Every rescue dog deserves to be seen, remembered, and loved forever — not just for a moment, but for their entire life.</p>
+      <p class="text-zinc-300 mb-8">The Unified Rescue Registry gives every dog their own permanent, soulbound digital passport on the blockchain. Their full journey, medical history, personality, and forever family story travels with them — forever.</p>
       <p class="text-zinc-300 mb-8">No more lost records. No more forgotten stories. Just pure, unbreakable proof that their second chance mattered.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -403,11 +403,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the global rescue network come alive â€” every dog connected, protected, and remembered forever.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the global rescue network come alive — every dog connected, protected, and remembered forever.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€“ How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>First 100 Passports</strong><br>Launch the registry for the next 100 rescued dogs</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Regional Registry</strong><br>Full registry + live tracking for one shelter or rescue group</div>
@@ -415,7 +415,7 @@
         </div>
       </div>
 
-      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every rescue dog will have their story permanently written on the blockchain. Their journey, their healing, their forever home â€” all of it preserved forever. This is how we turn forgotten lives into living legends that can never be erased again.</p>
+      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every rescue dog will have their story permanently written on the blockchain. Their journey, their healing, their forever home — all of it preserved forever. This is how we turn forgotten lives into living legends that can never be erased again.</p>
 
       <button onclick="sponsorProgram('unified-rescue-registry')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch the Unified Rescue Registry</button>`
   },
@@ -444,15 +444,15 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the joyful pack running free in the sunlit Shiba Barns â€” this is the forever life every dog deserves.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the joyful pack running free in the sunlit Shiba Barns — this is the forever life every dog deserves.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€” How $NIBBLES Makes This Even More Powerful (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy — How $NIBBLES Makes This Even More Powerful (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
-            <strong>Hold 25,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES â€” the barn you support receives 20 percent more resources
+            <strong>Hold 25,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES — the barn you support receives 20 percent more resources
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
             <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
@@ -494,11 +494,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the exact moment a shelter dog finally finds their forever family â€” pure joy, pure love, pure home.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the exact moment a shelter dog finally finds their forever family — pure joy, pure love, pure home.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€“ How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -510,7 +510,7 @@
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
-            <strong>Hold 250,000+ $NIBBLES</strong><br>Become a movement Guardian with permanent recognition and the chance to share your familyâ€™s story
+            <strong>Hold 250,000+ $NIBBLES</strong><br>Become a movement Guardian with permanent recognition and the chance to share your family’s story
           </div>
         </div>
       </div>
@@ -525,10 +525,10 @@
     category: "$NIBBLES",
     badgeColor: "emerald",
     image: "assets/images/shelter-to-barnlifelongprogram.jpg",
-    shortDesc: "Dogs pulled from death row within 72 hours and given a safe, livestreamed forever home in our Shiba Barns â€” no soul is ever left behind again.",
+    shortDesc: "Dogs pulled from death row within 72 hours and given a safe, livestreamed forever home in our Shiba Barns — no soul is ever left behind again.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Death Row Rescue</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Shelter-To-Barn Lifelong Program</h2>
-      <p class="text-amber-200 text-xl mb-6">I canâ€™t stand the thought of a sweet dog running out of time on a shelter list when we have the power to change that story.</p>
+      <p class="text-amber-200 text-xl mb-6">I can’t stand the thought of a sweet dog running out of time on a shelter list when we have the power to change that story.</p>
       <p class="text-zinc-300 mb-8">Dogs will be pulled from death row within 72 hours and brought straight into our heated, livestreamed Shiba Barns. They will live in safety with loving guardians and big play yards. No soul will ever be left behind again.</p>
       <p class="text-zinc-300 mb-8">Every dog gets a second chance at life filled with warmth, care, and the knowledge that someone out there fought for them. And the whole world can watch their journey unfold in real time through the livestreams.</p>
 
@@ -544,11 +544,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch a rescued hero finally running free in the barn â€” warm, safe, and full of joy.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch a rescued hero finally running free in the barn — warm, safe, and full of joy.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€“ How $NIBBLES Makes This Possible (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Possible (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -594,7 +594,7 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a therapy dog and a happy senior â€” pure healing, pure love.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a therapy dog and a happy senior — pure healing, pure love.</p>
       </div>
 
       <div class="mb-10">
@@ -606,7 +606,7 @@
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
             <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
-            <strong>Hold 100,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES and your sponsored dogâ€™s visits receive extra support
+            <strong>Hold 100,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES and your sponsored dog’s visits receive extra support
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
@@ -631,7 +631,7 @@
       <p class="text-amber-200 text-xl mb-6">I keep thinking about how many seniors sit alone in houses that got too quiet, and how many good adult shelter dogs have waited years for a real home.</p>
       <p class="text-zinc-300 mb-8">We will match carefully screened seniors, especially widows and widowers, with steady dogs five years and older. Once matched, we remove every single financial barrier for the entire life of that dog. Monthly support covers premium food, grooming, supplies, and prevention. There is a rolling emergency vet fund that refills itself so nothing ever catches them off guard.</p>
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€“ How $NIBBLES Makes This Even More Powerful (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Even More Powerful (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -643,7 +643,7 @@
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
-            <strong>Hold 250,000+ $NIBBLES</strong><br>Become a Golden Years Guardian with permanent recognition and the chance to share your pairâ€™s story
+            <strong>Hold 250,000+ $NIBBLES</strong><br>Become a Golden Years Guardian with permanent recognition and the chance to share your pair’s story
           </div>
         </div>
       </div>
@@ -675,11 +675,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a veteran and their Service Dog Freedom partner â€” walking together into a brighter future.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a veteran and their Service Dog Freedom partner — walking together into a brighter future.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy â€” How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy — How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -725,11 +725,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the pure joy on a childâ€™s face as they open their special Christmas gift live on stream.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the pure joy on a child’s face as they open their special Christmas gift live on stream.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Magic Happen (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Magic Happen (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -761,7 +761,7 @@
       <p class="text-zinc-300 mb-8">Their family depends on school meals during the week, and when the weekend comes the fridge stays empty. That kind of hidden struggle should never happen to a child.</p>
       <p class="text-zinc-300 mb-8">So we created No Hungry Weekend Backpacks. Every Friday, kids quietly receive a backpack filled with healthy food for the entire weekend, a tablet loaded with learning games, and a small surprise toy that brings real joy without any shame. No child ever has to feel like a charity case. Just a kid who was remembered and cared for with love.</p>
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -809,7 +809,7 @@
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -841,7 +841,7 @@
       <p class="text-zinc-300 mb-8">Scared of the hallway, the lunchroom, or just being themselves. The old anti-bullying assemblies do not reach them anymore.</p>
       <p class="text-zinc-300 mb-8">I wanted to build something better, something schools are actually proud to have and kids actually respect. So we created the Bullyproof Schools Initiative: powerful, high-quality assemblies that feel real and relevant, plus a safe, private virtual world where any student who feels overwhelmed or alone can step away, breathe, talk to a counselor, sit with a therapy dog on live cam, and just feel protected. On top of that, we reward real kindness with small $hopeseed tips that kids earn and feel proud of.</p>
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -889,7 +889,7 @@
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -933,11 +933,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the glowing white dove of hope visit a sick child in the hospital bed â€” the exact miracle every family prays for.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the glowing white dove of hope visit a sick child in the hospital bed — the exact miracle every family prays for.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1035,7 +1035,7 @@
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1056,15 +1056,15 @@
   },
          {
     id: 25,
-    title: "Santaâ€™s Workshop Live",
+    title: "Santa’s Workshop Live",
     category: "$hopeseed",
     badgeColor: "emerald",
     image: "assets/images/santasworkshoplivephoto.jpg",
     shortDesc: "24/7 live feed from the HopeSeed warehouse where toys, clothes, and real hope move every single day so kids who feel forgotten finally know someone out there is thinking of them.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Year-Round Joy</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
-      <h2 class="text-4xl font-bold mb-3">Santaâ€™s Workshop Live</h2>
+      <h2 class="text-4xl font-bold mb-3">Santa’s Workshop Live</h2>
       <p class="text-emerald-200 text-xl mb-6">All over the world there are children with no families and barely enough to eat. They wake up every day carrying a quiet loneliness that no child should ever know.</p>
-      <p class="text-zinc-300 mb-8">I lived that pain myself and it never really leaves you. That is why my heart pours everything into Santaâ€™s Workshop Live. We built a real, warm warehouse that never sleeps. It collects, sorts, packs, and ships toys, clothes, books, school supplies, and little comforts to those children every single week of the year, not just at Christmas.</p>
+      <p class="text-zinc-300 mb-8">I lived that pain myself and it never really leaves you. That is why my heart pours everything into Santa’s Workshop Live. We built a real, warm warehouse that never sleeps. It collects, sorts, packs, and ships toys, clothes, books, school supplies, and little comforts to those children every single week of the year, not just at Christmas.</p>
       <p class="text-zinc-300 mb-8">A 24/7 live stream lets every $hopeseed holder watch their kindness come to life in real time. You see gentle hands packing boxes with care, conveyor belts rolling, and pallets of hope heading out the door. You literally watch your everyday transactions turn into real smiles, real hugs, and real moments a child will carry in their heart forever.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -1079,11 +1079,11 @@
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch Santa and the elves wrapping gifts live while kids wave excitedly on the screens â€” pure Christmas magic happening all year round.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch Santa and the elves wrapping gifts live while kids wave excitedly on the screens — pure Christmas magic happening all year round.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1100,7 +1100,7 @@
         </div>
       </div>
       <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, children all over the world who have no families and can barely afford to eat will finally feel seen, remembered, and deeply loved. They will receive steady gifts that say you matter, someone is thinking of you. And every $hopeseed holder will get to watch their everyday transactions become real joy on camera, one warm box, one smiling face, one beautiful moment of hope at a time. This is giving that feels alive. This is love in action. This is family created by kindness.</p>
-      <button onclick="sponsorProgram('santas-workshop-live')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Keep Santaâ€™s Workshop Alive All Year</button>`
+      <button onclick="sponsorProgram('santas-workshop-live')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Keep Santa’s Workshop Alive All Year</button>`
   },
        {
     id: 26,
@@ -1113,7 +1113,7 @@
       <h2 class="text-4xl font-bold mb-3">Wish NFT Program</h2>
       <p class="text-emerald-200 text-xl mb-6">All over the world there are children lying in hospital beds surrounded by beeping machines and pain. Yet they still dare to dream.</p>
       <p class="text-zinc-300 mb-8">A PS5, a VR headset, a tablet, something that lets them escape their four walls for a little while. Most of the time those wishes never come true.</p>
-      <p class="text-zinc-300 mb-8">We change that with all our hearts. A child shares what they really want. We turn that exact dream into a beautiful one-of-a-kind NFT with the childâ€™s anonymized story attached. When someone buys it they do not just get digital art. They get the real item delivered to the child, the unboxing video from the hospital bed, a personal thank you from the kid, and ongoing updates as the child uses it. It turns one simple wish into something deeply personal and lasting for both the child and the buyer.</p>
+      <p class="text-zinc-300 mb-8">We change that with all our hearts. A child shares what they really want. We turn that exact dream into a beautiful one-of-a-kind NFT with the child’s anonymized story attached. When someone buys it they do not just get digital art. They get the real item delivered to the child, the unboxing video from the hospital bed, a personal thank you from the kid, and ongoing updates as the child uses it. It turns one simple wish into something deeply personal and lasting for both the child and the buyer.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
       <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -1131,11 +1131,11 @@
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Magic Happen (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Magic Happen (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
-            <strong>Hold 25,000+ $hopeseed</strong><br>Help turn one childâ€™s wish into a real NFT and gift
+            <strong>Hold 25,000+ $hopeseed</strong><br>Help turn one child’s wish into a real NFT and gift
           </div>
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center border-2 border-emerald-400">
             <div class="text-emerald-300 font-semibold mb-2">Guardian Circle</div>
@@ -1148,7 +1148,7 @@
         </div>
       </div>
       <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every sick child in a hospital bed will get to experience pure joy when their exact dream arrives. They will open the gift on camera. They will feel the love of people who truly care. For the buyer it becomes a beautiful, lasting memory of the difference they made. This is the kind of heartfelt connection the world needs.</p>
-      <button onclick="sponsorProgram('wish-nft-program')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Make a Childâ€™s Wish Come True</button>`
+      <button onclick="sponsorProgram('wish-nft-program')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Make a Child’s Wish Come True</button>`
   },
      {
     id: 27,
@@ -1230,7 +1230,7 @@
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy â€“ How $hopeseed Makes This Magic Happen (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Magic Happen (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1275,7 +1275,7 @@
                 class="w-full rounded-2xl">
               </video>
             </div>
-            <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a mother and her child â€” the steady love and support every special needs family deserves.</p>
+            <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a mother and her child — the steady love and support every special needs family deserves.</p>
           </div>
 
           <div class="mb-10">
