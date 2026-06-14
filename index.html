@@ -647,14 +647,14 @@
           <div class="mb-6">
             <div class="text-xs uppercase tracking-widest text-zinc-400 mb-2">Simulate your holding</div>
             <div class="flex flex-wrap gap-2">
-              <button onclick="simulateHolding(25000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">25,000 $NIBBLES (Mercy Circle)</button>
-              <button onclick="simulateHolding(100000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">100,000 $NIBBLES (Guardian)</button>
-              <button onclick="simulateHolding(250000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">250,000+ $NIBBLES (Eternal)</button>
-              <button onclick="simulateHolding(25000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">25,000 $hopeseed (Mercy Circle)</button>
-              <button onclick="simulateHolding(100000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">100,000 $hopeseed (Guardian)</button>
-              <button onclick="simulateHolding(250000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">250,000+ $hopeseed (Eternal)</button>
+              <button aria-label="Simulate holding 25,000 $NIBBLES to see Mercy Circle impact" onclick="simulateHolding(25000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">25,000 $NIBBLES (Mercy Circle)</button>
+              <button aria-label="Simulate holding 100,000 $NIBBLES to see Guardian Circle impact" onclick="simulateHolding(100000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">100,000 $NIBBLES (Guardian)</button>
+              <button aria-label="Simulate holding 250,000+ $NIBBLES to see Eternal Guardian Circle impact" onclick="simulateHolding(250000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">250,000+ $NIBBLES (Eternal)</button>
+              <button aria-label="Simulate holding 25,000 $hopeseed to see Mercy Circle impact" onclick="simulateHolding(25000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">25,000 $hopeseed (Mercy Circle)</button>
+              <button aria-label="Simulate holding 100,000 $hopeseed to see Guardian Circle impact" onclick="simulateHolding(100000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">100,000 $hopeseed (Guardian)</button>
+              <button aria-label="Simulate holding 250,000+ $hopeseed to see Eternal Guardian Circle impact" onclick="simulateHolding(250000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">250,000+ $hopeseed (Eternal)</button>
             </div>
-            <button onclick="resetSimulator()" class="mt-3 text-xs text-zinc-400 hover:text-white underline">Reset to neutral</button>
+            <button aria-label="Reset simulation to neutral holding" onclick="resetSimulator()" class="mt-3 text-xs text-zinc-400 hover:text-white underline">Reset to neutral</button>
           </div>
 
           <div id="personal-impact" class="text-sm text-white/90 leading-relaxed">
