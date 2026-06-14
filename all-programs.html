@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Shibahumanityhub • Since Nov 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shibahumanityhub • The 29 Programs of Mercy</title>
+  <meta name="description" content="Explore all 29 programs of the Mercy Flywheel: $NIBBLES for dogs (soulbound passports, barns, therapy, disaster K9) and $hopeseed for children (wallets, birthdays, schools, miracles). First-principles design for verifiable, compounding compassion. Connect your wallet to see your place in the engine.">
+  <meta property="og:title" content="Shibahumanityhub • All 29 Programs">
+  <meta property="og:description" content="The complete living proof of the self-reinforcing mercy engine. 29 specific, on-chain programs that turn every holding into real lives saved — quietly, forever.">
+  <meta property="og:image" content="assets/logos/shibahumanityhublogo3d-new.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shibahumanityhub • The 29 Programs">
+  <meta name="twitter:description" content="Soulbound. Verifiable. Compounding. The full list of how every transaction saves lives.">
 
 <!-- BIGGER PAW FAVICON - Updated -->
 <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
@@ -324,7 +332,7 @@
       <div class="token-card bg-zinc-800 rounded-3xl p-10 md:p-12 text-center w-full max-w-[420px] md:max-w-none">
         <img src="assets/logos/Mr.NIbbles%20logo.jpg" 
              class="mx-auto mb-8 w-64 h-64 md:w-72 md:h-72 object-contain rounded-3xl" 
-             alt="Mr. Nibbles">
+             alt="Mr. Nibbles" loading="lazy">
         <p class="text-amber-200 mb-3 text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
         <p class="text-zinc-400 mb-8 text-lg">Every transaction quietly becomes mercy for dogs who once had none.</p>
         <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" 
@@ -338,7 +346,7 @@
       <div class="token-card bg-zinc-800 rounded-3xl p-10 md:p-12 text-center w-full max-w-[420px] md:max-w-none">
         <img src="assets/logos/hopeseed-logo.jpg" 
              class="mx-auto mb-8 w-64 h-64 md:w-72 md:h-72 object-contain rounded-3xl" 
-             alt="hopeseed">
+             alt="hopeseed" loading="lazy">
         <p class="text-emerald-300 mb-3 text-4xl font-semibold">$hopeseed</p>
         <p class="text-zinc-400 mb-8 text-lg">Every transaction plants a seed of hope for children who need it most.</p>
         <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" 
@@ -348,6 +356,7 @@
         </a>
       </div>
     </div>
+    <p class="text-center text-xs text-emerald-200/70 mt-6">These tokens are the fuel for the self-reinforcing Mercy Flywheel — every balance you hold is already turning the engine that quietly multiplies future mercy through stories and new voluntary participants.</p>
   </div>
 </section>
 <!-- ALL PROGRAMS GRID + TABS + EPIC DIVIDER -->
@@ -360,9 +369,11 @@
 
     <!-- TABS -->
     <div class="flex justify-center gap-4 mb-16 flex-wrap">
-      <button onclick="filterPrograms('all')" id="tab-all" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
-      <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
-      <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
+      <div role="tablist" aria-label="Program categories">
+        <button onclick="filterPrograms('all')" id="tab-all" role="tab" aria-selected="true" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
+        <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
+        <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
+      </div>
     </div>
 
     <!-- FULL GRID (now with elegant division when "All" is selected) -->
@@ -433,7 +444,7 @@ function createCardHTML(p) {
       <div class="floating-elements absolute inset-0 pointer-events-none"></div>
       
       <div class="relative overflow-hidden rounded-2xl mb-6 z-10">
-        <img src="${p.image}" class="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105" alt="${p.title}">
+        <img src="${p.image}" class="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105" alt="${p.title}" loading="lazy">
       </div>
       
       <div class="flex gap-2 mb-4 z-10 relative">
@@ -508,10 +519,16 @@ function renderAllPrograms(cat = 'all') {
 }
 
 function filterPrograms(cat) {
-  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'bg-amber-400', 'text-black'));
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active', 'bg-amber-400', 'text-black');
+    btn.setAttribute('aria-selected', 'false');
+  });
   const tabId = cat === 'all' ? 'tab-all' : `tab-${cat.toLowerCase().replace('$','')}`;
   const activeTab = document.getElementById(tabId);
-  if (activeTab) activeTab.classList.add('active', 'bg-amber-400', 'text-black');
+  if (activeTab) {
+    activeTab.classList.add('active', 'bg-amber-400', 'text-black');
+    activeTab.setAttribute('aria-selected', 'true');
+  }
   renderAllPrograms(cat);
 }
 
