@@ -6,7 +6,7 @@
   <title>Shibahumanityhub • The 29 Programs of Mercy</title>
   <meta name="description" content="Explore all 29 programs of the Mercy Flywheel: $NIBBLES for dogs (soulbound passports, barns, therapy, disaster K9) and $hopeseed for children (wallets, birthdays, schools, miracles). First-principles design for verifiable, compounding compassion. Connect your wallet to see your place in the engine.">
   <meta property="og:title" content="Shibahumanityhub • All 29 Programs">
-  <meta property="og:description" content="The complete living proof of the self-reinforcing mercy engine. 29 specific, on-chain programs that turn every holding into real lives saved — quietly, forever.">
+  <meta property="og:description" content="The complete living proof of the self-reinforcing mercy engine. 29 specific, on-chain programs that turn every holding into real lives saved - quietly, forever.">
   <meta property="og:image" content="assets/logos/shibahumanityhublogo3d-new.jpg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -14,72 +14,252 @@
   <meta name="twitter:description" content="Soulbound. Verifiable. Compounding. The full list of how every transaction saves lives.">
 
 <!-- BIGGER PAW FAVICON - Updated -->
-<!-- Phase 5 baseline (a11y/perf/SEO/mobile): Same as index - viewport fixed, meta/OG, lazy, ARIA, alts, reduced-motion, mobile, perf, SEO, flywheel, x500 polish, face-grabbing. Continued with ARIA and copy. For Pages: sitemap/robots. -->
+<!-- Phase 6 holistic (a11y/perf/SEO/mobile + full integration + future readiness). All phases complete:
+Same as index: Phase 1 foundations + Phase 2 wallet + Phase 3 dashboard + Phase 4 animations + Phase 5 powerful showcase (search/filters/badges, Mercy Constellation SVG, Journey scroller).
+Phase 6: holistic weave. Unified animations and particles across pages, tone checklist, future hooks, docs. All on-tone: quietly, when the funding comes through, people helping people helping people. The 29 stories and the engine now shine as one living, loving whole. 
+
+<!-- Tone & measurement checklist (for anyone touching the code):
+- Does every new sentence feel like it could come from the original Mercy Blueprint or a program fullHTML? (loving, specific, "when the funding comes through", "people helping people helping people")
+- Lighthouse mobile + desktop >=95 for perf/a11y (or clear improvement).
+- Real-device test: phone + wallet connect (or sim), scroll engine slowly, open 3 modals, check particles/videos/reduced-motion.
+- All interactive elements keyboard + screen-reader friendly (use existing ARIA patterns).
+- No hype. Only truth and mercy. If it feels promotional, rewrite.
+- Future hooks: when real on-chain delivery data exists, surface it here with the same language.
+-->
 <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
 <link rel="shortcut icon" href="assets/logos/favicon.png">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- SHARED MERCY CORE STYLES (for consistency with index.html) -->
+  <!-- Common hero, buttons, card base, motion, reduced-motion. No emsymbols. -->
+  <style id="shared-mercy-core">
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+    * { box-sizing: border-box; }
+    body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
+
+    .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #1a2338 100%); }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 10vw, 5.5rem);
+      line-height: 0.85;
+      letter-spacing: -0.08em;
+      background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 80px rgba(251,191,36,0.95), 0 0 140px rgba(16,185,129,0.8);
+    }
+
+    .hero-title-wrapper {
+      padding: 2rem 3rem;
+      border-radius: 3rem;
+      background: rgba(15,23,42,0.88);
+      backdrop-filter: blur(40px);
+      border: 2px solid rgba(251,191,36,0.5);
+      box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
+    }
+
+    @media (max-width: 390px) {
+      .hero-title-wrapper { padding: 1.0rem 1.2rem !important; margin: 10px 12px 20px !important; border-radius: 2rem !important; }
+      .hero-title { font-size: 2.22rem !important; letter-spacing: -2.95px !important; line-height: 0.79 !important; }
+    }
+
+    .super-cta-btn, .premium-sponsor-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -1.8px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 9999px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .super-cta-btn { background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f); color: #0f172a; box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36); }
+    .premium-sponsor-btn { background: linear-gradient(145deg, #10b981, #34d399, #10b981); color: #0f172a; }
+    .super-cta-btn:hover, .premium-sponsor-btn:hover { transform: scale(1.08) translateY(-4px); }
+
+    .program-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::before, .program-card::after {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      animation: floatOrganic linear infinite;
+      opacity: 0.22;
+    }
+    .program-card::before { content: '❤️'; font-size: 1.7rem; color: #f472b6; }
+    .program-card::after  { content: '🐾'; font-size: 2.1rem; color: #fcd34d; }
+
+    .program-card:nth-child(1)::before { top: 12%; left: 10%; animation-duration: 7.2s; }
+    .program-card:nth-child(1)::after  { bottom: 20%; right: 15%; animation-duration: 10.8s; animation-delay: 1.2s; }
+
+    .program-card:nth-child(2)::before { top: 25%; right: 18%; animation-duration: 8.9s; }
+    .program-card:nth-child(2)::after  { bottom: 30%; left: 12%; animation-duration: 7.8s; animation-delay: 2.4s; }
+
+    .program-card:nth-child(3)::before { top: 18%; left: 22%; animation-duration: 9.5s; }
+    .program-card:nth-child(3)::after  { bottom: 25%; right: 20%; animation-duration: 11.5s; }
+
+    .program-card:nth-child(4)::before { top: 15%; right: 12%; animation-duration: 8.1s; }
+    .program-card:nth-child(4)::after  { bottom: 28%; left: 25%; animation-duration: 9.2s; animation-delay: 0.8s; }
+
+    @keyframes floatOrganic {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(22px, -45px) rotate(28deg); }
+    }
+
+    /* Elon / Vitalik / Bilyeu billion-dollar quality slow floating hearts & paws.
+       Elegant, first-principles, quietly profound rhythms across the entire card background. */
+    @keyframes drift-slow1 {
+      0%   { transform: translate(0px, 0px) rotate(-8deg) scale(0.96); }
+      18%  { transform: translate(12px, -18px) rotate(4deg) scale(1.03); }
+      37%  { transform: translate(-9px, -42px) rotate(-3deg) scale(0.97); }
+      58%  { transform: translate(15px, -67px) rotate(6deg) scale(1.02); }
+      79%  { transform: translate(-6px, -89px) rotate(-5deg) scale(0.98); }
+      100% { transform: translate(4px, -112px) rotate(-7deg) scale(0.95); }
+    }
+    @keyframes drift-slow2 {
+      0%   { transform: translate(0px, 0px) rotate(6deg) scale(0.97); }
+      22%  { transform: translate(-14px, -15px) rotate(-5deg) scale(1.025); }
+      41%  { transform: translate(8px, -39px) rotate(3deg) scale(0.96); }
+      63%  { transform: translate(-11px, -64px) rotate(-7deg) scale(1.01); }
+      82%  { transform: translate(10px, -86px) rotate(2deg) scale(0.97); }
+      100% { transform: translate(-3px, -109px) rotate(5deg) scale(0.95); }
+    }
+    @keyframes drift-slow3 {
+      0%   { transform: translate(0px, 0px) rotate(-5deg) scale(0.95); }
+      16%  { transform: translate(18px, -22px) rotate(5deg) scale(1.02); }
+      39%  { transform: translate(-7px, -48px) rotate(-2deg) scale(0.98); }
+      61%  { transform: translate(13px, -71px) rotate(7deg) scale(1.015); }
+      84%  { transform: translate(-5px, -94px) rotate(-4deg) scale(0.96); }
+      100% { transform: translate(7px, -115px) rotate(-6deg) scale(0.94); }
+    }
+    @keyframes drift-slow4 {
+      0%   { transform: translate(0px, 0px) rotate(7deg) scale(0.96); }
+      20%  { transform: translate(-10px, -13px) rotate(-4deg) scale(1.03); }
+      44%  { transform: translate(11px, -37px) rotate(2deg) scale(0.97); }
+      65%  { transform: translate(-8px, -62px) rotate(-6deg) scale(1.018); }
+      83%  { transform: translate(14px, -85px) rotate(4deg) scale(0.98); }
+      100% { transform: translate(-2px, -110px) rotate(6deg) scale(0.95); }
+    }
+    @keyframes drift-slow5 {
+      0%   { transform: translate(0px, 0px) rotate(-9deg) scale(0.97); }
+      17%  { transform: translate(9px, -19px) rotate(3deg) scale(1.01); }
+      38%  { transform: translate(-12px, -44px) rotate(-5deg) scale(0.96); }
+      59%  { transform: translate(16px, -69px) rotate(5deg) scale(1.025); }
+      77%  { transform: translate(-4px, -91px) rotate(-3deg) scale(0.97); }
+      100% { transform: translate(6px, -113px) rotate(-8deg) scale(0.94); }
+    }
+    @keyframes drift-slow6 {
+      0%   { transform: translate(0px, 0px) rotate(4deg) scale(0.95); }
+      24%  { transform: translate(-16px, -11px) rotate(-6deg) scale(1.028); }
+      47%  { transform: translate(7px, -35px) rotate(2deg) scale(0.97); }
+      68%  { transform: translate(-13px, -58px) rotate(-4deg) scale(1.015); }
+      86%  { transform: translate(11px, -82px) rotate(3deg) scale(0.96); }
+      100% { transform: translate(-5px, -108px) rotate(5deg) scale(0.95); }
+    }
+
+    .float-particle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      will-change: transform, opacity;
+      user-select: none;
+      white-space: nowrap;
+      filter: blur(0.3px);
+      transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Billion-dollar Elon/Vitalik/Bilyeu style slow rhythmic floating hearts & paws */
+    .float-particle.drift-slow1 { animation: drift-slow1 linear infinite; }
+    .float-particle.drift-slow2 { animation: drift-slow2 linear infinite; }
+    .float-particle.drift-slow3 { animation: drift-slow3 linear infinite; }
+    .float-particle.drift-slow4 { animation: drift-slow4 linear infinite; }
+    .float-particle.drift-slow5 { animation: drift-slow5 linear infinite; }
+    .float-particle.drift-slow6 { animation: drift-slow6 linear infinite; }
+
+    .program-card:hover .float-particle {
+      opacity: 1.75 !important;
+    }
+
+    .program-card img {
+      width: 100%;
+      height: 195px;
+      object-fit: cover;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 480px) {
+      .program-card img { height: 165px; }
+    }
+
+    :root {
+      --ease-mercy: cubic-bezier(0.4, 0, 0.2, 1);
+      --dur-breath: 0.7s;
+      --dur-ripple: 1.2s;
+    }
+
+    .program-card {
+      transition: transform var(--dur-breath) var(--ease-mercy), 
+                  box-shadow var(--dur-breath) var(--ease-mercy),
+                  border-color 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+
+    .program-card::after {
+      content: '▶︎';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8rem;
+      color: rgba(255,255,255,0.85);
+      opacity: 0;
+      text-shadow: 0 0 12px rgba(0,0,0,0.8);
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 10;
+    }
+    .program-card:hover::after {
+      opacity: 0.75;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .program-card:hover {
+        transform: none !important;
+      }
+    }
+
+    /* Phase 1: premium focus-visible that matches the amber/emerald glow language (loving, not harsh) */
+    *:focus-visible {
+      outline: 2px solid #fcd34d;
+      outline-offset: 3px;
+      box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.25);
+    }
+    .hopeseed-card *:focus-visible,
+    button[onclick*="HOPESEED"]:focus-visible,
+    a[href*="hopeseed"]:focus-visible {
+      outline-color: #34d399;
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.25);
+    }
+  </style>
+
  <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
-  * { box-sizing: border-box; }
-  body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
-
-  .hero-bg {
-    background: linear-gradient(180deg, #0a0f1c 0%, #1a2338 100%);
-  }
-
-  .hero-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: clamp(2.8rem, 10vw, 5.5rem);
-    line-height: 0.85;
-    letter-spacing: -0.08em;
-    background: linear-gradient(92deg, #fefce8 0%, #fcd34d 15%, #fbbf24 30%, #d97706 50%, #10b981 70%, #34d399 85%, #fefce8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 80px rgba(251,191,36,0.95), 0 0 140px rgba(16,185,129,0.8);
-  }
-
-  .hero-title-wrapper {
-    padding: 2rem 3rem;
-    border-radius: 3rem;
-    background: rgba(15,23,42,0.88);
-    backdrop-filter: blur(40px);
-    border: 2px solid rgba(251,191,36,0.5);
-    box-shadow: 0 0 160px -40px rgba(251,191,36,0.9), 0 60px 130px -40px rgba(16,185,129,0.85);
-  }
-
-  @media (max-width: 390px) {
-    .hero-title-wrapper { padding: 1.0rem 1.2rem !important; margin: 10px 12px 20px !important; border-radius: 2rem !important; }
-    .hero-title { font-size: 2.22rem !important; letter-spacing: -2.95px !important; line-height: 0.79 !important; }
-  }
-
- /* Premium button styles — exact match to index.html */
-.super-cta-btn, .premium-sponsor-btn {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -1.8px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 9999px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.super-cta-btn { 
-  background: linear-gradient(145deg, #fcd34d, #f59e0b, #c89f3f); 
-  color: #0f172a; 
-  box-shadow: 0 0 70px -10px rgb(251 191 36), 0 30px 80px -20px rgb(251 191 36); 
-}
-.premium-sponsor-btn { 
-  background: linear-gradient(145deg, #10b981, #34d399, #10b981); 
-  color: #0f172a; 
-}
-.super-cta-btn:hover, .premium-sponsor-btn:hover { 
-  transform: scale(1.08) translateY(-4px); 
-}
-
+ /* All-programs specific styles (after shared core) */
 .super-cta-btn::before {
   content: '';
   position: absolute;
@@ -94,43 +274,10 @@
   100% { transform: translateX(400%) skewX(-25deg); }
 }
 
-  /* Program cards — desynced floating hearts & paws (exact match to index.html) */
+  /* Program cards - desynced floating hearts & paws (exact match to index.html) */
   .program-card {
     position: relative;
     overflow: hidden;
-  }
-  .program-card::before, .program-card::after {
-    position: absolute;
-    pointer-events: none;
-    z-index: 1;
-    animation: floatOrganic linear infinite;
-    opacity: 0.22;
-  }
-  .program-card::before { content: '❤️'; font-size: 1.7rem; color: #f472b6; }
-  .program-card::after  { content: '🐾'; font-size: 2.1rem; color: #fcd34d; }
-
- /* Individual card positions for desynced movement — exact match to index.html */
-.program-card:nth-child(1)::before { top: 12%; left: 10%; animation-duration: 7.2s; }
-.program-card:nth-child(1)::after  { bottom: 20%; right: 15%; animation-duration: 10.8s; animation-delay: 1.2s; }
-
-.program-card:nth-child(2)::before { top: 25%; right: 18%; animation-duration: 8.9s; }
-.program-card:nth-child(2)::after  { bottom: 30%; left: 12%; animation-duration: 7.8s; animation-delay: 2.4s; }
-
-.program-card:nth-child(3)::before { top: 18%; left: 22%; animation-duration: 9.5s; }
-.program-card:nth-child(3)::after  { bottom: 25%; right: 20%; animation-duration: 11.5s; }
-
-.program-card:nth-child(4)::before { top: 15%; right: 12%; animation-duration: 8.1s; }
-.program-card:nth-child(4)::after  { bottom: 28%; left: 25%; animation-duration: 9.2s; animation-delay: 0.8s; }
-
-.program-card:nth-child(5)::before,
-.program-card:nth-child(6)::before,
-.program-card:nth-child(7)::before,
-.program-card:nth-child(8)::before,
-.program-card:nth-child(9)::before,
-.program-card:nth-child(10)::before { top: 20%; left: 15%; animation-duration: 8.5s; }
-  @keyframes floatOrganic {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(22px, -45px) rotate(28deg); }
   }
 
   .program-card img {
@@ -207,81 +354,18 @@
                 0 30px 60px -20px rgba(16,185,129,0.7);
   }
 
-  /* FLOATING HEARTS & PAWS */
-  .floating-elements {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 1;
-    pointer-events: none;
-  }
+  /* =====================================================
+     BILLIONAIRE / ELON-MUSK QUALITY. RANDOM SLOW BEAUTIFUL RHYTHM.
+     High-end hearts (❤️) and paws (🐾) slowly floating randomly
+     throughout the *entire* background of every program card.
+     Catchy, premium, deliberate motion with gorgeous rhythm.
+     Very low opacity, luxurious soft glows, varied sizes for depth.
+     Long elegant cycles feel expensive and alive. Hover wakes the rhythm.
+  ===================================================== */
 
-  .float-particle {
-    position: absolute;
-    font-size: 18px;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    animation: floatUp linear forwards;
-    text-shadow: 0 0 8px currentColor;
-  }
-
-  @keyframes floatUp {
-    0%   { transform: translateY(120px) scale(0.6); opacity: 0; }
-    20%  { opacity: 0.85; }
-    80%  { opacity: 0.85; }
-    100% { transform: translateY(-200px) scale(1.15); opacity: 0; }
-  }
-
-  /* Phase 4: Premium motion system - breathing, ripples (dupe for this page until shared CSS) */
-  :root {
-    --ease-mercy: cubic-bezier(0.4, 0, 0.2, 1);
-    --dur-breath: 0.7s;
-    --dur-ripple: 1.2s;
-  }
-
-  .program-card {
-    transition: transform var(--dur-breath) var(--ease-mercy), 
-                box-shadow var(--dur-breath) var(--ease-mercy),
-                border-color 0.3s ease;
-  }
-
-  .program-card:hover {
-    transform: translateY(-4px) scale(1.01);
-  }
-
-  .program-card::after {
-    content: '▶︎';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.8rem;
-    color: rgba(255,255,255,0.85);
-    opacity: 0;
-    text-shadow: 0 0 12px rgba(0,0,0,0.8);
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    z-index: 10;
-  }
-  .program-card:hover::after {
-    opacity: 0.75;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-    .program-card:hover {
-      transform: none !important;
-    }
-  }
 </style>
-<script src="js/programs-data.js"></script>
-<script src="js/shared-animations.js"></script>
+<script src="js/programs-data.js" defer></script>
+<script src="js/shared-animations.js" defer></script>
 
 <body>
 
@@ -296,6 +380,7 @@
     muted 
     playsinline 
     preload="metadata"
+    aria-hidden="true"
     class="w-full h-full object-cover">
   </video>
 </div>
@@ -337,10 +422,10 @@
              alt="Mr. Nibbles" loading="lazy">
         <p class="text-amber-200 mb-3 text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
         <p class="text-zinc-400 mb-8 text-lg">Every transaction quietly becomes mercy for dogs who once had none.</p>
-        <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" 
+        <a href="https://puppyscan.shib.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm break-all">
-          0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2
+          0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF
         </a>
       </div>
 
@@ -351,14 +436,14 @@
              alt="hopeseed" loading="lazy">
         <p class="text-emerald-300 mb-3 text-4xl font-semibold">$hopeseed</p>
         <p class="text-zinc-400 mb-8 text-lg">Every transaction plants a seed of hope for children who need it most.</p>
-        <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" 
+        <a href="https://puppyscan.shib.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm break-all">
-          0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61
+          0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833
         </a>
       </div>
     </div>
-    <p class="text-center text-xs text-emerald-200/70 mt-6">These tokens are the fuel for the self-reinforcing Mercy Flywheel — every balance you hold is already turning the engine that quietly multiplies future mercy through stories and new voluntary participants.</p>
+    <p class="text-center text-xs text-emerald-200/70 mt-6">These tokens are the fuel for the self-reinforcing Mercy Flywheel - every balance you hold is already turning the engine that quietly multiplies future mercy through stories and new voluntary participants.</p>
   </div>
 </section>
 <!-- ALL PROGRAMS GRID + TABS + EPIC DIVIDER -->
@@ -369,13 +454,83 @@
       <p class="text-amber-200 text-2xl mt-4">Every program is a living story of mercy.<br>Click any card to read the full details.</p>
     </div>
 
-    <!-- TABS -->
-    <div class="flex justify-center gap-4 mb-16 flex-wrap">
+    <!-- TABS + Phase 5 Extra Special Filters & Search -->
+    <div class="flex justify-center gap-4 mb-8 flex-wrap">
       <div role="tablist" aria-label="Program categories">
         <button onclick="filterPrograms('all')" id="tab-all" role="tab" aria-selected="true" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
         <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
         <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
       </div>
+    </div>
+
+    <!-- Phase 5: Gentle search + Circle filters for "your ripples" - extra special because this is how the people co-build the engine -->
+    <div class="max-w-2xl mx-auto mb-12">
+      <div class="flex flex-col sm:flex-row gap-4 items-center">
+        <input 
+          type="text" 
+          id="program-search" 
+          placeholder="Search the 29 stories of mercy..." 
+          oninput="filterProgramsWithSearchAndCircles()"
+          class="flex-1 bg-zinc-900 border border-amber-400/30 focus:border-emerald-400 rounded-3xl px-6 py-3 text-base placeholder-zinc-400 outline-none transition-all">
+        
+        <div class="flex gap-2 flex-wrap justify-center">
+          <button onclick="filterByCircle('all')" id="circle-all" class="px-4 py-2 text-xs rounded-2xl border border-white/20 hover:border-white/40 active:bg-white/10">All Circles</button>
+          <button onclick="filterByCircle('mercy')" id="circle-mercy" class="px-4 py-2 text-xs rounded-2xl border border-amber-400/30 hover:border-amber-400">Mercy (25k+)</button>
+          <button onclick="filterByCircle('guardian')" id="circle-guardian" class="px-4 py-2 text-xs rounded-2xl border border-amber-400/30 hover:border-amber-400">Guardian (100k+)</button>
+          <button onclick="filterByCircle('eternal')" id="circle-eternal" class="px-4 py-2 text-xs rounded-2xl border border-amber-400/30 hover:border-amber-400">Eternal (250k+)</button>
+        </div>
+      </div>
+      <p class="text-center text-xs text-emerald-300/70 mt-2">These filters show programs your quiet holding already helps unlock. We are building this together.</p>
+    </div>
+
+    <!-- Phase 5 Extra Special: The Journey Through the Flywheel (a loving micro-story scroller) -->
+    <div class="max-w-5xl mx-auto mb-10 px-4">
+      <h4 class="text-center text-sm uppercase tracking-[2px] text-emerald-300/70 mb-3">The Journey of One Quiet Holding</h4>
+      <div class="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory text-xs">
+        <div class="snap-center min-w-[180px] bg-zinc-900/60 border border-white/10 rounded-2xl p-3 flex-shrink-0">
+          <div class="text-amber-300 mb-1">1. A quiet act of mercy</div>
+          <div class="text-zinc-400">You hold. The engine begins to turn. No one sees it yet, but everything changes.</div>
+        </div>
+        <div class="snap-center min-w-[180px] bg-zinc-900/60 border border-white/10 rounded-2xl p-3 flex-shrink-0">
+          <div class="text-amber-300 mb-1">2. Flows into the streams</div>
+          <div class="text-zinc-400">🐾 $NIBBLES for the dogs. 🌱 $hopeseed for the children. Two rivers of love.</div>
+        </div>
+        <div class="snap-center min-w-[180px] bg-zinc-900/60 border border-white/10 rounded-2xl p-3 flex-shrink-0">
+          <div class="text-amber-300 mb-1">3. Lights up the 29</div>
+          <div class="text-zinc-400">Senior dogs in barns. Children in dream rooms. Veterans with service partners. Every story wakes up.</div>
+          <button onclick="filterByCircle('mercy')" class="mt-1 text-[10px] text-emerald-400 hover:underline">See programs at Mercy level →</button>
+        </div>
+        <div class="snap-center min-w-[180px] bg-zinc-900/60 border border-white/10 rounded-2xl p-3 flex-shrink-0">
+          <div class="text-amber-300 mb-1">4. Stories create resonance</div>
+          <div class="text-zinc-400">One rescued dog on stream. One child opening a birthday gift. The emotion travels. New people join.</div>
+        </div>
+        <div class="snap-center min-w-[180px] bg-zinc-900/60 border border-white/10 rounded-2xl p-3 flex-shrink-0">
+          <div class="text-amber-300 mb-1">5. The people build the engine</div>
+          <div class="text-zinc-400">More holders. Stronger flywheel. More mercy tomorrow than today. This is how we save lives, together.</div>
+          <a href="https://x.com/Shibhumanityhub" target="_blank" class="mt-1 inline-block text-[10px] text-emerald-400 hover:underline">Share your ripple on X →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 5 Extra Special: The Mercy Constellation - a mind-blowing, living map of all 29 stories -->
+    <!-- This is how the engine looks when the people come together. Click any star to read its story. -->
+    <div class="text-center mb-6">
+      <button onclick="toggleMercyConstellation()" 
+              class="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold rounded-3xl border border-white/20 hover:bg-white/5 hover:border-emerald-400/60 transition-all">
+        <span>✨</span> 
+        View the Full Mercy Constellation (all 29 stars)
+        <span class="text-xs opacity-70">→ interactive</span>
+      </button>
+      <p class="text-[10px] text-zinc-500 mt-1">A visual flywheel of the living stories. Your ripples light up the ones you quietly support.</p>
+    </div>
+
+    <div id="mercy-constellation" class="hidden mb-16 p-6 bg-zinc-900/50 border border-white/10 rounded-3xl">
+      <div class="flex justify-between items-center mb-4 px-2">
+        <h3 class="text-2xl font-semibold text-amber-200">The Mercy Constellation</h3>
+        <button onclick="toggleMercyConstellation()" class="text-xs px-4 py-1 border border-white/20 rounded-2xl hover:bg-white/5">Close Constellation</button>
+      </div>
+      <div id="constellation-svg-container" class="w-full overflow-auto"></div>
+      <p class="text-center text-xs text-emerald-300/70 mt-4">Each node is a living story. Lines represent the unbreakable chain of mercy. When your holdings meet a Circle threshold, those stars glow and the connections pulse. This is the engine the people are building together.</p>
     </div>
 
     <!-- FULL GRID (now with elegant division when "All" is selected) -->
@@ -423,19 +578,115 @@
       <span class="text-4xl animate-pulse">❤️</span>
     </div>
     
-    <p class="text-emerald-300 text-xs mt-12">© Shibahumanityhub • Since November 2025 • Built with pure love and $NIBBLES</p>
+    <p class="text-emerald-300 text-xs mt-12">© Shibahumanityhub - Since November 2025 - Built with pure love and $NIBBLES</p>
   </div>
 </footer>
-<!-- MODAL -->
-<div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4">
+<!-- MODAL (Phase 1 a11y upgrade: role=dialog + aria-modal + focus manager integration) -->
+<div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Program story of mercy">
   <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">
-    <button onclick="hideModal()" class="absolute top-6 right-6 text-5xl text-zinc-400 hover:text-white">✕</button>
+    <button onclick="hideModal()" class="absolute top-6 right-6 text-5xl text-zinc-400 hover:text-white" aria-label="Close modal. Return to the stories.">×</button>
     <div id="modal-content" class="prose prose-invert max-w-none"></div>
   </div>
 </div>
 
 <script>
 // programs data loaded from js/programs-data.js   //
+
+// === Phase 5 Extra Special: Holdings from URL (synced from main dashboard or footprint share) + powerful filters ===
+let userHoldings = { n: 0, h: 0 };
+let currentSearch = '';
+let currentCircle = 'all';
+
+function parseUserHoldings() {
+  const params = new URLSearchParams(window.location.search);
+  userHoldings.n = parseInt(params.get('n')) || 0;
+  userHoldings.h = parseInt(params.get('h')) || 0;
+  // Also support from previous sim if any (light local for demo)
+  if (!userHoldings.n && !userHoldings.h && localStorage.getItem('lastSimN')) {
+    userHoldings.n = parseInt(localStorage.getItem('lastSimN')) || 0;
+    userHoldings.h = parseInt(localStorage.getItem('lastSimH')) || 0;
+  }
+}
+
+function filterProgramsWithSearchAndCircles() {
+  currentSearch = (document.getElementById('program-search')?.value || '').toLowerCase().trim();
+  renderAllPrograms('all'); // always render full structure then filter visually for simplicity
+  // After render, apply additional client-side filter for search + circle
+  applyClientFilters();
+}
+
+function filterByCircle(level) {
+  currentCircle = level;
+  // Update button styles
+  document.querySelectorAll('[id^="circle-"]').forEach(b => b.classList.remove('bg-emerald-400', 'text-black', 'border-emerald-400'));
+  const activeBtn = document.getElementById(`circle-${level}`);
+  if (activeBtn) activeBtn.classList.add('bg-emerald-400', 'text-black', 'border-emerald-400');
+  else document.getElementById('circle-all').classList.add('bg-emerald-400', 'text-black', 'border-emerald-400');
+  
+  renderAllPrograms('all');
+  applyClientFilters();
+}
+
+function applyClientFilters() {
+  const cards = document.querySelectorAll('#all-programs-grid .program-card');
+  let visibleCount = 0;
+  
+  cards.forEach(card => {
+    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+    const categoryEl = card.querySelector('.text-xs.bg-');
+    const category = categoryEl ? categoryEl.textContent : '';
+    const isNibbles = category.includes('$NIBBLES');
+    
+    const matchesSearch = !currentSearch || title.includes(currentSearch) || desc.includes(currentSearch);
+    
+    let matchesCircle = true;
+    if (currentCircle === 'mercy') {
+      matchesCircle = (isNibbles && userHoldings.n >= 25000) || (!isNibbles && userHoldings.h >= 25000);
+    } else if (currentCircle === 'guardian') {
+      matchesCircle = (isNibbles && userHoldings.n >= 100000) || (!isNibbles && userHoldings.h >= 100000);
+    } else if (currentCircle === 'eternal') {
+      matchesCircle = (isNibbles && userHoldings.n >= 250000) || (!isNibbles && userHoldings.h >= 250000);
+    }
+    
+    if (matchesSearch && matchesCircle) {
+      card.style.display = '';
+      visibleCount++;
+      // Extra special badge if this holding supports it
+      if ((isNibbles && userHoldings.n >= 25000) || (!isNibbles && userHoldings.h >= 25000)) {
+        let badge = card.querySelector('.your-ripple-badge');
+        if (!badge) {
+          badge = document.createElement('div');
+          badge.className = 'your-ripple-badge text-[10px] absolute top-2 right-2 bg-emerald-900/80 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-400/30';
+          badge.textContent = 'Your holding quietly supports this';
+          card.style.position = 'relative';
+          card.appendChild(badge);
+        }
+      }
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  
+  // Update the divider text to feel personal
+  const dividerText = document.querySelector('.divider-text');
+  if (dividerText && (userHoldings.n > 0 || userHoldings.h > 0)) {
+    dividerText.textContent = `${visibleCount} Living Stories Your Ripples Are Already Touching`;
+  }
+
+  // Hide empty sections and divider when filtered by circle or search for clean look
+  document.querySelectorAll('#all-programs-grid .programs-section').forEach(section => {
+    const hasVisible = Array.from(section.querySelectorAll('.program-card')).some(c => c.style.display !== 'none');
+    section.style.display = hasVisible ? '' : 'none';
+  });
+  const divider = document.querySelector('#all-programs-grid .mercy-divider');
+  if (divider) {
+    divider.style.display = (currentCircle === 'all' && !currentSearch) ? '' : 'none';
+  }
+}
+
+// Make sure apply is available for tab changes
+window.applyClientFilters = applyClientFilters;
 
 // === EPIC RENDER FUNCTIONS ===
 function createCardHTML(p) {
@@ -467,9 +718,7 @@ function renderAllPrograms(cat = 'all') {
     grid.innerHTML += `
       <div class="programs-section">
         <div class="flex items-center justify-center gap-4 mb-8">
-          <span class="text-6xl">🐾</span>
           <h2 class="section-header text-amber-300">$NIBBLES • Mercy Programs</h2>
-          <span class="text-6xl">🐾</span>
         </div>
         <p class="text-center text-amber-200/90 text-xl max-w-3xl mx-auto mb-14">Every transaction quietly becomes mercy for dogs who once had none.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -499,9 +748,7 @@ function renderAllPrograms(cat = 'all') {
     grid.innerHTML += `
       <div class="programs-section">
         <div class="flex items-center justify-center gap-4 mb-8">
-          <span class="text-6xl">🌱</span>
           <h2 class="section-header text-emerald-300">$hopeseed • Hope Programs</h2>
-          <span class="text-6xl">🌱</span>
         </div>
         <p class="text-center text-emerald-200/90 text-xl max-w-3xl mx-auto mb-14">Every transaction plants a seed of hope for children who need it most.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -520,6 +767,165 @@ function renderAllPrograms(cat = 'all') {
   setTimeout(initFloatingParticles, 300);
 }
 
+// === Phase 5 Extra Special: Mercy Constellation Generator ===
+// A beautiful, interactive visual map of the 29 programs as a living flywheel/constellation.
+// Nodes arranged in two gentle orbits (NIBBLES & hopeseed). Connections symbolize the chain.
+// Reacts to userHoldings: supported nodes glow larger, connections pulse.
+// Pure SVG + JS, no libs. Click any node to open its full heartfelt story.
+function toggleMercyConstellation() {
+  const container = document.getElementById('mercy-constellation');
+  const svgWrap = document.getElementById('constellation-svg-container');
+  
+  if (container.classList.contains('hidden')) {
+    container.classList.remove('hidden');
+    if (!svgWrap.innerHTML) {
+      generateMercyConstellationSVG(svgWrap);
+    }
+  } else {
+    container.classList.add('hidden');
+  }
+}
+
+function generateMercyConstellationSVG(container) {
+  const width = 820;
+  const height = 520;
+  const cx = width / 2;
+  const cy = height / 2;
+  
+  let svg = `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" class="mx-auto" style="max-width:100%;">`;
+  
+  // Soft background glow for the flywheel
+  svg += `<defs>
+    <radialGradient id="flywheelGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a2338" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0a0f1c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>`;
+  
+  svg += `<circle cx="${cx}" cy="${cy}" r="210" fill="url(#flywheelGlow)"/>`;
+  
+  // Central mercy heart
+  svg += `<text x="${cx}" y="${cy + 8}" text-anchor="middle" font-size="28" fill="#fff" opacity="0.7">❤️</text>`;
+  
+  const nibblesPrograms = programs.filter(p => p.category === '$NIBBLES');
+  const hopeseedPrograms = programs.filter(p => p.category === '$hopeseed');
+  
+  // Two orbits
+  const orbitN = 165;
+  const orbitH = 165;
+  const startAngleN = -90;
+  const startAngleH = 90;
+  
+  // Draw connections first (the chain)
+  for (let i = 0; i < nibblesPrograms.length; i++) {
+    const p = nibblesPrograms[i];
+    const angle = startAngleN + (i * (360 / nibblesPrograms.length));
+    const rad = (angle * Math.PI) / 180;
+    const x1 = cx + Math.cos(rad) * (orbitN * 0.6);
+    const y1 = cy + Math.sin(rad) * (orbitN * 0.6);
+    
+    // Connect toward center and to next
+    const nextI = (i + 1) % nibblesPrograms.length;
+    const nextP = nibblesPrograms[nextI];
+    const nextRad = (startAngleN + (nextI * (360 / nibblesPrograms.length))) * Math.PI / 180;
+    const x2 = cx + Math.cos(nextRad) * (orbitN * 0.6);
+    const y2 = cy + Math.sin(nextRad) * (orbitN * 0.6);
+    
+    const isSupported = userHoldings.n >= 25000;
+    const stroke = isSupported ? '#fcd34d' : '#4b5563';
+    const op = isSupported ? 0.6 : 0.25;
+    svg += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-opacity="${op}" stroke-width="1.5" stroke-dasharray="3,2" />`;
+  }
+  
+  // Similar for hopeseed (mirrored)
+  for (let i = 0; i < hopeseedPrograms.length; i++) {
+    const p = hopeseedPrograms[i];
+    const angle = startAngleH + (i * (360 / hopeseedPrograms.length));
+    const rad = (angle * Math.PI) / 180;
+    const x1 = cx + Math.cos(rad) * (orbitH * 0.6);
+    const y1 = cy + Math.sin(rad) * (orbitH * 0.6);
+    
+    const nextI = (i + 1) % hopeseedPrograms.length;
+    const nextRad = (startAngleH + (nextI * (360 / hopeseedPrograms.length))) * Math.PI / 180;
+    const x2 = cx + Math.cos(nextRad) * (orbitH * 0.6);
+    const y2 = cy + Math.sin(nextRad) * (orbitH * 0.6);
+    
+    const isSupported = userHoldings.h >= 25000;
+    const stroke = isSupported ? '#34d399' : '#4b5563';
+    const op = isSupported ? 0.6 : 0.25;
+    svg += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-opacity="${op}" stroke-width="1.5" stroke-dasharray="3,2" />`;
+  }
+  
+  // Draw NIBBLES nodes (leftish orbit)
+  nibblesPrograms.forEach((p, i) => {
+    const angle = startAngleN + (i * (360 / nibblesPrograms.length));
+    const rad = (angle * Math.PI) / 180;
+    const x = cx + Math.cos(rad) * orbitN;
+    const y = cy + Math.sin(rad) * orbitN * 0.95;
+    
+    const isSupported = userHoldings.n >= 25000;
+    const r = isSupported ? 13 : 9;
+    const fill = isSupported ? '#fcd34d' : '#374151';
+    const stroke = isSupported ? '#f59e0b' : '#6b7280';
+    const pulse = isSupported ? `style="animation: constelPulse 2.8s ease-in-out infinite;"` : '';
+    
+    svg += `<g onclick="showProgramModal(${p.id}); event.stopImmediatePropagation();" style="cursor:pointer" class="constel-node">`;
+    svg += `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="2" filter="url(#glow)" ${pulse}/>`;
+    svg += `<text x="${x}" y="${y + 3}" text-anchor="middle" font-size="8" fill="#111" font-weight="bold">${p.title.split(' ').slice(0,2).join(' ').substring(0,10)}</text>`;
+    svg += `</g>`;
+  });
+  
+  // Draw HOPESEED nodes
+  hopeseedPrograms.forEach((p, i) => {
+    const angle = startAngleH + (i * (360 / hopeseedPrograms.length));
+    const rad = (angle * Math.PI) / 180;
+    const x = cx + Math.cos(rad) * orbitH;
+    const y = cy + Math.sin(rad) * orbitH * 0.95;
+    
+    const isSupported = userHoldings.h >= 25000;
+    const r = isSupported ? 13 : 9;
+    const fill = isSupported ? '#34d399' : '#374151';
+    const stroke = isSupported ? '#10b981' : '#6b7280';
+    const pulse = isSupported ? `style="animation: constelPulse 3.1s ease-in-out infinite;"` : '';
+    
+    svg += `<g onclick="showProgramModal(${p.id}); event.stopImmediatePropagation();" style="cursor:pointer" class="constel-node">`;
+    svg += `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="2" filter="url(#glow)" ${pulse}/>`;
+    svg += `<text x="${x}" y="${y + 3}" text-anchor="middle" font-size="8" fill="#111" font-weight="bold">${p.title.split(' ').slice(0,2).join(' ').substring(0,10)}</text>`;
+    svg += `</g>`;
+  });
+  
+  svg += `</svg>`;
+  
+  // Add the pulse keyframe inline (extra special)
+  svg += `<style>@keyframes constelPulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.18);opacity:0.85} }</style>`;
+  
+  container.innerHTML = svg;
+  
+  // Bonus: if holdings, auto-pulse the supported ones after a moment
+  if (userHoldings.n > 0 || userHoldings.h > 0) {
+    setTimeout(() => {
+      const nodes = container.querySelectorAll('.constel-node');
+      nodes.forEach((g, idx) => {
+        if (Math.random() > 0.6) { // gentle random emphasis
+          g.style.transition = 'filter 0.6s';
+          g.style.filter = 'brightness(1.4)';
+          setTimeout(() => { if (g) g.style.filter = ''; }, 1400);
+        }
+      });
+    }, 650);
+  }
+}
+
+// Call this from main engine nodes if wanted (for cross-page)
+window.showMercyConstellation = toggleMercyConstellation;
+
 function filterPrograms(cat) {
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.classList.remove('active', 'bg-amber-400', 'text-black');
@@ -531,7 +937,32 @@ function filterPrograms(cat) {
     activeTab.classList.add('active', 'bg-amber-400', 'text-black');
     activeTab.setAttribute('aria-selected', 'true');
   }
+
+  // Reset personal filters when using category tabs (so tabs work independently)
+  if (cat !== 'all') {
+    currentSearch = '';
+    currentCircle = 'all';
+    const searchInput = document.getElementById('program-search');
+    if (searchInput) searchInput.value = '';
+    // reset button styles
+    document.querySelectorAll('[id^="circle-"]').forEach(b => b.classList.remove('bg-emerald-400', 'text-black', 'border-emerald-400'));
+    const allBtn = document.getElementById('circle-all');
+    if (allBtn) allBtn.classList.add('bg-emerald-400', 'text-black', 'border-emerald-400');
+  }
+
   renderAllPrograms(cat);
+
+  // Re-apply premium card treatments (flywheel bg automation + particles) to newly rendered cards
+  // (initial load already triggers via initPremiumAnimations; filters need explicit refresh)
+  if (window.initPremiumAnimations) {
+    // Safe to call again. Inits guard against re-processing existing cards.
+    setTimeout(() => {
+      if (window.initPremiumAnimations) window.initPremiumAnimations();
+    }, 30);
+  }
+
+  // Apply any active search/circle filters after tab change (for 'all' tab)
+  applyClientFilters();
 }
 
 // === MODAL FUNCTIONS ===
@@ -540,57 +971,103 @@ function showProgramModal(id) {
   if (!program) return;
   const modal = document.getElementById('program-modal');
   const content = document.getElementById('modal-content');
+
+  // Pause any previous videos before replacing
+  if (window.pauseAllMercyVideos) window.pauseAllMercyVideos();
+
   content.innerHTML = program.fullHTML;
   modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+
+  // Phase 1: improved scroll lock (preserve position)
+  const scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.width = '100%';
+
+  // Phase 1: activate focus manager (ESC + trap + return focus) via shared helper
+  const closeBtn = modal.querySelector('button[aria-label*="Close"]');
+  if (window.setupModalFocusManager) {
+    modal._focusManager = window.setupModalFocusManager(modal, closeBtn);
+    modal._focusManager.activate();
+  }
+
+  // Fix for program videos not playing: explicitly start the injected preview video(s)
+  // after DOM insertion. Respect reduced motion. Force preload and play for reliability.
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const videos = content.querySelectorAll('video');
+  videos.forEach(video => {
+    video.muted = true;
+    video.playsInline = true;
+    if (prefersReduced) {
+      video.pause();
+      video.removeAttribute('autoplay');
+    } else {
+      if (video.preload === 'none' || !video.preload) {
+        video.preload = 'auto';
+      }
+      // Some browsers need a tiny delay after innerHTML for autoplay policies
+      setTimeout(() => {
+        video.play().catch(err => {
+          console.warn('Program preview video autoplay note (common browser policy even when muted):', err);
+        });
+      }, 50);
+    }
+  });
 }
 
 function hideModal() {
-  document.getElementById('program-modal').classList.add('hidden');
-  document.body.style.overflow = 'auto';
+  const modal = document.getElementById('program-modal');
+  modal.classList.add('hidden');
+
+  // Phase 1: restore scroll + body
+  const scrollY = parseInt(document.body.style.top || '0', 10) * -1;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  if (scrollY) window.scrollTo(0, scrollY);
+
+  // Phase 1: deactivate focus manager (returns focus lovingly)
+  if (modal._focusManager) {
+    modal._focusManager.deactivate();
+    modal._focusManager = null;
+  }
+
+  // Phase 1: ensure videos paused on close
+  if (window.pauseAllMercyVideos) window.pauseAllMercyVideos();
 }
 
 function sponsorProgram() {
   alert("❤️ Thank you so much!\n\nYour support is already changing lives.\n\nTogether we are building real mercy.");
 }
 
-// === FLOATING PARTICLES ===
-function createFloatingParticles(card) {
-  const container = card.querySelector('.floating-elements');
-  if (!container) return;
-
-  const isNibbles = card.classList.contains('nibbles-card');
-  const emojis = isNibbles ? ['🐾', '❤️', '🐾', '💛'] : ['❤️', '🌱', '💚', '❤️'];
-
-  setInterval(() => {
-    const particle = document.createElement('div');
-    particle.className = 'float-particle';
-    particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    particle.style.left = Math.random() * 85 + 7 + '%';
-    particle.style.animationDuration = (2.8 + Math.random() * 2.2) + 's';
-    particle.style.opacity = 0.7 + Math.random() * 0.3;
-    container.appendChild(particle);
-    setTimeout(() => particle.remove(), 8000);
-  }, 650);
-}
-
-function initFloatingParticles() {
-  document.querySelectorAll('.program-card').forEach(card => {
-    if (!card.hasAttribute('data-particles-init')) {
-      createFloatingParticles(card);
-      card.setAttribute('data-particles-init', 'true');
-    }
-  });
-}
-
 window.onload = function() {
+  parseUserHoldings();
   renderAllPrograms('all');
-  console.log('%c✅ All Programs Page Loaded — Legendary Quality Achieved', 'color:#fcd34d; font-family:monospace;');
+  
+  // Phase 5: Apply any search/circle from URL or holdings on initial load (extra special personal view)
+  const searchInput = document.getElementById('program-search');
+  if (searchInput && currentSearch) searchInput.value = currentSearch;
+  applyClientFilters();
+  
+  console.log('%c✅ All Programs Page Loaded - Phase 5 Constellation ready. The people are building this together.', 'color:#fcd34d; font-family:monospace;');
 
-  // Phase 4: init unified premium animations (particles, hovers, reveals)
+  // Phase 4/5: init unified premium animations (particles, hovers, reveals)
   if (window.initPremiumAnimations) {
     window.initPremiumAnimations();
   }
+  
+  // If holdings present, gently highlight the "your ripples support" experience
+  if (userHoldings.n > 0 || userHoldings.h > 0) {
+    setTimeout(() => {
+      const note = document.querySelector('.max-w-2xl.mx-auto.mb-12 p');
+      if (note) note.style.transition = 'color 1.5s';
+      // Already loving copy, just a little emphasis
+    }, 800);
+  }
+
+  // Set initial active for circle-all
+  const allCircleBtn = document.getElementById('circle-all');
+  if (allCircleBtn) allCircleBtn.classList.add('bg-emerald-400', 'text-black', 'border-emerald-400');
 };
 </script>
 </body>

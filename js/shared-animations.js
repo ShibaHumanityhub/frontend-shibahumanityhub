@@ -7,6 +7,9 @@
   // Respect reduced motion globally
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Phase 4: global intensity for particle reactivity to holdings (set from updatePersonalView/simulate)
+  window.mercyParticleIntensity = 1;
+
   function initReducedMotion() {
     if (prefersReduced) {
       document.documentElement.style.setProperty('--animation-duration', '0s');
@@ -23,34 +26,96 @@
         }
       `;
       document.head.appendChild(style);
+
+      // Phase 1: also pause any mercy videos when reduced motion is active
+      if (window.pauseAllMercyVideos) window.pauseAllMercyVideos();
     }
   }
 
-  // Enhanced floating particles (unified from all-programs, now shared)
+  // Billion-dollar quality floating hearts & paws throughout the entire card background.
+  // Elon / Vitalik / Bilyeu style: elegant, first-principles, quietly profound.
+  // Slow, random, rhythmic, high-end. Subtle depth, premium glows, organic drifts.
+  // Fixed pool of particles for smooth continuous floating (no pop-in/out).
+  // Hearts (❤️) and paws (🐾) only. Pure, focused.
+  // On every program card on both pages.
   function createFloatingParticles(card) {
     if (prefersReduced) return;
     const container = card.querySelector('.floating-elements');
     if (!container) return;
 
-    const isNibbles = card.classList.contains('nibbles-card');
-    const emojis = isNibbles ? ['🐾', '❤️', '🐾', '💛'] : ['❤️', '🌱', '💚', '❤️'];
+    // Clear any previous for re-init (filters etc)
+    container.innerHTML = '';
 
-    const interval = setInterval(() => {
-      if (!card.isConnected || prefersReduced) {
-        clearInterval(interval);
-        return;
-      }
+    const isNibbles = card.classList.contains('nibbles-card');
+    // Strictly hearts and paws for the requested focus + quality
+    const emojis = isNibbles 
+      ? ['🐾', '❤️', '🐾', '❤️', '🐾', '❤️'] 
+      : ['❤️', '🐾', '❤️', '🐾', '❤️', '🐾'];
+
+    // Phase 1: dynamic count for perf/mobile (gentle on small screens or reduced)
+    let count = 11;
+    if (prefersReduced) count = 0;
+    else if (window.innerWidth < 480) count = 5; // tasteful on mobile
+
+    // Phase 4: intensity from holdings (density/brightness for more alive feel when holding grows)
+    const intensity = window.mercyParticleIntensity || 1;
+    count = Math.floor(count * intensity);
+
+    // Phase 4 guardrail: cap particles for performance (lots of cards or small screen)
+    const cardCount = document.querySelectorAll('.program-card').length;
+    if (cardCount > 8 && window.innerWidth < 640) {
+      count = Math.min(count, 3);
+    }
+
+    // rich but tasteful density across entire background
+    const driftClasses = ['drift-slow1', 'drift-slow2', 'drift-slow3', 'drift-slow4', 'drift-slow5', 'drift-slow6'];
+
+    for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
-      particle.className = 'float-particle';
+      particle.className = `float-particle ${driftClasses[i % driftClasses.length]}`;
       particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      particle.style.left = Math.random() * 85 + 7 + '%';
-      particle.style.animationDuration = (2.8 + Math.random() * 2.2) + 's';
-      particle.style.opacity = 0.7 + Math.random() * 0.3;
+      particle.setAttribute('aria-hidden', 'true');
+
+      // Truly random throughout the *entire* card background
+      const left = 4 + Math.random() * 92;
+      const top = 3 + Math.random() * 94;
+      particle.style.left = `${left.toFixed(1)}%`;
+      particle.style.top = `${top.toFixed(1)}%`;
+
+      // High-quality size variation for depth (larger = more "distant" or present)
+      const size = 0.75 + Math.random() * 0.85;
+      particle.style.fontSize = `${size.toFixed(2)}rem`;
+
+      // Very subtle base opacity. Billionaire restraint. Feels like atmosphere, not decoration.
+      // Phase 4: intensity boosts brightness for holdings that feel more "alive"
+      const intensity = window.mercyParticleIntensity || 1;
+      const baseOpacity = (0.065 + Math.random() * 0.09) * intensity;
+      particle.style.opacity = baseOpacity.toFixed(3);
+
+      // Premium, soft, high-end glow (Elon/Vitalik level of craft. Not cheap neon.)
+      const isHeart = particle.textContent === '❤️';
+      if (isHeart) {
+        particle.style.color = '#f472b6';
+        particle.style.textShadow = '0 0 2px rgba(244, 114, 182, 0.35), 0 0 8px rgba(244, 114, 182, 0.22)';
+      } else {
+        particle.style.color = '#fcd34d';
+        particle.style.textShadow = '0 0 2px rgba(252, 211, 77, 0.4), 0 0 9px rgba(252, 211, 77, 0.25)';
+      }
+
+      // Long, slow, varied rhythms for beautiful catchy floating (18-36s cycles)
+      // Phase 4: higher intensity = slightly quicker cycles (more energy in the mercy)
+      const baseDur = 18 + Math.random() * 18;
+      const duration = baseDur / intensity;
+      particle.style.animationDuration = `${duration.toFixed(1)}s`;
+      particle.style.animationDelay = `-${(Math.random() * duration).toFixed(1)}s`;
+
+      // Gentle initial organic rotation + micro-scale for expensive hand-crafted feel
+      const rot = -12 + Math.random() * 24;
+      const scale = 0.96 + Math.random() * 0.08;
+      particle.style.transform = `rotate(${rot.toFixed(1)}deg) scale(${scale.toFixed(3)})`;
+
       container.appendChild(particle);
-      setTimeout(() => {
-        if (particle.parentNode) particle.parentNode.removeChild(particle);
-      }, 8000);
-    }, 650);
+    }
   }
 
   function initFloatingParticles() {
@@ -62,6 +127,8 @@
       }
     });
   }
+
+  // Hover response is handled in CSS for the premium "the field wakes" feeling.
 
   // Premium hover enhancements (echo golden chain / growing seed)
   function addPremiumHovers() {
@@ -86,11 +153,27 @@
     document.querySelectorAll('.premium-sponsor-btn, button[onclick*="simulate"]').forEach(btn => {
       btn.addEventListener('mouseenter', () => {
         if (!prefersReduced) {
-          btn.style.boxShadow = '0 0 0 1px rgba(255,255,255,0.2), 0 0 25px -5px rgba(16,185,129,0.3)';
+          btn.style.boxShadow = '0 0 0 1px rgba(255,255,white,0.2), 0 0 25px -5px rgba(16,185,129,0.3)';
         }
       });
       btn.addEventListener('mouseleave', () => {
         btn.style.boxShadow = '';
+      });
+    });
+
+    // Phase 4: extend the "field wakes" hover to new dashboard elements (circles, share btn, engine nodes)
+    // Consistent premium restraint across the whole experience
+    document.querySelectorAll('.mercy-circle, .footprint-share-btn, #engine-nodes .engine-node, #personal-programs > div').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (!prefersReduced) {
+          const isN = el.classList.contains('nibbles') || el.closest('.nibbles-card') || (el.dataset && el.dataset.category === '$NIBBLES');
+          el.style.boxShadow = isN 
+            ? '0 0 0 1px rgba(251,191,36,0.5), 0 12px 22px -6px rgba(251,191,36,0.25)'
+            : '0 0 0 1px rgba(52,211,153,0.5), 0 12px 22px -6px rgba(52,211,153,0.25)';
+        }
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.boxShadow = '';
       });
     });
   }
@@ -195,7 +278,111 @@
       observer.observe(status, { childList: true, subtree: true, characterData: true });
     }
 
-    console.log('%c[Phase 4] Premium micro-interactions & animations initialized — breathing, not shouting.', 'color:#fcd34d; font-family:monospace;');
+    console.log('%c[Phase 4] Premium micro-interactions & animations initialized - breathing, not shouting.', 'color:#fcd34d; font-family:monospace;');
+  };
+
+  // === Phase 1 helper: pause all mercy videos (called from reduced-motion and modal hide) ===
+  // Updated to not kill the currently open program's preview video.
+  // Also protects the nav logo video from being paused when not necessary.
+  window.pauseAllMercyVideos = function() {
+    const modal = document.getElementById('program-modal');
+    const isModalOpen = modal && !modal.classList.contains('hidden');
+    document.querySelectorAll('video').forEach(v => {
+      if (isModalOpen && v.closest('#program-modal')) {
+        return; // leave the open modal's program preview alone (we start it explicitly in show)
+      }
+      if (v.closest('.logo-3d-wrapper')) {
+        return; // keep the always-visible nav logo video running (it's decorative)
+      }
+      try { v.pause(); v.removeAttribute('autoplay'); } catch (e) {}
+    });
+  };
+
+  // === Phase 1: Vanilla focus trap + ESC manager for modals (loving a11y, reusable) ===
+  // Used by show/hideProgramModal in both pages. Simple, no libs, respects reduced motion.
+  // Stores last focused element and returns focus on close. Traps Tab within modal.
+  window.setupModalFocusManager = function(modalEl, closeBtnEl) {
+    let lastFocused = null;
+    let keyHandler = null;
+
+    function getFocusable() {
+      return modalEl.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+    }
+
+    function handleKeydown(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        // Let the caller (hideModal) handle actual close + focus return
+        if (typeof window.hideModal === 'function') window.hideModal();
+        else if (closeBtnEl) closeBtnEl.click();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const focusables = getFocusable();
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    return {
+      activate: function() {
+        lastFocused = document.activeElement;
+        // Attach ESC + trap
+        keyHandler = handleKeydown;
+        modalEl.addEventListener('keydown', keyHandler);
+        // Initial focus: prefer close button for safety, else first focusable
+        setTimeout(() => {
+          if (closeBtnEl && closeBtnEl.offsetParent !== null) {
+            closeBtnEl.focus();
+          } else {
+            const f = getFocusable();
+            if (f.length) f[0].focus();
+          }
+        }, 10);
+      },
+      deactivate: function() {
+        if (keyHandler) {
+          modalEl.removeEventListener('keydown', keyHandler);
+          keyHandler = null;
+        }
+        // Return focus lovingly
+        if (lastFocused && lastFocused.offsetParent !== null) {
+          setTimeout(() => lastFocused.focus(), 10);
+        }
+        lastFocused = null;
+      }
+    };
+  };
+
+  // Phase 4: update particle intensity based on holdings (density, brightness, speed)
+  // Called from dashboard updates (updatePersonalView / simulate) so the floating hearts/paws feel more alive as the mercy grows with your holding.
+  // Gentle scaling, respects reduced motion (early return).
+  window.updateMercyParticleIntensity = function(nBal = 0, hBal = 0) {
+    if (prefersReduced) return;
+    const total = (nBal || 0) + (hBal || 0);
+    // 0.5x (small holding) to ~2.2x (strong holding) for more energy in the particles
+    const intensity = Math.min(2.2, Math.max(0.5, 0.5 + (total / 200000)));
+    window.mercyParticleIntensity = intensity;
+
+    // Re-init particles on program cards to apply updated density/opacity/speed
+    // (light cost, only on user-driven updates like sim or connect; beautiful result)
+    document.querySelectorAll('.program-card').forEach(card => {
+      const cont = card.querySelector('.floating-elements');
+      if (cont) cont.innerHTML = '';
+      card.removeAttribute('data-particles-init');
+    });
+    if (window.initFloatingParticles) {
+      window.initFloatingParticles();
+    }
   };
 
   // Auto-init if DOM ready

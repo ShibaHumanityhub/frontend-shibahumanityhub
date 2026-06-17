@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# The Mercy Flywheel — people helping people helping people
+# Every holding quietly turns the engine of compassion.
+
+Sitemap: https://shibahumanityhub.github.io/sitemap.xml

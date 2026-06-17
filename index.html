@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shibahumanityhub • Since Nov 2025</title>
-  <meta name="description" content="Shibahumanityhub: People helping people helping people. Every single holding quietly turns the mercy flywheel — compounding the system's future capacity for mercy through on-chain truth, soulbound proof, and stories that save lives. First-principles design for antifragile compassion at scale. Connect to see your ripples.">
+  <meta name="description" content="Shibahumanityhub. People helping people helping people. Every transaction quietly becomes mercy for children, seniors, veterans, inmates and the dogs who stand with them. Verifiable on Shibarium. Your holding compounds impact forever. You are 1. We are all 1.">
   <meta property="og:title" content="Shibahumanityhub • The Mercy Flywheel">
-  <meta property="og:description" content="A self-reinforcing engine of mercy. Hold $NIBBLES or $hopeseed to fund real programs for dogs and children. Verifiable on Shibarium. Your quiet participation compounds impact forever.">
+  <meta property="og:description" content="A self-reinforcing engine of mercy. Hold $NIBBLES or $hopeseed. Every transaction quietly becomes mercy for children, seniors, veterans, inmates and the dogs who stand with them. Verifiable on Shibarium. Your quiet participation compounds impact forever. You are 1. We are all 1.">
   <meta property="og:image" content="assets/logos/shibahumanityhublogo3d-new.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shibahumanityhub.github.io">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Shibahumanityhub • The Mercy Flywheel">
-  <meta name="twitter:description" content="People helping people helping people. Every single transaction saves lives — quietly, compounding forever.">
+  <meta name="twitter:description" content="People helping people helping people. Every transaction saves lives. Quietly. Compounding forever. You are 1. We are all 1.">
   <meta name="twitter:image" content="assets/logos/shibahumanityhublogo3d-new.jpg">
 
   <!-- Structured data for search engines (SEO + face-grabbing rich results) -->
@@ -22,7 +22,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Shibahumanityhub",
-    "description": "A perpetual mercy engine on the blockchain. People helping people helping people — every single transaction saves lives.",
+    "description": "A perpetual mercy engine on the blockchain. People helping people helping people - every single transaction saves lives.",
     "url": "https://shibahumanityhub.github.io",
     "logo": "assets/logos/shibahumanityhublogo3d-new.jpg",
     "sameAs": ["https://x.com/Shibhumanityhub"]
@@ -30,7 +30,6 @@
   </script>
 
 <!-- BIGGER PAW FAVICON - Updated -->
-<!-- Phase 5 baseline (a11y/perf/SEO/mobile): Viewport fixed (no user-scalable=no), meta/OG/JSON-LD added for face-grabbing SEO, loading=lazy on images, ARIA on tabs/wallet/viz/projections (role=tablist, aria-selected, aria-live, aria-label, role=img), alts descriptive, reduced-motion via shared, mobile responsive grids, perf via lazy/organized assets, copy Bilyeu/Vitalik (first-principles, antifragile, no capture, long-term), flywheel projections integrated live from wallet, structure hero->flywheel intel->your place->engine->stories->call. Lighthouse target 95+. All on-tone: quietly, when the funding comes through, people helping people helping people. x500 polish on 1-4 with Elon flywheel, face-grabbing narrative. Continued: additional ARIA on streams and buttons, more copy polish, projection with explanation, baseline report confirming x500 polish. For Pages: add sitemap.xml and robots.txt. -->
 <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
 <link rel="shortcut icon" href="assets/logos/favicon.png">
@@ -38,7 +37,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
+  <!-- SHARED MERCY CORE STYLES (extracted for consistency across index.html and all-programs.html) -->
+  <!-- Contains only the identical foundational rules: hero, buttons base, program-card base + img, motion system + :root vars + reduced-motion. -->
+  <!-- Page-specific extensions (lead-magnet, logo-3d smoke, engine-viz details, modal polish, etc.) remain in the per-page <style> below. -->
+  <!-- This preserves the exact visual and emotional feel while eliminating duplication and drift. -->
+  <style id="shared-mercy-core">
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
     * { box-sizing: border-box; }
@@ -85,99 +88,124 @@
     .premium-sponsor-btn { background: linear-gradient(145deg, #10b981, #34d399, #10b981); color: #0f172a; }
     .super-cta-btn:hover, .premium-sponsor-btn:hover { transform: scale(1.08) translateY(-4px); }
 
-    .bone-icon { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); display: inline-block; }
-    .super-cta-btn:hover .bone-icon { animation: boneWag 0.55s ease-in-out infinite; }
-    /* === PREMIUM LEAD MAGNET BUTTON - x50 BILLIONAIRE HEARTFELT QUALITY === */
-.super-cta-btn.lead-magnet-btn {
-  position: relative;
-  overflow: hidden;
-  animation: ctaBreath 4s ease-in-out infinite;
-  box-shadow: 0 0 60px -10px rgb(251 191 36),
-              0 30px 70px -20px rgb(16 185 129);
-}
+    .program-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::before, .program-card::after {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      animation: floatOrganic linear infinite;
+      opacity: 0.22;
+    }
+    .program-card::before { content: '❤️'; font-size: 1.7rem; color: #f472b6; }
+    .program-card::after  { content: '🐾'; font-size: 2.1rem; color: #fcd34d; }
 
-@keyframes ctaBreath {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.06); }
-}
+    .program-card:nth-child(1)::before { top: 12%; left: 10%; animation-duration: 7.2s; }
+    .program-card:nth-child(1)::after  { bottom: 20%; right: 15%; animation-duration: 10.8s; animation-delay: 1.2s; }
 
-.super-cta-btn.lead-magnet-btn::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 40%;
-  height: 300%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.4),
-    transparent
-  );
-  transform: skewX(-25deg);
-  animation: shineSweep 5s linear infinite;
-  z-index: 1;
-  pointer-events: none;
-}
+    .program-card:nth-child(2)::before { top: 25%; right: 18%; animation-duration: 8.9s; }
+    .program-card:nth-child(2)::after  { bottom: 30%; left: 12%; animation-duration: 7.8s; animation-delay: 2.4s; }
 
-@keyframes shineSweep {
-  0%   { transform: translateX(-150%) skewX(-25deg); }
-  100% { transform: translateX(300%) skewX(-25deg); }
-}
+    .program-card:nth-child(3)::before { top: 18%; left: 22%; animation-duration: 9.5s; }
+    .program-card:nth-child(3)::after  { bottom: 25%; right: 20%; animation-duration: 11.5s; }
 
-.super-cta-btn.lead-magnet-btn:hover {
-  transform: scale(1.08) translateY(-4px) !important;
-  box-shadow: 0 0 100px 20px rgb(251 191 36),
-              0 40px 110px -10px rgb(16 185 129);
-}
+    .program-card:nth-child(4)::before { top: 15%; right: 12%; animation-duration: 8.1s; }
+    .program-card:nth-child(4)::after  { bottom: 28%; left: 25%; animation-duration: 9.2s; animation-delay: 0.8s; }
 
-.super-cta-btn.lead-magnet-btn img {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: brightness(1.1);
-}
+    @keyframes floatOrganic {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(22px, -45px) rotate(28deg); }
+    }
 
-.super-cta-btn.lead-magnet-btn:hover img {
-  transform: scale(1.12) rotate(8deg);
-  filter: brightness(1.3);
-}
-    @keyframes boneWag { 0%,100% { transform: rotate(-20deg) scale(1); } 50% { transform: rotate(20deg) scale(1.18); } }
+    /* Elon / Vitalik / Bilyeu billion-dollar quality slow floating.
+       Each drift is a unique, rhythmic, organic path. Slow, deliberate, profound.
+       Hearts and paws gently wander the entire card background with beautiful
+       micro-breathing and rotation. Long luxurious cycles. */
+    @keyframes drift-slow1 {
+      0%   { transform: translate(0px, 0px) rotate(-8deg) scale(0.96); }
+      18%  { transform: translate(12px, -18px) rotate(4deg) scale(1.03); }
+      37%  { transform: translate(-9px, -42px) rotate(-3deg) scale(0.97); }
+      58%  { transform: translate(15px, -67px) rotate(6deg) scale(1.02); }
+      79%  { transform: translate(-6px, -89px) rotate(-5deg) scale(0.98); }
+      100% { transform: translate(4px, -112px) rotate(-7deg) scale(0.95); }
+    }
+    @keyframes drift-slow2 {
+      0%   { transform: translate(0px, 0px) rotate(6deg) scale(0.97); }
+      22%  { transform: translate(-14px, -15px) rotate(-5deg) scale(1.025); }
+      41%  { transform: translate(8px, -39px) rotate(3deg) scale(0.96); }
+      63%  { transform: translate(-11px, -64px) rotate(-7deg) scale(1.01); }
+      82%  { transform: translate(10px, -86px) rotate(2deg) scale(0.97); }
+      100% { transform: translate(-3px, -109px) rotate(5deg) scale(0.95); }
+    }
+    @keyframes drift-slow3 {
+      0%   { transform: translate(0px, 0px) rotate(-5deg) scale(0.95); }
+      16%  { transform: translate(18px, -22px) rotate(5deg) scale(1.02); }
+      39%  { transform: translate(-7px, -48px) rotate(-2deg) scale(0.98); }
+      61%  { transform: translate(13px, -71px) rotate(7deg) scale(1.015); }
+      84%  { transform: translate(-5px, -94px) rotate(-4deg) scale(0.96); }
+      100% { transform: translate(7px, -115px) rotate(-6deg) scale(0.94); }
+    }
+    @keyframes drift-slow4 {
+      0%   { transform: translate(0px, 0px) rotate(7deg) scale(0.96); }
+      20%  { transform: translate(-10px, -13px) rotate(-4deg) scale(1.03); }
+      44%  { transform: translate(11px, -37px) rotate(2deg) scale(0.97); }
+      65%  { transform: translate(-8px, -62px) rotate(-6deg) scale(1.018); }
+      83%  { transform: translate(14px, -85px) rotate(4deg) scale(0.98); }
+      100% { transform: translate(-2px, -110px) rotate(6deg) scale(0.95); }
+    }
+    @keyframes drift-slow5 {
+      0%   { transform: translate(0px, 0px) rotate(-9deg) scale(0.97); }
+      17%  { transform: translate(9px, -19px) rotate(3deg) scale(1.01); }
+      38%  { transform: translate(-12px, -44px) rotate(-5deg) scale(0.96); }
+      59%  { transform: translate(16px, -69px) rotate(5deg) scale(1.025); }
+      77%  { transform: translate(-4px, -91px) rotate(-3deg) scale(0.97); }
+      100% { transform: translate(6px, -113px) rotate(-8deg) scale(0.94); }
+    }
+    @keyframes drift-slow6 {
+      0%   { transform: translate(0px, 0px) rotate(4deg) scale(0.95); }
+      24%  { transform: translate(-16px, -11px) rotate(-6deg) scale(1.028); }
+      47%  { transform: translate(7px, -35px) rotate(2deg) scale(0.97); }
+      68%  { transform: translate(-13px, -58px) rotate(-4deg) scale(1.015); }
+      86%  { transform: translate(11px, -82px) rotate(3deg) scale(0.96); }
+      100% { transform: translate(-5px, -108px) rotate(5deg) scale(0.95); }
+    }
 
-/* SUPERCHARGED FLOATING HEARTS & PAWS */
-.program-card {
-  position: relative;
-  overflow: hidden;
-}
-.program-card::before, .program-card::after {
-  position: absolute;
-  pointer-events: none;
-  z-index: 1;
-  animation: floatOrganic linear infinite;
-  opacity: 0.22;
-}
-.program-card::before { content: '❤️'; font-size: 1.7rem; color: #f472b6; }
-.program-card::after  { content: '🐾'; font-size: 2.1rem; color: #fcd34d; }
+    .float-particle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      will-change: transform, opacity;
+      user-select: none;
+      white-space: nowrap;
+      /* Premium subtle high-end treatment */
+      filter: blur(0.3px);
+      transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.program-card:nth-child(1)::before { top: 12%; left: 10%; animation-duration: 7.2s; }
-.program-card:nth-child(1)::after  { bottom: 20%; right: 15%; animation-duration: 10.8s; animation-delay: 1.2s; }
+    /* Assign the 6 elegant slow rhythmic drifts */
+    .float-particle.drift-slow1 { animation: drift-slow1 linear infinite; }
+    .float-particle.drift-slow2 { animation: drift-slow2 linear infinite; }
+    .float-particle.drift-slow3 { animation: drift-slow3 linear infinite; }
+    .float-particle.drift-slow4 { animation: drift-slow4 linear infinite; }
+    .float-particle.drift-slow5 { animation: drift-slow5 linear infinite; }
+    .float-particle.drift-slow6 { animation: drift-slow6 linear infinite; }
 
-.program-card:nth-child(2)::before { top: 25%; right: 18%; animation-duration: 8.9s; }
-.program-card:nth-child(2)::after  { bottom: 30%; left: 12%; animation-duration: 7.8s; animation-delay: 2.4s; }
+    /* Billion-dollar quality: when you hover a card the entire field of hearts & paws
+       gently brightens and feels more "alive". Quiet, intentional, first-principles interaction. */
+    .program-card:hover .float-particle {
+      opacity: 1.75 !important;
+    }
 
-.program-card:nth-child(3)::before { top: 18%; left: 22%; animation-duration: 9.5s; }
-.program-card:nth-child(3)::after  { bottom: 25%; right: 20%; animation-duration: 11.5s; }
-
-.program-card:nth-child(4)::before { top: 15%; right: 12%; animation-duration: 8.1s; }
-.program-card:nth-child(4)::after  { bottom: 28%; left: 25%; animation-duration: 9.2s; animation-delay: 0.8s; }
-
-.program-card:nth-child(5)::before,
-.program-card:nth-child(6)::before,
-.program-card:nth-child(7)::before,
-.program-card:nth-child(8)::before { top: 20%; left: 15%; animation-duration: 8.5s; }
-
-@keyframes floatOrganic {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(22px, -45px) rotate(28deg); }
-}
+    /* Ensure content sits above the floating hearts/paws particles on featured cards */
+    .program-card > img,
+    .program-card > div,
+    .program-card > h3,
+    .program-card > p {
+      position: relative;
+      z-index: 10;
+    }
 
     .program-card img {
       width: 100%;
@@ -190,31 +218,6 @@
       .program-card img { height: 165px; }
     }
 
-    .logo-3d-wrapper {
-      position: relative;
-    }
-    .logo-3d-wrapper::before,
-    .logo-3d-wrapper::after {
-      content: '';
-      position: absolute;
-      inset: -35%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(52,211,153,0.4) 20%, transparent 70%);
-      animation: smokePulse 8s ease-in-out infinite;
-      z-index: -1;
-      filter: blur(20px);
-    }
-    .logo-3d-wrapper::after {
-      background: radial-gradient(circle, rgba(251,191,36,0.4) 20%, transparent 70%);
-      animation-delay: 3.8s;
-      animation-duration: 12s;
-    }
-    @keyframes smokePulse {
-      0%, 100% { transform: scale(0.8); opacity: 0.5; }
-      50% { transform: scale(1.25); opacity: 0.9; }
-    }
-
-    /* Phase 4: Premium motion system - breathing, ripples, not hype */
     :root {
       --ease-mercy: cubic-bezier(0.4, 0, 0.2, 1);
       --dur-breath: 0.7s;
@@ -249,15 +252,6 @@
       opacity: 0.75;
     }
 
-    /* Gentle chain-link pulse for engine viz */
-    #engine-viz .flex-1.relative {
-      transition: box-shadow 0.4s ease;
-    }
-    #engine-viz:hover .flex-1.relative {
-      box-shadow: 0 0 20px -5px rgba(251,191,36,0.25);
-    }
-
-    /* Reduced motion safety (Phase 4) */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -270,13 +264,236 @@
       }
     }
 
-    /* Modal polish */
+    /* Phase 1: premium focus-visible that matches the amber/emerald glow language (loving, not harsh) */
+    *:focus-visible {
+      outline: 2px solid #fcd34d;
+      outline-offset: 3px;
+      box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.25);
+    }
+    .hopeseed-card *:focus-visible,
+    button[onclick*="HOPESEED"]:focus-visible,
+    a[href*="hopeseed"]:focus-visible {
+      outline-color: #34d399;
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.25);
+    }
+
+    /* Phase 1: reliable touch targets for simulator (mobile perfection, 44px min) */
+    #personal-engine button[onclick*="simulateHolding"],
+    #personal-engine button[onclick*="resetSimulator"] {
+      min-height: 44px;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Phase 3: Mind-blowing yet loving visual Mercy Circles - concentric progress with glows */
+    .mercy-circle-container {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .mercy-circle {
+      position: relative;
+      width: 110px;
+      height: 110px;
+    }
+    .mercy-circle svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+    .mercy-circle .progress {
+      transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mercy-circle .label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.1;
+      color: #fff;
+      pointer-events: none;
+    }
+    .mercy-circle.reached .progress {
+      filter: drop-shadow(0 0 6px currentColor);
+    }
+    .mercy-circle.nibbles .progress { stroke: #fcd34d; }
+    .mercy-circle.hopeseed .progress { stroke: #34d399; }
+    .mercy-circle-track { stroke: #333; }
+
+    /* Phase 3: Enhanced engine ripple river - SVG layer for mind-blowing flow */
+    #engine-viz .ripple-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+    #engine-viz .ripple-path {
+      stroke: rgba(251,191,36,0.4);
+      stroke-width: 2;
+      fill: none;
+      animation: ripple-flow 2.5s linear infinite;
+    }
+    #engine-viz .ripple-path.hopeseed {
+      stroke: rgba(52,211,153,0.4);
+      animation-duration: 3s;
+    }
+    @keyframes ripple-flow {
+      to { stroke-dashoffset: -40; }
+    }
+
+    /* Phase 3: Compounding visual - growing mercy chain */
+    .compounding-visual {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 0.75rem;
+      min-height: 28px;
+    }
+    .compounding-link {
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, #fcd34d, #f59e0b);
+      border-radius: 9999px;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: 0 0 8px rgba(251,191,36,0.5);
+    }
+    .compounding-link.hopeseed {
+      background: linear-gradient(135deg, #34d399, #10b981);
+      box-shadow: 0 0 8px rgba(52,211,153,0.5);
+    }
+    .compounding-visual .label {
+      font-size: 10px;
+      color: #a1a1aa;
+      margin-left: 8px;
+    }
+
+    /* Phase 3: Share footprint button - premium but humble */
+    .footprint-share-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.5px;
+      background: linear-gradient(145deg, #10b981, #34d399);
+      color: #0f172a;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .footprint-share-btn:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 0 20px rgba(52,211,153,0.4);
+    }
+
+    /* Phase 4: scroll-synced gentleness on the engine (subtle flywheel "turning" as you scroll the story) */
+    #mercy-engine {
+      --mercy-scroll-progress: 0;
+    }
+    #mercy-engine #engine-viz {
+      transition: filter 0.1s linear;
+      filter: brightness(1 + (var(--mercy-scroll-progress, 0) * 0.08));
+    }
+  </style>
+
+  <style>
+    /* Index-specific premium styles (kept after shared core for proper cascade) */
+    .bone-icon { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); display: inline-block; }
+    .super-cta-btn:hover .bone-icon { animation: boneWag 0.55s ease-in-out infinite; }
+
+    /* === PREMIUM LEAD MAGNET BUTTON (specific to mercy-form CTA) === */
+    .super-cta-btn.lead-magnet-btn {
+      position: relative;
+      overflow: hidden;
+      animation: ctaBreath 4s ease-in-out infinite;
+      box-shadow: 0 0 60px -10px rgb(251 191 36),
+                  0 30px 70px -20px rgb(16 185 129);
+    }
+
+    @keyframes ctaBreath {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.06); }
+    }
+
+    .super-cta-btn.lead-magnet-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 40%;
+      height: 300%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+      );
+      transform: skewX(-25deg);
+      animation: shineSweep 5s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes shineSweep {
+      0%   { transform: translateX(-150%) skewX(-25deg); }
+      100% { transform: translateX(300%) skewX(-25deg); }
+    }
+
+    .super-cta-btn.lead-magnet-btn:hover {
+      transform: scale(1.08) translateY(-4px) !important;
+      box-shadow: 0 0 100px 20px rgb(251 191 36),
+                  0 40px 110px -10px rgb(16 185 129);
+    }
+
+    .super-cta-btn.lead-magnet-btn img {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: brightness(1.1);
+    }
+
+    .super-cta-btn.lead-magnet-btn:hover img {
+      transform: scale(1.12) rotate(8deg);
+      filter: brightness(1.3);
+    }
+
+    @keyframes boneWag { 0%,100% { transform: rotate(-20deg) scale(1); } 50% { transform: rotate(20deg) scale(1.18); } }
+
+    .logo-3d-wrapper {
+      position: relative;
+    }
+    .logo-3d-wrapper::before,
+    .logo-3d-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -35%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(52,211,153,0.4) 20%, transparent 70%);
+      animation: smokePulse 8s ease-in-out infinite;
+      z-index: -1;
+      filter: blur(20px);
+    }
+    .logo-3d-wrapper::after {
+      background: radial-gradient(circle, rgba(251,191,36,0.4) 20%, transparent 70%);
+      animation-delay: 3.8s;
+      animation-duration: 12s;
+    }
+    @keyframes smokePulse {
+      0%, 100% { transform: scale(0.8); opacity: 0.5; }
+      50% { transform: scale(1.25); opacity: 0.9; }
+    }
+
+    /* Gentle chain-link pulse for engine viz (specific) */
+    #engine-viz .flex-1.relative {
+      transition: box-shadow 0.4s ease;
+    }
+    #engine-viz:hover .flex-1.relative {
+      box-shadow: 0 0 20px -5px rgba(251,191,36,0.25);
+    }
+
+    /* Modal polish (specific) */
     #program-modal .modal {
       transition: transform 0.25s var(--ease-mercy), opacity 0.2s ease;
     }
   </style>
-<script src="js/programs-data.js"></script>
-<script src="js/shared-animations.js"></script>
+<script src="js/programs-data.js" defer></script>
+<script src="js/shared-animations.js" defer></script>
 
 <body>
 
@@ -292,6 +509,7 @@
     muted 
     playsinline 
     preload="metadata"
+    aria-hidden="true"
     class="w-full h-full object-cover">
   </video>
 </div>
@@ -327,7 +545,7 @@
 
     <p class="mt-10 text-2xl sm:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight px-4">
       People helping people helping people.<br>
-      <span class="text-emerald-300 font-medium">Every single holding turns the mercy flywheel — quietly, compounding the system's future capacity for mercy.</span>
+      <span class="text-emerald-300 font-medium">Every single holding turns the mercy flywheel - quietly, compounding the system's future capacity for mercy.</span>
     </p>
 
     <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 px-4">
@@ -347,13 +565,13 @@
   </div>
 </header>
 
-<!-- THE MERCY FLYWHEEL – FIRST PRINCIPLES + COMPOUNDING VISION (Bilyeu/Vitalik rigor) -->
+<!-- THE MERCY FLYWHEEL: FIRST PRINCIPLES + COMPOUNDING VISION (Bilyeu/Vitalik rigor) -->
 <section class="py-20 bg-black border-b border-amber-400/10">
   <div class="max-w-5xl mx-auto px-6">
     <div class="text-center mb-12">
       <div class="inline-flex items-center gap-2 text-xs tracking-[3px] uppercase text-amber-300/70 mb-4">First Principles</div>
       <h2 class="text-5xl md:text-6xl font-bold tracking-tight">The Mercy Flywheel</h2>
-      <p class="mt-4 text-2xl text-zinc-300 max-w-3xl mx-auto">Not charity. A self-reinforcing system designed from first principles so that participation today quietly increases the system's capacity for mercy tomorrow — and the day after that, forever.</p>
+      <p class="mt-4 text-2xl text-zinc-300 max-w-3xl mx-auto">Not charity. A self-reinforcing system designed from first principles so that participation today quietly increases the system's capacity for mercy tomorrow - and the day after that, forever.</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-10 items-start">
@@ -361,15 +579,15 @@
       <div class="space-y-8">
         <div>
           <h3 class="text-xl font-semibold text-amber-200 mb-3">Why this structure works</h3>
-          <p class="text-zinc-300 leading-relaxed">Skin in the game creates alignment without coercion or capture. When you hold $NIBBLES or $hopeseed, your economic interest becomes tied to the actual flourishing of dogs and children. No middlemen can siphon the value. The incentives point outward, toward mercy — creating an antifragile loop that grows stronger with every voluntary participant, exactly as decentralized systems are designed to scale compassion without eventual corruption.</p>
+          <p class="text-zinc-300 leading-relaxed">Skin in the game creates alignment without coercion or capture. When you hold $NIBBLES or $hopeseed, your economic interest becomes tied to the actual flourishing of children, seniors, veterans, inmates and the dogs who stand with them. No middlemen can siphon the value. The incentives point outward toward mercy. This creates an antifragile loop that grows stronger with every voluntary participant. Exactly as decentralized systems are designed to scale compassion without eventual corruption.</p>
         </div>
         <div>
           <h3 class="text-xl font-semibold text-amber-200 mb-3">Verifiability over trust</h3>
-          <p class="text-zinc-300 leading-relaxed">On-chain records and soulbound passports turn good intentions into observable reality. A program cannot claim impact it has not delivered. The ledger does not lie, and it never forgets. This is the minimum requirement for a system that wants to scale compassion without eventually corrupting it — the same principle that makes decentralized protocols antifragile at global scale.</p>
+          <p class="text-zinc-300 leading-relaxed">On-chain records and soulbound passports turn good intentions into observable reality. A program cannot claim impact it has not delivered. The ledger does not lie, and it never forgets. This is the minimum requirement for a system that wants to scale compassion without eventually corrupting it - the same principle that makes decentralized protocols antifragile at global scale.</p>
         </div>
         <div>
           <h3 class="text-xl font-semibold text-amber-200 mb-3">Emotional contagion as engine fuel</h3>
-          <p class="text-zinc-300 leading-relaxed">Stories of real mercy are not marketing. They are the transmission mechanism. One rescued dog with a passport, one child opening a birthday gift on stream, one veteran walking with their freedom partner—these moments travel further and faster than any advertisement. They create new holders who create new stories. The loop compounds — because emotional resonance is the fuel that turns voluntary participation into a self-sustaining engine for compassion at scale.</p>
+          <p class="text-zinc-300 leading-relaxed">Stories of real mercy are not marketing. They are the transmission mechanism. One rescued dog with a passport, one child opening a birthday gift on stream, one veteran walking with their freedom partner - these moments travel further and faster than any advertisement. They create new holders who create new stories. The loop compounds - because emotional resonance is the fuel that turns voluntary participation into a self-sustaining engine for compassion at scale.</p>
         </div>
       </div>
 
@@ -380,16 +598,16 @@
           <div><span class="text-amber-300">1. Holding</span> → Your tokens quietly fund specific circles of mercy (25k, 100k, 250k thresholds already written into the programs).</div>
           <div><span class="text-amber-300">2. Delivery</span> → Programs produce living proof: videos, updates, soulbound records, livestreamed barns.</div>
           <div><span class="text-amber-300">3. Resonance</span> → Those stories move people. Some become new holders. The network grows.</div>
-          <div><span class="text-amber-300">4. Amplification</span> → More holders = more funding capacity = more stories = more resonance. The engine turns faster with each cycle — a flywheel that becomes stronger precisely because it is decentralized, voluntary, and built on verifiable truth rather than trust in institutions that can be captured.</div>
+          <div><span class="text-amber-300">4. Amplification</span> → More holders = more funding capacity = more stories = more resonance. The engine turns faster with each cycle - a flywheel that becomes stronger precisely because it is decentralized, voluntary, and built on verifiable truth rather than trust in institutions that can be captured.</div>
         </div>
-        <p class="mt-6 text-emerald-200/80 text-xs">This is not linear charity. It is an antifragile system designed so that success makes future success more likely. Your quiet participation today is already part of tomorrow’s larger capacity for mercy — and in the long term, a model for global coordination of compassion that cannot be captured by bureaucracy, misaligned incentives, or centralized power. Soulbound proofs endure; the flywheel turns without end.</p>
+        <p class="mt-6 text-emerald-200/80 text-xs">This is not linear charity. It is an antifragile system designed so that success makes future success more likely. Your quiet participation today is already part of tomorrow’s larger capacity for mercy - and in the long term, a model for global coordination of compassion that cannot be captured by bureaucracy, misaligned incentives, or centralized power. Soulbound proofs endure; the flywheel turns without end.</p>
         <a href="#mercy-engine" class="inline-block mt-6 text-xs tracking-widest uppercase text-white/70 hover:text-white border-b border-white/30 hover:border-white pb-px">See the engine in motion →</a>
       </div>
     </div>
   </div>
 </section>
   
-<!-- === THE MERCY BLUEPRINT – HEARTFELT LEAD MAGNET (premium) === -->
+<!-- === THE MERCY BLUEPRINT: HEARTFELT LEAD MAGNET (premium) === -->
 <section class="py-24 bg-gradient-to-b from-zinc-950 to-black border-t border-b border-amber-400/20">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <div class="inline-flex items-center gap-3 bg-zinc-900 border border-emerald-400/30 rounded-3xl px-6 py-2 mb-8">
@@ -452,11 +670,11 @@
         <img src="assets/logos/Mr.NIbbles%20logo.jpg" 
              class="mx-auto mb-8 w-60 h-60 md:w-72 md:h-72 object-contain rounded-3xl" alt="Mr. Nibbles" loading="lazy">
         <p class="text-amber-200 mb-3 text-3xl md:text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
-        <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction quietly becomes mercy for dogs who once had none.</p>
-        <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" 
+        <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction quietly becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.</p>
+        <a href="https://puppyscan.shib.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono">
-          0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2
+          0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF
         </a>
       </div>
 
@@ -465,11 +683,11 @@
         <img src="assets/logos/hopeseed-logo.jpg" 
              class="mx-auto mb-8 w-60 h-60 md:w-72 md:h-72 object-contain rounded-3xl" alt="hopeseed" loading="lazy">
         <p class="text-emerald-300 mb-3 text-3xl md:text-4xl font-semibold">$hopeseed</p>
-        <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction plants a seed of hope for children who need it most.</p>
-        <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" 
+        <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.</p>
+        <a href="https://puppyscan.shib.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono">
-          0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61
+          0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833
         </a>
       </div>
     </div>
@@ -481,8 +699,8 @@
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="text-5xl font-bold mb-4">Living Mercy on Shibarium</h2>
-      <p class="text-2xl text-amber-200">The contracts are real. The circles are waiting. Connect quietly to see where you already stand — and how your holding is already turning the flywheel for tomorrow.</p>
-      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">Every balance you hold is already part of the story. No pressure. No signatures. Just truth.</p>
+      <p class="text-2xl text-amber-200">The contracts are real. Your transfers on the chain are the living proof. Connect quietly to see your actual ripples and how they are already turning the flywheel for children, seniors, veterans, inmates and the dogs who stand with them.</p>
+      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">Every on-chain move you make is a quiet, verifiable act of mercy. No pressure. No signatures. Just the truth the ledger cannot forget.</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
@@ -495,8 +713,8 @@
             <p class="text-sm text-amber-300/70">Mercy for dogs who once had none</p>
           </div>
         </div>
-        <a href="https://puppyscan.shib.io/address/0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2</a>
-        <div id="nibbles-balance" class="text-3xl font-semibold text-amber-100 mb-2 hidden">—</div>
+        <a href="https://puppyscan.shib.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF</a>
+        <div id="nibbles-balance" class="text-3xl font-semibold text-amber-100 mb-2 hidden"></div>
         <div id="nibbles-circle" class="text-sm text-amber-300 mb-4 hidden"></div>
         <p class="text-xs text-zinc-500">When the funding comes through, these holdings quietly unlock the Circles of Mercy described in every program above.</p>
       </div>
@@ -510,18 +728,24 @@
             <p class="text-sm text-emerald-300/70">Seeds of hope for children who need it most</p>
           </div>
         </div>
-        <a href="https://puppyscan.shib.io/address/0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61</a>
-        <div id="hopeseed-balance" class="text-3xl font-semibold text-emerald-100 mb-2 hidden">—</div>
+        <a href="https://puppyscan.shib.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833</a>
+        <div id="hopeseed-balance" class="text-3xl font-semibold text-emerald-100 mb-2 hidden"></div>
         <div id="hopeseed-circle" class="text-sm text-emerald-300 mb-4 hidden"></div>
         <p class="text-xs text-zinc-500">Your quiet holding plants real seeds. The thresholds below are the same ones written into the programs you just read.</p>
       </div>
     </div>
 
     <div class="text-center">
-      <button onclick="connectShibariumWallet()" aria-label="Connect your wallet read-only to see your balances and circles in the mercy flywheel" class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-xl px-10 py-6 rounded-3xl">
-        Connect Wallet (read-only)
+      <!-- Gentle, always-visible network status (Phase 3 transparency). Read-only, quietly showing where the on-chain truth lives today. -->
+      <div id="network-status" class="mb-4 inline-flex items-center gap-2 text-xs px-4 py-1.5 rounded-2xl border border-white/10 bg-zinc-900/60 text-zinc-400">
+        <span id="network-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+        <span id="network-label">Puppynet Testnet • quiet previews today (real mainnet ripples when the funding comes through)</span>
+      </div>
+
+      <button onclick="connectShibariumWallet()" aria-label="Connect your wallet read-only to preview the on-chain ledger. Real ripples will populate here as soon as the first community transfers begin." class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-xl px-10 py-6 rounded-3xl">
+        Connect Wallet • Preview the On-Chain Ledger
       </button>
-      <p class="mt-4 text-xs text-zinc-500 max-w-md mx-auto">Read-only. No signatures. We will never ask you to send tokens here. This is simply to show you the circles you already belong to.</p>
+      <p class="mt-4 text-xs text-zinc-500 max-w-md mx-auto">Read-only. No signatures. Real activity appears here the moment the first community holdings and transfers land on the chain. The simulator below lets you feel the engine today.</p>
       <div id="wallet-status" class="mt-3 text-sm text-emerald-300 hidden" aria-live="polite"></div>
     </div>
 
@@ -537,7 +761,96 @@
           <div id="hopeseed-circles-list" class="text-emerald-100 space-y-1"></div>
         </div>
       </div>
-      <p class="text-center mt-8 text-xs text-zinc-400 italic">These are the same thresholds written into the 29 programs. When the funding comes through, every token you hold becomes part of the mercy that actually reaches dogs and children.</p>
+      <p class="text-center mt-8 text-xs text-zinc-400 italic">These are the same thresholds written into the 29 programs. When the funding comes through, every token you hold becomes part of the mercy that reaches children, seniors, veterans, inmates and the dogs who stand with them.</p>
+    </div>
+
+    <!-- PHASE 3 COMPLETE: ELECTRIFIED ON-CHAIN LIVING LEDGER + PUBLIC RIPPLES IN THE WILD.
+         Real transfers as mind-blowing, truthful ripples. Personal + community view.
+         Gentle network status, age + impact notes, 1=All unification.
+         Read-only, on-chain truth using eth_getLogs + eth_call. Testnet today, mainnet when the funding comes through.
+         Always visible. You are 1. We are all 1. One mission. -->
+    <div id="onchain-history" class="mt-8 max-w-4xl mx-auto">
+      <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-8">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h3 class="text-2xl font-semibold">Your Living Ledger of Mercy</h3>
+            <p class="text-xs text-emerald-300/80 mt-1">Where the first real on-chain ripples will be recorded. Permanent, verifiable proof as the flywheel begins turning with real holdings.</p>
+          </div>
+          <button onclick="refreshMercyRipples()" class="text-xs px-5 py-2 border border-white/20 hover:bg-white/5 rounded-2xl transition">Refresh Ripples</button>
+        </div>
+
+        <!-- Honest current-state framing (no hype, only truth) -->
+        <div class="mb-5 p-3 rounded-2xl bg-black/30 border border-white/10 text-xs text-zinc-400">
+          The contracts are live on Shibarium Puppynet testnet. Real mainnet deployment and the first community holdings are coming soon. Use the simulator below to feel the engine today. This ledger shows what the very first real ripples will look like the moment transfers begin on the chain. When real activity appears, live entries will populate here.
+        </div>
+
+        <!-- Illustrative previews of the first real ripples (beautiful, using the exact MERCY_THRESHOLDS, labeled clearly). These stay until real data arrives. -->
+        <div class="mb-4">
+          <div class="text-[10px] uppercase tracking-[1.5px] text-amber-300/70 mb-2 px-1">Illustrative previews. What the first real on-chain ripples will look like.</div>
+          <div class="space-y-3">
+            <!-- Preview 1: reaches Mercy Circle on NIBBLES -->
+            <div class="bg-zinc-900/70 border border-dashed border-amber-400/40 rounded-2xl p-4 flex gap-4 items-start group">
+              <div class="text-2xl mt-px flex-shrink-0">🐾</div>
+              <div class="flex-1 min-w-0">
+                <div class="text-sm leading-snug">
+                  You <span class="font-semibold text-emerald-300">received</span>
+                  <span class="font-mono">25,000</span> $NIBBLES
+                </div>
+                <div class="text-[10px] text-zinc-500 mt-0.5">Block #1,234,567 • days after first community transfers begin • Illustrative</div>
+                <div class="text-[10px] text-amber-300/80 mt-1 leading-tight">This amount reaches the exact Mercy Circle threshold written into the programs. A quiet seed that begins unlocking real support for dogs.</div>
+              </div>
+              <div class="text-[10px] px-3 py-1.5 rounded-2xl bg-black/60 border border-white/10 flex-shrink-0 self-start text-zinc-400">Preview</div>
+            </div>
+            <!-- Preview 2: meaningful hopeseed -->
+            <div class="bg-zinc-900/70 border border-dashed border-emerald-400/40 rounded-2xl p-4 flex gap-4 items-start group">
+              <div class="text-2xl mt-px flex-shrink-0">🌱</div>
+              <div class="flex-1 min-w-0">
+                <div class="text-sm leading-snug">
+                  You <span class="font-semibold text-emerald-300">received</span>
+                  <span class="font-mono">40,000</span> $hopeseed
+                </div>
+                <div class="text-[10px] text-zinc-500 mt-0.5">Block #1,234,892 • Illustrative</div>
+                <div class="text-[10px] text-emerald-300/80 mt-1 leading-tight">Enough to plant real seeds in the Mercy Circle for children. One permanent link in the chain of hope and safety.</div>
+              </div>
+              <div class="text-[10px] px-3 py-1.5 rounded-2xl bg-black/60 border border-white/10 flex-shrink-0 self-start text-zinc-400">Preview</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator-driven preview: when you simulate a holding, this shows what ripples you could create with it once you make real on-chain transfers. Maneuvers gracefully around current 0s. -->
+        <div id="sim-ripple-previews" class="mt-4 hidden">
+          <div class="text-[10px] uppercase tracking-[1.5px] text-zinc-400 mb-2 px-1">Preview of ripples you could create with your simulated holding (what they might look like on the ledger)</div>
+          <div id="sim-ripples-list" class="space-y-3"></div>
+        </div>
+
+        <!-- Live on-chain area: initially soft note; real ripples from connect/refresh will populate here when they exist -->
+        <div id="live-ripples-area" class="mt-4">
+          <div class="text-[10px] uppercase tracking-[1.5px] text-emerald-300/70 mb-2 px-1">Live on-chain ripples (appear here the moment real transfers begin)</div>
+          <div id="mercy-ripples-list" class="space-y-3">
+            <!-- Initial honest note (overwritten by real data when it appears via connect/refresh) -->
+            <div class="text-xs text-zinc-500 italic px-1">The chain is still quiet for real on-chain transfers. The very first ripples will appear here the moment the community begins creating them. You can be one of the people who makes them.</div>
+          </div>
+          <!-- Phase 3 completion tie-in: when real data loads, remind that personal ripples join the public wild chain above. Part of the 1=All mission. -->
+          <div id="personal-to-wild-note" class="hidden mt-3 text-[10px] text-emerald-300/80 italic">These real on-chain ripples are now part of the Ripples in the Wild above. The 1=All chain grows because of you.</div>
+        </div>
+
+        <!-- Ripples in the Wild: public recent community transfers. 
+             This is the proof the mission is already alive. 
+             See how others are already 1 with the all. Quiet acts that snowball into real mercy for children, seniors, veterans, inmates and the dogs who stand with them.
+             You are 1. We are all 1. One mission. Heartfelt truth in motion. -->
+        <div class="mt-6">
+          <div class="text-[10px] uppercase tracking-[1.5px] text-emerald-300/70 mb-1 px-1">Ripples in the Wild</div>
+          <div class="text-xs text-zinc-400 mb-2">Recent on-chain transfers by the community. The flywheel is turning for the people right now. Children, seniors, veterans, inmates and the dogs who stand with them. Every one is a quiet vote for a world where mercy compounds forever. You are 1. We are all 1. One mission.</div>
+          <div id="community-ripples-list" class="space-y-2"></div>
+          <div class="mt-4 pt-4 border-t border-white/10">
+            <div class="text-xs font-semibold text-amber-300 tracking-[2px] mb-1">THE 1=ALL MISSION</div>
+            <div class="text-[11px] leading-snug text-white/90">These are not random transfers. These are souls choosing to be the 1 that moves the all. Children, seniors, veterans, inmates and the dogs who stand beside them. One quiet act. One life touched. One story that ripples outward and pulls in the same hearts. Negativity turns to purpose. Isolation becomes belonging. You see the outcome of your own quiet power. And the power of everyone who stood before you. This is the snowball no force can stop. You are 1. We are all 1. One mission. One beautiful, unstoppable result we build together.</div>
+            <div class="mt-2 text-[10px] text-emerald-300/80">Simulate below. Feel your ripple join this chain. See the beauty you will help create.</div>
+          </div>
+        </div>
+
+        <p class="mt-6 text-[10px] text-zinc-500 italic">Each entry is a verifiable on-chain act. Every one is a quiet promise that helps unlock the Circles of Mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families rebuilding their lives. This is what people helping people helping people looks like on the ledger. And the first real ones are being prepared now.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -548,14 +861,14 @@
     <div class="text-center mb-12">
       <h2 class="text-5xl font-bold mb-4">The Perpetual Mercy Engine</h2>
       <p class="text-2xl text-amber-200 max-w-3xl mx-auto">We are not building another charity.<br>We are building a perpetual mercy engine on the blockchain.</p>
-      <p class="mt-6 text-lg text-zinc-300 max-w-2xl mx-auto">Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows — quietly, transparently, and forever. No middlemen. No bureaucracy. Just people helping people helping people. Your participation doesn't just fund today; it quietly multiplies the engine's capacity tomorrow through the stories it enables and the new holders those stories bring.</p>
+      <p class="mt-6 text-lg text-zinc-300 max-w-2xl mx-auto">Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows. Quietly. Transparently. Forever. No middlemen. No bureaucracy. Just people helping people helping people. Children, seniors, veterans, inmates and the dogs who stand with them. Your participation does not just fund today. It quietly multiplies the engine capacity tomorrow through the stories it enables and the new holders those stories bring.</p>
     </div>
 
     <!-- Global Symbolic Impact (enhanced from Mercy in Motion) -->
     <div class="mb-16">
       <div class="text-center mb-10">
-        <h3 class="text-3xl font-semibold">Mercy in Motion — The Truth We Hold</h3>
-        <p class="text-amber-200 mt-2">We don’t inflate numbers. We build real mercy — one honest transaction at a time.</p>
+        <h3 class="text-3xl font-semibold">Mercy in Motion • The Truth We Hold</h3>
+        <p class="text-amber-200 mt-2">We don’t inflate numbers. We build real mercy - one honest transaction at a time.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-10 text-center group">
@@ -583,10 +896,29 @@
     <!-- Interactive Perpetual Mercy Engine Visualization -->
     <div class="mb-16">
       <h3 class="text-3xl font-semibold text-center mb-6">Watch the Engine in Motion</h3>
-      <p class="text-center text-zinc-300 max-w-2xl mx-auto mb-8">See how one quiet holding sends ripples through the living chain — a self-reinforcing flywheel where each act of mercy creates the conditions for more. Click any node to open its full story and see the first principles in action.</p>
+      <p class="text-center text-zinc-300 max-w-2xl mx-auto mb-8">See how one quiet holding sends ripples through the living chain - a self-reinforcing flywheel where each act of mercy creates the conditions for more. Click any node to open its full story and see the first principles in action.</p>
+      <p class="text-center text-xs mb-4"><a href="all-programs.html" class="text-emerald-300 hover:text-emerald-200 underline">See all 29 in the Mercy Constellation →</a> (use the filters there with your holdings for the full personal experience)</p>
 
-      <!-- Simple but beautiful CSS/JS Viz -->
+      <!-- Interactive Perpetual Mercy Engine Visualization (Phase 3: electrified with SVG ripple river - the people co-building the flow) -->
       <div id="engine-viz" role="img" aria-label="Interactive visualization of the perpetual mercy flywheel showing transaction ripples flowing into $NIBBLES and $hopeseed streams and program nodes" class="relative bg-zinc-900/50 border border-white/10 rounded-3xl p-8 min-h-[320px] flex items-center justify-center overflow-hidden">
+        <!-- Phase 3 SVG Ripple River Layer - mind-blowing, balance-reactive flow that grows with your ripples -->
+        <svg id="ripple-layer" class="ripple-layer absolute inset-0" width="100%" height="100%" viewBox="0 0 800 320" preserveAspectRatio="none" style="opacity:0.55; pointer-events:none;">
+          <defs>
+            <linearGradient id="rippleGradN" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%" stop-color="#fcd34d" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.55"/>
+            </linearGradient>
+            <linearGradient id="rippleGradH" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%" stop-color="#34d399" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#10b981" stop-opacity="0.55"/>
+            </linearGradient>
+          </defs>
+          <path id="ripple-n1" class="ripple-path" stroke="url(#rippleGradN)" stroke-dasharray="22 18" d="M140,75 Q310,58 470,82 Q630,65 760,88"/>
+          <path id="ripple-n2" class="ripple-path" stroke="url(#rippleGradN)" stroke-dasharray="16 24" d="M140,105 Q325,92 485,108 Q625,95 760,115" style="animation-delay:0.35s"/>
+          <path id="ripple-h1" class="ripple-path hopeseed" stroke="url(#rippleGradH)" stroke-dasharray="26 14" d="M140,195 Q295,215 455,192 Q605,212 760,198"/>
+          <path id="ripple-h2" class="ripple-path hopeseed" stroke="url(#rippleGradH)" stroke-dasharray="17 23" d="M140,225 Q320,242 480,222 Q620,245 760,230" style="animation-delay:0.65s"/>
+        </svg>
+
         <div class="flex flex-col md:flex-row items-center justify-between w-full max-w-4xl gap-8 relative z-10">
           <!-- Transaction Source -->
           <div class="text-center">
@@ -611,7 +943,7 @@
               <div class="w-8 h-8 bg-amber-500/80 rounded flex items-center justify-center group-hover:scale-110 transition">🐾</div>
               <div class="text-left">
                 <div class="text-amber-300 text-sm font-semibold">$NIBBLES Stream</div>
-                <div class="text-xs text-amber-200/70">Mercy for dogs</div>
+                <div class="text-xs text-amber-200/70">Mercy for dogs and the people who need them most</div>
               </div>
             </div>
             <!-- HOPESEED Stream -->
@@ -619,7 +951,7 @@
               <div class="w-8 h-8 bg-emerald-500/80 rounded flex items-center justify-center group-hover:scale-110 transition">🌱</div>
               <div class="text-left">
                 <div class="text-emerald-300 text-sm font-semibold">$hopeseed Stream</div>
-                <div class="text-xs text-emerald-200/70">Hope for children</div>
+                <div class="text-xs text-emerald-200/70">Hope for children, seniors, veterans, inmates and the dogs who stand with them</div>
               </div>
             </div>
           </div>
@@ -635,25 +967,58 @@
       </div>
     </div>
 
-    <!-- Personal Holder View + Simulator -->
+    <!-- Personal Holder View + Simulator (Phase 3: mind-blowing, community-powered dashboard) -->
     <div id="personal-engine" class="bg-zinc-900/60 border border-white/10 rounded-3xl p-10">
       <div class="flex flex-col md:flex-row gap-8">
         <div class="flex-1">
           <h3 class="text-2xl font-semibold mb-3">Your Ripples in the Engine</h3>
-          <p class="text-zinc-300 mb-6">Connect your wallet above, or use the simulator below to see how your holding quietly moves mercy through the 29 programs.</p>
+          <p class="text-zinc-300 mb-4">We are building this together. Connect your wallet or simulate to see how your quiet holding already co-creates mercy for children, seniors, veterans, inmates and the dogs who stand with them. The people will help build what comes next.</p>
+
+          <!-- Phase 3: Visual Mercy Circles - interactive, glowing progress that shows your place -->
+          <div class="mb-5">
+            <div class="text-xs uppercase tracking-widest text-zinc-400 mb-2 text-center">Your Visual Circles of Mercy (click a ring to explore the programs it unlocks)</div>
+            <div class="mercy-circle-container">
+              <!-- NIBBLES Circle -->
+              <div class="mercy-circle nibbles cursor-pointer" onclick="showCircleExplanation('NIBBLES')" title="Click to see $NIBBLES programs this circle supports">
+                <svg viewBox="0 0 120 120">
+                  <circle class="mercy-circle-track" cx="60" cy="60" r="48" fill="none" stroke-width="9"/>
+                  <circle id="nibbles-progress-mercy" class="progress" cx="60" cy="60" r="48" fill="none" stroke-width="9" stroke-dasharray="301.6" stroke-dashoffset="301.6"/>
+                  <circle id="nibbles-progress-guardian" class="progress" cx="60" cy="60" r="38" fill="none" stroke-width="7" stroke-dasharray="238.8" stroke-dashoffset="238.8"/>
+                  <circle id="nibbles-progress-eternal" class="progress" cx="60" cy="60" r="28" fill="none" stroke-width="5" stroke-dasharray="176" stroke-dashoffset="176"/>
+                </svg>
+                <div class="label">
+                  <div class="font-bold text-amber-300 text-xs">$NIBBLES</div>
+                  <div id="nibbles-circle-label" class="text-[9px] text-white/80">Supporter</div>
+                </div>
+              </div>
+              <!-- HOPESEED Circle -->
+              <div class="mercy-circle hopeseed cursor-pointer" onclick="showCircleExplanation('HOPESEED')" title="Click to see $hopeseed programs this circle supports">
+                <svg viewBox="0 0 120 120">
+                  <circle class="mercy-circle-track" cx="60" cy="60" r="48" fill="none" stroke-width="9"/>
+                  <circle id="hopeseed-progress-mercy" class="progress" cx="60" cy="60" r="48" fill="none" stroke-width="9" stroke-dasharray="301.6" stroke-dashoffset="301.6"/>
+                  <circle id="hopeseed-progress-guardian" class="progress" cx="60" cy="60" r="38" fill="none" stroke-width="7" stroke-dasharray="238.8" stroke-dashoffset="238.8"/>
+                  <circle id="hopeseed-progress-eternal" class="progress" cx="60" cy="60" r="28" fill="none" stroke-width="5" stroke-dasharray="176" stroke-dashoffset="176"/>
+                </svg>
+                <div class="label">
+                  <div class="font-bold text-emerald-300 text-xs">$hopeseed</div>
+                  <div id="hopeseed-circle-label" class="text-[9px] text-white/80">Supporter</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div id="personal-status" class="text-sm text-emerald-200 mb-4 hidden">Using your actual holdings from the wallet above.</div>
 
           <!-- Simulator Controls -->
           <div class="mb-6">
-            <div class="text-xs uppercase tracking-widest text-zinc-400 mb-2">Simulate your holding</div>
+            <div class="text-xs uppercase tracking-widest text-zinc-400 mb-2">Simulate your holding (or use your real one above)</div>
             <div class="flex flex-wrap gap-2">
-              <button aria-label="Simulate holding 25,000 $NIBBLES to see Mercy Circle impact" onclick="simulateHolding(25000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">25,000 $NIBBLES (Mercy Circle)</button>
-              <button aria-label="Simulate holding 100,000 $NIBBLES to see Guardian Circle impact" onclick="simulateHolding(100000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">100,000 $NIBBLES (Guardian)</button>
-              <button aria-label="Simulate holding 250,000+ $NIBBLES to see Eternal Guardian Circle impact" onclick="simulateHolding(250000, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">250,000+ $NIBBLES (Eternal)</button>
-              <button aria-label="Simulate holding 25,000 $hopeseed to see Mercy Circle impact" onclick="simulateHolding(25000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">25,000 $hopeseed (Mercy Circle)</button>
-              <button aria-label="Simulate holding 100,000 $hopeseed to see Guardian Circle impact" onclick="simulateHolding(100000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">100,000 $hopeseed (Guardian)</button>
-              <button aria-label="Simulate holding 250,000+ $hopeseed to see Eternal Guardian Circle impact" onclick="simulateHolding(250000, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">250,000+ $hopeseed (Eternal)</button>
+              <button aria-label="Simulate holding 25,000 $NIBBLES to see Mercy Circle impact" onclick="simulateHolding(MERCY_THRESHOLDS.MERCY, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">25,000 $NIBBLES (Mercy Circle)</button>
+              <button aria-label="Simulate holding 100,000 $NIBBLES to see Guardian Circle impact" onclick="simulateHolding(MERCY_THRESHOLDS.GUARDIAN, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">100,000 $NIBBLES (Guardian)</button>
+              <button aria-label="Simulate holding 250,000+ $NIBBLES to see Eternal Guardian Circle impact" onclick="simulateHolding(MERCY_THRESHOLDS.ETERNAL, 'NIBBLES')" class="px-4 py-2 text-sm rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">250,000+ $NIBBLES (Eternal)</button>
+              <button aria-label="Simulate holding 25,000 $hopeseed to see Mercy Circle impact" onclick="simulateHolding(MERCY_THRESHOLDS.MERCY, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">25,000 $hopeseed (Mercy Circle)</button>
+              <button aria-label="Simulate holding 100,000 $hopeseed to see Guardian Circle impact" onclick="simulateHolding(MERCY_THRESHOLDS.GUARDIAN, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">100,000 $hopeseed (Guardian)</button>
+              <button aria-label="Simulate holding 250,000+ $hopeseed to see Eternal Guardian Circle impact" onclick="simulateHolding(MERCY_THRESHOLDS.ETERNAL, 'HOPESEED')" class="px-4 py-2 text-sm rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">250,000+ $hopeseed (Eternal)</button>
             </div>
             <button aria-label="Reset simulation to neutral holding" onclick="resetSimulator()" class="mt-3 text-xs text-zinc-400 hover:text-white underline">Reset to neutral</button>
           </div>
@@ -661,14 +1026,27 @@
           <div id="personal-impact" class="text-sm text-white/90 leading-relaxed">
             Every holding sends gentle ripples. Use the simulator or connect your wallet to see which of the 29 programs your support quietly touches.
           </div>
-          <div id="flywheel-projection" class="mt-4 text-xs text-emerald-200/80 italic"></div>
+
+          <!-- Phase 3: 12-month compounding visual - growing chain of mercy -->
+          <div id="compounding-visual" class="compounding-visual">
+            <div class="flex gap-1" id="compounding-links"><!-- populated by JS --></div>
+            <div class="label">12-month quiet compounding</div>
+          </div>
+
+          <div id="flywheel-projection" class="mt-3 text-xs text-emerald-200/80 italic"></div>
+
+          <!-- Phase 3: Your Mercy Footprint share - people building together -->
+          <button onclick="copyMercyFootprint()" class="footprint-share-btn mt-4 inline-flex items-center gap-2 text-xs px-5 py-2 rounded-2xl">
+            <span>📤</span> Share Your Mercy Footprint (copy for X / stories)
+          </button>
         </div>
 
         <div class="flex-1">
           <div class="text-xs uppercase tracking-widest text-zinc-400 mb-2">Programs touched by your ripples (click to read full story)</div>
           <div id="personal-programs" aria-live="polite" class="text-sm grid grid-cols-1 gap-2 max-h-48 overflow-auto pr-2">
-            <!-- Populated dynamically -->
+            <!-- Populated dynamically - now richer with short impact -->
           </div>
+          <div class="mt-3 text-[10px] text-emerald-300/70">Holders like you are helping build the resonance. Share what you see here. Your ripples inspire others to join the circle.</div>
         </div>
       </div>
     </div>
@@ -693,28 +1071,32 @@
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
        <div onclick="showProgramModal(7)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
+          <div class="floating-elements absolute inset-0 pointer-events-none"></div>
           <img src="assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Rainbow Bridge Hospice: senior dogs receiving dignity, medical care, and Sequoia legacy trees planted in their name." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
           <h3 class="text-2xl font-semibold mb-3">Rainbow Bridge Hospice &amp; Sequoia Legacy</h3>
           <p class="text-zinc-400 text-base">No senior dog ever crosses the Rainbow Bridge cold or forgotten. They deserve warmth, love, and dignity in their final chapter.</p>
         </div>
         <div onclick="showProgramModal(4)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
+          <div class="floating-elements absolute inset-0 pointer-events-none"></div>
           <img src="assets/images/healingheartstherapydognetworkphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Healing Hearts Therapy Dog Network: trained shelter dogs bringing comfort to hospitals, nursing homes, and schools." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
           <h3 class="text-2xl font-semibold mb-3">Healing Hearts Therapy Dog Network</h3>
-          <p class="text-zinc-400 text-base">Certified shelter dogs bringing real comfort to hospitals, nursing homes, and schools — healing hearts one visit at a time.</p>
+          <p class="text-zinc-400 text-base">Certified shelter dogs bringing real comfort to hospitals, nursing homes, and schools - healing hearts one visit at a time.</p>
         </div>
         <div onclick="showProgramModal(5)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
+          <div class="floating-elements absolute inset-0 pointer-events-none"></div>
           <img src="assets/images/globaldisasterk9responseunitsphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Global Disaster K9 Response Units: elite search-and-rescue dogs ready to deploy within 48 hours anywhere in the world." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
           <h3 class="text-2xl font-semibold mb-3">Global Disaster K9 Response Units</h3>
           <p class="text-zinc-400 text-base">Elite search-and-rescue dogs ready 24/7 to save lives when disaster strikes.</p>
         </div>
         <div onclick="showProgramModal(16)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
+          <div class="floating-elements absolute inset-0 pointer-events-none"></div>
           <img src="assets/images/servicedogfreedomprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Service Dog Freedom Program: veterans and disabled warriors receive loyal service dogs free for life." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
           <h3 class="text-2xl font-semibold mb-3">Service Dog Freedom Program</h3>
-          <p class="text-zinc-400 text-base">Veterans and disabled warriors receive a loyal service dog — free for life.</p>
+          <p class="text-zinc-400 text-base">Veterans and disabled warriors receive a loyal service dog - free for life.</p>
         </div>
       </div>
     </div>
@@ -727,24 +1109,28 @@
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
         <div onclick="showProgramModal(17)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
+          <div class="floating-elements absolute inset-0 pointer-events-none"></div>
           <img src="assets/images/orphanxmasphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Orphan Christmas: orphaned and foster children open personalized gifts live on stream with global family cheering." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
           <h3 class="text-2xl font-semibold mb-3">Orphan Christmas</h3>
           <p class="text-zinc-400 text-base">Every orphan and foster child gets a real personalized Christmas morning filled with love and magic from a global family.</p>
         </div>
         <div onclick="showProgramModal(19)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
+          <div class="floating-elements absolute inset-0 pointer-events-none"></div>
           <img src="assets/images/guardianangelwalletprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Guardian Angel Wallet Program: foster children receive private $hopeseed wallets that grow with community love and staking." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
           <h3 class="text-2xl font-semibold mb-3">Guardian Angel Wallet Program</h3>
           <p class="text-zinc-400 text-base">Every foster child gets a private wallet that grows from day one with love and staking rewards.</p>
         </div>
         <div onclick="showProgramModal(22)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
+          <div class="floating-elements absolute inset-0 pointer-events-none"></div>
           <img src="assets/images/miraclefightfundphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Miracle Fight Fund: seriously ill children and one parent get free flights, lodging, and transport to life-saving treatment anywhere in the world." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
           <h3 class="text-2xl font-semibold mb-3">Miracle Fight Fund</h3>
           <p class="text-zinc-400 text-base">Seriously ill children and one parent get free flights to life-saving treatment.</p>
         </div>
         <div onclick="showProgramModal(28)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
+          <div class="floating-elements absolute inset-0 pointer-events-none"></div>
           <img src="assets/images/dreamroommakeoversphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Dream Room Makeovers Program: children in hospital beds or difficult rooms wake to personalized magical spaces with VR escapes." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
           <h3 class="text-2xl font-semibold mb-3">Dream Room Makeovers Program</h3>
@@ -789,7 +1175,7 @@
     <div class="text-center mt-16 max-w-2xl mx-auto">
       <p class="text-lg text-amber-100/80 italic">
         We don’t inflate numbers.<br>
-        We build real mercy — one honest transaction at a time.
+        We build real mercy - one honest transaction at a time.
       </p>
       <p class="text-emerald-300 mt-6 text-sm tracking-widest">THIS IS THE TRUTH. AND IT’S ONLY BEGINNING.</p>
     </div>
@@ -803,10 +1189,10 @@
     <div class="max-w-3xl mx-auto">
       <p class="text-2xl leading-relaxed text-amber-100 mb-12">
         We are not building another charity.<br>
-        We are building a <span class="text-emerald-400 font-semibold">perpetual mercy engine</span> on the blockchain — an antifragile, self-reinforcing flywheel that scales compassion without capture, using on-chain truth and voluntary skin in the game as the only sustainable foundation. This is how you build something that lasts: incentives aligned to mercy, proof that endures, participation that multiplies itself.
+        We are building a <span class="text-emerald-400 font-semibold">perpetual mercy engine</span> on the blockchain - an antifragile, self-reinforcing flywheel that scales compassion without capture, using on-chain truth and voluntary skin in the game as the only sustainable foundation. This is how you build something that lasts: incentives aligned to mercy, proof that endures, participation that multiplies itself.
       </p>
       <p class="text-xl text-zinc-300 mb-10">
-        Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows — automatically, transparently, and forever. 
+        Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows - automatically, transparently, and forever. 
         No middlemen. No bureaucracy. Just people helping people helping people.
       </p>
       
@@ -817,6 +1203,15 @@
         <span class="font-medium">On-chain</span>
         <span class="text-yellow-300">•</span>
         <span class="font-medium">Eternal</span>
+      </div>
+
+      <!-- Phase 6 Celebration: What this site already is (a short love note for every visitor) -->
+      <div class="mt-10 max-w-2xl mx-auto text-center text-sm text-amber-100/90 italic leading-relaxed">
+        This is not a landing page.<br>
+        This is not marketing.<br><br>
+        This is a quiet, beautiful mirror. A place where your holding or curiosity meets the 29 living stories. You are already part of the mercy that reaches children, seniors, veterans, inmates and the dogs who once had none.<br><br>
+        Thank you for being here.<br>
+        Whether you hold, simulate, share your footprint, or simply sit with the stories, you are already turning the wheel.
       </div>
     </div>
   </div>
@@ -864,10 +1259,10 @@
   </div>
 </footer>
 
-<!-- MODAL -->
-<div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4">
+<!-- MODAL (Phase 1 a11y upgrade: role=dialog + aria-modal + focus manager integration) -->
+<div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Program story of mercy">
   <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">
-    <button onclick="hideModal()" class="absolute top-6 right-6 text-5xl text-zinc-400 hover:text-white">✕</button>
+    <button onclick="hideModal()" class="absolute top-6 right-6 text-5xl text-zinc-400 hover:text-white" aria-label="Close modal. Return to the stories.">✕</button>
     <div id="modal-content" class="prose prose-invert max-w-none"></div>
   </div>
 </div>
@@ -875,17 +1270,86 @@
 <script>
 // programs now loaded from js/programs-data.js (full 29-entry master)
 
+// === SINGLE SOURCE OF TRUTH FOR CIRCLE THRESHOLDS (logic only) ===
+// These values drive wallet circles, simulator, personal view, and projections.
+// They are kept in perfect sync with the "exact thresholds written into the 29 programs"
+// described throughout the site. Descriptive copy inside each program's fullHTML
+// (in programs-data.js) remains hand-crafted, program-specific, and loving - untouched here.
+const MERCY_THRESHOLDS = {
+  MERCY: 25000,
+  GUARDIAN: 100000,
+  ETERNAL: 250000
+};
+
 function showProgramModal(id) {
   const program = programs.find(p => p.id === id);
   if (!program) return;
-  document.getElementById('modal-content').innerHTML = program.fullHTML;
-  document.getElementById('program-modal').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+  const modal = document.getElementById('program-modal');
+  const content = document.getElementById('modal-content');
+
+  // Pause any previous videos (including old modal content) before replacing
+  if (window.pauseAllMercyVideos) window.pauseAllMercyVideos();
+
+  content.innerHTML = program.fullHTML;
+  modal.classList.remove('hidden');
+
+  // Phase 1: improved scroll lock (preserve position)
+  const scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.width = '100%';
+
+  // Phase 1: activate focus manager (ESC + trap + return focus) via shared helper
+  const closeBtn = modal.querySelector('button[aria-label*="Close"]');
+  if (window.setupModalFocusManager) {
+    // store manager for hide
+    modal._focusManager = window.setupModalFocusManager(modal, closeBtn);
+    modal._focusManager.activate();
+  }
+
+  // Fix for program videos not playing: explicitly start the injected preview video(s)
+  // after DOM insertion. Respect reduced motion. Force preload and play for reliability.
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const videos = content.querySelectorAll('video');
+  videos.forEach(video => {
+    video.muted = true;
+    video.playsInline = true;
+    if (prefersReduced) {
+      video.pause();
+      video.removeAttribute('autoplay');
+    } else {
+      if (video.preload === 'none' || !video.preload) {
+        video.preload = 'auto';
+      }
+      // Some browsers need a tiny delay after innerHTML for autoplay policies
+      setTimeout(() => {
+        video.play().catch(err => {
+          console.warn('Program preview video autoplay note (common browser policy even when muted):', err);
+        });
+      }, 50);
+    }
+  });
 }
 
 function hideModal() {
-  document.getElementById('program-modal').classList.add('hidden');
-  document.body.style.overflow = 'auto';
+  const modal = document.getElementById('program-modal');
+  modal.classList.add('hidden');
+
+  // Phase 1: restore scroll + body
+  const scrollY = parseInt(document.body.style.top || '0', 10) * -1;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  if (scrollY) window.scrollTo(0, scrollY);
+
+  // Phase 1: deactivate focus manager (returns focus lovingly)
+  if (modal._focusManager) {
+    modal._focusManager.deactivate();
+    modal._focusManager = null;
+  }
+
+  // Phase 1: ensure videos paused on close
+  if (window.pauseAllMercyVideos) window.pauseAllMercyVideos();
 }
 
 function sponsorProgram() {
@@ -921,17 +1385,46 @@ document.getElementById('mercy-form').addEventListener('submit', function(e) {
   }, 1200);
 });
 
-// === PHASE 2: LIVING MERCY ON SHIBARIUM - READ-ONLY WALLET (vanilla, graceful, no hype) ===
-const SHIBARIUM_TESTNET = {
-  chainId: '0x2cf', // 719 - Puppynet
-  chainName: 'Shibarium Puppynet (Testnet)',
-  rpcUrl: 'https://puppynet.shibrpc.com',
-  nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
-  blockExplorerUrl: 'https://puppyscan.shib.io'
+// === PHASE 3 COMPLETE: DEEPER SHIBARIUM ON-CHAIN TRANSPARENCY & LIVING WALLET + RECENT RIPPLES ===
+// Real wallet connect (read-only), balances via eth_call, on-chain Recent Ripples via eth_getLogs (personal + public "Ripples in the Wild").
+// Gentle network status pill (testnet/mainnet with "when the funding comes through").
+// Age + impact notes using MERCY_THRESHOLDS. 1=All Mission unification.
+// "You are 1. We are all 1. One snowball of mercy."
+// Pure vanilla, read-only, loving, truthful. Ready for Phase 4 dashboard to react to this on-chain truth.
+
+// PHASE 6 FUTURE HOOK: When real program impact events exist on-chain (e.g. soulbound passport updates, delivery proofs), surface them here with the same language.
+// Example: after fetching balances/history, also fetch program-specific events and append "This transfer quietly helped [specific dog/child story]".
+// For now: client-side only, truthful "when the funding comes through". Easy to extend with another RPC call or indexer when ready.
+
+const SHIBARIUM_NETWORKS = {
+  testnet: {
+    chainId: '0x2cf', // 719 - Puppynet
+    chainName: 'Shibarium Puppynet (Testnet)',
+    rpcUrl: 'https://puppynet.shibrpc.com',
+    nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
+    blockExplorerUrl: 'https://puppyscan.shib.io'
+  },
+  mainnet: {
+    chainId: '0x6d', // 109. Shibarium mainnet (update if the official chainId differs when you deploy)
+    chainName: 'Shibarium (Mainnet)',
+    rpcUrl: 'https://www.shibrpc.com', // or the official public RPC when live
+    nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
+    blockExplorerUrl: 'https://shibariumscan.io'
+  }
 };
 
-const NIBBLES_ADDRESS = '0x6b7E63BFE2C1759aC08BA6e525f9a725330167C2';
-const HOPESEED_ADDRESS = '0xB91e7ee065be6a863AD9c6978ca2bd5Db7A36A61';
+// When mainnet contracts are deployed, replace these placeholders with the real addresses.
+// Until then the code will gracefully show 0 balance / no ripples on mainnet. Ready for the moment the funding truly flows.
+const TOKEN_ADDRESSES = {
+  testnet: {
+    NIBBLES: '0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF',
+    HOPESEED: '0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833'
+  },
+  mainnet: {
+    NIBBLES: '0x0000000000000000000000000000000000000000', // ← LIVE MAINNET $NIBBLES HERE
+    HOPESEED: '0x0000000000000000000000000000000000000000'  // ← LIVE MAINNET $hopeseed HERE
+  }
+};
 
 async function connectShibariumWallet() {
   const statusEl = document.getElementById('wallet-status');
@@ -940,6 +1433,7 @@ async function connectShibariumWallet() {
   const nibblesCircleEl = document.getElementById('nibbles-circle');
   const hopeseedCircleEl = document.getElementById('hopeseed-circle');
   const circlesPanel = document.getElementById('your-circles');
+  const historyPanel = document.getElementById('onchain-history');
 
   if (!window.ethereum) {
     statusEl.textContent = 'No wallet detected. You can still explore every program and the contracts above.';
@@ -948,46 +1442,69 @@ async function connectShibariumWallet() {
   }
 
   try {
-    statusEl.textContent = 'Connecting quietly...';
+    statusEl.textContent = 'Connecting quietly to the chain...';
     statusEl.classList.remove('hidden');
 
-    // Request accounts (read-only intent)
+    // Request accounts (read-only intent. We will never ask for a signature.)
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     if (!accounts || accounts.length === 0) throw new Error('No accounts');
 
     const userAddress = accounts[0];
+    __mercyConnectedAddress = userAddress;
 
-    // Check / switch to Shibarium testnet
+    // Detect the actual chain the user is on (testnet or mainnet). Never force. Truth first.
     let chainId = await window.ethereum.request({ method: 'eth_chainId' });
-    if (chainId !== SHIBARIUM_TESTNET.chainId) {
+
+    let networkKey = 'testnet';
+    let currentConfig = SHIBARIUM_NETWORKS.testnet;
+
+    if (chainId === SHIBARIUM_NETWORKS.mainnet.chainId) {
+      networkKey = 'mainnet';
+      currentConfig = SHIBARIUM_NETWORKS.mainnet;
+    } else if (chainId !== SHIBARIUM_NETWORKS.testnet.chainId) {
+      // Friendly offer to switch to testnet for the full experience today
       try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: SHIBARIUM_TESTNET.chainId }]
+          params: [{ chainId: SHIBARIUM_NETWORKS.testnet.chainId }]
         });
+        chainId = SHIBARIUM_NETWORKS.testnet.chainId;
       } catch (switchError) {
         if (switchError.code === 4902) {
-          // Add network
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [{
-              chainId: SHIBARIUM_TESTNET.chainId,
-              chainName: SHIBARIUM_TESTNET.chainName,
-              rpcUrls: [SHIBARIUM_TESTNET.rpcUrl],
-              nativeCurrency: SHIBARIUM_TESTNET.nativeCurrency,
-              blockExplorerUrls: [SHIBARIUM_TESTNET.blockExplorerUrl]
+              chainId: SHIBARIUM_NETWORKS.testnet.chainId,
+              chainName: SHIBARIUM_NETWORKS.testnet.chainName,
+              rpcUrls: [SHIBARIUM_NETWORKS.testnet.rpcUrl],
+              nativeCurrency: SHIBARIUM_NETWORKS.testnet.nativeCurrency,
+              blockExplorerUrls: [SHIBARIUM_NETWORKS.testnet.blockExplorerUrl]
             }]
           });
-        } else {
-          throw switchError;
         }
       }
+      networkKey = 'testnet';
+      currentConfig = SHIBARIUM_NETWORKS.testnet;
     }
 
-    // Fetch balances (pure RPC, no libs)
+    __mercyCurrentNetworkKey = networkKey;
+    __mercyCurrentRpc = currentConfig.rpcUrl;
+    __mercyCurrentExplorer = currentConfig.blockExplorerUrl;
+
+    const addresses = TOKEN_ADDRESSES[networkKey];
+    const nibblesAddr = addresses.NIBBLES;
+    const hopeseedAddr = addresses.HOPESEED;
+
+    // Update the gentle, always-visible network status pill (read-only transparency)
+    updateNetworkStatus(networkKey, true);
+
+    // Beautiful network badge in status later
+    const networkLabel = currentConfig.chainName;
+
+    // Fetch balances (pure RPC, no libs, same elegant style as before)
     const [nibblesBal, hopeseedBal] = await Promise.all([
-      getTokenBalance(NIBBLES_ADDRESS, userAddress, SHIBARIUM_TESTNET.rpcUrl),
-      getTokenBalance(HOPESEED_ADDRESS, userAddress, SHIBARIUM_TESTNET.rpcUrl)
+      getTokenBalance(nibblesAddr, userAddress, currentConfig.rpcUrl),
+      getTokenBalance(hopeseedAddr, userAddress, currentConfig.rpcUrl)
     ]);
 
     // Display balances
@@ -996,7 +1513,7 @@ async function connectShibariumWallet() {
     nibblesBalEl.classList.remove('hidden');
     hopeseedBalEl.classList.remove('hidden');
 
-    // Determine circles using the exact thresholds from the 29 programs
+    // Circles. Still perfectly synced to the 29 programs.
     const nibblesCircle = getMercyCircle(nibblesBal);
     const hopeseedCircle = getMercyCircle(hopeseedBal);
 
@@ -1005,27 +1522,71 @@ async function connectShibariumWallet() {
     nibblesCircleEl.classList.remove('hidden');
     hopeseedCircleEl.classList.remove('hidden');
 
-    // Populate the personal circles panel with loving language
     document.getElementById('nibbles-circles-list').innerHTML = buildCircleList('$NIBBLES', nibblesBal, nibblesCircle);
     document.getElementById('hopeseed-circles-list').innerHTML = buildCircleList('$hopeseed', hopeseedBal, hopeseedCircle);
 
     circlesPanel.classList.remove('hidden');
 
-    statusEl.textContent = `Connected: ${userAddress.slice(0,6)}...${userAddress.slice(-4)} (testnet) — Your holdings are already part of the mercy, quietly compounding the flywheel.`;
+    // Show the electrified history panel
+    if (historyPanel) historyPanel.classList.remove('hidden');
+
+    // Status. Now proudly shows the real network and deeper truth.
+    statusEl.textContent = `Connected: ${userAddress.slice(0,6)}...${userAddress.slice(-4)} • ${networkLabel} • Your on-chain actions are already part of the mercy.`;
     statusEl.classList.remove('hidden');
 
-    // Sync with Phase 3 dashboard personal view
+    // Sync to the beautiful personal engine view
     updatePersonalView(nibblesBal, hopeseedBal, false);
+    
+    // Phase 5: persist real holdings for the Constellation experience on the programs page
+    try {
+      localStorage.setItem('lastSimN', nibblesBal);
+      localStorage.setItem('lastSimH', hopeseedBal);
+    } catch(e) {}
+
+    // === THE MIND-BLOWING PART: Your actual on-chain ripples ===
+    const liveList = document.getElementById('mercy-ripples-list');
+    if (liveList) liveList.innerHTML = `<div class="text-xs text-emerald-300/70 px-1">Listening to the chain’s quiet truth...</div>`;
+
+    const [nibblesRipplesRaw, hopeseedRipplesRaw] = await Promise.all([
+      fetchRecentMercyRipples(nibblesAddr, userAddress, currentConfig.rpcUrl, currentConfig.blockExplorerUrl),
+      fetchRecentMercyRipples(hopeseedAddr, userAddress, currentConfig.rpcUrl, currentConfig.blockExplorerUrl)
+    ]);
+
+    // Merge into one stunning, recent-first feed (max 5). This is the electrifying part.
+    let combined = [
+      ...nibblesRipplesRaw.map(r => ({ ...r, token: '$NIBBLES', icon: '🐾' })),
+      ...hopeseedRipplesRaw.map(r => ({ ...r, token: '$hopeseed', icon: '🌱' }))
+    ];
+    combined.sort((a, b) => b.block - a.block);
+    combined = combined.slice(0, 5);
+
+    // Use unified renderer for real on-chain data (the illustrative previews above stay until real activity begins)
+    if (liveList) {
+      renderRippleList(combined, liveList, true);
+    }
+
+    // Electify the engine: if the user has real on-chain activity, gently highlight the matching stream
+    if (nibblesRipplesRaw.length > 0) setTimeout(() => highlightEngineStream('NIBBLES'), 420);
+    if (hopeseedRipplesRaw.length > 0) setTimeout(() => highlightEngineStream('HOPESEED'), 620);
+
+    // update wild feed
+    fetchAndRenderCommunityRipples();
+
+    // Phase 3 completion: show the tie-in note so personal real ripples feel part of the public 1=All wild chain
+    if (nibblesRipplesRaw.length > 0 || hopeseedRipplesRaw.length > 0) {
+      const note = document.getElementById('personal-to-wild-note');
+      if (note) note.classList.remove('hidden');
+    }
 
   } catch (err) {
     console.warn('Wallet connection note:', err);
-    statusEl.textContent = 'Connection paused. The contracts above are still fully visible on Puppyscan. You can explore everything without a wallet.';
+    statusEl.textContent = 'Connection paused. The contracts above are still fully visible on the explorer. You can explore everything without a wallet.';
     statusEl.classList.remove('hidden');
   }
 }
 
 async function getTokenBalance(tokenAddress, userAddress, rpcUrl) {
-  // Standard ERC-20 balanceOf call (read-only, no gas, direct RPC for transparency and minimalism — Vitalik-style on-chain verifiability without trusted intermediaries)
+  // Standard ERC-20 balanceOf call (read-only, no gas, direct RPC for transparency and minimalism - Vitalik-style on-chain verifiability without trusted intermediaries)
   const data = '0x70a08231000000000000000000000000' + userAddress.slice(2).padStart(64, '0');
   const response = await fetch(rpcUrl, {
     method: 'POST',
@@ -1044,10 +1605,10 @@ async function getTokenBalance(tokenAddress, userAddress, rpcUrl) {
 }
 
 function getMercyCircle(balance) {
-  if (balance >= 250000) return 'Eternal Guardian Circle — permanent recognition when the funding comes through.';
-  if (balance >= 100000) return 'Guardian Circle — regular impact updates and deeper support.';
-  if (balance >= 25000) return 'Mercy Circle — quietly funding the next link in the chain.';
-  return 'Supporter — every token still adds to the living mercy.';
+  if (balance >= MERCY_THRESHOLDS.ETERNAL) return 'Eternal Guardian Circle • permanent recognition when the funding comes through.';
+  if (balance >= MERCY_THRESHOLDS.GUARDIAN) return 'Guardian Circle • regular impact updates and deeper support.';
+  if (balance >= MERCY_THRESHOLDS.MERCY) return 'Mercy Circle • quietly funding the next link in the chain.';
+  return 'Supporter • every token still adds to the living mercy.';
 }
 
 function buildCircleList(token, balance, circleText) {
@@ -1057,9 +1618,351 @@ function buildCircleList(token, balance, circleText) {
   return html;
 }
 
-// === PHASE 3: INTERACTIVE MERCY IMPACT DASHBOARD + PERSONAL HOLDER VIEW + PERPETUAL MERCY ENGINE ===
+// === PHASE 2 HELPERS: deep on-chain truth (vanilla, bounded, respectful of public RPCs) ===
+
+async function rpcCall(method, params, rpcUrl) {
+  const res = await fetch(rpcUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ jsonrpc: '2.0', id: Date.now(), method, params })
+  });
+  const json = await res.json();
+  if (json.error) throw new Error(json.error.message);
+  return json.result;
+}
+
+async function fetchRecentMercyRipples(tokenAddress, userAddress, rpcUrl, explorerBase) {
+  if (!tokenAddress || tokenAddress === '0x0000000000000000000000000000000000000000') {
+    return []; // placeholder mainnet. No history yet.
+  }
+  const TRANSFER_SIG = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
+  const paddedUser = '0x' + userAddress.slice(2).padStart(64, '0');
+
+  const topicsSent = [TRANSFER_SIG, paddedUser, null];
+  const topicsReceived = [TRANSFER_SIG, null, paddedUser];
+
+  try {
+    const [sentLogs, receivedLogs] = await Promise.all([
+      rpcCall('eth_getLogs', [{ address: tokenAddress, topics: topicsSent, fromBlock: '0x0', toBlock: 'latest' }], rpcUrl),
+      rpcCall('eth_getLogs', [{ address: tokenAddress, topics: topicsReceived, fromBlock: '0x0', toBlock: 'latest' }], rpcUrl)
+    ]);
+
+    let ripples = [...(sentLogs || []), ...(receivedLogs || [])];
+    ripples.sort((a, b) => parseInt(b.blockNumber, 16) - parseInt(a.blockNumber, 16));
+    ripples = ripples.slice(0, 5); // most recent 5. The chain remembers the important ones.
+
+    // Fetch timestamps (bounded, cached) to add gentle "block age" hints so the ripples feel alive and recent.
+    // Keeps everything lightweight and truthful. Small slice for Phase 3.
+    const uniqueBlocks = [...new Set(ripples.map(l => l.blockNumber))];
+    for (const bn of uniqueBlocks) {
+      if (!blockCache[bn]) {
+        try {
+          const block = await rpcCall('eth_getBlockByNumber', [bn, false], rpcUrl);
+          blockCache[bn] = parseInt(block.timestamp, 16);
+        } catch (e) {
+          blockCache[bn] = Math.floor(Date.now() / 1000); // graceful fallback
+        }
+      }
+    }
+
+    return ripples.map(log => {
+      const isSent = log.topics[1] && log.topics[1].toLowerCase() === paddedUser.toLowerCase();
+      const amount = Number(BigInt(log.data)) / 1e18;
+      const tx = log.transactionHash;
+      const block = parseInt(log.blockNumber, 16);
+      const ts = blockCache[log.blockNumber] || Math.floor(Date.now() / 1000);
+      return {
+        amount: amount.toLocaleString(undefined, { maximumFractionDigits: 4 }),
+        direction: isSent ? 'sent' : 'received',
+        tx,
+        link: `${explorerBase}/tx/${tx}`,
+        block,
+        age: getTimeAgo(ts)
+      };
+    });
+  } catch (e) {
+    console.warn('Quiet note from the chain (public RPCs have limits):', e);
+    return [];
+  }
+}
+
+function renderRippleList(ripples, containerEl, isReal = true) {
+  if (!containerEl) return;
+
+  if (!ripples || ripples.length === 0) {
+    if (isReal) {
+      containerEl.innerHTML = `<div class="text-xs text-zinc-500 italic px-1">The chain is still quiet for real on-chain transfers. The very first ripples will appear here the moment the community begins creating them. You can be one of the people who makes them.</div>`;
+    }
+    return;
+  }
+
+  containerEl.innerHTML = ripples.map(r => `
+    <div class="bg-zinc-900/70 border border-white/10 rounded-2xl p-4 flex gap-4 items-start group hover:border-amber-400/30 transition-all">
+      <div class="text-2xl mt-px flex-shrink-0">${r.icon}</div>
+      <div class="flex-1 min-w-0">
+        <div class="text-sm leading-snug">
+          You <span class="font-semibold ${r.direction === 'sent' ? 'text-amber-300' : 'text-emerald-300'}">${r.direction}</span>
+          <span class="font-mono">${r.amount}</span> ${r.token}
+        </div>
+        <div class="text-[10px] text-zinc-500 mt-0.5">Block #${r.block}${r.age ? ' • ' + r.age : ''}</div>
+        <div class="text-[10px] text-emerald-300/70 mt-0.5">This quiet transfer helps advance the ${r.token} stream. Supporting the Circles of Mercy for ${r.token === '$NIBBLES' ? 'dogs' : 'children'} when the funding comes through.</div>
+      </div>
+      <a href="${r.link}" target="_blank" rel="noopener noreferrer"
+         class="text-xs px-3 py-1.5 rounded-2xl bg-black/60 border border-white/10 hover:bg-black/80 hover:border-white/30 transition flex-shrink-0 self-start">
+        View ripple →
+      </a>
+    </div>
+  `).join('');
+}
+
+// Legacy per-token renderer kept for compatibility (not used in current combined flow)
+function renderMercyRipples(ripples, containerEl, tokenSym, icon) {
+  renderRippleList(ripples.map(r => ({...r, token: tokenSym, icon})), containerEl, true);
+}
+
+// === Small Phase 3 addition: Ripples in the Wild (public recent community transfers)
+// Always visible, no wallet needed. Shows the engine is already turning for the people.
+// Uses same lightweight RPC pattern, recent first, limited to 5 for respect to public nodes.
+// Tone: quiet truth, no hype, ties to the Circles when funding comes through.
+
+async function fetchPublicRecentRipples(tokenAddress, rpcUrl, explorerBase) {
+  if (!tokenAddress || tokenAddress === '0x0000000000000000000000000000000000000000') {
+    return [];
+  }
+  const TRANSFER_SIG = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
+  try {
+    // Use recent blocks for efficiency and relevance (last ~100k blocks keeps it light and focused on living activity)
+    const latestBlock = await rpcCall('eth_blockNumber', [], rpcUrl);
+    const fromBlockNum = Math.max(0, parseInt(latestBlock, 16) - 100000);
+    const fromBlock = '0x' + fromBlockNum.toString(16);
+
+    const logs = await rpcCall('eth_getLogs', [{ address: tokenAddress, topics: [TRANSFER_SIG], fromBlock: fromBlock, toBlock: 'latest' }], rpcUrl);
+    let ripples = logs || [];
+    ripples.sort((a, b) => parseInt(b.blockNumber, 16) - parseInt(a.blockNumber, 16));
+    ripples = ripples.slice(0, 5);
+
+    // Fetch timestamps (cached) for gentle age – same pattern as personal for consistency and truth
+    const uniqueBlocks = [...new Set(ripples.map(l => l.blockNumber))];
+    for (const bn of uniqueBlocks) {
+      if (!blockCache[bn]) {
+        try {
+          const block = await rpcCall('eth_getBlockByNumber', [bn, false], rpcUrl);
+          blockCache[bn] = parseInt(block.timestamp, 16);
+        } catch (e) {
+          blockCache[bn] = Math.floor(Date.now() / 1000);
+        }
+      }
+    }
+
+    return ripples.map(log => {
+      const amount = Number(BigInt(log.data)) / 1e18;
+      const tx = log.transactionHash;
+      const block = parseInt(log.blockNumber, 16);
+      const ts = blockCache[log.blockNumber] || Math.floor(Date.now() / 1000);
+      return {
+        amount: amount.toLocaleString(undefined, { maximumFractionDigits: 4 }),
+        direction: 'transferred',
+        tx,
+        link: `${explorerBase}/tx/${tx}`,
+        block,
+        age: getTimeAgo(ts)
+      };
+    });
+  } catch (e) {
+    console.warn('Quiet note from the chain (public RPCs have limits):', e);
+    return [];
+  }
+}
+
+function renderCommunityRipples(ripples, containerEl) {
+  if (!containerEl) return;
+  if (!ripples || ripples.length === 0) {
+    containerEl.innerHTML = `<div class="text-xs text-zinc-500 italic px-1">The chain is still quiet for community transfers. The very first real ones will appear here soon.</div>`;
+    return;
+  }
+  containerEl.innerHTML = ripples.map(r => `
+    <div class="bg-zinc-900/70 border border-white/10 rounded-2xl p-3 flex gap-3 items-start group hover:border-emerald-400/30 transition-all text-xs" data-token="${r.token}">
+      <div class="text-lg mt-px flex-shrink-0">${r.icon}</div>
+      <div class="flex-1 min-w-0">
+        <div class="leading-snug">A holder <span class="font-semibold text-emerald-300">transferred</span> <span class="font-mono">${r.amount}</span> ${r.token}</div>
+        <div class="text-[10px] text-zinc-500 mt-0.5">Block #${r.block}</div>
+        <div class="text-[10px] text-emerald-300/70 mt-0.5">This quiet transfer helps advance the ${r.token} stream. Supporting the Circles of Mercy when the funding comes through.</div>
+      </div>
+      <a href="${r.link}" target="_blank" rel="noopener noreferrer" class="text-[10px] px-2 py-1 rounded-xl bg-black/60 border border-white/10 hover:bg-black/80 self-start">View →</a>
+    </div>
+  `).join('');
+
+  // Wire wild ripples to pulse the engine streams — this is the mission in action.
+  // Hover a community ripple and feel how it lights the same path yours will.
+  // You are 1. We are all 1. One unstoppable snowball of mercy.
+  const cards = containerEl.querySelectorAll('[data-token]');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const token = card.getAttribute('data-token') === '$NIBBLES' ? 'NIBBLES' : 'HOPESEED';
+      if (window.highlightEngineStream) window.highlightEngineStream(token);
+    });
+    // reduced motion friendly — no heavy anim on leave
+  });
+}
+
+async function fetchAndRenderCommunityRipples() {
+  const container = document.getElementById('community-ripples-list');
+  if (!container) return;
+  const rpc = __mercyCurrentRpc || 'https://puppynet.shibrpc.com';
+  const explorer = __mercyCurrentExplorer || 'https://puppyscan.shib.io';
+  const key = __mercyCurrentNetworkKey || 'testnet';
+  const nibblesAddr = TOKEN_ADDRESSES[key].NIBBLES;
+  const hopeseedAddr = TOKEN_ADDRESSES[key].HOPESEED;
+  const [nibblesRipplesRaw, hopeseedRipplesRaw] = await Promise.all([
+    fetchPublicRecentRipples(nibblesAddr, rpc, explorer),
+    fetchPublicRecentRipples(hopeseedAddr, rpc, explorer)
+  ]);
+  let combined = [
+    ...nibblesRipplesRaw.map(r => ({ ...r, token: '$NIBBLES', icon: '🐾' })),
+    ...hopeseedRipplesRaw.map(r => ({ ...r, token: '$hopeseed', icon: '🌱' }))
+  ];
+  combined.sort((a, b) => b.block - a.block);
+  combined = combined.slice(0, 5);
+  renderCommunityRipples(combined, container);
+}
+
+function renderSimulatedRipplePreviews(totalHolding) {
+  const wrapper = document.getElementById('sim-ripple-previews');
+  const container = document.getElementById('sim-ripples-list');
+  if (!wrapper || !container) return;
+
+  if (!totalHolding || totalHolding <= 0) {
+    wrapper.classList.add('hidden');
+    container.innerHTML = '';
+    return;
+  }
+  wrapper.classList.remove('hidden');
+
+  // Generate 1-2 plausible future real-transfer examples based on the simulated holding (using the same thresholds).
+  // These are previews only. Real ones will be recorded on-chain when you transfer.
+  const examples = [];
+  const exampleAmt = Math.max(5000, Math.floor(totalHolding * 0.15));
+  examples.push({
+    icon: '🐾',
+    direction: 'sent',
+    amount: exampleAmt.toLocaleString(undefined, { maximumFractionDigits: 0 }),
+    token: '$NIBBLES',
+    block: 'preview',
+    link: '#',
+    impact: 'A real transfer of this size would be a verifiable ripple helping move the $NIBBLES stream.'
+  });
+  if (totalHolding >= MERCY_THRESHOLDS.MERCY) {
+    examples.push({
+      icon: '🌱',
+      direction: 'sent',
+      amount: Math.floor(totalHolding * 0.1).toLocaleString(undefined, { maximumFractionDigits: 0 }),
+      token: '$hopeseed',
+      block: 'preview',
+      link: '#',
+      impact: 'Would plant meaningful seeds in the children’s circles. One more link the people are building.'
+    });
+  }
+
+  container.innerHTML = examples.map(r => `
+    <div class="bg-zinc-900/60 border border-dashed border-white/20 rounded-2xl p-3 flex gap-3 items-start text-sm">
+      <div class="mt-px flex-shrink-0">${r.icon}</div>
+      <div class="flex-1 min-w-0">
+        <div>You might <span class="font-semibold text-emerald-300">${r.direction}</span> <span class="font-mono">${r.amount}</span> ${r.token}</div>
+        <div class="text-[10px] text-emerald-300/70 mt-0.5">${r.impact}</div>
+      </div>
+      <div class="text-[10px] text-zinc-500 self-start">Preview</div>
+    </div>
+  `).join('');
+}
+
+// Global state for refresh (kept minimal and private to this loving script)
+let __mercyConnectedAddress = null;
+let __mercyCurrentRpc = null;
+let __mercyCurrentExplorer = null;
+let __mercyCurrentNetworkKey = 'testnet';
+
+let blockCache = {}; // small cache for block timestamps to compute gentle age without repeated calls
+
+function getTimeAgo(timestamp) {
+  const now = Math.floor(Date.now() / 1000);
+  const diff = now - timestamp;
+  if (diff < 60) return 'just now';
+  if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+  if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+  return Math.floor(diff / 86400) + 'd ago';
+}
+
+// Gentle network status helper (Phase 3 slice). Always visible, read-only, quietly telling the truth about where the on-chain ripples live today.
+// No hype. Just clarity so the mercy engine feels more alive and grounded.
+function updateNetworkStatus(networkKey, connected) {
+  const dot = document.getElementById('network-dot');
+  const label = document.getElementById('network-label');
+  if (!dot || !label) return;
+
+  if (connected && networkKey === 'mainnet') {
+    dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+    label.textContent = 'Shibarium Mainnet • when the funding comes through, real ripples will flow here';
+  } else if (connected) {
+    dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+    label.textContent = 'Puppynet Testnet • connected • on-chain truth flowing (real mainnet when the funding comes through)';
+  } else {
+    dot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400';
+    label.textContent = 'Puppynet Testnet • quiet previews today (real mainnet ripples when the funding comes through)';
+  }
+}
+
+// Set gentle default preview state on load (no wallet needed yet)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => updateNetworkStatus('testnet', false));
+} else {
+  updateNetworkStatus('testnet', false);
+}
+
+async function refreshMercyRipples() {
+  if (!__mercyConnectedAddress || !__mercyCurrentRpc) return;
+
+  const listEl = document.getElementById('mercy-ripples-list');
+  if (listEl) listEl.innerHTML = `<div class="text-xs text-emerald-300/70 px-1">Listening to the chain’s quiet truth...</div>`;
+
+  const nibblesAddr = TOKEN_ADDRESSES[__mercyCurrentNetworkKey].NIBBLES;
+  const hopeseedAddr = TOKEN_ADDRESSES[__mercyCurrentNetworkKey].HOPESEED;
+
+  const [nibblesRipples, hopeseedRipples] = await Promise.all([
+    fetchRecentMercyRipples(nibblesAddr, __mercyConnectedAddress, __mercyCurrentRpc, __mercyCurrentExplorer),
+    fetchRecentMercyRipples(hopeseedAddr, __mercyConnectedAddress, __mercyCurrentRpc, __mercyCurrentExplorer)
+  ]);
+
+  // Combine and take most recent across both tokens for a beautiful unified feed
+  let allRipples = [
+    ...nibblesRipples.map(r => ({...r, token: '$NIBBLES', icon: '🐾'})),
+    ...hopeseedRipples.map(r => ({...r, token: '$hopeseed', icon: '🌱'}))
+  ];
+  allRipples.sort((a, b) => b.block - a.block);
+  allRipples = allRipples.slice(0, 5);
+
+  const liveList = document.getElementById('mercy-ripples-list');
+  if (liveList) {
+    renderRippleList(allRipples, liveList, true);
+  }
+
+  // update the wild feed too on refresh
+  fetchAndRenderCommunityRipples();
+
+  // show the tie-in note for real data
+  if (nibblesRipples.length > 0 || hopeseedRipples.length > 0) {
+    const note = document.getElementById('personal-to-wild-note');
+    if (note) note.classList.remove('hidden');
+  }
+}
+
+// === PHASE 6: HOLISTIC WEAVE OF ALL PHASES (DASHBOARD + ENGINE + FUTURE READINESS) ===
 // Loving, truthful implementation. Re-uses existing programs data, tone, and modals.
-// Simulator and viz are client-side only for now (truthful "when funded" framing preserved).
+// Everything now feels like one breath: wallet, particles, constellation, journey, circles, ripples.
+// Future hooks ready for real on-chain events and mainnet. Simulator/viz still client-side (truthful "when the funding comes through").
+
+// PHASE 6 FUTURE HOOK: When real on-chain delivery proofs or impact events appear (e.g. from program contracts or soulbound updates), plug them into updatePersonalView and the projection.
+// Current projection is a conservative client-side estimate (3x network effect). Replace/extend the "projected" calc with actual on-chain data when available, keeping the same loving copy.
+// Mainnet switch: use the SHIBARIUM_NETWORKS + TOKEN_ADDRESSES objects (already prepared in Phase 2). Add a simple chainId check or toggle if needed.
 
 let simN = 0;
 let simH = 0;
@@ -1068,11 +1971,12 @@ function populateEngineNodes() {
   const container = document.getElementById('engine-nodes');
   if (!container || typeof programs === 'undefined') return;
   container.innerHTML = '';
-  // Select a representative mix of programs for the viz (4 NIBBLES + 4 HOPESEED for visual balance)
-  const samples = [...programs.filter(p => p.category === '$NIBBLES').slice(0,4), ...programs.filter(p => p.category === '$hopeseed').slice(0,4)];
+  // Phase 3: more alive representative mix (6+6 from the 29) so the engine feels like the full movement the people are building
+  const samples = [...programs.filter(p => p.category === '$NIBBLES').slice(0,6), ...programs.filter(p => p.category === '$hopeseed').slice(0,6)];
   samples.forEach(p => {
     const el = document.createElement('div');
-    el.className = `p-2 rounded-xl text-[10px] border border-white/10 cursor-pointer transition-all hover:border-amber-400/50 hover:scale-[1.02] ${p.category === '$NIBBLES' ? 'hover:border-amber-400' : 'hover:border-emerald-400'}`;
+    el.className = `p-2 rounded-xl text-[10px] border border-white/10 cursor-pointer transition-all hover:border-amber-400/50 hover:scale-[1.02] ${p.category === '$NIBBLES' ? 'hover:border-amber-400' : 'hover:border-emerald-400'} engine-node`;
+    el.dataset.category = p.category;
     el.innerHTML = `<div class="font-medium leading-tight truncate">${p.title}</div><div class="text-[9px] opacity-60">${p.category}</div>`;
     el.onclick = () => showProgramModal(p.id);
     container.appendChild(el);
@@ -1084,14 +1988,35 @@ function highlightEngineStream(type) {
   if (!viz) return;
   const oldShadow = viz.style.boxShadow;
   viz.style.transition = 'box-shadow 0.4s ease';
-  viz.style.boxShadow = type === 'NIBBLES' ? '0 0 30px -10px rgb(251 191 36 / 0.4)' : '0 0 30px -10px rgb(52 211 153 / 0.4)';
+  viz.style.boxShadow = type === 'NIBBLES' ? '0 0 30px -10px rgb(251 191 36 / 0.4)' : '0 0 30px -10px rgb(52 211, 153 / 0.4)';
   setTimeout(() => { viz.style.boxShadow = oldShadow || 'none'; }, 1400);
-  // Gentle ripple effect on nodes
+
+  // Phase 4: more poetic mercy pulse on the flow line when you interact (soft "energy" traveling)
+  const flow = viz.querySelector('.flex-1.relative');
+  if (flow) {
+    flow.style.transition = 'box-shadow 0.3s ease, background 0.3s';
+    const pulseColor = type === 'NIBBLES' ? 'rgba(251,191,36,0.35)' : 'rgba(52,211,153,0.35)';
+    flow.style.boxShadow = `0 0 18px -4px ${pulseColor}`;
+    setTimeout(() => {
+      if (flow) flow.style.boxShadow = '0 0 20px -5px rgba(251,191,36,0.15)';
+    }, 650);
+  }
+
+  // Gentle ripple effect on nodes + Phase 4 breathing when lit
   const nodes = document.getElementById('engine-nodes');
   if (nodes) {
     nodes.style.transition = 'transform 0.3s';
     nodes.style.transform = 'translateY(-2px)';
-    setTimeout(() => { nodes.style.transform = 'none'; }, 600);
+    setTimeout(() => { if (nodes) nodes.style.transform = ''; }, 600);
+  }
+
+  // Phase 3: give the ripple river a little extra life when user interacts
+  const layer = document.getElementById('ripple-layer');
+  if (layer) {
+    layer.style.opacity = (parseFloat(layer.style.opacity) || 0.5) * 1.15;
+    setTimeout(() => {
+      if (layer) layer.style.opacity = (parseFloat(layer.style.opacity) || 0.55);
+    }, 900);
   }
 }
 
@@ -1104,6 +2029,21 @@ function simulateHolding(amount, tokenType) {
   if (src) src.textContent = `Simulating ${amount.toLocaleString()} ${tokenType}`;
   // Subtle highlight
   highlightEngineStream(tokenType);
+  // Phase 3: ripple layer reacts to sim
+  updateRippleLayer(simN + simH);
+  // Phase 4: particles react immediately to sim
+  if (window.updateMercyParticleIntensity) {
+    window.updateMercyParticleIntensity(simN, simH);
+  }
+  
+  // Phase 5: persist sim for the all-programs Constellation & filters (so your ripples follow you across the experience)
+  try {
+    localStorage.setItem('lastSimN', simN);
+    localStorage.setItem('lastSimH', simH);
+  } catch(e) {}
+
+  // Step 1: simulator populates preview of what real future ripples from this holding could look like
+  renderSimulatedRipplePreviews(simN + simH);
 }
 
 function resetSimulator() {
@@ -1116,6 +2056,125 @@ function resetSimulator() {
   if (impact) impact.innerHTML = 'Every holding sends gentle ripples. Use the simulator or connect your wallet to see which of the 29 programs your support quietly touches.';
   const progs = document.getElementById('personal-programs');
   if (progs) progs.innerHTML = '';
+  updateRippleLayer(0);
+
+  // Step 1: clear simulator ripple previews
+  const simWrapper = document.getElementById('sim-ripple-previews');
+  const simContainer = document.getElementById('sim-ripples-list');
+  if (simWrapper) simWrapper.classList.add('hidden');
+  if (simContainer) simContainer.innerHTML = '';
+}
+
+// === PHASE 3 HELPERS: beautiful interactive dashboard (the people co-building the mercy) ===
+
+function updateMercyCircles(nBal, hBal) {
+  // NIBBLES
+  const nMercy = Math.min(100, (nBal / MERCY_THRESHOLDS.MERCY) * 100);
+  const nGuardian = nBal >= MERCY_THRESHOLDS.MERCY ? Math.min(100, ((nBal - MERCY_THRESHOLDS.MERCY) / (MERCY_THRESHOLDS.GUARDIAN - MERCY_THRESHOLDS.MERCY)) * 100) : 0;
+  const nEternal = nBal >= MERCY_THRESHOLDS.GUARDIAN ? Math.min(100, ((nBal - MERCY_THRESHOLDS.GUARDIAN) / (MERCY_THRESHOLDS.ETERNAL - MERCY_THRESHOLDS.GUARDIAN)) * 100) : 0;
+
+  const nLabel = nBal >= MERCY_THRESHOLDS.ETERNAL ? 'Eternal' : (nBal >= MERCY_THRESHOLDS.GUARDIAN ? 'Guardian' : (nBal >= MERCY_THRESHOLDS.MERCY ? 'Mercy' : 'Supporter'));
+  document.getElementById('nibbles-circle-label').textContent = nLabel;
+
+  const nM = document.getElementById('nibbles-progress-mercy');
+  const nG = document.getElementById('nibbles-progress-guardian');
+  const nE = document.getElementById('nibbles-progress-eternal');
+  if (nM) nM.style.strokeDashoffset = (301.6 * (1 - nMercy/100));
+  if (nG) nG.style.strokeDashoffset = (238.8 * (1 - nGuardian/100));
+  if (nE) nE.style.strokeDashoffset = (176 * (1 - nEternal/100));
+
+  // Add reached class for glow
+  const nContainer = document.querySelector('.mercy-circle.nibbles');
+  if (nContainer) nContainer.classList.toggle('reached', nBal >= MERCY_THRESHOLDS.MERCY);
+
+  // HOPESEED - same logic
+  const hMercy = Math.min(100, (hBal / MERCY_THRESHOLDS.MERCY) * 100);
+  const hGuardian = hBal >= MERCY_THRESHOLDS.MERCY ? Math.min(100, ((hBal - MERCY_THRESHOLDS.MERCY) / (MERCY_THRESHOLDS.GUARDIAN - MERCY_THRESHOLDS.MERCY)) * 100) : 0;
+  const hEternal = hBal >= MERCY_THRESHOLDS.GUARDIAN ? Math.min(100, ((hBal - MERCY_THRESHOLDS.GUARDIAN) / (MERCY_THRESHOLDS.ETERNAL - MERCY_THRESHOLDS.GUARDIAN)) * 100) : 0;
+
+  const hLabel = hBal >= MERCY_THRESHOLDS.ETERNAL ? 'Eternal' : (hBal >= MERCY_THRESHOLDS.GUARDIAN ? 'Guardian' : (hBal >= MERCY_THRESHOLDS.MERCY ? 'Mercy' : 'Supporter'));
+  document.getElementById('hopeseed-circle-label').textContent = hLabel;
+
+  const hM = document.getElementById('hopeseed-progress-mercy');
+  const hG = document.getElementById('hopeseed-progress-guardian');
+  const hE = document.getElementById('hopeseed-progress-eternal');
+  if (hM) hM.style.strokeDashoffset = (301.6 * (1 - hMercy/100));
+  if (hG) hG.style.strokeDashoffset = (238.8 * (1 - hGuardian/100));
+  if (hE) hE.style.strokeDashoffset = (176 * (1 - hEternal/100));
+
+  const hContainer = document.querySelector('.mercy-circle.hopeseed');
+  if (hContainer) hContainer.classList.toggle('reached', hBal >= MERCY_THRESHOLDS.MERCY);
+}
+
+function updateCompoundingVisual(total) {
+  const container = document.getElementById('compounding-links');
+  if (!container) return;
+  container.innerHTML = '';
+  const links = Math.min(12, Math.floor(total / 25000) + 1); // one link per ~25k, up to 12 for visual
+  for (let i = 0; i < links; i++) {
+    const link = document.createElement('div');
+    link.className = `compounding-link ${i % 2 === 0 ? '' : 'hopeseed'}`;
+    link.style.transform = `scale(${0.7 + (i / links) * 0.6})`;
+    container.appendChild(link);
+  }
+}
+
+function updateRippleLayer(total) {
+  const layer = document.getElementById('ripple-layer');
+  if (!layer) return;
+  const intensity = Math.min(1.2, Math.max(0.4, total / 300000)); // scale with holdings
+  layer.style.opacity = (0.45 * intensity).toFixed(2);
+  // Speed up the animation a bit when holdings are meaningful
+  layer.querySelectorAll('.ripple-path').forEach((p, idx) => {
+    p.style.animationDuration = (2.2 + (idx % 2) * 0.6 - (intensity * 0.6)) + 's';
+  });
+}
+
+function showCircleExplanation(type) {
+  // Loving explanation + open relevant programs
+  const msg = type === 'NIBBLES' 
+    ? "With $NIBBLES in the Mercy Circle and beyond, you quietly support senior dogs, therapy networks, disaster K9s, service dogs for veterans, and the Shiba Barn sanctuaries. Click a program card below to read the full story."
+    : "With $hopeseed you plant real seeds for orphan Christmases, Guardian Angel wallets for foster kids, dream rooms in hospitals, no-hungry weekends, and the Miracle Fight Fund. Your ripples are building safety and joy for children.";
+  alert("❤️ " + msg + "\n\n(These thresholds are the same ones written into every one of the 29 programs. When the funding comes through, the mercy flows.)");
+  // Bonus: highlight the engine for that stream
+  highlightEngineStream(type);
+}
+
+function copyMercyFootprint() {
+  const nBal = simN || (document.getElementById('nibbles-balance') && parseFloat(document.getElementById('nibbles-balance').textContent) || 0);
+  const hBal = simH || (document.getElementById('hopeseed-balance') && parseFloat(document.getElementById('hopeseed-balance').textContent) || 0);
+  const total = nBal + hBal;
+  const base = Math.floor(total / MERCY_THRESHOLDS.MERCY);
+  const projected = Math.max(1, base * 3);
+
+  const nCircle = nBal >= MERCY_THRESHOLDS.ETERNAL ? 'Eternal Guardian' : (nBal >= MERCY_THRESHOLDS.GUARDIAN ? 'Guardian' : (nBal >= MERCY_THRESHOLDS.MERCY ? 'Mercy' : 'Supporter'));
+  const hCircle = hBal >= MERCY_THRESHOLDS.ETERNAL ? 'Eternal Guardian' : (hBal >= MERCY_THRESHOLDS.GUARDIAN ? 'Guardian' : (hBal >= MERCY_THRESHOLDS.MERCY ? 'Mercy' : 'Supporter'));
+
+  const text = `With my holding of ${nBal.toLocaleString()} $NIBBLES (${nCircle} Circle) and ${hBal.toLocaleString()} $hopeseed (${hCircle} Circle), I am already quietly turning the mercy flywheel.\n\nThis could touch approximately ${projected} additional lives in the next 12 months through the stories and new holders it helps create.\n\nWe are building something the people will help build. Every single transaction saves lives.\n\nJoin the circle: https://shibahumanityhub.github.io\n\n#PeopleHelpingPeople #MercyFlywheel`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    const btns = document.querySelectorAll('.footprint-share-btn');
+    if (btns.length) {
+      const orig = btns[0].innerHTML;
+      btns[0].innerHTML = '✅ Copied. Thank you for sharing the truth.'
+      setTimeout(() => { if (btns[0]) btns[0].innerHTML = orig; }, 2400);
+    } else {
+      alert('✅ Copied to clipboard. Thank you for carrying the story forward.');
+    }
+  }).catch(() => {
+    // fallback
+    prompt('Copy this Mercy Footprint and share it:', text);
+  });
+}
+
+function updateRippleLayer(total) {
+  const layer = document.getElementById('ripple-layer');
+  if (!layer) return;
+  const intensity = Math.min(1.2, Math.max(0.4, total / 300000));
+  layer.style.opacity = (0.45 * intensity).toFixed(2);
+  layer.querySelectorAll('.ripple-path').forEach((p, idx) => {
+    p.style.animationDuration = (2.2 + (idx % 2) * 0.6 - (intensity * 0.6)) + 's';
+  });
 }
 
 function updatePersonalView(nBal, hBal, isSim) {
@@ -1137,36 +2196,60 @@ function updatePersonalView(nBal, hBal, isSim) {
   let html = '';
   let affected = [];
 
-  if (nBal >= 25000) {
-    const c = (nBal >= 250000) ? 'Eternal Guardian' : (nBal >= 100000 ? 'Guardian' : 'Mercy');
+  if (nBal >= MERCY_THRESHOLDS.MERCY) {
+    const c = (nBal >= MERCY_THRESHOLDS.ETERNAL) ? 'Eternal Guardian' : (nBal >= MERCY_THRESHOLDS.GUARDIAN ? 'Guardian' : 'Mercy');
     html += `With ${nBal.toLocaleString()} $NIBBLES you sit in the <strong>${c} Circle</strong>. This quietly supports senior dogs, therapy visits, and freedom partners. `;
-    affected = programs.filter(p => p.category === '$NIBBLES').slice(0, 3);
+    affected = programs.filter(p => p.category === '$NIBBLES').slice(0, 4);
   }
-  if (hBal >= 25000) {
-    const c = (hBal >= 250000) ? 'Eternal Guardian' : (hBal >= 100000 ? 'Guardian' : 'Mercy');
+  if (hBal >= MERCY_THRESHOLDS.MERCY) {
+    const c = (hBal >= MERCY_THRESHOLDS.ETERNAL) ? 'Eternal Guardian' : (hBal >= MERCY_THRESHOLDS.GUARDIAN ? 'Guardian' : 'Mercy');
     html += `With ${hBal.toLocaleString()} $hopeseed you sit in the <strong>${c} Circle</strong>. This plants seeds for birthdays, safe schools, and dream rooms. `;
-    affected = affected.concat(programs.filter(p => p.category === '$hopeseed').slice(0, 3));
+    affected = affected.concat(programs.filter(p => p.category === '$hopeseed').slice(0, 4));
   }
 
-  if (!html) html = 'Every holding sends gentle ripples. Use the simulator or connect your wallet to see which of the 29 programs your support quietly touches.';
+  if (!html) html = 'Every holding sends gentle ripples. Use the simulator or connect your wallet to see which of the 29 programs your support quietly touches. We are building this together.';
   impact.innerHTML = html;
 
+  // Phase 3: richer program list with short impact tease + direct modal
   progsContainer.innerHTML = '';
-  affected.slice(0, 6).forEach(p => {
+  affected.slice(0, 8).forEach(p => {
     const d = document.createElement('div');
-    d.className = 'px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 rounded-xl text-xs flex items-center justify-between cursor-pointer transition';
-    d.innerHTML = `<span class="truncate">${p.title}</span><span class="text-[10px] opacity-50">→</span>`;
+    d.className = 'px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 rounded-xl text-xs flex items-center justify-between cursor-pointer transition group';
+    const short = p.shortDesc ? p.shortDesc.substring(0, 72) + '…' : p.title;
+    d.innerHTML = `<span class="truncate">${p.title}</span><span class="text-[10px] opacity-50 group-hover:opacity-80">→ ${short}</span>`;
     d.onclick = () => showProgramModal(p.id);
     progsContainer.appendChild(d);
+  });
+
+  // Phase 3 visuals
+  const total = nBal + hBal;
+  updateMercyCircles(nBal, hBal);
+  updateCompoundingVisual(total);
+  updateRippleLayer(total);
+
+  // Phase 4: make the floating particles react to your holding (more density/brightness when mercy grows)
+  if (window.updateMercyParticleIntensity) {
+    window.updateMercyParticleIntensity(nBal, hBal);
+  }
+
+  // Highlight affected nodes in the engine
+  document.querySelectorAll('#engine-nodes .engine-node').forEach(node => {
+    const isAffected = affected.some(a => a.title === node.textContent.trim() || node.textContent.includes(a.title.substring(0,10)));
+    node.style.borderColor = isAffected ? (node.dataset.category === '$NIBBLES' ? 'rgba(251,191,36,0.7)' : 'rgba(52,211,153,0.7)') : '';
+    node.style.boxShadow = isAffected ? '0 0 12px -2px rgba(251,191,36,0.3)' : '';
   });
 
   // Bilyeu/Vitalik-level compounding projection (face-grabbing, rigorous, flywheel: your holding multiplies through network effects)
   if (projectionEl) {
     const total = nBal + hBal;
     if (total > 0) {
-      const base = Math.floor(total / 25000);
+      const base = Math.floor(total / MERCY_THRESHOLDS.MERCY);
       const projected = base * 3; // Conservative, first-principles estimate: each Mercy Circle threshold enables ~3x network effect (stories + emotional contagion + new voluntary holders) over 12 months, based on the 29 programs' described scale and patterns.
-      projectionEl.innerHTML = `Your Quiet Compounding: Holding this amount today is already part of a self-reinforcing loop. In 12 months, through the stories and new participants your holding helps enable, this could touch approximately <strong>${projected}</strong> additional lives as the flywheel turns.`;
+      projectionEl.innerHTML = `Your Quiet Compounding: Holding this amount today is already part of a self-reinforcing loop the people are building. In 12 months, through the stories and new participants your holding helps enable, this could touch approximately <strong><span id="projected-lives">0</span></strong> additional lives as the flywheel turns.`;
+      const projNum = document.getElementById('projected-lives');
+      if (projNum) {
+        animateValue(projNum, 0, projected, 750);
+      }
     } else {
       projectionEl.innerHTML = '';
     }
@@ -1177,10 +2260,53 @@ function initMercyEngineDashboard() {
   populateEngineNodes();
   // Initial neutral message
   const impact = document.getElementById('personal-impact');
-  if (impact) impact.innerHTML = 'Every holding sends gentle ripples. Use the simulator or connect your wallet to see which of the 29 programs your support quietly touches.';
+  if (impact) impact.innerHTML = 'Every holding sends gentle ripples. Use the simulator or connect your wallet to see which of the 29 programs your support quietly touches. We are building this together.';
   // Make sure viz source has loving default
   const src = document.getElementById('viz-source');
   if (src) src.textContent = 'A quiet act of mercy';
+
+  // Phase 3: URL param support so people can share exact views of their ripples
+  const params = new URLSearchParams(window.location.search);
+  const urlN = parseFloat(params.get('n'));
+  const urlH = parseFloat(params.get('h'));
+  if (!isNaN(urlN) || !isNaN(urlH)) {
+    simN = isNaN(urlN) ? 0 : urlN;
+    simH = isNaN(urlH) ? 0 : urlH;
+    updatePersonalView(simN, simH, true);
+    const srcEl = document.getElementById('viz-source');
+    if (srcEl) srcEl.textContent = `Shared view: ${simN.toLocaleString()} $NIBBLES + ${simH.toLocaleString()} $hopeseed`;
+  }
+
+  // Initial circles (neutral)
+  updateMercyCircles(0, 0);
+  updateCompoundingVisual(0);
+  updateRippleLayer(0);
+
+  // Phase 3 small addition: fetch public community ripples on init so the "in the wild" feed is always live
+  fetchAndRenderCommunityRipples();
+
+  // Phase 4: scroll-synced gentleness (very slow "flywheel turning" feel as you move through the engine story)
+  // Tiny JS + CSS var for subtle effect on the engine section (parallax-like on content or viz)
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        const engine = document.getElementById('mercy-engine');
+        if (engine) {
+          const rect = engine.getBoundingClientRect();
+          const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.8 - rect.top) / (window.innerHeight * 0.6 + rect.height)));
+          engine.style.setProperty('--mercy-scroll-progress', progress.toFixed(2));
+          // subtle wake on the viz ripple if in view
+          const layer = document.getElementById('ripple-layer');
+          if (layer && progress > 0.1) {
+            layer.style.opacity = (0.45 + progress * 0.2).toFixed(2);
+          }
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  });
 }
 
 // Initialize dashboard (called after DOM ready via the existing script flow)
@@ -1190,7 +2316,13 @@ if (document.readyState === 'loading') {
   initMercyEngineDashboard();
 }
 
-console.log('%cShibahumanityhub loaded — People helping people helping people. (Phase 2 wallet + Phase 3 engine prototype active)', 'color:#fcd34d; font-family:monospace;');
+// Bonus Phase 3: gentle initial ripple on the engine for visitors
+setTimeout(() => {
+  const layer = document.getElementById('ripple-layer');
+  if (layer) layer.style.opacity = '0.5';
+}, 1800);
+
+console.log('%cShibahumanityhub loaded - People helping people helping people. (Phase 2 wallet + Phase 3 engine prototype active)', 'color:#fcd34d; font-family:monospace;');
 
 // Phase 4: Premium micro-interactions & animations
 if (window.initPremiumAnimations) {
@@ -1200,3 +2332,19 @@ if (window.initPremiumAnimations) {
 </script>
 </body>
 </html>
+
+<!--
+Phase 6 holistic (a11y/perf/SEO/mobile + full integration + future readiness). All phases complete:
+
+Optional future convenience (Phase 6 note): a tiny static sitemap generator script could walk the programs array in programs-data.js and emit fresh entries for the 29 stories if/when individual program pages are added. Current sitemap.xml + robots.txt (created in Phase 1) remain clean and sufficient for the two main pages. Keep it optional and hand-editable. No build step required.
+
+Tone & measurement checklist (for anyone touching the code):
+- Does every new sentence feel like it could come from the original Mercy Blueprint or a program fullHTML? (loving, specific, "when the funding comes through", "people helping people helping people")
+- Lighthouse mobile + desktop >=95 for perf/a11y (or clear improvement).
+- Real-device test: phone + wallet connect (or sim), scroll engine slowly, open 3 modals, check particles/videos/reduced-motion.
+- All interactive elements keyboard + screen-reader friendly (use existing ARIA patterns).
+- No hype. Only truth and mercy. If it feels promotional, rewrite.
+- Future hooks: when real on-chain delivery data exists, surface it here with the same language.
+- Testing the heart (after any change, especially Phase 6 holistic work): open on phone, connect/simulate, scroll the engine slowly, open three different modals (including one from constellation if possible), check particles, videos, reduced-motion, focus, and ask out loud: "Does this still feel like people helping people helping people with tears in the eyes?" If the answer is no, stop and fix the feeling before the pixels.
+-->
+

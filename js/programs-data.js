@@ -7,8 +7,8 @@ const programs = [            {
     shortDesc: "Good companies becoming real heroes by giving senior shelter dogs the loving golden years they deserve.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Corporate Impact</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Corporate Barn Pod Sponsorship</h2>
-      <p class="text-amber-200 text-xl mb-6">Right now, too many beautiful senior dogs sit in shelters, quietly watching the world pass them by. They have given their whole lives to people, and in their final years they deserve warm beds, good food, and real love — not a cold kennel.</p>
-      <p class="text-zinc-300 mb-8">Through the Corporate Barn Pod Sponsorship, companies have the chance to step into their highest purpose. A single pod of five to ten senior dogs will live out their golden years in our Shiba Barns — fully cared for, with daily enrichment, expert veterinary care, and the peaceful retirement every loyal heart has earned.</p>
+      <p class="text-amber-200 text-xl mb-6">Right now, too many beautiful senior dogs sit in shelters, quietly watching the world pass them by. They have given their whole lives to people, and in their final years they deserve warm beds, good food, and real love - not a cold kennel.</p>
+      <p class="text-zinc-300 mb-8">Through the Corporate Barn Pod Sponsorship, companies have the chance to step into their highest purpose. A single pod of five to ten senior dogs will live out their golden years in our Shiba Barns - fully cared for, with daily enrichment, expert veterinary care, and the peaceful retirement every loyal heart has earned.</p>
       <p class="text-zinc-300 mb-8">This is more than a donation. It is a living partnership. Your company’s name will be on the barn, on the dogs’ vests, and in every story we share with the world. Your team will get to meet their pod through livestreams and volunteer days. Real impact. Real stories. Real lives forever changed.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -20,14 +20,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the exact peaceful golden life that senior dogs will finally get in our Shiba Barns — warm, safe, and full of love.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the exact peaceful golden life that senior dogs will finally get in our Shiba Barns - warm, safe, and full of love.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Pod</strong><br>5 senior dogs • $1,250 per month. Your company helps five dogs finally feel loved again</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Bronze / Silver Pod</strong><br>10 senior dogs • $2,500 to $5,000 per month. Your name lives on the barn and in their daily lives</div>
@@ -49,8 +51,8 @@ const programs = [            {
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Soulbound Legacy</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Rescue Passport Soulbound NFTs</h2>
       <p class="text-amber-200 text-xl mb-6">Every rescue dog finally gets a permanent, living digital soul on the blockchain.</p>
-      <p class="text-zinc-300 mb-8">Too many rescue dogs walk into a shelter and basically disappear from history. Their stories, their little quirks, the exact day they were saved — it all gets lost forever.</p>
-      <p class="text-zinc-300 mb-8">The Rescue Passport changes that forever. The moment a dog enters our world, we mint a soulbound NFT — a permanent, non-transferable digital soul that lives on the blockchain and can never be sold, lost, or faked. It becomes their living, growing Rescue Passport.</p>
+      <p class="text-zinc-300 mb-8">Too many rescue dogs walk into a shelter and basically disappear from history. Their stories, their little quirks, the exact day they were saved - it all gets lost forever.</p>
+      <p class="text-zinc-300 mb-8">The Rescue Passport changes that forever. The moment a dog enters our world, we mint a soulbound NFT - a permanent, non-transferable digital soul that lives on the blockchain and can never be sold, lost, or faked. It becomes their living, growing Rescue Passport.</p>
       <p class="text-zinc-300 mb-8">Every vet visit, every training moment, every happy photo or bark video gets added safely on-chain. When they finally go to their forever home, the passport gently moves to the new family’s wallet and stays bound to them for life.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -62,6 +64,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -69,7 +73,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>First 100 Passports</strong><br>Launch the registry for the next 100 rescued dogs</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Regional Registry</strong><br>Full registry + live tracking for one shelter or rescue group</div>
@@ -77,7 +81,7 @@ const programs = [            {
         </div>
       </div>
 
-      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every single rescue dog will finally have their whole beautiful journey honored and remembered forever. No more stories lost to time. Just a permanent, gentle proof that their second chance truly mattered — a soulbound legacy that grows with them and travels softly with their forever family. This is how we turn forgotten lives into living legends on the blockchain.</p>
+      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every single rescue dog will finally have their whole beautiful journey honored and remembered forever. No more stories lost to time. Just a permanent, gentle proof that their second chance truly mattered - a soulbound legacy that grows with them and travels softly with their forever family. This is how we turn forgotten lives into living legends on the blockchain.</p>
 
       <button onclick="sponsorProgram('rescue-passport')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Bring the First Rescue Passports to Life</button>`
   },
@@ -103,6 +107,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -110,7 +116,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy - How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Hold 25,000+ $NIBBLES</strong><br>Fund the next link in the chain for one rescued dog</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Support an entire chain of rescues and receive impact updates</div>
@@ -144,6 +150,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -151,7 +159,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy - How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Micro / Starter Pack</strong><br>Food, toys, crate, leash, collar, microchip</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Settle-in Pack</strong><br>Everything above plus six weeks of training and 60 days of pet insurance</div>
@@ -159,7 +167,7 @@ const programs = [            {
         </div>
       </div>
 
-      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every adopted dog will get the strongest possible start. Scared shelter dogs will relax into their new beds and play in their new yards with families who feel supported instead of overwhelmed. This is how we turn nervous beginnings into forever homes — one loving pack at a time.</p>
+      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every adopted dog will get the strongest possible start. Scared shelter dogs will relax into their new beds and play in their new yards with families who feel supported instead of overwhelmed. This is how we turn nervous beginnings into forever homes - one loving pack at a time.</p>
 
       <button onclick="sponsorProgram('new-beginnings')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch New Beginnings Home Start Packs</button>`
   },
@@ -185,6 +193,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -192,7 +202,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy - How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Hold 25,000+ $NIBBLES</strong><br>Fund training, vests, and initial placements</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Sponsor multiple dogs and receive regular impact updates</div>
@@ -215,7 +225,7 @@ const programs = [            {
       <h2 class="text-4xl font-bold mb-3">Global Disaster K9 Response Units</h2>
       <p class="text-amber-200 text-xl mb-6">When disaster hits, every single minute matters. I keep thinking about the little girl they pulled from the rubble or the elderly couple found alive after everyone else had stopped looking.</p>
       <p class="text-zinc-300 mb-8">Those moments when a dog crawls through places no human can reach and changes everything.</p>
-      <p class="text-zinc-300 mb-8">We will keep a small, elite team of fully trained search-and-rescue dogs and handlers ready 24/7. Many of the dogs will come from our own rescue programs — dogs that once had no hope and now get to give that same gift of hope back to the world.</p>
+      <p class="text-zinc-300 mb-8">We will keep a small, elite team of fully trained search-and-rescue dogs and handlers ready 24/7. Many of the dogs will come from our own rescue programs • dogs that once had no hope and now get to give that same gift of hope back to the world.</p>
       <p class="text-zinc-300 mb-8">Every time a disaster strikes, $NIBBLES holders will be able to click and know their everyday transactions just helped send a real rescue team. This is mercy in motion. This is second chances saving lives.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -227,14 +237,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a child and their K9 Lifeline hero — disaster response dogs bringing hope when it matters most.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a child and their K9 Lifeline hero • disaster response dogs bringing hope when it matters most.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy — How $NIBBLES Makes These Rescues Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes These Rescues Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -242,7 +254,7 @@ const programs = [            {
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
             <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
-            <strong>Hold 250,000+ $NIBBLES</strong><br>Send $NIBBLES during a live alert — 30% goes straight into that team’s lifelong care fund
+            <strong>Hold 250,000+ $NIBBLES</strong><br>Send $NIBBLES during a live alert • 30% goes straight into that team’s lifelong care fund
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
@@ -265,7 +277,7 @@ const programs = [            {
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Redemption</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Second Chance K9 Prison Program</h2>
       <p class="text-amber-200 text-xl mb-6">Some shelter dogs are labeled difficult, reactive, fearful, or high energy and end up with very few options. At the same time, many inmates are quietly looking for purpose, structure, and a real reason to believe in themselves again.</p>
-      <p class="text-zinc-300 mb-8">This program brings the two together in the most beautiful way. Inside medium security correctional facilities, inmates train shelter dogs in a structured, professional program. The dogs learn to become calm, confident, and highly adoptable. The inmates gain real dog handling skills, nationally recognized certifications, and something even more powerful — a sense of responsibility and pride that often stays with them long after they leave.</p>
+      <p class="text-zinc-300 mb-8">This program brings the two together in the most beautiful way. Inside medium security correctional facilities, inmates train shelter dogs in a structured, professional program. The dogs learn to become calm, confident, and highly adoptable. The inmates gain real dog handling skills, nationally recognized certifications, and something even more powerful • a sense of responsibility and pride that often stays with them long after they leave.</p>
       <p class="text-zinc-300 mb-8">Dogs that society had written off get a second chance at life. People that society had written off get a second chance at purpose. Both sides heal each other in ways no one expected.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -277,6 +289,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -284,7 +298,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy — How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Hold 25,000+ $NIBBLES</strong><br>Sponsor a dog in training and receive regular photo and video updates</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Fund professional trainers, supplies, and program operations</div>
@@ -318,6 +332,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -325,7 +341,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy - How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Hold 25,000+ $NIBBLES</strong><br>Fund hospice care, medical supplies, and bucket list experiences</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Plant a Sequoia tree in the dog’s name and receive updates</div>
@@ -359,18 +375,20 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the joy of a senior hero finally getting their golden years — warm, safe, and full of love.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the joy of a senior hero finally getting their golden years • warm, safe, and full of love.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Retirement Home</strong><br>1 senior hero • $250 per month</div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Comfort / Full Golden Care Home</strong><br>1 senior with higher needs • $350 – $450 per month</div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Legacy Family Pod</strong><br>2 heroes • $700+ per month — your name stays with them forever</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Comfort / Full Golden Care Home</strong><br>1 senior with higher needs • $350 to $450 per month</div>
+          <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Legacy Family Pod</strong><br>2 heroes • $700+ per month • your name stays with them forever</div>
         </div>
       </div>
 
@@ -384,11 +402,11 @@ const programs = [            {
     category: "$NIBBLES",
     badgeColor: "emerald",
     image: "assets/images/unifiedrescueregistryphoto.jpg",
-    shortDesc: "Every rescued dog gets a permanent, soulbound digital passport on the blockchain that follows them for life — powered by $NIBBLES.",
+    shortDesc: "Every rescued dog gets a permanent, soulbound digital passport on the blockchain that follows them for life • powered by $NIBBLES.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Soulbound Legacy</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Unified Rescue Registry</h2>
-      <p class="text-amber-200 text-xl mb-6">Every rescue dog deserves to be seen, remembered, and loved forever — not just for a moment, but for their entire life.</p>
-      <p class="text-zinc-300 mb-8">The Unified Rescue Registry gives every dog their own permanent, soulbound digital passport on the blockchain. Their full journey, medical history, personality, and forever family story travels with them — forever.</p>
+      <p class="text-amber-200 text-xl mb-6">Every rescue dog deserves to be seen, remembered, and loved forever • not just for a moment, but for their entire life.</p>
+      <p class="text-zinc-300 mb-8">The Unified Rescue Registry gives every dog their own permanent, soulbound digital passport on the blockchain. Their full journey, medical history, personality, and forever family story travels with them • forever.</p>
       <p class="text-zinc-300 mb-8">No more lost records. No more forgotten stories. Just pure, unbreakable proof that their second chance mattered.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -400,14 +418,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the global rescue network come alive — every dog connected, protected, and remembered forever.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the global rescue network come alive • every dog connected, protected, and remembered forever.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>First 100 Passports</strong><br>Launch the registry for the next 100 rescued dogs</div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Regional Registry</strong><br>Full registry + live tracking for one shelter or rescue group</div>
@@ -415,7 +435,7 @@ const programs = [            {
         </div>
       </div>
 
-      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every rescue dog will have their story permanently written on the blockchain. Their journey, their healing, their forever home — all of it preserved forever. This is how we turn forgotten lives into living legends that can never be erased again.</p>
+      <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every rescue dog will have their story permanently written on the blockchain. Their journey, their healing, their forever home • all of it preserved forever. This is how we turn forgotten lives into living legends that can never be erased again.</p>
 
       <button onclick="sponsorProgram('unified-rescue-registry')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch the Unified Rescue Registry</button>`
   },
@@ -441,18 +461,20 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the joyful pack running free in the sunlit Shiba Barns — this is the forever life every dog deserves.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the joyful pack running free in the sunlit Shiba Barns • this is the forever life every dog deserves.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy — How $NIBBLES Makes This Even More Powerful (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Even More Powerful (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
-            <strong>Hold 25,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES — the barn you support receives 20 percent more resources
+            <strong>Hold 25,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES • the barn you support receives 20 percent more resources
           </div>
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
             <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
@@ -491,14 +513,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the exact moment a shelter dog finally finds their forever family — pure joy, pure love, pure home.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the exact moment a shelter dog finally finds their forever family • pure joy, pure love, pure home.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -525,7 +549,7 @@ const programs = [            {
     category: "$NIBBLES",
     badgeColor: "emerald",
     image: "assets/images/shelter-to-barnlifelongprogram.jpg",
-    shortDesc: "Dogs pulled from death row within 72 hours and given a safe, livestreamed forever home in our Shiba Barns — no soul is ever left behind again.",
+    shortDesc: "Dogs pulled from death row within 72 hours and given a safe, livestreamed forever home in our Shiba Barns • no soul is ever left behind again.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Death Row Rescue</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Shelter-To-Barn Lifelong Program</h2>
       <p class="text-amber-200 text-xl mb-6">I can’t stand the thought of a sweet dog running out of time on a shelter list when we have the power to change that story.</p>
@@ -541,14 +565,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch a rescued hero finally running free in the barn — warm, safe, and full of joy.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch a rescued hero finally running free in the barn • warm, safe, and full of joy.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Possible (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Possible (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -591,14 +617,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a therapy dog and a happy senior — pure healing, pure love.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a therapy dog and a happy senior • pure healing, pure love.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy - How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -630,8 +658,26 @@ const programs = [            {
       <h2 class="text-4xl font-bold mb-3">Golden Years Companion Program</h2>
       <p class="text-amber-200 text-xl mb-6">I keep thinking about how many seniors sit alone in houses that got too quiet, and how many good adult shelter dogs have waited years for a real home.</p>
       <p class="text-zinc-300 mb-8">We will match carefully screened seniors, especially widows and widowers, with steady dogs five years and older. Once matched, we remove every single financial barrier for the entire life of that dog. Monthly support covers premium food, grooming, supplies, and prevention. There is a rolling emergency vet fund that refills itself so nothing ever catches them off guard.</p>
+
+      <!-- PREMIUM ANIMATED VIDEO PREVIEW (created from the program photo using imagine for gentle heartwarming motion) -->
+      <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
+        <div class="max-w-[340px] mx-auto bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl overflow-hidden shadow-2xl">
+          <video 
+            src="assets/videos/goldenyearscompanionprogram-animated.mp4" 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
+            class="w-full rounded-2xl">
+          </video>
+        </div>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the quiet, joyful companionship between a senior and their loyal dog • two hearts finding home in each other.</p>
+      </div>
+
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy – How $NIBBLES Makes This Even More Powerful (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Even More Powerful (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -672,14 +718,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a veteran and their Service Dog Freedom partner — walking together into a brighter future.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a veteran and their Service Dog Freedom partner • walking together into a brighter future.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy — How $NIBBLES Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
             <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
@@ -722,6 +770,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -729,7 +779,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Magic Happen (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Magic Happen (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -761,7 +811,7 @@ const programs = [            {
       <p class="text-zinc-300 mb-8">Their family depends on school meals during the week, and when the weekend comes the fridge stays empty. That kind of hidden struggle should never happen to a child.</p>
       <p class="text-zinc-300 mb-8">So we created No Hungry Weekend Backpacks. Every Friday, kids quietly receive a backpack filled with healthy food for the entire weekend, a tablet loaded with learning games, and a small surprise toy that brings real joy without any shame. No child ever has to feel like a charity case. Just a kid who was remembered and cared for with love.</p>
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -802,6 +852,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -809,7 +861,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -841,7 +893,7 @@ const programs = [            {
       <p class="text-zinc-300 mb-8">Scared of the hallway, the lunchroom, or just being themselves. The old anti-bullying assemblies do not reach them anymore.</p>
       <p class="text-zinc-300 mb-8">I wanted to build something better, something schools are actually proud to have and kids actually respect. So we created the Bullyproof Schools Initiative: powerful, high-quality assemblies that feel real and relevant, plus a safe, private virtual world where any student who feels overwhelmed or alone can step away, breathe, talk to a counselor, sit with a therapy dog on live cam, and just feel protected. On top of that, we reward real kindness with small $hopeseed tips that kids earn and feel proud of.</p>
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -882,6 +934,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -889,7 +943,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -930,14 +984,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the glowing white dove of hope visit a sick child in the hospital bed — the exact miracle every family prays for.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the glowing white dove of hope visit a sick child in the hospital bed • the exact miracle every family prays for.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -978,6 +1034,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -985,7 +1043,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy - How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy • How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1028,6 +1086,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -1035,7 +1095,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1076,14 +1136,16 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch Santa and the elves wrapping gifts live while kids wave excitedly on the screens — pure Christmas magic happening all year round.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch Santa and the elves wrapping gifts live while kids wave excitedly on the screens • pure Christmas magic happening all year round.</p>
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Real (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1124,6 +1186,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -1131,7 +1195,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Magic Happen (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Magic Happen (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1173,6 +1237,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -1180,7 +1246,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy - How $hopeseed Makes This Happen (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy • How $hopeseed Makes This Happen (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1223,6 +1289,8 @@ const programs = [            {
             loop 
             muted 
             playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
             class="w-full rounded-2xl">
           </video>
         </div>
@@ -1230,7 +1298,7 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy – How $hopeseed Makes This Magic Happen (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Magic Happen (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
@@ -1275,7 +1343,7 @@ const programs = [            {
                 class="w-full rounded-2xl">
               </video>
             </div>
-            <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a mother and her child — the steady love and support every special needs family deserves.</p>
+            <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a mother and her child • the steady love and support every special needs family deserves.</p>
           </div>
 
           <div class="mb-10">
