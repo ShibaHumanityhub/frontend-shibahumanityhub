@@ -810,6 +810,25 @@ const programs = [            {
       <p class="text-emerald-200 text-xl mb-6">I keep thinking about those kids who get excited for Friday because school is over, but then spend the whole weekend trying not to show how hungry they really are.</p>
       <p class="text-zinc-300 mb-8">Their family depends on school meals during the week, and when the weekend comes the fridge stays empty. That kind of hidden struggle should never happen to a child.</p>
       <p class="text-zinc-300 mb-8">So we created No Hungry Weekend Backpacks. Every Friday, kids quietly receive a backpack filled with healthy food for the entire weekend, a tablet loaded with learning games, and a small surprise toy that brings real joy without any shame. No child ever has to feel like a charity case. Just a kid who was remembered and cared for with love.</p>
+
+      <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
+      <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
+        <div class="max-w-[340px] mx-auto bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl overflow-hidden shadow-2xl">
+          <video 
+            src="assets/videos/nohungryweekendbackpacks-animated.mp4" 
+            poster="assets/images/nohungryweekendbackpacks-poster.jpg"
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
+            class="w-full rounded-2xl">
+          </video>
+        </div>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch every child quietly receive the food, learning, and joy they deserve on the weekends when school meals stop.</p>
+      </div>
+
       <div class="mb-10">
         <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -892,6 +911,25 @@ const programs = [            {
       <p class="text-emerald-200 text-xl mb-6">I have thought about this one a lot. Too many kids walk into school every single day carrying fear in their chest.</p>
       <p class="text-zinc-300 mb-8">Scared of the hallway, the lunchroom, or just being themselves. The old anti-bullying assemblies do not reach them anymore.</p>
       <p class="text-zinc-300 mb-8">I wanted to build something better, something schools are actually proud to have and kids actually respect. So we created the Bullyproof Schools Initiative: powerful, high-quality assemblies that feel real and relevant, plus a safe, private virtual world where any student who feels overwhelmed or alone can step away, breathe, talk to a counselor, sit with a therapy dog on live cam, and just feel protected. On top of that, we reward real kindness with small $hopeseed tips that kids earn and feel proud of.</p>
+
+      <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
+      <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
+        <div class="max-w-[340px] mx-auto bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl overflow-hidden shadow-2xl">
+          <video 
+            src="assets/videos/bullyproofschoolsinitiative-animated.mp4" 
+            poster="assets/images/bullyproofschoolsinitiative-poster.jpg"
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            preload="none"
+            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
+            class="w-full rounded-2xl">
+          </video>
+        </div>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch schools transform into places where every child feels safe, protected, and celebrated for choosing kindness.</p>
+      </div>
+
       <div class="mb-10">
         <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Real (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
