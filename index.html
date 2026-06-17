@@ -671,7 +671,7 @@
              class="mx-auto mb-8 w-60 h-60 md:w-72 md:h-72 object-contain rounded-3xl" alt="Mr. Nibbles" loading="lazy">
         <p class="text-amber-200 mb-3 text-3xl md:text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
         <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction quietly becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.</p>
-        <a href="https://puppyscan.shib.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" 
+        <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono">
           0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF
@@ -684,7 +684,7 @@
              class="mx-auto mb-8 w-60 h-60 md:w-72 md:h-72 object-contain rounded-3xl" alt="hopeseed" loading="lazy">
         <p class="text-emerald-300 mb-3 text-3xl md:text-4xl font-semibold">$hopeseed</p>
         <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.</p>
-        <a href="https://puppyscan.shib.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" 
+        <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono">
           0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833
@@ -713,7 +713,7 @@
             <p class="text-sm text-amber-300/70">Mercy for dogs who once had none</p>
           </div>
         </div>
-        <a href="https://puppyscan.shib.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF</a>
+        <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF</a>
         <div id="nibbles-balance" class="text-3xl font-semibold text-amber-100 mb-2 hidden"></div>
         <div id="nibbles-circle" class="text-sm text-amber-300 mb-4 hidden"></div>
         <p class="text-xs text-zinc-500">When the funding comes through, these holdings quietly unlock the Circles of Mercy described in every program above.</p>
@@ -728,7 +728,7 @@
             <p class="text-sm text-emerald-300/70">Seeds of hope for children who need it most</p>
           </div>
         </div>
-        <a href="https://puppyscan.shib.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833</a>
+        <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833</a>
         <div id="hopeseed-balance" class="text-3xl font-semibold text-emerald-100 mb-2 hidden"></div>
         <div id="hopeseed-circle" class="text-sm text-emerald-300 mb-4 hidden"></div>
         <p class="text-xs text-zinc-500">Your quiet holding plants real seeds. The thresholds below are the same ones written into the programs you just read.</p>
@@ -1809,7 +1809,7 @@ async function fetchAndRenderCommunityRipples() {
   const container = document.getElementById('community-ripples-list');
   if (!container) return;
   const rpc = __mercyCurrentRpc || 'https://puppynet.shibrpc.com';
-  const explorer = __mercyCurrentExplorer || 'https://puppyscan.shib.io';
+  const explorer = __mercyCurrentExplorer || 'https://shibariumscan.io';
   const key = __mercyCurrentNetworkKey || 'testnet';
   const nibblesAddr = TOKEN_ADDRESSES[key].NIBBLES;
   const hopeseedAddr = TOKEN_ADDRESSES[key].HOPESEED;
