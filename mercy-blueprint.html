@@ -125,6 +125,20 @@
       100% { transform: translateX(300%); }
     }
   </style>
+
+<!-- Info icons -->
+<style>
+.info-icon { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; margin-left: 4px; font-size: 10px; line-height: 1; border: 1px solid rgba(251, 191, 36, 0.4); border-radius: 9999px; color: #fcd34d; background: rgba(0,0,0,0.3); cursor: pointer; transition: all 0.2s ease; vertical-align: middle; }
+.info-icon:hover { border-color: #fcd34d; background: rgba(251, 191, 36, 0.1); transform: scale(1.1); }
+.explain-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
+.explain-modal.show { display: flex; }
+.explain-card { background: #0a0f1c; border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 20px; max-width: 480px; width: 100%; padding: 28px; position: relative; }
+.explain-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: #fcd34d; margin-bottom: 8px; letter-spacing: -0.5px; }
+.explain-card p { color: #e2e8f0; font-size: 0.95rem; line-height: 1.55; }
+.explain-card .impact { margin-top: 12px; font-size: 0.8rem; color: #10b981; font-style: italic; }
+.explain-close { position: absolute; top: 14px; right: 18px; font-size: 22px; color: #fcd34d; cursor: pointer; line-height: 1; }
+</style>
+
 </head>
 <body class="bg-[#0a0f1c] text-slate-200">
   <!-- NAV -->
@@ -206,7 +220,7 @@
       </div>
       
       <div class="mt-6 text-2xl font-semibold text-amber-300 tracking-tight">
-        People helping people helping people.<br>
+        People helping people helping people.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span><br>
         Every single transaction saves lives.
       </div>
     </div>
@@ -225,8 +239,8 @@
           <div class="flex gap-3 items-start">
             <div class="text-2xl">🐾</div>
             <div>
-              <div class="font-semibold text-amber-300">$NIBBLES</div>
-              <div class="text-xs mt-1 text-zinc-300">powers 17 global animal rescue, sanctuary, therapy, and healing programs.</div>
+              <div class="font-semibold text-amber-300">$NIBBLES<span class="info-icon" data-term="nibbles" title="Tap for plain terms">ⓘ</span></div>
+              <div class="text-xs mt-1 text-zinc-300">powers 17 global animal rescue, sanctuary, therapy, and healing programs that reach seniors, veterans, inmates and families.</div>
             </div>
           </div>
         </div>
@@ -235,7 +249,7 @@
           <div class="flex gap-3 items-start">
             <div class="text-2xl">🌱</div>
             <div>
-              <div class="font-semibold text-emerald-300">$hopeseed</div>
+              <div class="font-semibold text-emerald-300">$hopeseed<span class="info-icon" data-term="hopeseed" title="Tap for plain terms">ⓘ</span></div>
               <div class="text-xs mt-1 text-zinc-300">powers 13 human impact programs focused on children, families, and forgotten communities.</div>
             </div>
           </div>
@@ -243,7 +257,7 @@
       </div>
       
       <div class="mt-6 text-[15.2px]">
-        Together, they form a living circle of mercy. Every time someone buys, sells, or simply holds either token, real good quietly flows into the world — automatically, transparently, and forever. No middlemen. No bureaucracy. Just pure, on-chain love in action.
+        Together, they form a living circle of mercy. Every time someone buys, sells, or simply holds either token, real good quietly flows into the world. Automatically, transparently, and forever. No middlemen. No bureaucracy. Just pure, on-chain love in action.
       </div>
     </div>
 
@@ -260,7 +274,7 @@
           <div class="text-xs text-emerald-400/80 mb-1">TRANSACTION TAX</div>
           <div class="font-semibold">2%</div>
           <div class="mt-2 text-xs">1% → Automatic SHIB burn (permanent ecosystem strength)</div>
-          <div class="text-xs">1% → HumanityHub Impact Wallet (100% goes directly to the 30 live programs)</div>
+          <div class="text-xs">1% → HumanityHub Impact Wallet (100% goes directly to the 29 live programs)</div>
         </div>
       </div>
       
@@ -271,13 +285,13 @@
 
     <!-- THE 30 LIVING STORIES -->
     <div class="max-w-3xl mx-auto px-6 mt-16">
-      <div class="section-title text-xl mb-6">The 30 Living Stories of Mercy</div>
+      <div class="section-title text-xl mb-6">The 29 Living Stories of Mercy</div>
       <p class="text-sm text-zinc-300">This is where it gets beautiful. Every single program was born from real pain and real love.</p>
       
       <div class="mt-8 grid md:grid-cols-2 gap-5">
         <!-- NIBBLES -->
         <div class="border-l-2 border-amber-400 pl-5">
-          <div class="uppercase text-xs tracking-widest text-amber-400 mb-2">$NIBBLES Programs — Mercy for Animals</div>
+          <div class="uppercase text-xs tracking-widest text-amber-400 mb-2">$NIBBLES Programs: Mercy for Animals</div>
           <div class="text-sm">
             From pulling dogs off death row, to golden years retirement homes, therapy dog networks, disaster response K9 units, prison rehabilitation programs, and planting legacy Sequoia trees when they cross the Rainbow Bridge… every program honors life that society had overlooked.
           </div>
@@ -285,7 +299,7 @@
         
         <!-- HOPESEED -->
         <div class="border-l-2 border-emerald-400 pl-5">
-          <div class="uppercase text-xs tracking-widest text-emerald-400 mb-2">$hopeseed Programs — Mercy for Humans</div>
+          <div class="uppercase text-xs tracking-widest text-emerald-400 mb-2">$hopeseed Programs: Mercy for Humans</div>
           <div class="text-sm">
             Orphan Christmas celebrations, Guardian Angel Wallets that grow with foster children, Dream Room makeovers for kids in hospital beds, Miracle Fight Funds for life-saving treatment, No Hungry Weekend Backpacks, and lifelong support bridges for special needs families.
           </div>
@@ -303,7 +317,7 @@
       <div class="section-title mb-5">This Is Only the Beginning</div>
       
       <div class="text-[15.2px]">
-        We are building something that can run forever — powered by people who believe in better.<br><br>
+        We are building something that can run forever, powered by people who believe in better.<br><br>
         Every holder, every transaction, every share matters.<br><br>
         <span class="text-emerald-300">You don’t need to be rich to change lives. You only need to care.</span>
       </div>
@@ -315,7 +329,7 @@
       <div class="text-lg">Thank you for reading this with an open heart.</div>
       
       <div class="mt-8 text-2xl font-semibold tracking-tight">
-        People helping people helping people.<br>
+        People helping people helping people.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span><br>
         <span class="text-emerald-400">Every transaction saves lives.</span>
       </div>
       
@@ -335,5 +349,52 @@
     This is not marketing.<br>
     This is a quiet, beautiful mirror.
   </footer>
+<!-- Plain terms modal -->
+<div id="explain-modal" class="explain-modal" onclick="if (event.target.id === 'explain-modal') closeExplain()">
+  <div class="explain-card" onclick="event.stopImmediatePropagation()">
+    <span class="explain-close" onclick="closeExplain()">×</span>
+    <h4 id="explain-title"></h4>
+    <p id="explain-text"></p>
+    <div class="impact" id="explain-impact"></div>
+  </div>
+</div>
+
+<script>
+const glossary = {
+  "mercy flywheel": { title: "Mercy Flywheel", simple: "Holding the tokens automatically helps real dogs and families, and that help keeps creating more over time.", impact: "Your participation keeps real mercy moving." },
+  "soulbound": { title: "Soulbound", simple: "Permanent records on the blockchain that stay with a dog or story forever and cannot be sold.", impact: "Stories are never lost." },
+  "nibbles": { title: "$NIBBLES", simple: "The token centered on shelter dogs. It powers programs that also reach seniors, veterans, inmates, children and families through therapy, sanctuaries and companionship.", impact: "Holding it supports dogs and the people they heal." },
+  "hopeseed": { title: "$hopeseed", simple: "The token that mainly supports programs for children, families and people rebuilding.", impact: "It funds mercy for human programs." },
+  "circles of mercy": { title: "Circles of Mercy", simple: "Levels of support unlocked by holding amounts.", impact: "Holding more unlocks ongoing help." }
+};
+function showExplain(termKey) {
+  const data = glossary[termKey.toLowerCase()];
+  if (!data) return;
+  document.getElementById('explain-title').textContent = data.title;
+  document.getElementById('explain-text').textContent = data.simple;
+  document.getElementById('explain-impact').textContent = data.impact || '';
+  document.getElementById('explain-modal').classList.add('show');
+}
+function closeExplain() {
+  document.getElementById('explain-modal').classList.remove('show');
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { const m = document.getElementById('explain-modal'); if (m && m.classList.contains('show')) closeExplain(); } });
+
+function initInfoIcons() {
+  document.querySelectorAll('.info-icon').forEach(function(icon) {
+    icon.onclick = null;
+    icon.addEventListener('click', function(e) {
+      e.stopImmediatePropagation();
+      const term = icon.getAttribute('data-term') || icon.dataset.term;
+      if (term && typeof showExplain === 'function') {
+        showExplain(term);
+      }
+    });
+  });
+}
+
+initInfoIcons();
+</script>
+
 </body>
 </html>

@@ -412,6 +412,77 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
      Long elegant cycles feel expensive and alive. Hover wakes the rhythm.
   ===================================================== */
 
+/* Elegant info icons and plain terms modal for accessibility */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  font-size: 10px;
+  line-height: 1;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 9999px;
+  color: #fcd34d;
+  background: rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+}
+.info-icon:hover {
+  border-color: #fcd34d;
+  background: rgba(251, 191, 36, 0.1);
+  transform: scale(1.1);
+}
+.explain-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+}
+.explain-modal.show { display: flex; }
+.explain-card {
+  background: #0a0f1c;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 20px;
+  max-width: 480px;
+  width: 100%;
+  padding: 28px;
+  position: relative;
+}
+.explain-card h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  color: #fcd34d;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.explain-card p {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.explain-card .impact {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #10b981;
+  font-style: italic;
+}
+.explain-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 22px;
+  color: #fcd34d;
+  cursor: pointer;
+  line-height: 1;
+}
+
 </style>
 <script src="js/programs-data.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
@@ -484,7 +555,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
           <div class="absolute inset-[22px] rounded-full bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-amber-400/40">
             <img src="assets/logos/Mr.NIbbles logo.jpg" 
                  class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
-                 alt="Mr. Nibbles — $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy">
+                 alt="Mr. Nibbles, $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy">
             <!-- Subtle inner paw watermark for shape poetry -->
             <div class="absolute text-[110px] text-amber-400/10 font-bold select-none">🐾</div>
           </div>
@@ -494,7 +565,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
           <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-[3px] text-amber-400/60 font-mono bg-zinc-950 px-3 py-px rounded">LIVE • SHIBARIUM</div>
         </div>
         <p class="text-amber-200 mb-3 text-3xl md:text-4xl font-semibold tracking-tighter">Mr. Nibbles <span class="font-mono text-xl align-baseline">($NIBBLES)</span></p>
-        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction quietly becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.</p>
+        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.<span class="info-icon" data-term="nibbles" title="Tap for plain terms">ⓘ</span></p>
         <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 hover:border-amber-400/50 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm break-all font-mono transition-colors">
@@ -514,7 +585,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
           <div class="absolute inset-[22px] rounded-[42%] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-emerald-400/40">
             <img src="assets/logos/hopeseed-logo.jpg" 
                  class="w-[82%] h-[82%] object-contain scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
-                 alt="$hopeseed — the living seed token for children, families and hope" loading="lazy">
+                 alt="$hopeseed, the living seed token for children, families and hope" loading="lazy">
             <div class="absolute text-[100px] text-emerald-400/10 font-bold select-none">🌱</div>
           </div>
           <div class="absolute -inset-[2px] rounded-[42%] border border-emerald-400/30 animate-[spin_52s_linear_infinite]"></div>
@@ -522,7 +593,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
           <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-[3px] text-emerald-400/60 font-mono bg-zinc-950 px-3 py-px rounded">LIVE • SHIBARIUM</div>
         </div>
         <p class="text-emerald-300 mb-3 text-3xl md:text-4xl font-semibold tracking-tighter">$hopeseed</p>
-        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.</p>
+        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.<span class="info-icon" data-term="hopeseed" title="Tap for plain terms">ⓘ</span></p>
         <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 hover:border-emerald-400/50 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm break-all font-mono transition-colors">
@@ -531,7 +602,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
         <p class="text-xs text-emerald-300/70 mt-1.5">Treasury: shibahumanityhub.shib</p>
       </div>
     </div>
-    <p class="text-center text-xs text-emerald-200/70 mt-6">These tokens are the fuel for the self-reinforcing Mercy Flywheel - every balance you hold is already turning the engine that quietly multiplies future mercy through stories and new voluntary participants.</p>
+    <p class="text-center text-xs text-emerald-200/70 mt-6">These tokens are the fuel for the self-reinforcing Mercy Flywheel<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span>. Every balance you hold is already turning the engine that multiplies future mercy through stories and new people.</p>
   </div>
 </section>
 <!-- ALL PROGRAMS GRID + TABS + EPIC DIVIDER -->
@@ -539,7 +610,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="text-5xl font-bold">All 29 Programs</h2>
-      <p class="text-amber-200 text-2xl mt-4">Every program is a living story of mercy.<br>Click any card to read the full details.</p>
+      <p class="text-amber-200 text-2xl mt-4">Every program is a living story of mercy.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span><br>Click any card to read the full details.</p>
     </div>
 
     <!-- TABS + Phase 5 Extra Special Filters & Search -->
@@ -575,7 +646,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
     <!-- Meet the Souls tab content -->
     <div id="souls-view" class="hidden mt-8">
       <h3 class="text-3xl font-semibold text-center mb-4">Meet the Beautiful Souls in Need of Your Mercy</h3>
-      <p class="text-center text-sm text-zinc-400 mb-4">This is a quick view. For the full living experience — live clocks, every dog, deep program resonance, and real outreach tools — go to the dedicated page.</p>
+      <p class="text-center text-sm text-zinc-400 mb-4">This is a quick view. For the full living experience with live clocks, every dog, deep program resonance, and real outreach tools, go to the dedicated page.</p>
       <div class="text-center mb-8"><a href="shelters.html" class="inline-block text-red-300 hover:text-red-200 font-semibold text-xl underline">Open the full Beautiful Souls page →</a></div>
       
       <div class="mb-6 p-4 bg-red-900/20 border border-red-400/30 rounded-3xl text-center">
@@ -662,7 +733,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
         <button onclick="toggleMercyConstellation()" class="text-xs px-4 py-1 border border-white/20 rounded-2xl hover:bg-white/5">Close Constellation</button>
       </div>
       <div id="constellation-svg-container" class="w-full overflow-auto"></div>
-      <p class="text-center text-xs text-emerald-300/70 mt-4">Each node is a living story. Lines represent the unbreakable chain of mercy. When your holdings meet a Circle threshold, those stars glow and the connections pulse. This is the engine the people are building together.</p>
+      <p class="text-center text-xs text-emerald-300/70 mt-4">Each node is a living story. Lines represent the unbreakable chain of mercy. When holdings meet a Circle threshold, those stars glow and connections pulse. This is the engine the people build together.</p>
     </div>
 
     <!-- FULL GRID (now with elegant division when "All" is selected) -->
@@ -1226,6 +1297,91 @@ window.onload = function() {
   const allCircleBtn = document.getElementById('circle-all');
   if (allCircleBtn) allCircleBtn.classList.add('bg-emerald-400', 'text-black', 'border-emerald-400');
 };
+
+// === Plain Terms System (consistent with main page) ===
+const glossary = {
+  "mercy flywheel": {
+    title: "Mercy Flywheel",
+    simple: "The system where holding the tokens automatically helps real dogs and real families over time.",
+    impact: "Your holding keeps real help moving forward."
+  },
+  "soulbound": {
+    title: "Soulbound",
+    simple: "Permanent records on the blockchain that stay with a dog or story forever and cannot be sold.",
+    impact: "Stories and lives are never lost."
+  },
+  "nibbles": {
+    title: "$NIBBLES",
+    simple: "The token centered on shelter dogs. It powers programs that also reach seniors, veterans, inmates, children and families through therapy, sanctuaries and real companionship.",
+    impact: "Holding it supports dogs and the people they heal."
+  },
+  "hopeseed": {
+    title: "$hopeseed",
+    simple: "The token that mainly funds programs for children, families, and people in need.",
+    impact: "It routes support to human programs."
+  },
+  "circles of mercy": {
+    title: "Circles of Mercy",
+    simple: "Levels of support based on how much you hold - Mercy, Guardian, or Eternal.",
+    impact: "More holding unlocks bigger ongoing help."
+  },
+  "you are 1. we are all 1.": {
+    title: "You Are 1. We Are All 1.",
+    simple: "A reminder that every person holding these tokens is connected and matters.",
+    impact: "One person's action helps many."
+  },
+  "pay it forward adoption chain": {
+    title: "Pay It Forward Adoption Chain",
+    simple: "Sponsoring a dog so the guardian can care for it full time, creating a chain where one good act helps the next.",
+    impact: "Your support builds lasting connections between people and dogs."
+  }
+};
+
+function showExplain(termKey) {
+  const data = glossary[termKey.toLowerCase()];
+  if (!data) return;
+  document.getElementById('explain-title').textContent = data.title;
+  document.getElementById('explain-text').textContent = data.simple;
+  document.getElementById('explain-impact').textContent = data.impact || '';
+  document.getElementById('explain-modal').classList.add('show');
+}
+
+function closeExplain() {
+  document.getElementById('explain-modal').classList.remove('show');
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const m = document.getElementById('explain-modal');
+    if (m && m.classList.contains('show')) closeExplain();
+  }
+});
+
+function initInfoIcons() {
+  document.querySelectorAll('.info-icon').forEach(function(icon) {
+    icon.onclick = null;
+    icon.addEventListener('click', function(e) {
+      e.stopImmediatePropagation();
+      const term = icon.getAttribute('data-term') || icon.dataset.term;
+      if (term && typeof showExplain === 'function') {
+        showExplain(term);
+      }
+    });
+  });
+}
+
+initInfoIcons();
 </script>
+
+<!-- Elegant plain terms modal - same as main page for consistency -->
+<div id="explain-modal" class="explain-modal" onclick="if (event.target.id === 'explain-modal') closeExplain()">
+  <div class="explain-card" onclick="event.stopImmediatePropagation()">
+    <span class="explain-close" onclick="closeExplain()">×</span>
+    <h4 id="explain-title"></h4>
+    <p id="explain-text"></p>
+    <div class="impact" id="explain-impact"></div>
+  </div>
+</div>
+
 </body>
 </html>

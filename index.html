@@ -13,7 +13,7 @@
 
   <title>Shibahumanityhub • Mercy Flywheel • $NIBBLES &amp; $hopeseed Save Lives on Shibarium • Since 2025</title>
   
-  <meta name="description" content="People helping people helping people. Hold $NIBBLES or $hopeseed on Shibarium — every transaction quietly funds real mercy for shelter dogs, children, veterans &amp; families. Meet the beautiful souls. Soulbound passports. 29 programs. You are 1. We are all 1.">
+  <meta name="description" content="People helping people helping people. Hold $NIBBLES or $hopeseed on Shibarium. Every transaction quietly funds real mercy for shelter dogs, children, veterans and families. Meet the beautiful souls. Soulbound passports. 29 programs. You are 1. We are all 1.">
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:title" content="Shibahumanityhub • The Mercy Flywheel">
@@ -50,7 +50,7 @@
           "@type": "ImageObject",
           "url": "https://shibahumanityhub.github.io/assets/logos/shibahumanityhublogo3d-new.jpg"
         },
-        "description": "A perpetual mercy engine on Shibarium. People helping people helping people — every single transaction saves lives.",
+        "description": "A perpetual mercy engine on Shibarium. People helping people helping people. Every single transaction saves lives.",
         "sameAs": [
           "https://x.com/Shibhumanityhub"
         ],
@@ -488,6 +488,79 @@
     }
   </style>
 
+  <!-- Elegant, premium explanations system: keeps the poetic voice but makes it accessible to everyone -->
+  <style>
+    .info-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      margin-left: 4px;
+      font-size: 10px;
+      line-height: 1;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      border-radius: 9999px;
+      color: #fcd34d;
+      background: rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      vertical-align: middle;
+    }
+    .info-icon:hover {
+      border-color: #fcd34d;
+      background: rgba(251, 191, 36, 0.1);
+      transform: scale(1.1);
+    }
+    .explain-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 20px;
+    }
+    .explain-modal.show { display: flex; }
+    .explain-card {
+      background: #0a0f1c;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+    }
+    .explain-card h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      color: #fcd34d;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .explain-card p {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .explain-card .impact {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: #10b981;
+      font-style: italic;
+    }
+    .explain-close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 22px;
+      color: #fcd34d;
+      cursor: pointer;
+      line-height: 1;
+    }
+  </style>
+
   <style>
     /* Index-specific premium styles (kept after shared core for proper cascade) */
     .bone-icon { transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); display: inline-block; }
@@ -651,6 +724,7 @@
         <div class="absolute hidden group-hover:block mt-1 bg-zinc-900 border border-white/10 rounded-2xl py-2 min-w-[240px] z-[60] shadow-xl">
           <a href="all-programs.html" class="block px-4 py-2 text-sm hover:bg-white/5">All Programs</a>
           <a href="#pay-it-forward-adoption" class="block px-4 py-2 text-sm hover:bg-white/5">Pay It Forward Adoption Chain</a>
+          <a href="#glossary" class="block px-4 py-2 text-sm hover:bg-white/5 border-t border-white/10 mt-1 pt-2">Plain Terms Glossary</a>
         </div>
       </div>
       <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium">Beautiful Souls</a>
@@ -681,7 +755,7 @@
 
     <p class="mt-10 text-2xl sm:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight px-4">
       People helping people helping people.<br>
-      <span class="text-emerald-300 font-medium">Every single holding turns the mercy flywheel - quietly, compounding the system's future capacity for mercy.</span>
+      <span class="text-emerald-300 font-medium">Every single holding turns the mercy flywheel<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span>. It compounds the capacity for mercy over time.</span>
     </p>
 
     <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 px-4">
@@ -707,7 +781,7 @@
     <div class="text-center mb-12">
       <div class="inline-flex items-center gap-2 text-xs tracking-[3px] uppercase text-amber-300/70 mb-4">First Principles</div>
       <h2 class="text-5xl md:text-6xl font-bold tracking-tight">The Mercy Flywheel</h2>
-      <p class="mt-4 text-2xl text-zinc-300 max-w-3xl mx-auto">Not charity. A self-reinforcing system designed from first principles so that participation today quietly increases the system's capacity for mercy tomorrow - and the day after that, forever.</p>
+      <p class="mt-4 text-2xl text-zinc-300 max-w-3xl mx-auto">Not charity. A self-reinforcing system. When you take part, the capacity for mercy grows over time. Every day. Forever.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span></p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-10 items-start">
@@ -719,11 +793,11 @@
         </div>
         <div>
           <h3 class="text-xl font-semibold text-amber-200 mb-3">Verifiability over trust</h3>
-          <p class="text-zinc-300 leading-relaxed">On-chain records and soulbound passports turn good intentions into observable reality. A program cannot claim impact it has not delivered. The ledger does not lie, and it never forgets. This is the minimum requirement for a system that wants to scale compassion without eventually corrupting it - the same principle that makes decentralized protocols antifragile at global scale.</p>
+          <p class="text-zinc-300 leading-relaxed">On-chain records and soulbound passports turn good intentions into observable reality. A program cannot claim impact it has not delivered. The ledger does not lie, and it never forgets. This is the minimum requirement for a system that wants to scale compassion without eventually corrupting it. The same principle that makes decentralized protocols antifragile at global scale.<span class="info-icon" data-term="soulbound" title="Tap for plain terms">ⓘ</span></p>
         </div>
         <div>
           <h3 class="text-xl font-semibold text-amber-200 mb-3">Emotional contagion as engine fuel</h3>
-          <p class="text-zinc-300 leading-relaxed">Stories of real mercy are not marketing. They are the transmission mechanism. One rescued dog with a passport, one child opening a birthday gift on stream, one veteran walking with their freedom partner - these moments travel further and faster than any advertisement. They create new holders who create new stories. The loop compounds - because emotional resonance is the fuel that turns voluntary participation into a self-sustaining engine for compassion at scale.</p>
+          <p class="text-zinc-300 leading-relaxed">Stories of real mercy are not marketing. They are the transmission mechanism. One rescued dog with a passport, one child opening a birthday gift on stream, one veteran walking with their freedom partner. These moments travel further and faster than any advertisement. They create new holders who create new stories. The loop compounds because emotional resonance is the fuel that turns voluntary participation into a self-sustaining engine for compassion at scale.</p>
         </div>
       </div>
 
@@ -731,12 +805,12 @@
       <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-8 text-sm leading-relaxed text-zinc-300">
         <div class="uppercase tracking-widest text-xs text-emerald-300 mb-3">The self-reinforcing loop</div>
         <div class="space-y-4">
-          <div><span class="text-amber-300">1. Holding</span> → Your tokens quietly fund specific circles of mercy (25k, 100k, 250k thresholds already written into the programs).</div>
+          <div><span class="text-amber-300">1. Holding</span> → Your tokens fund specific circles of mercy (25k, 100k, 250k thresholds already written into the programs).</div>
           <div><span class="text-amber-300">2. Delivery</span> → Programs produce living proof: videos, updates, soulbound records, livestreamed barns.</div>
           <div><span class="text-amber-300">3. Resonance</span> → Those stories move people. Some become new holders. The network grows.</div>
           <div><span class="text-amber-300">4. Amplification</span> → More holders = more funding capacity = more stories = more resonance. The engine turns faster with each cycle - a flywheel that becomes stronger precisely because it is decentralized, voluntary, and built on verifiable truth rather than trust in institutions that can be captured.</div>
         </div>
-        <p class="mt-6 text-emerald-200/80 text-xs">This is not linear charity. It is an antifragile system designed so that success makes future success more likely. Your quiet participation today is already part of tomorrow’s larger capacity for mercy - and in the long term, a model for global coordination of compassion that cannot be captured by bureaucracy, misaligned incentives, or centralized power. Soulbound proofs endure; the flywheel turns without end.</p>
+        <p class="mt-6 text-emerald-200/80 text-xs">This is not linear charity. It is an antifragile system designed so that success makes future success more likely. Your participation today is already part of tomorrow’s larger capacity for mercy. In the long term, a model for global coordination of compassion that cannot be captured by bureaucracy, misaligned incentives, or centralized power. Soulbound proofs endure. The flywheel turns without end.</p>
         <a href="#mercy-engine" class="inline-block mt-6 text-xs tracking-widest uppercase text-white/70 hover:text-white border-b border-white/30 hover:border-white pb-px">See the engine in motion →</a>
       </div>
     </div>
@@ -814,7 +888,7 @@
             <!-- The logo itself, shaped and elevated -->
             <img src="assets/logos/Mr.NIbbles logo.jpg" 
                  class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
-                 alt="Mr. Nibbles — $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy" decoding="async">
+                 alt="Mr. Nibbles - $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy" decoding="async">
             <!-- Subtle inner paw watermark for shape poetry -->
             <div class="absolute text-[120px] text-amber-400/10 font-bold select-none">🐾</div>
           </div>
@@ -824,7 +898,7 @@
           <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-[3px] text-amber-400/60 font-mono bg-zinc-950 px-3 py-px rounded">LIVE • SHIBARIUM</div>
         </div>
         <p class="text-amber-200 mb-3 text-3xl md:text-4xl font-semibold tracking-tighter">Mr. Nibbles <span class="font-mono text-xl align-baseline">($NIBBLES)</span></p>
-        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction quietly becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.</p>
+        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.<span class="info-icon" data-term="nibbles" title="Tap for plain terms">ⓘ</span></p>
         <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 hover:border-amber-400/50 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono transition-colors">
@@ -844,14 +918,14 @@
           <div class="absolute inset-[22px] rounded-[42%] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-emerald-400/40">
             <img src="assets/logos/hopeseed-logo.jpg" 
                  class="w-[82%] h-[82%] object-contain scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
-                 alt="$hopeseed — the living seed token for children, families and hope" loading="lazy" decoding="async">
+                 alt="$hopeseed, the living seed token for children, families and hope" loading="lazy" decoding="async">
             <div class="absolute text-[110px] text-emerald-400/10 font-bold select-none">🌱</div>
           </div>
           <div class="absolute -inset-[2px] rounded-[42%] border border-emerald-400/30 animate-[spin_52s_linear_infinite]"></div>
           <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-[3px] text-emerald-400/60 font-mono bg-zinc-950 px-3 py-px rounded">LIVE • SHIBARIUM</div>
         </div>
         <p class="text-emerald-300 mb-3 text-3xl md:text-4xl font-semibold tracking-tighter">$hopeseed</p>
-        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.</p>
+        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.<span class="info-icon" data-term="hopeseed" title="Tap for plain terms">ⓘ</span></p>
         <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" 
            target="_blank" 
            class="block bg-black/60 hover:bg-black/80 hover:border-emerald-400/50 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono transition-colors">
@@ -894,7 +968,7 @@
         <p class="text-xs text-emerald-300/70 mt-1">Treasury: shibahumanityhub.shib</p>
         <div id="nibbles-balance" class="text-3xl font-semibold text-amber-100 mb-2 hidden"></div>
         <div id="nibbles-circle" class="text-sm text-amber-300 mb-4 hidden"></div>
-        <p class="text-xs text-zinc-500">When the funding comes through, these holdings quietly unlock the Circles of Mercy described in every program above.</p>
+        <p class="text-xs text-zinc-500">When the funding comes through, these holdings unlock the Circles of Mercy<span class="info-icon" data-term="circles of mercy" title="Tap for plain terms">ⓘ</span> described in every program above.</p>
       </div>
 
       <!-- $hopeseed -->
@@ -1040,14 +1114,14 @@
     <div class="text-center mb-12">
       <h2 class="text-5xl font-bold mb-4">The Perpetual Mercy Engine</h2>
       <p class="text-2xl text-amber-200 max-w-3xl mx-auto">We are not building another charity.<br>We are building a perpetual mercy engine on the blockchain.</p>
-      <p class="mt-6 text-lg text-zinc-300 max-w-2xl mx-auto">Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows. Quietly. Transparently. Forever. No middlemen. No bureaucracy. Just people helping people helping people. Children, seniors, veterans, inmates and the dogs who stand with them. Your participation does not just fund today. It quietly multiplies the engine capacity tomorrow through the stories it enables and the new holders those stories bring.</p>
+      <p class="mt-6 text-lg text-zinc-300 max-w-2xl mx-auto">Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows. Transparently. Forever. No middlemen. No bureaucracy. Just people helping people helping people. Children, seniors, veterans, inmates and the dogs who stand with them. Your participation does not just fund today. It multiplies the engine capacity tomorrow through the stories it enables and the new holders those stories bring.</p>
     </div>
 
     <!-- Global Symbolic Impact (enhanced from Mercy in Motion) -->
     <div class="mb-16">
       <div class="text-center mb-10">
         <h3 class="text-3xl font-semibold">Mercy in Motion • The Truth We Hold</h3>
-        <p class="text-amber-200 mt-2">We don’t inflate numbers. We build real mercy - one honest transaction at a time.</p>
+        <p class="text-amber-200 mt-2">We do not inflate numbers. We build real mercy, one honest transaction at a time.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-10 text-center group">
@@ -1093,8 +1167,8 @@
         </div>
         <div class="md:w-2/3">
           <p class="text-lg mb-4">"Directly sponsor one special dog and help its guardian become a full-time storyteller of love."</p>
-          <p class="mb-4">This program lets you personally sponsor one special dog and support the dedicated guardian who cares for it every single day. It turns your sponsorship into stable income for the guardian while creating beautiful, ongoing content that lets the whole world fall in love with that dog right alongside you.</p>
-          <p class="mb-4">This one is very close to our hearts. We want every sponsor to feel a real, lasting connection — not just send money and walk away. The Pay It Forward Adoption Chain turns sponsorship into a joyful, ongoing relationship that rewards the guardian for sharing the dog’s life with all of us.</p>
+          <p class="mb-4">This program lets you personally sponsor one special dog and support the dedicated guardian who cares for it every single day. It turns your sponsorship into stable income for the guardian. It creates beautiful content that lets the world fall in love with the dog.</p>
+          <p class="mb-4">This one is very close to our hearts. We want every sponsor to feel a real, lasting connection. Not just send money and walk away. The Pay It Forward Adoption Chain turns sponsorship into a joyful, ongoing relationship that rewards the guardian for sharing the dog’s life with all of us.<span class="info-icon" data-term="pay it forward adoption chain" title="Tap for plain terms">ⓘ</span></p>
           <div class="mt-4">
             <h4 class="font-semibold mb-2">Core Mechanics</h4>
             <ul class="list-disc pl-5 text-sm">
@@ -1108,6 +1182,31 @@
           <div id="chain-message" class="mt-2 text-sm text-emerald-300 hidden">Thank you. You are now part of the chain. Every holder makes it stronger. ❤️</div>
         </div>
       </div>
+    </div>
+
+    <!-- Simple, elegant Glossary - black and white plain terms so everyone can understand without losing the heart -->
+    <div id="glossary" class="max-w-4xl mx-auto px-6 py-10 border-t border-white/10">
+      <h3 class="text-2xl font-semibold tracking-tight mb-2 text-center">Plain Terms Glossary</h3>
+      <p class="text-center text-sm text-zinc-400 mb-6">Tap any term on the page for the simple version. Here are the main ones in black and white.</p>
+      <div class="grid md:grid-cols-2 gap-4 text-sm">
+        <div class="bg-zinc-900/60 border border-white/10 rounded-2xl p-4">
+          <strong class="text-amber-300">Mercy Flywheel</strong><br>
+          The system where holding the tokens automatically creates ongoing real help for dogs and families. And that help creates more good over time.
+        </div>
+        <div class="bg-zinc-900/60 border border-white/10 rounded-2xl p-4">
+          <strong class="text-amber-300">Soulbound</strong><br>
+          Permanent digital records on the blockchain that stay with a dog or story forever and can't be sold or lost.
+        </div>
+        <div class="bg-zinc-900/60 border border-white/10 rounded-2xl p-4">
+          <strong class="text-amber-300">$NIBBLES & $hopeseed</strong><br>
+          Two tokens. $NIBBLES centers on shelter dogs and the people they heal (seniors, veterans, inmates, families). $hopeseed mainly helps children and families.
+        </div>
+        <div class="bg-zinc-900/60 border border-white/10 rounded-2xl p-4">
+          <strong class="text-amber-300">Circles of Mercy</strong><br>
+          Levels of ongoing support based on how much you hold (Mercy, Guardian, Eternal).
+        </div>
+      </div>
+      <p class="text-center text-xs text-emerald-300/70 mt-6">The poetic words stay because they carry the heart. These plain versions are here so no one is left out.</p>
     </div>
 
       <!-- Interactive Perpetual Mercy Engine Visualization (Phase 3: electrified with SVG ripple river - the people co-building the flow) -->
@@ -1523,7 +1622,7 @@
       </div>
       <!-- New: direct beautiful bridge to the Souls page -->
       <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-emerald-400/20 hover:border-emerald-400/50 transition-all flex flex-col">
-        <h3 class="text-3xl mb-3 tracking-tight">Meet the Beautiful Souls — search by city, state, breed</h3>
+        <h3 class="text-3xl mb-3 tracking-tight">Meet the Beautiful Souls. Search by city, state, breed.</h3>
         <p class="text-zinc-400 mb-auto leading-snug">Real dogs on the clock. Real programs built to pull them from the edge. This is where the flywheel becomes faces.</p>
         <a href="shelters.html" 
            class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl w-full justify-center tracking-tighter">
@@ -1653,7 +1752,7 @@ function showSaveSoulModal(dog, shelter) {
 
       <div class="grid sm:grid-cols-2 gap-4 mb-8">
         <button onclick="simulateRippleSave('${dog}', '${shelter}'); hideModal();" 
-                class="premium-sponsor-btn text-xl px-9 py-6 rounded-3xl w-full">Save Soul — 25k $hopeseed</button>
+                class="premium-sponsor-btn text-xl px-9 py-6 rounded-3xl w-full">Save Soul: 25k $hopeseed</button>
         <button onclick="copyShelterContact('${shelter}')" 
                 class="bg-white/5 hover:bg-white/10 border border-white/20 text-xl px-9 py-6 rounded-3xl w-full transition">Contact Shelter Directly</button>
       </div>
@@ -2571,7 +2670,7 @@ function updatePersonalView(nBal, hBal, isSim) {
 
   if (nBal >= MERCY_THRESHOLDS.MERCY) {
     const c = (nBal >= MERCY_THRESHOLDS.ETERNAL) ? 'Eternal Guardian' : (nBal >= MERCY_THRESHOLDS.GUARDIAN ? 'Guardian' : 'Mercy');
-    html += `With ${nBal.toLocaleString()} $NIBBLES you sit in the <strong>${c} Circle</strong>. This quietly supports senior dogs, therapy visits, and freedom partners. `;
+    html += `With ${nBal.toLocaleString()} $NIBBLES you sit in the <strong>${c} Circle</strong>. This quietly supports senior dogs, therapy for veterans, and real work with inmates and families. `;
     affected = programs.filter(p => p.category === '$NIBBLES').slice(0, 4);
   }
   if (hBal >= MERCY_THRESHOLDS.MERCY) {
@@ -2580,7 +2679,7 @@ function updatePersonalView(nBal, hBal, isSim) {
     affected = affected.concat(programs.filter(p => p.category === '$hopeseed').slice(0, 4));
   }
 
-  if (!html) html = 'Every holding sends gentle ripples. Navigate the programs, filter by your circles, discover how your quiet support connects everything. We are building this together — it feels rewarding to explore.';
+  if (!html) html = 'Every holding sends gentle ripples. Navigate the programs, filter by your circles, discover how your quiet support connects everything. We are building this together. It feels rewarding to explore.';
   impact.innerHTML = html;
 
   // Phase 3: richer program list with short impact tease + direct modal
@@ -2633,7 +2732,7 @@ function initMercyEngineDashboard() {
   populateEngineNodes();
   // Initial neutral message
   const impact = document.getElementById('personal-impact');
-  if (impact) impact.innerHTML = 'Every holding sends gentle ripples. Navigate the programs, filter by your circles, discover how your quiet support connects everything. We are building this together — it feels rewarding to explore.';
+  if (impact) impact.innerHTML = 'Every holding sends gentle ripples. Navigate the programs, filter by your circles, discover how your quiet support connects everything. We are building this together. It feels rewarding to explore.';
   // Make sure viz source has loving default
   const src = document.getElementById('viz-source');
   if (src) src.textContent = 'A quiet act of mercy';
@@ -2703,6 +2802,82 @@ if (window.initPremiumAnimations) {
   setTimeout(() => window.initPremiumAnimations(), 50);
 }
 
+// === Elegant Plain Terms System (keeps the poetic heart, makes it reachable for everyone) ===
+const glossary = {
+  "mercy flywheel": {
+    title: "Mercy Flywheel",
+    simple: "A self-reinforcing system. When you hold or use the tokens, a small part automatically helps real dogs and real families, and that help creates more good over time.",
+    impact: "Your quiet participation keeps real mercy turning without extra effort from you."
+  },
+  "soulbound": {
+    title: "Soulbound",
+    simple: "Permanent digital records on the blockchain that stay attached to a specific dog or story forever. They cannot be sold or transferred away.",
+    impact: "No dog is ever forgotten. Their full life travels with them."
+  },
+  "circles of mercy": {
+    title: "Circles of Mercy",
+    simple: "Different levels of ongoing help unlocked by how much of the tokens someone holds. Mercy (starter), Guardian (bigger support), Eternal (long-term legacy).",
+    impact: "Holding more quietly unlocks larger or longer-lasting help for the programs."
+  },
+  "you are 1. we are all 1.": {
+    title: "You Are 1. We Are All 1.",
+    simple: "A simple way of saying that every single holder is connected and matters. One person's participation ripples out to help real lives.",
+    impact: "You are already part of something bigger than any one person."
+  },
+  "pay it forward adoption chain": {
+    title: "Pay It Forward Adoption Chain",
+    simple: "A direct way to sponsor a specific dog. Part of the money supports the person caring for the dog, and the support creates a chain where one good act helps the next dog and the next.",
+    impact: "Your sponsorship helps one dog today and keeps helping others through the chain."
+  },
+  "nibbles": {
+    title: "$NIBBLES",
+    simple: "The token centered on shelter dogs. It powers real programs that also reach the people who need them most: seniors, veterans, inmates, children and families. Through therapy dogs, sanctuaries, and lasting companionship.",
+    impact: "Holding it quietly supports dogs and the humans they heal."
+  },
+  "hopeseed": {
+    title: "$hopeseed",
+    simple: "The other token. It mainly powers programs that help children, families, and people rebuilding their lives.",
+    impact: "Holding it quietly routes support to human programs."
+  }
+};
+
+function showExplain(termKey) {
+  const data = glossary[termKey.toLowerCase()];
+  if (!data) return;
+  document.getElementById('explain-title').textContent = data.title;
+  document.getElementById('explain-text').textContent = data.simple;
+  document.getElementById('explain-impact').textContent = data.impact || '';
+  document.getElementById('explain-modal').classList.add('show');
+}
+
+function closeExplain() {
+  document.getElementById('explain-modal').classList.remove('show');
+}
+
+// Attach simple keyboard escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const m = document.getElementById('explain-modal');
+    if (m && m.classList.contains('show')) closeExplain();
+  }
+});
+
+function initInfoIcons() {
+  document.querySelectorAll('.info-icon').forEach(function(icon) {
+    // clear any leftover inline to avoid double
+    icon.onclick = null;
+    icon.addEventListener('click', function(e) {
+      e.stopImmediatePropagation();
+      const term = icon.getAttribute('data-term') || icon.dataset.term;
+      if (term && typeof showExplain === 'function') {
+        showExplain(term);
+      }
+    });
+  });
+}
+
+initInfoIcons();
+
 function joinChain() {
   const msg = document.getElementById('chain-message');
   if (msg) {
@@ -2718,6 +2893,16 @@ function joinChain() {
   }, 300);
 }
 </script>
+<!-- Accessible explanations modal - keeps the beautiful voice but makes meaning available to everyone -->
+<div id="explain-modal" class="explain-modal" onclick="if (event.target.id === 'explain-modal') closeExplain()">
+  <div class="explain-card" onclick="event.stopImmediatePropagation()">
+    <span class="explain-close" onclick="closeExplain()">×</span>
+    <h4 id="explain-title"></h4>
+    <p id="explain-text"></p>
+    <div class="impact" id="explain-impact"></div>
+  </div>
+</div>
+
 </body>
 </html>
 
