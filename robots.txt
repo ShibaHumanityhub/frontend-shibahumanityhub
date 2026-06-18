@@ -1,7 +1,40 @@
+# Shibahumanityhub Robots.txt — Optimized for Google, Bing, all engines + AI crawlers (2026)
+# Mission: People helping people helping people. Every transaction saves lives.
+
 User-agent: *
 Allow: /
 
-# The Mercy Flywheel — people helping people helping people
-# Every holding quietly turns the engine of compassion.
+# Explicitly welcome major engines and AI systems
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# AI / LLM crawlers (2026 best practice)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: *
+Disallow: /assets/videos/   # Heavy media — crawl via sitemap/images only
+Disallow: /*.mp4$
 
 Sitemap: https://shibahumanityhub.github.io/sitemap.xml
+
+# Optional: llms.txt for AI models (add this file at root)
+# See llms.txt for structured content guidance for ChatGPT, Perplexity, Claude etc.
