@@ -256,6 +256,37 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
       outline-color: #34d399;
       box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.25);
     }
+
+    /* === PREMIUM TOKEN MEDALLIONS (matching index.html exactly for shape + color) ===
+       NIBBLES: full circular paw-coin with amber rings
+       $hopeseed: organic 42% ellipse with emerald rings
+       Bilyeu depth + Elon/Vitalik precision on both pages now */
+    .token-medallion {
+      transform-style: preserve-3d;
+      transition: transform 0.18s cubic-bezier(0.23, 1.0, 0.32, 1);
+      will-change: transform;
+    }
+    .token-medallion img {
+      transition: filter 0.6s ease, transform 0.7s cubic-bezier(0.23,1,0.32,1);
+    }
+    .group:hover .token-medallion img {
+      filter: brightness(1.08) contrast(1.03);
+    }
+    .token-card {
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.3s;
+    }
+    .token-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(251,191,36,0.1);
+      border-color: rgba(251,191,36,0.35);
+    }
+    .token-card .token-medallion {
+      filter: drop-shadow(0 25px 55px rgba(0,0,0,0.55));
+    }
+    .token-card.hopeseed-card:hover {
+      box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(52,211,153,0.1);
+      border-color: rgba(52,211,153,0.35);
+    }
   </style>
 
  <style>
@@ -417,32 +448,62 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
     <h2 class="text-5xl font-bold mb-16">Tokens Live on Shibarium</h2>
     
     <div class="flex flex-col md:flex-row gap-12 justify-center items-center max-w-5xl mx-auto">
-      <!-- Mr. Nibbles -->
-      <div class="token-card bg-zinc-800 rounded-3xl p-10 md:p-12 text-center w-full max-w-[420px] md:max-w-none">
-        <img src="assets/logos/Mr.NIbbles%20logo.jpg" 
-             class="mx-auto mb-8 w-64 h-64 md:w-72 md:h-72 object-contain rounded-3xl" 
-             alt="Mr. Nibbles" loading="lazy">
-        <p class="text-amber-200 mb-3 text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
-        <p class="text-zinc-400 mb-8 text-lg">Every transaction quietly becomes mercy for dogs who once had none.</p>
+      <!-- Mr. Nibbles - matching index.html premium medallion shape (circular paw-coin + amber rings) -->
+      <div class="token-card group bg-zinc-800/80 backdrop-blur-xl border border-amber-400/20 rounded-3xl p-8 md:p-12 text-center w-full max-w-[420px] md:max-w-none relative overflow-hidden"
+           onmousemove="tiltMedallion(this, event)" onmouseleave="resetMedallion(this)">
+        <div class="token-medallion mx-auto mb-8 relative w-64 h-64 md:w-72 md:h-72">
+          <!-- Deep outer bevel + amber mercy ring -->
+          <div class="absolute inset-0 rounded-full border-[14px] border-amber-900/60"></div>
+          <div class="absolute inset-[10px] rounded-full border border-amber-400/70 shadow-[0_0_40px_-8px_rgb(251,191,36),inset_0_0_60px_rgba(251,191,36,0.15)]"></div>
+          <!-- Inner coin platform -->
+          <div class="absolute inset-[22px] rounded-full bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-amber-400/40">
+            <img src="assets/logos/Mr.NIbbles logo.jpg" 
+                 class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
+                 alt="Mr. Nibbles — $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy">
+            <!-- Subtle inner paw watermark for shape poetry -->
+            <div class="absolute text-[110px] text-amber-400/10 font-bold select-none">🐾</div>
+          </div>
+          <!-- Delicate rotating mercy halo -->
+          <div class="absolute -inset-[2px] rounded-full border border-amber-400/30 animate-[spin_45s_linear_infinite]"></div>
+          <!-- Micro etched label -->
+          <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-[3px] text-amber-400/60 font-mono bg-zinc-950 px-3 py-px rounded">LIVE • SHIBARIUM</div>
+        </div>
+        <p class="text-amber-200 mb-3 text-3xl md:text-4xl font-semibold tracking-tighter">Mr. Nibbles <span class="font-mono text-xl align-baseline">($NIBBLES)</span></p>
+        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction quietly becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.</p>
         <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" 
            target="_blank" 
-           class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm break-all">
+           class="block bg-black/60 hover:bg-black/80 hover:border-amber-400/50 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm break-all font-mono transition-colors">
           0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF
         </a>
+        <p class="text-xs text-emerald-300/70 mt-1.5">Treasury: shibahumanityhub.shib</p>
       </div>
 
-      <!-- $hopeseed -->
-      <div class="token-card bg-zinc-800 rounded-3xl p-10 md:p-12 text-center w-full max-w-[420px] md:max-w-none">
-        <img src="assets/logos/hopeseed-logo.jpg" 
-             class="mx-auto mb-8 w-64 h-64 md:w-72 md:h-72 object-contain rounded-3xl" 
-             alt="hopeseed" loading="lazy">
-        <p class="text-emerald-300 mb-3 text-4xl font-semibold">$hopeseed</p>
-        <p class="text-zinc-400 mb-8 text-lg">Every transaction plants a seed of hope for children who need it most.</p>
+      <!-- $hopeseed - matching index.html premium medallion shape (organic ellipse + emerald rings) -->
+      <div class="token-card group bg-zinc-800/80 backdrop-blur-xl border border-emerald-400/20 rounded-3xl p-8 md:p-12 text-center w-full max-w-[420px] md:max-w-none relative overflow-hidden hopeseed-card"
+           onmousemove="tiltMedallion(this, event)" onmouseleave="resetMedallion(this)">
+        <div class="token-medallion mx-auto mb-8 relative w-64 h-64 md:w-72 md:h-72">
+          <!-- Outer relic rings: organic seed / hope ellipse -->
+          <div class="absolute inset-0 rounded-[42%] border-[14px] border-emerald-900/60"></div>
+          <div class="absolute inset-[10px] rounded-[42%] border border-emerald-400/70 shadow-[0_0_40px_-8px_rgb(52,211,153),inset_0_0_60px_rgba(52,211,153,0.15)]"></div>
+          <!-- Inner platform -->
+          <div class="absolute inset-[22px] rounded-[42%] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-emerald-400/40">
+            <img src="assets/logos/hopeseed-logo.jpg" 
+                 class="w-[82%] h-[82%] object-contain scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
+                 alt="$hopeseed — the living seed token for children, families and hope" loading="lazy">
+            <div class="absolute text-[100px] text-emerald-400/10 font-bold select-none">🌱</div>
+          </div>
+          <div class="absolute -inset-[2px] rounded-[42%] border border-emerald-400/30 animate-[spin_52s_linear_infinite]"></div>
+          <!-- Micro etched label -->
+          <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-[3px] text-emerald-400/60 font-mono bg-zinc-950 px-3 py-px rounded">LIVE • SHIBARIUM</div>
+        </div>
+        <p class="text-emerald-300 mb-3 text-3xl md:text-4xl font-semibold tracking-tighter">$hopeseed</p>
+        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.</p>
         <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" 
            target="_blank" 
-           class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm break-all">
+           class="block bg-black/60 hover:bg-black/80 hover:border-emerald-400/50 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm break-all font-mono transition-colors">
           0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833
         </a>
+        <p class="text-xs text-emerald-300/70 mt-1.5">Treasury: shibahumanityhub.shib</p>
       </div>
     </div>
     <p class="text-center text-xs text-emerald-200/70 mt-6">These tokens are the fuel for the self-reinforcing Mercy Flywheel - every balance you hold is already turning the engine that quietly multiplies future mercy through stories and new voluntary participants.</p>
@@ -1084,6 +1145,27 @@ function hideModal() {
 
 function sponsorProgram() {
   alert("❤️ Thank you so much!\n\nYour support is already changing lives.\n\nTogether we are building real mercy.");
+}
+
+// === PREMIUM MEDALLION 3D TILT (matching index.html exactly) ===
+function tiltMedallion(el, e) {
+  const rect = el.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) - 0.5;
+  const y = ((e.clientY - rect.top) / rect.height) - 0.5;
+  const rotX = (-y * 11).toFixed(1);
+  const rotY = (x * 15).toFixed(1);
+  const med = el.querySelector('.token-medallion');
+  if (med) {
+    med.style.transform = `perspective(1100px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+  }
+}
+function resetMedallion(el) {
+  const med = el.querySelector('.token-medallion');
+  if (med) {
+    med.style.transition = 'transform 0.65s cubic-bezier(0.23, 1.0, 0.32, 1)';
+    med.style.transform = 'perspective(1100px) rotateX(0deg) rotateY(0deg)';
+    setTimeout(() => { if (med) med.style.transition = 'transform 0.18s cubic-bezier(0.23, 1.0, 0.32, 1)'; }, 650);
+  }
 }
 
 window.onload = function() {

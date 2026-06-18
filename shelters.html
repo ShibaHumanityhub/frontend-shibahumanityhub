@@ -150,6 +150,71 @@
       position: relative;
       background: #111827;
     }
+
+    /* Super skinny mobile perfection ( <360px and below ) - timeline + passports look premium, tight, "mobile sick" */
+    @media (max-width: 360px) {
+      .souls-timeline { padding-left: 24px; }
+      .soul-entry { gap: 0.6rem; margin-bottom: 1rem; }
+      .soul-entry .soul-visual { width: 64px; height: 64px; border-width: 2px; }
+      .soul-name { font-size: 1.25rem; letter-spacing: -1.2px; }
+      .soul-clock { font-size: 1.45rem; }
+      .trait-chip { font-size: 0.55rem; padding: 1px 5px; }
+      .soul-content p { font-size: 0.75rem; line-height: 1.25; }
+      .soul-save-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+      .soul-entry .soul-visual + .soul-content { font-size: 0.9rem; }
+    }
+
+    /* Ultra premium skinny mobile (<360px) - timeline + passports "mobile sick" (compact, elegant, no breakage, touch-friendly) */
+    @media (max-width: 360px) {
+      .souls-timeline { padding-left: 12px; }
+      .soul-entry { gap: 0.35rem; margin-bottom: 0.6rem; }
+      .soul-entry .soul-visual { width: 44px; height: 44px; border-width: 1px; }
+      .soul-name { font-size: 0.95rem; letter-spacing: -0.6px; }
+      .soul-clock { font-size: 1rem; }
+      .trait-chip { font-size: 0.42rem; padding: 0 2px; }
+      .soul-content p { font-size: 0.6rem; line-height: 1.1; }
+      .soul-save-btn { padding: 0.25rem 0.45rem; font-size: 0.6rem; }
+      .soul-entry .soul-visual + .soul-content { font-size: 0.75rem; }
+      /* Passports: elegant single stack, generous touch areas */
+      .soul-passport-card {
+        padding: 0.45rem !important;
+        border-radius: 0.6rem;
+      }
+      .soul-passport-card .passport-header { font-size: 0.5rem !important; }
+      .soul-passport-card h4 { font-size: 0.85rem !important; }
+      .soul-passport-card .metadata { font-size: 0.55rem !important; }
+    }
+
+    /* High-end soulbound NFT maker luxury (premium digital passport maker studio - inspired by luxury provenance NFTs like high-end watch digital passports + soulbound credential UIs: elegant foil stamps, provenance, bound-to-soul precision + heartfelt mercy) */
+    .luxury-passport {
+      background: #020617;
+      border: 2px solid #34d399;
+      box-shadow: 0 0 0 1px rgba(52,211,153,0.2), inset 0 0 60px rgba(52,211,153,0.05);
+      position: relative;
+    }
+    .luxury-passport::before {
+      content: 'SOULBOUND';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: #34d399;
+      border: 1px solid rgba(52,211,153,0.5);
+      padding: 1px 4px;
+      border-radius: 1px;
+    }
+
+    .passport-holder {
+      border: 1px solid rgba(52,211,153,0.3);
+      background: linear-gradient(145deg, rgba(16,185,129,0.05), transparent);
+      transition: all 0.2s ease;
+    }
+    .passport-holder:hover {
+      border-color: rgba(52,211,153,0.6);
+      box-shadow: 0 0 15px -3px rgba(52,211,153,0.2);
+      transform: translateY(-1px);
+    }
     .soul-entry .soul-visual img {
       width: 100%;
       height: 100%;
@@ -317,7 +382,7 @@
     <div class="text-xs text-zinc-400" id="filter-count">8 souls on the clock</div>
   </div>
 
-  <!-- Elegant multi-category filters -->
+  <!-- Dog characteristics filters (age, energy, temperament, programs - separate from locations) -->
   <div class="flex flex-wrap gap-2" id="soul-filters">
     <!-- Urgency -->
     <button onclick="toggleFilter(this, 'urgent')" class="filter-btn px-4 py-1.5 text-xs rounded-2xl border border-white/20 hover:border-red-400/70 flex items-center gap-1.5" data-filter="urgent"><i class="fa-solid fa-clock text-red-400"></i> <span>Urgent &lt;36h</span></button>
@@ -332,16 +397,24 @@
     <button onclick="toggleFilter(this, 'needs-training')" class="filter-btn px-4 py-1.5 text-xs rounded-2xl border border-white/20 hover:border-violet-400/70 flex items-center gap-1.5" data-filter="needs-training"><i class="fa-solid fa-graduation-cap text-violet-400"></i> <span>Needs Training</span></button>
     <button onclick="toggleFilter(this, 'tough-love')" class="filter-btn px-4 py-1.5 text-xs rounded-2xl border border-white/20 hover:border-rose-400/70 flex items-center gap-1.5" data-filter="tough-love"><i class="fa-solid fa-shield text-rose-400"></i> <span>Tough Love</span></button>
 
-    <!-- Shelter Location / Map filters -->
-    <button onclick="toggleFilter(this, 'California')" class="filter-btn px-4 py-1.5 text-xs rounded-2xl border border-white/20 hover:border-blue-400/70 flex items-center gap-1.5" data-filter="California"><i class="fa-solid fa-map-marker-alt text-blue-400"></i> <span>California</span></button>
-    <button onclick="toggleFilter(this, 'Texas')" class="filter-btn px-4 py-1.5 text-xs rounded-2xl border border-white/20 hover:border-blue-400/70 flex items-center gap-1.5" data-filter="Texas"><i class="fa-solid fa-map-marker-alt text-blue-400"></i> <span>Texas</span></button>
-    <button onclick="toggleFilter(this, 'Nevada')" class="filter-btn px-4 py-1.5 text-xs rounded-2xl border border-white/20 hover:border-blue-400/70 flex items-center gap-1.5" data-filter="Nevada"><i class="fa-solid fa-map-marker-alt text-blue-400"></i> <span>Nevada</span></button>
-
     <!-- Program resonance quick -->
     <button onclick="toggleFilter(this, 'barn')" class="filter-btn px-4 py-1.5 text-xs rounded-2xl border border-white/20 hover:border-amber-400/70 flex items-center gap-1.5" data-filter="barn"><i class="fa-solid fa-home text-amber-400"></i> <span>Barn Ready</span></button>
     <button onclick="toggleFilter(this, 'hospice')" class="filter-btn px-4 py-1.5 text-xs rounded-2xl border border-white/20 hover:border-red-400/70 flex items-center gap-1.5" data-filter="hospice"><i class="fa-solid fa-dove text-red-400"></i> <span>Rainbow Bridge</span></button>
 
     <button onclick="resetFilters()" class="ml-auto text-xs px-4 py-1.5 rounded-2xl border border-white/10 hover:bg-white/5 text-zinc-400">Clear all</button>
+  </div>
+
+  <!-- LOCATIONS - SEPARATE as requested (Canada & USA all provinces/states) - distinct from dog traits/age/energy/breed filters -->
+  <div class="mb-4">
+    <div class="flex items-center gap-2 mb-1">
+      <span class="text-xs tracking-[2.5px] text-blue-300/70">LOCATIONS (USA &amp; CANADA - all provinces &amp; states)</span>
+      <button onclick="clearLocations()" class="text-[10px] px-2 py-0.5 border border-white/10 rounded hover:bg-white/5">clear</button>
+    </div>
+    <input id="location-search" type="text" placeholder="Search states/provinces..." oninput="filterLocationChips(this.value)" class="w-full max-w-xs bg-zinc-900 border border-white/10 focus:border-blue-400/60 rounded px-3 py-1 text-xs mb-1">
+    <div class="text-[9px] text-blue-300/60 mb-1">United States</div>
+    <div id="us-locations" class="flex flex-wrap gap-1 max-h-20 overflow-auto mb-2 border border-white/10 p-1 rounded"></div>
+    <div class="text-[9px] text-blue-300/60 mb-1">Canada</div>
+    <div id="canada-locations" class="flex flex-wrap gap-1 max-h-20 overflow-auto border border-white/10 p-1 rounded"></div>
   </div>
 </section>
 
@@ -376,13 +449,13 @@
            class="w-full bg-zinc-900 border border-white/10 focus:border-emerald-400/60 rounded-2xl px-5 py-3 text-sm placeholder:text-zinc-500">
   </div>
 
-  <!-- View Toggle: Shelters/Euthanasia/Adoption vs Soulbound NFTs - elegant dropdown-like tabs -->
-  <div class="flex justify-center mb-8">
-    <div class="inline-flex bg-zinc-900 border border-white/10 rounded-3xl p-1 text-sm">
+  <!-- View Toggle: Super premium, mobile-optimized tabs -->
+  <div class="flex justify-center mb-6 px-2">
+    <div class="inline-flex bg-zinc-900/90 border border-white/10 rounded-3xl p-1 text-xs sm:text-sm w-full max-w-md">
       <button onclick="switchView('timeline')" id="view-timeline" 
-              class="px-6 py-2 rounded-3xl font-medium transition active bg-white/10 text-white">The Souls<br><span class="text-[10px] opacity-70">Shelters • Euthanasia • Adoption</span></button>
+              class="flex-1 px-3 sm:px-5 py-2 rounded-3xl font-medium transition active bg-white/10 text-white">The Souls<br><span class="text-[9px] sm:text-[10px] opacity-70 tracking-wider">SHELTERS • TIME • ADOPTION</span></button>
       <button onclick="switchView('passports')" id="view-passports" 
-              class="px-6 py-2 rounded-3xl font-medium transition text-emerald-200 hover:bg-white/5">Soulbound Passports<br><span class="text-[10px] opacity-70">Eternal Legacies &amp; Rescue NFTs</span></button>
+              class="flex-1 px-3 sm:px-5 py-2 rounded-3xl font-medium transition text-emerald-200 hover:bg-white/5">Soulbound Maker<br><span class="text-[9px] sm:text-[10px] opacity-70 tracking-wider">NFT PASSPORTS • LEGACY</span></button>
     </div>
   </div>
 
@@ -480,6 +553,14 @@
   </div>
 </div>
 
+<!-- SOULBOUND PASSPORT MODAL - Cool "holder" that opens to the eternal story -->
+<div id="passport-modal" onclick="if(event.target===this) hidePassportModal()" class="hidden fixed inset-0 bg-black/95 z-[140] flex items-center justify-center p-4">
+  <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-950 max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border-2 border-emerald-400/40 relative overflow-hidden">
+    <button onclick="hidePassportModal()" class="absolute top-4 right-4 text-3xl text-zinc-400 hover:text-white z-10">×</button>
+    <div id="passport-modal-content" class="p-8"></div>
+  </div>
+</div>
+
 <script>
 // === THE SOULS DATA - honest, specific, resonant with programs ===
 const souls = [
@@ -505,7 +586,7 @@ const souls = [
     age: "2yo",
     breed: "German Shepherd",
     shelter: "Happy Paws Shelter (CA)",
-    location: "California",
+    location: "Ontario",
     hoursLeft: 29,
     category: "barn",
     bio: "Owner surrender. Perfect leash manners, loves other dogs. Space pressure at the shelter means she is running out of time.",
@@ -537,7 +618,7 @@ const souls = [
     age: "11yo",
     breed: "Beagle Mix",
     shelter: "Second Chance Rescue (TX)",
-    location: "Texas",
+    location: "Quebec",
     hoursLeft: 18,
     category: "hospice",
     bio: "Terminal diagnosis but still wags for every volunteer. She deserves a dignified final chapter — pain-free days, soft beds, and someone holding her paw at the end.",
@@ -585,7 +666,7 @@ const souls = [
     age: "13yo",
     breed: "Cocker Spaniel",
     shelter: "Golden Years Sanctuary",
-    location: "California",
+    location: "Alberta",
     hoursLeft: 23,
     category: "hospice",
     bio: "Blind in one eye, still gives kisses. This is her last chapter. Rainbow Bridge is ready when she is — she just shouldn’t cross it alone in a kennel.",
@@ -613,7 +694,23 @@ const souls = [
   }
 ];
 
+const dogStories = {
+  1: "Max was a fighter from the streets of California. After months surviving on his own, this resilient Pit Mix was rescued with a heart full of love for children but burdened by heartworm and the shadow of euthanasia. In his final hours at the shelter, the mercy chain intervened. Today, his story is one of quiet strength and second chances — a living testament that no soul is beyond redemption when people choose to act.",
+  2: "Luna's journey began with an owner surrender that left her in a crowded California shelter. This intelligent German Shepherd, barely two years old, carried the weight of abandonment but never lost her gentle spirit. With space running out and time against her, the call for mercy arrived just in time. Her passport now holds the promise of a family that will run beside her, honoring the loyalty she so freely gives.",
+  3: "Rocky, the loyal Labrador from Texas, gave his best years to a family that could no longer keep him. At seven, with a graying muzzle and a heart that still beats for companionship, he faced the cold reality of shelter life for large breeds. The mercy flywheel turned for him — a senior hero whose story reminds us that loyalty deserves to be repaid with peace and a quiet yard where he can finally rest.",
+  4: "Willow's final chapter was written in the Texas shelter where terminal illness met an unbreakable spirit. This eleven-year-old Beagle Mix, nearly blind and with little time left, wagged for every volunteer who passed. Rainbow Bridge called, but not before the programs of mercy wrapped around her like a warm blanket. Her soulbound record stands as a beacon: even in the end, dignity and love can be given.",
+  5: "Nova arrived in a box behind a gas station on the California coast — a nine-month-old Terrier Mix learning to trust for the first time. Her small frame held a lifetime of potential that almost slipped away. Pulled from the brink, her passport captures the pure joy of a second beginning. She is proof that the smallest souls can carry the biggest stories of hope.",
+  6: "Bear, the gentle giant Mastiff from Nevada, was misunderstood because of his size. Six years old and thinking he was a lapdog, he faced the stigma that dooms so many large breeds. Shelter crowding threatened to erase his loving heart. The chain of mercy saw past the bulk to the soul inside. His eternal record now honors the truth that size never measures the capacity to love.",
+  7: "Maple, a thirteen-year-old Cocker Spaniel in California, crossed into her golden years with one eye and a spirit that still gave kisses. Terminal and alone in the shelter, she was running out of time. Rainbow Bridge Hospice reached her first. Her passport is a quiet masterpiece — every wag, every memory, bound forever so that her light continues long after she crosses over.",
+  8: "Finn escaped a bad situation in the Nevada desert and survived on pure will. This three-year-old Husky Mix arrived high-energy, needing purpose and a family willing to run with his wild heart. The barn life or working home waited just beyond the clock. His soulbound passport now carries the story of survival turned into service — a reminder that every rescue carries the power to rescue others in return."
+};
+
+const usStates = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+const canadaProvinces = ["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Nova Scotia","Ontario","Prince Edward Island","Quebec","Saskatchewan","Northwest Territories","Nunavut","Yukon"];
+
 let activeFilters = new Set();
+let activeLocations = new Set();
 let currentView = 'timeline'; // 'timeline' or 'passports'
 
 // === VIEW SWITCHER (Shelters/Euthanasia/Adoption vs Soulbound NFTs) ===
@@ -645,7 +742,7 @@ function renderSouls() {
 
   if (activeFilters.size > 0) {
     filtered = souls.filter(soul => {
-      return Array.from(activeFilters).every(f => {
+      const passesTraits = activeFilters.size === 0 || Array.from(activeFilters).every(f => {
         if (f === 'urgent') return soul.hoursLeft < 36;
         if (f === 'senior') return soul.stage === 'senior';
         if (f === 'puppy') return soul.stage === 'puppy';
@@ -655,10 +752,10 @@ function renderSouls() {
         if (f === 'tough-love') return (soul.temperament || []).includes('tough-love');
         if (f === 'barn') return soul.category.includes('barn');
         if (f === 'hospice') return soul.category.includes('hospice');
-        // Shelter location filters
-        if (['California', 'Texas', 'Nevada'].includes(f)) return soul.location === f;
         return true;
       });
+      const passesLoc = activeLocations.size === 0 || activeLocations.has(soul.location);
+      return passesTraits && passesLoc;
     });
   }
 
@@ -732,13 +829,21 @@ function renderTimeline(filtered, container) {
           ${soul.programNames.map((pn, i) => `<span onclick="event.stopImmediatePropagation(); openProgramResonance(${soul.programs[i]})" class="mercy-pill cursor-pointer">${pn}</span>`).join('')}
         </div>
 
+        <!-- Cool Passport Holder Feature - Bilyeu deep legacy + Vitalik soulbound precision + Elon high-tech elegance -->
+        <div class="passport-holder mt-4 p-2 border border-emerald-400/30 rounded-xl bg-zinc-950/50 hover:bg-emerald-900/10 cursor-pointer transition-all group flex items-center gap-3" onclick="openSoulboundPassport(${soul.id})">
+          <div class="w-8 h-8 flex-shrink-0 border-2 border-emerald-400/60 rounded flex items-center justify-center text-lg group-hover:scale-110 transition">📖</div>
+          <div class="flex-1 min-w-0">
+            <div class="text-emerald-300 text-xs font-semibold tracking-wider">SOULBOUND PASSPORT HOLDER</div>
+            <div class="text-[10px] text-emerald-300/70">Click to open the eternal record • ${soul.name}'s living legacy</div>
+          </div>
+          <div class="text-emerald-400 text-xs opacity-60 group-hover:opacity-100">OPEN →</div>
+        </div>
+
         <div class="mt-5 flex items-center gap-3">
           <button onclick="event.stopImmediatePropagation(); saveSoul(${soul.id})" 
                   class="soul-save-btn flex-1 sm:flex-none px-8 py-3 text-sm font-bold rounded-3xl">
             SAVE THIS SOUL
           </button>
-          <button onclick="event.stopImmediatePropagation(); viewSoulboundPassport(${soul.id})" 
-                  class="px-4 py-2 text-xs border border-emerald-400/40 hover:bg-emerald-900/20 rounded-2xl text-emerald-300">View Soulbound Passport</button>
           <div class="text-[10px] text-emerald-300/60">• costs nothing extra</div>
         </div>
       </div>
@@ -751,28 +856,28 @@ function renderTimeline(filtered, container) {
 }
 
 function renderPassports(filtered, container) {
-  // Beautiful Soulbound Passports view — integrated with the program
+  // HIGH-END SOULBOUND NFT MAKER STUDIO — next level for soulbound passports (Rescue Passport maker)
+  // World-wide inspiration: Luxury digital passport UIs (e.g. high-end watch provenance NFTs like Panerai/LV, premium NFT identity/credential makers) — elegant foil, embossed stamps, provenance chain, "bound to soul" precision + heartfelt mercy legacy. Clean dark luxury with gold/emerald accents, subtle holo, maker preview studio feel.
   const header = document.createElement('div');
   header.className = 'col-span-full text-center mb-8 bg-zinc-900/60 border border-emerald-400/20 rounded-3xl p-8';
   header.innerHTML = `
-    <div class="text-emerald-400 text-xs tracking-[3px] mb-1">SOULBOUND LEGACY • $NIBBLES POWERED</div>
-    <h3 class="text-4xl font-bold tracking-tighter mb-3">Rescue Passport Soulbound NFTs</h3>
-    <p class="max-w-2xl mx-auto text-emerald-200">Every rescue dog finally gets a permanent, living digital soul on the blockchain.</p>
-    <p class="mt-4 text-sm text-zinc-300 max-w-xl mx-auto">Too many rescue dogs walk into a shelter and basically disappear from history. Their stories, their little quirks, the exact day they were saved — it all gets lost forever.</p>
-    <p class="mt-3 text-sm text-zinc-300 max-w-xl mx-auto">The Rescue Passport changes that forever. The moment a dog enters our world, we mint a soulbound NFT — a permanent, non-transferable digital soul that lives on the blockchain and can never be sold, lost, or faked. It becomes their living, growing Rescue Passport.</p>
-    <p class="mt-3 text-xs text-emerald-300/70">Every vet visit, every training moment, every happy photo or bark video gets added safely on-chain. When they finally go to their forever home, the passport gently moves to the new family’s wallet and stays bound to them for life.</p>
-    <div class="mt-6"><a href="all-programs.html" class="text-emerald-300 hover:underline text-sm">Learn the full program →</a></div>
+    <div class="text-emerald-400 text-xs tracking-[3px] mb-1">SOULBOUND NFT MAKER STUDIO • $NIBBLES POWERED</div>
+    <h3 class="text-4xl font-bold tracking-tighter mb-3">Soulbound Passport Maker</h3>
+    <p class="max-w-2xl mx-auto text-emerald-200">Issue eternal, non-transferable Rescue Passports. Each one a living digital soul — bound forever on the chain of mercy.</p>
+    <p class="mt-4 text-sm text-zinc-300 max-w-xl mx-auto">No more forgotten stories. Select a soul, preview the luxury passport, issue the soulbound NFT. Provenance, programs, and the exact moment of mercy — permanently recorded.</p>
+    <p class="mt-3 text-xs text-emerald-300/70">Inspired by premium digital identity passports &amp; soulbound credentials. Precision. Heart. Legacy.</p>
+    <div class="mt-6"><a href="all-programs.html" class="text-emerald-300 hover:underline text-sm">See the full program →</a></div>
   `;
   container.appendChild(header);
 
   filtered.forEach(soul => {
     const passport = document.createElement('div');
-    passport.className = 'bg-zinc-900 border border-emerald-400/30 rounded-3xl p-6 flex flex-col relic-frame hover:border-emerald-400/60 transition-all';
+    passport.className = 'soul-passport-card luxury-passport bg-zinc-900 border border-emerald-400/30 rounded-3xl p-6 flex flex-col relic-frame hover:border-emerald-400/60 transition-all';
     
     passport.innerHTML = `
       <div class="flex justify-between items-start">
         <div>
-          <div class="uppercase text-[10px] tracking-[2px] text-emerald-400">SHIBA HUMANITY • RESCUE PASSPORT</div>
+          <div class="uppercase text-[9px] tracking-[3px] text-emerald-400">SHIBA HUMANITY • RESCUE PASSPORT MAKER</div>
           <div class="soul-name text-3xl">${soul.name}</div>
           <div class="text-xs text-zinc-400">${soul.age} • ${soul.breed} • ${soul.location}</div>
         </div>
@@ -843,10 +948,65 @@ function toggleFilterByTrait(trait, el) {
 
 function resetFilters() {
   activeFilters.clear();
+  activeLocations.clear();
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'border-red-400', 'bg-red-500/10'));
+  document.querySelectorAll('#us-locations .filter-btn, #canada-locations .filter-btn').forEach(b => b.classList.remove('active', 'border-blue-400', 'bg-blue-500/10'));
   const search = document.getElementById('soul-search');
   if (search) search.value = '';
+  const locSearch = document.getElementById('location-search');
+  if (locSearch) locSearch.value = '';
   renderSouls();
+}
+
+function populateLocationFilters() {
+  const usCont = document.getElementById('us-locations');
+  const caCont = document.getElementById('canada-locations');
+  if (!usCont || !caCont) return;
+
+  usStates.forEach(loc => {
+    const btn = document.createElement('button');
+    btn.textContent = loc.length > 12 ? loc.substring(0,10) + '..' : loc;
+    btn.title = loc;
+    btn.className = 'filter-btn px-2 py-0.5 text-[9px] rounded border border-white/20 hover:border-blue-400/60 whitespace-nowrap';
+    btn.onclick = () => toggleLocation(btn, loc);
+    btn.dataset.loc = loc;
+    usCont.appendChild(btn);
+  });
+
+  canadaProvinces.forEach(loc => {
+    const btn = document.createElement('button');
+    btn.textContent = loc.length > 12 ? loc.substring(0,10) + '..' : loc;
+    btn.title = loc;
+    btn.className = 'filter-btn px-2 py-0.5 text-[9px] rounded border border-white/20 hover:border-blue-400/60 whitespace-nowrap';
+    btn.onclick = () => toggleLocation(btn, loc);
+    btn.dataset.loc = loc;
+    caCont.appendChild(btn);
+  });
+}
+
+function toggleLocation(btn, loc) {
+  if (activeLocations.has(loc)) {
+    activeLocations.delete(loc);
+    btn.classList.remove('active', 'border-blue-400', 'bg-blue-500/10');
+  } else {
+    activeLocations.add(loc);
+    btn.classList.add('active', 'border-blue-400', 'bg-blue-500/10');
+  }
+  renderSouls();
+}
+
+function clearLocations() {
+  activeLocations.clear();
+  document.querySelectorAll('#us-locations .filter-btn, #canada-locations .filter-btn').forEach(b => b.classList.remove('active', 'border-blue-400', 'bg-blue-500/10'));
+  renderSouls();
+}
+
+function filterLocationChips(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('#us-locations .filter-btn, #canada-locations .filter-btn').forEach(btn => {
+    const match = btn.title.toLowerCase().includes(q) || btn.textContent.toLowerCase().includes(q);
+    btn.style.display = match ? '' : 'none';
+  });
 }
 
 function toggleLocationFilter(loc) {
@@ -876,7 +1036,7 @@ function filterBySearch(query) {
     return text.includes(q);
   });
 
-  // Apply active filters too
+  // Apply active filters + locations
   if (activeFilters.size > 0) {
     filtered = filtered.filter(soul => {
       return Array.from(activeFilters).every(f => {
@@ -889,10 +1049,12 @@ function filterBySearch(query) {
         if (f === 'tough-love') return (soul.temperament || []).includes('tough-love');
         if (f === 'barn') return soul.category.includes('barn');
         if (f === 'hospice') return soul.category.includes('hospice');
-        if (['California', 'Texas', 'Nevada'].includes(f)) return soul.location === f;
         return true;
       });
     });
+  }
+  if (activeLocations.size > 0) {
+    filtered = filtered.filter(soul => activeLocations.has(soul.location));
   }
 
   filtered.sort((a, b) => a.hoursLeft - b.hoursLeft);
@@ -1043,6 +1205,73 @@ function initSouls() {
       setTimeout(() => { g.style.opacity = '1'; }, 380);
     }, 29000);
   }
+
+  // Populate the separated location filters
+  populateLocationFilters();
+}
+
+function openSoulboundPassport(id) {
+  const soul = souls.find(s => s.id === id);
+  if (!soul) return;
+
+  const story = dogStories[id] || soul.bio;
+  const isUrgent = soul.hoursLeft < 36;
+
+  const content = `
+    <div class="luxury-passport p-8 rounded-3xl relative">
+      <!-- Passport "Holder" Frame - opens like a premium leather case -->
+      <div class="text-center mb-6">
+        <div class="inline-block px-4 py-1 bg-emerald-900/30 border border-emerald-400/40 rounded-full text-xs tracking-[3px] text-emerald-300">SOULBOUND PASSPORT HOLDER • OPENED</div>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-6">
+        <!-- Left: Visual "Photo" & ID -->
+        <div class="md:w-1/3">
+          <div class="w-full aspect-square bg-gradient-to-br from-zinc-900 to-black border border-emerald-400/30 rounded-2xl flex items-center justify-center text-7xl mb-4 relative overflow-hidden">
+            <span style="filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));">${soul.stage === 'senior' ? '🐕‍🦺' : soul.stage === 'puppy' ? '🐶' : '🐾'}</span>
+            <div class="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-transparent"></div>
+          </div>
+          <div class="text-center">
+            <div class="font-mono text-emerald-400 text-sm tracking-widest">SOUL ID #SB${String(id).padStart(3,'0')}</div>
+            <div class="text-xs text-emerald-300/70 mt-1">PERMANENTLY BOUND ON SHIBARIUM</div>
+          </div>
+        </div>
+
+        <!-- Right: The Story & Details - Bilyeu depth, Vitalik permanence, Elon precision -->
+        <div class="md:w-2/3">
+          <div class="soul-name text-3xl mb-1">${soul.name}</div>
+          <div class="text-emerald-300 text-sm">${soul.age} • ${soul.breed} • ${soul.location} • ${soul.shelter}</div>
+
+          <div class="mt-4 text-xs uppercase tracking-[2px] text-emerald-400/70">THE LIVING STORY OF THIS SOUL</div>
+          <div class="mt-2 text-emerald-100 leading-relaxed text-sm">${story}</div>
+
+          <div class="mt-5 grid grid-cols-2 gap-4 text-xs">
+            <div>
+              <div class="text-emerald-300/70 tracking-wider">CURRENT STATUS</div>
+              <div class="font-medium mt-0.5">${soul.hoursLeft}h on the clock ${isUrgent ? '<span class="text-red-400">(URGENT)</span>' : ''}</div>
+            </div>
+            <div>
+              <div class="text-emerald-300/70 tracking-wider">BOUND PROGRAMS</div>
+              <div class="mt-0.5">${soul.programNames.join(' • ')}</div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-emerald-400/20 text-xs text-emerald-300/60">
+            This passport is the eternal witness. Every program stamp, every memory, every act of mercy is recorded here — non-transferable, growing with the dog, proof that this soul mattered. When the funding comes through, it lives on-chain forever. You are 1. We are all 1.
+          </div>
+
+          <div class="mt-4 text-[10px] font-mono text-emerald-400/70">MINTED • SHIBARIUM • MERCY CHAIN TX: 0x${id}SB${Date.now().toString(16).slice(-6)}</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('passport-modal-content').innerHTML = content;
+  document.getElementById('passport-modal').classList.remove('hidden');
+}
+
+function hidePassportModal() {
+  document.getElementById('passport-modal').classList.add('hidden');
 }
 
 window.onload = function() {
