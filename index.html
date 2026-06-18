@@ -1104,6 +1104,8 @@
             </ul>
           </div>
           <a href="all-programs.html" class="mt-4 inline-block text-emerald-300 hover:underline">Explore in All Programs →</a>
+          <button onclick="joinChain()" class="mt-4 ml-4 px-6 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-3xl transition">I Want to Join the Chain</button>
+          <div id="chain-message" class="mt-2 text-sm text-emerald-300 hidden">Thank you. You are now part of the chain. Every holder makes it stronger. ❤️</div>
         </div>
       </div>
     </div>
@@ -2699,6 +2701,21 @@ console.log('%cShibahumanityhub loaded - People helping people helping people. (
 if (window.initPremiumAnimations) {
   // Already auto-inits in shared-animations.js on DOMContentLoaded, but call again for safety after all content
   setTimeout(() => window.initPremiumAnimations(), 50);
+}
+
+function joinChain() {
+  const msg = document.getElementById('chain-message');
+  if (msg) {
+    msg.classList.remove('hidden');
+    msg.style.transition = 'all 0.4s';
+  }
+  // Small rewarding effect
+  const btns = document.querySelectorAll('button');
+  btns.forEach(b => b.style.transform = 'scale(0.95)');
+  setTimeout(() => {
+    btns.forEach(b => b.style.transform = '');
+    if (msg) msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 300);
 }
 </script>
 </body>
