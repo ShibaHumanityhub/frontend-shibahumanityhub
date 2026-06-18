@@ -723,6 +723,7 @@
         <a href="#programs" class="hover:text-amber-400 transition-colors flex items-center gap-1">Programs <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
         <div class="absolute hidden group-hover:block mt-1 bg-zinc-900 border border-white/10 rounded-2xl py-2 min-w-[240px] z-[60] shadow-xl">
           <a href="all-programs.html" class="block px-4 py-2 text-sm hover:bg-white/5">All Programs</a>
+          <a href="star-souls.html" class="block px-4 py-2 text-sm hover:bg-white/5">Star Souls • Therapy Gigs &amp; Visits</a>
           <a href="#pay-it-forward-adoption" class="block px-4 py-2 text-sm hover:bg-white/5">Pay It Forward Adoption Chain</a>
           <a href="#glossary" class="block px-4 py-2 text-sm hover:bg-white/5 border-t border-white/10 mt-1 pt-2">Plain Terms Glossary</a>
         </div>
@@ -731,11 +732,33 @@
       <a href="#impact" class="hover:text-amber-400 transition-colors">Impact</a>
       <a href="#vision" class="hover:text-amber-400 transition-colors">Vision</a>
     </div>
+
+    <!-- Mobile hamburger -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu">
+      <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+    </button>
+
     <a href="all-programs.html" class="super-cta-btn inline-flex items-center gap-2.5 px-6 py-3 text-sm sm:text-base font-bold">
       All Programs <i class="fa-solid fa-paw bone-icon text-xl"></i>
     </a>
   </div>
 </nav>
+
+<!-- Mobile Menu (only visible on mobile when toggled) -->
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-1" style="top: 65px;">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+    <a href="#tokens" class="py-2 hover:text-amber-400">Tokens</a>
+    <a href="all-programs.html" class="py-2 hover:text-amber-400">All Programs</a>
+    <a href="star-souls.html" class="py-2 hover:text-emerald-400 font-medium">Star Souls • Therapy Gigs &amp; Visits</a>
+    <a href="#pay-it-forward-adoption" class="py-2 hover:text-amber-400">Pay It Forward Adoption Chain</a>
+    <div class="h-px bg-white/10 my-1"></div>
+    <a href="shelters.html" class="py-2 hover:text-red-300 font-medium">Beautiful Souls</a>
+    <a href="#impact" class="py-2 hover:text-amber-400">Impact</a>
+    <a href="#vision" class="py-2 hover:text-amber-400">Vision</a>
+    <div class="h-px bg-white/10 my-1"></div>
+    <a href="#glossary" class="py-2 text-xs text-zinc-400 hover:text-white">Plain Terms Glossary</a>
+  </div>
+</div>
 
 <!-- HERO - LEGENDARY -->
 <header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen relative overflow-hidden">
@@ -2892,6 +2915,34 @@ function joinChain() {
     if (msg) msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 300);
 }
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('mobile-menu-icon');
+  if (!menu || !icon) return;
+  if (menu.classList.contains('hidden')) {
+    menu.classList.remove('hidden');
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-times');
+  } else {
+    menu.classList.add('hidden');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
+}
+
+// Auto-close mobile menu after clicking a link inside it
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobile-menu');
+  if (menu && !menu.classList.contains('hidden') && menu.contains(e.target) && e.target.tagName === 'A') {
+    menu.classList.add('hidden');
+    const icon = document.getElementById('mobile-menu-icon');
+    if (icon) {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  }
+});
 </script>
 <!-- Accessible explanations modal - keeps the beautiful voice but makes meaning available to everyone -->
 <div id="explain-modal" class="explain-modal" onclick="if (event.target.id === 'explain-modal') closeExplain()">
