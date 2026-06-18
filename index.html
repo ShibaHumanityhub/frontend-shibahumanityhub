@@ -34,22 +34,28 @@
 <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
 <link rel="shortcut icon" href="assets/logos/favicon.png">
 
+  <!-- Performance: preconnect for external resources -->
+  <!-- Critical preconnects for faster external resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Tailwind Play CDN (static site convenience - for production speed, extract to a static CSS file) -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- SHARED MERCY CORE STYLES (extracted for consistency across index.html and all-programs.html) -->
-  <!-- Contains only the identical foundational rules: hero, buttons base, program-card base + img, motion system + :root vars + reduced-motion. -->
-  <!-- Page-specific extensions (lead-magnet, logo-3d smoke, engine-viz details, modal polish, etc.) remain in the per-page <style> below. -->
-  <!-- This preserves the exact visual and emotional feel while eliminating duplication and drift. -->
-  <style id="shared-mercy-core">
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  <!-- Optimized Google Fonts (non-blocking) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- SHARED MERCY CORE STYLES -->
+  <style id="shared-mercy-core">
     * { box-sizing: border-box; }
-    body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
+    body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; font-display: swap; }
 
     .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #1a2338 100%); }
 
@@ -572,7 +578,7 @@
     loop 
     muted 
     playsinline 
-    preload="metadata"
+    preload="none"
     aria-hidden="true"
     class="w-full h-full object-cover">
   </video>
@@ -614,9 +620,9 @@
     </p>
 
     <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 px-4">
-      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="super-cta-btn whitepaper-btn inline-flex items-center justify-center gap-4 text-xl px-10 py-6 w-full sm:w-auto">
+      <a href="whitepaper.html" target="_blank" class="super-cta-btn whitepaper-btn inline-flex items-center justify-center gap-4 text-xl px-10 py-6 w-full sm:w-auto">
         <i class="fa-solid fa-bone bone-icon text-3xl"></i>
-        Download Whitepaper v2
+        Read Whitepaper
       </a>
       <a href="#tokens" class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-xl px-8 py-6 w-full sm:w-auto">
         Meet $NIBBLES &amp; $hopeseed
@@ -701,7 +707,7 @@
           type="submit" 
           id="submit-btn"
           class="super-cta-btn lead-magnet-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-7 rounded-3xl text-xl w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-all min-w-[200px]">
-          <img src="assets/logos/shibahumanityhublogo3d-new.jpg" 
+          <img src="assets/logos/shibahumanityhublogo3d-new.jpg" loading="lazy" decoding="async" 
                class="w-10 h-10 object-cover rounded-full ring-2 ring-white/30 shadow-xl flex-shrink-0" 
                alt="Shibahumanityhub" loading="lazy">
           <span>Send Me The Blueprint</span>
@@ -713,10 +719,10 @@
     <div id="success-message" class="hidden mt-8 p-8 bg-emerald-900/30 border border-emerald-400 rounded-3xl">
       <p class="text-emerald-300 text-2xl mb-4">Thank you! ❤️ Your Mercy Blueprint is downloading now...</p>
       <p class="text-emerald-200 mb-6">You should also receive it in your email shortly.</p>
-      <a id="direct-download-btn" href="https://raw.githubusercontent.com/ShibaHumanityhub/frontend-shibahumanityhub/main/The-Mercy-Blueprint-ShibaHumanityhub.pdf" 
+      <a id="direct-download-btn" href="mercy-blueprint.html" 
          target="_blank"
          class="inline-block bg-white text-black font-bold px-10 py-5 rounded-3xl hover:scale-105 transition-all text-xl">
-        📥 Download The Mercy Blueprint Now
+        📥 Read The Mercy Blueprint
       </a>
     </div>
 
@@ -1399,10 +1405,10 @@
       <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-amber-400/10 hover:border-amber-400/40 transition-all flex flex-col">
         <h3 class="text-3xl mb-3 tracking-tight">Read the Full Vision</h3>
         <p class="text-zinc-400 mb-auto leading-snug">Step into the complete story. See where we’re going and how every transaction is already changing lives.</p>
-        <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank"
+        <a href="whitepaper.html" target="_blank"
            class="super-cta-btn whitepaper-btn inline-flex items-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl justify-center tracking-tighter">
           <i class="fa-solid fa-bone bone-icon text-3xl"></i>
-          Download Whitepaper v2
+          Read Whitepaper
         </a>
       </div>
       <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-emerald-400/20 hover:border-emerald-400/50 transition-all flex flex-col">

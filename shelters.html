@@ -13,12 +13,18 @@
   <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
 
+  <!-- Critical preconnects for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
     * { box-sizing: border-box; }
     body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
     .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #151c2e 100%); }
@@ -410,11 +416,21 @@
       <span class="text-xs tracking-[2.5px] text-blue-300/70">LOCATIONS (USA &amp; CANADA - all provinces &amp; states)</span>
       <button onclick="clearLocations()" class="text-[10px] px-2 py-0.5 border border-white/10 rounded hover:bg-white/5">clear</button>
     </div>
-    <input id="location-search" type="text" placeholder="Search states/provinces..." oninput="filterLocationChips(this.value)" class="w-full max-w-xs bg-zinc-900 border border-white/10 focus:border-blue-400/60 rounded px-3 py-1 text-xs mb-1">
+    <input id="location-search" type="text" placeholder="Search states/provinces/cities..." oninput="filterLocationChips(this.value); filterByLocationSearch(this.value)" class="w-full max-w-xs bg-zinc-900 border border-white/10 focus:border-blue-400/60 rounded px-3 py-1 text-xs mb-1">
     <div class="text-[9px] text-blue-300/60 mb-1">United States</div>
     <div id="us-locations" class="flex flex-wrap gap-1 max-h-20 overflow-auto mb-2 border border-white/10 p-1 rounded"></div>
     <div class="text-[9px] text-blue-300/60 mb-1">Canada</div>
     <div id="canada-locations" class="flex flex-wrap gap-1 max-h-20 overflow-auto border border-white/10 p-1 rounded"></div>
+  </div>
+
+  <!-- BREEDS - multi-select, every major type, separate from locations -->
+  <div class="mb-4">
+    <div class="flex items-center gap-2 mb-1">
+      <span class="text-xs tracking-[2.5px] text-purple-300/70">BREEDS (click multiple)</span>
+      <button onclick="clearBreeds()" class="text-[10px] px-2 py-0.5 border border-white/10 rounded hover:bg-white/5">clear</button>
+    </div>
+    <input id="breed-search" type="text" placeholder="Search breeds..." oninput="filterBreedChips(this.value)" class="w-full max-w-xs bg-zinc-900 border border-white/10 focus:border-purple-400/60 rounded px-3 py-1 text-xs mb-1">
+    <div id="breed-filters" class="flex flex-wrap gap-1 max-h-24 overflow-auto border border-white/10 p-1 rounded"></div>
   </div>
 </section>
 
@@ -426,27 +442,15 @@
     <p class="mt-2 text-emerald-200/80 text-sm max-w-xs mx-auto">The most at-risk rise to the top. Click traits to filter. Hover to feel their presence.</p>
   </div>
 
-  <!-- Creative Shelter Location / Map visual (high-end, interactive, non-standard) -->
-  <div class="mb-6">
-    <div class="text-xs text-center text-emerald-300/60 tracking-widest mb-2">FILTER BY SHELTER TERRITORY</div>
-    <div class="flex justify-center gap-3 flex-wrap">
-      <div onclick="toggleLocationFilter('California')" class="cursor-pointer px-5 py-2 rounded-2xl border border-blue-400/30 hover:border-blue-400 bg-blue-900/10 text-sm flex items-center gap-2">
-        <span>🇺🇸</span> California Shelters
-      </div>
-      <div onclick="toggleLocationFilter('Texas')" class="cursor-pointer px-5 py-2 rounded-2xl border border-blue-400/30 hover:border-blue-400 bg-blue-900/10 text-sm flex items-center gap-2">
-        <span>🇺🇸</span> Texas Shelters
-      </div>
-      <div onclick="toggleLocationFilter('Nevada')" class="cursor-pointer px-5 py-2 rounded-2xl border border-blue-400/30 hover:border-blue-400 bg-blue-900/10 text-sm flex items-center gap-2">
-        <span>🇺🇸</span> Nevada / High Desert
-      </div>
-    </div>
-    <div class="text-[10px] text-center text-zinc-500 mt-1">A living map of mercy territories • click to focus</div>
-  </div>
+  <!-- Location search now integrated for states, provinces and cities (see above) -->
 
   <div class="max-w-md mx-auto mb-6">
     <input id="soul-search" type="text" placeholder="Search name or shelter..." 
-           oninput="filterBySearch(this.value)"
+           oninput="filterBySearch(this.value)" list="shelter-suggestions"
            class="w-full bg-zinc-900 border border-white/10 focus:border-emerald-400/60 rounded-2xl px-5 py-3 text-sm placeholder:text-zinc-500">
+    <datalist id="shelter-suggestions">
+      <!-- Populated dynamically with all US & Canada shelter names for search integration -->
+    </datalist>
   </div>
 
   <!-- View Toggle: Super premium, mobile-optimized tabs -->
@@ -691,6 +695,198 @@ const souls = [
     stage: "adult",
     temperament: ["high-energy", "needs-training"],
     special: []
+  },
+  {
+    id: 9,
+    name: "Buddy",
+    age: "5yo",
+    breed: "Golden Retriever",
+    shelter: "ASPCA (New York, NY)",
+    location: "New York",
+    hoursLeft: 55,
+    category: "barn",
+    bio: "Friendly family dog surrendered due to move. Loves kids and playtime.",
+    programs: [12, 3, 1],
+    programNames: ["Shelter-To-Barn", "New Beginnings", "Rescue Passport"],
+    stage: "adult",
+    temperament: ["gentle"],
+    special: []
+  },
+  {
+    id: 10,
+    name: "Daisy",
+    age: "8mo",
+    breed: "Beagle",
+    shelter: "Best Friends Animal Society (Kanab, UT)",
+    location: "Utah",
+    hoursLeft: 40,
+    category: "barn",
+    bio: "Playful puppy found stray. Full of energy and curiosity.",
+    programs: [12, 3, 1],
+    programNames: ["Shelter-To-Barn", "New Beginnings", "Rescue Passport"],
+    stage: "puppy",
+    temperament: ["high-energy"],
+    special: []
+  },
+  {
+    id: 11,
+    name: "Charlie",
+    age: "6yo",
+    breed: "Labrador",
+    shelter: "North Shore Animal League America (Port Washington, NY)",
+    location: "New York",
+    hoursLeft: 25,
+    category: "hospice",
+    bio: "Senior with arthritis, needs loving home for golden years.",
+    programs: [8, 7, 4],
+    programNames: ["Golden Paws", "Rainbow Bridge", "Healing Hearts"],
+    stage: "senior",
+    temperament: ["gentle"],
+    special: ["medical"]
+  },
+  {
+    id: 12,
+    name: "Bella",
+    age: "2yo",
+    breed: "Border Collie",
+    shelter: "Humane Society of Silicon Valley (Milpitas, CA)",
+    location: "California",
+    hoursLeft: 62,
+    category: "barn",
+    bio: "Smart and active, needs experienced owner with yard.",
+    programs: [12, 3, 6],
+    programNames: ["Shelter-To-Barn", "New Beginnings", "Second Chance K9"],
+    stage: "adult",
+    temperament: ["high-energy", "needs-training"],
+    special: []
+  },
+  {
+    id: 13,
+    name: "Max Jr",
+    age: "4yo",
+    breed: "Pit Bull",
+    shelter: "Toronto Humane Society (Toronto, ON)",
+    location: "Ontario",
+    hoursLeft: 15,
+    category: "urgent barn",
+    bio: "Rescued from neglect, great with people once trust built.",
+    programs: [12, 8, 1],
+    programNames: ["Shelter-To-Barn", "Golden Paws", "Rescue Passport"],
+    stage: "adult",
+    temperament: ["gentle", "needs-training"],
+    special: []
+  },
+  {
+    id: 14,
+    name: "Lucy",
+    age: "10yo",
+    breed: "Chihuahua Mix",
+    shelter: "BC SPCA (Vancouver, BC)",
+    location: "British Columbia",
+    hoursLeft: 32,
+    category: "hospice",
+    bio: "Tiny senior, loves laps and quiet homes.",
+    programs: [8, 7, 4],
+    programNames: ["Golden Paws", "Rainbow Bridge", "Healing Hearts"],
+    stage: "senior",
+    temperament: ["gentle"],
+    special: ["medical"]
+  },
+  {
+    id: 15,
+    name: "Rex",
+    age: "3yo",
+    breed: "German Shepherd",
+    shelter: "Alberta SPCA (Edmonton, AB)",
+    location: "Alberta",
+    hoursLeft: 50,
+    category: "barn",
+    bio: "Protective and loyal, needs active family.",
+    programs: [12, 1, 6],
+    programNames: ["Shelter-To-Barn", "Rescue Passport", "Second Chance K9"],
+    stage: "adult",
+    temperament: ["high-energy", "needs-training"],
+    special: []
+  },
+  {
+    id: 16,
+    name: "Sadie",
+    age: "5yo",
+    breed: "Australian Shepherd",
+    shelter: "Seattle Humane (Bellevue, WA)",
+    location: "Washington",
+    hoursLeft: 45,
+    category: "barn",
+    bio: "Energetic herding dog, loves outdoor adventures.",
+    programs: [12, 3, 1],
+    programNames: ["Shelter-To-Barn", "New Beginnings", "Rescue Passport"],
+    stage: "adult",
+    temperament: ["high-energy"],
+    special: []
+  },
+  {
+    id: 17,
+    name: "Milo",
+    age: "1yo",
+    breed: "Poodle Mix",
+    shelter: "Massachusetts SPCA (Boston, MA)",
+    location: "Massachusetts",
+    hoursLeft: 35,
+    category: "barn",
+    bio: "Smart and hypoallergenic, great for apartments.",
+    programs: [12, 3, 1],
+    programNames: ["Shelter-To-Barn", "New Beginnings", "Rescue Passport"],
+    stage: "puppy",
+    temperament: ["gentle", "needs-training"],
+    special: []
+  },
+  {
+    id: 18,
+    name: "Zoe",
+    age: "9yo",
+    breed: "Shih Tzu",
+    shelter: "Humane Society of Ottawa (Ottawa, ON)",
+    location: "Ontario",
+    hoursLeft: 22,
+    category: "hospice",
+    bio: "Sweet senior lap dog, needs gentle care.",
+    programs: [8, 7, 4],
+    programNames: ["Golden Paws", "Rainbow Bridge", "Healing Hearts"],
+    stage: "senior",
+    temperament: ["gentle"],
+    special: ["medical"]
+  },
+  {
+    id: 19,
+    name: "Duke",
+    age: "4yo",
+    breed: "Rottweiler",
+    shelter: "Phoenix Animal Care & Control (Phoenix, AZ)",
+    location: "Arizona",
+    hoursLeft: 58,
+    category: "barn",
+    bio: "Loyal protector, needs firm but loving training.",
+    programs: [12, 1, 6],
+    programNames: ["Shelter-To-Barn", "Rescue Passport", "Second Chance K9"],
+    stage: "adult",
+    temperament: ["high-energy", "needs-training"],
+    special: []
+  },
+  {
+    id: 20,
+    name: "Lily",
+    age: "7yo",
+    breed: "Cavalier King Charles",
+    shelter: "Animal Humane Society (Minneapolis, MN)",
+    location: "Minnesota",
+    hoursLeft: 28,
+    category: "hospice",
+    bio: "Affectionate companion, heart condition managed.",
+    programs: [8, 7, 4],
+    programNames: ["Golden Paws", "Rainbow Bridge", "Healing Hearts"],
+    stage: "senior",
+    temperament: ["gentle"],
+    special: ["medical"]
   }
 ];
 
@@ -702,16 +898,64 @@ const dogStories = {
   5: "Nova arrived in a box behind a gas station on the California coast — a nine-month-old Terrier Mix learning to trust for the first time. Her small frame held a lifetime of potential that almost slipped away. Pulled from the brink, her passport captures the pure joy of a second beginning. She is proof that the smallest souls can carry the biggest stories of hope.",
   6: "Bear, the gentle giant Mastiff from Nevada, was misunderstood because of his size. Six years old and thinking he was a lapdog, he faced the stigma that dooms so many large breeds. Shelter crowding threatened to erase his loving heart. The chain of mercy saw past the bulk to the soul inside. His eternal record now honors the truth that size never measures the capacity to love.",
   7: "Maple, a thirteen-year-old Cocker Spaniel in California, crossed into her golden years with one eye and a spirit that still gave kisses. Terminal and alone in the shelter, she was running out of time. Rainbow Bridge Hospice reached her first. Her passport is a quiet masterpiece — every wag, every memory, bound forever so that her light continues long after she crosses over.",
-  8: "Finn escaped a bad situation in the Nevada desert and survived on pure will. This three-year-old Husky Mix arrived high-energy, needing purpose and a family willing to run with his wild heart. The barn life or working home waited just beyond the clock. His soulbound passport now carries the story of survival turned into service — a reminder that every rescue carries the power to rescue others in return."
+  8: "Finn escaped a bad situation in the Nevada desert and survived on pure will. This three-year-old Husky Mix arrived high-energy, needing purpose and a family willing to run with his wild heart. The barn life or working home waited just beyond the clock. His soulbound passport now carries the story of survival turned into service — a reminder that every rescue carries the power to rescue others in return.",
+  9: "Buddy, a Golden Retriever from New York, was the heart of his family until a sudden move forced surrender. His friendly nature and love for kids made him a favorite at the ASPCA, where his story of finding a new loving home continues through the mercy programs.",
+  10: "Daisy the playful Beagle puppy from Utah was found stray and full of curiosity. At Best Friends, her energy and charm won hearts, turning a near-miss into a tale of hope and adventure in her forever family.",
+  11: "Charlie, the senior Labrador from New York, gave years of loyalty but faced arthritis and shelter time. North Shore gave him dignity in his golden years, his story a reminder of the quiet heroes who deserve comfort.",
+  12: "Bella the Border Collie from California is smart and active, needing space to run. The Humane Society of Silicon Valley saw her potential, and her passport now holds the promise of an active life full of play and purpose.",
+  13: "Max Jr the Pit Bull from Ontario was rescued from neglect. The Toronto Humane Society helped him rebuild trust, his gentle soul shining through as a story of redemption and love.",
+  14: "Lucy the tiny senior Chihuahua from British Columbia loves quiet laps. The BC SPCA provided comfort in her final chapter, her story one of gentle care and the mercy that never forgets the small ones.",
+  15: "Rex the loyal German Shepherd from Alberta is protective and needs an active home. The Alberta SPCA matched his energy, turning his story into one of service and partnership.",
+  16: "Sadie the energetic Australian Shepherd from Washington loves to herd and run. Seattle Humane saw her potential for an active family, her story one of joyful partnership and endless play.",
+  17: "Milo the smart Poodle mix puppy from Massachusetts is hypoallergenic and quick to learn. The MSPCA helped him find a perfect apartment home, his passport a tale of intelligence and adaptability.",
+  18: "Zoe the sweet senior Shih Tzu from Ontario needs gentle care for her heart. The Ottawa Humane Society provided comfort, her story a gentle reminder of love in the golden years.",
+  19: "Duke the loyal Rottweiler from Arizona is a protector at heart. Phoenix Animal Care gave him the training he needed, his story one of strength turned to gentle guardianship.",
+  20: "Lily the affectionate Cavalier from Minnesota has a managed heart condition. The Animal Humane Society matched her with a loving lap, her passport full of cuddles and quiet joy."
 };
 
 const usStates = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
 const canadaProvinces = ["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Nova Scotia","Ontario","Prince Edward Island","Quebec","Saskatchewan","Northwest Territories","Nunavut","Yukon"];
 
+const commonBreeds = [
+  "Pit Mix", "German Shepherd", "Labrador", "Beagle Mix", "Terrier Mix", "Mastiff Mix", "Cocker Spaniel", "Husky Mix",
+  "Golden Retriever", "Border Collie", "Chihuahua Mix", "Australian Shepherd", "Poodle Mix", "Shih Tzu", "Rottweiler",
+  "Cavalier King Charles", "Pit Bull", "Beagle", "Australian Cattle Dog", "Bulldog", "Pug", "Yorkshire Terrier",
+  "Boxer", "Dachshund", "Siberian Husky", "Great Dane", "Doberman Pinscher", "French Bulldog", "Corgi", "Maltese",
+  "Shiba Inu", "Akita", "Chow Chow", "Basset Hound", "Bloodhound", "Weimaraner", "Vizsla", "Pointer", "Setter",
+  "Spaniel", "Retriever", "Shepherd", "Collie", "Terrier", "Hound", "Mastiff", "Bulldog Mix", "Mixed Breed"
+];
+
+const usShelters = [
+  "ASPCA (New York, NY)", "Best Friends Animal Society (Kanab, UT)", "North Shore Animal League America (Port Washington, NY)",
+  "Humane Society of Silicon Valley (Milpitas, CA)", "LA Animal Services (Los Angeles, CA)", "Chicago Animal Care and Control (Chicago, IL)",
+  "Houston SPCA (Houston, TX)", "San Francisco SPCA (San Francisco, CA)", "Animal Humane Society (Minneapolis, MN)",
+  "Seattle Humane (Bellevue, WA)", "Philadelphia Animal Welfare Society (Philadelphia, PA)", "Miami-Dade Animal Services (Miami, FL)",
+  "Massachusetts SPCA (Boston, MA)", "Denver Animal Shelter (Denver, CO)", "Phoenix Animal Care & Control (Phoenix, AZ)",
+  "Atlanta Animal Services (Atlanta, GA)", "Dallas Animal Services (Dallas, TX)", "San Diego Humane Society (San Diego, CA)",
+  "Portland Animal Shelter (Portland, OR)", "Austin Animal Center (Austin, TX)", "Baltimore Animal Rescue (Baltimore, MD)",
+  "Detroit Animal Care (Detroit, MI)", "Las Vegas Animal Shelter (Las Vegas, NV)", "Albuquerque Animal Welfare (Albuquerque, NM)",
+  "Oklahoma City Animal Shelter (Oklahoma City, OK)", "Tucson Animal Care (Tucson, AZ)", "Fresno Animal Services (Fresno, CA)",
+  "Sacramento SPCA (Sacramento, CA)", "Kansas City Animal Services (Kansas City, MO)", "Cleveland Animal Care (Cleveland, OH)",
+  "Virginia Beach SPCA (Virginia Beach, VA)", "Raleigh Animal Shelter (Raleigh, NC)", "Nashville Animal Care (Nashville, TN)",
+  "Milwaukee Animal Shelter (Milwaukee, WI)", "Albuquerque Animal Welfare (Albuquerque, NM)", "Boise Animal Services (Boise, ID)",
+  "Salt Lake City Animal Services (Salt Lake City, UT)", "Anchorage Animal Shelter (Anchorage, AK)", "Honolulu Humane Society (Honolulu, HI)"
+];
+
+const canadaShelters = [
+  "Toronto Humane Society (Toronto, ON)", "BC SPCA (Vancouver, BC)", "Alberta SPCA (Edmonton, AB)",
+  "Ontario SPCA (St. Catharines, ON)", "Montreal SPCA (Montreal, QC)", "Humane Society of Ottawa (Ottawa, ON)",
+  "Winnipeg Humane Society (Winnipeg, MB)", "Calgary Humane Society (Calgary, AB)", "Edmonton Humane Society (Edmonton, AB)",
+  "Vancouver Animal Shelter (Vancouver, BC)", "Halifax SPCA (Halifax, NS)", "Saskatoon SPCA (Saskatoon, SK)",
+  "Regina Humane Society (Regina, SK)", "St. John's SPCA (St. John's, NL)", "Charlottetown Humane Society (Charlottetown, PE)",
+  "Fredericton SPCA (Fredericton, NB)", "Yellowknife Animal Shelter (Yellowknife, NT)", "Whitehorse Humane Society (Whitehorse, YT)"
+];
+
 let activeFilters = new Set();
 let activeLocations = new Set();
+let activeBreeds = new Set();
 let currentView = 'timeline'; // 'timeline' or 'passports'
+window.currentLocationSearch = '';
 
 // === VIEW SWITCHER (Shelters/Euthanasia/Adoption vs Soulbound NFTs) ===
 function switchView(view) {
@@ -738,26 +982,25 @@ function renderSouls() {
   const container = document.getElementById('souls-grid');
   container.innerHTML = '';
 
-  let filtered = souls;
-
-  if (activeFilters.size > 0) {
-    filtered = souls.filter(soul => {
-      const passesTraits = activeFilters.size === 0 || Array.from(activeFilters).every(f => {
-        if (f === 'urgent') return soul.hoursLeft < 36;
-        if (f === 'senior') return soul.stage === 'senior';
-        if (f === 'puppy') return soul.stage === 'puppy';
-        if (f === 'gentle') return (soul.temperament || []).includes('gentle');
-        if (f === 'high-energy') return (soul.temperament || []).includes('high-energy');
-        if (f === 'needs-training') return (soul.temperament || []).includes('needs-training');
-        if (f === 'tough-love') return (soul.temperament || []).includes('tough-love');
-        if (f === 'barn') return soul.category.includes('barn');
-        if (f === 'hospice') return soul.category.includes('hospice');
-        return true;
-      });
-      const passesLoc = activeLocations.size === 0 || activeLocations.has(soul.location);
-      return passesTraits && passesLoc;
+  let filtered = souls.filter(soul => {
+    const passesTraits = activeFilters.size === 0 || Array.from(activeFilters).every(f => {
+      if (f === 'urgent') return soul.hoursLeft < 36;
+      if (f === 'senior') return soul.stage === 'senior';
+      if (f === 'puppy') return soul.stage === 'puppy';
+      if (f === 'gentle') return (soul.temperament || []).includes('gentle');
+      if (f === 'high-energy') return (soul.temperament || []).includes('high-energy');
+      if (f === 'needs-training') return (soul.temperament || []).includes('needs-training');
+      if (f === 'tough-love') return (soul.temperament || []).includes('tough-love');
+      if (f === 'barn') return soul.category.includes('barn');
+      if (f === 'hospice') return soul.category.includes('hospice');
+      return true;
     });
-  }
+    const passesLoc = activeLocations.size === 0 || activeLocations.has(soul.location);
+    const city = getCity(soul.shelter);
+    const passesCity = !window.currentLocationSearch || (city && city.toLowerCase().includes(window.currentLocationSearch.toLowerCase())) || soul.location.toLowerCase().includes(window.currentLocationSearch.toLowerCase());
+    const passesBreed = activeBreeds.size === 0 || activeBreeds.has(soul.breed);
+    return passesTraits && passesLoc && passesBreed && passesCity;
+  });
 
   // Sort by urgency for emotional power
   filtered.sort((a, b) => a.hoursLeft - b.hoursLeft);
@@ -949,12 +1192,16 @@ function toggleFilterByTrait(trait, el) {
 function resetFilters() {
   activeFilters.clear();
   activeLocations.clear();
+  activeBreeds.clear();
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'border-red-400', 'bg-red-500/10'));
   document.querySelectorAll('#us-locations .filter-btn, #canada-locations .filter-btn').forEach(b => b.classList.remove('active', 'border-blue-400', 'bg-blue-500/10'));
+  document.querySelectorAll('#breed-filters .filter-btn').forEach(b => b.classList.remove('active', 'border-purple-400', 'bg-purple-500/10'));
   const search = document.getElementById('soul-search');
   if (search) search.value = '';
   const locSearch = document.getElementById('location-search');
   if (locSearch) locSearch.value = '';
+  const breedSearch = document.getElementById('breed-search');
+  if (breedSearch) breedSearch.value = '';
   renderSouls();
 }
 
@@ -984,6 +1231,18 @@ function populateLocationFilters() {
   });
 }
 
+function populateShelterSuggestions() {
+  const datalist = document.getElementById('shelter-suggestions');
+  if (!datalist) return;
+
+  const allShelters = [...usShelters, ...canadaShelters];
+  allShelters.forEach(shelter => {
+    const option = document.createElement('option');
+    option.value = shelter;
+    datalist.appendChild(option);
+  });
+}
+
 function toggleLocation(btn, loc) {
   if (activeLocations.has(loc)) {
     activeLocations.delete(loc);
@@ -1009,20 +1268,55 @@ function filterLocationChips(query) {
   });
 }
 
-function toggleLocationFilter(loc) {
-  if (activeFilters.has(loc)) {
-    activeFilters.delete(loc);
-  } else {
-    activeFilters.add(loc);
-  }
-  // Also visually activate the location button if exists
-  document.querySelectorAll('#soul-filters .filter-btn').forEach(btn => {
-    if (btn.textContent.includes(loc)) {
-      btn.classList.toggle('active', activeFilters.has(loc));
-    }
+function populateBreedFilters() {
+  const container = document.getElementById('breed-filters');
+  if (!container) return;
+  commonBreeds.forEach(breed => {
+    const btn = document.createElement('button');
+    btn.textContent = breed;
+    btn.className = 'filter-btn px-2 py-0.5 text-[9px] rounded border border-white/20 hover:border-purple-400/60 whitespace-nowrap';
+    btn.onclick = () => toggleBreed(btn, breed);
+    btn.dataset.breed = breed;
+    container.appendChild(btn);
   });
+}
+
+function toggleBreed(btn, breed) {
+  if (activeBreeds.has(breed)) {
+    activeBreeds.delete(breed);
+    btn.classList.remove('active', 'border-purple-400', 'bg-purple-500/10');
+  } else {
+    activeBreeds.add(breed);
+    btn.classList.add('active', 'border-purple-400', 'bg-purple-500/10');
+  }
   renderSouls();
 }
+
+function clearBreeds() {
+  activeBreeds.clear();
+  document.querySelectorAll('#breed-filters .filter-btn').forEach(b => b.classList.remove('active', 'border-purple-400', 'bg-purple-500/10'));
+  renderSouls();
+}
+
+function filterBreedChips(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('#breed-filters .filter-btn').forEach(btn => {
+    const match = btn.textContent.toLowerCase().includes(q);
+    btn.style.display = match ? '' : 'none';
+  });
+}
+
+function filterByLocationSearch(query) {
+  window.currentLocationSearch = query || '';
+  renderSouls();
+}
+
+function getCity(shelter) {
+  const match = shelter.match(/\(([^,]+),/);
+  return match ? match[1].trim() : null;
+}
+
+
 
 function filterBySearch(query) {
   const q = query.toLowerCase().trim();
@@ -1030,32 +1324,35 @@ function filterBySearch(query) {
     renderSouls();
     return;
   }
-  // Re-apply full filter + search for current view
+  // Enhanced search: matches dog name, breed, shelter, bio, or any known shelter name from US/Canada lists
+  const allShelterNames = [...usShelters, ...canadaShelters].map(s => s.toLowerCase());
   let filtered = souls.filter(soul => {
     const text = (soul.name + ' ' + soul.breed + ' ' + soul.shelter + ' ' + soul.bio).toLowerCase();
-    return text.includes(q);
+    const matchesText = text.includes(q);
+    const matchesShelterList = allShelterNames.some(shelter => shelter.includes(q));
+    return matchesText || (matchesShelterList && soul.shelter.toLowerCase().includes(q));
   });
 
-  // Apply active filters + locations
-  if (activeFilters.size > 0) {
-    filtered = filtered.filter(soul => {
-      return Array.from(activeFilters).every(f => {
-        if (f === 'urgent') return soul.hoursLeft < 36;
-        if (f === 'senior') return soul.stage === 'senior';
-        if (f === 'puppy') return soul.stage === 'puppy';
-        if (f === 'gentle') return (soul.temperament || []).includes('gentle');
-        if (f === 'high-energy') return (soul.temperament || []).includes('high-energy');
-        if (f === 'needs-training') return (soul.temperament || []).includes('needs-training');
-        if (f === 'tough-love') return (soul.temperament || []).includes('tough-love');
-        if (f === 'barn') return soul.category.includes('barn');
-        if (f === 'hospice') return soul.category.includes('hospice');
-        return true;
-      });
+  // Apply active filters + locations + breeds + city
+  filtered = filtered.filter(soul => {
+    const passesTraits = activeFilters.size === 0 || Array.from(activeFilters).every(f => {
+      if (f === 'urgent') return soul.hoursLeft < 36;
+      if (f === 'senior') return soul.stage === 'senior';
+      if (f === 'puppy') return soul.stage === 'puppy';
+      if (f === 'gentle') return (soul.temperament || []).includes('gentle');
+      if (f === 'high-energy') return (soul.temperament || []).includes('high-energy');
+      if (f === 'needs-training') return (soul.temperament || []).includes('needs-training');
+      if (f === 'tough-love') return (soul.temperament || []).includes('tough-love');
+      if (f === 'barn') return soul.category.includes('barn');
+      if (f === 'hospice') return soul.category.includes('hospice');
+      return true;
     });
-  }
-  if (activeLocations.size > 0) {
-    filtered = filtered.filter(soul => activeLocations.has(soul.location));
-  }
+    const passesLoc = activeLocations.size === 0 || activeLocations.has(soul.location);
+    const city = getCity(soul.shelter);
+    const passesCity = !window.currentLocationSearch || (city && city.toLowerCase().includes(window.currentLocationSearch.toLowerCase())) || soul.location.toLowerCase().includes(window.currentLocationSearch.toLowerCase());
+    const passesBreed = activeBreeds.size === 0 || activeBreeds.has(soul.breed);
+    return passesTraits && passesLoc && passesBreed && passesCity;
+  });
 
   filtered.sort((a, b) => a.hoursLeft - b.hoursLeft);
 
@@ -1208,6 +1505,8 @@ function initSouls() {
 
   // Populate the separated location filters
   populateLocationFilters();
+  populateShelterSuggestions();
+  populateBreedFilters();
 }
 
 function openSoulboundPassport(id) {
