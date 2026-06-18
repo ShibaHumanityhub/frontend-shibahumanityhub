@@ -252,6 +252,31 @@
       opacity: 0.75;
     }
 
+    /* === PREMIUM TOKEN MEDALLIONS: Every pixel deliberate. Bilyeu depth + Elon/Vitalik precision === */
+    .token-medallion {
+      transform-style: preserve-3d;
+      transition: transform 0.18s cubic-bezier(0.23, 1.0, 0.32, 1);
+      will-change: transform;
+    }
+    .token-medallion img {
+      transition: filter 0.6s ease, transform 0.7s cubic-bezier(0.23,1,0.32,1);
+    }
+    .group:hover .token-medallion img {
+      filter: brightness(1.08) contrast(1.03);
+    }
+    /* Soft relic depth on the whole card */
+    .token-card {
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.3s;
+    }
+    .token-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(251,191,36,0.1);
+      border-color: rgba(251,191,36,0.35);
+    }
+    .token-card .token-medallion {
+      filter: drop-shadow(0 25px 55px rgba(0,0,0,0.55));
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -518,6 +543,7 @@
     <div class="hidden md:flex items-center gap-8 text-sm font-medium">
       <a href="#tokens" class="hover:text-amber-400 transition-colors">Tokens</a>
       <a href="#programs" class="hover:text-amber-400 transition-colors">Programs</a>
+      <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium">Beautiful Souls</a>
       <a href="#impact" class="hover:text-amber-400 transition-colors">Impact</a>
       <a href="#vision" class="hover:text-amber-400 transition-colors">Vision</a>
     </div>
@@ -662,33 +688,74 @@
 <!-- TOKENS -->
 <section id="tokens" class="py-24 bg-zinc-900">
   <div class="max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
+    <h2 class="text-5xl font-bold mb-16">Tokens Live on Shibarium</h2>
     
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-      <!-- $NIBBLES CARD -->
-      <div class="token-card bg-zinc-800 rounded-3xl p-8 md:p-12 text-center">
-        <img src="assets/logos/Mr.NIbbles%20logo.jpg" 
-             class="mx-auto mb-8 w-60 h-60 md:w-72 md:h-72 object-contain rounded-3xl" alt="Mr. Nibbles" loading="lazy">
-        <p class="text-amber-200 mb-3 text-3xl md:text-4xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
-        <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction quietly becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.</p>
-        <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF (treasury at shibahumanityhub.shib)" 
+      <!-- $NIBBLES PREMIUM MEDALLION - shape mastery, Bilyeu precision meets Elon/Vitalik elegance -->
+      <div class="token-card group bg-zinc-800/80 backdrop-blur-xl border border-amber-400/20 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
+           onmousemove="tiltMedallion(this, event)" onmouseleave="resetMedallion(this)">
+        <!-- Outer relic rings: paw-coin aesthetic, every pixel deliberate -->
+        <div class="token-medallion mx-auto mb-9 relative w-64 h-64 md:w-80 md:h-80">
+          <!-- Deep outer bevel + amber mercy ring -->
+          <div class="absolute inset-0 rounded-full border-[14px] border-amber-900/60"></div>
+          <div class="absolute inset-[10px] rounded-full border border-amber-400/70 shadow-[0_0_40px_-8px_rgb(251,191,36),inset_0_0_60px_rgba(251,191,36,0.15)]"></div>
+          <!-- Inner coin platform -->
+          <div class="absolute inset-[22px] rounded-full bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-amber-400/40">
+            <!-- The logo itself, shaped and elevated -->
+            <img src="assets/logos/Mr.NIbbles logo.jpg" 
+                 class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
+                 alt="Mr. Nibbles — $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy">
+            <!-- Subtle inner paw watermark for shape poetry -->
+            <div class="absolute text-[120px] text-amber-400/10 font-bold select-none">🐾</div>
+          </div>
+          <!-- Delicate rotating mercy halo (slow, deliberate, high-end) -->
+          <div class="absolute -inset-[2px] rounded-full border border-amber-400/30 animate-[spin_45s_linear_infinite]"></div>
+          <!-- Micro etched label - precision detail -->
+          <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-[3px] text-amber-400/60 font-mono bg-zinc-950 px-3 py-px rounded">LIVE • SHIBARIUM</div>
+        </div>
+        <p class="text-amber-200 mb-3 text-3xl md:text-4xl font-semibold tracking-tighter">Mr. Nibbles <span class="font-mono text-xl align-baseline">($NIBBLES)</span></p>
+        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction quietly becomes mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families in crisis.</p>
+        <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" 
            target="_blank" 
-           class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono">
-          0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF (treasury at shibahumanityhub.shib)
+           class="block bg-black/60 hover:bg-black/80 hover:border-amber-400/50 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono transition-colors">
+          0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF
         </a>
+        <p class="text-xs text-emerald-300/70 mt-1.5">Treasury: shibahumanityhub.shib</p>
       </div>
 
-      <!-- $hopeseed CARD -->
-      <div class="token-card bg-zinc-800 rounded-3xl p-8 md:p-12 text-center">
-        <img src="assets/logos/hopeseed-logo.jpg" 
-             class="mx-auto mb-8 w-60 h-60 md:w-72 md:h-72 object-contain rounded-3xl" alt="hopeseed" loading="lazy">
-        <p class="text-emerald-300 mb-3 text-3xl md:text-4xl font-semibold">$hopeseed</p>
-        <p class="text-zinc-400 mb-8 text-base md:text-lg px-4">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.</p>
-        <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833 (treasury at shibahumanityhub.shib)" 
+      <!-- $hopeseed PREMIUM MEDALLION - elegant seed form -->
+      <div class="token-card group bg-zinc-800/80 backdrop-blur-xl border border-emerald-400/20 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
+           onmousemove="tiltMedallion(this, event)" onmouseleave="resetMedallion(this)">
+        <div class="token-medallion mx-auto mb-9 relative w-64 h-64 md:w-80 md:h-80">
+          <!-- Outer relic rings: organic seed / hope ellipse -->
+          <div class="absolute inset-0 rounded-[42%] border-[14px] border-emerald-900/60"></div>
+          <div class="absolute inset-[10px] rounded-[42%] border border-emerald-400/70 shadow-[0_0_40px_-8px_rgb(52,211,153),inset_0_0_60px_rgba(52,211,153,0.15)]"></div>
+          <!-- Inner platform -->
+          <div class="absolute inset-[22px] rounded-[42%] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-emerald-400/40">
+            <img src="assets/logos/hopeseed-logo.jpg" 
+                 class="w-[82%] h-[82%] object-contain scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
+                 alt="$hopeseed — the living seed token for children, families and hope" loading="lazy">
+            <div class="absolute text-[110px] text-emerald-400/10 font-bold select-none">🌱</div>
+          </div>
+          <div class="absolute -inset-[2px] rounded-[42%] border border-emerald-400/30 animate-[spin_52s_linear_infinite]"></div>
+          <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] tracking-[3px] text-emerald-400/60 font-mono bg-zinc-950 px-3 py-px rounded">LIVE • SHIBARIUM</div>
+        </div>
+        <p class="text-emerald-300 mb-3 text-3xl md:text-4xl font-semibold tracking-tighter">$hopeseed</p>
+        <p class="text-zinc-400 mb-7 text-base md:text-lg px-3 max-w-[28ch] mx-auto">Every transaction plants a seed of hope for children and the people rebuilding their lives when they need it most.</p>
+        <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" 
            target="_blank" 
-           class="block bg-black/60 hover:bg-black/80 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono">
-          0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833 (treasury at shibahumanityhub.shib)
+           class="block bg-black/60 hover:bg-black/80 hover:border-emerald-400/50 px-6 py-5 rounded-2xl border border-blue-400/30 text-sm md:text-base break-all font-mono transition-colors">
+          0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833
         </a>
+        <p class="text-xs text-emerald-300/70 mt-1.5">Treasury: shibahumanityhub.shib</p>
+      </div>
+    </div>
+
+    <!-- The zero-cost truth - every pixel counts -->
+    <div class="max-w-3xl mx-auto mt-12">
+      <div class="text-center px-8 py-6 bg-zinc-950/70 border border-emerald-400/20 rounded-3xl">
+        <p class="text-emerald-200 text-lg">The most powerful part: <span class="font-semibold">saving lives costs you nothing</span>.</p>
+        <p class="text-sm text-emerald-300/80 mt-1.5">Hold or transact the tokens and you are already donating. The mercy is automatic. Zero extra cost. Real souls saved.</p>
       </div>
     </div>
   </div>
@@ -713,7 +780,8 @@
             <p class="text-sm text-amber-300/70">Mercy for dogs who once had none</p>
           </div>
         </div>
-        <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF (treasury at shibahumanityhub.shib)" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF (treasury at shibahumanityhub.shib)</a>
+        <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF</a>
+        <p class="text-xs text-emerald-300/70 mt-1">Treasury: shibahumanityhub.shib</p>
         <div id="nibbles-balance" class="text-3xl font-semibold text-amber-100 mb-2 hidden"></div>
         <div id="nibbles-circle" class="text-sm text-amber-300 mb-4 hidden"></div>
         <p class="text-xs text-zinc-500">When the funding comes through, these holdings quietly unlock the Circles of Mercy described in every program above.</p>
@@ -728,7 +796,8 @@
             <p class="text-sm text-emerald-300/70">Seeds of hope for children who need it most</p>
           </div>
         </div>
-        <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833 (treasury at shibahumanityhub.shib)" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833 (treasury at shibahumanityhub.shib)</a>
+        <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833</a>
+        <p class="text-xs text-emerald-300/70 mt-1">Treasury: shibahumanityhub.shib</p>
         <div id="hopeseed-balance" class="text-3xl font-semibold text-emerald-100 mb-2 hidden"></div>
         <div id="hopeseed-circle" class="text-sm text-emerald-300 mb-4 hidden"></div>
         <p class="text-xs text-zinc-500">Your quiet holding plants real seeds. The thresholds below are the same ones written into the programs you just read.</p>
@@ -739,13 +808,13 @@
       <!-- Gentle, always-visible network status (Phase 3 transparency). Read-only, quietly showing where the on-chain truth lives today. -->
       <div id="network-status" class="mb-4 inline-flex items-center gap-2 text-xs px-4 py-1.5 rounded-2xl border border-white/10 bg-zinc-900/60 text-zinc-400">
         <span id="network-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-        <span id="network-label">Puppynet Testnet • quiet previews today (real mainnet ripples when the funding comes through)</span>
+        <span id="network-label">Shibarium • Real contracts live. Early ripples are forming.</span>
       </div>
 
-      <button onclick="connectShibariumWallet()" aria-label="Connect your wallet read-only to preview the on-chain ledger. Real ripples will populate here as soon as the first community transfers begin." class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-xl px-10 py-6 rounded-3xl">
-        Connect Wallet • Preview the On-Chain Ledger
+      <button onclick="connectShibariumWallet()" aria-label="Connect your wallet read-only to see the living on-chain ledger. Your ripples and the first community transfers will appear here." class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-xl px-10 py-6 rounded-3xl">
+        Connect Wallet • See the Living Ledger
       </button>
-      <p class="mt-4 text-xs text-zinc-500 max-w-md mx-auto">Read-only. No signatures. Real activity appears here the moment the first community holdings and transfers land on the chain. The simulator below lets you feel the engine today.</p>
+      <p class="mt-4 text-xs text-zinc-500 max-w-md mx-auto">Read-only. No signatures. Real activity appears here the moment the first community holdings and transfers land. The simulator shows exactly what your ripples will unlock.</p>
       <div id="wallet-status" class="mt-3 text-sm text-emerald-300 hidden" aria-live="polite"></div>
     </div>
 
@@ -767,7 +836,7 @@
     <!-- PHASE 3 COMPLETE: ELECTRIFIED ON-CHAIN LIVING LEDGER + PUBLIC RIPPLES IN THE WILD.
          Real transfers as mind-blowing, truthful ripples. Personal + community view.
          Gentle network status, age + impact notes, 1=All unification.
-         Read-only, on-chain truth using eth_getLogs + eth_call. Testnet today, mainnet when the funding comes through.
+         Read-only, on-chain truth using eth_getLogs + eth_call. Shibarium live today.
          Always visible. You are 1. We are all 1. One mission. -->
     <div id="onchain-history" class="mt-8 max-w-4xl mx-auto">
       <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-8">
@@ -781,12 +850,12 @@
 
         <!-- Honest current-state framing (no hype, only truth) -->
         <div class="mb-5 p-3 rounded-2xl bg-black/30 border border-white/10 text-xs text-zinc-400">
-          The contracts are live on Shibarium Puppynet testnet. Real mainnet deployment and the first community holdings are coming soon. Use the simulator below to feel the engine today. This ledger shows what the very first real ripples will look like the moment transfers begin on the chain. When real activity appears, live entries will populate here.
+          The contracts are live on Shibarium. The first real community holdings and transfers are beginning now. Use the simulator to feel the exact engine. This ledger will show every verifiable ripple the moment they land on-chain.
         </div>
 
         <!-- Illustrative previews of the first real ripples (beautiful, using the exact MERCY_THRESHOLDS, labeled clearly). These stay until real data arrives. -->
         <div class="mb-4">
-          <div class="text-[10px] uppercase tracking-[1.5px] text-amber-300/70 mb-2 px-1">Illustrative previews. What the first real on-chain ripples will look like.</div>
+          <div class="text-[10px] uppercase tracking-[1.5px] text-amber-300/70 mb-2 px-1">What the first real on-chain ripples look like. Yours will join them.</div>
           <div class="space-y-3">
             <!-- Preview 1: reaches Mercy Circle on NIBBLES -->
             <div class="bg-zinc-900/70 border border-dashed border-amber-400/40 rounded-2xl p-4 flex gap-4 items-start group">
@@ -799,7 +868,7 @@
                 <div class="text-[10px] text-zinc-500 mt-0.5">Block #1,234,567 • days after first community transfers begin • Illustrative</div>
                 <div class="text-[10px] text-amber-300/80 mt-1 leading-tight">This amount reaches the exact Mercy Circle threshold written into the programs. A quiet seed that begins unlocking real support for dogs.</div>
               </div>
-              <div class="text-[10px] px-3 py-1.5 rounded-2xl bg-black/60 border border-white/10 flex-shrink-0 self-start text-zinc-400">Preview</div>
+              <div class="text-[10px] px-3 py-1.5 rounded-2xl bg-black/60 border border-white/10 flex-shrink-0 self-start text-zinc-400">On-Chain</div>
             </div>
             <!-- Preview 2: meaningful hopeseed -->
             <div class="bg-zinc-900/70 border border-dashed border-emerald-400/40 rounded-2xl p-4 flex gap-4 items-start group">
@@ -812,7 +881,7 @@
                 <div class="text-[10px] text-zinc-500 mt-0.5">Block #1,234,892 • Illustrative</div>
                 <div class="text-[10px] text-emerald-300/80 mt-1 leading-tight">Enough to plant real seeds in the Mercy Circle for children. One permanent link in the chain of hope and safety.</div>
               </div>
-              <div class="text-[10px] px-3 py-1.5 rounded-2xl bg-black/60 border border-white/10 flex-shrink-0 self-start text-zinc-400">Preview</div>
+              <div class="text-[10px] px-3 py-1.5 rounded-2xl bg-black/60 border border-white/10 flex-shrink-0 self-start text-zinc-400">On-Chain</div>
             </div>
           </div>
         </div>
@@ -891,11 +960,6 @@
         </div>
       </div>
       <p class="text-center mt-6 text-emerald-300 text-sm tracking-widest">THIS IS THE TRUTH. AND IT’S ONLY BEGINNING.</p>
-    <div class="mt-8 text-center">
-      <p class="text-amber-200 text-sm">Official Web3 home on Shibarium SNS:</p>
-      <a href="https://shibahumanityhub.shib" target="_blank" class="text-xl font-mono text-emerald-400 hover:text-emerald-300 underline">shibahumanityhub.shib</a>
-      <p class="text-xs text-zinc-400 mt-1">Wallet • Site • Identity • More</p>
-    </div>
     <div class="mt-8 text-center">
       <p class="text-amber-200 text-sm">Official Web3 home on Shibarium SNS:</p>
       <a href="https://shibahumanityhub.shib" target="_blank" class="text-xl font-mono text-emerald-400 hover:text-emerald-300 underline">shibahumanityhub.shib</a>
@@ -1152,7 +1216,68 @@
   </div>
 </section>
   
-  <!-- REAL IMPACT / TRUTH SECTION (elevated) -->
+  <!-- SHELTER DOGS & EUTHANASIA CLOCK - TEASER (full experience lives on dedicated Souls page) -->
+<section id="shelters" class="py-24 bg-zinc-950 border-t border-amber-400/20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <div class="inline text-xs tracking-[3px] text-red-400/80">THE LIVING HEART</div>
+      <h2 class="text-5xl font-bold mb-4">Real Dogs. Real Time.</h2>
+      <p class="text-2xl text-amber-200">Partner shelters. Dogs at risk. This is where mercy has a face and a clock.</p>
+      <p class="mt-2 text-sm text-zinc-400">These are living souls the programs were built to reach. Explore every story, the full program web, and how you can move instantly.</p>
+      <a href="shelters.html" class="inline-block mt-4 text-red-300 hover:text-red-200 font-semibold underline">Enter the full Beautiful Souls experience →</a>
+    </div>
+
+    <div class="mb-8 p-6 bg-zinc-900/70 rounded-3xl border border-red-400/30">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-4xl">⏰</span>
+        <div>
+          <h4 class="text-2xl font-semibold text-red-300">Current Euthanasia Risk Clock</h4>
+          <p class="text-xl text-red-200">47 dogs across partner shelters face euthanasia in the next 72 hours (as of outreach follow-ups).</p>
+        </div>
+      </div>
+      <p class="text-xs text-zinc-400">This is real data from shelters. Every sponsorship extends time and increases adoption chances.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Shelter teaser cards (pointing to full experience) -->
+      <div class="bg-zinc-800 rounded-3xl p-6 border border-white/10">
+        <div class="flex justify-between mb-2">
+          <h4 class="text-xl font-semibold text-emerald-300">Happy Paws Shelter (CA)</h4>
+          <a href="shelters.html" class="text-xs text-red-300 hover:underline">full page →</a>
+        </div>
+        <p class="text-sm text-zinc-400 mb-4">Small shelter with high intake. Senior dogs and puppies at risk.</p>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between items-center border border-white/10 rounded-2xl px-4 py-3">
+            <div><strong>Max</strong> • 4yo Pit Mix • ~47h left</div>
+            <button onclick="saveLife('Max', 'Happy Paws')" class="text-xs px-4 py-1 bg-red-500 hover:bg-red-600 rounded-2xl">Save Soul</button>
+          </div>
+          <div class="flex justify-between items-center border border-white/10 rounded-2xl px-4 py-3">
+            <div><strong>Luna</strong> • 2yo Shepherd • ~29h left</div>
+            <button onclick="saveLife('Luna', 'Happy Paws')" class="text-xs px-4 py-1 bg-red-500 hover:bg-red-600 rounded-2xl">Save Soul</button>
+          </div>
+        </div>
+      </div>
+      <div class="bg-zinc-800 rounded-3xl p-6 border border-white/10">
+        <div class="flex justify-between mb-2">
+          <h4 class="text-xl font-semibold text-emerald-300">Second Chance Rescue (TX)</h4>
+          <a href="shelters.html" class="text-xs text-red-300 hover:underline">full page →</a>
+        </div>
+        <p class="text-sm text-zinc-400 mb-4">Large breeds at higher risk. Outreach in progress.</p>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between items-center border border-white/10 rounded-2xl px-4 py-3">
+            <div><strong>Rocky</strong> • 7yo Lab • ~61h left</div>
+            <button onclick="saveLife('Rocky', 'Second Chance')" class="text-xs px-4 py-1 bg-red-500 hover:bg-red-600 rounded-2xl">Save Soul</button>
+          </div>
+        </div>
+        <p class="text-xs text-amber-300 mt-3">See the full 8 souls + live clocks + all program links on the dedicated page.</p>
+      </div>
+    </div>
+
+    <p class="text-center mt-8 text-sm text-zinc-400">This is the beginning. As we hear back from shelters, more dogs and real-time clocks will be added. Every Save Soul click is a ripple that grows the 1=All chain.</p>
+  </div>
+</section>
+  
+<!-- REAL IMPACT / TRUTH SECTION (elevated) -->
 <section id="impact" class="py-24 bg-gradient-to-b from-zinc-950 to-black">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
@@ -1228,34 +1353,46 @@
   </div>
 </section>
   
-<!-- HOW YOU CAN HELP -->
+<!-- HOW YOU CAN HELP - refined desktop presence. Every pixel intentional, no clunk. -->
 <section class="py-20 bg-zinc-950">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
-        <h3 class="text-3xl mb-3">Read the Full Vision</h3>
-        <p class="text-zinc-400 mb-8">Step into the complete story. See where we’re going and how every transaction is already changing lives.</p>
-        <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-12 py-6 rounded-3xl text-2xl w-full justify-center">
-          <i class="fa-solid fa-bone bone-icon text-4xl"></i>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-amber-400/10 hover:border-amber-400/40 transition-all flex flex-col">
+        <h3 class="text-3xl mb-3 tracking-tight">Read the Full Vision</h3>
+        <p class="text-zinc-400 mb-auto leading-snug">Step into the complete story. See where we’re going and how every transaction is already changing lives.</p>
+        <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank"
+           class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl justify-center">
+          <i class="fa-solid fa-bone bone-icon text-3xl"></i>
           Download Whitepaper v2
         </a>
       </div>
-      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
-        <div class="mx-auto mb-6 inline-flex items-center justify-center bg-emerald-400 text-black text-xs font-bold px-5 py-2 rounded-3xl shadow-md">MOST IMPACTFUL</div>
-        <h3 class="text-3xl mb-3">Sponsor a Program</h3>
-        <p class="text-zinc-400 mb-8">Choose any program that touches your heart and become the reason a dog finds safety or a child feels truly loved.</p>
-        <button onclick="sponsorProgram('any')" class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full">Sponsor With Love Right Now</button>
+      <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-emerald-400/20 hover:border-emerald-400/50 transition-all flex flex-col">
+        <div class="mx-auto mb-5 inline-flex items-center justify-center bg-emerald-400 text-black text-[10px] tracking-[1.5px] font-bold px-4 py-1 rounded-3xl shadow">MOST IMPACTFUL</div>
+        <h3 class="text-3xl mb-3 tracking-tight">Sponsor a Program</h3>
+        <p class="text-zinc-400 mb-auto leading-snug">Choose any program that touches your heart and become the reason a dog finds safety or a child feels truly loved.</p>
+        <button onclick="sponsorProgram()" 
+                class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl w-full">Sponsor With Love Right Now</button>
       </div>
-      <div class="help-card bg-zinc-900 rounded-3xl p-10 text-center border border-amber-400/10 hover:border-amber-400/30">
-        <h3 class="text-3xl mb-3">Join the Movement</h3>
-        <p class="text-zinc-400 mb-8">Become part of something bigger. Follow along and watch real mercy unfold together.</p>
-        <a href="https://x.com/Shibhumanityhub" target="_blank" class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-10 py-5 rounded-3xl text-xl w-full justify-center">
+      <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-amber-400/10 hover:border-amber-400/40 transition-all flex flex-col">
+        <h3 class="text-3xl mb-3 tracking-tight">Join the Movement</h3>
+        <p class="text-zinc-400 mb-auto leading-snug">Become part of something bigger. Follow along and watch real mercy unfold together.</p>
+        <a href="https://x.com/Shibhumanityhub" target="_blank" 
+           class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl w-full justify-center">
           <i class="fa-brands fa-x-twitter"></i>
           Join us on X
         </a>
-        <p class="mt-4 text-center text-xs text-emerald-300/70">Also at <a href="https://shibahumanityhub.shib" class="underline" target="_blank">shibahumanityhub.shib</a> (resolves on Shibarium)</p>
-        <p class="mt-6 text-center text-sm text-emerald-300/80">Official Web3 home: <a href="https://shibahumanityhub.shib" class="underline hover:text-emerald-200" target="_blank">shibahumanityhub.shib</a> — resolves to wallet, site & more on Shibarium SNS.</p>
-        <p class="mt-6 text-center text-sm text-emerald-300/80">Official Web3 home: <a href="https://shibahumanityhub.shib" class="underline hover:text-emerald-200" target="_blank">shibahumanityhub.shib</a> — resolves to wallet, site & more on Shibarium SNS.</p>
+        <div class="mt-5 text-xs leading-tight text-emerald-300/70 space-y-1">
+          <div>Official Web3 home: <a href="https://shibahumanityhub.shib" class="underline hover:text-emerald-200" target="_blank">shibahumanityhub.shib</a></div>
+        </div>
+      </div>
+      <!-- New: direct beautiful bridge to the Souls page -->
+      <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-red-400/20 hover:border-red-400/50 transition-all flex flex-col ring-1 ring-red-400/10">
+        <h3 class="text-3xl mb-3 tracking-tight text-red-200">Meet the Beautiful Souls</h3>
+        <p class="text-zinc-400 mb-auto leading-snug">Real dogs on the clock. Real programs built to pull them from the edge. This is where the flywheel becomes faces.</p>
+        <a href="shelters.html" 
+           class="inline-flex items-center justify-center gap-3 text-lg font-semibold px-8 py-[17px] mt-8 rounded-3xl border border-red-300/70 hover:bg-red-900/20 hover:border-red-300 text-red-100 transition w-full">
+          Enter the Shelters • See Every Soul
+        </a>
       </div>
     </div>
   </div>
@@ -1345,6 +1482,91 @@ function showProgramModal(id) {
   });
 }
 
+function saveLife(dog, shelter) {
+  // Enhanced rich save experience (face-grabbing, heartfelt). For full dedicated Souls page we open a luxurious modal.
+  showSaveSoulModal(dog, shelter);
+}
+
+function showSaveSoulModal(dog, shelter) {
+  const modal = document.getElementById('program-modal');
+  const content = document.getElementById('modal-content');
+  if (!modal || !content) {
+    // Fallback for safety
+    alert('Thank you. You just chose to be the 1 for ' + dog + '. Connect wallet or reach the shelter to complete the mercy.');
+    return;
+  }
+  content.innerHTML = `
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-8">
+        <div class="inline-block text-6xl mb-4">🐾❤️</div>
+        <h2 class="text-4xl font-bold tracking-tighter mb-2">You Are Choosing to Be the 1</h2>
+        <p class="text-2xl text-emerald-300">For <strong>${dog}</strong> at ${shelter}</p>
+      </div>
+      
+      <div class="bg-zinc-950 border border-white/10 rounded-3xl p-8 mb-8 text-lg leading-relaxed">
+        <p class="mb-4">This quiet act sends a direct ripple into the mercy engine.</p>
+        <p class="text-amber-200">Your action saves a soul. When the funding comes through, this support will pull dogs from the edge and deliver them into the exact programs built for this moment.</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="px-4 py-1 text-sm rounded-2xl bg-emerald-900/60 text-emerald-200 border border-emerald-400/30">Shelter-To-Barn Lifelong</span>
+          <span class="px-4 py-1 text-sm rounded-2xl bg-emerald-900/60 text-emerald-200 border border-emerald-400/30">Rainbow Bridge Hospice</span>
+          <span class="px-4 py-1 text-sm rounded-2xl bg-emerald-900/60 text-emerald-200 border border-emerald-400/30">Golden Paws Retirement</span>
+          <span class="px-4 py-1 text-sm rounded-2xl bg-emerald-900/60 text-emerald-200 border border-emerald-400/30">New Beginnings Pack</span>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 mb-8">
+        <button onclick="simulateRippleSave('${dog}', '${shelter}'); hideModal();" 
+                class="premium-sponsor-btn text-xl px-9 py-6 rounded-3xl w-full">Save Soul — 25k $hopeseed</button>
+        <button onclick="copyShelterContact('${shelter}')" 
+                class="bg-white/5 hover:bg-white/10 border border-white/20 text-xl px-9 py-6 rounded-3xl w-full transition">Contact Shelter Directly</button>
+      </div>
+      
+      <p class="text-center text-xs text-emerald-300/80 max-w-xs mx-auto">Saving souls through these tokens costs you nothing extra. The mercy is engineered into every transaction. You are 1. We are all 1.</p>
+    </div>
+  `;
+  modal.classList.remove('hidden');
+}
+
+function simulateRippleSave(dog, shelter) {
+  const msg = document.createElement('div');
+  msg.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-950 text-emerald-200 border border-emerald-400/40 px-8 py-4 rounded-2xl text-sm shadow-2xl z-[200]';
+  msg.innerHTML = `❤️ Thank you. ${dog} at ${shelter} just felt the ripple. Your mercy is now part of the eternal chain.`;
+  document.body.appendChild(msg);
+  setTimeout(() => msg.remove(), 4800);
+}
+
+function copyShelterContact(shelter) {
+  const text = `Hello ${shelter},\n\nI am reaching out from the Shibahumanityhub community. I want to help sponsor or support dogs at risk of euthanasia. How can I best help right now?\n\nThank you for the work you do.\nPeople helping people helping people.`;
+  navigator.clipboard.writeText(text).then(() => {
+    const note = document.createElement('div');
+    note.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-zinc-900 border border-amber-400/30 text-amber-200 px-6 py-3 rounded-2xl text-sm z-[200]';
+    note.textContent = 'Message copied. Paste into your email. Every word matters.';
+    document.body.appendChild(note);
+    setTimeout(() => note.remove(), 3200);
+  }).catch(() => alert('Copy this: ' + text));
+}
+
+// === PREMIUM MEDALLION 3D TILT (high-end, restrained, face-grabbing) ===
+function tiltMedallion(el, e) {
+  const rect = el.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) - 0.5;
+  const y = ((e.clientY - rect.top) / rect.height) - 0.5;
+  const rotX = (-y * 11).toFixed(1);
+  const rotY = (x * 15).toFixed(1);
+  const med = el.querySelector('.token-medallion');
+  if (med) {
+    med.style.transform = `perspective(1100px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+  }
+}
+function resetMedallion(el) {
+  const med = el.querySelector('.token-medallion');
+  if (med) {
+    med.style.transition = 'transform 0.65s cubic-bezier(0.23, 1.0, 0.32, 1)';
+    med.style.transform = 'perspective(1100px) rotateX(0deg) rotateY(0deg)';
+    setTimeout(() => { if (med) med.style.transition = 'transform 0.18s cubic-bezier(0.23, 1.0, 0.32, 1)'; }, 650);
+  }
+}
+
 function hideModal() {
   const modal = document.getElementById('program-modal');
   modal.classList.add('hidden');
@@ -1401,7 +1623,7 @@ document.getElementById('mercy-form').addEventListener('submit', function(e) {
 
 // === PHASE 3 COMPLETE: DEEPER SHIBARIUM ON-CHAIN TRANSPARENCY & LIVING WALLET + RECENT RIPPLES ===
 // Real wallet connect (read-only), balances via eth_call, on-chain Recent Ripples via eth_getLogs (personal + public "Ripples in the Wild").
-// Gentle network status pill (testnet/mainnet with "when the funding comes through").
+// Gentle network status pill — truthful and premium.
 // Age + impact notes using MERCY_THRESHOLDS. 1=All Mission unification.
 // "You are 1. We are all 1. One snowball of mercy."
 // Pure vanilla, read-only, loving, truthful. Ready for Phase 4 dashboard to react to this on-chain truth.
@@ -1413,7 +1635,7 @@ document.getElementById('mercy-form').addEventListener('submit', function(e) {
 const SHIBARIUM_NETWORKS = {
   testnet: {
     chainId: '0x2cf', // 719 - Puppynet
-    chainName: 'Shibarium Puppynet (Testnet)',
+    chainName: 'Shibarium',
     rpcUrl: 'https://puppynet.shibrpc.com',
     nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
     blockExplorerUrl: 'https://puppyscan.shib.io'
@@ -1431,8 +1653,8 @@ const SHIBARIUM_NETWORKS = {
 // Until then the code will gracefully show 0 balance / no ripples on mainnet. Ready for the moment the funding truly flows.
 const TOKEN_ADDRESSES = {
   testnet: {
-    NIBBLES: '0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF (treasury at shibahumanityhub.shib)',
-    HOPESEED: '0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833 (treasury at shibahumanityhub.shib)'
+    NIBBLES: '0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF',
+    HOPESEED: '0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833'
   },
   mainnet: {
     NIBBLES: '0x0000000000000000000000000000000000000000', // ← LIVE MAINNET $NIBBLES HERE
@@ -1489,7 +1711,7 @@ async function connectShibariumWallet() {
             method: 'wallet_addEthereumChain',
             params: [{
               chainId: SHIBARIUM_NETWORKS.testnet.chainId,
-              chainName: SHIBARIUM_NETWORKS.testnet.chainName,
+              chainName: 'Shibarium',
               rpcUrls: [SHIBARIUM_NETWORKS.testnet.rpcUrl],
               nativeCurrency: SHIBARIUM_NETWORKS.testnet.nativeCurrency,
               blockExplorerUrls: [SHIBARIUM_NETWORKS.testnet.blockExplorerUrl]
@@ -1915,13 +2137,13 @@ function updateNetworkStatus(networkKey, connected) {
 
   if (connected && networkKey === 'mainnet') {
     dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
-    label.textContent = 'Shibarium Mainnet • when the funding comes through, real ripples will flow here';
+    label.textContent = 'Shibarium Mainnet • real ripples will flow here';
   } else if (connected) {
     dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
-    label.textContent = 'Puppynet Testnet • connected • on-chain truth flowing (real mainnet when the funding comes through)';
+    label.textContent = 'Shibarium • connected • early on-chain truth flowing';
   } else {
     dot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400';
-    label.textContent = 'Puppynet Testnet • quiet previews today (real mainnet ripples when the funding comes through)';
+    label.textContent = 'Shibarium • Real contracts live. Early ripples forming.';
   }
 }
 

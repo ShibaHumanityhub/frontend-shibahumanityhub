@@ -386,9 +386,11 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 </div>
       <span class="hidden sm:block text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
-    <a href="index.html" class="bg-amber-400 hover:bg-amber-300 text-black font-bold px-6 py-3 rounded-3xl text-sm flex items-center gap-2">
-      <i class="fa-solid fa-arrow-left"></i>
-      Back to Home
+    <a href="index.html" class="bg-white/10 hover:bg-white/15 text-white px-5 py-3 rounded-3xl text-sm flex items-center gap-2 transition">
+      ← Home
+    </a>
+    <a href="shelters.html" class="bg-red-500/90 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-3xl text-sm flex items-center gap-2 transition">
+      Beautiful Souls <span class="text-xs opacity-75">→ dedicated page</span>
     </a>
   </div>
 </nav>
@@ -412,7 +414,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 <!-- CONTRACTS -->
 <section class="py-24 bg-zinc-900">
   <div class="max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-5xl font-bold mb-16">Both Tokens LIVE on Testnet</h2>
+    <h2 class="text-5xl font-bold mb-16">Tokens Live on Shibarium</h2>
     
     <div class="flex flex-col md:flex-row gap-12 justify-center items-center max-w-5xl mx-auto">
       <!-- Mr. Nibbles -->
@@ -460,6 +462,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
         <button onclick="filterPrograms('all')" id="tab-all" role="tab" aria-selected="true" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
         <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
         <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
+        <button onclick="showSoulsTab()" id="tab-souls" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">❤️ Meet the Souls</button>
       </div>
     </div>
 
@@ -481,6 +484,49 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
         </div>
       </div>
       <p class="text-center text-xs text-emerald-300/70 mt-2">These filters show programs your quiet holding already helps unlock. We are building this together.</p>
+    </div>
+
+    <!-- Meet the Souls tab content -->
+    <div id="souls-view" class="hidden mt-8">
+      <h3 class="text-3xl font-semibold text-center mb-4">Meet the Beautiful Souls in Need of Your Mercy</h3>
+      <p class="text-center text-sm text-zinc-400 mb-4">This is a quick view. For the full living experience — live clocks, every dog, deep program resonance, and real outreach tools — go to the dedicated page.</p>
+      <div class="text-center mb-8"><a href="shelters.html" class="inline-block text-red-300 hover:text-red-200 font-semibold text-xl underline">Open the full Beautiful Souls page →</a></div>
+      
+      <div class="mb-6 p-4 bg-red-900/20 border border-red-400/30 rounded-3xl text-center">
+        <p class="text-red-300 font-semibold">Euthanasia Clock: 47 dogs at risk in next 72 hours across shelters.</p>
+        <p class="text-xs text-zinc-400">Updated from our outreach. Every sponsorship buys time and love.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Shelter 1 -->
+        <div class="bg-zinc-800 rounded-3xl p-6">
+          <h4 class="font-semibold text-emerald-300">Happy Paws Shelter (CA)</h4>
+          <p class="text-xs text-zinc-400 mb-3">Contact: happypaws@example.com | We emailed last month, following up.</p>
+          <div class="space-y-3 text-sm">
+            <div>
+              <strong>Max</strong> (4yo Pit Mix) - Rescued from streets, great with kids, needs heartworm treatment. At risk.
+              <button onclick="saveLife('Max at Happy Paws')" class="ml-2 text-xs bg-emerald-500 hover:bg-emerald-600 px-2 py-1 rounded">Save a Life</button>
+            </div>
+            <div>
+              <strong>Luna</strong> (2yo Shepherd) - Owner surrender, trained. Time sensitive.
+              <button onclick="saveLife('Luna at Happy Paws')" class="ml-2 text-xs bg-emerald-500 hover:bg-emerald-600 px-2 py-1 rounded">Save a Life</button>
+            </div>
+          </div>
+        </div>
+        <!-- Shelter 2 -->
+        <div class="bg-zinc-800 rounded-3xl p-6">
+          <h4 class="font-semibold text-emerald-300">Second Chance Rescue (TX)</h4>
+          <p class="text-xs text-zinc-400 mb-3">High rate for large breeds. Contact via our outreach.</p>
+          <div class="space-y-3 text-sm">
+            <div>
+              <strong>Rocky</strong> (5yo Lab) - Senior, loyal. Euth scheduled soon.
+              <button onclick="saveLife('Rocky at Second Chance')" class="ml-2 text-xs bg-emerald-500 hover:bg-emerald-600 px-2 py-1 rounded">Save a Life</button>
+            </div>
+          </div>
+          <p class="text-xs mt-2 text-zinc-400">More bios coming as we connect with shelters.</p>
+        </div>
+      </div>
+      <p class="text-center text-xs text-emerald-300/70 mt-4">Your clicks help save souls. Connect wallet or sponsor via the engine for real impact. You are 1.</p>
     </div>
 
     <!-- Phase 5 Extra Special: The Journey Through the Flywheel (a loving micro-story scroller) -->

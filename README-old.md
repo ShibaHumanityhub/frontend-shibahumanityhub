@@ -1,4 +1,4 @@
-# 🌐 Shibahumanityhub — Frontend (Website MVP)
+# Shibahumanityhub - Frontend (Website MVP)
 
 Coming soon: The live website for the Humanity Hub.
 
