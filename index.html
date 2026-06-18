@@ -646,7 +646,13 @@
     </a>
     <div class="hidden md:flex items-center gap-8 text-sm font-medium">
       <a href="#tokens" class="hover:text-amber-400 transition-colors">Tokens</a>
-      <a href="#programs" class="hover:text-amber-400 transition-colors">Programs</a>
+      <div class="relative group">
+        <a href="#programs" class="hover:text-amber-400 transition-colors flex items-center gap-1">Programs <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
+        <div class="absolute hidden group-hover:block mt-1 bg-zinc-900 border border-white/10 rounded-2xl py-2 min-w-[240px] z-[60] shadow-xl">
+          <a href="all-programs.html" class="block px-4 py-2 text-sm hover:bg-white/5">All Programs</a>
+          <a href="#pay-it-forward-adoption" class="block px-4 py-2 text-sm hover:bg-white/5">Pay It Forward Adoption Chain</a>
+        </div>
+      </div>
       <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium">Beautiful Souls</a>
       <a href="#impact" class="hover:text-amber-400 transition-colors">Impact</a>
       <a href="#vision" class="hover:text-amber-400 transition-colors">Vision</a>
@@ -1077,6 +1083,30 @@
       <h3 class="text-3xl font-semibold text-center mb-6">Watch the Engine in Motion</h3>
       <p class="text-center text-zinc-300 max-w-2xl mx-auto mb-8">See how one quiet holding sends ripples through the living chain - a self-reinforcing flywheel where each act of mercy creates the conditions for more. Click any node to open its full story and see the first principles in action.</p>
       <p class="text-center text-xs mb-4"><a href="all-programs.html" class="text-emerald-300 hover:text-emerald-200 underline">See all 29 in the Mercy Constellation →</a> (use the filters there with your holdings for the full personal experience)</p>
+
+    <!-- Dedicated section for Pay It Forward Adoption Chain -->
+    <div id="pay-it-forward-adoption" class="max-w-4xl mx-auto px-6 py-12 border-t border-white/10">
+      <h3 class="text-3xl font-bold mb-4">Pay It Forward Adoption Chain</h3>
+      <div class="flex flex-col md:flex-row gap-6">
+        <div class="md:w-1/3">
+          <img src="assets/images/Payitforwardadoptionchainphoto.jpg" alt="Pay It Forward Adoption Chain" class="rounded-2xl w-full">
+        </div>
+        <div class="md:w-2/3">
+          <p class="text-lg mb-4">"Directly sponsor one special dog and help its guardian become a full-time storyteller of love."</p>
+          <p class="mb-4">This program lets you personally sponsor one special dog and support the dedicated guardian who cares for it every single day. It turns your sponsorship into stable income for the guardian while creating beautiful, ongoing content that lets the whole world fall in love with that dog right alongside you.</p>
+          <p class="mb-4">This one is very close to our hearts. We want every sponsor to feel a real, lasting connection — not just send money and walk away. The Pay It Forward Adoption Chain turns sponsorship into a joyful, ongoing relationship that rewards the guardian for sharing the dog’s life with all of us.</p>
+          <div class="mt-4">
+            <h4 class="font-semibold mb-2">Core Mechanics</h4>
+            <ul class="list-disc pl-5 text-sm">
+              <li>Sponsor Payments & Guardian Salary: Every payment sends 20-25% directly to the guardian in $NIBBLES</li>
+              <li>Guardian Staking with Multipliers: Bronze to Diamond tiers with video proof-of-care</li>
+              <li>Endless chain: One adoption leads to more, powered by $NIBBLES</li>
+            </ul>
+          </div>
+          <a href="all-programs.html" class="mt-4 inline-block text-emerald-300 hover:underline">Explore in All Programs →</a>
+        </div>
+      </div>
+    </div>
 
       <!-- Interactive Perpetual Mercy Engine Visualization (Phase 3: electrified with SVG ripple river - the people co-building the flow) -->
       <div id="engine-viz" role="img" aria-label="Interactive visualization of the perpetual mercy flywheel showing transaction ripples flowing into $NIBBLES and $hopeseed streams and program nodes" class="relative bg-zinc-900/50 border border-white/10 rounded-3xl p-8 min-h-[320px] flex items-center justify-center overflow-hidden">
@@ -2548,7 +2578,7 @@ function updatePersonalView(nBal, hBal, isSim) {
     affected = affected.concat(programs.filter(p => p.category === '$hopeseed').slice(0, 4));
   }
 
-  if (!html) html = 'Every holding sends gentle ripples. Use the simulator or connect your wallet to see which of the 29 programs your support quietly touches. We are building this together.';
+  if (!html) html = 'Every holding sends gentle ripples. Navigate the programs, filter by your circles, discover how your quiet support connects everything. We are building this together — it feels rewarding to explore.';
   impact.innerHTML = html;
 
   // Phase 3: richer program list with short impact tease + direct modal
@@ -2601,7 +2631,7 @@ function initMercyEngineDashboard() {
   populateEngineNodes();
   // Initial neutral message
   const impact = document.getElementById('personal-impact');
-  if (impact) impact.innerHTML = 'Every holding sends gentle ripples. Use the simulator or connect your wallet to see which of the 29 programs your support quietly touches. We are building this together.';
+  if (impact) impact.innerHTML = 'Every holding sends gentle ripples. Navigate the programs, filter by your circles, discover how your quiet support connects everything. We are building this together — it feels rewarding to explore.';
   // Make sure viz source has loving default
   const src = document.getElementById('viz-source');
   if (src) src.textContent = 'A quiet act of mercy';

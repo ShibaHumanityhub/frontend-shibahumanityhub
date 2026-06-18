@@ -126,7 +126,12 @@ const programs = [            {
 
       <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">Every $NIBBLES transaction quietly adds another glowing link. One dog saved today becomes the reason the next dog is saved tomorrow. This is how we turn every single holder into a living part of an unbreakable golden chain of mercy that will keep growing forever.</p>
 
-      <button onclick="sponsorProgram('pay-it-forward')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Strengthen the Pay It Forward Mercy Chain</button>`
+      <button onclick="sponsorProgram('pay-it-forward')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Strengthen the Pay It Forward Mercy Chain</button>
+
+      <!-- Navigational bridge to the direct Adoption Chain - feels connected and rewarding -->
+      <div class="mt-4 text-center">
+        <a href="all-programs.html" class="text-sm text-emerald-300 hover:text-emerald-200 underline">Or dive straight into the Pay It Forward Adoption Chain (direct sponsorship) →</a>
+      </div>`
   },
               {
     id: 3,
@@ -1394,5 +1399,6 @@ const programs = [            {
           </div>
           <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding is there, these families will no longer carry that heavy weight alone. Their children will get the medicine, equipment, and support they need to thrive. Parents will have real peace of mind and space to simply love and raise their kids. This is the kind of steady, respectful care the world needs. One family, one child, one beautiful bridge to a better day at a time.</p>
           <button onclick="sponsorProgram('special-needs-support-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Build A Lifelong Bridge For These Families</button>`
+      }
       }
 ];

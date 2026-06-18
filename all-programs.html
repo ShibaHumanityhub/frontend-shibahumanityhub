@@ -1077,6 +1077,7 @@ function filterPrograms(cat) {
 
   renderAllPrograms(cat);
 
+
   // Re-apply premium card treatments (flywheel bg automation + particles) to newly rendered cards
   // (initial load already triggers via initPremiumAnimations; filters need explicit refresh)
   if (window.initPremiumAnimations) {
@@ -1160,6 +1161,9 @@ function hideModal() {
   // Phase 1: ensure videos paused on close
   if (window.pauseAllMercyVideos) window.pauseAllMercyVideos();
 }
+
+// === Rewarding Navigational Explorer (makes being here feel amazing and connected) ===
+
 
 function sponsorProgram() {
   alert("❤️ Thank you so much!\n\nYour support is already changing lives.\n\nTogether we are building real mercy.");
