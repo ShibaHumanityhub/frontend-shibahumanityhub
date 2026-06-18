@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE MERCY BLUEPRINT • ShibaHumanityhub</title>
+  <meta name="description" content="A love letter from the founder. How every transaction quietly saves lives. People helping people helping people.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&amp;display=swap');
+    
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+      background: #0a0f1c;
+      color: #f1f5f9;
+    }
+    
+    .hero-font {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .manifesto {
+      font-size: 1.075rem;
+      line-height: 1.82;
+    }
+
+    .gold {
+      color: #fcd34d;
+    }
+
+    .emerald {
+      color: #10b981;
+    }
+
+    .prose {
+      max-width: 72ch;
+    }
+
+    .prose p {
+      line-height: 1.78;
+      margin-bottom: 1.15rem;
+    }
+
+    .soul-quote {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      border-left: 3px solid #fcd34d;
+      padding-left: 1.35rem;
+      color: #e0e7ff;
+    }
+
+    .elegant-section {
+      position: relative;
+    }
+
+    .elegant-section::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 42px;
+      height: 1px;
+      background: linear-gradient(to right, #fcd34d, #10b981);
+    }
+
+    .mercy-card {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                  box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mercy-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    }
+
+    .stamp {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      padding: 1px 7px;
+      border: 1px solid #fcd34d33;
+      color: #fcd34d;
+      display: inline-block;
+    }
+  </style>
+  <style>
+    @media print {
+      nav, .mt-8 button, p.mt-2 { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .max-w-4xl, .max-w-3xl { max-width: 100% !important; }
+      h1 { font-size: 42px !important; line-height: 1.1 !important; }
+      .manifesto, .text-\[15\.2px\] { font-size: 13px !important; line-height: 1.6 !important; }
+      .soul-quote { border-color: #ccc !important; }
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-200%); }
+      100% { transform: translateX(300%); }
+    }
+  </style>
+</head>
+<body class="bg-[#0a0f1c] text-slate-200">
+  <!-- NAV -->
+  <nav class="border-b border-white/10 bg-[#0a0f1c]/95 backdrop-blur-lg fixed w-full z-50">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-amber-400 to-emerald-500 flex items-center justify-center">
+          <span class="text-black font-bold text-xl">S</span>
+        </div>
+        <span class="font-semibold text-xl tracking-tight">ShibaHumanityhub</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="index.html" class="hover:text-amber-300 transition">Home</a>
+        <a href="shelters.html" class="hover:text-amber-300 transition">The Souls</a>
+        <a href="whitepaper.html" class="hover:text-amber-300 transition">Whitepaper</a>
+        <a href="mercy-blueprint.html" class="text-emerald-300 font-medium">Mercy Blueprint</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-16 pb-20">
+    <!-- HERO -->
+    <div class="max-w-4xl mx-auto px-6 pt-10">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="text-red-400 text-xl">❤️</div>
+        <div class="uppercase text-xs tracking-[4px] text-red-400/70 font-medium">A Love Letter from the Founder</div>
+      </div>
+      
+      <h1 class="text-[82px] leading-[0.84] font-bold tracking-[-5.8px] hero-font">
+        THE MERCY<br>BLUEPRINT
+      </h1>
+      <p class="mt-2 text-3xl tracking-tight text-amber-300">How Every Transaction Quietly Saves Lives</p>
+      
+      <div class="mt-8 text-sm text-zinc-300">
+        Since November 2025 • Powered by $NIBBLES &amp; $hopeseed
+      </div>
+
+      <!-- Stylish Download as PDF Button - Attention-grabbing, high-vibe with emerald soul & gold heart -->
+      <div class="mt-8">
+        <button onclick="window.print()" 
+                class="group relative inline-flex items-center justify-center gap-3 px-10 py-4 rounded-3xl font-semibold text-lg tracking-tight bg-gradient-to-br from-emerald-500 via-teal-400 to-emerald-600 text-white shadow-[0_10px_30px_-10px_rgb(16,185,129),0_4px_6px_-1px_rgb(0,0,0)] hover:shadow-[0_20px_40px_-10px_rgb(16,185,129)] hover:scale-[1.015] active:scale-[0.985] transition-all duration-200 overflow-hidden">
+          <i class="fa-solid fa-download text-xl transition-transform group-active:scale-90"></i>
+          <span class="font-semibold">Download as PDF</span>
+          <!-- Silver shine effect for premium feel -->
+          <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full animate-[shine_4s_linear_infinite] pointer-events-none"></span>
+        </button>
+        <p class="mt-2 text-xs text-zinc-400">Print → Save as PDF (beautiful styled layout)</p>
+      </div>
+    </div>
+
+    <!-- DEAR FRIEND -->
+    <div class="max-w-3xl mx-auto px-6 mt-16">
+      <div class="text-[13px] uppercase tracking-[2.5px] text-amber-400/70 mb-3">Dear Friend,</div>
+      
+      <div class="manifesto text-[15.2px] leading-[1.78] text-slate-200">
+        I want to be completely honest with you.<br><br>
+        
+        I can’t stop thinking about the quiet pain happening in this world right now.<br><br>
+        
+        Children lying in hospital beds surrounded by machines, still daring to dream of something that might bring them a moment of joy.<br>
+        Senior dogs who gave their whole lives to humans now spending their final days in cold, lonely kennels.<br>
+        Foster kids waking up on Christmas morning with nothing but silence.<br>
+        Families forced to choose between paying rent and buying the medicine their child desperately needs.<br><br>
+        
+        These aren’t just stories. These are real souls. Real hearts. Real lives.
+      </div>
+    </div>
+
+    <!-- THE REFUSAL -->
+    <div class="max-w-3xl mx-auto px-6 mt-14">
+      <div class="soul-quote">
+        I refuse to accept that this is just “how the world works.”<br>
+        That’s why we built ShibaHumanityhub.
+      </div>
+      
+      <div class="mt-7 text-[15.2px] leading-[1.78]">
+        We believe crypto can be so much more than speculation and hype.<br>
+        It can be the most powerful, transparent, and loving force for good the world has ever seen.
+      </div>
+      
+      <div class="mt-6 text-2xl font-semibold text-amber-300 tracking-tight">
+        People helping people helping people.<br>
+        Every single transaction saves lives.
+      </div>
+    </div>
+
+    <!-- THE SOLUTION -->
+    <div class="max-w-3xl mx-auto px-6 mt-16">
+      <div class="uppercase text-xs tracking-[3.5px] text-emerald-400 mb-3">The Solution</div>
+      
+      <div class="text-[15.2px] leading-[1.78]">
+        We didn’t just create another charity.<br>
+        We created a perpetual mercy engine on the blockchain.
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+        <div class="mercy-card bg-zinc-900/70 border border-amber-400/20 rounded-2xl p-6">
+          <div class="flex gap-3 items-start">
+            <div class="text-2xl">🐾</div>
+            <div>
+              <div class="font-semibold text-amber-300">$NIBBLES</div>
+              <div class="text-xs mt-1 text-zinc-300">powers 17 global animal rescue, sanctuary, therapy, and healing programs.</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mercy-card bg-zinc-900/70 border border-emerald-400/20 rounded-2xl p-6">
+          <div class="flex gap-3 items-start">
+            <div class="text-2xl">🌱</div>
+            <div>
+              <div class="font-semibold text-emerald-300">$hopeseed</div>
+              <div class="text-xs mt-1 text-zinc-300">powers 13 human impact programs focused on children, families, and forgotten communities.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-6 text-[15.2px]">
+        Together, they form a living circle of mercy. Every time someone buys, sells, or simply holds either token, real good quietly flows into the world — automatically, transparently, and forever. No middlemen. No bureaucracy. Just pure, on-chain love in action.
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="max-w-3xl mx-auto px-6 mt-16">
+      <div class="section-title mb-5">How It Actually Works</div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 text-sm">
+        <div>
+          <div class="text-xs text-amber-400/80 mb-1">TOTAL SUPPLY</div>
+          <div class="font-semibold">1,000,000,000 (1 Billion each)</div>
+        </div>
+        <div>
+          <div class="text-xs text-emerald-400/80 mb-1">TRANSACTION TAX</div>
+          <div class="font-semibold">2%</div>
+          <div class="mt-2 text-xs">1% → Automatic SHIB burn (permanent ecosystem strength)</div>
+          <div class="text-xs">1% → HumanityHub Impact Wallet (100% goes directly to the 30 live programs)</div>
+        </div>
+      </div>
+      
+      <div class="mt-6 text-xs bg-zinc-900/60 border border-white/10 p-5 rounded-2xl">
+        No team wallets. No hidden allocations. No large unlocks. Everything is built for real utility and real giving from day one.
+      </div>
+    </div>
+
+    <!-- THE 30 LIVING STORIES -->
+    <div class="max-w-3xl mx-auto px-6 mt-16">
+      <div class="section-title text-xl mb-6">The 30 Living Stories of Mercy</div>
+      <p class="text-sm text-zinc-300">This is where it gets beautiful. Every single program was born from real pain and real love.</p>
+      
+      <div class="mt-8 grid md:grid-cols-2 gap-5">
+        <!-- NIBBLES -->
+        <div class="border-l-2 border-amber-400 pl-5">
+          <div class="uppercase text-xs tracking-widest text-amber-400 mb-2">$NIBBLES Programs — Mercy for Animals</div>
+          <div class="text-sm">
+            From pulling dogs off death row, to golden years retirement homes, therapy dog networks, disaster response K9 units, prison rehabilitation programs, and planting legacy Sequoia trees when they cross the Rainbow Bridge… every program honors life that society had overlooked.
+          </div>
+        </div>
+        
+        <!-- HOPESEED -->
+        <div class="border-l-2 border-emerald-400 pl-5">
+          <div class="uppercase text-xs tracking-widest text-emerald-400 mb-2">$hopeseed Programs — Mercy for Humans</div>
+          <div class="text-sm">
+            Orphan Christmas celebrations, Guardian Angel Wallets that grow with foster children, Dream Room makeovers for kids in hospital beds, Miracle Fight Funds for life-saving treatment, No Hungry Weekend Backpacks, and lifelong support bridges for special needs families.
+          </div>
+        </div>
+      </div>
+      
+      <div class="soul-quote mt-9">
+        These aren’t random acts of charity.<br>
+        They are a complete ecosystem of love that turns pain into hope, dignity, and joy.
+      </div>
+    </div>
+
+    <!-- THE BEGINNING -->
+    <div class="max-w-3xl mx-auto px-6 mt-16">
+      <div class="section-title mb-5">This Is Only the Beginning</div>
+      
+      <div class="text-[15.2px]">
+        We are building something that can run forever — powered by people who believe in better.<br><br>
+        Every holder, every transaction, every share matters.<br><br>
+        <span class="text-emerald-300">You don’t need to be rich to change lives. You only need to care.</span>
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="max-w-3xl mx-auto px-6 mt-16 text-center">
+      <div class="text-sm text-emerald-300/70 mb-2 tracking-[1.5px]">WELCOME TO THE CIRCLE OF MERCY</div>
+      <div class="text-lg">Thank you for reading this with an open heart.</div>
+      
+      <div class="mt-8 text-2xl font-semibold tracking-tight">
+        People helping people helping people.<br>
+        <span class="text-emerald-400">Every transaction saves lives.</span>
+      </div>
+      
+      <div class="mt-10 text-xs text-zinc-400">
+        With deep love, unbreakable belief in humanity, and tears of hope in my eyes,<br>
+        <span class="text-emerald-300">The ShibaHumanityhub Team</span><br>
+        <span class="text-[10px]">Since November 2025</span>
+      </div>
+      
+      <div class="flex justify-center gap-3 mt-7 text-xl">
+        ❤️ <span class="text-amber-300">🐾</span> <span class="text-emerald-300">🌱</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-white/10 py-7 text-center text-xs text-zinc-400">
+    This is not marketing.<br>
+    This is a quiet, beautiful mirror.
+  </footer>
+</body>
+</html>
