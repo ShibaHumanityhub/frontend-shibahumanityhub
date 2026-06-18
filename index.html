@@ -34,6 +34,10 @@
 <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
 <link rel="shortcut icon" href="assets/logos/favicon.png">
 
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -462,6 +466,41 @@
       100% { transform: translateX(300%) skewX(-25deg); }
     }
 
+    /* High-quality silver shine sweep on whitepaper button - always active, elegant premium rhythm */
+    .whitepaper-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .whitepaper-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -150%;
+      width: 42%;
+      height: 300%;
+      background: linear-gradient(
+        115deg,
+        transparent,
+        rgba(235, 240, 250, 0.65),
+        transparent
+      );
+      transform: skewX(-18deg);
+      animation: shineSweep 4.2s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Ensure silver shine always sweeps on whitepaper buttons even on hover states */
+    .whitepaper-btn:hover::before {
+      animation-duration: 3.6s;
+    }
+
+    /* High quality silver sweep always active - refined for premium feel on whitepaper */
+    .whitepaper-btn {
+      position: relative;
+      overflow: hidden;
+    }
+
     .super-cta-btn.lead-magnet-btn:hover {
       transform: scale(1.08) translateY(-4px) !important;
       box-shadow: 0 0 100px 20px rgb(251 191 36),
@@ -575,7 +614,7 @@
     </p>
 
     <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 px-4">
-      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="super-cta-btn inline-flex items-center justify-center gap-4 text-xl px-10 py-6 w-full sm:w-auto">
+      <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank" class="super-cta-btn whitepaper-btn inline-flex items-center justify-center gap-4 text-xl px-10 py-6 w-full sm:w-auto">
         <i class="fa-solid fa-bone bone-icon text-3xl"></i>
         Download Whitepaper v2
       </a>
@@ -704,7 +743,7 @@
             <!-- The logo itself, shaped and elevated -->
             <img src="assets/logos/Mr.NIbbles logo.jpg" 
                  class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
-                 alt="Mr. Nibbles — $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy">
+                 alt="Mr. Nibbles — $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy" decoding="async">
             <!-- Subtle inner paw watermark for shape poetry -->
             <div class="absolute text-[120px] text-amber-400/10 font-bold select-none">🐾</div>
           </div>
@@ -734,7 +773,7 @@
           <div class="absolute inset-[22px] rounded-[42%] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-emerald-400/40">
             <img src="assets/logos/hopeseed-logo.jpg" 
                  class="w-[82%] h-[82%] object-contain scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
-                 alt="$hopeseed — the living seed token for children, families and hope" loading="lazy">
+                 alt="$hopeseed — the living seed token for children, families and hope" loading="lazy" decoding="async">
             <div class="absolute text-[110px] text-emerald-400/10 font-bold select-none">🌱</div>
           </div>
           <div class="absolute -inset-[2px] rounded-[42%] border border-emerald-400/30 animate-[spin_52s_linear_infinite]"></div>
@@ -774,7 +813,7 @@
       <!-- $NIBBLES -->
       <div class="bg-zinc-800 rounded-3xl p-8 border border-amber-400/30">
         <div class="flex items-center gap-4 mb-6">
-          <img src="assets/logos/Mr.NIbbles logo.jpg" class="w-14 h-14 rounded-2xl object-contain" alt="Mr. Nibbles">
+          <img src="assets/logos/Mr.NIbbles logo.jpg" class="w-14 h-14 rounded-2xl object-contain" alt="Mr. Nibbles" loading="lazy" decoding="async">
           <div>
             <p class="text-amber-200 text-2xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
             <p class="text-sm text-amber-300/70">Mercy for dogs who once had none</p>
@@ -790,7 +829,7 @@
       <!-- $hopeseed -->
       <div class="bg-zinc-800 rounded-3xl p-8 border border-emerald-400/30">
         <div class="flex items-center gap-4 mb-6">
-          <img src="assets/logos/hopeseed-logo.jpg" class="w-14 h-14 rounded-2xl object-contain" alt="hopeseed">
+          <img src="assets/logos/hopeseed-logo.jpg" class="w-14 h-14 rounded-2xl object-contain" alt="hopeseed" loading="lazy" decoding="async">
           <div>
             <p class="text-emerald-300 text-2xl font-semibold">$hopeseed</p>
             <p class="text-sm text-emerald-300/70">Seeds of hope for children who need it most</p>
@@ -1361,7 +1400,7 @@
         <h3 class="text-3xl mb-3 tracking-tight">Read the Full Vision</h3>
         <p class="text-zinc-400 mb-auto leading-snug">Step into the complete story. See where we’re going and how every transaction is already changing lives.</p>
         <a href="https://raw.githubusercontent.com/ShibaHumanityhub/whitepaper-and-vision/main/shiba-humanity-hub-whitepaper-v2.pdf" target="_blank"
-           class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl justify-center">
+           class="super-cta-btn whitepaper-btn inline-flex items-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl justify-center tracking-tighter">
           <i class="fa-solid fa-bone bone-icon text-3xl"></i>
           Download Whitepaper v2
         </a>
@@ -1371,13 +1410,13 @@
         <h3 class="text-3xl mb-3 tracking-tight">Sponsor a Program</h3>
         <p class="text-zinc-400 mb-auto leading-snug">Choose any program that touches your heart and become the reason a dog finds safety or a child feels truly loved.</p>
         <button onclick="sponsorProgram()" 
-                class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl w-full">Sponsor With Love Right Now</button>
+                class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl w-full tracking-tighter">Sponsor With Love Right Now</button>
       </div>
       <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-amber-400/10 hover:border-amber-400/40 transition-all flex flex-col">
         <h3 class="text-3xl mb-3 tracking-tight">Join the Movement</h3>
         <p class="text-zinc-400 mb-auto leading-snug">Become part of something bigger. Follow along and watch real mercy unfold together.</p>
         <a href="https://x.com/Shibhumanityhub" target="_blank" 
-           class="premium-sponsor-btn inline-flex items-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl w-full justify-center">
+           class="super-cta-btn inline-flex items-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl w-full justify-center tracking-tighter">
           <i class="fa-brands fa-x-twitter"></i>
           Join us on X
         </a>
@@ -1386,11 +1425,12 @@
         </div>
       </div>
       <!-- New: direct beautiful bridge to the Souls page -->
-      <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-red-400/20 hover:border-red-400/50 transition-all flex flex-col ring-1 ring-red-400/10">
-        <h3 class="text-3xl mb-3 tracking-tight text-red-200">Meet the Beautiful Souls</h3>
+      <div class="help-card bg-zinc-900 rounded-3xl p-9 text-center border border-emerald-400/20 hover:border-emerald-400/50 transition-all flex flex-col">
+        <h3 class="text-3xl mb-3 tracking-tight">Meet the Beautiful Souls</h3>
         <p class="text-zinc-400 mb-auto leading-snug">Real dogs on the clock. Real programs built to pull them from the edge. This is where the flywheel becomes faces.</p>
         <a href="shelters.html" 
-           class="inline-flex items-center justify-center gap-3 text-lg font-semibold px-8 py-[17px] mt-8 rounded-3xl border border-red-300/70 hover:bg-red-900/20 hover:border-red-300 text-red-100 transition w-full">
+           class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-8 py-[17px] mt-8 rounded-3xl text-xl w-full justify-center tracking-tighter">
+          <i class="fa-solid fa-heart text-3xl"></i>
           Enter the Shelters • See Every Soul
         </a>
       </div>
