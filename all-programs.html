@@ -214,7 +214,11 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
     }
     @media (max-width: 480px) {
       .program-card img { height: 165px; }
+      #programs-menu { min-width: 220px; }
     }
+    /* Premium navbar feel + everything fits perfectly to size */
+    nav a { transition: color 0.15s ease, letter-spacing 0.2s ease; }
+    nav a:hover { letter-spacing: 0.02em; }
 
     :root {
       --ease-mercy: cubic-bezier(0.4, 0, 0.2, 1);
@@ -506,13 +510,35 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 </div>
       <span class="hidden sm:block text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
-    <div class="relative group hidden md:block">
-      <a href="all-programs.html" class="hover:text-amber-400 transition-colors flex items-center gap-1 px-3 py-1">Programs <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
-      <div class="absolute hidden group-hover:block mt-1 bg-zinc-900 border border-white/10 rounded-2xl py-2 min-w-[240px] z-[60] shadow-xl">
-        <a href="all-programs.html" class="block px-4 py-2 text-sm hover:bg-white/5">All Programs</a>
-        <a href="star-souls.html" class="block px-4 py-2 text-sm hover:bg-white/5">Star Souls • Therapy Gigs &amp; Visits</a>
-        <a href="k9-lifeline.html" class="block px-4 py-2 text-sm hover:bg-white/5">K9 Lifeline • Disaster Response</a>
-        <a href="#pay-it-forward-adoption" class="block px-4 py-2 text-sm hover:bg-white/5">Pay It Forward Adoption Chain</a>
+    <div class="relative hidden md:block" id="programs-dropdown">
+      <a href="all-programs.html" 
+         onclick="toggleProgramsDropdown(event)" 
+         class="hover:text-amber-400 transition-colors flex items-center gap-1 px-3 py-1 group/nav">
+        <span class="relative">
+          Programs
+          <span class="absolute -bottom-px left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-emerald-400 group-hover/nav:w-full transition-all"></span>
+        </span>
+        <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
+      </a>
+      <div id="programs-menu" 
+           class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[260px] z-[60] shadow-2xl overflow-hidden"
+           style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
+        <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
+          <span>THE CIRCLE OF MERCY</span>
+        </div>
+        <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> All 29 Programs
+        </a>
+        <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> Star Souls • Therapy Gigs
+        </a>
+        <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> K9 Lifeline • Disaster Response
+        </a>
+        <div class="my-1 border-t border-white/10"></div>
+        <a href="#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> Pay It Forward Adoption Chain
+        </a>
       </div>
     </div>
 
@@ -533,14 +559,14 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 70px;">
   <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
-    <a href="all-programs.html" class="py-2 hover:text-amber-400">All Programs</a>
-    <a href="star-souls.html" class="py-2 hover:text-emerald-400 font-medium">Star Souls • Therapy Gigs &amp; Visits</a>
-    <a href="k9-lifeline.html" class="py-2 hover:text-emerald-400 font-medium">K9 Lifeline • Disaster Response</a>
-    <a href="#pay-it-forward-adoption" class="py-2 hover:text-amber-400">Pay It Forward Adoption Chain</a>
+    <a href="all-programs.html" class="py-2 hover:text-amber-400 hover:tracking-wider transition-all">All Programs</a>
+    <a href="star-souls.html" class="py-2 hover:text-emerald-400 hover:tracking-wider transition-all font-medium">Star Souls • Therapy Gigs &amp; Visits</a>
+    <a href="k9-lifeline.html" class="py-2 hover:text-emerald-400 hover:tracking-wider transition-all font-medium">K9 Lifeline • Disaster Response</a>
+    <a href="#pay-it-forward-adoption" class="py-2 hover:text-amber-400 hover:tracking-wider transition-all">Pay It Forward Adoption Chain</a>
     <div class="h-px bg-white/10 my-1"></div>
-    <a href="index.html" class="py-2 hover:text-white">← Home / Flywheel</a>
-    <a href="shelters.html" class="py-2 hover:text-red-300 font-medium">Beautiful Souls</a>
-    <a href="index.html#glossary" class="py-2 text-xs text-zinc-400 hover:text-white">Plain Terms Glossary</a>
+    <a href="index.html" class="py-2 hover:text-white hover:tracking-wider transition-all">← Home / Flywheel</a>
+    <a href="shelters.html" class="py-2 hover:text-red-300 hover:tracking-wider transition-all font-medium">Beautiful Souls</a>
+    <a href="index.html#glossary" class="py-2 text-xs text-zinc-400 hover:text-white hover:tracking-wider transition-all">Plain Terms Glossary</a>
   </div>
 </div>
 
@@ -575,7 +601,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
           <div class="absolute inset-[10px] rounded-full border border-amber-400/70 shadow-[0_0_40px_-8px_rgb(251,191,36),inset_0_0_60px_rgba(251,191,36,0.15)]"></div>
           <!-- Inner coin platform -->
           <div class="absolute inset-[22px] rounded-full bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-amber-400/40">
-            <img src="assets/logos/Mr.NIbbles logo.jpg" 
+            <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles logo.jpg" 
                  class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
                  alt="Mr. Nibbles, $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy">
             <!-- Subtle inner paw watermark for shape poetry -->
@@ -605,7 +631,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
           <div class="absolute inset-[10px] rounded-[42%] border border-emerald-400/70 shadow-[0_0_40px_-8px_rgb(52,211,153),inset_0_0_60px_rgba(52,211,153,0.15)]"></div>
           <!-- Inner platform -->
           <div class="absolute inset-[22px] rounded-[42%] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-emerald-400/40">
-            <img src="assets/logos/hopeseed-logo.jpg" 
+            <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/logos/hopeseed-logo.jpg" 
                  class="w-[82%] h-[82%] object-contain scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
                  alt="$hopeseed, the living seed token for children, families and hope" loading="lazy">
             <div class="absolute text-[100px] text-emerald-400/10 font-bold select-none">🌱</div>
@@ -922,7 +948,7 @@ function createCardHTML(p) {
       <div class="floating-elements absolute inset-0 pointer-events-none"></div>
       
       <div class="relative overflow-hidden rounded-2xl mb-6 z-10">
-        <img src="${p.image}" class="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105" alt="${p.title}" loading="lazy">
+        <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="${p.image}" class="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105" alt="${p.title}" loading="lazy">
       </div>
       
       <div class="flex gap-2 mb-4 z-10 relative">
@@ -1393,6 +1419,7 @@ function initInfoIcons() {
 }
 
 initInfoIcons();
+if (window.initMercyWheel) window.initMercyWheel();
 
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
@@ -1406,6 +1433,27 @@ function toggleMobileMenu() {
     menu.classList.add('hidden');
     icon.classList.remove('fa-times');
     icon.classList.add('fa-bars');
+  }
+}
+
+function toggleProgramsDropdown(e) {
+  e.preventDefault();
+  const menu = document.getElementById('programs-menu');
+  const chevron = document.getElementById('programs-chevron');
+  if (!menu) return;
+  const isHidden = menu.classList.contains('hidden');
+  menu.classList.toggle('hidden');
+  if (chevron) chevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+  if (isHidden) {
+    setTimeout(() => {
+      document.addEventListener('click', function handler(ev) {
+        if (!menu.contains(ev.target)) {
+          menu.classList.add('hidden');
+          if (chevron) chevron.style.transform = 'rotate(0deg)';
+          document.removeEventListener('click', handler);
+        }
+      }, { once: true });
+    }, 10);
   }
 }
 

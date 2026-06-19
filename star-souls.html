@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght=500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/shared-animations.js" defer></script>
   
   <style>
     * { box-sizing: border-box; }
@@ -712,8 +713,17 @@ function initStarSouls() {
 // Boot
 document.addEventListener('DOMContentLoaded', () => {
   initStarSouls();
+  if (window.initMercyWheel) window.initMercyWheel();
 });
 </script>
+<style>
+  @media (max-width: 480px) {
+    .star-card { padding: 1rem; }
+  }
+  /* Addictive premium feel + perfect sizing */
+  nav a { transition: color .15s, letter-spacing .2s; }
+  nav a:hover { letter-spacing: .02em; }
+</style>
 
 </body>
 </html>

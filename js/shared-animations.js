@@ -52,10 +52,10 @@
       ? ['🐾', '❤️', '🐾', '❤️', '🐾', '❤️'] 
       : ['❤️', '🐾', '❤️', '🐾', '❤️', '🐾'];
 
-    // Phase 1: dynamic count for perf/mobile (gentle on small screens or reduced)
-    let count = 11;
+    // Phase 1: dynamic count for perf/mobile (gentle on small screens or reduced) - REDUCED FOR SPEED
+    let count = 3;
     if (prefersReduced) count = 0;
-    else if (window.innerWidth < 480) count = 5; // tasteful on mobile
+    else if (window.innerWidth < 480) count = 1; // tasteful on mobile
 
     // Phase 4: intensity from holdings (density/brightness for more alive feel when holding grows)
     const intensity = window.mercyParticleIntensity || 1;
@@ -64,7 +64,7 @@
     // Phase 4 guardrail: cap particles for performance (lots of cards or small screen)
     const cardCount = document.querySelectorAll('.program-card').length;
     if (cardCount > 8 && window.innerWidth < 640) {
-      count = Math.min(count, 3);
+      count = Math.min(count, 1);
     }
 
     // rich but tasteful density across entire background
@@ -392,5 +392,142 @@
     });
   } else {
     if (window.initPremiumAnimations) window.initPremiumAnimations();
+  }
+
+  // === Giant faint Wheel of Mercy background ===
+  // Bilyeu heartfelt + Elon precision + Vitalik elegant.
+  // Faint rotating wheel that turns with scroll (up or down).
+  // Trillionaire quality: subtle, purposeful, alive with the flywheel.
+  window.initMercyWheel = function() {
+    if (prefersReduced) return;
+    if (document.getElementById('mercy-wheel')) return;
+
+    const wheel = document.createElement('div');
+    wheel.id = 'mercy-wheel';
+    wheel.setAttribute('aria-hidden', 'true');
+    wheel.style.cssText = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      width: 115vmin;
+      height: 115vmin;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: -1;
+      transition: transform 80ms linear;
+      mix-blend-mode: screen;
+    `;
+
+    // Simple elegant SVG wheel: outer ring + spokes + subtle symbols
+    wheel.innerHTML = `
+      <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer mercy ring -->
+        <circle cx="100" cy="100" r="92" stroke="#fcd34d" stroke-width="1.5" opacity="0.6"/>
+        <circle cx="100" cy="100" r="78" stroke="#10b981" stroke-width="1" opacity="0.5"/>
+        
+        <!-- Spokes - 8 elegant divisions -->
+        <g stroke="#fcd34d" stroke-width="1" opacity="0.45">
+          <line x1="100" y1="8" x2="100" y2="192"/>
+          <line x1="8" y1="100" x2="192" y2="100"/>
+          <line x1="29" y1="29" x2="171" y2="171"/>
+          <line x1="171" y1="29" x2="29" y2="171"/>
+          <line x1="50" y1="10" x2="150" y2="190"/>
+          <line x1="10" y1="50" x2="190" y2="150"/>
+          <line x1="50" y1="190" x2="150" y2="10"/>
+          <line x1="190" y1="50" x2="10" y2="150"/>
+        </g>
+        
+        <!-- Inner mercy symbols (hearts + paws faintly) -->
+        <text x="100" y="38" font-size="14" fill="#fcd34d" text-anchor="middle" opacity="0.5">✦</text>
+        <text x="100" y="170" font-size="14" fill="#10b981" text-anchor="middle" opacity="0.5">✦</text>
+        <text x="38" y="105" font-size="11" fill="#fcd34d" text-anchor="middle" opacity="0.4">🐾</text>
+        <text x="162" y="105" font-size="11" fill="#10b981" text-anchor="middle" opacity="0.4">🐾</text>
+      </svg>
+    `;
+
+    document.body.appendChild(wheel);
+
+    let lastScroll = window.scrollY;
+    let currentRotation = 0;
+    let ticking = false;
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const delta = scrollY - lastScroll;
+          // Very low cost: only rotate on significant scroll, minimal amount
+          if (Math.abs(delta) > 5) {
+            currentRotation += delta * 0.01;
+            wheel.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`;
+          }
+          lastScroll = scrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    // Passive for perf
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Minimal idle for aliveness - very infrequent
+    setInterval(() => {
+      if (Math.abs(window.scrollY - lastScroll) < 5) {
+        currentRotation += 0.005;
+        wheel.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`;
+      }
+    }, 800);
+
+    // Expose for potential control
+    window.mercyWheel = wheel;
+  };
+
+  // Auto init mercy wheel on pages that want the background experience
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      // Only on key immersive pages
+      const immersive = ['index.html', '', 'all-programs.html', 'star-souls.html', 'k9-lifeline.html'];
+      if (immersive.some(p => location.pathname.includes(p) || location.pathname === '/')) {
+        window.initMercyWheel();
+      }
+    });
+  } else {
+    const immersive = ['index.html', '', 'all-programs.html', 'star-souls.html', 'k9-lifeline.html'];
+    if (immersive.some(p => location.pathname.includes(p) || location.pathname === '/')) {
+      window.initMercyWheel();
+    }
+  }
+
+  // Lazy load videos for fast smooth experience - play only when visible (no lag on load)
+  function initLazyVideos() {
+    const videos = document.querySelectorAll('video[autoplay]');
+    if (!videos.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          if (!prefersReduced) {
+            video.play().catch(() => {});
+          }
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    videos.forEach(v => {
+      v.muted = true;
+      v.playsInline = true;
+      observer.observe(v);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLazyVideos);
+  } else {
+    initLazyVideos();
   }
 })();
