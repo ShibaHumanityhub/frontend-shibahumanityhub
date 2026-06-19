@@ -120,12 +120,36 @@
 
   function initFloatingParticles() {
     if (prefersReduced) return;
-    document.querySelectorAll('.program-card').forEach(card => {
+    // Heartful floating hearts/paws on all major cards across every page for cohesive wholesome feel
+    document.querySelectorAll('.program-card, .soul-card, .star-card, .k9-card').forEach(card => {
       if (!card.hasAttribute('data-particles-init')) {
+        // Only if the card has (or we can create) a container. For non-program cards the function safely early-returns if no .floating-elements
         createFloatingParticles(card);
         card.setAttribute('data-particles-init', 'true');
       }
     });
+  }
+
+  // Inject drift keyframes globally so every page's cards get beautiful floating (even if their local CSS doesn't define them)
+  if (!document.getElementById('mercy-drift-keyframes')) {
+    const driftK = document.createElement('style');
+    driftK.id = 'mercy-drift-keyframes';
+    driftK.textContent = `
+      @keyframes drift-slow1 { 0%{transform:translate(0,0) rotate(-8deg)} 50%{transform:translate(6px,-11px) rotate(6deg)} 100%{transform:translate(0,0) rotate(-8deg)} }
+      @keyframes drift-slow2 { 0%{transform:translate(0,0) rotate(5deg)} 50%{transform:translate(-8px,9px) rotate(-7deg)} 100%{transform:translate(0,0) rotate(5deg)} }
+      @keyframes drift-slow3 { 0%{transform:translate(0,0)} 50%{transform:translate(7px,5px) rotate(4deg)} 100%{transform:translate(0,0)} }
+      @keyframes drift-slow4 { 0%{transform:translate(0,0) rotate(-3deg)} 50%{transform:translate(-5px,-13px) rotate(8deg)} 100%{transform:translate(0,0) rotate(-3deg)} }
+      @keyframes drift-slow5 { 0%{transform:translate(0,0)} 50%{transform:translate(4px,8px) rotate(-5deg)} 100%{transform:translate(0,0)} }
+      @keyframes drift-slow6 { 0%{transform:translate(0,0) rotate(7deg)} 50%{transform:translate(-9px,4px) rotate(-4deg)} 100%{transform:translate(0,0) rotate(7deg)} }
+      .float-particle { position:absolute; transition:transform .2s ease; animation-timing-function:linear; animation-iteration-count:infinite; }
+      .float-particle.drift-slow1 { animation-name:drift-slow1; }
+      .float-particle.drift-slow2 { animation-name:drift-slow2; }
+      .float-particle.drift-slow3 { animation-name:drift-slow3; }
+      .float-particle.drift-slow4 { animation-name:drift-slow4; }
+      .float-particle.drift-slow5 { animation-name:drift-slow5; }
+      .float-particle.drift-slow6 { animation-name:drift-slow6; }
+    `;
+    document.head.appendChild(driftK);
   }
 
   // Hover response is handled in CSS for the premium "the field wakes" feeling.
@@ -394,10 +418,11 @@
     if (window.initPremiumAnimations) window.initPremiumAnimations();
   }
 
-  // === Giant faint Wheel of Mercy background ===
-  // Bilyeu heartfelt + Elon precision + Vitalik elegant.
-  // Faint rotating wheel that turns with scroll (up or down).
-  // Trillionaire quality: subtle, purposeful, alive with the flywheel.
+  // === Giant faint Wheel of Mercy background - ULTIMATE SCROLL EXPERIENCE ===
+  // Multi-frequency faint gold + hopeseed flywheel. 
+  // Heartfelt, wholesome, premium restraint. Bilyeu depth + Elon precision + Vitalik elegance.
+  // Turns with your scroll at different layered frequencies for a living, breathing feel.
+  // Ultra-faint so content always leads; leaves a warm, good taste.
   window.initMercyWheel = function() {
     if (prefersReduced) return;
     if (document.getElementById('mercy-wheel')) return;
@@ -409,79 +434,172 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) rotate(0deg);
-      width: 115vmin;
-      height: 115vmin;
-      opacity: 0.045;
+      transform: translate(-50%, -50%);
+      width: 118vmin;
+      height: 118vmin;
+      opacity: 0.032;
       pointer-events: none;
       z-index: -1;
-      transition: transform 80ms linear;
       mix-blend-mode: screen;
-      filter: drop-shadow(0 0 18px rgba(252,211,77,0.11)) drop-shadow(0 0 32px rgba(252,211,77,0.06));
-      animation: mercyMidnightGlow 0.9s ease-in-out infinite;
+      filter: drop-shadow(0 0 22px rgba(252,211,77,0.08)) drop-shadow(0 0 38px rgba(52,211,153,0.07));
+      transition: transform 60ms linear;
     `;
 
-    // Inject faint high-frequency gold midnight glow keyframes (next level vibe)
+    // Inject refined faint dual-tone (gold + hopeseed) breathing glow - softer, more frequencies
     if (!document.getElementById('mercy-glow-style')) {
       const glowStyle = document.createElement('style');
       glowStyle.id = 'mercy-glow-style';
       glowStyle.textContent = `
         @keyframes mercyMidnightGlow {
           0%, 100% {
-            filter: drop-shadow(0 0 18px rgba(252,211,77,0.11)) drop-shadow(0 0 32px rgba(252,211,77,0.06));
-            opacity: 0.045;
+            filter: drop-shadow(0 0 22px rgba(252,211,77,0.08)) drop-shadow(0 0 38px rgba(52,211,153,0.065));
+            opacity: 0.032;
           }
-          50% {
-            filter: drop-shadow(0 0 28px rgba(252,211,77,0.17)) drop-shadow(0 0 48px rgba(252,211,77,0.09));
-            opacity: 0.055;
+          42% {
+            filter: drop-shadow(0 0 30px rgba(252,211,77,0.12)) drop-shadow(0 0 46px rgba(52,211,153,0.09));
+            opacity: 0.041;
+          }
+          78% {
+            filter: drop-shadow(0 0 18px rgba(52,211,153,0.10)) drop-shadow(0 0 35px rgba(252,211,77,0.07));
+            opacity: 0.036;
           }
         }
+        #mercy-wheel { animation: mercyMidnightGlow 1.85s ease-in-out infinite; }
+        
+        /* Extra frequency micro orbs - faint gold / hopeseed orbiting atmosphere */
+        .mercy-orbit {
+          position: absolute;
+          border-radius: 50%;
+          pointer-events: none;
+          mix-blend-mode: screen;
+        }
+        .mercy-orbit.g { background: #fcd34d; box-shadow: 0 0 6px #fcd34d; }
+        .mercy-orbit.h { background: #34d399; box-shadow: 0 0 5px #34d399; }
       `;
       document.head.appendChild(glowStyle);
     }
 
-    // Simple elegant SVG wheel: outer ring + spokes + subtle symbols
+    // Multi-layered elegant SVG: distinct frequencies via groups (outer slow gold, mid hopeseed, spokes, symbols with hearts/paws)
     wheel.innerHTML = `
       <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer mercy ring -->
-        <circle cx="100" cy="100" r="92" stroke="#fcd34d" stroke-width="1.5" opacity="0.6"/>
-        <circle cx="100" cy="100" r="78" stroke="#10b981" stroke-width="1" opacity="0.5"/>
+        <defs>
+          <linearGradient id="goldHopeseed" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fcd34d" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#34d399" stop-opacity="0.55"/>
+          </linearGradient>
+        </defs>
         
-        <!-- Spokes - 8 elegant divisions -->
-        <g stroke="#fcd34d" stroke-width="1" opacity="0.45">
-          <line x1="100" y1="8" x2="100" y2="192"/>
-          <line x1="8" y1="100" x2="192" y2="100"/>
-          <line x1="29" y1="29" x2="171" y2="171"/>
-          <line x1="171" y1="29" x2="29" y2="171"/>
-          <line x1="50" y1="10" x2="150" y2="190"/>
-          <line x1="10" y1="50" x2="190" y2="150"/>
-          <line x1="50" y1="190" x2="150" y2="10"/>
-          <line x1="190" y1="50" x2="10" y2="150"/>
+        <!-- Outer slow majestic ring - gold dominant, very faint -->
+        <g id="mw-outer">
+          <circle cx="100" cy="100" r="94" stroke="#fcd34d" stroke-width="1.6" opacity="0.38"/>
         </g>
         
-        <!-- Inner mercy symbols (hearts + paws faintly) -->
-        <text x="100" y="38" font-size="14" fill="#fcd34d" text-anchor="middle" opacity="0.5">✦</text>
-        <text x="100" y="170" font-size="14" fill="#10b981" text-anchor="middle" opacity="0.5">✦</text>
-        <text x="38" y="105" font-size="11" fill="#fcd34d" text-anchor="middle" opacity="0.4">🐾</text>
-        <text x="162" y="105" font-size="11" fill="#10b981" text-anchor="middle" opacity="0.4">🐾</text>
+        <!-- Mid ring - hopeseed tone, different radius for depth -->
+        <g id="mw-mid">
+          <circle cx="100" cy="100" r="79" stroke="#34d399" stroke-width="1.1" opacity="0.34"/>
+        </g>
+        
+        <!-- Spokes - 8 divisions, dual tone subtle, medium frequency -->
+        <g id="mw-spokes" stroke="#fcd34d" stroke-width="0.9" opacity="0.32">
+          <line x1="100" y1="7" x2="100" y2="193"/>
+          <line x1="7" y1="100" x2="193" y2="100"/>
+          <line x1="26" y1="26" x2="174" y2="174"/>
+          <line x1="174" y1="26" x2="26" y2="174"/>
+          <line x1="48" y1="9" x2="152" y2="191"/>
+          <line x1="9" y1="48" x2="191" y2="152"/>
+          <line x1="48" y1="191" x2="152" y2="9"/>
+          <line x1="191" y1="48" x2="9" y2="152"/>
+          <!-- Extra hopeseed spokes for richer faint texture -->
+          <line x1="100" y1="7" x2="100" y2="193" stroke="#34d399" opacity="0.22"/>
+          <line x1="7" y1="100" x2="193" y2="100" stroke="#34d399" opacity="0.22"/>
+        </g>
+        
+        <!-- Inner subtle ring -->
+        <g id="mw-inner">
+          <circle cx="100" cy="100" r="42" stroke="#fcd34d" stroke-width="0.7" opacity="0.28"/>
+          <circle cx="100" cy="100" r="29" stroke="#34d399" stroke-width="0.6" opacity="0.25"/>
+        </g>
+        
+        <!-- Heartful symbols - ultra faint hearts, paws and stars at different positions. Wholesome soulful feel -->
+        <g id="mw-symbols">
+          <text x="100" y="32" font-size="13" fill="#fcd34d" text-anchor="middle" opacity="0.32">✦</text>
+          <text x="100" y="172" font-size="13" fill="#34d399" text-anchor="middle" opacity="0.30">✦</text>
+          <text x="100" y="100" font-size="15" fill="#fcd34d" text-anchor="middle" opacity="0.18">❤️</text>
+          
+          <text x="34" y="100" font-size="12" fill="#fcd34d" text-anchor="middle" opacity="0.26">🐾</text>
+          <text x="166" y="100" font-size="12" fill="#34d399" text-anchor="middle" opacity="0.26">🐾</text>
+          <text x="58" y="58" font-size="10" fill="#34d399" text-anchor="middle" opacity="0.22">🌱</text>
+          <text x="142" y="142" font-size="10" fill="#fcd34d" text-anchor="middle" opacity="0.22">🌱</text>
+        </g>
       </svg>
     `;
 
     document.body.appendChild(wheel);
 
+    // Micro orbiting faint gold + hopeseed orbs (other frequency layer - different slow cycles)
+    const orbits = [];
+    const orbitData = [
+      {x: 18, y: 22, size: 2.2, cls: 'g', phase: 0},
+      {x: 82, y: 19, size: 1.6, cls: 'h', phase: 1.7},
+      {x: 19, y: 79, size: 1.9, cls: 'h', phase: 3.1},
+      {x: 79, y: 81, size: 1.5, cls: 'g', phase: 4.4}
+    ];
+    orbitData.forEach((o, idx) => {
+      const orb = document.createElement('div');
+      orb.className = `mercy-orbit ${o.cls}`;
+      orb.style.cssText = `left:${o.x}%; top:${o.y}%; width:${o.size}px; height:${o.size}px; opacity:0.11;`;
+      wheel.appendChild(orb);
+      orbits.push({el: orb, baseX: o.x, baseY: o.y, size: o.size, phase: o.phase});
+    });
+
+    // Scroll state with MULTIPLE independent frequencies
     let lastScroll = window.scrollY;
-    let currentRotation = 0;
+    let rotOuter = 0, rotSpokes = 0, rotInner = 0, rotSymbols = 0;
     let ticking = false;
+
+    const outerG = wheel.querySelector('#mw-outer');
+    const spokesG = wheel.querySelector('#mw-spokes');
+    const innerG = wheel.querySelector('#mw-inner');
+    const symbolsG = wheel.querySelector('#mw-symbols');
+
+    function applyRotations() {
+      const cx = 100, cy = 100; // viewBox center
+      if (outerG) outerG.setAttribute('transform', `rotate(${rotOuter} ${cx} ${cy})`);
+      if (spokesG) spokesG.setAttribute('transform', `rotate(${rotSpokes} ${cx} ${cy})`);
+      if (innerG) innerG.setAttribute('transform', `rotate(${rotInner} ${cx} ${cy})`);
+      if (symbolsG) symbolsG.setAttribute('transform', `rotate(${rotSymbols} ${cx} ${cy})`);
+
+      // Orbiters at different frequencies + very slow independent drift
+      orbits.forEach((o, i) => {
+        const freq = (i % 2 === 0) ? 0.009 : 0.014;
+        const angle = (rotSymbols * freq * 1.6) + (o.phase * 9);
+        const rad = angle * (Math.PI / 180);
+        const r = 38 + (i % 2) * 4; // radius from center
+        const ox = 50 + Math.cos(rad) * (r / 1.9);
+        const oy = 50 + Math.sin(rad) * (r / 1.9);
+        o.el.style.left = `${ox}%`;
+        o.el.style.top = `${oy}%`;
+        // gentle size breath at different rate
+        const breath = 0.78 + Math.sin((Date.now() / 1800) + o.phase) * 0.22;
+        o.el.style.transform = `scale(${breath.toFixed(3)})`;
+        o.el.style.opacity = (0.09 + Math.sin((Date.now() / 2600) + i) * 0.025).toFixed(3);
+      });
+    }
 
     function onScroll() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY;
           const delta = scrollY - lastScroll;
-          // Very low cost: only rotate on significant scroll, minimal amount
-          if (Math.abs(delta) > 5) {
-            currentRotation += delta * 0.01;
-            wheel.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`;
+
+          if (Math.abs(delta) > 3) {
+            // Different frequencies for the ultimate layered flywheel turning feel
+            rotOuter += delta * 0.0062;     // slow, majestic outer
+            rotSpokes += delta * 0.0128;    // medium spokes (core energy)
+            rotInner += delta * -0.0041;    // counter rotation for depth + parallax
+            rotSymbols += delta * 0.017;    // fastest inner symbols + hearts
+
+            applyRotations();
           }
           lastScroll = scrollY;
           ticking = false;
@@ -490,35 +608,47 @@
       }
     }
 
-    // Passive for perf
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Minimal idle for aliveness - very infrequent
-    setInterval(() => {
-      if (Math.abs(window.scrollY - lastScroll) < 5) {
-        currentRotation += 0.005;
-        wheel.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg)`;
-      }
-    }, 800);
+    // Multiple idle frequencies for continuous aliveness when still (wholesome breathing)
+    let idleTick = 0;
+    const idleTimer = setInterval(() => {
+      if (Math.abs(window.scrollY - lastScroll) < 4) {
+        idleTick += 0.6;
+        // Varied idle speeds
+        rotOuter += 0.0032;
+        rotSpokes += 0.0065;
+        rotInner += -0.0021;
+        rotSymbols += 0.0048 + Math.sin(idleTick / 11) * 0.001;
 
-    // Expose for potential control
+        applyRotations();
+      }
+    }, 720);
+
+    // Also softly sync global scroll var for other elements (engine, subtle accents) to hook into
+    const syncGlobalScroll = () => {
+      const prog = Math.min(Math.max(window.scrollY / (document.body.scrollHeight * 0.6), 0), 1);
+      document.documentElement.style.setProperty('--mercy-flywheel-progress', prog.toFixed(3));
+    };
+    window.addEventListener('scroll', () => { if (!ticking) syncGlobalScroll(); }, { passive: true });
+
+    // Expose
     window.mercyWheel = wheel;
+    window._mercyWheelRot = () => ({rotOuter, rotSpokes, rotInner, rotSymbols});
   };
 
-  // Auto init mercy wheel on pages that want the background experience
+  // Auto init mercy wheel on EVERY page for the ultimate consistent scroll experience.
+  // Faint enough to never interfere with reading or cards. Wholesome atmosphere everywhere.
+  function shouldInitWheel() {
+    return true; // all pages now receive the faint multi-frequency gold + hopeseed flywheel
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      // Only on key immersive pages
-      const immersive = ['index.html', '', 'all-programs.html', 'star-souls.html', 'k9-lifeline.html'];
-      if (immersive.some(p => location.pathname.includes(p) || location.pathname === '/')) {
-        window.initMercyWheel();
-      }
+      if (shouldInitWheel() && window.initMercyWheel) window.initMercyWheel();
     });
   } else {
-    const immersive = ['index.html', '', 'all-programs.html', 'star-souls.html', 'k9-lifeline.html'];
-    if (immersive.some(p => location.pathname.includes(p) || location.pathname === '/')) {
-      window.initMercyWheel();
-    }
+    if (shouldInitWheel() && window.initMercyWheel) window.initMercyWheel();
   }
 
   // Lazy load videos for fast smooth experience - play only when visible (no lag on load)
@@ -550,5 +680,110 @@
     document.addEventListener('DOMContentLoaded', initLazyVideos);
   } else {
     initLazyVideos();
+  }
+
+  // === Global wholesome scroll atmosphere + extra frequencies for ultimate heartfelt experience ===
+  // Very faint gold/hopeseed soft drifts + breathing that respond to scroll. 
+  // Makes the entire site feel like one living, loving flywheel. Never intrusive.
+  function initGlobalScrollHeart() {
+    if (prefersReduced) return;
+
+    // Inject soft global styles for multi-frequency warmth
+    if (!document.getElementById('mercy-global-heart-style')) {
+      const gStyle = document.createElement('style');
+      gStyle.id = 'mercy-global-heart-style';
+      gStyle.textContent = `
+        :root { --mercy-flywheel-progress: 0; }
+        
+        /* Ultra faint global atmosphere layer - gold + hopeseed soft presence while scrolling */
+        .mercy-atmosphere {
+          position: fixed;
+          inset: 0;
+          pointer-events: none;
+          z-index: -2;
+          background: 
+            radial-gradient(ellipse at 38% 22%, rgba(252,211,77,0.018) 0%, transparent 58%),
+            radial-gradient(ellipse at 72% 68%, rgba(52,211,153,0.015) 0%, transparent 64%);
+          opacity: 0.6;
+          transition: opacity 1200ms ease;
+        }
+
+        /* Heartful slow breathing on primary containers (wholesome, not animated flash) */
+        .hero-bg, main > section:first-of-type, .program-card, .soul-card, .star-card, .k9-card {
+          animation: mercySoftBreath 19s ease-in-out infinite;
+        }
+        @keyframes mercySoftBreath {
+          0%,100% { opacity: 1; }
+          50% { opacity: 0.985; }
+        }
+
+        /* Scroll-tied micro warmth on key text (very restrained, premium taste) */
+        h1, h2.hero-title, .hero-title-wrapper {
+          transition: filter 600ms ease;
+        }
+      `;
+      document.head.appendChild(gStyle);
+    }
+
+    // Create the atmosphere layer once
+    if (!document.querySelector('.mercy-atmosphere')) {
+      const atm = document.createElement('div');
+      atm.className = 'mercy-atmosphere';
+      document.body.appendChild(atm);
+      window.mercyAtmosphere = atm;
+    }
+
+    // Scroll-linked subtle frequency shift on atmosphere (different rate from wheel)
+    let atmTick = false;
+    window.addEventListener('scroll', () => {
+      if (!atmTick) {
+        requestAnimationFrame(() => {
+          const atm = window.mercyAtmosphere;
+          if (atm) {
+            const p = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--mercy-flywheel-progress')) || 0;
+            // Gentle position shift for parallax depth (other frequency)
+            const shiftX = 48 + (p * 4);
+            const shiftY = 38 + Math.sin(p * 6) * 3.5;
+            atm.style.background = `
+              radial-gradient(ellipse at ${shiftX}% ${shiftY}%, rgba(252,211,77,0.019) 0%, transparent 60%),
+              radial-gradient(ellipse at ${72 - p*5}% ${64 + p*2}%, rgba(52,211,153,0.017) 0%, transparent 66%)
+            `;
+            // Very soft brightness modulation at scroll
+            atm.style.opacity = (0.55 + p * 0.18).toFixed(2);
+          }
+          atmTick = false;
+        });
+        atmTick = true;
+      }
+    }, { passive: true });
+
+    // One time gentle initialization breath on major sections
+    setTimeout(() => {
+      document.querySelectorAll('main, .hero-bg, section').forEach((el, i) => {
+        if (i < 4) {
+          el.style.transition = 'opacity 1.1s ease, filter 1.1s ease';
+        }
+      });
+    }, 420);
+
+    // Coordinate with index's local engine scroll var for unified flywheel frequency feel
+    const engineEl = document.getElementById('mercy-engine');
+    if (engineEl) {
+      // Occasionally nudge the local progress from global wheel motion for richer scroll layers (very subtle extra frequency)
+      setInterval(() => {
+        if (!prefersReduced) {
+          const currentProg = parseFloat(engineEl.style.getPropertyValue('--mercy-scroll-progress') || '0.1');
+          const nudge = (Math.sin(Date.now() / 19000) * 0.012);
+          engineEl.style.setProperty('--mercy-scroll-progress', Math.max(0, Math.min(1, currentProg + nudge)).toFixed(3));
+        }
+      }, 2300);
+    }
+  }
+
+  // Run global heart + scroll atmosphere on all pages
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGlobalScrollHeart);
+  } else {
+    initGlobalScrollHeart();
   }
 })();

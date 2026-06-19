@@ -486,6 +486,10 @@
       transition: filter 0.1s linear;
       filter: brightness(1 + (var(--mercy-scroll-progress, 0) * 0.08));
     }
+    /* Extra frequency layer: subtle hopeseed/gold tint shift as you scroll the engine story */
+    #mercy-engine #engine-viz {
+      box-shadow: 0 0 0 1px rgba(251,191,36, calc(0.04 + var(--mercy-scroll-progress, 0) * 0.06));
+    }
   </style>
 
   <!-- Elegant, premium explanations system: keeps the poetic voice but makes it accessible to everyone -->

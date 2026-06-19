@@ -587,6 +587,9 @@ function initInfoIcons() {
 
 initInfoIcons();
 
+// Faint multi-frequency gold + hopeseed flywheel + ultimate scroll heart for this page
+if (window.initMercyWheel) window.initMercyWheel();
+
 function toggleProgramsDropdown(e) {
   e.preventDefault();
   const menu = document.getElementById('programs-menu');
