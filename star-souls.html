@@ -103,18 +103,114 @@
       <span class="hidden sm:block text-xl font-bold tracking-[-0.6px] bg-gradient-to-r from-amber-200 to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>
     
-    <div class="flex items-center gap-3 md:gap-5 text-sm">
-      <a href="index.html#tokens" class="hover:text-amber-400 transition px-3">Tokens</a>
-      <a href="all-programs.html" class="hover:text-amber-400 transition px-3">The 29 Programs</a>
-      <a href="shelters.html" class="hover:text-red-300 transition px-3">Beautiful Souls</a>
-      <a href="index.html" class="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-2xl text-sm hidden md:inline">← Flywheel</a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="index.html#tokens" class="hover:text-amber-400 transition-colors">Tokens</a>
+      <div class="relative" id="programs-dropdown">
+        <a href="all-programs.html" 
+           onclick="toggleProgramsDropdown(event)" 
+           class="hover:text-amber-400 transition-colors flex items-center gap-1 group/nav">
+          <span class="relative">
+            Programs
+            <span class="absolute -bottom-px left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-emerald-400 group-hover/nav:w-full transition-all"></span>
+          </span>
+          <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
+          <span class="ml-1 text-[9px] opacity-40 group-hover/nav:opacity-70">✧</span>
+        </a>
+        
+        <div id="programs-menu" 
+             class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[260px] z-[60] shadow-2xl overflow-hidden"
+             style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
+          
+          <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
+            <span>THE CIRCLE OF MERCY</span>
+          </div>
+          
+          <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
+            <span>All 29 Programs</span>
+          </a>
+          <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
+            <span>Star Souls • Therapy Gigs</span>
+          </a>
+          <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
+            <span>K9 Lifeline • Disaster Response</span>
+          </a>
+          
+          <div class="my-1 border-t border-white/10"></div>
+          
+          <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
+            <span>Pay It Forward Adoption Chain</span>
+          </a>
+          <a href="index.html#glossary" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item border-t border-white/10 mt-1 pt-3">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
+            <span>Plain Terms Glossary</span>
+          </a>
+        </div>
+      </div>
+      <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium hover:tracking-wider transition-all">Beautiful Souls</a>
+      <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Flywheel</a>
     </div>
-    
+
+    <!-- Mobile hamburger -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu">
+      <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+    </button>
+
     <a href="all-programs.html" class="bg-emerald-500 hover:bg-emerald-600 text-black font-semibold px-6 py-2.5 rounded-3xl text-sm flex items-center gap-2 transition">
       Support the Stars <i class="fa-solid fa-paw"></i>
     </a>
   </div>
 </nav>
+
+<!-- Mobile Menu (same as desktop dropdown for consistency) -->
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-1" style="top: 70px;">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+    <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
+      <span>THE CIRCLE OF MERCY</span>
+    </div>
+    
+    <a href="index.html#tokens" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80">◉</span> 
+      <span>Tokens</span>
+    </a>
+    <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
+      <span>All 29 Programs</span>
+    </a>
+    <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
+      <span>Star Souls • Therapy Gigs</span>
+    </a>
+    <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
+      <span>K9 Lifeline • Disaster Response</span>
+    </a>
+    
+    <div class="my-1 border-t border-white/10"></div>
+    
+    <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
+      <span>Pay It Forward Adoption Chain</span>
+    </a>
+    <a href="index.html#glossary" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
+      <span>Plain Terms Glossary</span>
+    </a>
+    
+    <div class="h-px bg-white/10 my-1"></div>
+    <a href="shelters.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-red-400/80">❤️</span> 
+      <span>Beautiful Souls</span>
+    </a>
+    <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80">◉</span> 
+      <span>Flywheel</span>
+    </a>
+  </div>
+</div>
 
 <!-- HERO -->
 <header class="hero-bg pt-20 pb-16 text-center border-b border-emerald-400/10">
@@ -708,6 +804,42 @@ function initStarSouls() {
   
   // Initial info icons if needed
   console.log('%c[Star Souls] Page ready — beautiful, searchable, gig calendar live.', 'color:#166534');
+}
+
+function toggleProgramsDropdown(e) {
+  e.preventDefault();
+  const menu = document.getElementById('programs-menu');
+  const chevron = document.getElementById('programs-chevron');
+  if (!menu) return;
+  const isHidden = menu.classList.contains('hidden');
+  menu.classList.toggle('hidden');
+  if (chevron) chevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+  if (isHidden) {
+    setTimeout(() => {
+      document.addEventListener('click', function handler(ev) {
+        if (!menu.contains(ev.target)) {
+          menu.classList.add('hidden');
+          if (chevron) chevron.style.transform = 'rotate(0deg)';
+          document.removeEventListener('click', handler);
+        }
+      }, { once: true });
+    }, 10);
+  }
+}
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('mobile-menu-icon');
+  if (!menu || !icon) return;
+  if (menu.classList.contains('hidden')) {
+    menu.classList.remove('hidden');
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-times');
+  } else {
+    menu.classList.add('hidden');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
 }
 
 // Boot
