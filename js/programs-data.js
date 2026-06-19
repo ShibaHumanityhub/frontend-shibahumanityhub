@@ -230,8 +230,8 @@ const programs = [            {
       <h2 class="text-4xl font-bold mb-3">Global Disaster K9 Response Units</h2>
       <p class="text-amber-200 text-xl mb-6">When disaster hits, every single minute matters. I keep thinking about the little girl they pulled from the rubble or the elderly couple found alive after everyone else had stopped looking.</p>
       <p class="text-zinc-300 mb-8">Those moments when a dog crawls through places no human can reach and changes everything.</p>
-      <p class="text-zinc-300 mb-8">We will keep a small, elite team of fully trained search-and-rescue dogs and handlers ready 24/7. Many of the dogs will come from our own rescue programs • dogs that once had no hope and now get to give that same gift of hope back to the world.</p>
-      <p class="text-zinc-300 mb-8">Every time a disaster strikes, $NIBBLES holders will be able to click and know their everyday transactions just helped send a real rescue team. This is mercy in motion. This is second chances saving lives.</p>
+      <p class="text-zinc-300 mb-8">We maintain a small number of elite teams in a permanent state of readiness. The handlers receive steady living support. The dogs receive full professional care and daily training. When a disaster hits, the teams are activated with additional funding for deployment costs and field bonuses.</p>
+      <p class="text-zinc-300 mb-8">Every time a disaster strikes, $NIBBLES holders know their everyday transactions helped keep these teams ready — and then helped send them into action. This is mercy in motion. Second chances saving lives when it matters most.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
       <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -251,24 +251,40 @@ const programs = [            {
       </div>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes These Rescues Real (when funded)</h4>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
-            <div class="text-amber-300 font-semibold mb-2">Mercy Circle</div>
-            <strong>Hold 50,000+ $NIBBLES</strong><br>Sponsor one full K9 Lifeline unit for a whole year
+        <h4 class="text-xl font-semibold text-amber-200 mb-6">How the Funding Actually Works</h4>
+        <p class="text-sm text-zinc-300 mb-6">The K9 Lifeline teams exist in two clear states. Everything is powered by $NIBBLES holders. There is no “hope someone donates when disaster strikes.”</p>
+        
+        <div class="space-y-6">
+          <div class="bg-amber-900/30 p-6 rounded-3xl">
+            <div class="text-amber-300 font-semibold mb-1">Standby • Readiness (always on)</div>
+            <div><strong>Mercy Circle — Hold 50,000+ $NIBBLES</strong></div>
+            <div class="text-sm text-zinc-300 mt-1">Keeps the team in permanent professional readiness. Funds handler living support, full dog care (food, veterinary, housing, daily training), equipment, and base costs so a fully trained unit can be wheels-up anywhere on Earth within 48 hours.</div>
           </div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
-            <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
-            <strong>Hold 250,000+ $NIBBLES</strong><br>Send $NIBBLES during a live alert • 30% goes straight into that team’s lifelong care fund
+          
+          <div class="bg-amber-900/30 p-6 rounded-3xl border-2 border-amber-400">
+            <div class="text-amber-300 font-semibold mb-1">Active Deployment (when the call comes)</div>
+            <div><strong>Guardian Circle — Hold 250,000+ $NIBBLES</strong></div>
+            <div class="text-sm text-zinc-300 mt-1">Releases additional funding the moment a team is activated. Covers rapid transport, field operations, handler deployment bonus, and extra support while they are in the disaster zone. A direct portion flows into post-mission recovery for both the dog and the handler.</div>
           </div>
-          <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
-            <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
-            <strong>Hold 500,000+ $NIBBLES</strong><br>Become a Lifeline Patron with naming rights on the vest and private updates
+          
+          <div class="bg-amber-900/30 p-6 rounded-3xl">
+            <div class="text-amber-300 font-semibold mb-1">Long-term Legacy</div>
+            <div><strong>Eternal Guardian Circle — Hold 500,000+ $NIBBLES</strong></div>
+            <div class="text-sm text-zinc-300 mt-1">Lifeline Patron status. Your holding quietly sustains the entire lifecycle of the team — ongoing care, advanced training, retirement for the dog, and development of the next generation of rescuers. Includes private updates and the option for naming rights.</div>
           </div>
         </div>
       </div>
 
       <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, the next disaster will not leave us feeling helpless. $NIBBLES holders will click and get a real rescue team moving before the first official meeting even ends. More lives saved. More shelter dogs turned into heroes. This is how we turn pain into hope, one loving paw at a time.</p>
+
+      <div class="mt-8">
+        <div class="text-sm font-semibold text-emerald-300 mb-3">Questions That Matter</div>
+        <div class="space-y-3 text-xs text-zinc-400">
+          <div><strong class="text-emerald-200">Are handlers paid on standby plus deployment bonuses?</strong> Standby readiness (support + dog care) is continuous via Mercy Circle. Active deployments release extra for costs and bonuses.</div>
+          <div><strong class="text-emerald-200">How do we verify they actually went?</strong> Reports, partner attestations, and media become permanent records.</div>
+          <div><strong class="text-emerald-200">What about the dogs after retirement?</strong> Full lifetime care. Eternal level specifically protects this.</div>
+        </div>
+      </div>
 
       <button onclick="sponsorProgram('global-disaster-k9')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch Global Disaster K9 Response Units</button>`
   },

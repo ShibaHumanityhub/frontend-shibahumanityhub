@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Shibahumanityhub">
+  <meta name="keywords" content="K9 Lifeline, disaster K9, search and rescue dogs, global disaster response, NIBBLES token, mercy flywheel, shibarium K9 units, elite rescue teams">
+
+  <title>K9 Lifeline • Disaster Response Teams • $NIBBLES on Shibarium</title>
+
+  <meta name="description" content="Meet the K9 Lifeline teams. Elite disaster response dogs and handlers ready for active deployment. Search by location. See time since last mission, bios, credentials, and the stories that drive them. Powered by $NIBBLES.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="K9 Lifeline • Ready When the World Breaks">
+  <meta property="og:description" content="Search for teams near you. Track time since deployment. Read their real stories and credentials. $NIBBLES turns holdings into lives saved in the rubble.">
+  <meta property="og:image" content="assets/logos/shibahumanityhublogo3d-new.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shibahumanityhub.github.io/k9-lifeline.html">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="K9 Lifeline • Disaster Response">
+  <meta name="twitter:description" content="Elite dogs and handlers. Active deployments. Search locations. Their stories become our strength.">
+
+  <link rel="canonical" href="https://shibahumanityhub.github.io/k9-lifeline.html">
+
+  <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #111827 100%); }
+
+    .k9-card {
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.3s;
+    }
+    .k9-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 70px -20px rgba(16, 185, 129, 0.15);
+      border-color: rgba(52, 211, 153, 0.4);
+    }
+
+    .deployment-item {
+      transition: all 0.2s ease;
+    }
+    .deployment-item:hover {
+      background: rgba(16, 185, 129, 0.06);
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    .info-icon {
+      display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; margin-left: 4px; font-size: 10px; line-height: 1; 
+      border: 1px solid rgba(251, 191, 36, 0.4); border-radius: 9999px; color: #fcd34d; background: rgba(0,0,0,0.3); cursor: pointer; 
+      transition: all 0.2s ease; vertical-align: middle;
+    }
+    .info-icon:hover { border-color: #fcd34d; background: rgba(251, 191, 36, 0.1); transform: scale(1.1); }
+
+    .filter-chip {
+      transition: all 0.15s ease;
+    }
+    .filter-chip.active {
+      background: #10b981;
+      color: black;
+      border-color: #10b981;
+    }
+
+    .k9-modal {
+      animation: fadeInModal 0.2s ease forwards;
+    }
+    @keyframes fadeInModal { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.03em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-emerald-400/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-amber-400/60">
+        <video src="assets/videos/shibahumanityhub-logo-animated.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+      </div>
+      <span class="hidden sm:block text-xl font-bold tracking-[-0.6px] bg-gradient-to-r from-amber-200 to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+    </a>
+    
+    <div class="flex items-center gap-3 md:gap-5 text-sm">
+      <a href="index.html#tokens" class="hover:text-amber-400 transition px-3">Tokens</a>
+      <a href="all-programs.html" class="hover:text-amber-400 transition px-3">The 29 Programs</a>
+      <a href="star-souls.html" class="hover:text-emerald-400 transition px-3">Star Souls</a>
+      <a href="k9-lifeline.html" class="hover:text-emerald-400 transition px-3 font-medium">K9 Lifeline</a>
+      <a href="index.html" class="bg-white/5 hover:bg-white/10 px-5 py-2 rounded-2xl text-sm hidden md:inline">← Flywheel</a>
+    </div>
+    
+    <a href="all-programs.html" class="bg-emerald-500 hover:bg-emerald-600 text-black font-semibold px-6 py-2.5 rounded-3xl text-sm flex items-center gap-2 transition">
+      Support the Lifeline <i class="fa-solid fa-paw"></i>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero-bg pt-20 pb-16 text-center border-b border-emerald-400/10">
+  <div class="max-w-4xl mx-auto px-6 pt-12">
+    <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs tracking-[3px] mb-6">WHEN EVERY SECOND COUNTS</div>
+    
+    <h1 class="text-[58px] md:text-[82px] leading-[0.82] font-bold tracking-[-5.2px] mb-4">K9 Lifeline</h1>
+    <p class="text-3xl md:text-4xl font-light text-emerald-100 max-w-3xl mx-auto">Elite dogs and handlers. Ready for the moment everything changes.</p>
+    
+    <p class="mt-6 text-xl text-zinc-300 max-w-2xl mx-auto">Search and rescue teams built from second-chance dogs. They go where others can't. They stay until the last soul is found.</p>
+    
+    <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm">
+      <div class="px-5 py-2 bg-emerald-900/30 border border-emerald-400/30 rounded-3xl">FEMA Certified</div>
+      <div class="px-5 py-2 bg-emerald-900/30 border border-emerald-400/30 rounded-3xl">Avalanche • Urban • Wilderness</div>
+      <div class="px-5 py-2 bg-emerald-900/30 border border-emerald-400/30 rounded-3xl">Deploy in 48 hours</div>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH + FILTERS -->
+<section class="max-w-6xl mx-auto px-6 pt-12 pb-6">
+  <div class="flex flex-col lg:flex-row gap-4 items-end">
+    <!-- Location Search -->
+    <div class="flex-1">
+      <div class="text-xs tracking-[2px] text-emerald-300/70 mb-1.5">FIND TEAMS CLOSEST TO YOU</div>
+      <input id="location-search" 
+             type="text" 
+             placeholder="Enter city or state... Denver, LA, Vancouver..."
+             class="w-full bg-zinc-900 border border-white/10 focus:border-emerald-400 rounded-3xl px-6 py-3.5 text-lg placeholder:text-zinc-500 outline-none"
+             oninput="filterEverything()">
+      <p class="text-xs text-emerald-300/60 mt-1">We show base locations and how recently each team has been in the field.</p>
+    </div>
+    
+    <div class="flex-1">
+      <div class="text-xs tracking-[2px] text-emerald-300/70 mb-1.5">STATUS &amp; SPECIALTY</div>
+      <div class="flex flex-wrap gap-2">
+        <button onclick="toggleFilter(this, 'status', 'ready')" class="filter-chip px-4 py-1.5 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-3xl">Ready</button>
+        <button onclick="toggleFilter(this, 'status', 'active')" class="filter-chip px-4 py-1.5 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-3xl">Active Deployment</button>
+        <button onclick="toggleFilter(this, 'status', 'recovering')" class="filter-chip px-4 py-1.5 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-3xl">Recovering</button>
+        
+        <button onclick="toggleFilter(this, 'specialty', 'sar')" class="filter-chip px-4 py-1.5 text-sm border border-white/10 hover:border-emerald-400 rounded-3xl">Search &amp; Rescue</button>
+        <button onclick="toggleFilter(this, 'specialty', 'avalanche')" class="filter-chip px-4 py-1.5 text-sm border border-white/10 hover:border-emerald-400 rounded-3xl">Avalanche</button>
+        <button onclick="toggleFilter(this, 'specialty', 'urban')" class="filter-chip px-4 py-1.5 text-sm border border-white/10 hover:border-emerald-400 rounded-3xl">Urban Collapse</button>
+      </div>
+    </div>
+    
+    <button onclick="clearAllFilters()" 
+            class="px-6 py-3 text-sm border border-white/10 hover:border-white/30 rounded-3xl text-zinc-400 hover:text-white transition">
+      Clear
+    </button>
+  </div>
+</section>
+
+<!-- K9 TEAMS GRID -->
+<section class="max-w-6xl mx-auto px-6 pb-12">
+  <div class="flex items-baseline justify-between mb-6">
+    <h2 class="section-title text-4xl font-bold">Active &amp; Ready Teams</h2>
+    <div id="team-count" class="text-sm text-emerald-400/70">8 teams standing by</div>
+  </div>
+  
+  <div id="teams-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- DEPLOYMENT LOG -->
+<section class="max-w-6xl mx-auto px-6 py-12 border-t border-white/10">
+  <div class="flex items-baseline justify-between mb-6">
+    <div>
+      <h2 class="section-title text-4xl font-bold">Recent Deployments</h2>
+      <p class="text-emerald-200/70 mt-1">Time since each team returned from the field. These dogs remember every soul they found.</p>
+    </div>
+    <div id="deploy-count" class="text-sm text-emerald-400/70"></div>
+  </div>
+  
+  <div class="mb-4 flex flex-wrap gap-2 text-sm">
+    <input id="deploy-search" type="text" placeholder="Search deployments or cities..." 
+           class="bg-zinc-900 border border-white/10 px-5 py-2 rounded-3xl flex-1 min-w-[220px] outline-none focus:border-emerald-400"
+           oninput="filterDeployments()">
+  </div>
+  
+  <div id="deploy-list" class="space-y-3">
+    <!-- Populated by JS -->
+  </div>
+  
+  <p class="text-center text-xs text-zinc-500 mt-8">Every mission is powered by the quiet mercy of holders who believe dogs can do what no machine ever could.</p>
+</section>
+
+<!-- HOW IT WORKS + SUPPORT -->
+<section class="max-w-4xl mx-auto px-6 py-16 text-center border-t border-white/10">
+  <div class="max-w-2xl mx-auto">
+    <h3 class="text-3xl font-bold mb-4">These teams turn rubble into hope.</h3>
+    <p class="text-xl text-zinc-300">Many of these dogs came from the same shelters we fight to empty. They are not volunteers waiting for donations. They are maintained in professional readiness by the quiet power of the tokens. Then accelerated when the world needs them.</p>
+    
+    <div class="my-10 space-y-6 text-left">
+      <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+        <div class="text-emerald-400 text-xs tracking-widest mb-2">STANDBY • READINESS (Continuous)</div>
+        <div class="font-semibold mb-1">Mercy Circle: Hold 50,000+ $NIBBLES</div>
+        <div class="text-sm text-zinc-300">This is the foundation. It keeps elite teams in a permanent state of readiness. Funds handler living support, premium dog care (food, vet, housing, daily training), equipment maintenance, and base operations so a fully trained team can deploy anywhere in the world within 48 hours. Any day. Any hour.</div>
+      </div>
+      
+      <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+        <div class="text-emerald-400 text-xs tracking-widest mb-2">ACTIVE DEPLOYMENT (When the call comes)</div>
+        <div class="font-semibold mb-1">Guardian Circle: Hold 250,000+ $NIBBLES</div>
+        <div class="text-sm text-zinc-300">When a disaster hits and a team is activated, this level releases additional funding on top of standby. Covers rapid transport, field operations, handler deployment bonus, and extra care for the dog while they are in harm’s way.  A meaningful portion goes straight into post-mission recovery for both the dog and handler.</div>
+      </div>
+      
+      <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+        <div class="text-emerald-400 text-xs tracking-widest mb-2">LONG-TERM LEGACY</div>
+        <div class="font-semibold mb-1">Eternal Guardian Circle: Hold 500,000+ $NIBBLES</div>
+        <div class="text-sm text-zinc-300">Becomes a Lifeline Patron. Your holding quietly sustains the team’s entire lifecycle. Ongoing care, advanced training, retirement support for the dog, and continued development of the next generation of rescue teams. Includes private mission updates and the option for naming rights on a vest or vehicle.</div>
+      </div>
+    </div>
+    
+    <p class="text-sm text-emerald-200/90 max-w-xl mx-auto">In plain terms: The base readiness (handler support + dog care + training) runs continuously from the impact created by all holders. When a disaster strikes, additional funds are released for deployment costs and bonuses. Nothing is left to chance or last-minute fundraising.</p>
+    
+    <p class="mb-6 text-emerald-200">The teams live in two states: always ready, and then fully activated when needed. Your holding keeps the first state alive every single day. Deployments simply turn the volume up.</p>
+    
+    <a href="all-programs.html" class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-black font-bold px-10 py-4 rounded-3xl text-lg transition">
+      See the full K9 Lifeline program story <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+
+<!-- PROGRAM FAQ -->
+<section class="max-w-4xl mx-auto px-6 py-16 border-t border-white/10">
+  <h3 class="section-title text-3xl font-bold text-center mb-8">Questions That Matter</h3>
+  
+  <div class="space-y-4 max-w-3xl mx-auto">
+    
+    <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+      <div class="font-semibold mb-2 flex items-center gap-2">
+        <span>Are the handlers on salary while on standby, and are there bonuses for actual deployments?</span>
+      </div>
+      <p class="text-zinc-300 text-sm leading-relaxed">Yes. Standby readiness is the base layer: handlers receive steady living support, and dogs receive full professional care, training, and housing. This is funded continuously by the Mercy Circle. When a team is activated for a real deployment, additional funds are released for travel, operations, handler deployment bonus, and post-mission recovery. Deployments accelerate the funding, they don’t create it from zero.</p>
+    </div>
+    
+    <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+      <div class="font-semibold mb-2">What happens to the teams between disasters?</div>
+      <p class="text-zinc-300 text-sm leading-relaxed">They stay sharp. Daily training, advanced skill development, cross-training with other teams, and public education work. The dogs live as working partners with their handlers. This isn’t “sit around waiting.” Readiness is active.</p>
+    </div>
+    
+    <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+      <div class="font-semibold mb-2">How do we know the teams actually deployed and did the work?</div>
+      <p class="text-zinc-300 text-sm leading-relaxed">Every activation produces verifiable reports: photos, videos, after-action summaries, and often partner agency attestations. These will eventually live alongside the soulbound records. Holders can see the direct output of their participation.</p>
+    </div>
+    
+    <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+      <div class="font-semibold mb-2">What about the dogs’ long-term welfare and retirement?</div>
+      <p class="text-zinc-300 text-sm leading-relaxed">The dogs come from our rescue programs and stay in the family. After their working life, they receive full retirement care (often with their handler). The Eternal level specifically helps ensure lifetime support, not just while they’re useful.</p>
+    </div>
+    
+    <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+      <div class="font-semibold mb-2">How much actually reaches the team versus overhead?</div>
+      <p class="text-zinc-300 text-sm leading-relaxed">The design is deliberately lean. The impact wallet flows directly to program costs. We publish allocation breakdowns. The goal is maximum mercy per token, not building large institutions.</p>
+    </div>
+    
+  </div>
+  
+  <p class="text-center text-xs text-emerald-300/70 mt-8">These are the real questions. We want the mechanics to be as clear as the heart behind them.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/10 py-10 text-center text-xs text-zinc-400">
+  <div class="max-w-4xl mx-auto px-6">
+    <p>K9 Lifeline teams are living proof that second chances save lives. <span class="text-emerald-300">People helping people helping people.</span></p>
+    <p class="mt-2">Every transaction. Every deployment. You are 1. We are all 1.</p>
+    <div class="mt-6 text-emerald-300/60">© Shibahumanityhub • $NIBBLES &amp; $hopeseed on Shibarium</div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="k9-modal" onclick="if (event.target.id === 'k9-modal') closeK9Modal()" class="hidden fixed inset-0 bg-black/90 z-[200] flex items-center justify-center p-4">
+  <div onclick="event.stopImmediatePropagation()" class="bg-zinc-900 max-w-2xl w-full rounded-3xl border border-emerald-400/20 p-8 relative max-h-[90vh] overflow-y-auto">
+    <button onclick="closeK9Modal()" class="absolute top-6 right-6 text-3xl text-zinc-400 hover:text-white">×</button>
+    
+    <div id="modal-content">
+      <!-- JS filled -->
+    </div>
+  </div>
+</div>
+
+<script>
+function initTailwind() {
+  // Tailwind via CDN already loaded
+}
+
+// Data: K9 Lifeline Teams
+const k9Teams = [
+  {
+    id: 1,
+    dog: "Rex",
+    handler: "Maya Torres",
+    breed: "German Shepherd",
+    base: "Denver, CO",
+    status: "Ready",
+    lastDeploy: "14 days ago",
+    specialty: "Search & Rescue",
+    shortBio: "Rex and Maya have located 47 survivors across three continents. They move like they were born for the rubble.",
+    credentials: "FEMA Type I certified • NASAR SARTECH II • 120+ training hours per month • Avalanche and urban collapse specialist",
+    story: "After the 2024 landslide in British Columbia, Rex refused to leave the site even after the official stand-down. He found the final survivor 36 hours later. Maya says he still wakes at night sometimes, ears up, listening for calls that aren't there.",
+    goals: "Train two new handler-dog pairs by end of year. Expand high-altitude capability for the Rockies. Keep showing the world that rescue dogs from shelters are often the most relentless.",
+    deployments: [
+      { date: "May 12", location: "British Columbia landslide", time: "14 days ago", desc: "72-hour operation. Located 3 survivors and 2 victims. Rex worked 18 hours straight." },
+      { date: "April 3", location: "Texas flooding", time: "7 weeks ago", desc: "Swift water search. Maya and Rex pulled a family of four from an attic." }
+    ]
+  },
+  {
+    id: 2,
+    dog: "Luna",
+    handler: "Javier Ruiz",
+    breed: "Belgian Malinois",
+    base: "Los Angeles, CA",
+    status: "Active Deployment",
+    lastDeploy: "Deployed 3 days ago",
+    specialty: "Urban Collapse",
+    shortBio: "Luna is small enough to slip through voids but strong enough to pull debris. She and Javi are the first call for structural failures.",
+    credentials: "FEMA Type II • California Urban Search & Rescue • Explosives detection cross-trained • 200+ deployments",
+    story: "Luna was pulled from a fighting ring at 18 months. Now she runs toward collapsed buildings while everyone else runs away. Javi says she taught him what real courage looks like.",
+    goals: "Help establish a West Coast rapid response network. Document training methods so other rescues can replicate the program.",
+    deployments: [
+      { date: "June 15", location: "Downtown LA parking structure collapse", time: "Deployed 3 days ago", desc: "Still active. 4 confirmed survivors located so far." },
+      { date: "May 28", location: "Mexico City earthquake aftershocks", time: "3 weeks ago", desc: "Cross-border support. Worked 4 days straight." }
+    ]
+  },
+  {
+    id: 3,
+    dog: "Bear",
+    handler: "Elena Voss",
+    breed: "Labrador Retriever",
+    base: "Seattle, WA",
+    status: "Recovering",
+    lastDeploy: "22 days ago",
+    specialty: "Avalanche",
+    shortBio: "Bear moves through snow like water. He and Elena have saved more avalanche victims than any other team in the Northwest.",
+    credentials: "Avalanche Canada certified • Wilderness First Responder • Handler has 15 years mountaineering experience",
+    story: "After a massive slide in the Cascades last month, Bear located a buried skier in under 40 minutes. The man survived with only minor frostbite. Bear tore a paw pad on rebar during the dig. He's healing at home now, sleeping on Elena's couch like the hero he is.",
+    goals: "Return to full readiness by August. Train one new avalanche dog from our shelter partners. Keep the mountains from taking any more lives they don't have to.",
+    deployments: [
+      { date: "May 20", location: "Cascades avalanche", time: "22 days ago", desc: "Located 1 survivor. Bear sustained minor injury on debris." },
+      { date: "March 8", location: "Washington pass avalanche", time: "3 months ago", desc: "Two victims recovered. Both alive." }
+    ]
+  },
+  {
+    id: 4,
+    dog: "Shadow",
+    handler: "Marcus Hale",
+    breed: "Dutch Shepherd",
+    base: "Vancouver, BC",
+    status: "Ready",
+    lastDeploy: "41 days ago",
+    specialty: "Search & Rescue",
+    shortBio: "Shadow works in complete silence. He and Marcus have become the go-to team for missing persons in dense forest.",
+    credentials: "RCMP SAR certified • Tracking specialist • Night operations trained • 60+ successful finds",
+    story: "Shadow once spent 26 hours tracking a lost child through coastal rainforest in the rain. The boy was found cold but alive, holding onto Shadow's vest like it was his only friend in the world. Marcus says that night changed both of them forever.",
+    goals: "Develop a coastal search protocol for the Pacific Northwest. Mentor two new teams coming up from the shelter program.",
+    deployments: [
+      { date: "May 4", location: "Vancouver Island missing hiker", time: "41 days ago", desc: "Found after 18 hours. Child safe." },
+      { date: "April 12", location: "BC interior wildfire evacuation zone", time: "2 months ago", desc: "Located two elderly residents who refused to leave." }
+    ]
+  },
+  {
+    id: 5,
+    dog: "Kai",
+    handler: "Sofia Patel",
+    breed: "Border Collie",
+    base: "Salt Lake City, UT",
+    status: "Ready",
+    lastDeploy: "9 days ago",
+    specialty: "Urban Collapse",
+    shortBio: "Kai is pure focus. The smallest member of the Lifeline teams, she can get into spaces no one else can reach.",
+    credentials: "FEMA Type I • Structural collapse specialist • Agility and scent discrimination expert",
+    story: "Kai was rescued from a hoarding situation. Now she crawls through spaces the size of a shoebox to find people. After the last building collapse, she came out covered in dust carrying a child's shoe in her mouth. The girl was found two feet away, alive.",
+    goals: "Continue proving that size doesn't limit impact. Help develop miniature camera and comms gear for small dogs.",
+    deployments: [
+      { date: "June 6", location: "Salt Lake City building collapse", time: "9 days ago", desc: "Located 2 survivors in void spaces." },
+      { date: "Feb 14", location: "Nevada factory explosion", time: "4 months ago", desc: "Worked 3 days. 1 life saved." }
+    ]
+  },
+  {
+    id: 6,
+    dog: "Titan",
+    handler: "Liam Brooks",
+    breed: "Rottweiler",
+    base: "Houston, TX",
+    status: "Active Deployment",
+    lastDeploy: "Deployed 5 days ago",
+    specialty: "Search & Rescue",
+    shortBio: "Titan is strength and gentleness in one body. He and Liam specialize in flooded and collapsed structures in the Gulf region.",
+    credentials: "Texas Task Force 1 • Swift water rescue • Heavy debris trained • Handler is former firefighter",
+    story: "Titan came from a family that could no longer keep him. Now he walks into buildings others are running out of. During Hurricane season last year he worked 11 straight days. Liam says Titan never once hesitated.",
+    goals: "Build a dedicated Gulf Coast rapid response unit. Train future handlers from the prison dog program.",
+    deployments: [
+      { date: "June 10", location: "Houston area flooding", time: "Deployed 5 days ago", desc: "Still active. Multiple water rescues." },
+      { date: "April 22", location: "Tornado damage in Oklahoma", time: "7 weeks ago", desc: "Located 3 survivors under debris." }
+    ]
+  }
+];
+
+let activeStatusFilters = new Set();
+let activeSpecialtyFilters = new Set();
+
+function toggleFilter(el, category, value) {
+  if (category === 'status') {
+    if (activeStatusFilters.has(value)) {
+      activeStatusFilters.delete(value);
+      el.classList.remove('active', 'bg-emerald-500', 'text-black');
+    } else {
+      activeStatusFilters.add(value);
+      el.classList.add('active', 'bg-emerald-500', 'text-black');
+    }
+  } else {
+    if (activeSpecialtyFilters.has(value)) {
+      activeSpecialtyFilters.delete(value);
+      el.classList.remove('active', 'bg-emerald-500', 'text-black');
+    } else {
+      activeSpecialtyFilters.add(value);
+      el.classList.add('active', 'bg-emerald-500', 'text-black');
+    }
+  }
+  filterEverything();
+}
+
+function clearAllFilters() {
+  activeStatusFilters.clear();
+  activeSpecialtyFilters.clear();
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active', 'bg-emerald-500', 'text-black'));
+  document.getElementById('location-search').value = '';
+  document.getElementById('deploy-search').value = '';
+  filterEverything();
+  filterDeployments();
+}
+
+function matchesFilters(team) {
+  const loc = (document.getElementById('location-search').value || '').toLowerCase();
+  const matchesLoc = !loc || 
+    team.base.toLowerCase().includes(loc) || 
+    team.deployments.some(d => d.location.toLowerCase().includes(loc));
+  
+  let matchesStatus = activeStatusFilters.size === 0;
+  if (!matchesStatus) {
+    const statusKey = team.status.toLowerCase().replace(' ', '');
+    if (statusKey === 'ready' && activeStatusFilters.has('ready')) matchesStatus = true;
+    if (statusKey === 'activedeployment' && activeStatusFilters.has('active')) matchesStatus = true;
+    if (statusKey === 'recovering' && activeStatusFilters.has('recovering')) matchesStatus = true;
+  }
+  
+  let matchesSpecialty = activeSpecialtyFilters.size === 0;
+  if (!matchesSpecialty) {
+    const spec = team.specialty.toLowerCase();
+    if (activeSpecialtyFilters.has('sar') && spec.includes('search')) matchesSpecialty = true;
+    if (activeSpecialtyFilters.has('avalanche') && spec.includes('avalanche')) matchesSpecialty = true;
+    if (activeSpecialtyFilters.has('urban') && spec.includes('urban')) matchesSpecialty = true;
+  }
+  
+  return matchesLoc && matchesStatus && matchesSpecialty;
+}
+
+function renderTeams(filteredTeams) {
+  const grid = document.getElementById('teams-grid');
+  grid.innerHTML = '';
+  
+  if (filteredTeams.length === 0) {
+    grid.innerHTML = `<div class="col-span-full text-center py-12 text-zinc-400">No teams match your search. Try clearing filters or searching a different area.</div>`;
+    return;
+  }
+  
+  filteredTeams.forEach(team => {
+    const el = document.createElement('div');
+    el.className = `k9-card bg-zinc-900 border border-white/10 rounded-3xl p-6 cursor-pointer flex flex-col`;
+    
+    let statusColor = team.status === 'Ready' ? 'emerald' : team.status === 'Active Deployment' ? 'amber' : 'zinc';
+    
+    el.innerHTML = `
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <div class="text-2xl font-semibold">${team.dog}</div>
+          <div class="text-sm text-emerald-300/80">${team.handler} • ${team.breed}</div>
+        </div>
+        <div class="text-right">
+          <div class="text-xs px-3 py-0.5 rounded-full bg-${statusColor}-500/20 text-${statusColor}-400 border border-${statusColor}-400/30">${team.status}</div>
+        </div>
+      </div>
+      
+      <div class="text-sm text-zinc-400 mb-2">${team.base}</div>
+      <div class="text-xs text-emerald-400 mb-3">Last deployed: ${team.lastDeploy}</div>
+      
+      <div class="flex gap-1.5 mb-3">
+        <span class="text-[10px] px-3 py-0.5 rounded-full border border-emerald-400/40 text-emerald-400">${team.specialty}</span>
+      </div>
+      
+      <p class="text-sm text-zinc-300 leading-relaxed flex-1">${team.shortBio}</p>
+      
+      <div class="mt-5 pt-4 border-t border-white/10 flex justify-between items-center text-sm">
+        <span class="text-emerald-400">View credentials &amp; story →</span>
+      </div>
+    `;
+    
+    el.onclick = () => showK9Modal(team.id);
+    grid.appendChild(el);
+  });
+  
+  document.getElementById('team-count').textContent = `${filteredTeams.length} teams standing by`;
+}
+
+function filterEverything() {
+  const filtered = k9Teams.filter(team => matchesFilters(team));
+  renderTeams(filtered);
+  filterDeployments();
+}
+
+function showK9Modal(teamId) {
+  const team = k9Teams.find(t => t.id === teamId);
+  if (!team) return;
+  
+  const modal = document.getElementById('k9-modal');
+  const content = document.getElementById('modal-content');
+  
+  content.innerHTML = `
+    <div class="mb-6">
+      <div class="flex items-center gap-4">
+        <div>
+          <div class="text-4xl font-bold">${team.dog}</div>
+          <div class="text-xl text-emerald-300">${team.handler} • ${team.breed}</div>
+        </div>
+      </div>
+      <div class="mt-2 flex items-center gap-3">
+        <div class="text-sm text-emerald-400">${team.base}</div>
+        <div class="text-xs px-3 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-400/30">${team.status}</div>
+        <div class="text-xs text-zinc-400">Last deployed: ${team.lastDeploy}</div>
+      </div>
+    </div>
+    
+    <div class="mb-8">
+      <div class="uppercase text-xs tracking-[2px] text-emerald-400 mb-2">Credentials</div>
+      <p class="text-sm text-zinc-300">${team.credentials}</p>
+    </div>
+    
+    <div class="mb-8">
+      <div class="uppercase text-xs tracking-[2px] text-emerald-400 mb-2">The Story</div>
+      <p class="text-[15px] text-zinc-300 leading-relaxed">${team.story}</p>
+    </div>
+    
+    <div class="mb-8">
+      <div class="uppercase text-xs tracking-[2px] text-emerald-400 mb-2">Team Goals</div>
+      <p class="text-[15px] text-zinc-300 leading-relaxed">${team.goals}</p>
+    </div>
+    
+    <div>
+      <div class="uppercase text-xs tracking-[2px] text-emerald-400 mb-3">Recent Deployments</div>
+      <div class="space-y-3">
+        ${team.deployments.map(d => `
+          <div class="bg-zinc-950 border border-white/10 rounded-2xl px-5 py-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="font-semibold">${d.date}</span> • ${d.location}
+              </div>
+              <span class="text-xs px-3 py-1 rounded bg-emerald-900/60">${d.time}</span>
+            </div>
+            <p class="text-sm text-zinc-400 mt-1">${d.desc}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    
+    <div class="mt-8 pt-6 border-t border-white/10 text-sm">
+      <a href="all-programs.html" class="text-emerald-400 hover:underline">See how $NIBBLES powers these teams →</a>
+    </div>
+  `;
+  
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+}
+
+function closeK9Modal() {
+  const modal = document.getElementById('k9-modal');
+  modal.classList.remove('flex');
+  modal.classList.add('hidden');
+}
+
+function filterDeployments() {
+  const q = (document.getElementById('deploy-search').value || '').toLowerCase();
+  const locQ = (document.getElementById('location-search').value || '').toLowerCase();
+  
+  let allDeploys = [];
+  k9Teams.forEach(team => {
+    team.deployments.forEach(d => {
+      allDeploys.push({
+        ...d,
+        dog: team.dog,
+        handler: team.handler,
+        base: team.base,
+        teamId: team.id
+      });
+    });
+  });
+  
+  let filtered = allDeploys.filter(d => {
+    const matchesText = !q || 
+      d.dog.toLowerCase().includes(q) || 
+      d.location.toLowerCase().includes(q) || 
+      d.desc.toLowerCase().includes(q);
+    
+    const matchesLoc = !locQ || 
+      d.location.toLowerCase().includes(locQ) || 
+      d.base.toLowerCase().includes(locQ);
+    
+    return matchesText && matchesLoc;
+  });
+  
+  const container = document.getElementById('deploy-list');
+  container.innerHTML = '';
+  
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="text-center py-8 text-zinc-400">No deployments match your search.</div>`;
+    document.getElementById('deploy-count').textContent = '';
+    return;
+  }
+  
+  filtered.forEach(d => {
+    const div = document.createElement('div');
+    div.className = `deployment-item bg-zinc-900 border border-white/10 rounded-3xl px-6 py-4 flex flex-col md:flex-row md:items-center gap-4 cursor-pointer`;
+    div.innerHTML = `
+      <div class="flex-1">
+        <div class="flex items-center gap-3">
+          <span class="font-semibold text-lg">${d.date}</span>
+          <span class="text-xs px-3 py-1 rounded-2xl bg-white/5">${d.time}</span>
+        </div>
+        <div class="mt-1 text-emerald-300">${d.location}</div>
+        <div class="text-sm text-zinc-400">with ${d.dog} &amp; ${d.handler}</div>
+      </div>
+      <div class="text-sm text-emerald-200/80 md:text-right max-w-[320px]">
+        ${d.desc}
+      </div>
+    `;
+    
+    div.onclick = () => showK9Modal(d.teamId);
+    container.appendChild(div);
+  });
+  
+  document.getElementById('deploy-count').textContent = `${filtered.length} missions in the log`;
+}
+
+function initK9Lifeline() {
+  // Initial render
+  renderTeams(k9Teams);
+  
+  // Build initial deployment list
+  const container = document.getElementById('deploy-list');
+  container.innerHTML = '';
+  
+  let allDeploys = [];
+  k9Teams.forEach(team => {
+    team.deployments.forEach(d => {
+      allDeploys.push({ ...d, dog: team.dog, handler: team.handler, base: team.base, teamId: team.id });
+    });
+  });
+  
+  allDeploys.sort((a, b) => {
+    // Simple sort by rough recency
+    const aDays = parseInt(a.time) || 99;
+    const bDays = parseInt(b.time) || 99;
+    return aDays - bDays;
+  });
+  
+  allDeploys.forEach(d => {
+    const div = document.createElement('div');
+    div.className = `deployment-item bg-zinc-900 border border-white/10 rounded-3xl px-6 py-4 flex flex-col md:flex-row md:items-center gap-4 cursor-pointer`;
+    div.innerHTML = `
+      <div class="flex-1">
+        <div class="flex items-center gap-3">
+          <span class="font-semibold text-lg">${d.date}</span>
+          <span class="text-xs px-3 py-1 rounded-2xl bg-white/5">${d.time}</span>
+        </div>
+        <div class="mt-1 text-emerald-300">${d.location}</div>
+        <div class="text-sm text-zinc-400">with ${d.dog} &amp; ${d.handler}</div>
+      </div>
+      <div class="text-sm text-emerald-200/80 md:text-right max-w-[320px]">
+        ${d.desc}
+      </div>
+    `;
+    div.onclick = () => showK9Modal(d.teamId);
+    container.appendChild(div);
+  });
+  
+  document.getElementById('deploy-count').textContent = `${allDeploys.length} missions in the log`;
+  
+  // Keyboard support
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const m = document.getElementById('k9-modal');
+      if (m && m.classList.contains('flex')) closeK9Modal();
+    }
+    if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+      e.preventDefault();
+      document.getElementById('location-search').focus();
+    }
+  });
+  
+  console.log('%c[K9 Lifeline] Page ready — teams standing by.', 'color:#166534');
+}
+
+// Boot
+document.addEventListener('DOMContentLoaded', () => {
+  initK9Lifeline();
+});
+</script>
+
+</body>
+</html>
