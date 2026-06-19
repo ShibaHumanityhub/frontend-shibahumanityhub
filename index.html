@@ -22,7 +22,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://shibahumanityhub.github.io">
+  <meta property="og:url" content="https://shibahumanityhub.com">
   <meta property="og:site_name" content="Shibahumanityhub">
   <meta property="og:locale" content="en_US">
 
@@ -34,7 +34,7 @@
   <meta name="twitter:site" content="@Shibhumanityhub">
 
   <!-- Canonical + Mobile -->
-  <link rel="canonical" href="https://shibahumanityhub.github.io/">
+  <link rel="canonical" href="https://shibahumanityhub.com/">
 
   <!-- Structured Data - Google loves this for rich results &amp; AI search -->
   <script type="application/ld+json">
@@ -907,6 +907,53 @@
           <p class="text-xs text-emerald-300/70 mt-2">This is not financial advice. It is a personal commitment to stay aligned for as long as this exists.</p>
         </div>
 
+        <!-- For Companies & Large Holders - clear participation and reported impact -->
+        <div class="mt-8 bg-zinc-900/60 border border-white/10 rounded-3xl p-8">
+          <h3 class="text-xl font-semibold text-amber-200 mb-4">For Companies, Foundations & Large Holders</h3>
+          <p class="text-sm text-zinc-300 mb-4">Directly participate with skin in the game. Hold at Guardian level or sponsor specific programs. Get reported impact.</p>
+          
+          <div class="grid md:grid-cols-2 gap-6 text-sm">
+            <div>
+              <div class="font-semibold text-emerald-300 mb-2">How to participate</div>
+              <ul class="list-disc pl-5 text-zinc-300 space-y-1">
+                <li>Hold $NIBBLES or $hopeseed at Guardian Circle or higher to unlock direct program support.</li>
+                <li>Sponsor specific pods or programs (e.g., barn pods, therapy visits, K9 units).</li>
+                <li>Use your referral name when sharing to credit your network.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-semibold text-emerald-300 mb-2">Reported impact</div>
+              <ul class="list-disc pl-5 text-zinc-300 space-y-1">
+                <li>Quarterly on-chain attestations + field updates once charity status is live.</li>
+                <li>Soulbound proof-of-impact certificates for sponsors.</li>
+                <li>Direct video/stories from the programs you support.</li>
+                <li>Corporate banking and tax receipts available upon registered charity approval (in progress, expected within 7 months).</li>
+              </ul>
+            </div>
+          </div>
+          <p class="text-xs text-emerald-300/70 mt-4">All flows will be publicly auditable. Full reporting and legal framing activate with charity status.</p>
+        </div>
+
+        <!-- Current Seed Focus - narrower, with proof coming -->
+        <div class="mt-8">
+          <h3 class="text-xl font-semibold text-amber-200 mb-3">Current Seed Focus (executed upon funding)</h3>
+          <div class="grid md:grid-cols-3 gap-4 text-sm">
+            <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+              <div class="font-semibold text-emerald-300">Healing Hearts Therapy Dog Network</div>
+              <p class="text-zinc-300 mt-1">First teams in training. Proof of visits and impact reports will be published as they launch.</p>
+            </div>
+            <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+              <div class="font-semibold text-emerald-300">K9 Lifeline Response Units</div>
+              <p class="text-zinc-300 mt-1">Elite dogs and handlers ready. First deployments documented with partner attestations.</p>
+            </div>
+            <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-6">
+              <div class="font-semibold text-emerald-300">Pay It Forward Adoption Chain</div>
+              <p class="text-zinc-300 mt-1">Guardians supported directly. Real stories and chain growth published ongoing.</p>
+            </div>
+          </div>
+          <p class="text-xs text-emerald-300/70 mt-3">Narrower focus first. Full 29 programs unlock as capacity grows. All with verifiable proof.</p>
+        </div>
+
         <div>
           <h3 class="text-xl font-semibold text-amber-200 mb-3">Verifiability over trust</h3>
           <p class="text-zinc-300 leading-relaxed">On-chain records and soulbound passports turn good intentions into observable reality. A program cannot claim impact it has not delivered. The ledger does not lie, and it never forgets. This is the minimum requirement for a system that wants to scale compassion without eventually corrupting it. The same principle that makes decentralized protocols antifragile at global scale.<span class="info-icon" data-term="soulbound" title="Tap for plain terms">ⓘ</span></p>
@@ -1073,7 +1120,7 @@
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="text-5xl font-bold mb-4">Living Mercy on Shibarium</h2>
-      <p class="text-2xl text-amber-200">The contracts are real. Your transfers on the chain are the living proof. Connect quietly to see your actual ripples and how they are already turning the flywheel for children, seniors, veterans, inmates and the dogs who stand with them. The project treasury is at shibahumanityhub.shib (resolves to the dedicated project wallet on Shibarium).</p>
+      <p class="text-2xl text-amber-200">The contracts are real. Your transfers on the chain are the living proof. Connect quietly to see your actual ripples and how they are already turning the flywheel for children, seniors, veterans, inmates and the dogs who stand with them. The project treasury is at shibahumanityhub.shib (resolves to the dedicated project wallet on Shibarium). All future flows will be publicly auditable on-chain.</p>
       <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">Every on-chain move you make is a quiet, verifiable act of mercy. No pressure. No signatures. Just the truth the ledger cannot forget.</p>
     </div>
 
@@ -1480,6 +1527,7 @@
                    class="bg-zinc-900 border border-white/10 text-sm px-3 py-1.5 rounded w-full focus:border-amber-400 focus:outline-none"
                    oninput="saveReferralName(this.value)">
             <div class="text-[9px] text-emerald-300/70 mt-0.5">Enter your name/handle. Share the link with ?ref= to get credit.</div>
+            <div id="your-referrals" class="mt-1 text-[9px] text-emerald-300/70">Newcomers credited through you: <span id="referral-count">0</span> <span class="text-zinc-500">(share your ?ref= link to grow this)</span></div>
           </div>
         </div>
 
@@ -1774,7 +1822,8 @@
       <span class="text-4xl text-red-500 animate-pulse">❤️</span>
     </p>
     <p class="text-emerald-300 text-sm mt-6">Every transaction helps save a life.</p>
-    <p class="text-emerald-300 text-xs mt-10">© Shibahumanityhub • Since November 2025 • Built with pure love and $NIBBLES</p>
+    <p class="text-emerald-300 text-xs mt-10">© Shibahumanityhub • Pre-launch • Registered charity application pending (expected within 7 months) • Corporate banking ready</p>
+    <p class="text-zinc-400 text-[10px] mt-2">This is not financial advice. All commitments subject to final charity registration and applicable laws. Full on-chain treasury reporting and impact attestations will launch upon approval.</p>
   </div>
 </footer>
 
@@ -2758,6 +2807,22 @@ function loadReferralName() {
     currentReferralName = localStorage.getItem('referralName') || '';
     const input = document.getElementById('referral-name');
     if (input) input.value = currentReferralName;
+
+    // Demo: show credited newcomers (real tracking once charity live + bank)
+    const count = parseInt(localStorage.getItem('referralCount') || '0');
+    const countEl = document.getElementById('referral-count');
+    if (countEl) countEl.textContent = count;
+  } catch(e) {}
+}
+
+// Simple demo increment for referrer credit (when user shares or declares)
+function incrementReferralCount() {
+  try {
+    let count = parseInt(localStorage.getItem('referralCount') || '0');
+    count++;
+    localStorage.setItem('referralCount', count);
+    const countEl = document.getElementById('referral-count');
+    if (countEl) countEl.textContent = count;
   } catch(e) {}
 }
 
@@ -2790,7 +2855,7 @@ function copyMercyFootprint() {
   let refPart = '';
   if (currentReferralName) {
     const encodedRef = encodeURIComponent(currentReferralName);
-    refPart = `\n\nReferred by: ${currentReferralName}\nJoin via my referral: https://shibahumanityhub.github.io/?ref=${encodedRef}`;
+    refPart = `\n\nReferred by: ${currentReferralName}\nJoin via my referral: https://shibahumanityhub.com/?ref=${encodedRef}`;
   }
 
   const text = `With my holding of ${nBal.toLocaleString()} $NIBBLES (${nCircle} Circle) and ${hBal.toLocaleString()} $hopeseed (${hCircle} Circle), I am already quietly turning the mercy flywheel.\n\nThis could touch approximately ${projected} additional lives in the next 12 months through the stories and new holders it helps create.\n\nWe are building something the people will help build. Every single transaction saves lives.${refPart}\n\n#PeopleHelpingPeople #MercyFlywheel`;
@@ -2804,9 +2869,11 @@ function copyMercyFootprint() {
     } else {
       alert('✅ Copied to clipboard. Thank you for carrying the story forward.');
     }
+    if (currentReferralName) incrementReferralCount();
   }).catch(() => {
     // fallback
     prompt('Copy this Mercy Footprint and share it:', text);
+    if (currentReferralName) incrementReferralCount();
   });
 }
 
