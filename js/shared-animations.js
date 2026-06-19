@@ -412,12 +412,33 @@
       transform: translate(-50%, -50%) rotate(0deg);
       width: 115vmin;
       height: 115vmin;
-      opacity: 0.04;
+      opacity: 0.045;
       pointer-events: none;
       z-index: -1;
       transition: transform 80ms linear;
       mix-blend-mode: screen;
+      filter: drop-shadow(0 0 18px rgba(252,211,77,0.11)) drop-shadow(0 0 32px rgba(252,211,77,0.06));
+      animation: mercyMidnightGlow 0.9s ease-in-out infinite;
     `;
+
+    // Inject faint high-frequency gold midnight glow keyframes (next level vibe)
+    if (!document.getElementById('mercy-glow-style')) {
+      const glowStyle = document.createElement('style');
+      glowStyle.id = 'mercy-glow-style';
+      glowStyle.textContent = `
+        @keyframes mercyMidnightGlow {
+          0%, 100% {
+            filter: drop-shadow(0 0 18px rgba(252,211,77,0.11)) drop-shadow(0 0 32px rgba(252,211,77,0.06));
+            opacity: 0.045;
+          }
+          50% {
+            filter: drop-shadow(0 0 28px rgba(252,211,77,0.17)) drop-shadow(0 0 48px rgba(252,211,77,0.09));
+            opacity: 0.055;
+          }
+        }
+      `;
+      document.head.appendChild(glowStyle);
+    }
 
     // Simple elegant SVG wheel: outer ring + spokes + subtle symbols
     wheel.innerHTML = `
