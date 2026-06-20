@@ -40,6 +40,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
   <script src="js/shared-animations.js" defer></script>
+  <script src="js/glossary.js" defer></script>
 
   <style>
     * { box-sizing: border-box; }
@@ -110,6 +111,85 @@
 
     .package-item {
       transition: transform .2s ease, background .2s ease;
+    }
+
+    /* Consistent Info Icon System (levelled up for all pages) */
+    .info-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      margin-left: 5px;
+      font-size: 11px;
+      line-height: 1;
+      border: 1px solid rgba(192, 192, 192, 0.45);
+      border-radius: 9999px;
+      color: #c0c0c0;
+      background: rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      vertical-align: middle;
+      font-weight: 600;
+    }
+    .info-icon:hover {
+      border-color: #c0c0c0;
+      background: rgba(192, 192, 192, 0.15);
+      transform: scale(1.15);
+      box-shadow: 0 0 0 2px rgba(192, 192, 192, 0.1);
+    }
+
+    .explain-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 300;
+      padding: 20px;
+    }
+    .explain-modal.show { display: flex; }
+    .explain-card {
+      background: #0a0f1c;
+      border: 1px solid rgba(192, 192, 192, 0.35);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+      color: white;
+      box-shadow: 0 20px 60px -15px rgba(0,0,0,0.6);
+    }
+    .explain-card h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      color: #c0c0c0;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .explain-card p {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .explain-card .impact {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: #a1a1aa;
+      font-style: italic;
+    }
+    .explain-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #a1a1aa;
+      transition: color 0.2s;
+    }
+    .explain-close:hover {
+      color: #c0c0c0;
     }
 
     /* === LOVELY SCROLL BACKGROUNDS - Heartwarming & Fun ===
@@ -231,9 +311,9 @@
           
           <div class="my-1 border-t border-white/10"></div>
           
-          <a href="index.html#glossary" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item border-t border-white/10 mt-1 pt-3">
+          <a href="#" onclick="if(window.SHHGlossary) { window.SHHGlossary.showExplain('mercy flywheel'); } return false;" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item border-t border-white/10 mt-1 pt-3">
             <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
-            <span>Plain Terms Glossary</span>
+            <span>Plain Terms Glossary ⓘ</span>
           </a>
           <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
             <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
@@ -389,7 +469,7 @@
              type="text" 
              placeholder="Toronto, California, Vancouver, New York, Alberta..."
              class="search-input w-full bg-zinc-950 border border-white/10 focus:border-emerald-400 rounded-3xl px-6 py-3.5 text-lg placeholder:text-zinc-500 outline-none"
-             oninput="filterLocations()">
+             oninput="debouncedFilterLocations()">
       
       <div class="text-[10px] text-emerald-300/50 mt-2">Covers every province, territory, and state • 100+ cities &amp; towns</div>
       
@@ -410,7 +490,7 @@
              type="text" 
              placeholder="Sunrise Villas, Maple Grove, Golden Heart Manor..."
              class="search-input w-full bg-zinc-950 border border-white/10 focus:border-emerald-400 rounded-3xl px-6 py-3.5 text-lg placeholder:text-zinc-500 outline-none"
-             oninput="filterFacilities()">
+             oninput="debouncedFilterFacilities()">
 
       <div id="facility-results" class="mt-4 max-h-[210px] overflow-auto pr-1 text-sm space-y-1"></div>
     </div>
@@ -422,7 +502,7 @@
   <div class="flex flex-col lg:flex-row gap-8 items-start">
     <div class="flex-1">
       <div class="uppercase tracking-[3px] text-xs text-emerald-300/70 mb-1">THE FULL VISIT EXPERIENCE</div>
-      <h2 class="section-title text-5xl tracking-[-1.5px]">Build a visit that melts hearts <span class="text-xs align-super cursor-help text-emerald-300/70" title="These are the exact circles written into the Silver Paws program. Your holding quietly unlocks more visits for seniors">ⓘ</span></h2>
+      <h2 class="section-title text-5xl tracking-[-1.5px]">Build a visit that melts hearts <span class="info-icon" data-term="circles of mercy">ⓘ</span></h2>
       <p class="mt-3 text-lg text-zinc-300 max-w-prose">Every Silver Paws visit is a living gift. Choose the simple joys that light up a senior's day. Bingo with a wagging friend. A shared meal where stories flow again. Gentle time that says "you are not forgotten." The dogs bring pure presence. You bring the love that turns an ordinary afternoon into something that stays in the heart forever.</p>
 
       <div class="mt-6 text-sm text-emerald-300/80">
@@ -432,7 +512,7 @@
 
     <!-- Activity Selector -->
     <div class="flex-1 bg-zinc-900/60 border border-white/10 rounded-3xl p-7">
-      <div class="text-xs tracking-[2px] text-[#a1a1aa] mb-3">SELECT THE FUN <span class="text-xs align-super cursor-help" title="Bingo nights, shared lunches, raffles - the exact senior joy that turns a visit into a memory that lasts">ⓘ</span></div>
+      <div class="text-xs tracking-[2px] text-[#a1a1aa] mb-3">SELECT THE FUN <span class="info-icon" data-term="visit activities">ⓘ</span></div>
       
       <div id="activity-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
         <!-- Populated by JS -->
@@ -524,9 +604,9 @@
 <section class="max-w-5xl mx-auto px-6 py-14 text-center">
   <p class="text-xl text-emerald-200">This is what becomes possible when ordinary people decide that no soul should be left behind.</p>
   <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
-    <div class="px-6 py-2 bg-white/5 border border-white/10 rounded-2xl">Mercy Circle: 25k $NIBBLES sponsors a month of visits <span class="text-xs align-super cursor-help" title="The entry level. Your quiet holding starts funding regular therapy visits for seniors who need it most">ⓘ</span></div>
-    <div class="px-6 py-2 bg-white/5 border border-emerald-400/30 rounded-2xl">Guardian Circle: Full program support and stories <span class="text-xs align-super cursor-help" title="Deeper commitment. Your holding powers more visits and you get updates from the hearts touched">ⓘ</span></div>
-    <div class="px-6 py-2 bg-white/5 border border-white/10 rounded-2xl">Eternal: Permanent legacy for the seniors and the dogs <span class="text-xs align-super cursor-help" title="The highest circle. Your name lives with the stories and the wags forever">ⓘ</span></div>
+    <div class="px-6 py-2 bg-white/5 border border-white/10 rounded-2xl">Mercy Circle: 25k $NIBBLES sponsors a month of visits <span class="info-icon" data-term="mercy circle">ⓘ</span></div>
+    <div class="px-6 py-2 bg-white/5 border border-emerald-400/30 rounded-2xl">Guardian Circle: Full program support and stories <span class="info-icon" data-term="guardian circle">ⓘ</span></div>
+    <div class="px-6 py-2 bg-white/5 border border-white/10 rounded-2xl">Eternal: Permanent legacy for the seniors and the dogs <span class="info-icon" data-term="eternal guardian">ⓘ</span></div>
   </div>
   <a href="index.html#onchain" class="inline-block mt-8 text-sm border-b border-emerald-300/50 hover:border-emerald-300 pb-px">See how your holding turns into real visits →</a>
 </section>
@@ -629,9 +709,20 @@
   </div>
 </div>
 
+<!-- Consistent Explain Modal for all ⓘ icons (levelled up) -->
+<div id="explain-modal" class="explain-modal" onclick="if (event.target.id === 'explain-modal') closeExplain()">
+  <div class="explain-card" onclick="event.stopImmediatePropagation()">
+    <span class="explain-close" onclick="closeExplain()">×</span>
+    <h4 id="explain-title"></h4>
+    <p id="explain-text"></p>
+    <div class="impact" id="explain-impact"></div>
+  </div>
+</div>
+
 <script>
 // === SILVER PAWS DEDICATED PAGE DATA & LOGIC ===
 // Heartfelt, comprehensive data for Canada + USA
+// Glossary and info-icon system centralized in js/glossary.js (loaded in head)
 
 const locationsData = [
   // Canada
@@ -664,6 +755,32 @@ const seniorFacilities = [
   {id: 8, name: "Oakwood Senior Villas", location: "Los Angeles, California", type: "Assisted Living", capacity: "78 seniors", specialties: "Raffles, sing-alongs"},
   {id: 9, name: "Prairie Rose Senior Home", location: "Winnipeg, Manitoba", type: "Senior Residence", capacity: "55 seniors", specialties: "Lunch clubs, gentle petting"},
   {id: 10, name: "Blue Ridge Senior Villas", location: "Charlotte, North Carolina", type: "Retirement Community", capacity: "130 seniors", specialties: "Memory sharing, bingo"},
+  // Expanded list - way more for richer search experience across US & Canada
+  {id: 11, name: "Sunshine Horizons", location: "Miami, Florida", type: "Assisted Living", capacity: "95 seniors", specialties: "Ocean views, music therapy, pet visits"},
+  {id: 12, name: "Riverbend Manor", location: "Chicago, Illinois", type: "Retirement Home", capacity: "160 seniors", specialties: "River walks, art classes, dog therapy"},
+  {id: 13, name: "Lone Star Villas", location: "Houston, Texas", type: "Senior Living Community", capacity: "180 seniors", specialties: "Garden courtyards, bingo, gentle yoga"},
+  {id: 14, name: "Cactus Bloom Residences", location: "Tucson, Arizona", type: "Memory Care", capacity: "70 seniors", specialties: "Desert gardens, music, animal visits"},
+  {id: 15, name: "Golden Gate Senior Villas", location: "San Francisco, California", type: "Independent Living", capacity: "110 seniors", specialties: "Bay views, cultural programs, therapy dogs"},
+  {id: 16, name: "Liberty Bell Manor", location: "Philadelphia, Pennsylvania", type: "Retirement Home", capacity: "140 seniors", specialties: "Historic tours, crafts, pet therapy"},
+  {id: 17, name: "Alamo Heights Villas", location: "San Antonio, Texas", type: "Assisted Living", capacity: "90 seniors", specialties: "Courtyard gardens, sing-alongs, dog visits"},
+  {id: 18, name: "Emerald City Living", location: "Seattle, Washington", type: "Senior Community", capacity: "125 seniors", specialties: "Parks nearby, storytelling, therapy animals"},
+  {id: 19, name: "Maple Leaf Residences", location: "Montreal, Quebec", type: "Retirement Home", capacity: "105 seniors", specialties: "Bilingual programs, music, gentle petting"},
+  {id: 20, name: "Rocky Mountain Villas", location: "Denver, Colorado", type: "Independent Living", capacity: "85 seniors", specialties: "Mountain views, hiking paths (gentle), bingo"},
+  {id: 21, name: "Harbor Lights Manor", location: "Boston, Massachusetts", type: "Assisted Living", capacity: "115 seniors", specialties: "Waterfront walks, history talks, dog therapy"},
+  {id: 22, name: "Palm Tree Villas", location: "San Diego, California", type: "Senior Living Community", capacity: "155 seniors", specialties: "Beach nearby, yoga, animal visits"},
+  {id: 23, name: "Prairie Wind Residences", location: "Omaha, Nebraska", type: "Retirement Home", capacity: "75 seniors", specialties: "Open spaces, crafts, therapy dogs"},
+  {id: 24, name: "Niagara Falls Villas", location: "Niagara Falls, Ontario", type: "Memory Care", capacity: "60 seniors", specialties: "Garden views, music therapy, pet programs"},
+  {id: 25, name: "Big Apple Senior Homes", location: "New York City, New York", type: "Assisted Living", capacity: "200 seniors", specialties: "City programs, cultural events, dog visits"},
+  {id: 26, name: "Cowboy Country Villas", location: "Dallas, Texas", type: "Senior Community", capacity: "135 seniors", specialties: "Ranch-style, line dancing (gentle), pets"},
+  {id: 27, name: "Queen City Residences", location: "Cincinnati, Ohio", type: "Retirement Home", capacity: "100 seniors", specialties: "Parks, storytelling circles, therapy animals"},
+  {id: 28, name: "Capital Hill Villas", location: "Washington D.C.", type: "Independent Living", capacity: "90 seniors", specialties: "Monuments nearby, history, pet therapy"},
+  {id: 29, name: "Wild Rose Manor", location: "Edmonton, Alberta", type: "Assisted Living", capacity: "80 seniors", specialties: "Indoor gardens, crafts, dog visits"},
+  {id: 30, name: "Island Breeze Villas", location: "Honolulu, Hawaii", type: "Senior Living Community", capacity: "70 seniors", specialties: "Ocean breezes, music, gentle petting"},
+  {id: 31, name: "Rocky Shore Residences", location: "Portland, Maine", type: "Retirement Home", capacity: "65 seniors", specialties: "Coastal walks, storytelling, therapy dogs"},
+  {id: 32, name: "Great Lakes Villas", location: "Detroit, Michigan", type: "Memory Care", capacity: "55 seniors", specialties: "Lakeside views, music therapy, animal visits"},
+  {id: 33, name: "Desert Oasis Manor", location: "Las Vegas, Nevada", type: "Senior Community", capacity: "120 seniors", specialties: "Pools (gentle), entertainment, pet programs"},
+  {id: 34, name: "Canuck Place Villas", location: "Ottawa, Ontario", type: "Assisted Living", capacity: "95 seniors", specialties: "Capital tours, crafts, therapy dogs"},
+  {id: 35, name: "Bayou Bend Residences", location: "New Orleans, Louisiana", type: "Retirement Home", capacity: "85 seniors", specialties: "Music, culture, gentle animal visits"},
 ];
 
 const silverDogs = [
@@ -686,6 +803,19 @@ const activities = [
 
 let selectedActivities = new Set();
 let currentFilters = { country: 'all' };
+
+// Simple debounce for smoother search (no lag on typing)
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 
 // Reels data (virality / memories section)
 const reelsData = [
@@ -760,6 +890,8 @@ function filterByCountry(country) {
   filterLocations();
 }
 
+const debouncedFilterLocations = debounce(filterLocations, 150);
+
 function filterLocations() {
   const query = (document.getElementById('location-search')?.value || '').toLowerCase().trim();
   const container = document.getElementById('location-results');
@@ -787,6 +919,7 @@ function filterLocations() {
     return;
   }
   
+  const frag = document.createDocumentFragment();
   shown.forEach(loc => {
     const item = document.createElement('div');
     item.className = 'px-3 py-1.5 rounded-xl hover:bg-white/5 cursor-pointer flex justify-between text-sm';
@@ -795,8 +928,9 @@ function filterLocations() {
       <span class="text-xs text-emerald-400/70">${loc.country}</span>
     `;
     item.onclick = () => selectLocation(loc);
-    container.appendChild(item);
+    frag.appendChild(item);
   });
+  container.appendChild(frag);
 }
 
 function selectLocation(loc) {
@@ -811,6 +945,8 @@ function selectLocation(loc) {
   // Nice toast feedback
   showToast(`Searching senior homes near ${loc.city}...`);
 }
+
+const debouncedFilterFacilities = debounce(filterFacilities, 150);
 
 // Facility filtering
 function filterFacilities(preferredLocation = null) {
@@ -842,6 +978,7 @@ function filterFacilities(preferredLocation = null) {
     return;
   }
   
+  const frag = document.createDocumentFragment();
   shown.forEach(fac => {
     const item = document.createElement('div');
     item.className = 'px-3 py-2 rounded-xl hover:bg-emerald-900/10 cursor-pointer text-sm border-l-2 border-emerald-400/30 pl-3';
@@ -850,8 +987,9 @@ function filterFacilities(preferredLocation = null) {
       <div class="text-xs text-emerald-300/70">${fac.location} • ${fac.type}</div>
     `;
     item.onclick = () => selectFacility(fac);
-    container.appendChild(item);
+    frag.appendChild(item);
   });
+  container.appendChild(frag);
 }
 
 function selectFacility(fac) {
@@ -870,6 +1008,8 @@ function renderSilverGrid(filtered = null) {
   container.innerHTML = '';
   
   const items = filtered || [...silverDogs.map(d => ({type: 'dog', ...d})), ...seniorFacilities.map(f => ({type: 'facility', ...f}))];
+  
+  const fragment = document.createDocumentFragment();
   
   items.forEach(item => {
     const card = document.createElement('div');
@@ -904,9 +1044,10 @@ function renderSilverGrid(filtered = null) {
     }
     
     card.onclick = () => showVisitDetail(item);
-    container.appendChild(card);
+    fragment.appendChild(card);
   });
   
+  container.appendChild(fragment);
   document.getElementById('results-count').textContent = `${items.length} hearts waiting`;
 }
 
@@ -1046,6 +1187,11 @@ function initSilverPaws() {
   loadReferralName();
   
   attachGridFilters();
+  
+  // Initialize all ⓘ icons with proper clickable modals (using shared glossary)
+  if (window.SHHGlossary && window.SHHGlossary.initInfoIcons) {
+    window.SHHGlossary.initInfoIcons();
+  }
   
   // Re-render reels in case of dynamic data updates
   if (typeof renderReels === 'function') renderReels();
