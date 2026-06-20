@@ -212,6 +212,10 @@
             <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
             <span>All 29 Programs</span>
           </a>
+          <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
+            <span>K9 Lifeline • Disaster Response</span>
+          </a>
           <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
             <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
             <span>Star Souls • Therapy Gigs</span>
@@ -224,20 +228,16 @@
             <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
             <span>Virality • Reels &amp; Memories</span>
           </a>
-          <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-            <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
-            <span>K9 Lifeline • Disaster Response</span>
-          </a>
           
           <div class="my-1 border-t border-white/10"></div>
           
-          <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
-            <span>Pay It Forward Adoption Chain</span>
-          </a>
           <a href="index.html#glossary" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item border-t border-white/10 mt-1 pt-3">
             <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
             <span>Plain Terms Glossary</span>
+          </a>
+          <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
+            <span>Pay It Forward Adoption Chain</span>
           </a>
         </div>
       </div>
@@ -272,6 +272,10 @@
       <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
       <span>All 29 Programs</span>
     </a>
+    <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
+      <span>K9 Lifeline • Disaster Response</span>
+    </a>
     <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
       <span>Star Souls • Therapy Gigs</span>
@@ -283,10 +287,6 @@
     <a href="#reels" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
       <span>Virality • Reels &amp; Memories</span>
-    </a>
-    <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-      <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
-      <span>K9 Lifeline • Disaster Response</span>
     </a>
     
     <div class="my-1 border-t border-white/10"></div>
@@ -479,7 +479,7 @@
       <h2 class="section-title text-5xl tracking-tight">Moments That Remember Us</h2>
       <p class="text-lg text-zinc-300 mt-1">These are the moments that reach straight into the soul. A senior's face softening into laughter after months of quiet. A dog discovering it has a purpose bigger than survival. Every reel is a thread of light. When you watch, something in you wakes up. You will want to tell the people you love. This is how we turn quiet acts of mercy into a movement that heals on every level.</p>
     </div>
-    <button onclick="simulateUploadReel()" class="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-2xl">
+    <button onclick="openReelSubmitModal()" class="inline-flex items-center gap-2 px-5 py-2 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-2xl">
       <i class="fa-solid fa-video"></i> Submit a Reel
     </button>
   </div>
@@ -594,6 +594,41 @@
   </div>
 </div>
 
+<!-- Reel Submit Modal with Dog Tagging + AI Bio/NFT Update Simulation -->
+<div id="reel-submit-modal" onclick="if (event.target.id === 'reel-submit-modal') hideReelSubmitModal()" class="hidden fixed inset-0 bg-black/90 z-[210] flex items-center justify-center p-6">
+  <div onclick="event.stopImmediatePropagation()" class="bg-zinc-900 max-w-lg w-full rounded-3xl p-8 border border-emerald-400/30">
+    <h3 class="text-2xl font-semibold mb-2">Submit a Happiness Reel</h3>
+    <p class="text-sm text-zinc-400 mb-4">Share a moment. Tag the dog. Our AI will weave it into their living story and Soulbound Passport.</p>
+    
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs text-emerald-300/70 mb-1">Reel Title</label>
+        <input id="reel-title" type="text" value="Beautiful Afternoon with a Gentle Friend" class="w-full bg-zinc-950 border border-white/10 rounded-xl px-4 py-2 text-sm">
+      </div>
+      <div>
+        <label class="block text-xs text-emerald-300/70 mb-1">Description</label>
+        <textarea id="reel-desc" rows="3" class="w-full bg-zinc-950 border border-white/10 rounded-xl px-4 py-2 text-sm">The senior's eyes lit up the moment the dog rested their head on their lap.</textarea>
+      </div>
+      <div>
+        <label class="block text-xs text-emerald-300/70 mb-1">Which Silver Paw is in this reel? <span class="text-[10px]">(AI will update their bio + Soulbound NFT)</span></label>
+        <select id="reel-dog" class="w-full bg-zinc-950 border border-white/10 rounded-xl px-4 py-2 text-sm">
+          <option value="">None / Group moment</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-xs text-emerald-300/70 mb-1">Your Handle (for credit)</label>
+        <input id="reel-uploader" type="text" value="You" class="w-full bg-zinc-950 border border-white/10 rounded-xl px-4 py-2 text-sm">
+      </div>
+    </div>
+
+    <div class="mt-6 flex gap-3">
+      <button onclick="hideReelSubmitModal()" class="flex-1 py-3 rounded-2xl border border-white/20 text-sm">Cancel</button>
+      <button onclick="submitReelWithAI()" class="flex-1 py-3 rounded-2xl bg-emerald-500 text-black font-semibold text-sm">Submit &amp; Let AI Update</button>
+    </div>
+    <div class="text-[10px] text-center text-emerald-300/60 mt-3">This memory will be credited from the treasury and permanently linked to the dog's Soulbound NFT.</div>
+  </div>
+</div>
+
 <script>
 // === SILVER PAWS DEDICATED PAGE DATA & LOGIC ===
 // Heartfelt, comprehensive data for Canada + USA
@@ -654,10 +689,10 @@ let currentFilters = { country: 'all' };
 
 // Reels data (virality / memories section)
 const reelsData = [
-  { id: 1, title: "Bingo Night at Maple Grove", desc: "Luna sat beside Margaret as she called the winning number. For the first time in a long while, the room filled with laughter that felt like coming home.", location: "Toronto, ON", uploader: "@Margaret87", credits: "Treasury funded • +3 referral credits", joy: 94 },
-  { id: 2, title: "Charlie’s Raffle Magic", desc: "Charlie placed the ticket in Harold’s hand. In that small moment, a man who had forgotten how to smile remembered what it feels like to be seen.", location: "Phoenix, AZ", uploader: "@HaroldSunset", credits: "Treasury funded • Referred by @SilverFriend", joy: 88 },
-  { id: 3, title: "Lunch & Leashes at Sunrise Villas", desc: "Three gentle dogs joined the table. People who had barely spoken all week began sharing stories over soup. The room felt alive again.", location: "Vancouver, BC", uploader: "@NurseElena", credits: "Treasury funded", joy: 91 },
-  { id: 4, title: "Afternoon Tea & Tails", desc: "Max curled into Eleanor’s lap as she spoke of her husband for the first time in years. Sometimes the deepest healing happens in silence, with a warm paw and a listening heart.", location: "Seattle, WA", uploader: "@EleanorRose", credits: "Treasury funded • +2 referral credits", joy: 97 },
+  { id: 1, title: "Bingo Night at Maple Grove", desc: "Luna sat beside Margaret as she called the winning number. For the first time in a long while, the room filled with laughter that felt like coming home.", location: "Toronto, ON", uploader: "@Margaret87", credits: "Treasury funded • +3 referral credits", joy: 94, dog: "luna" },
+  { id: 2, title: "Charlie’s Raffle Magic", desc: "Charlie placed the ticket in Harold’s hand. In that small moment, a man who had forgotten how to smile remembered what it feels like to be seen.", location: "Phoenix, AZ", uploader: "@HaroldSunset", credits: "Treasury funded • Referred by @SilverFriend", joy: 88, dog: "charlie" },
+  { id: 3, title: "Lunch & Leashes at Sunrise Villas", desc: "Three gentle dogs joined the table. People who had barely spoken all week began sharing stories over soup. The room felt alive again.", location: "Vancouver, BC", uploader: "@NurseElena", credits: "Treasury funded", joy: 91, dog: null },
+  { id: 4, title: "Afternoon Tea & Tails", desc: "Max curled into Eleanor’s lap as she spoke of her husband for the first time in years. Sometimes the deepest healing happens in silence, with a warm paw and a listening heart.", location: "Seattle, WA", uploader: "@EleanorRose", credits: "Treasury funded • +2 referral credits", joy: 97, dog: "max" },
 ];
 
 // Render activities
@@ -850,6 +885,7 @@ function renderSilverGrid(filtered = null) {
           </div>
         </div>
         <p class="text-sm leading-snug text-zinc-300 mb-3">${item.story}</p>
+        ${item.story.includes('Featured in reel') ? `<div class="text-[10px] text-[#c0c0c0] mb-2">✨ AI-updated Soulbound memory</div>` : ''}
         <div class="text-xs flex gap-4 text-emerald-300/70">
           <div><strong>${item.visits}</strong> visits</div>
           <div>${item.personality}</div>
@@ -1082,11 +1118,19 @@ function renderReels() {
   reelsData.forEach(reel => {
     const card = document.createElement('div');
     card.className = 'silver-card bg-zinc-900/80 border border-white/10 p-5 rounded-3xl flex flex-col';
+    let dogTagHTML = '';
+    if (reel.dog) {
+      const taggedDog = silverDogs.find(d => d.id === reel.dog);
+      if (taggedDog) {
+        dogTagHTML = `<div class="mt-2 text-[10px] inline-flex items-center gap-1 px-2 py-0.5 bg-white/10 text-[#c0c0c0] rounded-full"><i class="fa-solid fa-paw"></i> <span>${taggedDog.name}</span></div>`;
+      }
+    }
     card.innerHTML = `
       <div class="flex-1">
         <div class="text-emerald-300 text-xs tracking-wider">${reel.location}</div>
         <div class="font-semibold text-xl mt-1 leading-tight">${reel.title}</div>
         <p class="mt-3 text-sm text-zinc-300">${reel.desc}</p>
+        ${dogTagHTML}
       </div>
       <div class="mt-4 pt-4 border-t border-white/10 text-xs flex justify-between items-end">
         <div>
@@ -1103,43 +1147,120 @@ function renderReels() {
   });
 }
 
-function simulateUploadReel() {
-  const grid = document.getElementById('reels-grid');
-  if (!grid) return;
+function openReelSubmitModal() {
+  const modal = document.getElementById('reel-submit-modal');
+  if (!modal) return;
   
-  const newReel = {
-    id: Date.now(),
-    title: "New Memory Captured!",
-    desc: "A beautiful moment from today's Silver Paws visit. The senior residents were over the moon.",
-    location: "Your City, Here",
-    uploader: "You (demo)",
-    credits: "Treasury will credit • Referral bonus pending hold period",
-    joy: 85 + Math.floor(Math.random()*12)
-  };
+  // Populate dog select
+  const select = document.getElementById('reel-dog');
+  if (select) {
+    select.innerHTML = '<option value="">None / Group moment</option>';
+    silverDogs.forEach(dog => {
+      const opt = document.createElement('option');
+      opt.value = dog.id;
+      opt.textContent = `${dog.name} (${dog.breed})`;
+      select.appendChild(opt);
+    });
+  }
   
-  const card = document.createElement('div');
-  card.className = 'silver-card bg-emerald-900/10 border border-emerald-400/40 p-5 rounded-3xl flex flex-col animate-pulse';
-  card.innerHTML = `
-    <div class="flex-1">
-      <div class="text-emerald-300 text-xs tracking-wider">${newReel.location}</div>
-      <div class="font-semibold text-xl mt-1 leading-tight">${newReel.title}</div>
-      <p class="mt-3 text-sm text-zinc-300">${newReel.desc}</p>
-    </div>
-    <div class="mt-4 pt-4 border-t border-white/10 text-xs flex justify-between items-end">
-      <div>
-        <div class="text-emerald-400/70">by ${newReel.uploader}</div>
-        <div class="text-[10px] text-emerald-300/60 mt-0.5">${newReel.credits}</div>
-      </div>
-      <div class="text-right">
-        <div class="text-emerald-400 font-bold text-lg leading-none">${newReel.joy}</div>
-        <div class="text-[9px] -mt-1 text-emerald-300/60">joy score</div>
-      </div>
+  modal.classList.remove('hidden');
+}
+
+function hideReelSubmitModal() {
+  const modal = document.getElementById('reel-submit-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function submitReelWithAI() {
+  const title = document.getElementById('reel-title')?.value || "Beautiful New Memory";
+  const desc = document.getElementById('reel-desc')?.value || "A touching moment shared with a senior.";
+  const dogId = document.getElementById('reel-dog')?.value || null;
+  const uploader = document.getElementById('reel-uploader')?.value || "Anonymous Friend";
+  
+  hideReelSubmitModal();
+  
+  // Show AI processing simulation
+  const processing = document.createElement('div');
+  processing.className = 'fixed inset-0 bg-black/95 z-[220] flex items-center justify-center p-6';
+  processing.innerHTML = `
+    <div class="text-center max-w-xs">
+      <div class="text-4xl mb-4 animate-pulse">🧠✨</div>
+      <div class="text-xl font-semibold mb-2">AI is processing the reel...</div>
+      <div class="text-sm text-emerald-300/70">Analyzing the moment • Tagging the dog • Updating bio &amp; Soulbound NFT</div>
+      <div class="mt-4 text-xs text-emerald-400/60">This will be etched permanently on-chain.</div>
     </div>
   `;
-  grid.prepend(card);
+  document.body.appendChild(processing);
   
-  setTimeout(() => card.classList.remove('animate-pulse'), 1600);
+  setTimeout(() => {
+    processing.remove();
+    
+    const newReel = {
+      id: Date.now(),
+      title: title,
+      desc: desc,
+      location: "Your City, Here",
+      uploader: uploader,
+      credits: "Treasury will credit • AI-updated on Soulbound NFT",
+      joy: 85 + Math.floor(Math.random()*12),
+      dog: dogId || null
+    };
+    
+    reelsData.unshift(newReel);
+    renderReels();
+    
+    // AI Auto-update on dog's bio and simulate Soulbound NFT
+    if (dogId) {
+      const dog = silverDogs.find(d => d.id === dogId);
+      if (dog) {
+        const reelNote = ` • Featured in reel "${title}": ${desc.substring(0, 80)}... (AI-enhanced memory added to passport)`;
+        dog.story = dog.story + reelNote;
+        
+        // Re-render the dogs grid so the updated bio shows
+        renderSilverGrid();
+        
+        // Show beautiful confirmation of NFT + bio update
+        showAIUpdateConfirmation(dog, newReel);
+      }
+    } else {
+      // No dog tagged, simple success
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-zinc-900 border border-emerald-400/40 px-6 py-3 rounded-3xl text-sm shadow z-[230]';
+      toast.innerHTML = `Reel submitted! <span class="text-emerald-400">Treasury credit applied.</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4200);
+    }
+  }, 1800);
 }
+
+function showAIUpdateConfirmation(dog, reel) {
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 bg-black/95 z-[230] flex items-center justify-center p-6';
+  modal.innerHTML = `
+    <div onclick="event.target.remove()" class="bg-zinc-900 max-w-md w-full rounded-3xl p-8 border border-emerald-400/40 text-center">
+      <div class="text-5xl mb-4">🐾🔗</div>
+      <h3 class="text-2xl font-semibold">AI Update Complete</h3>
+      <p class="mt-2 text-emerald-300">The moment has been analyzed and permanently linked.</p>
+      
+      <div class="mt-6 text-left bg-black/40 rounded-2xl p-4 text-sm">
+        <div class="font-semibold text-emerald-200 mb-1">${dog.name}'s Bio (Updated)</div>
+        <p class="text-zinc-300">${dog.story}</p>
+      </div>
+      
+      <div class="mt-4 text-left bg-black/40 rounded-2xl p-4 text-sm border border-emerald-400/20">
+        <div class="font-semibold text-emerald-200 mb-1">Soulbound NFT Passport (Rescue Passport)</div>
+        <div class="text-emerald-300">✓ Memory added: "${reel.title}"</div>
+        <div class="text-xs text-emerald-400/70 mt-1">Bio auto-updated. This entry is now immutable on Shibarium. The dog's living story grows forever.</div>
+      </div>
+      
+      <button onclick="event.target.closest('.fixed').remove()" class="mt-6 w-full py-3 rounded-2xl bg-emerald-500 text-black font-bold">See Updated Passport</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+// Update button to open proper form
+// (the button in HTML will be updated in next step if needed)
 
 // === REFERRAL SYSTEM (integrated + smart anti-abuse) ===
 function saveReferralName(name) {
