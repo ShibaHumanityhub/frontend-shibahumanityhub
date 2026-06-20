@@ -625,9 +625,8 @@ const programs = [            {
     shortDesc: "Gentle therapy dogs bringing warm companionship and real comfort to seniors who often sit alone, healing hearts one visit at a time.",
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Silver Paws</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Silver Paws Therapy Visits Program</h2>
-      <p class="text-amber-200 text-xl mb-6">I keep thinking about the seniors who sit alone in their rooms for weeks, sometimes months, with no one to talk to.</p>
-      <p class="text-zinc-300 mb-8">Their days feel quiet and heavy. Then a gentle therapy dog walks in, looks them in the eyes, and suddenly the whole room lights up with warmth and connection again.</p>
-      <p class="text-zinc-300 mb-8">These visits are not just cute moments. They are real medicine for the heart. They ease loneliness, calm anxiety, bring back memories, and remind our elders that they are still seen, still loved, and still matter deeply. The dogs we send are often the ones the world had almost given up on. Now they get to spend their days healing human hearts.</p>
+      <p class="text-amber-200 text-xl mb-6">I keep thinking about the seniors who sit alone in rooms that have grown too quiet. Weeks, sometimes months, pass with no one to share a story or a hand to hold.</p>
+      <p class="text-zinc-300 mb-8">Then a gentle therapy dog walks in, looks them in the eyes, and the room begins to breathe again. These are not cute moments. They are real medicine for the soul. They ease the ache of being forgotten, bring memories back to life, and remind our elders that they are still seen, still loved, and still deeply needed in this world. The dogs we send were once the ones almost given up on. Now they get to spend their days healing human hearts — and in doing so, they heal their own.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
       <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -666,6 +665,7 @@ const programs = [            {
 
       <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, senior residents who may not have had a visitor in weeks will get regular visits from a friendly therapy dog that genuinely cares about them. Their days will brighten. Their hearts will feel lighter. And shelter dogs the world had given up on will finally get to live a life full of purpose and love. This is how we heal both sides, one gentle visit at a time.</p>
 
+      <a href="silver-paws.html" class="block text-center mt-3 text-sm text-emerald-300 hover:text-emerald-200 underline">Visit the full Silver Paws experience page → Search homes across Canada & USA</a>
       <button onclick="sponsorProgram('silver-paws-therapy')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch the Silver Paws Therapy Visits Program</button>`
   },
                {

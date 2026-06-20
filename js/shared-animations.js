@@ -536,12 +536,11 @@
 
     document.body.appendChild(wheel);
 
-    // Micro orbiting faint gold + hopeseed orbs (other frequency layer - different slow cycles)
+    // Micro orbiting faint gold + hopeseed orbs (lightweight for speed - reduced to 3 for perf)
     const orbits = [];
     const orbitData = [
       {x: 18, y: 22, size: 2.2, cls: 'g', phase: 0},
       {x: 82, y: 19, size: 1.6, cls: 'h', phase: 1.7},
-      {x: 19, y: 79, size: 1.9, cls: 'h', phase: 3.1},
       {x: 79, y: 81, size: 1.5, cls: 'g', phase: 4.4}
     ];
     orbitData.forEach((o, idx) => {
@@ -615,15 +614,15 @@
     const idleTimer = setInterval(() => {
       if (Math.abs(window.scrollY - lastScroll) < 4) {
         idleTick += 0.6;
-        // Varied idle speeds
-        rotOuter += 0.0032;
-        rotSpokes += 0.0065;
-        rotInner += -0.0021;
-        rotSymbols += 0.0048 + Math.sin(idleTick / 11) * 0.001;
+        // Varied idle speeds (throttled for perf)
+        rotOuter += 0.002;
+        rotSpokes += 0.004;
+        rotInner += -0.001;
+        rotSymbols += 0.003 + Math.sin(idleTick / 11) * 0.001;
 
         applyRotations();
       }
-    }, 720);
+    }, 1100);
 
     // Also softly sync global scroll var for other elements (engine, subtle accents) to hook into
     const syncGlobalScroll = () => {

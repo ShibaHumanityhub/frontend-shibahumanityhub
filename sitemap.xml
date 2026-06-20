@@ -7,7 +7,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://shibahumanityhub.com/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
   <!-- Beautiful Souls / Shelters -->
   <url>
     <loc>https://shibahumanityhub.com/shelters.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -23,7 +23,7 @@
   <!-- All Programs -->
   <url>
     <loc>https://shibahumanityhub.com/all-programs.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -31,7 +31,7 @@
   <!-- Whitepaper -->
   <url>
     <loc>https://shibahumanityhub.com/whitepaper.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -39,7 +39,7 @@
   <!-- Mercy Blueprint -->
   <url>
     <loc>https://shibahumanityhub.com/mercy-blueprint.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -47,7 +47,7 @@
   <!-- Star Souls • Therapy Gigs -->
   <url>
     <loc>https://shibahumanityhub.com/star-souls.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -55,9 +55,17 @@
   <!-- K9 Lifeline • Disaster Response -->
   <url>
     <loc>https://shibahumanityhub.com/k9-lifeline.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Silver Paws • Senior Healing Therapy Visits -->
+  <url>
+    <loc>https://shibahumanityhub.com/silver-paws.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
   </url>
 
 </urlset>

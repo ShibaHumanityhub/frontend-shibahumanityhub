@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Shibahumanityhub">
+  <meta name="keywords" content="silver paws, therapy dogs seniors, senior homes visits, bingo with dogs, therapy visits canada usa, silver paws therapy program, NIBBLES, mercy flywheel, healing seniors with dogs">
+  
+  <title>Silver Paws • Therapy Visits for Seniors • Gentle Healing on Shibarium</title>
+  
+  <meta name="description" content="Gentle therapy dogs bring bingo nights, shared lunches, raffles, stories and real joy to seniors across Canada and the USA. Silver Paws heals two hearts at once. The dog and the sweet soul they visit. Powered by $NIBBLES.">
+  
+  <meta property="og:title" content="Silver Paws • When a Dog's Heart Meets a Senior's Smile">
+  <meta property="og:description" content="Real therapy visits. Real laughter. Real connection. Search senior homes and cities across USA & Canada. Build visit packages with bingo, lunches, raffles & more.">
+  <meta property="og:image" content="assets/images/silverpawstherapyvisitsprogramphoto.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shibahumanityhub.com/silver-paws.html">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Silver Paws Therapy Visits • Healing Seniors &amp; Dogs">
+  <meta name="twitter:description" content="Bingo nights, shared lunches, raffles and gentle wags that melt hearts in senior homes across North America.">
+  <meta name="twitter:image" content="assets/images/silverpawstherapyvisitsprogramphoto.jpg">
+
+  <link rel="canonical" href="https://shibahumanityhub.com/silver-paws.html">
+
+  <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Critical: Tailwind after preconnect for faster processing -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <script src="js/shared-animations.js" defer></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { 
+      margin:0; padding:0; overflow-x:hidden; 
+      background:#0a0f1c; color:white; 
+      font-family: 'Inter', system-ui, sans-serif; 
+    }
+    .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #121a2e 100%); }
+    .section-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.04em; }
+    
+    .silver-card {
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      border: 1px solid rgba(192, 192, 192, 0.25);
+    }
+    .silver-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(192, 192, 192, 0.5);
+      box-shadow: 0 25px 60px -15px rgba(192, 192, 192, 0.15);
+    }
+
+    /* Silver theme accents for this dedicated page */
+    .silver-accent {
+      color: #c0c0c0;
+    }
+    .silver-rect {
+      background: linear-gradient(145deg, rgba(192,192,192,0.12), rgba(163,163,172,0.06));
+      border: 1px solid rgba(192, 192, 192, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+    }
+    .silver-paw {
+      opacity: 0.15;
+      color: #a1a1aa;
+    }
+    
+    .heart-melt {
+      background: linear-gradient(145deg, rgba(52,211,153,0.08), rgba(251,191,36,0.04));
+    }
+
+    .search-input {
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: #34d399;
+      box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.1);
+    }
+
+    .activity-chip {
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .activity-chip.selected {
+      background: #10b981;
+      color: #0a0f1c;
+      border-color: #10b981;
+    }
+
+    .senior-quote {
+      font-style: italic;
+      border-left: 3px solid #34d399;
+    }
+
+    .joy-stat {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .package-item {
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    /* === LOVELY SCROLL BACKGROUNDS - Heartwarming & Fun ===
+       Multi-layered, faint, scroll-reactive designs.
+       Gold + Hopeseed tones, paws, hearts, bingo motifs, soft senior/dog silhouettes.
+       Makes every scroll feel like a warm visit.
+    */
+    .silver-bg-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      mix-blend-mode: screen;
+      opacity: 0.07;
+    }
+
+    .paw-pattern {
+      background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2228%22 fill=%22%23a1a1aa%22 opacity=%220.4%22>🐾</text><text x=%22160%22 y=%22180%22 font-size=%2224%22 fill=%22%23c0c0c0%22 opacity=%220.3%22>❤️</text><text x=%22220%22 y=%2290%22 font-size=%2220%22 fill=%22%23a1a1aa%22 opacity=%220.35%22>🎲</text></svg>'),
+        linear-gradient(120deg, rgba(192,192,192,0.04) 0%, transparent 50%, rgba(163,163,172,0.03) 100%);
+      background-size: 280px 280px, cover;
+      animation: gentle-drift 38s linear infinite;
+    }
+
+    @keyframes gentle-drift {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 280px 280px, 40px 120px; }
+    }
+
+    .scroll-warmth {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(circle at 30% 40%, rgba(252,211,77,0.035) 0%, transparent 65%),
+                  radial-gradient(circle at 75% 65%, rgba(52,211,153,0.028) 0%, transparent 70%);
+      transition: opacity 600ms ease;
+    }
+
+    /* Scroll-reactive heartwarming overlays per section */
+    .memory-reel-bg {
+      background: 
+        linear-gradient(to bottom, rgba(16,185,129,0.015), transparent),
+        repeating-linear-gradient(135deg, rgba(252,211,77,0.012) 0px, rgba(252,211,77,0.012) 1px, transparent 1px, transparent 22px);
+    }
+
+    /* Fun micro elements */
+    .joy-float {
+      position: absolute;
+      font-size: 13px;
+      opacity: 0.08;
+      pointer-events: none;
+      animation: joy-float-up 22s linear infinite;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV (consistent slick style) -->
+<nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-emerald-500/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="logo-3d-wrapper w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-emerald-400/70 shadow-2xl transition-transform group-hover:scale-105">
+        <video 
+          src="assets/videos/shibahumanityhub-logo-animated.mp4" 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          preload="none"
+          aria-hidden="true"
+          class="w-full h-full object-cover">
+        </video>
+      </div>
+      <span class="hidden sm:block text-xl sm:text-2xl font-bold tracking-[-1.2px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Flywheel</a>
+      
+      <div class="relative" id="programs-dropdown">
+        <a href="#programs" onclick="toggleProgramsDropdown(event)" class="hover:text-emerald-400 transition-colors flex items-center gap-1 group/nav">
+          <span class="relative">
+            Programs
+            <span class="absolute -bottom-px left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-emerald-400 group-hover/nav:w-full transition-all"></span>
+          </span>
+          <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
+          <span class="ml-1 text-[9px] opacity-40 group-hover/nav:opacity-70">✧</span>
+        </a>
+        
+        <div id="programs-menu" 
+             class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[260px] z-[60] shadow-2xl overflow-hidden"
+             style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
+          
+          <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
+            <span>THE CIRCLE OF MERCY</span>
+          </div>
+          
+          <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
+            <span>All 29 Programs</span>
+          </a>
+          <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
+            <span>Star Souls • Therapy Gigs</span>
+          </a>
+          <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-[#c0c0c0] group-hover/item:text-white">🐾</span> 
+            <span>Silver Paws • Senior Healing</span>
+          </a>
+          <a href="#reels" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
+            <span>Virality • Reels &amp; Memories</span>
+          </a>
+          <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
+            <span>K9 Lifeline • Disaster Response</span>
+          </a>
+          
+          <div class="my-1 border-t border-white/10"></div>
+          
+          <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
+            <span>Pay It Forward Adoption Chain</span>
+          </a>
+          <a href="index.html#glossary" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item border-t border-white/10 mt-1 pt-3">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
+            <span>Plain Terms Glossary</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium hover:tracking-wider transition-all">Beautiful Souls</a>
+      <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Flywheel</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu">
+      <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+    </button>
+
+    <a href="all-programs.html" class="super-cta-btn inline-flex items-center gap-2.5 px-6 py-3 text-sm sm:text-base font-bold bg-gradient-to-r from-[#c0c0c0] to-white text-black">
+      Support Silver Paws <i class="fa-solid fa-paw text-xl"></i>
+    </a>
+  </div>
+</nav>
+
+<!-- Lovely layered scroll backgrounds - makes every inch of scroll heartwarming & fun -->
+<div class="silver-bg-layer paw-pattern"></div>
+<div id="scroll-warmth" class="scroll-warmth"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-1" style="top: 70px;">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+    <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
+      <span>THE CIRCLE OF MERCY</span>
+    </div>
+    
+    <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
+      <span>All 29 Programs</span>
+    </a>
+    <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
+      <span>Star Souls • Therapy Gigs</span>
+    </a>
+    <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🐾</span> 
+      <span>Silver Paws • Senior Healing</span>
+    </a>
+    <a href="#reels" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
+      <span>Virality • Reels &amp; Memories</span>
+    </a>
+    <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
+      <span>K9 Lifeline • Disaster Response</span>
+    </a>
+    
+    <div class="my-1 border-t border-white/10"></div>
+    
+    <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80">◉</span> 
+      <span>Flywheel Home</span>
+    </a>
+    <a href="shelters.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-red-400/80">❤️</span> 
+      <span>Beautiful Souls</span>
+    </a>
+  </div>
+</div>
+
+<!-- HERO - Extra special heart-melting -->
+<header class="hero-bg pt-24 pb-16 text-center border-b border-white/10">
+  <div class="max-w-5xl mx-auto px-6 pt-10">
+    <div class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-white/5 text-[#c0c0c0] text-xs tracking-[3.5px] mb-6 border border-white/20">
+      <i class="fa-solid fa-paw silver-paw"></i> 
+      <span>TWO HEARTS, ONE GENTLE WAG</span>
+    </div>
+
+    <div class="silver-rect inline-block px-8 py-3 mb-4 rounded-2xl">
+      <h1 class="section-title text-[62px] md:text-[88px] leading-[0.78] font-bold tracking-[-6.2px] bg-gradient-to-br from-[#c0c0c0] via-[#a1a1aa] to-white bg-clip-text text-transparent flex items-center gap-4">
+        <span class="silver-paw text-6xl md:text-7xl -ml-2">🐾</span> Silver Paws
+      </h1>
+    </div>
+    <p class="text-3xl md:text-5xl font-light text-emerald-200 tracking-tight">Healing the sweetest souls.<br>One visit at a time.</p>
+    
+    <p class="mt-7 max-w-2xl mx-auto text-xl text-zinc-300">I keep thinking about the seniors who sit alone in rooms that have grown too quiet. Weeks pass, sometimes months, with no one to share a story or a smile. Their days feel heavy with silence. Then a gentle therapy dog walks in, looks them in the eyes, and the whole room begins to glow with warmth and living connection. These are not small moments. They are medicine for the soul. They remind every elder that they are still seen, still loved, and still matter deeply in this world.</p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <div class="px-5 py-2 bg-white/5 border border-emerald-400/30 rounded-3xl text-sm flex items-center gap-2">
+        <i class="fa-solid fa-dog text-emerald-400"></i> 
+        <span class="font-medium">Therapy dogs</span>
+      </div>
+      <div class="px-5 py-2 bg-white/5 border border-emerald-400/30 rounded-3xl text-sm flex items-center gap-2">
+        <i class="fa-solid fa-users text-emerald-400"></i> 
+        <span class="font-medium">Seniors who need it most</span>
+      </div>
+      <div class="px-5 py-2 bg-white/5 border border-emerald-400/30 rounded-3xl text-sm flex items-center gap-2">
+        <i class="fa-solid fa-smile text-emerald-400"></i> 
+        <span class="font-medium">Hearts healing both ways</span>
+      </div>
+    </div>
+
+    <div class="mt-9">
+      <a href="#search" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#c0c0c0] to-white text-black font-semibold rounded-3xl text-lg transition-all active:scale-[0.985]">
+        Find a Visit Near You <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- PROMINENT REFERRAL CREDIT - More convenient, heartfelt call to action -->
+<section class="max-w-4xl mx-auto px-6 pt-8 pb-6">
+  <div class="bg-gradient-to-br from-emerald-900/20 to-white/5 border border-emerald-400/30 rounded-3xl p-8 text-center">
+    <div class="text-emerald-300 text-sm tracking-[2px] mb-2">SHARE THE MAGIC • EARN CREDIT</div>
+    <h3 class="text-3xl font-semibold mb-3">When you share this light, it multiplies</h3>
+    <p class="text-zinc-300 max-w-md mx-auto">When someone you bring in steps forward with their first real holding, you earn ongoing credit. Not for a moment, but for the long arc of love. Every sustained holding becomes more visits, more wags, more moments where a lonely soul feels less alone. This is how we give these beautiful lives the dignity they deserve. Together.</p>
+    
+    <div class="mt-6 max-w-sm mx-auto">
+      <div class="flex gap-2">
+        <input id="referral-input" type="text" placeholder="Your name or @handle" class="flex-1 bg-zinc-950 border border-white/10 focus:border-emerald-400 rounded-2xl px-4 py-2.5 text-sm" oninput="saveReferralName(this.value)">
+        <button onclick="copyReferralLink()" class="px-4 py-2.5 bg-emerald-500 text-black font-medium rounded-2xl text-sm hover:bg-emerald-400 transition">Copy Link</button>
+      </div>
+      <div id="referral-status" class="text-xs text-emerald-300/70 mt-2"></div>
+    </div>
+    <p class="text-[10px] text-emerald-300/60 mt-3">No tricks. Real value from sustained love. Tell your family. Tell your friends.</p>
+  </div>
+</section>
+
+<!-- DUAL SEARCH BARS - The core interactive slick feature -->
+<section id="search" class="max-w-6xl mx-auto px-6 pt-14 pb-8">
+  <div class="text-center mb-10">
+    <div class="inline text-xs tracking-[3px] text-[#a1a1aa]">FIND THE JOY</div>
+    <h2 class="section-title text-5xl tracking-tighter mt-2">Where will the next wag happen?</h2>
+    <p class="mt-3 text-lg text-zinc-300 max-w-md mx-auto">Across Canada and the United States, gentle dogs are waiting to bring light into places that have grown dark with loneliness. Find them. Match them. Become part of the healing.</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-5">
+    <!-- LOCATION SEARCH -->
+    <div class="bg-zinc-900/70 border border-white/10 rounded-3xl p-7">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fa-solid fa-globe text-emerald-400 text-xl"></i>
+        <div>
+          <div class="font-semibold text-[#c0c0c0]">Search Locations</div>
+          <div class="text-xs text-[#a1a1aa]">Country • Province/State • City • Town</div>
+        </div>
+      </div>
+      
+      <div class="flex gap-2 mb-3">
+        <button onclick="filterByCountry('all')" class="px-4 py-1 text-xs border border-white/20 rounded-2xl hover:border-emerald-400 active:bg-emerald-900/30" id="country-all">All</button>
+        <button onclick="filterByCountry('USA')" class="px-4 py-1 text-xs border border-white/20 rounded-2xl hover:border-emerald-400 active:bg-emerald-900/30" id="country-usa">🇺🇸 USA</button>
+        <button onclick="filterByCountry('Canada')" class="px-4 py-1 text-xs border border-white/20 rounded-2xl hover:border-emerald-400 active:bg-emerald-900/30" id="country-canada">🇨🇦 Canada</button>
+      </div>
+
+      <input id="location-search" 
+             type="text" 
+             placeholder="Toronto, California, Vancouver, New York, Alberta..."
+             class="search-input w-full bg-zinc-950 border border-white/10 focus:border-emerald-400 rounded-3xl px-6 py-3.5 text-lg placeholder:text-zinc-500 outline-none"
+             oninput="filterLocations()">
+      
+      <div class="text-[10px] text-emerald-300/50 mt-2">Covers every province, territory, and state • 100+ cities &amp; towns</div>
+      
+      <div id="location-results" class="mt-4 max-h-[210px] overflow-auto pr-1 text-sm space-y-1"></div>
+    </div>
+
+    <!-- SENIOR HOME / FACILITY SEARCH -->
+    <div class="bg-zinc-900/70 border border-white/10 rounded-3xl p-7">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fa-solid fa-home text-amber-400 text-xl"></i>
+        <div>
+          <div class="font-semibold text-[#c0c0c0]">Search Senior Homes &amp; Villas</div>
+          <div class="text-xs text-[#a1a1aa]">Retirement homes • Assisted living • Memory care • Senior communities</div>
+        </div>
+      </div>
+      
+      <input id="facility-search" 
+             type="text" 
+             placeholder="Sunrise Villas, Maple Grove, Golden Heart Manor..."
+             class="search-input w-full bg-zinc-950 border border-white/10 focus:border-emerald-400 rounded-3xl px-6 py-3.5 text-lg placeholder:text-zinc-500 outline-none"
+             oninput="filterFacilities()">
+
+      <div id="facility-results" class="mt-4 max-h-[210px] overflow-auto pr-1 text-sm space-y-1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD YOUR SILVER PAWS VISIT PACKAGE - Extra special heart-melter -->
+<section class="max-w-6xl mx-auto px-6 py-12 border-t border-white/10">
+  <div class="flex flex-col lg:flex-row gap-8 items-start">
+    <div class="flex-1">
+      <div class="uppercase tracking-[3px] text-xs text-emerald-300/70 mb-1">THE FULL VISIT EXPERIENCE</div>
+      <h2 class="section-title text-5xl tracking-[-1.5px]">Build a visit that melts hearts <span class="text-xs align-super cursor-help text-emerald-300/70" title="These are the exact circles written into the Silver Paws program. Your holding quietly unlocks more visits for seniors">ⓘ</span></h2>
+      <p class="mt-3 text-lg text-zinc-300 max-w-prose">Every Silver Paws visit is a living gift. Choose the simple joys that light up a senior's day. Bingo with a wagging friend. A shared meal where stories flow again. Gentle time that says "you are not forgotten." The dogs bring pure presence. You bring the love that turns an ordinary afternoon into something that stays in the heart forever.</p>
+
+      <div class="mt-6 text-sm text-emerald-300/80">
+        <span class="font-medium">Typical package includes:</span> 45 to 90 minutes of gentle connection and activities tailored to the home.
+      </div>
+    </div>
+
+    <!-- Activity Selector -->
+    <div class="flex-1 bg-zinc-900/60 border border-white/10 rounded-3xl p-7">
+      <div class="text-xs tracking-[2px] text-[#a1a1aa] mb-3">SELECT THE FUN <span class="text-xs align-super cursor-help" title="Bingo nights, shared lunches, raffles - the exact senior joy that turns a visit into a memory that lasts">ⓘ</span></div>
+      
+      <div id="activity-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="mt-6 pt-5 border-t border-white/10">
+        <div class="text-xs tracking-[2px] text-[#a1a1aa] mb-2">YOUR PACKAGE PREVIEW</div>
+        <div id="package-preview" class="min-h-[52px] bg-black/40 rounded-2xl p-4 text-sm text-emerald-100 flex items-center gap-2">
+          Choose activities above to build the perfect visit...
+        </div>
+        
+        <button onclick="scheduleVisit()" 
+                class="mt-4 w-full py-3.5 rounded-3xl bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-bold text-lg flex items-center justify-center gap-2 hover:brightness-105 active:scale-[0.985]">
+          <i class="fa-solid fa-calendar-check"></i> 
+          <span>SCHEDULE THIS VISIT • HEAL HEARTS TOGETHER</span>
+        </button>
+        
+        <div class="text-center mt-2 text-xs text-emerald-300/60">Demo only • Real visits will be scheduled once funded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SILVER PAWS DOGS + FACILITIES GRID -->
+<section class="max-w-6xl mx-auto px-6 pb-14">
+  <div class="flex justify-between items-baseline mb-7">
+    <div>
+      <h2 class="section-title text-4xl flex items-center gap-3">Silver Paws Dogs &amp; Homes <span class="silver-paw text-3xl">🐾</span></h2>
+      <p class="text-zinc-400">Real dogs. Real places. Real moments waiting to happen.</p>
+    </div>
+    <div id="results-count" class="text-sm text-emerald-300/70"></div>
+  </div>
+
+  <div id="silver-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Dynamically populated by JS -->
+  </div>
+</section>
+
+<!-- VIRALITY / MEMORIES & HAPPINESS REELS - Future treasury credited section -->
+<section id="reels" class="max-w-6xl mx-auto px-6 py-12 memory-reel-bg border-t border-white/10">
+  <div class="flex items-baseline justify-between mb-7">
+    <div>
+      <div class="uppercase tracking-[3px] text-xs text-[#a1a1aa]">LIGHT THAT SPREADS</div>
+      <h2 class="section-title text-5xl tracking-tight">Moments That Remember Us</h2>
+      <p class="text-lg text-zinc-300 mt-1">These are the moments that reach straight into the soul. A senior's face softening into laughter after months of quiet. A dog discovering it has a purpose bigger than survival. Every reel is a thread of light. When you watch, something in you wakes up. You will want to tell the people you love. This is how we turn quiet acts of mercy into a movement that heals on every level.</p>
+    </div>
+    <button onclick="simulateUploadReel()" class="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-2xl">
+      <i class="fa-solid fa-video"></i> Submit a Reel
+    </button>
+  </div>
+
+  <div id="reels-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Populated by JS - heartwarming + fun -->
+  </div>
+
+  <div class="text-center mt-8">
+    <div class="inline-flex items-center gap-2 text-xs px-4 py-1.5 rounded-full bg-white/5 border border-white/20 text-[#a1a1aa]">
+      Every reel helps fund more visits. When someone you referred captures a moment that spreads, you earn a little extra credit too.
+    </div>
+  </div>
+</section>
+
+<!-- THE MAGIC SECTION - Heart melting stories -->
+<section class="bg-zinc-900/50 border-y border-white/10 py-14">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="text-emerald-300 text-sm tracking-[3px]">BOTH HEARTS HEALED</div>
+    <h2 class="section-title text-5xl mt-2 tracking-tight">What happens when a gentle dog sits with a lovely senior</h2>
+    
+    <div class="mt-10 grid md:grid-cols-2 gap-8 text-left">
+      <div class="silver-card p-8 rounded-3xl">
+        <div class="text-emerald-300 text-sm mb-3">“I hadn’t laughed like that in months.”</div>
+        <p class="senior-quote pl-4 text-lg">Margaret, 87, from Maple Grove Villa in Ontario, said bingo with Luna the therapy golden was the first time she felt truly seen since her husband passed.</p>
+        <div class="mt-6 text-xs text-emerald-300/60">Silver Paws visit • 14 residents • 2 hours of pure joy</div>
+      </div>
+      <div class="silver-card p-8 rounded-3xl">
+        <div class="text-emerald-300 text-sm mb-3">“He remembers me every time.”</div>
+        <p class="senior-quote pl-4 text-lg">Harold, 91, from Sunset Villas in Arizona, says every Thursday Charlie the therapy beagle arrives for lunch. Harold now has a reason to get dressed and smile.</p>
+        <div class="mt-6 text-xs text-emerald-300/60">Weekly visits • Raffle night favorite</div>
+      </div>
+    </div>
+
+    <div class="mt-10 text-center">
+      <div class="inline text-sm px-6 py-2 rounded-3xl bg-emerald-900/30 border border-emerald-500/30">Dogs who were once forgotten now bring the greatest gift of all. Presence.</div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT / CIRCLES REMINDER -->
+<section class="max-w-5xl mx-auto px-6 py-14 text-center">
+  <p class="text-xl text-emerald-200">This is what becomes possible when ordinary people decide that no soul should be left behind.</p>
+  <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+    <div class="px-6 py-2 bg-white/5 border border-white/10 rounded-2xl">Mercy Circle: 25k $NIBBLES sponsors a month of visits <span class="text-xs align-super cursor-help" title="The entry level. Your quiet holding starts funding regular therapy visits for seniors who need it most">ⓘ</span></div>
+    <div class="px-6 py-2 bg-white/5 border border-emerald-400/30 rounded-2xl">Guardian Circle: Full program support and stories <span class="text-xs align-super cursor-help" title="Deeper commitment. Your holding powers more visits and you get updates from the hearts touched">ⓘ</span></div>
+    <div class="px-6 py-2 bg-white/5 border border-white/10 rounded-2xl">Eternal: Permanent legacy for the seniors and the dogs <span class="text-xs align-super cursor-help" title="The highest circle. Your name lives with the stories and the wags forever">ⓘ</span></div>
+  </div>
+  <a href="index.html#onchain" class="inline-block mt-8 text-sm border-b border-emerald-300/50 hover:border-emerald-300 pb-px">See how your holding turns into real visits →</a>
+</section>
+
+<!-- PROUD ANGELS & SPONSORS - Companies and hearts loud and proud -->
+<section class="max-w-6xl mx-auto px-6 py-12 border-t border-white/10">
+  <div class="text-center mb-8">
+    <div class="text-emerald-300 text-sm tracking-[2px]">THE ONES WHO MAKE IT POSSIBLE</div>
+    <h2 class="section-title text-4xl mt-2">The Angels Who Choose to Stand With Us</h2>
+    <p class="mt-3 text-lg text-zinc-300 max-w-2xl mx-auto">These are the angels walking among us. Companies, families, and individuals who have chosen to stand for something that actually matters. They sponsor visits that bring light back into quiet rooms. They send meaningful gifts to every person who steps forward. They create real moments of joy through raffles and prizes. No matter who they are, a trillion-dollar corporation or a single patriot with a big heart, they are helping give these souls the better lives they were always meant to have.</p>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+    <div class="silver-card p-6 rounded-3xl bg-white/5 border border-white/10">
+      <div class="text-2xl mb-2">🏢</div>
+      <div class="font-semibold">Acme Legacy Corp</div>
+      <div class="text-xs text-emerald-300/70 mt-1">Sponsoring monthly visits in 5 cities</div>
+    </div>
+    <div class="silver-card p-6 rounded-3xl bg-white/5 border border-white/10">
+      <div class="text-2xl mb-2">🌱</div>
+      <div class="font-semibold">HopeSeed Foundation</div>
+      <div class="text-xs text-emerald-300/70 mt-1">Raffles &amp; merch for every donor</div>
+    </div>
+    <div class="silver-card p-6 rounded-3xl bg-white/5 border border-white/10">
+      <div class="text-2xl mb-2">❤️</div>
+      <div class="font-semibold">The Heartline Family</div>
+      <div class="text-xs text-emerald-300/70 mt-1">Eternal Guardian • Private stories</div>
+    </div>
+    <div class="silver-card p-6 rounded-3xl bg-white/5 border border-white/10">
+      <div class="text-2xl mb-2">🐾</div>
+      <div class="font-semibold">Your Company Here</div>
+      <div class="text-xs text-emerald-300/70 mt-1">Join the angels. Wear it loud.</div>
+    </div>
+  </div>
+
+  <div class="text-center mt-8">
+    <p class="text-sm text-emerald-300/80">Dope merch for every donor. Raffles with sponsored prizes. Be the one who makes the angels visible. The souls will feel it. <a href="index.html#onchain" class="underline">Start here →</a></p>
+  </div>
+</section>
+
+<footer class="py-12 bg-black border-t border-white/10 text-center text-xs text-zinc-400">
+  <div class="max-w-md mx-auto px-6 leading-relaxed">
+    No matter who you are, a corporation with reach, a family with love, a young person with fire, or someone who has seen too much, there is one thing that unites us all.<br><br>
+    These souls deserve better lives.<br>
+    And together, we can give it to them.<br><br>
+    Silver Paws • People helping people helping people.<br>
+    shibahumanityhub.shib
+  </div>
+</footer>
+
+<!-- Simple schedule confirmation modal -->
+<div id="schedule-modal" onclick="if (event.target.id === 'schedule-modal') hideScheduleModal()" class="hidden fixed inset-0 bg-black/90 z-[200] flex items-center justify-center p-6">
+  <div onclick="event.stopImmediatePropagation()" class="bg-zinc-900 max-w-md w-full rounded-3xl p-9 border border-emerald-400/30">
+    <div class="text-center">
+      <div class="text-6xl mb-4">🐾❤️</div>
+      <h3 class="text-3xl font-semibold tracking-tight">Visit Scheduled!</h3>
+      <p id="schedule-message" class="mt-3 text-zinc-300"></p>
+      
+      <div class="mt-6 p-4 bg-black/50 rounded-2xl text-sm">
+        Thank you. When the flywheel is fully funded, real Silver Paws visits will begin. Your quiet support already matters.
+      </div>
+      
+      <button onclick="hideScheduleModal()" class="mt-7 w-full py-3 rounded-3xl bg-white text-black font-bold">Close with Love</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// === SILVER PAWS DEDICATED PAGE DATA & LOGIC ===
+// Heartfelt, comprehensive data for Canada + USA
+
+const locationsData = [
+  // Canada
+  {country: "Canada", province: "Ontario", city: "Toronto"}, {country: "Canada", province: "Ontario", city: "Ottawa"}, {country: "Canada", province: "Ontario", city: "Hamilton"},
+  {country: "Canada", province: "British Columbia", city: "Vancouver"}, {country: "Canada", province: "British Columbia", city: "Victoria"}, {country: "Canada", province: "British Columbia", city: "Kelowna"},
+  {country: "Canada", province: "Alberta", city: "Calgary"}, {country: "Canada", province: "Alberta", city: "Edmonton"}, {country: "Canada", province: "Alberta", city: "Banff"},
+  {country: "Canada", province: "Quebec", city: "Montreal"}, {country: "Canada", province: "Quebec", city: "Quebec City"},
+  {country: "Canada", province: "Nova Scotia", city: "Halifax"}, {country: "Canada", province: "Manitoba", city: "Winnipeg"},
+  {country: "Canada", province: "Saskatchewan", city: "Saskatoon"}, {country: "Canada", province: "New Brunswick", city: "Saint John"},
+  
+  // USA
+  {country: "USA", province: "California", city: "Los Angeles"}, {country: "USA", province: "California", city: "San Francisco"}, {country: "USA", province: "California", city: "San Diego"},
+  {country: "USA", province: "New York", city: "New York City"}, {country: "USA", province: "New York", city: "Buffalo"},
+  {country: "USA", province: "Florida", city: "Miami"}, {country: "USA", province: "Florida", city: "Orlando"}, {country: "USA", province: "Florida", city: "Tampa"},
+  {country: "USA", province: "Texas", city: "Houston"}, {country: "USA", province: "Texas", city: "Dallas"}, {country: "USA", province: "Texas", city: "Austin"},
+  {country: "USA", province: "Arizona", city: "Phoenix"}, {country: "USA", province: "Arizona", city: "Tucson"},
+  {country: "USA", province: "Illinois", city: "Chicago"}, {country: "USA", province: "Washington", city: "Seattle"},
+  {country: "USA", province: "Pennsylvania", city: "Philadelphia"}, {country: "USA", province: "Ohio", city: "Columbus"},
+  {country: "USA", province: "North Carolina", city: "Charlotte"}, {country: "USA", province: "Georgia", city: "Atlanta"},
+];
+
+const seniorFacilities = [
+  {id: 1, name: "Maple Grove Retirement Villa", location: "Toronto, Ontario", type: "Retirement Home", capacity: "120 seniors", specialties: "Memory care, independent living"},
+  {id: 2, name: "Sunrise Senior Villas", location: "Vancouver, British Columbia", type: "Senior Living Community", capacity: "85 seniors", specialties: "Garden walks, bingo nights"},
+  {id: 3, name: "Golden Heart Manor", location: "Calgary, Alberta", type: "Assisted Living", capacity: "65 seniors", specialties: "Pet friendly, afternoon tea"},
+  {id: 4, name: "Harbor View Senior Residences", location: "Halifax, Nova Scotia", type: "Retirement Home", capacity: "95 seniors", specialties: "Music therapy, raffles"},
+  {id: 5, name: "Desert Rose Villas", location: "Phoenix, Arizona", type: "Senior Community", capacity: "200 seniors", specialties: "Outdoor patios, lunches"},
+  {id: 6, name: "Evergreen Senior Living", location: "Seattle, Washington", type: "Memory Care + Assisted", capacity: "110 seniors", specialties: "Story time, gentle walks"},
+  {id: 7, name: "Lakeside Retirement Villas", location: "Orlando, Florida", type: "Retirement Home", capacity: "140 seniors", specialties: "Bingo, crafts, dog visits"},
+  {id: 8, name: "Oakwood Senior Villas", location: "Los Angeles, California", type: "Assisted Living", capacity: "78 seniors", specialties: "Raffles, sing-alongs"},
+  {id: 9, name: "Prairie Rose Senior Home", location: "Winnipeg, Manitoba", type: "Senior Residence", capacity: "55 seniors", specialties: "Lunch clubs, gentle petting"},
+  {id: 10, name: "Blue Ridge Senior Villas", location: "Charlotte, North Carolina", type: "Retirement Community", capacity: "130 seniors", specialties: "Memory sharing, bingo"},
+];
+
+const silverDogs = [
+  {id: "luna", name: "Luna", breed: "Golden Retriever", age: "6", story: "Rescued from a shelter after her owner passed. Now brings calm and joy to seniors every week.", visits: 142, personality: "Gentle, loves ear scratches and being read to"},
+  {id: "charlie", name: "Charlie", breed: "Beagle", age: "8", story: "Once too energetic for most homes. Now a master at sitting quietly beside wheelchairs and holding paws.", visits: 89, personality: "Loves treats and bingo. Always knows when someone needs cheering"},
+  {id: "bella", name: "Bella", breed: "Labrador Mix", age: "5", story: "A gentle soul who helps residents with memory loss feel safe and loved again.", visits: 67, personality: "Calm cuddler, great listener"},
+  {id: "max", name: "Max", breed: "Poodle Mix", age: "9", story: "Senior himself. Perfect match for older residents who move slower and just want quiet company.", visits: 201, personality: "Loves laps, soft singing, and afternoon naps beside friends"},
+];
+
+const activities = [
+  {id: "bingo", label: "Bingo with the Dogs", icon: "🎲", desc: "Numbers are called while a warm friend rests against your leg. Laughter returns. For a little while, nobody feels alone."},
+  {id: "lunch", label: "Shared Lunch & Leashes", icon: "🍽️", desc: "A dog sits with you at the table. Somehow the food tastes better when there is love sitting beside you."},
+  {id: "raffle", label: "Raffle & Wags Night", icon: "🎟️", desc: "Small prizes. Big joy. A dog helps deliver the winning ticket and suddenly the room feels like a celebration of life itself."},
+  {id: "stories", label: "Story Sharing Circle", icon: "📖", desc: "Elders speak of the lives they have lived. The dogs listen without judgment. Memories that were fading come back to life."},
+  {id: "sing", label: "Sing-Alongs & Tails", icon: "🎵", desc: "Old songs rise up. Tails keep time. Voices that had grown quiet find their strength again."},
+  {id: "petting", label: "Gentle Petting Sessions", icon: "🖐️", desc: "Hands that have not been held in a long time discover a soft head and a steady heart. Touch heals what words cannot reach."},
+  {id: "walk", label: "Memory Lane Walks", icon: "🚶", desc: "Slow steps together. Sometimes the best conversations happen with a dog at your side and no need to fill the silence."},
+  {id: "tea", label: "Afternoon Tea & Treats", icon: "☕", desc: "A cup of tea, a cookie, and a dog who thinks you are the most important person in the world. This is what peace feels like."},
+];
+
+let selectedActivities = new Set();
+let currentFilters = { country: 'all' };
+
+// Reels data (virality / memories section)
+const reelsData = [
+  { id: 1, title: "Bingo Night at Maple Grove", desc: "Luna sat beside Margaret as she called the winning number. For the first time in a long while, the room filled with laughter that felt like coming home.", location: "Toronto, ON", uploader: "@Margaret87", credits: "Treasury funded • +3 referral credits", joy: 94 },
+  { id: 2, title: "Charlie’s Raffle Magic", desc: "Charlie placed the ticket in Harold’s hand. In that small moment, a man who had forgotten how to smile remembered what it feels like to be seen.", location: "Phoenix, AZ", uploader: "@HaroldSunset", credits: "Treasury funded • Referred by @SilverFriend", joy: 88 },
+  { id: 3, title: "Lunch & Leashes at Sunrise Villas", desc: "Three gentle dogs joined the table. People who had barely spoken all week began sharing stories over soup. The room felt alive again.", location: "Vancouver, BC", uploader: "@NurseElena", credits: "Treasury funded", joy: 91 },
+  { id: 4, title: "Afternoon Tea & Tails", desc: "Max curled into Eleanor’s lap as she spoke of her husband for the first time in years. Sometimes the deepest healing happens in silence, with a warm paw and a listening heart.", location: "Seattle, WA", uploader: "@EleanorRose", credits: "Treasury funded • +2 referral credits", joy: 97 },
+];
+
+// Render activities
+function renderActivities() {
+  const container = document.getElementById('activity-grid');
+  if (!container) return;
+  container.innerHTML = '';
+  
+  activities.forEach(act => {
+    const el = document.createElement('div');
+    el.className = `activity-chip cursor-pointer px-4 py-3 rounded-2xl border border-white/10 text-sm flex items-center gap-2 ${selectedActivities.has(act.id) ? 'selected' : ''}`;
+    el.innerHTML = `
+      <span class="text-lg">${act.icon}</span>
+      <div class="flex-1 min-w-0">
+        <div class="font-medium">${act.label}</div>
+      </div>
+    `;
+    el.onclick = () => toggleActivity(act.id, el);
+    container.appendChild(el);
+  });
+}
+
+function toggleActivity(id, el) {
+  if (selectedActivities.has(id)) {
+    selectedActivities.delete(id);
+    el.classList.remove('selected');
+  } else {
+    selectedActivities.add(id);
+    el.classList.add('selected');
+  }
+  updatePackagePreview();
+}
+
+function updatePackagePreview() {
+  const preview = document.getElementById('package-preview');
+  if (!preview) return;
+  
+  if (selectedActivities.size === 0) {
+    preview.innerHTML = `Choose activities above to build the perfect visit...`;
+    return;
+  }
+  
+  const selectedLabels = Array.from(selectedActivities).map(id => {
+    const act = activities.find(a => a.id === id);
+    return act ? act.label : '';
+  }).filter(Boolean);
+  
+  preview.innerHTML = `
+    <div class="flex-1">
+      <strong class="text-emerald-300">Package includes:</strong><br>
+      ${selectedLabels.join(' • ')}
+    </div>
+  `;
+}
+
+// Location filtering
+function filterByCountry(country) {
+  currentFilters.country = country;
+  
+  // Update button styles
+  document.querySelectorAll('[id^="country-"]').forEach(btn => btn.classList.remove('border-emerald-400', 'bg-emerald-900/30'));
+  const activeBtn = document.getElementById(`country-${country.toLowerCase()}`) || document.getElementById('country-all');
+  if (activeBtn) activeBtn.classList.add('border-emerald-400', 'bg-emerald-900/30');
+  
+  filterLocations();
+}
+
+function filterLocations() {
+  const query = (document.getElementById('location-search')?.value || '').toLowerCase().trim();
+  const container = document.getElementById('location-results');
+  if (!container) return;
+  container.innerHTML = '';
+  
+  let filtered = locationsData;
+  
+  if (currentFilters.country !== 'all') {
+    filtered = filtered.filter(loc => loc.country === currentFilters.country);
+  }
+  
+  if (query) {
+    filtered = filtered.filter(loc => 
+      loc.city.toLowerCase().includes(query) || 
+      loc.province.toLowerCase().includes(query) ||
+      loc.country.toLowerCase().includes(query)
+    );
+  }
+  
+  const shown = filtered.slice(0, 8);
+  
+  if (shown.length === 0) {
+    container.innerHTML = `<div class="text-xs text-zinc-400 px-2 py-1">No matches. Try a major city or province/state.</div>`;
+    return;
+  }
+  
+  shown.forEach(loc => {
+    const item = document.createElement('div');
+    item.className = 'px-3 py-1.5 rounded-xl hover:bg-white/5 cursor-pointer flex justify-between text-sm';
+    item.innerHTML = `
+      <span>${loc.city}, ${loc.province}</span>
+      <span class="text-xs text-emerald-400/70">${loc.country}</span>
+    `;
+    item.onclick = () => selectLocation(loc);
+    container.appendChild(item);
+  });
+}
+
+function selectLocation(loc) {
+  const input = document.getElementById('location-search');
+  if (input) input.value = `${loc.city}, ${loc.province}`;
+  
+  // Also filter facilities in same area if possible
+  const facInput = document.getElementById('facility-search');
+  // Show relevant facilities
+  filterFacilities(loc);
+  
+  // Nice toast feedback
+  showToast(`Searching senior homes near ${loc.city}...`);
+}
+
+// Facility filtering
+function filterFacilities(preferredLocation = null) {
+  const query = (document.getElementById('facility-search')?.value || '').toLowerCase().trim();
+  const container = document.getElementById('facility-results');
+  if (!container) return;
+  container.innerHTML = '';
+  
+  let filtered = seniorFacilities;
+  
+  if (query) {
+    filtered = filtered.filter(f => 
+      f.name.toLowerCase().includes(query) || 
+      f.location.toLowerCase().includes(query) ||
+      f.type.toLowerCase().includes(query)
+    );
+  }
+  
+  if (preferredLocation) {
+    const locStr = preferredLocation.city.toLowerCase();
+    const matched = filtered.filter(f => f.location.toLowerCase().includes(locStr));
+    if (matched.length) filtered = matched;
+  }
+  
+  const shown = filtered.slice(0, 6);
+  
+  if (shown.length === 0) {
+    container.innerHTML = `<div class="text-xs px-2 py-1 text-zinc-400">No homes found. Try “Villa” or a city name.</div>`;
+    return;
+  }
+  
+  shown.forEach(fac => {
+    const item = document.createElement('div');
+    item.className = 'px-3 py-2 rounded-xl hover:bg-emerald-900/10 cursor-pointer text-sm border-l-2 border-emerald-400/30 pl-3';
+    item.innerHTML = `
+      <div class="font-medium">${fac.name}</div>
+      <div class="text-xs text-emerald-300/70">${fac.location} • ${fac.type}</div>
+    `;
+    item.onclick = () => selectFacility(fac);
+    container.appendChild(item);
+  });
+}
+
+function selectFacility(fac) {
+  const input = document.getElementById('facility-search');
+  if (input) input.value = fac.name;
+  
+  // Show matching dogs / auto suggest a package
+  showToast(`Matched with ${fac.name}. Add some activities above!`);
+  document.getElementById('activity-grid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Render the main Silver Paws grid (dogs + homes)
+function renderSilverGrid(filtered = null) {
+  const container = document.getElementById('silver-grid');
+  if (!container) return;
+  container.innerHTML = '';
+  
+  const items = filtered || [...silverDogs.map(d => ({type: 'dog', ...d})), ...seniorFacilities.map(f => ({type: 'facility', ...f}))];
+  
+  items.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'silver-card bg-zinc-900 rounded-3xl p-6 cursor-pointer';
+    
+    if (item.type === 'dog') {
+      card.innerHTML = `
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-emerald-900/60 rounded-2xl flex items-center justify-center text-3xl">🐾</div>
+          <div>
+            <div class="font-bold text-xl">${item.name}</div>
+            <div class="text-xs text-emerald-300/80">${item.breed} • ${item.age} yrs</div>
+          </div>
+        </div>
+        <p class="text-sm leading-snug text-zinc-300 mb-3">${item.story}</p>
+        <div class="text-xs flex gap-4 text-emerald-300/70">
+          <div><strong>${item.visits}</strong> visits</div>
+          <div>${item.personality}</div>
+        </div>
+        <button onclick="event.stopImmediatePropagation(); matchDogToHome('${item.id}');" class="mt-4 text-xs px-4 py-1.5 border border-emerald-400/30 hover:bg-emerald-900/30 rounded-full">Match with a Home</button>
+      `;
+    } else {
+      card.innerHTML = `
+        <div class="text-emerald-400 text-xs tracking-widest mb-1">${item.type}</div>
+        <div class="font-bold text-xl mb-1">${item.name}</div>
+        <div class="text-sm text-zinc-300">${item.location}</div>
+        <div class="mt-3 text-xs text-emerald-300/70">${item.capacity} • ${item.specialties}</div>
+        
+        <button onclick="event.stopImmediatePropagation(); matchHomeToDog('${item.id}');" class="mt-4 text-xs px-4 py-1.5 border border-emerald-400/30 hover:bg-emerald-900/30 rounded-full">Pair with a Silver Paw</button>
+      `;
+    }
+    
+    card.onclick = () => showVisitDetail(item);
+    container.appendChild(card);
+  });
+  
+  document.getElementById('results-count').textContent = `${items.length} hearts waiting`;
+}
+
+function showVisitDetail(item) {
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 bg-black/95 z-[180] flex items-center justify-center p-6';
+  
+  let html = '';
+  if (item.type === 'dog') {
+    html = `
+      <div class="max-w-lg w-full bg-zinc-900 rounded-3xl p-8 relative" onclick="event.stopImmediatePropagation()">
+        <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-5 text-3xl text-zinc-400">×</button>
+        <div class="text-6xl mb-4">🐾</div>
+        <h3 class="text-4xl font-bold">${item.name}</h3>
+        <div class="text-emerald-300">${item.breed} • ${item.age} years young</div>
+        
+        <p class="mt-5 text-lg text-zinc-300">${item.story}</p>
+        
+        <div class="mt-7 p-4 bg-emerald-900/20 rounded-2xl text-sm">
+          <strong>Perfect for:</strong> ${item.personality}
+        </div>
+        
+        <div class="mt-6 flex gap-3">
+          <button onclick="matchDogToHome('${item.id}'); this.closest('.fixed').remove();" class="flex-1 py-3 rounded-2xl bg-emerald-500 text-black font-bold">Schedule a Visit with ${item.name}</button>
+        </div>
+      </div>
+    `;
+  } else {
+    html = `
+      <div class="max-w-lg w-full bg-zinc-900 rounded-3xl p-8 relative" onclick="event.stopImmediatePropagation()">
+        <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-5 text-3xl text-zinc-400">×</button>
+        <h3 class="text-3xl font-bold">${item.name}</h3>
+        <div class="text-emerald-300 mt-1">${item.location}</div>
+        
+        <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
+          <div><span class="text-emerald-300/70">Type</span><br>${item.type}</div>
+          <div><span class="text-emerald-300/70">Residents</span><br>${item.capacity}</div>
+        </div>
+        <p class="mt-4 text-sm text-zinc-300">${item.specialties}</p>
+        
+        <button onclick="matchHomeToDog(${item.id}); this.closest('.fixed').remove();" class="mt-7 w-full py-3 rounded-2xl bg-white text-black font-bold">Bring a Silver Paw Here</button>
+      </div>
+    `;
+  }
+  
+  modal.innerHTML = html;
+  modal.onclick = () => modal.remove();
+  document.body.appendChild(modal);
+}
+
+function matchDogToHome(dogId) {
+  const dog = silverDogs.find(d => d.id === dogId);
+  if (!dog) return;
+  const container = document.getElementById('facility-results') || document.getElementById('silver-grid');
+  showToast(`Matched ${dog.name} with a home. Pick activities to complete the package!`);
+  document.getElementById('activity-grid')?.scrollIntoView({behavior:'smooth'});
+}
+
+function matchHomeToDog(facId) {
+  const fac = seniorFacilities.find(f => f.id === facId);
+  if (!fac) return;
+  showToast(`Beautiful. ${fac.name} is ready for a Silver Paw.`);
+  document.getElementById('activity-grid')?.scrollIntoView({behavior:'smooth'});
+}
+
+// Schedule / build package
+function scheduleVisit() {
+  const locVal = document.getElementById('location-search')?.value || 'a beautiful location';
+  const facVal = document.getElementById('facility-search')?.value || 'a warm senior home';
+  const acts = Array.from(selectedActivities).map(id => activities.find(a=>a.id===id)?.label).filter(Boolean);
+  
+  const msg = document.getElementById('schedule-message');
+  if (msg) {
+    msg.innerHTML = `
+      A visit has been noted for <strong>${facVal}</strong> in <strong>${locVal}</strong>.<br><br>
+      Activities: ${acts.length ? acts.join(', ') : 'gentle companionship and love'}<br>
+      A Silver Paw dog will bring bingo, smiles, and everything in between.
+    `;
+  }
+  
+  const modal = document.getElementById('schedule-modal');
+  if (modal) modal.classList.remove('hidden');
+  
+  // Reset for demo feel
+  setTimeout(() => {
+    selectedActivities.clear();
+    updatePackagePreview();
+    renderActivities();
+  }, 1200);
+}
+
+function hideScheduleModal() {
+  const modal = document.getElementById('schedule-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function showToast(text) {
+  const t = document.createElement('div');
+  t.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900 border border-emerald-400/40 px-6 py-3 rounded-3xl text-sm shadow-xl z-[300]';
+  t.textContent = text;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2800);
+}
+
+// Filter grid when searches change (light coupling)
+function attachGridFilters() {
+  const locInput = document.getElementById('location-search');
+  const facInput = document.getElementById('facility-search');
+  
+  if (locInput) locInput.addEventListener('input', () => {
+    // Light filter of grid
+    const q = locInput.value.toLowerCase();
+    const filtered = [...silverDogs.map(d => ({type:'dog', ...d})), ...seniorFacilities.map(f => ({type:'facility', ...f}))]
+      .filter(it => it.location?.toLowerCase().includes(q) || it.story?.toLowerCase().includes(q) || it.name?.toLowerCase().includes(q));
+    renderSilverGrid(filtered.length ? filtered : null);
+  });
+  
+  if (facInput) facInput.addEventListener('input', () => {
+    const q = facInput.value.toLowerCase();
+    const filtered = seniorFacilities.filter(f => f.name.toLowerCase().includes(q) || f.location.toLowerCase().includes(q));
+    // Show only matching in grid if searching facilities
+    renderSilverGrid(filtered.length ? filtered.map(f => ({type:'facility', ...f})) : null);
+  });
+}
+
+function initSilverPaws() {
+  renderActivities();
+  updatePackagePreview();
+  
+  // Initial renders
+  filterLocations();
+  filterFacilities();
+  renderSilverGrid();
+  
+  // NEW: Reels + Referral + lovely backgrounds
+  renderReels();
+  loadReferralName();
+  
+  attachGridFilters();
+  
+  // Re-render reels in case of dynamic data updates
+  if (typeof renderReels === 'function') renderReels();
+  
+  // Scroll-reactive lovely backgrounds (makes scroll more lovely & heartwarming)
+  initScrollBackgrounds();
+  
+  // Initial country button highlight
+  const allBtn = document.getElementById('country-all');
+  if (allBtn) allBtn.classList.add('border-emerald-400', 'bg-emerald-900/30');
+  
+  // Keyboard niceties
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+      e.preventDefault();
+      document.getElementById('location-search')?.focus();
+    }
+  });
+  
+  console.log('%c[Silver Paws] Enhanced: lovely scroll backgrounds + reels + smart referral credits initialized.', 'color:#34d399');
+}
+
+// === Lovely scroll backgrounds - extra warm & visually fun ===
+function initScrollBackgrounds() {
+  const warmth = document.getElementById('scroll-warmth');
+  if (!warmth) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const progress = Math.min(window.scrollY / (document.body.scrollHeight * 0.55), 1);
+        
+        // Gentle warmth shift - heartwarming gold/emerald glow moves as you scroll
+        const x = 28 + (progress * 18);
+        const y = 35 + (Math.sin(progress * 3.8) * 9);
+        warmth.style.background = `
+          radial-gradient(circle at ${x}% ${y}%, rgba(252,211,77,0.038) 0%, transparent 62%),
+          radial-gradient(circle at ${78 - progress * 11}% ${68 + progress * 7}%, rgba(52,211,153,0.032) 0%, transparent 68%)
+        `;
+        warmth.style.opacity = (0.55 + progress * 0.25).toFixed(2);
+        
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Add some floating joy elements dynamically (fun & not generic)
+  const hero = document.querySelector('header');
+  if (hero) {
+    for (let i = 0; i < 5; i++) {
+      const f = document.createElement('div');
+      f.className = 'joy-float';
+      f.style.left = (15 + Math.random() * 70) + '%';
+      f.style.top = (20 + Math.random() * 55) + '%';
+      f.style.animationDelay = `-${Math.random() * 18}s`;
+      f.innerHTML = ['🐾','❤️','🎲','🌱'][Math.floor(Math.random()*4)];
+      hero.appendChild(f);
+    }
+  }
+}
+
+// === VIRALITY REELS (memories & happiness - treasury credited) ===
+function renderReels() {
+  const grid = document.getElementById('reels-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  reelsData.forEach(reel => {
+    const card = document.createElement('div');
+    card.className = 'silver-card bg-zinc-900/80 border border-white/10 p-5 rounded-3xl flex flex-col';
+    card.innerHTML = `
+      <div class="flex-1">
+        <div class="text-emerald-300 text-xs tracking-wider">${reel.location}</div>
+        <div class="font-semibold text-xl mt-1 leading-tight">${reel.title}</div>
+        <p class="mt-3 text-sm text-zinc-300">${reel.desc}</p>
+      </div>
+      <div class="mt-4 pt-4 border-t border-white/10 text-xs flex justify-between items-end">
+        <div>
+          <div class="text-emerald-400/70">by ${reel.uploader}</div>
+          <div class="text-[10px] text-emerald-300/60 mt-0.5">${reel.credits}</div>
+        </div>
+        <div class="text-right">
+          <div class="text-emerald-400 font-bold text-lg leading-none">${reel.joy}</div>
+          <div class="text-[9px] -mt-1 text-emerald-300/60">joy score</div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function simulateUploadReel() {
+  const grid = document.getElementById('reels-grid');
+  if (!grid) return;
+  
+  const newReel = {
+    id: Date.now(),
+    title: "New Memory Captured!",
+    desc: "A beautiful moment from today's Silver Paws visit. The senior residents were over the moon.",
+    location: "Your City, Here",
+    uploader: "You (demo)",
+    credits: "Treasury will credit • Referral bonus pending hold period",
+    joy: 85 + Math.floor(Math.random()*12)
+  };
+  
+  const card = document.createElement('div');
+  card.className = 'silver-card bg-emerald-900/10 border border-emerald-400/40 p-5 rounded-3xl flex flex-col animate-pulse';
+  card.innerHTML = `
+    <div class="flex-1">
+      <div class="text-emerald-300 text-xs tracking-wider">${newReel.location}</div>
+      <div class="font-semibold text-xl mt-1 leading-tight">${newReel.title}</div>
+      <p class="mt-3 text-sm text-zinc-300">${newReel.desc}</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-white/10 text-xs flex justify-between items-end">
+      <div>
+        <div class="text-emerald-400/70">by ${newReel.uploader}</div>
+        <div class="text-[10px] text-emerald-300/60 mt-0.5">${newReel.credits}</div>
+      </div>
+      <div class="text-right">
+        <div class="text-emerald-400 font-bold text-lg leading-none">${newReel.joy}</div>
+        <div class="text-[9px] -mt-1 text-emerald-300/60">joy score</div>
+      </div>
+    </div>
+  `;
+  grid.prepend(card);
+  
+  setTimeout(() => card.classList.remove('animate-pulse'), 1600);
+}
+
+// === REFERRAL SYSTEM (integrated + smart anti-abuse) ===
+function saveReferralName(name) {
+  if (!name || name.length < 2) return;
+  localStorage.setItem('silverReferralName', name.trim());
+  updateReferralStatus(name);
+}
+
+function loadReferralName() {
+  const saved = localStorage.getItem('silverReferralName');
+  const input = document.getElementById('referral-input');
+  if (saved && input) {
+    input.value = saved;
+    updateReferralStatus(saved);
+  }
+}
+
+// Quick visual fun: animated bingo ball on package interactions (heartwarming excitement)
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.activity-chip')) {
+    const ball = document.createElement('div');
+    ball.className = 'absolute text-xl pointer-events-none';
+    ball.style.left = (e.clientX - 12) + 'px';
+    ball.style.top = (e.clientY - 12) + 'px';
+    ball.innerHTML = '🎲';
+    document.body.appendChild(ball);
+    
+    setTimeout(() => {
+      ball.style.transition = 'all 650ms cubic-bezier(0.2,1,0.3,1)';
+      ball.style.transform = `translateY(${ -90 - Math.random()*60 }px) scale(0.3)`;
+      ball.style.opacity = '0';
+      setTimeout(() => ball.remove(), 700);
+    }, 30);
+  }
+});
+
+function updateReferralStatus(name) {
+  const status = document.getElementById('referral-status');
+  if (!status) return;
+  status.innerHTML = `Your link will credit <strong>${name}</strong>. Rewards only unlock after long-term holding.`;
+}
+
+function copyReferralLink() {
+  const name = document.getElementById('referral-input')?.value || 'SilverPawsFriend';
+  const url = `${location.origin}${location.pathname}?ref=${encodeURIComponent(name)}`;
+  navigator.clipboard.writeText(url).then(() => {
+    const orig = event.target.innerText || 'Copy Link';
+    event.target.innerText = 'Copied!';
+    setTimeout(() => { if (event.target) event.target.innerText = orig; }, 1600);
+  }).catch(() => alert(url)); // fallback
+}
+
+
+
+// Enhanced schedule that now factors referral + shows the calculation
+function scheduleVisit() {
+  const locVal = document.getElementById('location-search')?.value || 'a beautiful location';
+  const facVal = document.getElementById('facility-search')?.value || 'a warm senior home';
+  const acts = Array.from(selectedActivities).map(id => activities.find(a=>a.id===id)?.label).filter(Boolean);
+  
+  const refName = document.getElementById('referral-input')?.value || localStorage.getItem('silverReferralName') || null;
+  
+  const msg = document.getElementById('schedule-message');
+  if (msg) {
+    let extra = '';
+    if (refName) {
+      extra = `<br><br><strong>Referral credited to ${refName}</strong>. This credit only fully vests after 90+ days of holding.`;
+    }
+    msg.innerHTML = `
+      A visit has been noted for <strong>${facVal}</strong> in <strong>${locVal}</strong>.<br><br>
+      Activities: ${acts.length ? acts.join(', ') : 'gentle companionship and love'}
+      ${extra}
+    `;
+  }
+  
+  const modal = document.getElementById('schedule-modal');
+  if (modal) modal.classList.remove('hidden');
+  
+  // Simulate referral credit (if present)
+  if (refName) {
+    let count = parseInt(localStorage.getItem('silverReferralCount') || '0');
+    count++;
+    localStorage.setItem('silverReferralCount', count);
+    
+    // Show a quick visual of the "calculation"
+    setTimeout(() => {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-8 right-8 bg-zinc-900 border border-emerald-400/40 px-5 py-3 rounded-2xl text-xs shadow';
+      toast.innerHTML = `Referral credit logged for ${refName}. <span class="text-emerald-400">Long holds = real value.</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4200);
+    }, 900);
+  }
+  
+  // Reset for demo
+  setTimeout(() => {
+    selectedActivities.clear();
+    updatePackagePreview();
+    renderActivities();
+  }, 1300);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSilverPaws);
+} else {
+  initSilverPaws();
+}
+
+// Basic nav helpers (copied from main site for standalone beauty)
+function toggleProgramsDropdown(e) {
+  e.preventDefault();
+  const menu = document.getElementById('programs-menu');
+  const chev = document.getElementById('programs-chevron');
+  if (!menu) return;
+  menu.classList.toggle('hidden');
+  if (chev) chev.style.transform = menu.classList.contains('hidden') ? '' : 'rotate(180deg)';
+}
+
+function toggleMobileMenu() {
+  const m = document.getElementById('mobile-menu');
+  const icon = document.getElementById('mobile-menu-icon');
+  if (!m) return;
+  m.classList.toggle('hidden');
+  if (icon) {
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  }
+}
+
+// Close dropdowns on outside click
+document.addEventListener('click', function(e) {
+  const dd = document.getElementById('programs-menu');
+  if (dd && !dd.contains(e.target) && !e.target.closest('#programs-dropdown')) {
+    dd.classList.add('hidden');
+    const chev = document.getElementById('programs-chevron');
+    if (chev) chev.style.transform = '';
+  }
+});
+</script>
+
+</body>
+</html>
