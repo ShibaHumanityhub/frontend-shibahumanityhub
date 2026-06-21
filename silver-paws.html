@@ -382,6 +382,18 @@
   .chain-heart { display: inline-block; animation: heart-beat 1.3s ease-in-out infinite; filter: drop-shadow(0 0 4px rgba(251,113,133,0.4)); }
   @keyframes heart-beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.35)} }
   .pay-forward-nav:hover .chain-heart { animation-duration: 0.7s; }
+
+  /* Critical mobile menu styles for lightning fast click + no flash */
+  #mobile-menu {
+    display: none;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  #mobile-menu:not(.hidden) {
+    display: block;
+  }
+  #mobile-menu a {
+    transition: background-color 0.1s ease;
+  }
 </style>
 
 <!-- Lovely layered scroll backgrounds - makes every inch of scroll heartwarming & fun -->
@@ -1938,15 +1950,18 @@ function toggleMobileMenu() {
 }
 
 // Dynamically position mobile menu below actual navbar height (fixes overlap)
+let cachedNavHeight = null;
 function positionMobileMenu() {
   const nav = document.querySelector('nav');
   const menu = document.getElementById('mobile-menu');
   if (!nav || !menu) return;
-  const navH = nav.offsetHeight || 72;
-  menu.style.top = (navH + 4) + 'px';
+  if (!cachedNavHeight || window.innerWidth < 768) {
+    cachedNavHeight = nav.offsetHeight || 72;
+  }
+  menu.style.top = (cachedNavHeight + 4) + 'px';
 }
 window.addEventListener('load', positionMobileMenu);
-window.addEventListener('resize', positionMobileMenu);
+window.addEventListener('resize', () => { cachedNavHeight = null; positionMobileMenu(); });
 document.addEventListener('DOMContentLoaded', positionMobileMenu);
 
 // Close dropdowns on outside click

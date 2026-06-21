@@ -35,8 +35,7 @@
   <link rel="preload" href="assets/logos/shibahumanityhublogo3d-new.jpg" as="image">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <!-- FORCE REDEPLOY: huge star themed upgrade complete - star shaped dog photos + stars everywhere - next level -->
   <script src="https://cdn.tailwindcss.com" defer></script>
   <script src="js/shared-animations.js" defer></script>
@@ -1375,15 +1374,18 @@ function toggleMobileMenu() {
 }
 
 // Dynamically position mobile menu below actual navbar height (fixes overlap on all devices)
+let cachedNavHeight = null;
 function positionMobileMenu() {
   const nav = document.querySelector('nav');
   const menu = document.getElementById('mobile-menu');
   if (!nav || !menu) return;
-  const navH = nav.offsetHeight || 72;
-  menu.style.top = (navH + 4) + 'px';
+  if (!cachedNavHeight || window.innerWidth < 768) {
+    cachedNavHeight = nav.offsetHeight || 72;
+  }
+  menu.style.top = (cachedNavHeight + 4) + 'px';
 }
 window.addEventListener('load', positionMobileMenu);
-window.addEventListener('resize', positionMobileMenu);
+window.addEventListener('resize', () => { cachedNavHeight = null; positionMobileMenu(); });
 document.addEventListener('DOMContentLoaded', positionMobileMenu);
 
 // Boot
@@ -1420,6 +1422,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   .pay-forward-nav:hover .chain-heart {
     animation-duration: 0.7s;
+  }
+
+  /* Critical mobile menu styles for lightning fast click + no flash */
+  #mobile-menu {
+    display: none;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  #mobile-menu:not(.hidden) {
+    display: block;
+  }
+  #mobile-menu a {
+    transition: background-color 0.1s ease;
   }
 </style>
 

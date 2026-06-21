@@ -111,9 +111,8 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
-  <!-- Optimized Google Fonts (non-blocking + swap for instant text) -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <!-- Google Fonts with display=swap for fast rendering, no flash on interactions -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- SHARED MERCY CORE STYLES -->
   <style id="shared-mercy-core">
@@ -829,6 +828,18 @@
   /* Ensure navbar feels premium and fits everywhere */
   nav a { transition: color 0.15s ease, letter-spacing 0.2s ease; }
   nav a:hover { letter-spacing: 0.02em; }
+
+  /* Critical mobile menu styles for lightning fast click + no flash */
+  #mobile-menu {
+    display: none;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  #mobile-menu:not(.hidden) {
+    display: block;
+  }
+  #mobile-menu a {
+    transition: background-color 0.1s ease;
+  }
 
   /* Pay It Forward Chain Heart - high energy frequency, limited space, heart-melting vibe */
   .pay-forward-nav {
@@ -3217,15 +3228,18 @@ function toggleMobileMenu() {
 
 // Lightning fix: dynamically position mobile menu below the actual nav height
 // Prevents overlap regardless of logo/CTA size variations on mobile
+let cachedNavHeight = null;
 function positionMobileMenu() {
   const nav = document.querySelector('nav');
   const menu = document.getElementById('mobile-menu');
   if (!nav || !menu) return;
-  const navH = nav.offsetHeight || 72;
-  menu.style.top = (navH + 4) + 'px';  // small buffer
+  if (!cachedNavHeight || window.innerWidth < 768) {  // recalc on mobile or first time
+    cachedNavHeight = nav.offsetHeight || 72;
+  }
+  menu.style.top = (cachedNavHeight + 4) + 'px';
 }
 window.addEventListener('load', positionMobileMenu);
-window.addEventListener('resize', positionMobileMenu);
+window.addEventListener('resize', () => { cachedNavHeight = null; positionMobileMenu(); });
 document.addEventListener('DOMContentLoaded', positionMobileMenu);
 
 function toggleProgramsDropdown(e) {

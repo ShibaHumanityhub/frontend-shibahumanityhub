@@ -1374,15 +1374,18 @@ function toggleMobileMenu() {
 }
 
 // Dynamically position mobile menu below actual navbar height (fixes overlap)
+let cachedNavHeight = null;
 function positionMobileMenu() {
   const nav = document.querySelector('nav');
   const menu = document.getElementById('mobile-menu');
   if (!nav || !menu) return;
-  const navH = nav.offsetHeight || 72;
-  menu.style.top = (navH + 4) + 'px';
+  if (!cachedNavHeight || window.innerWidth < 768) {
+    cachedNavHeight = nav.offsetHeight || 72;
+  }
+  menu.style.top = (cachedNavHeight + 4) + 'px';
 }
 window.addEventListener('load', positionMobileMenu);
-window.addEventListener('resize', positionMobileMenu);
+window.addEventListener('resize', () => { cachedNavHeight = null; positionMobileMenu(); });
 document.addEventListener('DOMContentLoaded', positionMobileMenu);
 </script>
 

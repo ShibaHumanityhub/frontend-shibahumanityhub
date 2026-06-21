@@ -581,6 +581,20 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
   </div>
 </nav>
 
+<style>
+  /* Critical mobile menu styles for lightning fast click + no flash */
+  #mobile-menu {
+    display: none;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  #mobile-menu:not(.hidden) {
+    display: block;
+  }
+  #mobile-menu a {
+    transition: background-color 0.1s ease;
+  }
+</style>
+
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 100px;">
   <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
