@@ -58,6 +58,36 @@ window.SHHGlossary = {
       title: "Soulbound NFT / Rescue Passport",
       simple: "A permanent, non-transferable digital record on the blockchain that travels with the dog. It holds their full story, every visit, every memory.",
       impact: "This soul is never lost again. The legacy is real and forever."
+    },
+    "golden years companion": {
+      title: "Golden Years Companion Program",
+      simple: "Matching screened seniors 60+ (especially widows and widowers) with calm shelter dogs five years and older. Every cost for the dog's life is covered so the bond can simply be love.",
+      impact: "Two souls who need each other finally get to be each other's quiet home, for the rest of their days."
+    },
+    "golden pair": {
+      title: "Golden Pair",
+      simple: "A matched senior and steady adult dog living together with full lifetime support from the program. Their story becomes part of the living Golden Pairs gallery.",
+      impact: "Every pair proves that no one has to be alone and no good dog has to keep waiting."
+    },
+    "welcome home grant": {
+      title: "Welcome Home Grant",
+      simple: "A one-time $800 grant given when a Golden Pair is matched. Covers bed, crate, leash, collar, and the very first vet visit so the beginning feels safe and joyful.",
+      impact: "The senior and dog start with everything they need for dignity and comfort from day one."
+    },
+    "lifetime support": {
+      title: "Lifetime Support",
+      simple: "$180 to $250 every month for premium food, grooming, toys, and daily needs, plus a rolling emergency vet buffer of $75 to $150 that carries forward. Nothing is ever left uncovered.",
+      impact: "The only thing the senior has to give is love. Every bill is handled quietly by the mercy of $NIBBLES holders."
+    },
+    "wellness check-ins": {
+      title: "Wellness Check-ins",
+      simple: "Two to four gentle, unannounced visits (video or in person) per year by trusted volunteers or staff. The senior shows the dog is well. Payments pause only if something needs fixing; the dog stays.",
+      impact: "Safety and accountability without ever breaking the sacred bond. The dog never has to leave."
+    },
+    "senior guardian staking": {
+      title: "Senior Guardian Staking",
+      simple: "Seniors in the program receive 15 to 20 percent of community top-ups in $NIBBLES and can stake them. They simply share occasional honest photos and short videos of their days together.",
+      impact: "Elders become real participants and long-term holders. They earn alongside the community while their hearts heal."
     }
   },
 
