@@ -49,9 +49,10 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- SHARED MERCY CORE STYLES (for consistency with index.html) -->
   <!-- Common hero, buttons, card base, motion, reduced-motion. No emsymbols. -->
@@ -504,7 +505,9 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
     loop 
     muted 
     playsinline 
-    preload="none"
+    preload="metadata"
+    poster="assets/logos/shibahumanityhublogo3d-new.jpg"
+    width="96" height="96"
     aria-hidden="true"
     class="w-full h-full object-cover">
   </video>

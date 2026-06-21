@@ -32,10 +32,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght=500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/logos/shibahumanityhublogo3d-new.jpg" as="image">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"></noscript>
   <!-- FORCE REDEPLOY: huge star themed upgrade complete - star shaped dog photos + stars everywhere - next level -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <script src="js/shared-animations.js" defer></script>
 <script src="js/glossary.js" defer></script>
   
@@ -80,6 +83,8 @@
       border: 1px solid rgba(252, 211, 77, 0.2);
       position: relative;
       overflow: hidden;
+      content-visibility: auto;
+      contain: layout style;
     }
     .star-card::before {
       content: '';
@@ -453,7 +458,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
     <a href="index.html" class="flex items-center gap-3 group">
       <div class="logo-3d-wrapper w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-[#fcd34d]">
-        <video src="assets/videos/shibahumanityhub-logo-animated.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+        <video src="assets/videos/shibahumanityhub-logo-animated.mp4" autoplay loop muted playsinline preload="metadata" poster="assets/logos/shibahumanityhublogo3d-new.jpg" width="64" height="64" class="w-full h-full object-cover"></video>
       </div>
       <span class="hidden sm:block text-xl font-bold tracking-[-0.6px] bg-gradient-to-r from-[#fcd34d] via-white to-[#f59e0b] bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
     </a>

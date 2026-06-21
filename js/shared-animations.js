@@ -52,8 +52,8 @@
       ? ['🐾', '❤️', '🐾', '❤️', '🐾', '❤️'] 
       : ['❤️', '🐾', '❤️', '🐾', '❤️', '🐾'];
 
-    // Phase 1: dynamic count for perf/mobile (gentle on small screens or reduced) - REDUCED FOR SPEED
-    let count = 3;
+    // Phase 1: dynamic count for perf/mobile (gentle on small screens or reduced) - LIGHTNING SPEED TUNED
+    let count = 2;
     if (prefersReduced) count = 0;
     else if (window.innerWidth < 480) count = 1; // tasteful on mobile
 
@@ -63,9 +63,10 @@
 
     // Phase 4 guardrail: cap particles for performance (lots of cards or small screen)
     const cardCount = document.querySelectorAll('.program-card').length;
-    if (cardCount > 8 && window.innerWidth < 640) {
+    if (cardCount > 6 && window.innerWidth < 640) {
       count = Math.min(count, 1);
     }
+    if (cardCount > 12) count = Math.min(count, 1);
 
     // rich but tasteful density across entire background
     const driftClasses = ['drift-slow1', 'drift-slow2', 'drift-slow3', 'drift-slow4', 'drift-slow5', 'drift-slow6'];
@@ -120,12 +121,27 @@
 
   function initFloatingParticles() {
     if (prefersReduced) return;
-    // Heartful floating hearts/paws on all major cards across every page for cohesive wholesome feel
-    document.querySelectorAll('.program-card, .soul-card, .star-card, .k9-card').forEach(card => {
+
+    const cards = document.querySelectorAll('.program-card, .soul-card, .star-card, .k9-card');
+    if (!cards.length) return;
+
+    // LIGHTNING: Lazy init particles only when cards enter viewport (fast first paint)
+    const particleObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          if (!card.hasAttribute('data-particles-init')) {
+            createFloatingParticles(card);
+            card.setAttribute('data-particles-init', 'true');
+          }
+          obs.unobserve(card);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '80px 0px' });
+
+    cards.forEach(card => {
       if (!card.hasAttribute('data-particles-init')) {
-        // Only if the card has (or we can create) a container. For non-program cards the function safely early-returns if no .floating-elements
-        createFloatingParticles(card);
-        card.setAttribute('data-particles-init', 'true');
+        particleObserver.observe(card);
       }
     });
   }

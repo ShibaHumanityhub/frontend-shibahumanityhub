@@ -30,9 +30,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/logos/shibahumanityhublogo3d-new.jpg" as="image">
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
   <!-- FORCE REDEPLOY: removed Elon/Vitalik/Bilyeau name drops on Unified Rescue Registry. Kept full legendary level. -->
 
   <script src="js/shared-animations.js" defer></script>
@@ -97,6 +100,8 @@
     .mission-card {
       transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
       border: 1px solid rgba(251, 191, 36, 0.2);
+      content-visibility: auto;
+      contain: layout style;
     }
     .mission-card:hover {
       transform: translateY(-6px);
@@ -159,7 +164,9 @@
           loop 
           muted 
           playsinline 
-          preload="none"
+          preload="metadata"
+          poster="assets/logos/shibahumanityhublogo3d-new.jpg"
+          width="96" height="96"
           aria-hidden="true"
           class="w-full h-full object-cover">
         </video>

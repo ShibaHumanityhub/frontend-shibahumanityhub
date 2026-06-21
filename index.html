@@ -101,15 +101,19 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <!-- Lightning: preload critical static assets for instant hero/nav -->
+  <link rel="preload" href="assets/logos/shibahumanityhublogo3d-new.jpg" as="image">
 
-  <!-- Tailwind Play CDN (static site convenience - for production speed, extract to a static CSS file) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Play CDN - deferred for lightning initial load (base styles inlined below) -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
 
-  <!-- FontAwesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- FontAwesome CDN (preload for speed) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
-  <!-- Optimized Google Fonts (non-blocking) -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Optimized Google Fonts (non-blocking + swap for instant text) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- SHARED MERCY CORE STYLES -->
   <style id="shared-mercy-core">
@@ -161,6 +165,8 @@
     .program-card {
       position: relative;
       overflow: hidden;
+      content-visibility: auto;
+      contain: layout style;
     }
     .program-card::before, .program-card::after {
       position: absolute;
@@ -717,7 +723,9 @@
     loop 
     muted 
     playsinline 
-    preload="none"
+    preload="metadata"
+    poster="assets/logos/shibahumanityhublogo3d-new.jpg"
+    width="96" height="96"
     aria-hidden="true"
     class="w-full h-full object-cover">
   </video>
@@ -1053,9 +1061,9 @@
           type="submit" 
           id="submit-btn"
           class="super-cta-btn lead-magnet-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-7 rounded-3xl text-xl w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-all min-w-[200px]">
-          <img loading="lazy" decoding="async" src="assets/logos/shibahumanityhublogo3d-new.jpg" loading="lazy" decoding="async" loading="lazy" decoding="async" 
+          <img loading="lazy" decoding="async" src="assets/logos/shibahumanityhublogo3d-new.jpg" 
                class="w-10 h-10 object-cover rounded-full ring-2 ring-white/30 shadow-xl flex-shrink-0" 
-               alt="Shibahumanityhub" loading="lazy">
+               width="40" height="40" alt="Shibahumanityhub">
           <span>Send Me The Blueprint</span>
         </button>
       </div>
@@ -1093,9 +1101,9 @@
           <!-- Inner coin platform -->
           <div class="absolute inset-[22px] rounded-full bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-amber-400/40">
             <!-- The logo itself, shaped and elevated -->
-            <img loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles logo.jpg" loading="lazy" decoding="async" 
+            <img loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles logo.jpg" 
                  class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
-                 alt="Mr. Nibbles - $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy" decoding="async">
+                 width="140" height="140" alt="Mr. Nibbles - $NIBBLES, the living mercy token for dogs and the people they heal">
             <!-- Subtle inner paw watermark for shape poetry -->
             <div class="absolute text-[120px] text-amber-400/10 font-bold select-none">🐾</div>
           </div>
@@ -1123,9 +1131,9 @@
           <div class="absolute inset-[10px] rounded-[42%] border border-emerald-400/70 shadow-[0_0_40px_-8px_rgb(52,211,153),inset_0_0_60px_rgba(52,211,153,0.15)]"></div>
           <!-- Inner platform -->
           <div class="absolute inset-[22px] rounded-[42%] bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-emerald-400/40">
-            <img loading="lazy" decoding="async" src="assets/logos/hopeseed-logo.jpg" loading="lazy" decoding="async" 
+            <img loading="lazy" decoding="async" src="assets/logos/hopeseed-logo.jpg" 
                  class="w-[82%] h-[82%] object-contain scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
-                 alt="$hopeseed, the living seed token for children, families and hope" loading="lazy" decoding="async">
+                 width="140" height="140" alt="$hopeseed, the living seed token for children, families and hope">
             <div class="absolute text-[110px] text-emerald-400/10 font-bold select-none">🌱</div>
           </div>
           <div class="absolute -inset-[2px] rounded-[42%] border border-emerald-400/30 animate-[spin_52s_linear_infinite]"></div>
@@ -1382,7 +1390,7 @@
       <h3 class="text-3xl font-bold mb-4">Pay It Forward Adoption Chain</h3>
       <div class="flex flex-col md:flex-row gap-6">
         <div class="md:w-1/3">
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/Payitforwardadoptionchainphoto.jpg" alt="Pay It Forward Adoption Chain" class="rounded-2xl w-full">
+          <img loading="lazy" decoding="async" src="assets/images/Payitforwardadoptionchainphoto.jpg" width="600" height="340" alt="Pay It Forward Adoption Chain" class="rounded-2xl w-full">
         </div>
         <div class="md:w-2/3">
           <p class="text-lg mb-4">"Directly sponsor one special dog and help its guardian become a full-time storyteller of love."</p>
@@ -1611,28 +1619,28 @@
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
        <div onclick="showProgramModal(7)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
           <div class="floating-elements absolute inset-0 pointer-events-none"></div>
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Rainbow Bridge Hospice: senior dogs receiving dignity, medical care, and Sequoia legacy trees planted in their name." loading="lazy">
+          <img loading="lazy" decoding="async" src="assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Rainbow Bridge Hospice: senior dogs receiving dignity, medical care, and Sequoia legacy trees planted in their name." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
           <h3 class="text-2xl font-semibold mb-3">Rainbow Bridge Hospice &amp; Sequoia Legacy</h3>
           <p class="text-zinc-400 text-base">No senior dog ever crosses the Rainbow Bridge cold or forgotten. They deserve warmth, love, and dignity in their final chapter.</p>
         </div>
         <div onclick="showProgramModal(4)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
           <div class="floating-elements absolute inset-0 pointer-events-none"></div>
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/healingheartstherapydognetworkphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Healing Hearts Therapy Dog Network: trained shelter dogs bringing comfort to hospitals, nursing homes, and schools." loading="lazy">
+          <img loading="lazy" decoding="async" src="assets/images/healingheartstherapydognetworkphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Healing Hearts Therapy Dog Network: trained shelter dogs bringing comfort to hospitals, nursing homes, and schools." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
           <h3 class="text-2xl font-semibold mb-3">Healing Hearts Therapy Dog Network</h3>
           <p class="text-zinc-400 text-base">Certified shelter dogs bringing real comfort to hospitals, nursing homes, and schools - healing hearts one visit at a time.</p>
         </div>
         <div onclick="showProgramModal(5)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
           <div class="floating-elements absolute inset-0 pointer-events-none"></div>
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/globaldisasterk9responseunitsphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Global Disaster K9 Response Units: elite search-and-rescue dogs ready to deploy within 48 hours anywhere in the world." loading="lazy">
+          <img loading="lazy" decoding="async" src="assets/images/globaldisasterk9responseunitsphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Global Disaster K9 Response Units: elite search-and-rescue dogs ready to deploy within 48 hours anywhere in the world." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
           <h3 class="text-2xl font-semibold mb-3">Global Disaster K9 Response Units</h3>
           <p class="text-zinc-400 text-base">Elite search-and-rescue dogs ready 24/7 to save lives when disaster strikes.</p>
         </div>
         <div onclick="showProgramModal(16)" class="program-card cursor-pointer bg-zinc-900 border border-amber-400/20 hover:border-amber-400 rounded-3xl p-6 overflow-hidden">
           <div class="floating-elements absolute inset-0 pointer-events-none"></div>
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/servicedogfreedomprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Service Dog Freedom Program: veterans and disabled warriors receive loyal service dogs free for life." loading="lazy">
+          <img loading="lazy" decoding="async" src="assets/images/servicedogfreedomprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Service Dog Freedom Program: veterans and disabled warriors receive loyal service dogs free for life." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-amber-600 px-3 py-1 rounded-2xl">$NIBBLES</span></div>
           <h3 class="text-2xl font-semibold mb-3">Service Dog Freedom Program</h3>
           <p class="text-zinc-400 text-base">Veterans and disabled warriors receive a loyal service dog - free for life.</p>
@@ -1649,28 +1657,28 @@
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
         <div onclick="showProgramModal(17)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
           <div class="floating-elements absolute inset-0 pointer-events-none"></div>
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/orphanxmasphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Orphan Christmas: orphaned and foster children open personalized gifts live on stream with global family cheering." loading="lazy">
+          <img loading="lazy" decoding="async" src="assets/images/orphanxmasphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Orphan Christmas: orphaned and foster children open personalized gifts live on stream with global family cheering." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
           <h3 class="text-2xl font-semibold mb-3">Orphan Christmas</h3>
           <p class="text-zinc-400 text-base">Every orphan and foster child gets a real personalized Christmas morning filled with love and magic from a global family.</p>
         </div>
         <div onclick="showProgramModal(19)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
           <div class="floating-elements absolute inset-0 pointer-events-none"></div>
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/guardianangelwalletprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Guardian Angel Wallet Program: foster children receive private $hopeseed wallets that grow with community love and staking." loading="lazy">
+          <img loading="lazy" decoding="async" src="assets/images/guardianangelwalletprogramphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Guardian Angel Wallet Program: foster children receive private $hopeseed wallets that grow with community love and staking." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
           <h3 class="text-2xl font-semibold mb-3">Guardian Angel Wallet Program</h3>
           <p class="text-zinc-400 text-base">Every foster child gets a private wallet that grows from day one with love and staking rewards.</p>
         </div>
         <div onclick="showProgramModal(22)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
           <div class="floating-elements absolute inset-0 pointer-events-none"></div>
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/miraclefightfundphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Miracle Fight Fund: seriously ill children and one parent get free flights, lodging, and transport to life-saving treatment anywhere in the world." loading="lazy">
+          <img loading="lazy" decoding="async" src="assets/images/miraclefightfundphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Miracle Fight Fund: seriously ill children and one parent get free flights, lodging, and transport to life-saving treatment anywhere in the world." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
           <h3 class="text-2xl font-semibold mb-3">Miracle Fight Fund</h3>
           <p class="text-zinc-400 text-base">Seriously ill children and one parent get free flights to life-saving treatment.</p>
         </div>
         <div onclick="showProgramModal(28)" class="program-card cursor-pointer bg-zinc-900 border border-emerald-400/20 hover:border-emerald-400 rounded-3xl p-6 overflow-hidden">
           <div class="floating-elements absolute inset-0 pointer-events-none"></div>
-          <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/images/dreamroommakeoversphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Dream Room Makeovers Program: children in hospital beds or difficult rooms wake to personalized magical spaces with VR escapes." loading="lazy">
+          <img loading="lazy" decoding="async" src="assets/images/dreamroommakeoversphoto.jpg" class="w-full h-64 object-contain rounded-2xl mb-6" alt="Dream Room Makeovers Program: children in hospital beds or difficult rooms wake to personalized magical spaces with VR escapes." loading="lazy">
           <div class="flex gap-2 mb-4"><span class="text-xs bg-emerald-600 px-3 py-1 rounded-2xl">$hopeseed</span></div>
           <h3 class="text-2xl font-semibold mb-3">Dream Room Makeovers Program</h3>
           <p class="text-zinc-400 text-base">Children in hospital beds wake up in their own magical dream room built just for them.</p>
