@@ -108,6 +108,28 @@
       border-color: rgba(251, 191, 36, 0.5);
       box-shadow: 0 25px 60px -15px rgba(251, 191, 36, 0.15);
     }
+
+    /* Pay It Forward Chain Heart - high energy frequency, limited space, heart-melting vibe */
+    .pay-forward-nav {
+      color: #f9a8d4;
+      position: relative;
+    }
+    .pay-forward-nav:hover {
+      color: #fb7185;
+      text-shadow: 0 0 8px rgba(251,113,133,0.5);
+    }
+    .chain-heart {
+      display: inline-block;
+      animation: heart-beat 1.3s ease-in-out infinite;
+      filter: drop-shadow(0 0 4px rgba(251,113,133,0.4));
+    }
+    @keyframes heart-beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.35); }
+    }
+    .pay-forward-nav:hover .chain-heart {
+      animation-duration: 0.7s;
+    }
     .info-icon {
       display: inline-flex;
       align-items: center;
@@ -223,7 +245,7 @@
           <div class="my-1 border-t border-white/10"></div>
           
           <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
+            <span class="chain-heart text-base">🔗❤️</span> 
             <span>Pay It Forward Adoption Chain</span>
           </a>
           <a href="#" onclick="if(window.SHHGlossary) { window.SHHGlossary.showExplain('mercy flywheel'); } return false;" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item border-t border-white/10 mt-1 pt-3">
@@ -233,6 +255,10 @@
         </div>
       </div>
 
+      <a href="index.html#pay-it-forward-adoption" class="pay-forward-nav flex items-center gap-1.5 hover:text-rose-400 transition-all font-medium group/pi" title="Helping another soul melts your heart. Be part of the solution.">
+        <span>Pay It Forward</span>
+        <span class="chain-heart text-lg leading-none">🔗❤️</span>
+      </a>
       <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium hover:tracking-wider transition-all">Beautiful Souls</a>
       <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Flywheel</a>
     </div>
@@ -285,6 +311,10 @@
     <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-amber-400/80">◉</span> 
       <span>Flywheel Home</span>
+    </a>
+    <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item font-medium" style="color:#f9a8d4;">
+      <span class="chain-heart text-base">🔗❤️</span> 
+      <span>Pay It Forward • Melt a Heart, Be the Solution</span>
     </a>
     <a href="shelters.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-red-400/80">❤️</span> 

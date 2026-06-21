@@ -792,11 +792,16 @@
             <span>Plain Terms Glossary ⓘ</span>
           </a>
           <a href="#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
+            <span class="chain-heart text-base">🔗❤️</span> 
             <span>Pay It Forward Adoption Chain</span>
           </a>
         </div>
       </div>
+      
+      <a href="#pay-it-forward-adoption" class="pay-forward-nav flex items-center gap-1.5 hover:text-rose-400 transition-all font-medium group/pi" title="Helping another soul melts your heart. Be part of the solution.">
+        <span>Pay It Forward</span>
+        <span class="chain-heart text-lg leading-none">🔗❤️</span>
+      </a>
       
       <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium hover:tracking-wider transition-all">Beautiful Souls</a>
       <a href="#impact" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Impact</a>
@@ -824,6 +829,28 @@
   /* Ensure navbar feels premium and fits everywhere */
   nav a { transition: color 0.15s ease, letter-spacing 0.2s ease; }
   nav a:hover { letter-spacing: 0.02em; }
+
+  /* Pay It Forward Chain Heart - high energy frequency, limited space, heart-melting vibe */
+  .pay-forward-nav {
+    color: #f9a8d4;
+    position: relative;
+  }
+  .pay-forward-nav:hover {
+    color: #fb7185;
+    text-shadow: 0 0 8px rgba(251,113,133,0.5);
+  }
+  .chain-heart {
+    display: inline-block;
+    animation: heart-beat 1.3s ease-in-out infinite;
+    filter: drop-shadow(0 0 4px rgba(251,113,133,0.4));
+  }
+  @keyframes heart-beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.35); }
+  }
+  .pay-forward-nav:hover .chain-heart {
+    animation-duration: 0.7s;
+  }
 </style>
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 100px;">
   <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
@@ -835,6 +862,10 @@
     <a href="#tokens" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-amber-400/80">◉</span> 
       <span>Tokens</span>
+    </a>
+    <a href="#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item font-medium" style="color:#f9a8d4;">
+      <span class="chain-heart text-base">🔗❤️</span> 
+      <span>Pay It Forward • Melt a Heart, Be the Solution</span>
     </a>
     <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
@@ -872,7 +903,7 @@
       <span>Plain Terms Glossary</span>
     </a>
     <a href="#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-      <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
+      <span class="chain-heart text-base">🔗❤️</span> 
       <span>Pay It Forward Adoption Chain</span>
     </a>
     
@@ -1387,7 +1418,8 @@
 
     <!-- Dedicated section for Pay It Forward Adoption Chain -->
     <div id="pay-it-forward-adoption" class="max-w-4xl mx-auto px-6 py-12 border-t border-white/10">
-      <h3 class="text-3xl font-bold mb-4">Pay It Forward Adoption Chain</h3>
+      <h3 class="text-3xl font-bold mb-2 flex items-center gap-2">Pay It Forward Adoption Chain <span class="chain-heart text-3xl">🔗❤️</span></h3>
+      <p class="text-rose-300 font-medium mb-4">When you help one soul, it melts your heart. You become part of the solution that echoes forever.</p>
       <div class="flex flex-col md:flex-row gap-6">
         <div class="md:w-1/3">
           <img loading="lazy" decoding="async" src="assets/images/Payitforwardadoptionchainphoto.jpg" width="600" height="340" alt="Pay It Forward Adoption Chain" class="rounded-2xl w-full">
@@ -1395,7 +1427,7 @@
         <div class="md:w-2/3">
           <p class="text-lg mb-4">"Directly sponsor one special dog and help its guardian become a full-time storyteller of love."</p>
           <p class="mb-4">This program lets you personally sponsor one special dog and support the dedicated guardian who cares for it every single day. It turns your sponsorship into stable income for the guardian. It creates beautiful content that lets the world fall in love with the dog.</p>
-          <p class="mb-4">This one is very close to our hearts. We want every sponsor to feel a real, lasting connection. Not just send money and walk away. The Pay It Forward Adoption Chain turns sponsorship into a joyful, ongoing relationship that rewards the guardian for sharing the dog’s life with all of us.<span class="info-icon" data-term="pay it forward adoption chain" title="Tap for plain terms">ⓘ</span></p>
+          <p class="mb-4">This one is very close to our hearts. We want every sponsor to feel a real, lasting connection. Not just send money and walk away. The Pay It Forward Adoption Chain turns sponsorship into a joyful, ongoing relationship that rewards the guardian for sharing the dog’s life with all of us. When you pay it forward, another soul gets saved and your heart melts knowing you are the solution.<span class="info-icon" data-term="pay it forward adoption chain" title="Tap for plain terms">ⓘ</span></p>
           <div class="mt-4">
             <h4 class="font-semibold mb-2">Core Mechanics</h4>
             <ul class="list-disc pl-5 text-sm">
