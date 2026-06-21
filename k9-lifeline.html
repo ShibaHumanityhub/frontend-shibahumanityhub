@@ -40,23 +40,50 @@
   <style>
     * { box-sizing: border-box; }
     body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
-    .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #111827 100%); }
+    .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #0f172a 100%); }
 
+    /* Epic K9 Lifeline Theme - Crimson Vanguard */
     .k9-card {
-      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.3s;
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease, border-color 0.3s;
+      border: 1px solid rgba(220, 38, 38, 0.2);
     }
     .k9-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 70px -20px rgba(16, 185, 129, 0.15);
-      border-color: rgba(52, 211, 153, 0.4);
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px -25px rgba(220, 38, 38, 0.25), 0 0 0 1px rgba(251, 191, 36, 0.1) inset;
+      border-color: rgba(220, 38, 38, 0.5);
+    }
+
+    .k9-hero-glow {
+      box-shadow: 0 0 80px -20px rgba(220, 38, 38, 0.3);
+    }
+
+    .epic-badge {
+      background: linear-gradient(90deg, rgba(220,38,38,0.15), rgba(251,191,36,0.1));
+      border: 1px solid rgba(220, 38, 38, 0.3);
+    }
+
+    .mission-pulse {
+      animation: missionPulse 4s ease-in-out infinite;
+    }
+    @keyframes missionPulse {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; box-shadow: 0 0 15px rgba(220,38,38,0.4); }
+    }
+
+    .lifeline-stat {
+      transition: all 0.4s ease;
+    }
+    .lifeline-stat:hover {
+      transform: scale(1.02);
+      color: #fcd34d;
     }
 
     .deployment-item {
       transition: all 0.2s ease;
     }
     .deployment-item:hover {
-      background: rgba(16, 185, 129, 0.06);
-      border-color: rgba(52, 211, 153, 0.3);
+      background: rgba(220, 38, 38, 0.08);
+      border-color: rgba(220, 38, 38, 0.4);
     }
 
     .info-icon {
@@ -70,9 +97,9 @@
       transition: all 0.15s ease;
     }
     .filter-chip.active {
-      background: #10b981;
-      color: black;
-      border-color: #10b981;
+      background: #b91c1c;
+      color: white;
+      border-color: #b91c1c;
     }
 
     .k9-modal {
@@ -83,6 +110,91 @@
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
       letter-spacing: -0.03em;
+    }
+
+    .epic-cta {
+      position: relative;
+      overflow: hidden;
+    }
+    .epic-cta::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -100%;
+      width: 40%; height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.6s;
+    }
+    .epic-cta:hover::after {
+      left: 250%;
+    }
+
+    /* Fascinating Unique Navigation for K9 Lifeline */
+    .mission-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 40;
+      background: rgba(10, 15, 28, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(185, 28, 28, 0.2);
+    }
+    .mission-nav a {
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .mission-nav a.active {
+      color: #fcd34d;
+      border-bottom: 2px solid #b91c1c;
+    }
+    .mission-nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, #b91c1c, transparent);
+    }
+
+    .tactical-map {
+      background: linear-gradient(145deg, #0f172a 0%, #0a0f1c 100%);
+      border: 1px solid rgba(185, 28, 28, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .map-zone {
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+    }
+    .map-zone:hover {
+      background: rgba(185, 28, 28, 0.15);
+      transform: scale(1.02);
+      border-color: #b91c1c;
+    }
+    .map-zone.active {
+      background: rgba(185, 28, 28, 0.25);
+      border-color: #fcd34d;
+      box-shadow: 0 0 0 1px #b91c1c inset;
+    }
+
+    .phase-card {
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s;
+    }
+    .phase-card:hover {
+      transform: translateY(-4px) rotate(0.5deg);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.4);
+    }
+    .command-panel {
+      box-shadow: 0 10px 30px -10px rgba(185, 28, 28, 0.2);
+    }
+
+    .k9-card.briefed {
+      border-color: #b91c1c;
+      box-shadow: 0 0 0 1px rgba(185, 28, 28, 0.5);
+      background: linear-gradient(145deg, #1a0f0f 0%, #0a0f1c 100%);
+    }
+
+    .mission-status {
+      font-feature-settings: "tnum";
     }
   </style>
 </head>
@@ -233,63 +345,221 @@
   </div>
 </div>
 
-<!-- HERO -->
-<header class="hero-bg pt-20 pb-16 text-center border-b border-emerald-400/10">
-  <div class="max-w-4xl mx-auto px-6 pt-12">
-    <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs tracking-[3px] mb-6">WHEN EVERY SECOND COUNTS</div>
+<!-- HERO - Epic Crimson Vanguard. Pulls you in. -->
+<header class="hero-bg pt-20 pb-20 text-center border-b border-red-900/30 relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6 pt-12 relative z-10">
+    <div class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full epic-badge text-red-400 text-xs tracking-[4px] mb-6">THE EARTH SHAKES. THEY ANSWER.</div>
     
-    <h1 class="text-[58px] md:text-[82px] leading-[0.82] font-bold tracking-[-5.2px] mb-4">K9 Lifeline</h1>
-    <p class="text-3xl md:text-4xl font-light text-emerald-100 max-w-3xl mx-auto">Elite dogs and handlers. Ready for the moment everything changes.</p>
+    <h1 class="text-[62px] md:text-[88px] leading-[0.78] font-bold tracking-[-6px] mb-3 bg-gradient-to-b from-white via-[#fcd34d] to-[#b91c1c] bg-clip-text text-transparent">K9 Lifeline</h1>
+    <p class="text-3xl md:text-5xl font-light text-[#e0e7ff] tracking-tight max-w-3xl mx-auto">Elite dogs. Elite handlers.<br>Ready the moment the world breaks.</p>
     
-    <p class="mt-6 text-xl text-zinc-300 max-w-2xl mx-auto">Search and rescue teams built from second-chance dogs. They go where others can't. They stay until the last soul is found.</p>
+    <p class="mt-7 text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed">Built from second chances. Forged in the rubble. They go where no one else can. They do not leave until every last soul is found. This is not a job. It is the calling that finds you when everything else falls away.</p>
     
     <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-      <div class="px-5 py-2 bg-emerald-900/30 border border-emerald-400/30 rounded-3xl">FEMA Certified</div>
-      <div class="px-5 py-2 bg-emerald-900/30 border border-emerald-400/30 rounded-3xl">Avalanche • Urban • Wilderness</div>
-      <div class="px-5 py-2 bg-emerald-900/30 border border-emerald-400/30 rounded-3xl">Deploy in 48 hours</div>
-    </div>
-  </div>
-</header>
-
-<!-- SEARCH + FILTERS -->
-<section class="max-w-6xl mx-auto px-6 pt-12 pb-6">
-  <div class="flex flex-col lg:flex-row gap-4 items-end">
-    <!-- Location Search -->
-    <div class="flex-1">
-      <div class="text-xs tracking-[2px] text-emerald-300/70 mb-1.5">FIND TEAMS CLOSEST TO YOU</div>
-      <input id="location-search" 
-             type="text" 
-             placeholder="Enter city or state... Denver, LA, Vancouver..."
-             class="w-full bg-zinc-900 border border-white/10 focus:border-emerald-400 rounded-3xl px-6 py-3.5 text-lg placeholder:text-zinc-500 outline-none"
-             oninput="filterEverything()">
-      <p class="text-xs text-emerald-300/60 mt-1">We show base locations and how recently each team has been in the field.</p>
-    </div>
-    
-    <div class="flex-1">
-      <div class="text-xs tracking-[2px] text-emerald-300/70 mb-1.5">STATUS &amp; SPECIALTY</div>
-      <div class="flex flex-wrap gap-2">
-        <button onclick="toggleFilter(this, 'status', 'ready')" class="filter-chip px-4 py-1.5 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-3xl">Ready</button>
-        <button onclick="toggleFilter(this, 'status', 'active')" class="filter-chip px-4 py-1.5 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-3xl">Active Deployment</button>
-        <button onclick="toggleFilter(this, 'status', 'recovering')" class="filter-chip px-4 py-1.5 text-sm border border-emerald-400/30 hover:border-emerald-400 rounded-3xl">Recovering</button>
-        
-        <button onclick="toggleFilter(this, 'specialty', 'sar')" class="filter-chip px-4 py-1.5 text-sm border border-white/10 hover:border-emerald-400 rounded-3xl">Search &amp; Rescue</button>
-        <button onclick="toggleFilter(this, 'specialty', 'avalanche')" class="filter-chip px-4 py-1.5 text-sm border border-white/10 hover:border-emerald-400 rounded-3xl">Avalanche</button>
-        <button onclick="toggleFilter(this, 'specialty', 'urban')" class="filter-chip px-4 py-1.5 text-sm border border-white/10 hover:border-emerald-400 rounded-3xl">Urban Collapse</button>
+      <div class="px-5 py-2 bg-white/5 border border-red-900/40 rounded-3xl flex items-center gap-2">
+        <span class="text-red-400">◆</span> <span class="font-medium">48-Hour Global Deployment</span>
+      </div>
+      <div class="px-5 py-2 bg-white/5 border border-red-900/40 rounded-3xl flex items-center gap-2">
+        <span class="text-red-400">◆</span> <span class="font-medium">Urban • Avalanche • Wilderness • Maritime</span>
+      </div>
+      <div class="px-5 py-2 bg-white/5 border border-red-900/40 rounded-3xl flex items-center gap-2">
+        <span class="text-red-400">◆</span> <span class="font-medium">FEMA • USAR • International Standards</span>
       </div>
     </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#teams" class="epic-cta inline-flex items-center gap-3 px-9 py-4 bg-gradient-to-r from-[#b91c1c] to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold rounded-3xl text-lg transition-all active:scale-[0.985]">
+        Meet the Teams <i class="fa-solid fa-arrow-down"></i>
+      </a>
+      <a href="#lifeline-call" class="inline-flex items-center gap-3 px-8 py-4 border border-white/30 hover:bg-white/5 text-white font-medium rounded-3xl text-lg transition-all">
+        Answer the Call
+      </a>
+    </div>
     
-    <button onclick="clearAllFilters()" 
-            class="px-6 py-3 text-sm border border-white/10 hover:border-white/30 rounded-3xl text-zinc-400 hover:text-white transition">
-      Clear
+    <div class="mt-6 text-xs tracking-widest text-red-400/70">WHEN THE GROUND BREAKS • THESE ARE THE ONES WHO RUN TOWARD IT</div>
+  </div>
+  
+  <!-- Subtle epic overlay -->
+  <div class="absolute inset-0 bg-[radial-gradient(#b91c1c_0.5px,transparent_1px)] bg-[length:4px_4px] opacity-[0.025]"></div>
+</header>
+
+<!-- MISSION NAVIGATOR - Unique, fascinating top-level navigation -->
+<nav class="mission-nav border-b border-red-900/30 py-3 hidden md:block">
+  <div class="max-w-6xl mx-auto px-6 flex items-center gap-8 text-sm">
+    <div class="font-mono text-xs tracking-[3px] text-red-400/70">LIFELINE COMMAND</div>
+    <div class="flex gap-6">
+      <a href="#lifeline-call" class="nav-link active" onclick="smoothNavTo('lifeline-call')">THE CALL</a>
+      <a href="#tactical-map" class="nav-link" onclick="smoothNavTo('tactical-map')">DEPLOYMENT ZONES</a>
+      <a href="#mission-phases" class="nav-link" onclick="smoothNavTo('mission-phases')">MISSION PHASES</a>
+      <a href="#teams" class="nav-link" onclick="smoothNavTo('teams')">LIVE OPS BOARD</a>
+      <a href="#support" class="nav-link" onclick="smoothNavTo('support')">SUPPORT THE LINE</a>
+    </div>
+    <div class="ml-auto flex items-center gap-3 text-xs text-red-400/60 font-mono">
+      <span>STATUS: ALL TEAMS STANDBY</span>
+      <span class="px-2 py-0.5 bg-red-500/20 text-red-400 rounded">READY FOR DEPLOY</span>
+    </div>
+  </div>
+</nav>
+
+<!-- LIVE MISSION STATUS BANNER - Fascinating central command feel -->
+<div id="mission-status" class="max-w-6xl mx-auto px-6 py-3 bg-zinc-900/80 border border-red-900/30 rounded-3xl mb-4 text-sm flex items-center justify-between">
+  <div class="flex items-center gap-3">
+    <span class="font-mono text-red-400">CURRENT BRIEFING:</span>
+    <span id="status-text" class="text-white font-medium">Select a Zone + Phase to activate mission parameters</span>
+  </div>
+  <div class="flex items-center gap-4 text-xs">
+    <span id="status-count" class="font-mono text-red-400">8 TEAMS AVAILABLE</span>
+    <button onclick="clearAllFilters()" class="px-3 py-1 border border-white/20 rounded hover:bg-white/5 text-xs">RESET MISSION</button>
+    <button onclick="simulateMission()" class="px-3 py-1 bg-red-600/20 text-red-400 rounded hover:bg-red-600/40 text-xs flex items-center gap-1">
+      <span>SIMULATE MISSION</span>
     </button>
+  </div>
+</div>
+
+<!-- THE CALL - Epic, rewarding interactive that pulls you in -->
+<section id="lifeline-call" class="max-w-5xl mx-auto px-6 py-16 border-b border-red-900/20">
+  <div class="text-center mb-10">
+    <div class="text-red-400 text-xs tracking-[4px] mb-2">THE MOMENT FINDS YOU</div>
+    <h2 class="section-title text-5xl tracking-tight">What calls you when the world breaks?</h2>
+    <p class="mt-4 text-lg text-zinc-300 max-w-lg mx-auto">This is not a test. It is a quiet conversation with the part of you that already knows. Answer from the heart. Your role in the Lifeline will emerge.</p>
+  </div>
+
+  <div id="call-quiz" class="max-w-3xl mx-auto">
+    <!-- JS injected -->
+  </div>
+
+  <div id="call-result" class="hidden max-w-2xl mx-auto mt-8">
+    <div class="silver-card p-10 text-center border border-red-900/30">
+      <div id="result-role" class="text-5xl font-bold tracking-[-1.5px] mb-2"></div>
+      <div id="result-tagline" class="text-xl text-[#fcd34d] mb-6"></div>
+      <p id="result-desc" class="text-zinc-300 max-w-md mx-auto leading-relaxed"></p>
+      
+      <div class="mt-8 pt-6 border-t border-white/10 text-sm text-zinc-400">
+        This is the part of the Lifeline that was waiting for you.<br>
+        <span class="text-red-400">When you hold $NIBBLES, you keep them ready.</span>
+      </div>
+      
+      <div class="mt-6 flex gap-3 justify-center">
+        <button onclick="restartCallQuiz()" class="px-6 py-2.5 text-sm border border-white/20 hover:bg-white/5 rounded-2xl">Ask Again</button>
+        <a href="index.html#onchain" class="px-6 py-2.5 text-sm bg-gradient-to-r from-red-600 to-[#b91c1c] text-white font-semibold rounded-2xl">Stand With Them</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- K9 TEAMS GRID -->
-<section class="max-w-6xl mx-auto px-6 pb-12">
+<!-- TACTICAL DEPLOYMENT MAP + UNIQUE NAV LAYOUT -->
+<section id="tactical-map" class="max-w-6xl mx-auto px-6 pt-8 pb-12">
+  <div class="mb-4 flex items-end justify-between">
+    <div>
+      <div class="text-red-400 text-xs tracking-[3px]">TACTICAL OVERVIEW</div>
+      <h3 class="section-title text-4xl tracking-tight">Deployment Zones</h3>
+    </div>
+    <div class="text-xs text-red-400/60">Click a zone — the board below reacts in real time</div>
+  </div>
+
+  <div class="tactical-map rounded-3xl p-8 border border-red-900/30 relative">
+    <!-- Subtle grid overlay for fascination -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(185,28,28,0.03)_1px,transparent_1px)] bg-[length:20px_20px] pointer-events-none rounded-3xl"></div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+      <div onclick="filterByZone(this, 'west')" class="map-zone p-6 rounded-2xl border border-red-900/30 flex flex-col group relative overflow-hidden">
+        <div class="text-3xl mb-3 opacity-70 group-hover:opacity-100 transition">🏔️</div>
+        <div class="font-semibold">Western US</div>
+        <div class="text-xs text-red-400/70">CA • OR • WA • AK • Rockies</div>
+        <div class="mt-auto pt-4 text-[10px] flex justify-between text-red-400/50">
+          <span>3 TEAMS</span> 
+          <span class="font-mono">12d AGO</span>
+        </div>
+      </div>
+
+      <div onclick="filterByZone(this, 'east')" class="map-zone p-6 rounded-2xl border border-red-900/30 flex flex-col group relative overflow-hidden">
+        <div class="text-3xl mb-3 opacity-70 group-hover:opacity-100 transition">🏙️</div>
+        <div class="font-semibold">Eastern US</div>
+        <div class="text-xs text-red-400/70">NY • FL • TX • Midwest • SE</div>
+        <div class="mt-auto pt-4 text-[10px] flex justify-between text-red-400/50">
+          <span>3 TEAMS</span> 
+          <span class="font-mono">47d AGO</span>
+        </div>
+      </div>
+
+      <div onclick="filterByZone(this, 'canada')" class="map-zone p-6 rounded-2xl border border-red-900/30 flex flex-col group relative overflow-hidden">
+        <div class="text-3xl mb-3 opacity-70 group-hover:opacity-100 transition">❄️</div>
+        <div class="font-semibold">Canada</div>
+        <div class="text-xs text-red-400/70">BC • Alberta • Ontario • QC</div>
+        <div class="mt-auto pt-4 text-[10px] flex justify-between text-red-400/50">
+          <span>1 TEAM</span> 
+          <span class="font-mono">8d AGO</span>
+        </div>
+      </div>
+
+      <div onclick="filterByZone(this, 'global')" class="map-zone p-6 rounded-2xl border border-red-900/30 flex flex-col group relative overflow-hidden">
+        <div class="text-3xl mb-3 opacity-70 group-hover:opacity-100 transition">🌍</div>
+        <div class="font-semibold">Global / International</div>
+        <div class="text-xs text-red-400/70">Anywhere in 48hrs</div>
+        <div class="mt-auto pt-4 text-[10px] flex justify-between text-red-400/50">
+          <span>1 TEAM</span> 
+          <span class="font-mono">STANDBY</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION PHASES - Unique horizontal navigational stepper -->
+<section id="mission-phases" class="max-w-6xl mx-auto px-6 py-10 border-t border-red-900/20">
+  <div class="mb-6 flex items-end justify-between">
+    <div>
+      <div class="text-red-400 text-xs tracking-[3px]">MISSION FLOW</div>
+      <h3 class="section-title text-3xl">Mission Phases</h3>
+    </div>
+    <div class="text-xs text-red-400/60">Click to activate phase parameters on the Ops Board</div>
+  </div>
+
+  <!-- Stepper style for unique nav -->
+  <div class="relative">
+    <div class="hidden md:block absolute top-8 left-8 right-8 h-0.5 bg-red-900/30"></div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div onclick="navigateToPhase('detection', this)" class="phase-card silver-card p-6 cursor-pointer border-l-4 border-red-600 relative md:pt-10">
+        <div class="absolute -top-1 left-6 w-4 h-4 rounded-full bg-red-600 border-2 border-[#0a0f1c] hidden md:block"></div>
+        <div class="text-red-400 text-xs font-mono">01</div>
+        <div class="font-semibold mt-1">DETECTION &amp; ALERT</div>
+        <div class="text-xs mt-2 text-zinc-400">Dispatch receives the call. Teams are paged within minutes. The clock starts.</div>
+      </div>
+      <div onclick="navigateToPhase('deployment', this)" class="phase-card silver-card p-6 cursor-pointer border-l-4 border-red-600 relative md:pt-10">
+        <div class="absolute -top-1 left-6 w-4 h-4 rounded-full bg-red-600 border-2 border-[#0a0f1c] hidden md:block"></div>
+        <div class="text-red-400 text-xs font-mono">02</div>
+        <div class="font-semibold mt-1">DEPLOYMENT</div>
+        <div class="text-xs mt-2 text-zinc-400">Wheels up in under 48 hours. Handlers and dogs en route to the edge.</div>
+      </div>
+      <div onclick="navigateToPhase('extraction', this)" class="phase-card silver-card p-6 cursor-pointer border-l-4 border-red-600 relative md:pt-10">
+        <div class="absolute -top-1 left-6 w-4 h-4 rounded-full bg-red-600 border-2 border-[#0a0f1c] hidden md:block"></div>
+        <div class="text-red-400 text-xs font-mono">03</div>
+        <div class="font-semibold mt-1">EXTRACTION &amp; SEARCH</div>
+        <div class="text-xs mt-2 text-zinc-400">Dogs lead. Handlers follow. Lives pulled from the impossible.</div>
+      </div>
+      <div onclick="navigateToPhase('recovery', this)" class="phase-card silver-card p-6 cursor-pointer border-l-4 border-red-600 relative md:pt-10">
+        <div class="absolute -top-1 left-6 w-4 h-4 rounded-full bg-red-600 border-2 border-[#0a0f1c] hidden md:block"></div>
+        <div class="text-red-400 text-xs font-mono">04</div>
+        <div class="font-semibold mt-1">RECOVERY &amp; DEBRIEF</div>
+        <div class="text-xs mt-2 text-zinc-400">Teams return. Dogs rest. Stories are recorded forever on the Lifeline.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE OPS BOARD -->
+<section id="teams" class="max-w-6xl mx-auto px-6 pb-12">
   <div class="flex items-baseline justify-between mb-6">
-    <h2 class="section-title text-4xl font-bold">Active &amp; Ready Teams</h2>
-    <div id="team-count" class="text-sm text-emerald-400/70">8 teams standing by</div>
+    <div class="flex items-center gap-3">
+      <div>
+        <div class="text-red-400 text-xs tracking-[3px]">LIVE OPERATIONS</div>
+        <h2 class="section-title text-4xl font-bold">Ops Board — Teams in the Field</h2>
+      </div>
+      <div class="px-2.5 py-0.5 text-[10px] bg-red-600/20 text-red-400 rounded font-mono flex items-center gap-1">
+        <span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span> LIVE
+      </div>
+    </div>
+    <div id="team-count" class="text-sm text-red-400/70 font-medium">8 teams standing by</div>
   </div>
   
   <div id="teams-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -298,6 +568,7 @@
 </section>
 
 <!-- DEPLOYMENT LOG -->
+<section id="support">
 <section class="max-w-6xl mx-auto px-6 py-12 border-t border-white/10">
   <div class="flex items-baseline justify-between mb-6">
     <div>
@@ -323,7 +594,7 @@
 <!-- HOW IT WORKS + SUPPORT -->
 <section class="max-w-4xl mx-auto px-6 py-16 text-center border-t border-white/10">
   <div class="max-w-2xl mx-auto">
-    <h3 class="text-3xl font-bold mb-4">These teams turn rubble into hope.</h3>
+    <h3 id="support" class="text-3xl font-bold mb-4">These teams turn rubble into hope.</h3>
     <p class="text-xl text-zinc-300">Many of these dogs came from the same shelters we fight to empty. They are not volunteers waiting for donations. They are maintained in professional readiness by the quiet power of the tokens. Then accelerated when the world needs them.</p>
     
     <div class="my-10 space-y-6 text-left">
@@ -348,7 +619,7 @@
     
     <p class="text-sm text-emerald-200/90 max-w-xl mx-auto">In plain terms: The base readiness (handler support + dog care + training) runs continuously from the impact created by all holders. When a disaster strikes, additional funds are released for deployment costs and bonuses. Nothing is left to chance or last-minute fundraising.</p>
     
-    <p class="mb-6 text-emerald-200">The teams live in two states: always ready, and then fully activated when needed. Your holding keeps the first state alive every single day. Deployments simply turn the volume up.</p>
+    <p class="mb-6 text-emerald-200">The teams live in two states: always ready, and then fully activated when the call comes. Your holding keeps the first state alive every single day. When the earth moves, the volume goes up — and they are already moving.</p>
     
     <a href="all-programs.html" class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-black font-bold px-10 py-4 rounded-3xl text-lg transition">
       See the full K9 Lifeline program story <i class="fa-solid fa-arrow-right"></i>
@@ -397,8 +668,8 @@
 <!-- FOOTER -->
 <footer class="border-t border-white/10 py-10 text-center text-xs text-zinc-400">
   <div class="max-w-4xl mx-auto px-6">
-    <p>K9 Lifeline teams are living proof that second chances save lives. <span class="text-emerald-300">People helping people helping people.</span></p>
-    <p class="mt-2">Every transaction. Every deployment. You are 1. We are all 1.</p>
+    <p>K9 Lifeline teams are living proof that second chances save lives when everything else is lost. <span class="text-red-400">People helping people helping people.</span></p>
+    <p class="mt-2">The teams are ready. The question has always been whether you would answer when it mattered. You are 1. We are all 1.</p>
     <div class="mt-6 text-emerald-300/60">© Shibahumanityhub • $NIBBLES &amp; $hopeseed on Shibarium</div>
   </div>
 </footer>
@@ -832,6 +1103,169 @@ function initK9Lifeline() {
   });
   
   console.log('%c[K9 Lifeline] Page ready — teams standing by.', 'color:#166534');
+  
+  // Initialize the fascinating nav elements
+  if (typeof addMapClear === 'function') addMapClear();
+  
+  // Initial status
+  setTimeout(() => {
+    const txt = document.getElementById('status-text');
+    if (txt) txt.textContent = 'Select a Zone + Phase to activate mission parameters';
+    const cnt = document.getElementById('status-count');
+    if (cnt) cnt.textContent = `${k9Teams.length} TEAMS AVAILABLE`;
+  }, 300);
+  
+  // Scrollspy for the unique mission navigator (fascinating live feedback)
+  const navLinks = document.querySelectorAll('.mission-nav a');
+  const sections = ['lifeline-call', 'tactical-map', 'mission-phases', 'teams', 'support'].map(id => document.getElementById(id)).filter(Boolean);
+  
+  if (navLinks.length && sections.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector(`.mission-nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -40% 0px', threshold: 0.1 });
+    
+    sections.forEach(sec => observer.observe(sec));
+  }
+  
+  // One-time welcome toast for the unique experience
+  setTimeout(() => {
+    if (typeof showToast === 'function' && document.getElementById('tactical-map')) {
+      // only if not already interacted
+    }
+  }, 4200);
+}
+
+// === EPIC K9 LIFELINE "THE CALL" QUIZ - Rewarding, immersive, deja-vu pull ===
+const callQuestions = [
+  {
+    q: "When the ground shakes or the sky turns dark, what rises in you first?",
+    options: [
+      { text: "The need to move toward the danger and find the lost", role: "Vanguard", desc: "You run toward the broken places." },
+      { text: "A calm focus — someone has to stay steady so others can be saved", role: "Anchor", desc: "You become the ground others stand on." },
+      { text: "The ache to make sure no one is left behind, no matter how small the chance", role: "Silent Finder", desc: "You hear what others cannot." },
+      { text: "A quiet vow: if I can help carry the weight, I will", role: "Mercy Carrier", desc: "You bring hope into the rubble." }
+    ]
+  },
+  {
+    q: "In the aftermath, where do you feel most at home?",
+    options: [
+      { text: "Right at the front — first boots on the scene", role: "Vanguard", desc: "The edge is where you belong." },
+      { text: "Holding the line for the teams doing the impossible work", role: "Anchor", desc: "Steadiness is your gift." },
+      { text: "In the tight spaces, listening for the smallest signs of life", role: "Silent Finder", desc: "You find what the chaos hides." },
+      { text: "Bringing the ones we save back into the light", role: "Mercy Carrier", desc: "You close the circle." }
+    ]
+  },
+  {
+    q: "What makes the work feel worth everything?",
+    options: [
+      { text: "Knowing we were the difference between life and silence", role: "Vanguard", desc: "You make time bend toward hope." },
+      { text: "The dogs who never question why — they just do", role: "Silent Finder", desc: "Loyalty that asks nothing in return." },
+      { text: "The families who get their people back because we refused to quit", role: "Mercy Carrier", desc: "You restore what was almost lost." },
+      { text: "That we train every day so that when the call comes, we are already there", role: "Anchor", desc: "Readiness is love made visible." }
+    ]
+  }
+];
+
+let callCurrent = 0;
+let callAnswers = [];
+
+function initCallQuiz() {
+  const container = document.getElementById('call-quiz');
+  if (!container) return;
+  showCallQuestion();
+}
+
+function showCallQuestion() {
+  const container = document.getElementById('call-quiz');
+  if (!container) return;
+
+  if (callCurrent >= callQuestions.length) {
+    showCallResult();
+    return;
+  }
+
+  const q = callQuestions[callCurrent];
+  let html = `<div class="mb-6">
+    <div class="text-red-400 text-xs tracking-[3px] mb-2">QUESTION ${callCurrent + 1}</div>
+    <div class="text-2xl leading-tight font-medium">${q.q}</div>
+  </div>`;
+
+  q.options.forEach((opt, i) => {
+    html += `<div onclick="selectCallAnswer(${i})" class="k9-card cursor-pointer p-5 mb-3 rounded-2xl border border-white/10 hover:border-red-900/50 hover:bg-white/5 transition-all">${opt.text}</div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function selectCallAnswer(index) {
+  callAnswers[callCurrent] = index;
+  callCurrent++;
+  showCallQuestion();
+}
+
+function showCallResult() {
+  const quiz = document.getElementById('call-quiz');
+  const result = document.getElementById('call-result');
+  if (!quiz || !result) return;
+
+  quiz.classList.add('hidden');
+  result.classList.remove('hidden');
+
+  // Determine role by most frequent answer (real correlation)
+  const counts = {};
+  callAnswers.forEach((ansIdx, qIdx) => {
+    if (callQuestions[qIdx] && callQuestions[qIdx].options[ansIdx]) {
+      const role = callQuestions[qIdx].options[ansIdx].role;
+      counts[role] = (counts[role] || 0) + 1;
+    }
+  });
+  const topRole = Object.keys(counts).sort((a,b) => counts[b] - counts[a])[0] || "Vanguard";
+
+  const roleData = getRoleData(topRole);
+
+  document.getElementById('result-role').textContent = roleData.name;
+  document.getElementById('result-tagline').textContent = roleData.tagline;
+  document.getElementById('result-desc').textContent = roleData.desc;
+}
+
+function getRoleData(role) {
+  const map = {
+    "Vanguard": {
+      name: "The Vanguard",
+      tagline: "You run toward the broken places.",
+      desc: "When the call comes, you are the first to move. The teams rely on your courage to open the path. $NIBBLES holders like you keep the front line ready every single day."
+    },
+    "Anchor": {
+      name: "The Anchor",
+      tagline: "You become the ground others stand on.",
+      desc: "Steady. Unshakable. You hold the line so the impossible work can happen. Your quiet strength is what makes the whole Lifeline possible."
+    },
+    "Silent Finder": {
+      name: "The Silent Finder",
+      tagline: "You hear what the chaos hides.",
+      desc: "In the tight spaces and long nights, you listen for the smallest sign of life. The dogs teach you patience the rest of us forgot."
+    },
+    "Mercy Carrier": {
+      name: "The Mercy Carrier",
+      tagline: "You close the circle.",
+      desc: "You bring the lost back into the light. You remind everyone — including the teams — why we do this. Hope has a face because of you."
+    }
+  };
+  return map[role] || map["Vanguard"];
+}
+
+function restartCallQuiz() {
+  callCurrent = 0;
+  callAnswers = [];
+  document.getElementById('call-result').classList.add('hidden');
+  document.getElementById('call-quiz').classList.remove('hidden');
+  showCallQuestion();
 }
 
 function toggleProgramsDropdown(e) {
@@ -874,7 +1308,255 @@ function toggleMobileMenu() {
 document.addEventListener('DOMContentLoaded', () => {
   initK9Lifeline();
   if (window.initMercyWheel) window.initMercyWheel();
+  if (typeof initCallQuiz === 'function') initCallQuiz();
+  
+  // Activate first mission nav
+  const firstNav = document.querySelector('.mission-nav a');
+  if (firstNav) firstNav.classList.add('active');
+  
+  // Bonus: clicking the map zones also updates the main search input for better UX
+  window.filterEverything = function() {
+    // Call original if it exists
+    if (window._originalFilterEverything) window._originalFilterEverything();
+    
+    const locInput = document.getElementById('location-search');
+    if (locInput && locInput.value) {
+      // Re-filter teams based on current value
+      const q = locInput.value.toLowerCase();
+      const grid = document.getElementById('teams-grid');
+      if (grid) {
+        Array.from(grid.children).forEach(card => {
+          const txt = (card.textContent || '').toLowerCase();
+          card.style.display = txt.includes(q) ? '' : 'none';
+        });
+      }
+    }
+  };
 });
+
+// === Unique Nav + Fascinating Layout JS ===
+function smoothNavTo(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // Highlight active nav
+    document.querySelectorAll('.mission-nav a').forEach(a => a.classList.remove('active'));
+    const activeLink = document.querySelector(`.mission-nav a[href="#${id}"]`);
+    if (activeLink) activeLink.classList.add('active');
+  }
+}
+
+let currentZone = null;
+let currentPhase = null;
+
+function filterByZone(el, zone) {
+  document.querySelectorAll('#tactical-map .map-zone').forEach(z => z.classList.remove('active'));
+  el.classList.add('active');
+  
+  currentZone = zone;
+  currentPhase = null; // clear phase when using map
+  
+  const searchInput = document.getElementById('location-search');
+  if (searchInput) {
+    const zoneTerms = {
+      'west': 'CA OR WA AK Denver Colorado Utah',
+      'east': 'NY FL TX Illinois Georgia',
+      'canada': 'BC Alberta Ontario Quebec Vancouver Toronto',
+      'global': 'International'
+    };
+    searchInput.value = zoneTerms[zone] || '';
+  }
+  
+  if (typeof filterEverything === 'function') {
+    filterEverything();
+  }
+  
+  const activeZoneEl = document.getElementById('map-active-zone');
+  if (activeZoneEl) activeZoneEl.textContent = zone.toUpperCase() + ' ZONE ACTIVE';
+  
+  updateMissionStatus(`ZONE: ${zone.toUpperCase()} — ${getMatchingCount()} TEAMS`);
+  
+  if (typeof showToast === 'function') showToast('Zone engaged — filtering Ops Board');
+  
+  setTimeout(() => {
+    const teams = document.getElementById('teams');
+    if (teams) teams.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 250);
+}
+
+function navigateToPhase(phase, el) {
+  document.querySelectorAll('#mission-phases .phase-card').forEach(c => c.classList.remove('border-red-500', 'ring-1', 'ring-red-400'));
+  el.classList.add('border-red-500', 'ring-1', 'ring-red-400');
+  
+  currentPhase = phase;
+  currentZone = null; // clear zone
+  
+  // Map phase to status filter
+  const statusMap = {
+    'detection': 'ready',
+    'deployment': 'ready',
+    'extraction': 'active',
+    'recovery': 'recovering'
+  };
+  
+  const targetStatus = statusMap[phase];
+  
+  // Clear and set the status filter chip + sync sets
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.classList.remove('active', 'border-red-400');
+    const txt = chip.textContent.toLowerCase();
+    const should = (targetStatus === 'ready' && (txt.includes('ready') && !txt.includes('active'))) || txt.includes(targetStatus);
+    if (should) chip.classList.add('active', 'border-red-400');
+  });
+  
+  if (typeof activeStatusFilters !== 'undefined') {
+    activeStatusFilters.clear();
+    if (targetStatus) activeStatusFilters.add(targetStatus === 'active' ? 'active' : targetStatus);
+  }
+  
+  if (typeof filterEverything === 'function') {
+    filterEverything();
+  }
+  
+  setTimeout(() => {
+    const teamsSection = document.getElementById('teams');
+    if (teamsSection) teamsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 180);
+  
+  if (typeof showToast === 'function') showToast('Phase engaged — Ops updated');
+  
+  updateMissionStatus(`PHASE: ${phase.toUpperCase()} — ${getMatchingCount()} TEAMS`);
+  
+  // Fun reward feedback
+  setTimeout(() => {
+    const countEl = document.getElementById('team-count');
+    if (countEl) {
+      countEl.style.transition = 'all 0.2s';
+      countEl.style.color = '#fcd34d';
+      setTimeout(() => { if (countEl) countEl.style.color = ''; }, 1200);
+    }
+  }, 400);
+  
+  setTimeout(() => {
+    document.querySelectorAll('#mission-phases .phase-card').forEach(c => c.classList.remove('border-red-500', 'ring-1', 'ring-red-400'));
+  }, 2200);
+}
+
+// Main filter wrapper with zone + phase support
+const _originalFilter = window.filterEverything || function(){};
+window.filterEverything = function() {
+  _originalFilter();
+  
+  const grid = document.getElementById('teams-grid');
+  if (!grid) return;
+  
+  let hiddenByZone = false;
+  
+  if (currentZone) {
+    const zoneMap = {
+      'west': ['CA', 'OR', 'WA', 'AK', 'Colorado', 'Utah', 'Denver'],
+      'east': ['NY', 'FL', 'TX', 'Illinois', 'Georgia'],
+      'canada': ['BC', 'Alberta', 'Ontario', 'Quebec', 'Vancouver', 'Toronto'],
+      'global': ['International']
+    };
+    const terms = zoneMap[currentZone] || [];
+    
+    Array.from(grid.children).forEach(card => {
+      if (card.style.display === 'none') return;
+      const text = (card.textContent || '').toUpperCase();
+      const matches = terms.some(t => text.includes(t.toUpperCase()));
+      if (!matches) {
+        card.style.display = 'none';
+        hiddenByZone = true;
+      }
+    });
+  }
+  
+  // Update count after all filtering
+  const visible = Array.from(grid.children).filter(c => c.style.display !== 'none').length;
+  const countEl = document.getElementById('team-count');
+  if (countEl) countEl.textContent = `${visible} teams matching`;
+};
+
+function clearAllFilters() {
+  currentZone = null;
+  currentPhase = null;
+  
+  document.querySelectorAll('#tactical-map .map-zone').forEach(z => z.classList.remove('active'));
+  const activeZone = document.getElementById('map-active-zone');
+  if (activeZone) activeZone.textContent = 'ALL ZONES';
+  
+  const locSearch = document.getElementById('location-search');
+  if (locSearch) locSearch.value = '';
+  
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.classList.remove('active', 'border-red-400', 'border-emerald-400');
+  });
+  
+  if (typeof activeStatusFilters !== 'undefined') activeStatusFilters.clear();
+  if (typeof activeSpecialtyFilters !== 'undefined') activeSpecialtyFilters.clear();
+  
+  if (typeof filterEverything === 'function') filterEverything();
+  
+  // Reset phases visual
+  document.querySelectorAll('#mission-phases .phase-card').forEach(c => c.classList.remove('border-red-500', 'ring-1', 'ring-red-400'));
+  
+  updateMissionStatus('Select a Zone + Phase to activate mission parameters');
+}
+
+function updateMissionStatus(text) {
+  const statusEl = document.getElementById('status-text');
+  if (statusEl) statusEl.textContent = text;
+  
+  const countEl = document.getElementById('status-count');
+  if (countEl) countEl.textContent = `${getMatchingCount()} TEAMS MATCHING`;
+}
+
+function getMatchingCount() {
+  const grid = document.getElementById('teams-grid');
+  if (!grid) return k9Teams.length;
+  return Array.from(grid.children).filter(c => c.style.display !== 'none').length;
+}
+
+function simulateMission() {
+  // Fun rewarding simulation
+  const zones = ['west', 'east', 'canada', 'global'];
+  const phases = ['detection', 'deployment', 'extraction', 'recovery'];
+  
+  const zoneEl = document.querySelector(`#tactical-map .map-zone[onclick*="${zones[Math.floor(Math.random()*zones.length)]}"]`);
+  const phaseEls = document.querySelectorAll('#mission-phases .phase-card');
+  const phaseEl = phaseEls[Math.floor(Math.random()*phaseEls.length)];
+  
+  if (zoneEl) {
+    const zone = zoneEl.getAttribute('onclick').match(/'(\w+)'/)[1];
+    filterByZone(zoneEl, zone);
+  }
+  
+  setTimeout(() => {
+    if (phaseEl) {
+      const phase = phaseEl.getAttribute('onclick').match(/'(\w+)'/)[1];
+      navigateToPhase(phase, phaseEl);
+    }
+  }, 600);
+  
+  if (typeof showToast === 'function') {
+    setTimeout(() => showToast('Mission simulated. Ops Board updated. This is what it feels like.'), 900);
+  }
+}
+
+// Add clear button functionality to map if needed
+function addMapClear() {
+  const mapSection = document.getElementById('tactical-map');
+  if (mapSection && !document.getElementById('map-clear')) {
+    const clearBtn = document.createElement('button');
+    clearBtn.id = 'map-clear';
+    clearBtn.className = 'mt-4 text-xs px-3 py-1 border border-white/20 rounded hover:bg-white/5';
+    clearBtn.textContent = 'Clear Zones';
+    clearBtn.onclick = clearAllFilters;
+    mapSection.querySelector('.tactical-map').appendChild(clearBtn);
+  }
+}
 </script>
 <style>
   @media (max-width: 480px) {
