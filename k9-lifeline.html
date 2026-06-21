@@ -291,7 +291,7 @@
 </nav>
 
 <!-- Mobile Menu (same as desktop dropdown for consistency) -->
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-1" style="top: 70px;">
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 85px;">
   <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
     <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
       <span>THE CIRCLE OF MERCY</span>
@@ -458,7 +458,7 @@
       <div class="text-red-400 text-xs tracking-[3px]">TACTICAL OVERVIEW</div>
       <h3 class="section-title text-4xl tracking-tight">Deployment Zones</h3>
     </div>
-    <div class="text-xs text-red-400/60">Click a zone — the board below reacts in real time</div>
+    <div class="text-xs text-red-400/60">Click a zone. The board below reacts in real time.</div>
   </div>
 
   <div class="tactical-map rounded-3xl p-8 border border-red-900/30 relative">
@@ -557,7 +557,7 @@
     <div class="flex items-center gap-3">
       <div>
         <div class="text-red-400 text-xs tracking-[3px]">LIVE OPERATIONS</div>
-        <h2 class="section-title text-4xl font-bold">Ops Board — Teams in the Field</h2>
+        <h2 class="section-title text-4xl font-bold">Ops Board. Teams in the Field.</h2>
       </div>
       <div class="px-2.5 py-0.5 text-[10px] bg-red-600/20 text-red-400 rounded font-mono flex items-center gap-1">
         <span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span> LIVE
@@ -623,7 +623,7 @@
     
     <p class="text-sm text-emerald-200/90 max-w-xl mx-auto">In plain terms: The base readiness (handler support + dog care + training) runs continuously from the impact created by all holders. When a disaster strikes, additional funds are released for deployment costs and bonuses. Nothing is left to chance or last-minute fundraising.</p>
     
-    <p class="mb-6 text-emerald-200">The teams live in two states: always ready, and then fully activated when the call comes. Your holding keeps the first state alive every single day. When the earth moves, the volume goes up — and they are already moving.</p>
+    <p class="mb-6 text-emerald-200">The teams live in two states: always ready, and then fully activated when the call comes. Your holding keeps the first state alive every single day. When the earth moves, the volume goes up. And they are already moving.</p>
     
     <a href="all-programs.html" class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-black font-bold px-10 py-4 rounded-3xl text-lg transition">
       See the full K9 Lifeline program story <i class="fa-solid fa-arrow-right"></i>
@@ -1106,7 +1106,7 @@ function initK9Lifeline() {
     }
   });
   
-  console.log('%c[K9 Lifeline] Page ready — teams standing by.', 'color:#166534');
+  console.log('%c[K9 Lifeline] Page ready. Teams standing by.', 'color:#166534');
   
   // Initialize the fascinating nav elements
   if (typeof addMapClear === 'function') addMapClear();
@@ -1151,7 +1151,7 @@ const callQuestions = [
     q: "When the ground shakes or the sky turns dark, what rises in you first?",
     options: [
       { text: "The need to move toward the danger and find the lost", role: "Vanguard", desc: "You run toward the broken places." },
-      { text: "A calm focus — someone has to stay steady so others can be saved", role: "Anchor", desc: "You become the ground others stand on." },
+      { text: "A calm focus. Someone has to stay steady so others can be saved", role: "Anchor", desc: "You become the ground others stand on." },
       { text: "The ache to make sure no one is left behind, no matter how small the chance", role: "Silent Finder", desc: "You hear what others cannot." },
       { text: "A quiet vow: if I can help carry the weight, I will", role: "Mercy Carrier", desc: "You bring hope into the rubble." }
     ]
@@ -1159,7 +1159,7 @@ const callQuestions = [
   {
     q: "In the aftermath, where do you feel most at home?",
     options: [
-      { text: "Right at the front — first boots on the scene", role: "Vanguard", desc: "The edge is where you belong." },
+      { text: "Right at the front. First boots on the scene", role: "Vanguard", desc: "The edge is where you belong." },
       { text: "Holding the line for the teams doing the impossible work", role: "Anchor", desc: "Steadiness is your gift." },
       { text: "In the tight spaces, listening for the smallest signs of life", role: "Silent Finder", desc: "You find what the chaos hides." },
       { text: "Bringing the ones we save back into the light", role: "Mercy Carrier", desc: "You close the circle." }
@@ -1169,7 +1169,7 @@ const callQuestions = [
     q: "What makes the work feel worth everything?",
     options: [
       { text: "Knowing we were the difference between life and silence", role: "Vanguard", desc: "You make time bend toward hope." },
-      { text: "The dogs who never question why — they just do", role: "Silent Finder", desc: "Loyalty that asks nothing in return." },
+      { text: "The dogs who never question why. They just do", role: "Silent Finder", desc: "Loyalty that asks nothing in return." },
       { text: "The families who get their people back because we refused to quit", role: "Mercy Carrier", desc: "You restore what was almost lost." },
       { text: "That we train every day so that when the call comes, we are already there", role: "Anchor", desc: "Readiness is love made visible." }
     ]
@@ -1258,7 +1258,7 @@ function getRoleData(role) {
     "Mercy Carrier": {
       name: "The Mercy Carrier",
       tagline: "You close the circle.",
-      desc: "You bring the lost back into the light. You remind everyone — including the teams — why we do this. Hope has a face because of you."
+      desc: "You bring the lost back into the light. You remind everyone, including the teams, why we do this. Hope has a face because of you."
     }
   };
   return map[role] || map["Vanguard"];
@@ -1379,9 +1379,9 @@ function filterByZone(el, zone) {
   const activeZoneEl = document.getElementById('map-active-zone');
   if (activeZoneEl) activeZoneEl.textContent = zone.toUpperCase() + ' ZONE ACTIVE';
   
-  updateMissionStatus(`ZONE: ${zone.toUpperCase()} — ${getMatchingCount()} TEAMS`);
+  updateMissionStatus(`ZONE: ${zone.toUpperCase()}. ${getMatchingCount()} TEAMS`);
   
-  if (typeof showToast === 'function') showToast('Zone engaged — filtering Ops Board');
+  if (typeof showToast === 'function') showToast('Zone engaged. Filtering Ops Board.');
   
   setTimeout(() => {
     const teams = document.getElementById('teams');
@@ -1428,9 +1428,9 @@ function navigateToPhase(phase, el) {
     if (teamsSection) teamsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 180);
   
-  if (typeof showToast === 'function') showToast('Phase engaged — Ops updated');
+  if (typeof showToast === 'function') showToast('Phase engaged. Ops updated.');
   
-  updateMissionStatus(`PHASE: ${phase.toUpperCase()} — ${getMatchingCount()} TEAMS`);
+  updateMissionStatus(`PHASE: ${phase.toUpperCase()}. ${getMatchingCount()} TEAMS`);
   
   // Fun reward feedback
   setTimeout(() => {

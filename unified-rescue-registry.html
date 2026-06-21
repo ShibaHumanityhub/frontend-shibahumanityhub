@@ -9,10 +9,10 @@
   
   <title>Unified Rescue Registry • Soulbound Digital Passports • Every Soul Remembered</title>
   
-  <meta name="description" content="Every rescued dog receives a permanent, soulbound digital passport on the blockchain. Journey, medical history, personality, forever family — all preserved forever. Powered by $NIBBLES.">
+  <meta name="description" content="Every rescued dog receives a permanent, soulbound digital passport on the blockchain. Journey, medical history, personality, forever family. All preserved forever. Powered by $NIBBLES.">
   
   <meta property="og:title" content="Unified Rescue Registry • Soulbound Passports for Every Rescued Soul">
-  <meta property="og:description" content="No more lost stories. Every dog's full life — from rescue to forever home — lives on the blockchain as a beautiful, unbreakable digital passport.">
+  <meta property="og:description" content="No more lost stories. Every dog's full life, from rescue to forever home, lives on the blockchain as a beautiful, unbreakable digital passport.">
   <meta property="og:image" content="assets/images/unifiedrescueregistryphoto.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shibahumanityhub.com/unified-rescue-registry.html">
@@ -49,15 +49,38 @@
     
     .passport-card {
       background: linear-gradient(145deg, #1a2332 0%, #0f1624 100%);
-      border: 2px solid rgba(251, 191, 36, 0.3);
-      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      border: 2px solid rgba(251, 191, 36, 0.35);
+      box-shadow: 
+        0 30px 80px -20px rgba(0,0,0,0.6), 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        0 0 0 1px rgba(251, 191, 36, 0.1) inset;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
       font-family: 'Space Grotesk', sans-serif;
+      position: relative;
     }
     .passport-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
-      border-color: rgba(251, 191, 36, 0.5);
+      transform: translateY(-6px) scale(1.005);
+      box-shadow: 
+        0 40px 100px -25px rgba(0,0,0,0.7), 
+        inset 0 2px 0 rgba(255,255,255,0.15),
+        0 0 60px -10px rgba(251, 191, 36, 0.25);
+      border-color: #fcd34d;
+    }
+    .passport-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(252,211,77,0.06) 0%, transparent 50%);
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .passport-card .soul-glow {
+      animation: soulPulse 4s ease-in-out infinite;
+    }
+    @keyframes soulPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
     }
     .passport-header {
       background: linear-gradient(90deg, #b91c1c 0%, #854d0e 100%);
@@ -218,7 +241,7 @@
 </nav>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-1" style="top: 70px;">
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 85px;">
   <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
     <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-amber-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
       <span>THE CIRCLE OF MERCY</span>
@@ -306,25 +329,25 @@
 <section class="max-w-6xl mx-auto px-6 pt-14 pb-8">
   <div class="grid md:grid-cols-2 gap-8">
     <div class="mission-card bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-8">
-      <p class="text-amber-200 text-xl mb-6">I keep thinking about how many beautiful dogs disappear from memory the moment they leave the shelter. Their stories — the hard parts and the beautiful ones — get lost in files that no one ever opens again.</p>
-      <p class="text-zinc-300 leading-relaxed">The Unified Rescue Registry changes that forever. Every dog gets a living, breathing digital passport that travels with them for life. It holds their rescue story, every vet visit, their unique personality, the family that finally chose them. It is soulbound — permanent, non-transferable, and deeply human. When they cross the rainbow bridge, their passport remains as a testament that they were loved and never forgotten.</p>
+      <p class="text-amber-200 text-xl mb-6">I keep thinking about all the dogs who leave a shelter and just... vanish from the story. Their hard days, their small wins, the exact way they tilt their head when they finally feel safe. It all gets buried in paper no one reads twice.</p>
+      <p class="text-zinc-300 leading-relaxed">We are changing that. Every rescued dog now gets their own living passport on the blockchain. It carries their rescue day, the people who helped them heal, the quirks that make them who they are, and the family who finally said "you are home." It stays with them no matter where life takes them. When their time comes, the passport stays behind as proof they were seen, loved, and never erased.</p>
     </div>
 
     <div>
       <div class="mission-card bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-8 mb-6">
-        <h4 class="text-xl font-semibold text-amber-200 mb-4">How $NIBBLES Makes This Real</h4>
+        <h4 class="text-xl font-semibold text-amber-200 mb-4">How $NIBBLES Turns This Into Something the World Has Never Seen</h4>
         <div class="space-y-4 text-sm">
           <div class="flex gap-4">
             <div class="font-semibold text-amber-300 w-28 flex-shrink-0">Mercy Circle<br><span class="text-xs text-amber-400/70">25,000+</span></div>
-            <div class="text-zinc-300">Pay fully in $NIBBLES and your sponsored passports receive extra resources. The foundation of lifelong memory begins.</div>
+            <div class="text-zinc-300">You step in and every passport you touch gets the extra care it deserves. The first real layer of a memory that will outlive us all.</div>
           </div>
           <div class="flex gap-4">
             <div class="font-semibold text-amber-300 w-28 flex-shrink-0">Guardian Circle<br><span class="text-xs text-amber-400/70">50,000+</span></div>
-            <div class="text-zinc-300">Get early alerts when new rescues enter the registry. You are part of the quiet network preserving these lives.</div>
+            <div class="text-zinc-300">You get to watch new souls arrive in real time. You become one of the quiet keepers who make sure no story slips away.</div>
           </div>
           <div class="flex gap-4">
             <div class="font-semibold text-amber-300 w-28 flex-shrink-0">Eternal Guardian Circle<br><span class="text-xs text-amber-400/70">250,000+</span></div>
-            <div class="text-zinc-300">Become a Registry Guardian with permanent recognition. Your name lives with every story you help preserve.</div>
+            <div class="text-zinc-300">Your name gets woven into the ledger itself. Generations from now someone will see the passport and know you helped make sure this dog was never just another lost name.</div>
           </div>
         </div>
       </div>
@@ -342,9 +365,36 @@
               class="w-full rounded-2xl">
             </video>
           </div>
-          <p class="text-amber-200/80 text-sm mt-4">Watch every rescued soul receive their permanent, glowing digital passport.</p>
+          <p class="text-amber-200/80 text-sm mt-4">Watch what happens when we decide no dog will ever be erased again.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ARCHITECTURE OF REMEMBRANCE - Legendary layer -->
+<section class="max-w-5xl mx-auto px-6 py-14 border-t border-amber-400/20">
+  <div class="text-center mb-8">
+    <div class="text-amber-300 text-xs tracking-[3px]">WHAT THE WORLD HAS NEVER HAD BEFORE</div>
+    <h3 class="section-title text-4xl mt-2">The Architecture of Remembrance</h3>
+  </div>
+  
+  <div class="max-w-3xl mx-auto text-center text-lg text-zinc-300">
+    This is not a database. It is a promise written in mathematics and mercy. Every passport is a quiet rebellion against forgetting. It says: this life mattered. This fear was real. This joy was earned. This family chose you when the world had not.
+  </div>
+  
+  <div class="mt-10 grid md:grid-cols-3 gap-6 text-sm">
+    <div class="mission-card p-6 rounded-3xl bg-white/5 border border-amber-400/10">
+      <div class="text-amber-300 font-semibold mb-2">Precision That Feels Alive</div>
+      <p class="text-zinc-300">Vitalik-level elegance in how the data lives on chain. Nothing can be faked. Nothing can be lost. The record is as honest as the love it describes.</p>
+    </div>
+    <div class="mission-card p-6 rounded-3xl bg-white/5 border border-amber-400/10">
+      <div class="text-amber-300 font-semibold mb-2">Scale With a Soul</div>
+      <p class="text-zinc-300">Elon-level ambition. One day every shelter dog on Earth could carry this light. Not because it is easy. Because it is necessary.</p>
+    </div>
+    <div class="mission-card p-6 rounded-3xl bg-white/5 border border-amber-400/10">
+      <div class="text-amber-300 font-semibold mb-2">The Kind of Love That Lasts</div>
+      <p class="text-zinc-300">Bilyeau-level depth. These are not statistics. These are the exact moments a dog learned they were safe. The exact words a family used when they said "you are ours now."</p>
     </div>
   </div>
 </section>
@@ -352,9 +402,9 @@
 <!-- THE DIGITAL PASSPORT CREATOR -->
 <section id="passport-creator" class="max-w-7xl mx-auto px-6 py-14 border-t border-amber-400/20">
   <div class="text-center mb-10">
-    <div class="inline text-xs tracking-[3px] text-amber-300/70">THE LIVING PASSPORT</div>
+    <div class="inline text-xs tracking-[3px] text-amber-300/70">A RECORD THAT REFUSES TO DIE</div>
     <h2 class="section-title text-5xl tracking-tight mt-2">Create a Soulbound Passport</h2>
-    <p class="mt-3 text-lg text-zinc-300 max-w-lg mx-auto">Fill in the blanks. Watch a beautiful, permanent record come to life. This is what every rescued soul deserves.</p>
+    <p class="mt-3 text-lg text-zinc-300 max-w-lg mx-auto">This is not paperwork. This is a living vow. Fill the blanks and watch a dog become impossible to forget. Every detail you add becomes part of a story the blockchain will guard long after we are gone.</p>
   </div>
 
   <div class="grid lg:grid-cols-2 gap-8">
@@ -394,11 +444,11 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm text-amber-300/80 mb-1">Favorite toy</label>
+            <label class="block text-sm text-amber-300/80 mb-1">The thing that makes their whole body happy</label>
             <input id="fav-toy" type="text" placeholder="Squeaky fox" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="Squeaky fox" oninput="updatePassport()">
           </div>
           <div>
-            <label class="block text-sm text-amber-300/80 mb-1">Favorite food</label>
+            <label class="block text-sm text-amber-300/80 mb-1">The taste that makes their tail go wild</label>
             <input id="fav-food" type="text" placeholder="Peanut butter treats" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="Peanut butter treats" oninput="updatePassport()">
           </div>
         </div>
@@ -412,6 +462,7 @@
         <div>
           <label class="block text-sm text-amber-300/80 mb-1">The story of this soul</label>
           <textarea id="deep-story" rows="3" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" placeholder="Rescued from a high-kill shelter after being found wandering alone..." oninput="updatePassport()">Rescued from a high-kill shelter after being found wandering alone for weeks. She was scared of everything at first but slowly learned that hands can be gentle. Her favorite thing in the world is resting her head on someone's lap while they read out loud.</textarea>
+          <button onclick="weaveSoulStory()" class="mt-2 text-xs px-3 py-1 border border-amber-400/30 hover:bg-amber-400/10 rounded-full text-amber-300">Weave a story from the soul</button>
         </div>
 
         <!-- Journey -->
@@ -435,7 +486,7 @@
 
     <!-- Live Passport Preview -->
     <div>
-      <div class="passport-card rounded-3xl p-8 max-w-[420px] mx-auto">
+      <div class="passport-card soul-glow rounded-3xl p-8 max-w-[420px] mx-auto">
         <!-- Passport Header -->
         <div class="passport-header -mx-8 -mt-8 mb-6 px-8 py-5 rounded-t-3xl flex items-center justify-between">
           <div>
@@ -505,10 +556,11 @@
       </div>
 
       <div class="text-center mt-4">
-        <button onclick="mintPassport()" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-yellow-400 text-black font-semibold rounded-3xl text-sm active:scale-[0.985]">
+        <button onclick="mintPassport()" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-yellow-400 text-black font-semibold rounded-3xl text-sm active:scale-[0.985] hover:brightness-105">
           <i class="fa-solid fa-link"></i> 
           <span>MINT THIS SOULBOUND PASSPORT</span>
         </button>
+        <div class="text-[10px] mt-2 text-amber-300/70">This record will outlive us. It already belongs to the dog.</div>
         <div class="text-[10px] text-amber-300/60 mt-2">Demo only • Real passports are soulbound NFTs</div>
       </div>
     </div>
@@ -518,7 +570,7 @@
 <!-- SAMPLES -->
 <section class="max-w-6xl mx-auto px-6 py-14 border-t border-amber-400/20">
   <div class="text-center mb-8">
-    <div class="text-amber-300/70 text-xs tracking-[2px]">REAL SOULS. REAL STORIES.</div>
+    <div class="text-amber-300/70 text-xs tracking-[2px]">THEY WERE NEVER JUST A NUMBER</div>
     <h3 class="section-title text-3xl mt-1">Example Passports</h3>
   </div>
 
@@ -619,8 +671,8 @@ function updatePassport() {
   const likesEl = document.getElementById('passport-likes');
   likesEl.innerHTML = likes.map(l => `<span class="px-2.5 py-0.5 bg-white/5 text-amber-200 rounded-full text-xs border border-white/10">${l}</span>`).join('');
   
-  document.getElementById('passport-toy').textContent = document.getElementById('fav-toy').value || '—';
-  document.getElementById('passport-food').textContent = document.getElementById('fav-food').value || '—';
+  document.getElementById('passport-toy').textContent = document.getElementById('fav-toy').value || 'not yet shared';
+  document.getElementById('passport-food').textContent = document.getElementById('fav-food').value || 'not yet shared';
   
   document.getElementById('passport-story').textContent = document.getElementById('deep-story').value || 'This soul is still writing their story...';
   
@@ -739,6 +791,27 @@ function mintPassport() {
     passport.style.boxShadow = '0 25px 60px -15px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)';
     alert('Soulbound passport would now be minted on the blockchain.\n\nIn a real deployment, this beautiful record would live forever with the dog.');
   }, 650);
+}
+
+function weaveSoulStory() {
+  const name = document.getElementById('dog-name').value || 'this soul';
+  const story = document.getElementById('deep-story').value || '';
+  const toy = document.getElementById('fav-toy').value || 'something simple';
+  const food = document.getElementById('fav-food').value || 'simple kindness';
+  
+  const lines = [
+    `${name} waited in the dark until someone finally said their name out loud.`,
+    `The first time they tasted ${food}, something in their chest unlocked.`,
+    `They carry ${toy} like it is proof that joy can survive almost anything.`,
+    `What they really want is not perfection. It is to be chosen on an ordinary Tuesday.`,
+    `Every scar became a map that led them here, to someone who finally stayed.`
+  ];
+  
+  const chosen = lines.sort(() => 0.5 - Math.random()).slice(0, 2).join(' ');
+  const full = story ? `${story} ${chosen}` : chosen;
+  
+  document.getElementById('deep-story').value = full.trim();
+  updatePassport();
 }
 
 // Initialize
