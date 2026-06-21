@@ -825,8 +825,8 @@
   nav a { transition: color 0.15s ease, letter-spacing 0.2s ease; }
   nav a:hover { letter-spacing: 0.02em; }
 </style>
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 85px;">
-  <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 100px;">
+  <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
     <!-- Magical header like desktop -->
     <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
       <span>THE CIRCLE OF MERCY</span>
@@ -3172,6 +3172,7 @@ function toggleMobileMenu() {
   const icon = document.getElementById('mobile-menu-icon');
   if (!menu || !icon) return;
   if (menu.classList.contains('hidden')) {
+    positionMobileMenu();
     menu.classList.remove('hidden');
     icon.classList.remove('fa-bars');
     icon.classList.add('fa-times');
@@ -3181,6 +3182,19 @@ function toggleMobileMenu() {
     icon.classList.add('fa-bars');
   }
 }
+
+// Lightning fix: dynamically position mobile menu below the actual nav height
+// Prevents overlap regardless of logo/CTA size variations on mobile
+function positionMobileMenu() {
+  const nav = document.querySelector('nav');
+  const menu = document.getElementById('mobile-menu');
+  if (!nav || !menu) return;
+  const navH = nav.offsetHeight || 72;
+  menu.style.top = (navH + 4) + 'px';  // small buffer
+}
+window.addEventListener('load', positionMobileMenu);
+window.addEventListener('resize', positionMobileMenu);
+document.addEventListener('DOMContentLoaded', positionMobileMenu);
 
 function toggleProgramsDropdown(e) {
   e.preventDefault();

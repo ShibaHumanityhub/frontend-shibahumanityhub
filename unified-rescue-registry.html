@@ -249,8 +249,8 @@
 </nav>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 85px;">
-  <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 100px;">
+  <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
     <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-amber-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
       <span>THE CIRCLE OF MERCY</span>
     </div>
@@ -878,12 +878,27 @@ function toggleMobileMenu() {
   const m = document.getElementById('mobile-menu');
   const icon = document.getElementById('mobile-menu-icon');
   if (!m) return;
+  if (m.classList.contains('hidden')) {
+    positionMobileMenu();
+  }
   m.classList.toggle('hidden');
   if (icon) {
     icon.classList.toggle('fa-bars');
     icon.classList.toggle('fa-times');
   }
 }
+
+// Dynamically position mobile menu below actual navbar height (fixes overlap)
+function positionMobileMenu() {
+  const nav = document.querySelector('nav');
+  const menu = document.getElementById('mobile-menu');
+  if (!nav || !menu) return;
+  const navH = nav.offsetHeight || 72;
+  menu.style.top = (navH + 4) + 'px';
+}
+window.addEventListener('load', positionMobileMenu);
+window.addEventListener('resize', positionMobileMenu);
+document.addEventListener('DOMContentLoaded', positionMobileMenu);
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initRegistry);
