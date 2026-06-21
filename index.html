@@ -1,5 +1,5 @@
   <!DOCTYPE html>
-<!-- FORCE REDEPLOY - full centralized glossary + 56 senior homes + perf + live push -->
+<!-- FORCE REDEPLOY - full centralized glossary + 56 senior homes + perf + live push + grok build -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -3079,45 +3079,14 @@ if (window.initPremiumAnimations) {
 }
 
 // === Elegant Plain Terms System (keeps the poetic heart, makes it reachable for everyone) ===
-const glossary = {
-  "mercy flywheel": {
-    title: "Mercy Flywheel",
-    simple: "A self-reinforcing system. When you hold or use the tokens, a small part automatically helps real dogs and real families, and that help creates more good over time.",
-    impact: "Your quiet participation keeps real mercy turning without extra effort from you."
-  },
-  "soulbound": {
-    title: "Soulbound",
-    simple: "Permanent digital records on the blockchain that stay attached to a specific dog or story forever. They cannot be sold or transferred away.",
-    impact: "No dog is ever forgotten. Their full life travels with them."
-  },
-  "circles of mercy": {
-    title: "Circles of Mercy",
-    simple: "Different levels of ongoing help unlocked by how much of the tokens someone holds. Mercy (starter), Guardian (bigger support), Eternal (long-term legacy).",
-    impact: "Holding more quietly unlocks larger or longer-lasting help for the programs."
-  },
-  "you are 1. we are all 1.": {
-    title: "You Are 1. We Are All 1.",
-    simple: "A simple way of saying that every single holder is connected and matters. One person's participation ripples out to help real lives.",
-    impact: "You are already part of something bigger than any one person."
-  },
-  "pay it forward adoption chain": {
-    title: "Pay It Forward Adoption Chain",
-    simple: "A direct way to sponsor a specific dog. Part of the money supports the person caring for the dog, and the support creates a chain where one good act helps the next dog and the next.",
-    impact: "Your sponsorship helps one dog today and keeps helping others through the chain."
-  },
-  "nibbles": {
-    title: "$NIBBLES",
-    simple: "The token centered on shelter dogs. It powers real programs that also reach the people who need them most: seniors, veterans, inmates, children and families. Through therapy dogs, sanctuaries, and lasting companionship.",
-    impact: "Holding it quietly supports dogs and the humans they heal."
-  },
-  "hopeseed": {
-    title: "$hopeseed",
-    simple: "The other token. It mainly powers programs that help children, families, and people rebuilding their lives.",
-    impact: "Holding it quietly routes support to human programs."
-  }
-};
+// Using centralized glossary from js/glossary.js (window.SHHGlossary)
+const glossary = window.SHHGlossary ? window.SHHGlossary.glossary : {};
 
 function showExplain(termKey) {
+  if (window.SHHGlossary && window.SHHGlossary.showExplain) {
+    window.SHHGlossary.showExplain(termKey);
+    return;
+  }
   const data = glossary[termKey.toLowerCase()];
   if (!data) return;
   document.getElementById('explain-title').textContent = data.title;
@@ -3139,6 +3108,10 @@ document.addEventListener('keydown', function(e) {
 });
 
 function initInfoIcons() {
+  if (window.SHHGlossary && window.SHHGlossary.initInfoIcons) {
+    window.SHHGlossary.initInfoIcons();
+    return;
+  }
   document.querySelectorAll('.info-icon').forEach(function(icon) {
     // clear any leftover inline to avoid double
     icon.onclick = null;

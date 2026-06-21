@@ -25,6 +25,7 @@
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="js/shared-animations.js" defer></script>
+  <script src="js/glossary.js" defer></script>
 <style>
   nav a { transition: color .15s, letter-spacing .2s; }
   nav a:hover { letter-spacing: .02em; }
@@ -201,9 +202,9 @@
       <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
       <span>Pay It Forward Adoption Chain</span>
     </a>
-    <a href="index.html#glossary" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+    <a href="#" onclick="if(window.SHHGlossary) { window.SHHGlossary.showExplain('mercy flywheel'); } return false;" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
-      <span>Plain Terms Glossary</span>
+      <span>Plain Terms Glossary ⓘ</span>
     </a>
     
     <div class="h-px bg-white/10 my-1"></div>
@@ -419,14 +420,13 @@
 </div>
 
 <script>
-const glossary = {
-  "mercy flywheel": { title: "Mercy Flywheel", simple: "Holding the tokens automatically helps real dogs and families, and that help keeps creating more over time.", impact: "Your participation keeps real mercy moving." },
-  "soulbound": { title: "Soulbound", simple: "Permanent records on the blockchain that stay with a dog or story forever and cannot be sold.", impact: "Stories are never lost." },
-  "nibbles": { title: "$NIBBLES", simple: "The token centered on shelter dogs. It powers programs that also reach seniors, veterans, inmates, children and families through therapy, sanctuaries and companionship.", impact: "Holding it supports dogs and the people they heal." },
-  "hopeseed": { title: "$hopeseed", simple: "The token that mainly supports programs for children, families and people rebuilding.", impact: "It funds mercy for human programs." },
-  "circles of mercy": { title: "Circles of Mercy", simple: "Levels of support unlocked by holding amounts.", impact: "Holding more unlocks ongoing help." }
-};
+// Using centralized glossary from js/glossary.js
+const glossary = window.SHHGlossary ? window.SHHGlossary.glossary : {};
 function showExplain(termKey) {
+  if (window.SHHGlossary && window.SHHGlossary.showExplain) {
+    window.SHHGlossary.showExplain(termKey);
+    return;
+  }
   const data = glossary[termKey.toLowerCase()];
   if (!data) return;
   document.getElementById('explain-title').textContent = data.title;
@@ -435,6 +435,10 @@ function showExplain(termKey) {
   document.getElementById('explain-modal').classList.add('show');
 }
 function closeExplain() {
+  if (window.SHHGlossary && window.SHHGlossary.closeExplain) {
+    window.SHHGlossary.closeExplain();
+    return;
+  }
   document.getElementById('explain-modal').classList.remove('show');
 }
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { const m = document.getElementById('explain-modal'); if (m && m.classList.contains('show')) closeExplain(); } });

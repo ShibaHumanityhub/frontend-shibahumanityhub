@@ -1397,46 +1397,14 @@ window.onload = function() {
   if (allCircleBtn) allCircleBtn.classList.add('bg-emerald-400', 'text-black', 'border-emerald-400');
 };
 
-// === Plain Terms System (consistent with main page) ===
-const glossary = {
-  "mercy flywheel": {
-    title: "Mercy Flywheel",
-    simple: "The system where holding the tokens automatically helps real dogs and real families over time.",
-    impact: "Your holding keeps real help moving forward."
-  },
-  "soulbound": {
-    title: "Soulbound",
-    simple: "Permanent records on the blockchain that stay with a dog or story forever and cannot be sold.",
-    impact: "Stories and lives are never lost."
-  },
-  "nibbles": {
-    title: "$NIBBLES",
-    simple: "The token centered on shelter dogs. It powers programs that also reach seniors, veterans, inmates, children and families through therapy, sanctuaries and real companionship.",
-    impact: "Holding it supports dogs and the people they heal."
-  },
-  "hopeseed": {
-    title: "$hopeseed",
-    simple: "The token that mainly funds programs for children, families, and people in need.",
-    impact: "It routes support to human programs."
-  },
-  "circles of mercy": {
-    title: "Circles of Mercy",
-    simple: "Levels of support based on how much you hold - Mercy, Guardian, or Eternal.",
-    impact: "More holding unlocks bigger ongoing help."
-  },
-  "you are 1. we are all 1.": {
-    title: "You Are 1. We Are All 1.",
-    simple: "A reminder that every person holding these tokens is connected and matters.",
-    impact: "One person's action helps many."
-  },
-  "pay it forward adoption chain": {
-    title: "Pay It Forward Adoption Chain",
-    simple: "Sponsoring a dog so the guardian can care for it full time, creating a chain where one good act helps the next.",
-    impact: "Your support builds lasting connections between people and dogs."
-  }
-};
+// Using centralized glossary from js/glossary.js
+const glossary = window.SHHGlossary ? window.SHHGlossary.glossary : {};
 
 function showExplain(termKey) {
+  if (window.SHHGlossary && window.SHHGlossary.showExplain) {
+    window.SHHGlossary.showExplain(termKey);
+    return;
+  }
   const data = glossary[termKey.toLowerCase()];
   if (!data) return;
   document.getElementById('explain-title').textContent = data.title;
@@ -1446,6 +1414,10 @@ function showExplain(termKey) {
 }
 
 function closeExplain() {
+  if (window.SHHGlossary && window.SHHGlossary.closeExplain) {
+    window.SHHGlossary.closeExplain();
+    return;
+  }
   document.getElementById('explain-modal').classList.remove('show');
 }
 
