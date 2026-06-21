@@ -54,32 +54,56 @@
     .section-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.04em; }
     
     .silver-card {
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      border: 1px solid rgba(192, 192, 192, 0.25);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      border: 1px solid rgba(192, 192, 192, 0.2);
+      background: linear-gradient(145deg, #0f1624 0%, #0a0f1c 100%);
     }
     .silver-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(192, 192, 192, 0.5);
-      box-shadow: 0 25px 60px -15px rgba(192, 192, 192, 0.15);
+      transform: translateY(-8px);
+      border-color: rgba(192, 192, 192, 0.6);
+      box-shadow: 0 30px 70px -20px rgba(192, 192, 192, 0.2), 0 0 0 1px rgba(192, 192, 192, 0.1) inset;
     }
 
-    /* Silver theme accents for this dedicated page */
+    /* Refined silver theme — elegant, serene, precise */
     .silver-accent {
       color: #c0c0c0;
     }
     .silver-rect {
-      background: linear-gradient(145deg, rgba(192,192,192,0.12), rgba(163,163,172,0.06));
-      border: 1px solid rgba(192, 192, 192, 0.35);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-      backdrop-filter: blur(8px);
+      background: linear-gradient(145deg, rgba(192,192,192,0.08), rgba(163,163,172,0.03));
+      border: 1px solid rgba(192, 192, 192, 0.4);
+      box-shadow: 0 15px 40px -15px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
     }
     .silver-paw {
-      opacity: 0.15;
-      color: #a1a1aa;
+      opacity: 0.12;
+      color: #e5e7eb;
     }
     
+    .silver-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .silver-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transition: left 0.7s;
+    }
+    .silver-shimmer:hover::after {
+      left: 250%;
+    }
+
     .heart-melt {
-      background: linear-gradient(145deg, rgba(52,211,153,0.08), rgba(251,191,36,0.04));
+      background: linear-gradient(145deg, rgba(52,211,153,0.06), rgba(192,192,192,0.03));
+    }
+
+    .level-bar {
+      transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      background: linear-gradient(to right, #c0c0c0, #e5e7eb);
     }
 
     .search-input {
@@ -308,6 +332,10 @@
             <span class="text-amber-400/80 group-hover/item:text-amber-400">❤️</span> 
             <span>Golden Years • Companion Matching</span>
           </a>
+          <a href="unified-rescue-registry.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">🪪</span> 
+            <span>Unified Rescue Registry • Soulbound Passports</span>
+          </a>
           <a href="#reels" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
             <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
             <span>Virality • Reels &amp; Memories</span>
@@ -403,9 +431,9 @@
         <span class="silver-paw text-6xl md:text-7xl -ml-2">🐾</span> Silver Paws
       </h1>
     </div>
-    <p class="text-3xl md:text-5xl font-light text-emerald-200 tracking-tight">Healing the sweetest souls.<br>One visit at a time.</p>
+    <p class="text-3xl md:text-5xl font-light text-[#c0c0c0] tracking-tight">Healing the sweetest souls.<br>One gentle visit at a time.</p>
     
-    <p class="mt-7 max-w-2xl mx-auto text-xl text-zinc-300">I keep thinking about the seniors who sit alone in rooms that have grown too quiet. Weeks pass, sometimes months, with no one to share a story or a smile. Their days feel heavy with silence. Then a gentle therapy dog walks in, looks them in the eyes, and the whole room begins to glow with warmth and living connection. These are not small moments. They are medicine for the soul. They remind every elder that they are still seen, still loved, and still matter deeply in this world.</p>
+    <p class="mt-7 max-w-2xl mx-auto text-xl text-zinc-300">I keep thinking about the seniors who sit alone in rooms that have grown too quiet. Weeks pass, sometimes months, without a story shared or a hand to hold. Then a gentle therapy dog enters, meets their eyes, and something shifts. The silence softens. A smile returns. These visits are not entertainment. They are quiet medicine. They tell every elder: you are still seen. You are still needed. You still matter.</p>
 
     <div class="mt-8 flex flex-wrap justify-center gap-3">
       <div class="px-5 py-2 bg-white/5 border border-emerald-400/30 rounded-3xl text-sm flex items-center gap-2">
@@ -451,9 +479,9 @@
 <!-- DUAL SEARCH BARS - The core interactive slick feature -->
 <section id="search" class="max-w-6xl mx-auto px-6 pt-14 pb-8">
   <div class="text-center mb-10">
-    <div class="inline text-xs tracking-[3px] text-[#a1a1aa]">FIND THE JOY</div>
+    <div class="inline text-xs tracking-[3px] text-[#a1a1aa]">FIND THE LIGHT</div>
     <h2 class="section-title text-5xl tracking-tighter mt-2">Where will the next wag happen?</h2>
-    <p class="mt-3 text-lg text-zinc-300 max-w-md mx-auto">Across Canada and the United States, gentle dogs are waiting to bring light into places that have grown dark with loneliness. Find them. Match them. Become part of the healing.</p>
+    <p class="mt-3 text-lg text-zinc-300 max-w-md mx-auto">Across Canada and the United States, steady dogs are ready to carry warmth into rooms that have grown quiet. Search. Choose. Become the reason a heart remembers it is not alone.</p>
   </div>
 
   <div class="grid md:grid-cols-2 gap-5">
@@ -509,17 +537,17 @@
 <section class="max-w-6xl mx-auto px-6 py-12 border-t border-white/10">
   <div class="flex flex-col lg:flex-row gap-8 items-start">
     <div class="flex-1">
-      <div class="uppercase tracking-[3px] text-xs text-emerald-300/70 mb-1">THE FULL VISIT EXPERIENCE</div>
-      <h2 class="section-title text-5xl tracking-[-1.5px]">Build a visit that melts hearts <span class="info-icon" data-term="circles of mercy">ⓘ</span></h2>
-      <p class="mt-3 text-lg text-zinc-300 max-w-prose">Every Silver Paws visit is a living gift. Choose the simple joys that light up a senior's day. Bingo with a wagging friend. A shared meal where stories flow again. Gentle time that says "you are not forgotten." The dogs bring pure presence. You bring the love that turns an ordinary afternoon into something that stays in the heart forever.</p>
+      <div class="uppercase tracking-[3px] text-xs text-[#a1a1aa] mb-1">THE FULL VISIT EXPERIENCE</div>
+      <h2 class="section-title text-5xl tracking-[-1.5px]">Build a visit that heals <span class="info-icon" data-term="visit activities">ⓘ</span></h2>
+      <p class="mt-3 text-lg text-zinc-300 max-w-prose">Every Silver Paws visit is a quiet act of mercy. Choose the simple, true joys that remind a senior they are still part of the living world. The dogs bring presence without demand. You bring the intention that turns an ordinary afternoon into a moment that lingers in the heart long after the leash is clipped.</p>
 
-      <div class="mt-6 text-sm text-emerald-300/80">
-        <span class="font-medium">Typical package includes:</span> 45 to 90 minutes of gentle connection and activities tailored to the home.
+      <div class="mt-6 text-sm text-[#a1a1aa]">
+        <span class="font-medium">A visit is 45 to 90 minutes of connection shaped for the people in that home.</span>
       </div>
     </div>
 
     <!-- Activity Selector -->
-    <div class="flex-1 bg-zinc-900/60 border border-white/10 rounded-3xl p-7">
+    <div class="flex-1 silver-shimmer bg-zinc-900/60 border border-white/10 rounded-3xl p-7">
       <div class="text-xs tracking-[2px] text-[#a1a1aa] mb-3">SELECT THE FUN <span class="info-icon" data-term="visit activities">ⓘ</span></div>
       
       <div id="activity-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -539,6 +567,75 @@
         </button>
         
         <div class="text-center mt-2 text-xs text-emerald-300/60">Demo only • Real visits will be scheduled once funded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SILVER SOUL SEARCH QUESTIONNAIRE - Polished, fun, precisely correlated -->
+<section id="soul-search" class="max-w-6xl mx-auto px-6 py-16 border-t border-white/10">
+  <div class="text-center mb-10">
+    <div class="inline text-xs tracking-[3px] text-[#a1a1aa]">THE SILVER SOUL SEARCH</div>
+    <h2 class="section-title text-5xl tracking-tight mt-2">What kind of healing does your heart seek to bring?</h2>
+    <p class="mt-3 text-lg text-zinc-300 max-w-xl mx-auto">Answer with care. Watch the levels take shape in real time. This experience is built with the quiet precision of elegant systems, the clear vision to scale real mercy, and the deep respect for every human heart and every loyal dog. The right visit emerges from your own answers.</p>
+  </div>
+
+  <div class="grid lg:grid-cols-12 gap-8">
+    <!-- Live Levels Panel - Silver elegance -->
+    <div class="lg:col-span-5">
+      <div class="silver-rect sticky top-8 rounded-3xl p-7 silver-shimmer">
+        <div class="uppercase text-[10px] tracking-[2.5px] text-[#c0c0c0]/70 mb-2">YOUR VISIT LEVELS</div>
+        
+        <div id="sp-archetype-preview" class="mb-6">
+          <div class="text-2xl font-semibold tracking-tight text-[#e5e7eb]">Answer to see the shape...</div>
+          <div id="sp-archetype-desc" class="text-sm text-zinc-400 mt-1">The perfect blend of connection and calm will form as you speak from the heart.</div>
+        </div>
+
+        <div class="space-y-3 text-sm">
+          <div>
+            <div class="flex justify-between text-xs mb-1 text-[#a1a1aa]"><span>Calm Presence</span><span id="sp-calm-val"></span></div>
+            <div class="h-1.5 bg-white/10 rounded overflow-hidden"><div id="sp-calm-bar" class="level-bar h-1.5 w-0 rounded"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1 text-[#a1a1aa]"><span>Joy Spark</span><span id="sp-joy-val"></span></div>
+            <div class="h-1.5 bg-white/10 rounded overflow-hidden"><div id="sp-joy-bar" class="level-bar h-1.5 w-0 rounded"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1 text-[#a1a1aa]"><span>Story Connection</span><span id="sp-story-val"></span></div>
+            <div class="h-1.5 bg-white/10 rounded overflow-hidden"><div id="sp-story-bar" class="level-bar h-1.5 w-0 rounded"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1 text-[#a1a1aa]"><span>Gentle Play</span><span id="sp-play-val"></span></div>
+            <div class="h-1.5 bg-white/10 rounded overflow-hidden"><div id="sp-play-bar" class="level-bar h-1.5 w-0 rounded"></div></div>
+          </div>
+        </div>
+
+        <div class="mt-5 text-[10px] text-[#a1a1aa]/70 italic text-center">Every answer refines the visit that will matter most.</div>
+      </div>
+    </div>
+
+    <!-- Questionnaire -->
+    <div class="lg:col-span-7">
+      <div id="sp-quiz-container" class="silver-card border border-white/10 rounded-3xl p-8">
+        <div id="sp-quiz-step"></div>
+        
+        <div class="mt-8 flex justify-between items-center">
+          <button id="sp-quiz-prev" onclick="spPrevQuestion()" class="px-6 py-2 text-sm border border-white/20 hover:bg-white/5 rounded-2xl hidden">Back</button>
+          <div class="text-xs text-[#a1a1aa]/70" id="sp-quiz-progress"></div>
+          <button id="sp-quiz-next" onclick="spNextQuestion()" class="px-6 py-2.5 text-sm bg-gradient-to-r from-[#c0c0c0] to-white text-black font-semibold rounded-2xl">Continue</button>
+        </div>
+      </div>
+      
+      <div id="sp-quiz-results" class="hidden mt-8">
+        <div class="text-center mb-6">
+          <div class="text-[#c0c0c0] text-xs tracking-[2px]">YOUR VISIT ARCHETYPE</div>
+        </div>
+        <div id="sp-result-content" class="silver-card p-8 rounded-3xl text-center mb-6"></div>
+        
+        <div class="text-center">
+          <button onclick="spRestartQuiz()" class="px-6 py-2.5 text-sm border border-white/20 hover:bg-white/5 rounded-2xl">Try Another Path</button>
+          <button onclick="applyQuizToPackage()" class="ml-3 px-6 py-2.5 text-sm bg-white text-black font-semibold rounded-2xl">Apply to My Package</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1240,7 +1337,264 @@ function initSilverPaws() {
     }
   });
   
+  // Silver Paws Soul Search
+  if (typeof initSpQuestionnaire === 'function') initSpQuestionnaire();
+  
   console.log('%c[Silver Paws] Enhanced: lovely scroll backgrounds + reels + smart referral credits initialized.', 'color:#34d399');
+}
+
+// === Silver Paws Soul Search Questionnaire - Fun, real, precisely correlated levels ===
+
+const spQuestions = [
+  {
+    q: "When you picture the seniors, what do they seem to need most right now?",
+    options: [
+      {text: "A calm, steady presence that simply sits with them", trait: "calm", weight: 10},
+      {text: "Someone who will listen to the stories they still hold", trait: "story", weight: 10},
+      {text: "A little spark of play and laughter in their day", trait: "joy", weight: 8},
+      {text: "Gentle touch and quiet companionship", trait: "play", weight: 9}
+    ]
+  },
+  {
+    q: "What kind of energy feels right for the visit?",
+    options: [
+      {text: "Very calm and slow — peace above all", trait: "calm", weight: 10},
+      {text: "Warm and connected — time for real conversation", trait: "story", weight: 9},
+      {text: "A gentle lift of joy and small surprises", trait: "joy", weight: 9}
+    ]
+  },
+  {
+    q: "How do you want the seniors to feel when the dog leaves?",
+    options: [
+      {text: "Deeply at peace, like they were truly seen", trait: "calm", weight: 10},
+      {text: "Light with laughter and new small joys", trait: "joy", weight: 10},
+      {text: "Full from stories shared and hearts touched", trait: "story", weight: 9}
+    ]
+  },
+  {
+    q: "What size of moment feels most healing?",
+    options: [
+      {text: "Long quiet time with simple presence", trait: "calm", weight: 9},
+      {text: "Playful moments that bring out smiles", trait: "play", weight: 8},
+      {text: "Shared stories that bring the room back to life", trait: "story", weight: 10}
+    ]
+  },
+  {
+    q: "What would make the visit feel truly right?",
+    options: [
+      {text: "The seniors feel calm and held in the moment", trait: "calm", weight: 10},
+      {text: "There is real laughter and connection", trait: "joy", weight: 9},
+      {text: "Old stories come alive again with a listening heart", trait: "story", weight: 10}
+    ]
+  }
+];
+
+let spCurrentQuestion = 0;
+let spAnswers = [];
+
+function spShowQuestion() {
+  const container = document.getElementById('sp-quiz-step');
+  const progress = document.getElementById('sp-quiz-progress');
+  const prevBtn = document.getElementById('sp-quiz-prev');
+  const nextBtn = document.getElementById('sp-quiz-next');
+
+  if (spCurrentQuestion >= spQuestions.length) {
+    spShowResults();
+    return;
+  }
+
+  const q = spQuestions[spCurrentQuestion];
+  const pct = Math.round((spCurrentQuestion / spQuestions.length) * 100);
+  progress.innerHTML = `
+    <div class="flex items-center gap-3 text-xs">
+      <div class="flex-1 h-1 bg-white/10 rounded overflow-hidden">
+        <div class="h-1 bg-gradient-to-r from-[#c0c0c0] to-white transition-all" style="width:${pct}%"></div>
+      </div>
+      <span>Question ${spCurrentQuestion + 1} of ${spQuestions.length}</span>
+    </div>
+  `;
+
+  let html = `<div class="mb-6">
+    <div class="text-[#c0c0c0] text-sm tracking-wider mb-2">SILVER QUESTION ${spCurrentQuestion + 1}</div>
+    <div class="text-2xl leading-tight">${q.q}</div>
+  </div>`;
+
+  q.options.forEach((opt, i) => {
+    const isSelected = spAnswers[spCurrentQuestion] === i;
+    html += `
+      <div onclick="spSelectAnswer(${i}, this)" 
+           class="silver-card p-4 mb-3 rounded-2xl border cursor-pointer transition-all ${isSelected ? 'border-[#c0c0c0] bg-white/10' : 'border-white/10 hover:border-[#c0c0c0]/40 hover:bg-white/5'}">
+        ${opt.text}
+      </div>`;
+  });
+
+  container.innerHTML = html;
+  prevBtn.classList.toggle('hidden', spCurrentQuestion === 0);
+  nextBtn.textContent = spCurrentQuestion === spQuestions.length - 1 ? 'See My Visit Type' : 'Continue';
+}
+
+function spSelectAnswer(index, element) {
+  spAnswers[spCurrentQuestion] = index;
+  
+  // Fun boost animation for silver
+  if (element) {
+    const opt = spQuestions[spCurrentQuestion].options[index];
+    const boost = document.createElement('div');
+    boost.style.cssText = 'position:absolute;right:12px;top:10px;font-size:10px;color:#c0c0c0;background:rgba(192,192,192,0.15);padding:1px 6px;border-radius:999px;';
+    boost.textContent = `+ ${opt.trait}`;
+    element.appendChild(boost);
+    setTimeout(() => boost.remove(), 700);
+  }
+  
+  spUpdateLiveLevels();
+  spShowQuestion();
+}
+
+function spNextQuestion() {
+  if (spAnswers[spCurrentQuestion] === undefined) {
+    alert("Please choose an answer.");
+    return;
+  }
+  spCurrentQuestion++;
+  spShowQuestion();
+}
+
+function spPrevQuestion() {
+  spCurrentQuestion--;
+  spShowQuestion();
+}
+
+function spUpdateLiveLevels() {
+  const current = spAnswers.slice(0, spCurrentQuestion + 1).filter(a => a !== undefined);
+  const levels = spComputeLevels(current);
+  
+  const set = (id, valId, v) => {
+    const b = document.getElementById(id);
+    const vEl = document.getElementById(valId);
+    if (b) b.style.width = v + '%';
+    if (vEl) vEl.textContent = Math.round(v) + '%';
+  };
+  
+  set('sp-calm-bar', 'sp-calm-val', levels.calm);
+  set('sp-joy-bar', 'sp-joy-val', levels.joy);
+  set('sp-story-bar', 'sp-story-val', levels.story);
+  set('sp-play-bar', 'sp-play-val', levels.play);
+  
+  // Update archetype live
+  const arch = spGetArchetype(levels);
+  const prev = document.getElementById('sp-archetype-preview');
+  if (prev) {
+    prev.innerHTML = `
+      <div class="text-2xl font-semibold tracking-tight text-[#e5e7eb]">${arch.name}</div>
+      <div id="sp-archetype-desc" class="text-sm text-zinc-400 mt-1 leading-snug">${arch.desc}</div>
+    `;
+  }
+}
+
+function spComputeLevels(ansList) {
+  const s = {calm:0, joy:0, story:0, play:0};
+  const w = {calm:0, joy:0, story:0, play:0};
+  
+  ansList.forEach((idx, qi) => {
+    const opt = spQuestions[qi]?.options[idx];
+    if (!opt) return;
+    const ww = opt.weight || 8;
+    s[opt.trait] += ww * 10;
+    w[opt.trait] += ww;
+  });
+  
+  const res = {};
+  Object.keys(s).forEach(k => {
+    res[k] = w[k] > 0 ? Math.max(42, Math.min(96, Math.round(s[k] / w[k] * 1.05))) : 52;
+  });
+  return res;
+}
+
+function spGetArchetype(levels) {
+  const sorted = Object.entries(levels).sort((a,b) => b[1]-a[1]);
+  const top = sorted[0][0];
+  const sec = sorted[1][0];
+  
+  if (top === 'calm' && (sec === 'story' || sec === 'play')) return {name: "The Quiet Presence", desc: "A steady, calming visit that brings deep peace and gentle company. Perfect for those who need simply to be seen and held in silence."};
+  if (top === 'story' || (top === 'calm' && sec === 'story')) return {name: "The Story Weaver", desc: "Visits built around sharing lives and memories. The dogs listen as stories that were fading come alive again."};
+  if (top === 'joy' || top === 'play') return {name: "The Joy Spark", desc: "Light, playful, and full of small delights. Bingo, songs, and wags that lift the whole room."};
+  return {name: "The Gentle Companion", desc: "A beautiful balance of calm presence and warm connection. The visit that heals quietly but completely."};
+}
+
+function spShowResults() {
+  const container = document.getElementById('sp-quiz-container');
+  const results = document.getElementById('sp-quiz-results');
+  if (!container || !results) return;
+  
+  container.classList.add('hidden');
+  results.classList.remove('hidden');
+  
+  const levels = spComputeLevels(spAnswers);
+  const arch = spGetArchetype(levels);
+  
+  const content = document.getElementById('sp-result-content');
+  content.innerHTML = `
+    <div class="text-4xl mb-3">🐾</div>
+    <div class="text-3xl font-semibold tracking-tight text-[#e5e7eb]">${arch.name}</div>
+    <p class="mt-3 max-w-md mx-auto text-zinc-300">${arch.desc}</p>
+    
+    <div class="mt-6 grid grid-cols-2 gap-3 text-left text-sm">
+      <div class="p-3 bg-white/5 rounded-xl">Calm: <span class="font-medium">${levels.calm}</span></div>
+      <div class="p-3 bg-white/5 rounded-xl">Joy: <span class="font-medium">${levels.joy}</span></div>
+      <div class="p-3 bg-white/5 rounded-xl">Story: <span class="font-medium">${levels.story}</span></div>
+      <div class="p-3 bg-white/5 rounded-xl">Play: <span class="font-medium">${levels.play}</span></div>
+    </div>
+    
+    <p class="mt-5 text-xs text-[#a1a1aa]">These levels, drawn directly from your answers, shape the visit that will mean the most.</p>
+  `;
+}
+
+function spRestartQuiz() {
+  spCurrentQuestion = 0;
+  spAnswers = [];
+  document.getElementById('sp-quiz-results').classList.add('hidden');
+  document.getElementById('sp-quiz-container').classList.remove('hidden');
+  spShowQuestion();
+}
+
+function applyQuizToPackage() {
+  const results = document.getElementById('sp-quiz-results');
+  if (results) results.classList.add('hidden');
+  
+  // Scroll to activity selector and preselect based on levels
+  const levels = spComputeLevels(spAnswers);
+  document.getElementById('activity-grid')?.scrollIntoView({behavior:'smooth'});
+  
+  // Simple auto select based on top trait
+  const top = Object.entries(levels).sort((a,b)=>b[1]-a[1])[0][0];
+  let idsToSelect = [];
+  if (top === 'story') idsToSelect = ['stories', 'sing'];
+  else if (top === 'joy') idsToSelect = ['bingo', 'raffle'];
+  else if (top === 'play') idsToSelect = ['petting', 'walk'];
+  else idsToSelect = ['tea', 'lunch'];
+  
+  selectedActivities.clear();
+  idsToSelect.forEach(id => selectedActivities.add(id));
+  renderActivities();
+  updatePackagePreview();
+  
+  setTimeout(() => showToast('Your archetype shaped a beautiful package suggestion.'), 600);
+}
+
+// Initialize Silver Paws questionnaire
+function initSpQuestionnaire() {
+  // Only init if elements exist
+  const step = document.getElementById('sp-quiz-step');
+  if (!step) return;
+  
+  spShowQuestion();
+  
+  // Prime live levels
+  setTimeout(() => {
+    spUpdateLiveLevels();
+  }, 200);
+  
+  console.log('%c[Silver Paws] Soul Search questionnaire ready — precise, silver, heartfelt.', 'color:#a1a1aa');
 }
 
 // === Lovely scroll backgrounds - extra warm & visually fun ===

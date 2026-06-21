@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Shibahumanityhub">
+  <meta name="keywords" content="unified rescue registry, soulbound passport, digital passport dogs, blockchain rescue, NIBBLES, mercy flywheel, soulbound nft">
+  
+  <title>Unified Rescue Registry • Soulbound Digital Passports • Every Soul Remembered</title>
+  
+  <meta name="description" content="Every rescued dog receives a permanent, soulbound digital passport on the blockchain. Journey, medical history, personality, forever family — all preserved forever. Powered by $NIBBLES.">
+  
+  <meta property="og:title" content="Unified Rescue Registry • Soulbound Passports for Every Rescued Soul">
+  <meta property="og:description" content="No more lost stories. Every dog's full life — from rescue to forever home — lives on the blockchain as a beautiful, unbreakable digital passport.">
+  <meta property="og:image" content="assets/images/unifiedrescueregistryphoto.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shibahumanityhub.com/unified-rescue-registry.html">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Unified Rescue Registry • Digital Passports">
+  <meta name="twitter:description" content="Permanent soulbound records for every rescued dog. Journey. Medical. Personality. Forever family.">
+  <meta name="twitter:image" content="assets/images/unifiedrescueregistryphoto.jpg">
+
+  <link rel="canonical" href="https://shibahumanityhub.com/unified-rescue-registry.html">
+
+  <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="js/shared-animations.js" defer></script>
+  <script src="js/glossary.js" defer></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body { 
+      margin:0; padding:0; overflow-x:hidden; 
+      background:#0a0f1c; color:white; 
+      font-family: 'Inter', system-ui, sans-serif; 
+    }
+    .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #121a2e 100%); }
+    .section-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.04em; }
+    
+    .passport-card {
+      background: linear-gradient(145deg, #1a2332 0%, #0f1624 100%);
+      border: 2px solid rgba(251, 191, 36, 0.3);
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .passport-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+      border-color: rgba(251, 191, 36, 0.5);
+    }
+    .passport-header {
+      background: linear-gradient(90deg, #b91c1c 0%, #854d0e 100%);
+      color: white;
+    }
+    .passport-field {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .soul-fact {
+      background: rgba(255,255,255,0.04);
+      border-left: 3px solid #fcd34d;
+    }
+    .mission-card {
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+    }
+    .mission-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(251, 191, 36, 0.5);
+      box-shadow: 0 25px 60px -15px rgba(251, 191, 36, 0.15);
+    }
+    .info-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      margin-left: 5px;
+      font-size: 11px;
+      line-height: 1;
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      border-radius: 9999px;
+      color: #fcd34d;
+      background: rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      vertical-align: middle;
+      font-weight: 600;
+    }
+    .info-icon:hover {
+      border-color: #fcd34d;
+      background: rgba(251, 191, 36, 0.15);
+      transform: scale(1.15);
+    }
+    .form-input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      transition: all 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: #fcd34d;
+      box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+      background: rgba(255,255,255,0.08);
+    }
+    .passport-stamp {
+      transform: rotate(-12deg);
+      border: 2px solid #b91c1c;
+      color: #b91c1c;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-amber-500/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="logo-3d-wrapper w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-amber-400/70 shadow-2xl transition-transform group-hover:scale-105">
+        <video 
+          src="assets/videos/shibahumanityhub-logo-animated.mp4" 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          preload="none"
+          aria-hidden="true"
+          class="w-full h-full object-cover">
+        </video>
+      </div>
+      <span class="hidden sm:block text-xl sm:text-2xl font-bold tracking-[-1.2px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Flywheel</a>
+      
+      <div class="relative" id="programs-dropdown">
+        <a href="#programs" onclick="toggleProgramsDropdown(event)" class="hover:text-amber-400 transition-colors flex items-center gap-1 group/nav">
+          <span class="relative">
+            Programs
+            <span class="absolute -bottom-px left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-emerald-400 group-hover/nav:w-full transition-all"></span>
+          </span>
+          <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
+          <span class="ml-1 text-[9px] opacity-40 group-hover/nav:opacity-70">✧</span>
+        </a>
+        
+        <div id="programs-menu" 
+             class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[260px] z-[60] shadow-2xl overflow-hidden"
+             style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
+          
+          <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-amber-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
+            <span>THE CIRCLE OF MERCY</span>
+          </div>
+          
+          <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
+            <span>All 29 Programs</span>
+          </a>
+          <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
+            <span>Star Souls • Therapy Gigs</span>
+          </a>
+          <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-[#c0c0c0] group-hover/item:text-white">🐾</span> 
+            <span>Silver Paws • Senior Healing</span>
+          </a>
+          <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">❤️</span> 
+            <span>Golden Years • Companion Matching</span>
+          </a>
+          <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
+            <span>K9 Lifeline • Disaster Response</span>
+          </a>
+          <a href="unified-rescue-registry.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">🪪</span> 
+            <span>Unified Rescue Registry • Soulbound Passports</span>
+          </a>
+          
+          <div class="my-1 border-t border-white/10"></div>
+          
+          <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+            <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
+            <span>Pay It Forward Adoption Chain</span>
+          </a>
+          <a href="#" onclick="if(window.SHHGlossary) { window.SHHGlossary.showExplain('mercy flywheel'); } return false;" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item border-t border-white/10 mt-1 pt-3">
+            <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
+            <span>Plain Terms Glossary ⓘ</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium hover:tracking-wider transition-all">Beautiful Souls</a>
+      <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Flywheel</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu">
+      <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+    </button>
+
+    <a href="all-programs.html" class="super-cta-btn inline-flex items-center gap-2.5 px-6 py-3 text-sm sm:text-base font-bold bg-gradient-to-r from-amber-400 to-yellow-400 text-black">
+      Support the Registry <i class="fa-solid fa-heart text-xl"></i>
+    </a>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-1" style="top: 70px;">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+    <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-amber-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
+      <span>THE CIRCLE OF MERCY</span>
+    </div>
+    
+    <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
+      <span>All 29 Programs</span>
+    </a>
+    <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
+      <span>Star Souls • Therapy Gigs</span>
+    </a>
+    <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-[#c0c0c0] group-hover/item:text-white">🐾</span> 
+      <span>Silver Paws • Senior Healing</span>
+    </a>
+    <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">❤️</span> 
+      <span>Golden Years • Companion Matching</span>
+    </a>
+    <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
+      <span>K9 Lifeline • Disaster Response</span>
+    </a>
+    <a href="unified-rescue-registry.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80 group-hover/item:text-amber-400">🪪</span> 
+      <span>Unified Rescue Registry • Soulbound Passports</span>
+    </a>
+    
+    <div class="my-1 border-t border-white/10"></div>
+    
+    <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-amber-400/80">◉</span> 
+      <span>Flywheel Home</span>
+    </a>
+    <a href="shelters.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+      <span class="text-red-400/80">❤️</span> 
+      <span>Beautiful Souls</span>
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero-bg pt-24 pb-16 text-center border-b border-amber-500/20">
+  <div class="max-w-5xl mx-auto px-6 pt-10">
+    <div class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-amber-500/10 text-amber-300 text-xs tracking-[3.5px] mb-6 border border-amber-400/20">
+      <i class="fa-solid fa-link"></i> 
+      <span>EVERY SOUL. FOREVER.</span>
+    </div>
+
+    <div class="inline-block px-8 py-3 mb-4 rounded-2xl border border-amber-400/30">
+      <h1 class="section-title text-[52px] md:text-[72px] leading-[0.78] font-bold tracking-[-5px] bg-gradient-to-br from-[#fcd34d] via-amber-300 to-white bg-clip-text text-transparent flex items-center gap-4 justify-center">
+        <span class="text-5xl md:text-6xl">🪪</span> Unified Rescue Registry
+      </h1>
+    </div>
+    <p class="text-3xl md:text-5xl font-light text-amber-200 tracking-tight">No soul left forgotten.<br>Every story, forever bound.</p>
+    
+    <p class="mt-7 max-w-2xl mx-auto text-xl text-zinc-300">Every rescued dog now carries a permanent, soulbound digital passport on the blockchain. Their full journey. Medical history. Personality. Forever family story. No more lost records. No more forgotten lives. Just beautiful, unbreakable proof that they mattered.</p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <div class="px-5 py-2 bg-white/5 border border-amber-400/30 rounded-3xl text-sm flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-amber-400"></i> 
+        <span class="font-medium">Soulbound on Shibarium</span>
+      </div>
+      <div class="px-5 py-2 bg-white/5 border border-amber-400/30 rounded-3xl text-sm flex items-center gap-2">
+        <i class="fa-solid fa-book-open text-amber-400"></i> 
+        <span class="font-medium">Journey • Health • Heart</span>
+      </div>
+      <div class="px-5 py-2 bg-white/5 border border-amber-400/30 rounded-3xl text-sm flex items-center gap-2">
+        <i class="fa-solid fa-heart text-amber-400"></i> 
+        <span class="font-medium">Forever Family Stories</span>
+      </div>
+    </div>
+
+    <div class="mt-9">
+      <a href="#passport-creator" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-400 to-yellow-400 text-black font-semibold rounded-3xl text-lg transition-all active:scale-[0.985]">
+        Create a Passport <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- PROGRAM INTRO -->
+<section class="max-w-6xl mx-auto px-6 pt-14 pb-8">
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="mission-card bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-8">
+      <p class="text-amber-200 text-xl mb-6">I keep thinking about how many beautiful dogs disappear from memory the moment they leave the shelter. Their stories — the hard parts and the beautiful ones — get lost in files that no one ever opens again.</p>
+      <p class="text-zinc-300 leading-relaxed">The Unified Rescue Registry changes that forever. Every dog gets a living, breathing digital passport that travels with them for life. It holds their rescue story, every vet visit, their unique personality, the family that finally chose them. It is soulbound — permanent, non-transferable, and deeply human. When they cross the rainbow bridge, their passport remains as a testament that they were loved and never forgotten.</p>
+    </div>
+
+    <div>
+      <div class="mission-card bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-8 mb-6">
+        <h4 class="text-xl font-semibold text-amber-200 mb-4">How $NIBBLES Makes This Real</h4>
+        <div class="space-y-4 text-sm">
+          <div class="flex gap-4">
+            <div class="font-semibold text-amber-300 w-28 flex-shrink-0">Mercy Circle<br><span class="text-xs text-amber-400/70">25,000+</span></div>
+            <div class="text-zinc-300">Pay fully in $NIBBLES and your sponsored passports receive extra resources. The foundation of lifelong memory begins.</div>
+          </div>
+          <div class="flex gap-4">
+            <div class="font-semibold text-amber-300 w-28 flex-shrink-0">Guardian Circle<br><span class="text-xs text-amber-400/70">50,000+</span></div>
+            <div class="text-zinc-300">Get early alerts when new rescues enter the registry. You are part of the quiet network preserving these lives.</div>
+          </div>
+          <div class="flex gap-4">
+            <div class="font-semibold text-amber-300 w-28 flex-shrink-0">Eternal Guardian Circle<br><span class="text-xs text-amber-400/70">250,000+</span></div>
+            <div class="text-zinc-300">Become a Registry Guardian with permanent recognition. Your name lives with every story you help preserve.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <div class="my-6 bg-gradient-to-br from-amber-900/30 to-yellow-900/30 border border-amber-400/40 rounded-3xl p-6">
+          <div class="max-w-[280px] mx-auto bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl overflow-hidden shadow-2xl">
+            <video 
+              src="assets/videos/unifiedrescuerregistry-animated.mp4" 
+              autoplay 
+              loop 
+              muted 
+              playsinline 
+              preload="none"
+              class="w-full rounded-2xl">
+            </video>
+          </div>
+          <p class="text-amber-200/80 text-sm mt-4">Watch every rescued soul receive their permanent, glowing digital passport.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DIGITAL PASSPORT CREATOR -->
+<section id="passport-creator" class="max-w-7xl mx-auto px-6 py-14 border-t border-amber-400/20">
+  <div class="text-center mb-10">
+    <div class="inline text-xs tracking-[3px] text-amber-300/70">THE LIVING PASSPORT</div>
+    <h2 class="section-title text-5xl tracking-tight mt-2">Create a Soulbound Passport</h2>
+    <p class="mt-3 text-lg text-zinc-300 max-w-lg mx-auto">Fill in the blanks. Watch a beautiful, permanent record come to life. This is what every rescued soul deserves.</p>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-8">
+    <!-- Interactive Form -->
+    <div class="mission-card bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-8">
+      <h3 class="text-2xl font-semibold text-amber-200 mb-6">Soul Facts &amp; Journey</h3>
+      
+      <div class="space-y-6">
+        <!-- Basic Info -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-sm text-amber-300/80 mb-1">Name</label>
+            <input id="dog-name" type="text" placeholder="Luna" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="Luna" oninput="updatePassport()">
+          </div>
+          <div>
+            <label class="block text-sm text-amber-300/80 mb-1">Breed</label>
+            <input id="dog-breed" type="text" placeholder="Golden Retriever Mix" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="Golden Retriever Mix" oninput="updatePassport()">
+          </div>
+          <div>
+            <label class="block text-sm text-amber-300/80 mb-1">Age</label>
+            <input id="dog-age" type="text" placeholder="4 years" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="4 years" oninput="updatePassport()">
+          </div>
+        </div>
+
+        <!-- Soul Traits -->
+        <div>
+          <label class="block text-sm text-amber-300/80 mb-2">What does this soul love?</label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <label class="flex items-center gap-2 text-sm"><input type="checkbox" id="likes-walks" checked onchange="updatePassport()"> Long walks</label>
+            <label class="flex items-center gap-2 text-sm"><input type="checkbox" id="likes-fetch" checked onchange="updatePassport()"> Playing fetch</label>
+            <label class="flex items-center gap-2 text-sm"><input type="checkbox" id="likes-belly" checked onchange="updatePassport()"> Belly rubs</label>
+            <label class="flex items-center gap-2 text-sm"><input type="checkbox" id="likes-dogs" onchange="updatePassport()"> Other dogs</label>
+            <label class="flex items-center gap-2 text-sm"><input type="checkbox" id="likes-kids" checked onchange="updatePassport()"> Kids &amp; people</label>
+            <label class="flex items-center gap-2 text-sm"><input type="checkbox" id="likes-quiet" onchange="updatePassport()"> Quiet company</label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm text-amber-300/80 mb-1">Favorite toy</label>
+            <input id="fav-toy" type="text" placeholder="Squeaky fox" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="Squeaky fox" oninput="updatePassport()">
+          </div>
+          <div>
+            <label class="block text-sm text-amber-300/80 mb-1">Favorite food</label>
+            <input id="fav-food" type="text" placeholder="Peanut butter treats" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="Peanut butter treats" oninput="updatePassport()">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm text-amber-300/80 mb-1">Dislikes</label>
+          <input id="dislikes" type="text" placeholder="Thunder, being left alone" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="Thunder, being left alone" oninput="updatePassport()">
+        </div>
+
+        <!-- Deep Story -->
+        <div>
+          <label class="block text-sm text-amber-300/80 mb-1">The story of this soul</label>
+          <textarea id="deep-story" rows="3" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" placeholder="Rescued from a high-kill shelter after being found wandering alone..." oninput="updatePassport()">Rescued from a high-kill shelter after being found wandering alone for weeks. She was scared of everything at first but slowly learned that hands can be gentle. Her favorite thing in the world is resting her head on someone's lap while they read out loud.</textarea>
+        </div>
+
+        <!-- Journey -->
+        <div>
+          <label class="block text-sm text-amber-300/80 mb-2">Journey so far</label>
+          <div id="journey-list" class="space-y-2 mb-3 text-sm"></div>
+          <div class="flex gap-2">
+            <input id="journey-input" type="text" placeholder="Rescued March 2024 from Riverside Shelter" class="form-input flex-1 px-4 py-2 rounded-2xl text-sm">
+            <button onclick="addJourney()" class="px-4 py-2 bg-amber-400 text-black rounded-2xl text-sm font-medium">Add</button>
+          </div>
+        </div>
+
+        <!-- Forever Family -->
+        <div>
+          <label class="block text-sm text-amber-300/80 mb-1">Forever family</label>
+          <input id="forever-family" type="text" placeholder="Adopted by the Rivera family on June 12, 2024" class="form-input w-full px-4 py-3 rounded-2xl text-white placeholder-zinc-500" value="Adopted by the Rivera family on June 12, 2024" oninput="updatePassport()">
+          <textarea id="family-story" rows="2" class="form-input w-full mt-2 px-4 py-3 rounded-2xl text-white placeholder-zinc-500 text-sm" placeholder="They say she brought light back into their home after losing their previous dog. She now sleeps at the foot of their bed every night." oninput="updatePassport()">They say she brought light back into their home after losing their previous dog. She now sleeps at the foot of their bed every night.</textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Passport Preview -->
+    <div>
+      <div class="passport-card rounded-3xl p-8 max-w-[420px] mx-auto">
+        <!-- Passport Header -->
+        <div class="passport-header -mx-8 -mt-8 mb-6 px-8 py-5 rounded-t-3xl flex items-center justify-between">
+          <div>
+            <div class="text-xs tracking-[3px] opacity-80">UNITED SOULS REGISTRY</div>
+            <div class="font-bold text-2xl tracking-[-1px]">SOULBOUND PASSPORT</div>
+          </div>
+          <div class="text-right">
+            <div class="text-xs opacity-70">ID</div>
+            <div id="passport-id" class="font-mono text-xl font-semibold">#URR-2841</div>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <!-- Photo placeholder -->
+          <div class="w-28 h-28 bg-zinc-800 rounded-2xl border border-amber-400/30 flex-shrink-0 overflow-hidden">
+            <div class="w-full h-full bg-gradient-to-br from-amber-900/30 to-transparent flex items-center justify-center text-5xl">🐾</div>
+          </div>
+          
+          <div class="flex-1 min-w-0">
+            <div id="passport-name" class="text-3xl font-bold tracking-[-1.5px]">Luna</div>
+            <div id="passport-breed-age" class="text-amber-300">Golden Retriever Mix • 4 years</div>
+            
+            <div class="mt-3 grid grid-cols-2 gap-x-3 text-xs">
+              <div><span class="text-amber-300/70">Rescued:</span> <span id="passport-rescued">Mar 2024</span></div>
+              <div><span class="text-amber-300/70">Adopted:</span> <span id="passport-adopted">Jun 2024</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soul Facts -->
+        <div class="mt-6">
+          <div class="uppercase text-xs tracking-[2px] text-amber-300/70 mb-2">Soul Facts</div>
+          <div id="passport-likes" class="flex flex-wrap gap-1.5 text-xs">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <div class="uppercase text-xs tracking-[2px] text-amber-300/70 mb-1.5">Favorite Things</div>
+          <div class="grid grid-cols-2 gap-2 text-sm">
+            <div class="soul-fact p-2.5 rounded-xl">Toy: <span id="passport-toy" class="font-medium">Squeaky fox</span></div>
+            <div class="soul-fact p-2.5 rounded-xl">Food: <span id="passport-food" class="font-medium">Peanut butter treats</span></div>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <div class="uppercase text-xs tracking-[2px] text-amber-300/70 mb-1.5">The Story of This Soul</div>
+          <div id="passport-story" class="text-sm text-zinc-300 leading-relaxed">Rescued from a high-kill shelter after being found wandering alone for weeks. She was scared of everything at first but slowly learned that hands can be gentle. Her favorite thing in the world is resting her head on someone's lap while they read out loud.</div>
+        </div>
+
+        <!-- Journey -->
+        <div class="mt-5">
+          <div class="uppercase text-xs tracking-[2px] text-amber-300/70 mb-1.5">Journey</div>
+          <div id="passport-journey" class="space-y-1.5 text-xs"></div>
+        </div>
+
+        <!-- Forever Family -->
+        <div class="mt-5">
+          <div class="uppercase text-xs tracking-[2px] text-amber-300/70 mb-1.5">Forever Family</div>
+          <div id="passport-family" class="text-sm text-zinc-300">Adopted by the Rivera family on June 12, 2024. They say she brought light back into their home after losing their previous dog. She now sleeps at the foot of their bed every night.</div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] text-amber-300/60">
+          <div>SOULBOUND • PERMANENT • ON SHIBARIUM</div>
+          <div class="passport-stamp text-[9px] px-2 py-px rounded">SOULBOUND</div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button onclick="mintPassport()" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-yellow-400 text-black font-semibold rounded-3xl text-sm active:scale-[0.985]">
+          <i class="fa-solid fa-link"></i> 
+          <span>MINT THIS SOULBOUND PASSPORT</span>
+        </button>
+        <div class="text-[10px] text-amber-300/60 mt-2">Demo only • Real passports are soulbound NFTs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLES -->
+<section class="max-w-6xl mx-auto px-6 py-14 border-t border-amber-400/20">
+  <div class="text-center mb-8">
+    <div class="text-amber-300/70 text-xs tracking-[2px]">REAL SOULS. REAL STORIES.</div>
+    <h3 class="section-title text-3xl mt-1">Example Passports</h3>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="mission-card bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-6 cursor-pointer" onclick="loadSample(0)">
+      <div class="flex gap-3 items-start">
+        <div class="w-12 h-12 bg-gradient-to-br from-amber-900/30 rounded-2xl flex items-center justify-center">🐾</div>
+        <div>
+          <div class="font-semibold">Max • 9 yrs • Beagle Mix</div>
+          <div class="text-xs text-amber-300/70">Rescued from neglect • Now living with the Thompson family</div>
+        </div>
+      </div>
+      <div class="mt-4 text-sm text-zinc-300 line-clamp-3">"Loves slow walks and belly rubs. Hates being alone. His favorite thing is sitting by the window watching the birds with his dad."</div>
+      <div class="text-[10px] mt-3 text-amber-300/60">Soulbound since April 2023</div>
+    </div>
+
+    <div class="mission-card bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-6 cursor-pointer" onclick="loadSample(1)">
+      <div class="flex gap-3 items-start">
+        <div class="w-12 h-12 bg-gradient-to-br from-amber-900/30 rounded-2xl flex items-center justify-center">🐾</div>
+        <div>
+          <div class="font-semibold">Luna • 3 yrs • Lab Mix</div>
+          <div class="text-xs text-amber-300/70">Rescued from hoarding situation • Forever home with the Chen family</div>
+        </div>
+      </div>
+      <div class="mt-4 text-sm text-zinc-300 line-clamp-3">"Obsessed with fetch and other dogs. Favorite food is blueberries. Her story is one of learning to trust again after everything she endured."</div>
+      <div class="text-[10px] mt-3 text-amber-300/60">Soulbound since January 2024</div>
+    </div>
+
+    <div class="mission-card bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-6 cursor-pointer" onclick="loadSample(2)">
+      <div class="flex gap-3 items-start">
+        <div class="w-12 h-12 bg-gradient-to-br from-amber-900/30 rounded-2xl flex items-center justify-center">🐾</div>
+        <div>
+          <div class="font-semibold">Charlie • 7 yrs • Terrier Mix</div>
+          <div class="text-xs text-amber-300/70">Senior shelter favorite • Adopted by retired couple in Vermont</div>
+        </div>
+      </div>
+      <div class="mt-4 text-sm text-zinc-300 line-clamp-3">"Quiet soul who loves sitting in the sun. Favorite toy is an old sock. Deeply bonded with his new mom who reads to him every evening."</div>
+      <div class="text-[10px] mt-3 text-amber-300/60">Soulbound since November 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="max-w-5xl mx-auto px-6 py-14 border-t border-amber-400/20">
+  <div class="text-center mb-8">
+    <h3 class="section-title text-3xl">How the Unified Rescue Registry Works</h3>
+  </div>
+  
+  <div class="grid md:grid-cols-3 gap-6 text-sm">
+    <div class="mission-card p-6 rounded-3xl bg-white/5 border border-amber-400/10">
+      <div class="text-amber-300 font-semibold mb-3">The Moment a Dog is Rescued</div>
+      <p class="text-zinc-300">A soulbound passport is minted on the blockchain. The rescue story, intake photos, and first health check are recorded forever.</p>
+    </div>
+    <div class="mission-card p-6 rounded-3xl bg-white/5 border border-amber-400/10">
+      <div class="text-amber-300 font-semibold mb-3">Every Step of the Journey</div>
+      <p class="text-zinc-300">Vet visits, training milestones, foster homes, and personality notes are added. The passport grows with the dog.</p>
+    </div>
+    <div class="mission-card p-6 rounded-3xl bg-white/5 border border-amber-400/10">
+      <div class="text-amber-300 font-semibold mb-3">Forever Home</div>
+      <p class="text-zinc-300">When adopted, the passport moves with the dog to the new family. Their story together is added. The bond is now on-chain.</p>
+    </div>
+  </div>
+  
+  <div class="mt-8 text-center">
+    <p class="text-lg text-amber-200 max-w-3xl mx-auto">When the funding comes through, every single rescue dog will finally have their whole beautiful journey honored and remembered forever. No more stories lost to time.</p>
+  </div>
+</section>
+
+<footer class="py-12 bg-black border-t border-amber-400/20 text-center text-xs text-zinc-400">
+  <div class="max-w-md mx-auto px-6 leading-relaxed">
+    Unified Rescue Registry • Every soul deserves to be remembered.<br>
+    Soulbound on Shibarium • Powered by $NIBBLES • shibahumanityhub.shib
+  </div>
+</footer>
+
+<script>
+// === UNIFIED RESCUE REGISTRY - Next level passport experience ===
+
+let journeyEntries = [];
+
+function updatePassport() {
+  const name = document.getElementById('dog-name').value || 'Unnamed Soul';
+  const breed = document.getElementById('dog-breed').value || 'Mixed Breed';
+  const age = document.getElementById('dog-age').value || '';
+  
+  document.getElementById('passport-name').textContent = name;
+  document.getElementById('passport-breed-age').innerHTML = `${breed} ${age ? '• ' + age : ''}`;
+  
+  // Likes
+  const likes = [];
+  if (document.getElementById('likes-walks').checked) likes.push('Long walks');
+  if (document.getElementById('likes-fetch').checked) likes.push('Fetch');
+  if (document.getElementById('likes-belly').checked) likes.push('Belly rubs');
+  if (document.getElementById('likes-dogs').checked) likes.push('Other dogs');
+  if (document.getElementById('likes-kids').checked) likes.push('Kids');
+  if (document.getElementById('likes-quiet').checked) likes.push('Quiet time');
+  
+  const likesEl = document.getElementById('passport-likes');
+  likesEl.innerHTML = likes.map(l => `<span class="px-2.5 py-0.5 bg-white/5 text-amber-200 rounded-full text-xs border border-white/10">${l}</span>`).join('');
+  
+  document.getElementById('passport-toy').textContent = document.getElementById('fav-toy').value || '—';
+  document.getElementById('passport-food').textContent = document.getElementById('fav-food').value || '—';
+  
+  document.getElementById('passport-story').textContent = document.getElementById('deep-story').value || 'This soul is still writing their story...';
+  
+  // Family
+  document.getElementById('passport-family').innerHTML = 
+    document.getElementById('forever-family').value + '<br>' + 
+    (document.getElementById('family-story').value || '');
+  
+  // Journey
+  renderJourney();
+  
+  // Random ID for fun
+  if (!document.getElementById('passport-id').dataset.set) {
+    document.getElementById('passport-id').textContent = '#URR-' + Math.floor(1000 + Math.random() * 9000);
+    document.getElementById('passport-id').dataset.set = 'true';
+  }
+}
+
+function addJourney() {
+  const input = document.getElementById('journey-input');
+  if (input.value.trim()) {
+    journeyEntries.push(input.value.trim());
+    input.value = '';
+    renderJourney();
+    updatePassport();
+  }
+}
+
+function renderJourney() {
+  const container = document.getElementById('passport-journey');
+  if (!container) return;
+  
+  if (journeyEntries.length === 0) {
+    container.innerHTML = '<div class="text-xs text-amber-300/60">No journey entries yet.</div>';
+    return;
+  }
+  
+  container.innerHTML = journeyEntries.map((entry, i) => 
+    `<div class="soul-fact p-2 rounded-xl text-xs flex justify-between items-center">
+      <span>${entry}</span>
+      <button onclick="removeJourney(${i})" class="text-red-400 hover:text-red-300 text-[10px]">×</button>
+    </div>`
+  ).join('');
+}
+
+function removeJourney(index) {
+  journeyEntries.splice(index, 1);
+  renderJourney();
+  updatePassport();
+}
+
+function loadSample(index) {
+  const samples = [
+    {
+      name: "Max", breed: "Beagle Mix", age: "9 years",
+      likes: {walks: true, fetch: false, belly: true, dogs: true, kids: false, quiet: true},
+      toy: "Old tennis ball", food: "Chicken treats",
+      story: "Rescued from a hoarding situation. Took months to learn to trust again. Now the happiest dog in the neighborhood.",
+      dislikes: "Loud noises",
+      family: "Adopted by the Patel family, April 2023. They call him their 'little shadow'.",
+      journey: ["Rescued Jan 2023 from county shelter", "Foster home Feb 2023", "Adopted April 2023"]
+    },
+    {
+      name: "Luna", breed: "Labrador Mix", age: "3 years",
+      likes: {walks: true, fetch: true, belly: true, dogs: true, kids: true, quiet: false},
+      toy: "Kong", food: "Blueberries",
+      story: "Found on the side of the highway as a puppy. Full of energy and love. Her forever family says she saved them.",
+      dislikes: "Being crated",
+      family: "Adopted by the Rivera family June 2024. Luna now hikes with them every weekend.",
+      journey: ["Rescued from highway March 2022", "Rehab and training", "Adopted June 2024"]
+    },
+    {
+      name: "Charlie", breed: "Terrier Mix", age: "7 years",
+      likes: {walks: true, fetch: false, belly: true, dogs: false, kids: false, quiet: true},
+      toy: "Stuffed duck", food: "Rice and chicken",
+      story: "Senior who waited the longest. Quiet, wise, and deeply loyal. Loves nothing more than sitting in the sun with his person.",
+      dislikes: "Fast movements",
+      family: "Adopted by retired couple in Vermont. They read together every evening.",
+      journey: ["Surrendered as senior 2023", "Long stay at rescue", "Adopted Nov 2023"]
+    }
+  ];
+  
+  const s = samples[index];
+  document.getElementById('dog-name').value = s.name;
+  document.getElementById('dog-breed').value = s.breed;
+  document.getElementById('dog-age').value = s.age;
+  document.getElementById('fav-toy').value = s.toy;
+  document.getElementById('fav-food').value = s.food;
+  document.getElementById('deep-story').value = s.story;
+  document.getElementById('dislikes').value = s.dislikes;
+  document.getElementById('forever-family').value = s.family.split('. ')[0];
+  document.getElementById('family-story').value = s.family.split('. ')[1] || '';
+  
+  // Likes
+  document.getElementById('likes-walks').checked = s.likes.walks;
+  document.getElementById('likes-fetch').checked = s.likes.fetch;
+  document.getElementById('likes-belly').checked = s.likes.belly;
+  document.getElementById('likes-dogs').checked = s.likes.dogs;
+  document.getElementById('likes-kids').checked = s.likes.kids;
+  document.getElementById('likes-quiet').checked = s.likes.quiet;
+  
+  journeyEntries = [...s.journey];
+  
+  updatePassport();
+  renderJourney();
+}
+
+function mintPassport() {
+  const passport = document.querySelector('.passport-card');
+  passport.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+  passport.style.transform = 'scale(1.02)';
+  passport.style.boxShadow = '0 0 0 2px #fcd34d, 0 30px 70px -15px rgba(251,191,36,0.4)';
+  
+  setTimeout(() => {
+    passport.style.transform = 'scale(1)';
+    passport.style.boxShadow = '0 25px 60px -15px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)';
+    alert('Soulbound passport would now be minted on the blockchain.\n\nIn a real deployment, this beautiful record would live forever with the dog.');
+  }, 650);
+}
+
+// Initialize
+function initRegistry() {
+  // Set defaults
+  document.getElementById('dog-name').value = 'Luna';
+  document.getElementById('dog-breed').value = 'Golden Retriever Mix';
+  document.getElementById('dog-age').value = '4 years';
+  document.getElementById('fav-toy').value = 'Squeaky fox';
+  document.getElementById('fav-food').value = 'Peanut butter treats';
+  document.getElementById('deep-story').value = 'Rescued from a high-kill shelter after being found wandering alone for weeks. She was scared of everything at first but slowly learned that hands can be gentle. Her favorite thing in the world is resting her head on someone\'s lap while they read out loud.';
+  document.getElementById('dislikes').value = 'Thunder, being left alone';
+  document.getElementById('forever-family').value = 'Adopted by the Rivera family on June 12, 2024';
+  document.getElementById('family-story').value = 'They say she brought light back into their home after losing their previous dog. She now sleeps at the foot of their bed every night.';
+  
+  // Default likes
+  document.getElementById('likes-walks').checked = true;
+  document.getElementById('likes-fetch').checked = true;
+  document.getElementById('likes-belly').checked = true;
+  document.getElementById('likes-kids').checked = true;
+  
+  journeyEntries = [
+    "Rescued March 2024 from Riverside Shelter",
+    "First foster home April 2024"
+  ];
+  
+  updatePassport();
+  renderJourney();
+  
+  // Load first sample on load for beauty
+  setTimeout(() => {
+    // already defaults are nice
+  }, 100);
+  
+  // Keyboard niceties
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+      e.preventDefault();
+      document.getElementById('dog-name').focus();
+    }
+  });
+  
+  console.log('%c[Unified Rescue Registry] Trillion-dollar heart-melting passport experience ready.', 'color:#fcd34d');
+}
+
+function toggleProgramsDropdown(e) {
+  e.preventDefault();
+  const menu = document.getElementById('programs-menu');
+  const chev = document.getElementById('programs-chevron');
+  if (!menu) return;
+  menu.classList.toggle('hidden');
+  if (chev) chev.style.transform = menu.classList.contains('hidden') ? '' : 'rotate(180deg)';
+}
+
+function toggleMobileMenu() {
+  const m = document.getElementById('mobile-menu');
+  const icon = document.getElementById('mobile-menu-icon');
+  if (!m) return;
+  m.classList.toggle('hidden');
+  if (icon) {
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initRegistry);
+} else {
+  initRegistry();
+}
+</script>
+
+</body>
+</html>
