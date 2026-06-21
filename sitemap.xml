@@ -76,4 +76,12 @@
     <priority>0.92</priority>
   </url>
 
+  <!-- Pay It Forward Adoption Chain -->
+  <url>
+    <loc>https://shibahumanityhub.com/pay-it-forward.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.91</priority>
+  </url>
+
 </urlset>

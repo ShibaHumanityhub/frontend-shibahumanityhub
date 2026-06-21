@@ -511,7 +511,7 @@
           
           <div class="my-1 border-t border-white/10"></div>
           
-          <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+          <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
             <span class="chain-heart text-base">🔗❤️</span> 
             <span>Pay It Forward Adoption Chain</span>
           </a>
@@ -521,12 +521,13 @@
           </a>
         </div>
       </div>
-      <a href="index.html#pay-it-forward-adoption" class="pay-forward-nav flex items-center gap-1.5 hover:text-rose-400 transition-all font-medium group/pi" title="Helping another soul melts your heart. Be part of the solution.">
+      <a href="pay-it-forward.html" class="pay-forward-nav flex items-center gap-1.5 font-medium group/pi relative" title="Helping another soul melts your heart. Be part of the solution.">
         <span>Pay It Forward</span>
         <span class="chain-heart text-lg leading-none">🔗❤️</span>
+        <div class="electric-sparks"></div>
       </a>
       <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium hover:tracking-wider transition-all">Beautiful Souls</a>
-      <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Flywheel</a>
+      <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">The Flywheel</a>
     </div>
 
     <!-- Mobile hamburger -->
@@ -551,7 +552,7 @@
       <span class="text-[#fcd34d]/80">◉</span> 
       <span>Tokens</span>
     </a>
-    <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item font-medium" style="color:#f9a8d4;">
+    <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item font-medium" style="color:#f9a8d4;">
       <span class="chain-heart text-base">🔗❤️</span> 
       <span>Pay It Forward • Melt a Heart, Be the Solution</span>
     </a>
@@ -582,7 +583,7 @@
     
     <div class="my-1 border-t border-white/10"></div>
     
-    <a href="index.html#pay-it-forward-adoption" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item" style="color:#f9a8d4;">
+    <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item" style="color:#f9a8d4;">
       <span class="chain-heart text-base">🔗❤️</span> 
       <span>Pay It Forward • Melt a Heart, Be the Solution</span>
     </a>
@@ -598,7 +599,7 @@
     </a>
     <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-amber-400/80">◉</span> 
-      <span>Flywheel</span>
+      <span>The Flywheel</span>
     </a>
   </div>
 </div>
@@ -1402,26 +1403,65 @@ document.addEventListener('DOMContentLoaded', () => {
   nav a { transition: color .15s, letter-spacing .2s; }
   nav a:hover { letter-spacing: .02em; }
 
-  /* Pay It Forward Chain Heart - high energy frequency, limited space, heart-melting vibe */
+  /* ===== UNREAL ENGINE 5 ELECTRIC NAV - NEXT LEVEL ===== */
+  nav {
+    background: linear-gradient(180deg, rgba(10,15,28,0.98) 0%, rgba(5,7,15,0.95) 100%);
+    border-bottom: 1px solid rgba(0, 249, 255, 0.15);
+    box-shadow: 0 4px 30px -10px rgba(0,0,0,0.8),
+                0 0 0 1px rgba(0, 249, 255, 0.08) inset;
+    position: relative; overflow: hidden;
+  }
+  nav::before {
+    content: '';
+    position: absolute; top:0; left:0; right:0; bottom:0;
+    background: linear-gradient(90deg, transparent 0%, rgba(0,249,255,0.03) 50%, transparent 100%),
+                radial-gradient(circle at 30% 50%, rgba(192,38,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+    animation: electric-flow 8s linear infinite;
+  }
+  @keyframes electric-flow { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+
+  nav a { position:relative; transition: all 0.2s cubic-bezier(0.23,1,0.32,1); }
+  nav a:hover { color:#00f9ff; text-shadow:0 0 4px rgba(0,249,255,0.8), 0 0 12px rgba(0,249,255,0.4), 0 0 24px rgba(192,38,255,0.3); }
+
   .pay-forward-nav {
-    color: #f9a8d4;
-    position: relative;
+    color: #f9a8d4; position: relative; padding: 4px 12px; border-radius: 9999px;
+    border: 1px solid rgba(249,168,212,0.3); background: rgba(249,168,212,0.04);
+    transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1); overflow: hidden;
+  }
+  .pay-forward-nav::before {
+    content: ''; position:absolute; top:-50%;left:-50%; width:200%;height:200%;
+    background: conic-gradient(transparent 0deg, #00f9ff 30deg, transparent 60deg, #c026ff 120deg, transparent 150deg);
+    opacity:0; animation: electric-arc 1.5s linear infinite; pointer-events:none;
   }
   .pay-forward-nav:hover {
-    color: #fb7185;
-    text-shadow: 0 0 8px rgba(251,113,133,0.5);
+    color:#fff; background:rgba(0,249,255,0.12); border-color:rgba(0,249,255,0.6);
+    box-shadow: 0 0 0 1px rgba(0,249,255,0.3), 0 0 20px rgba(0,249,255,0.4), 0 0 40px -5px rgba(192,38,255,0.2);
+    transform: translateY(-1px) scale(1.01);
   }
+  .pay-forward-nav:hover::before { opacity: 0.6; }
+
   .chain-heart {
-    display: inline-block;
-    animation: heart-beat 1.3s ease-in-out infinite;
-    filter: drop-shadow(0 0 4px rgba(251,113,133,0.4));
+    display:inline-block; animation:heart-beat 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 4px #f9a8d4) drop-shadow(0 0 10px #00f9ff);
   }
-  @keyframes heart-beat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.35); }
+  .pay-forward-nav:hover .chain-heart { animation-duration:0.5s; transform:scale(1.3) rotate(5deg); }
+
+  #programs-menu {
+    border:1px solid rgba(0,249,255,0.2);
+    box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.7), 0 0 0 1px rgba(0,249,255,0.1) inset, 0 0 30px -5px rgba(0,249,255,0.15);
+    backdrop-filter: blur(24px);
   }
-  .pay-forward-nav:hover .chain-heart {
-    animation-duration: 0.7s;
+
+  .electric-sparks { position:absolute; inset:0; pointer-events:none; overflow:hidden; border-radius:9999px; }
+  .electric-spark {
+    position:absolute; width:2px; height:2px; background:#00f9ff; border-radius:50%;
+    box-shadow:0 0 6px #00f9ff, 0 0 12px #c026ff; pointer-events:none;
+    animation:spark-fly 0.6s linear forwards;
+  }
+  @keyframes spark-fly {
+    0%{transform:translate(0,0) scale(1); opacity:1}
+    100%{transform:translate(var(--tx), var(--ty)) scale(0); opacity:0}
   }
 
   /* Critical mobile menu styles for lightning fast click + no flash */
