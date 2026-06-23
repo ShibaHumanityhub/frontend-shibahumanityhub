@@ -1,5 +1,5 @@
 // Shared Glossary System - centralized for consistency and easier maintenance
-// Expanded with more precise, heartfelt, high-caliber language (Bilyeu depth + Vitalik elegance + Elon precision)
+// Expanded with more precise, heartfelt, high-caliber language
 // All pages should load this for the info icons (ⓘ)
 
 window.SHHGlossary = {

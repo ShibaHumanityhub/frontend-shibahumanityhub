@@ -1,6 +1,6 @@
-# Shiba Humanity Hub — Local Development Guide (PowerShell)
+# Shiba Humanity Hub - Local Development Guide (PowerShell)
 
-This guide ensures the site runs cleanly over `http://localhost` (required for wallet, on-chain fetches, and full experience). **Never use `file://`** — browsers block `fetch()` to RPCs from file protocol.
+This guide ensures the site runs cleanly over `http://localhost` (required for wallet, on-chain fetches, and full experience). **Never use `file://`** - browsers block `fetch()` to RPCs from file protocol.
 
 The project is pure static (vanilla HTML + Tailwind CDN + minimal JS + assets). No build step needed.
 
@@ -74,7 +74,7 @@ Start-Process -NoNewWindow -FilePath "npx" -ArgumentList "serve -p 8000 --no-req
 ## After Changes
 
 - Refresh the localhost tab.
-- Test tone + heart: Does it still feel like "people helping people helping people — every single transaction saves lives" with quiet dignity?
+- Test tone + heart: Does it still feel like "people helping people helping people - every single transaction saves lives" with quiet dignity?
 - For wallet testing: Use a fresh testnet account on Puppynet (faucets available).
 
 ## Testing Current Phase 3 Features (Wallet, Ripples, Network Status, Dashboard)
@@ -84,12 +84,12 @@ After serving on localhost:
 1. Open http://localhost:8000/index.html (or the port you chose).
 2. Scroll to "Living Mercy on Shibarium".
 3. Observe the gentle network status pill above the Connect button (should show "Puppynet Testnet • quiet previews today (real mainnet ripples when the funding comes through)").
-4. Click "Connect Wallet • Preview the On-Chain Ledger" (requires MetaMask; it will offer Puppynet if needed — safe, read-only).
+4. Click "Connect Wallet • Preview the On-Chain Ledger" (requires MetaMask; it will offer Puppynet if needed - safe, read-only).
 5. After connect: Watch balances populate, circles update, "Your Living Ledger of Mercy" show real or illustrative ripples with block + age hints (e.g., "Block #xxxx • 5m ago").
 6. Use simulator buttons in the "Perpetual Mercy Engine" / personal view section: Circles, engine viz, particles, and personal programs list should react lovingly.
 7. Check "Recent Ripples" list updates with on-chain truth feel.
-8. Test reduced-motion: In browser dev tools or OS settings, enable prefers-reduced-motion — animations should calm.
-9. Accessibility: Tab through, use screen reader if available — labels and ARIA are in place.
+8. Test reduced-motion: In browser dev tools or OS settings, enable prefers-reduced-motion - animations should calm.
+9. Accessibility: Tab through, use screen reader if available - labels and ARIA are in place.
 10. Verify no console errors (F12). Full experience should feel alive, truthful, and heartfelt.
 
 If issues: See "Common Fixes" above. Re-test after any code change.
@@ -105,7 +105,7 @@ The funds on these token addresses are meant to help real lives. Protect them wi
 **Important Context from the Team (Elon/Vitalik/Bilyeu + your heart):**
 - Personal EOA (MetaMask) as contract owner/creator is a single point of failure and undercuts the "ledger does not lie" + "you are 1 we are all 1" truth.
 - Since zero funds right now, this is the perfect low-risk moment to do it right.
-- Tangem cards are excellent hardware (Shibarium supported) — order one when ready (they are NFC cards, very user-friendly for cold storage).
+- Tangem cards are excellent hardware (Shibarium supported) - order one when ready (they are NFC cards, very user-friendly for cold storage).
 - FHE (Zama fhEVM) is powerful for future confidential calculations (private balances/impact without revealing exact amounts). Not a simple "wrap" for existing tokens. Current Shibarium tokens are standard ERC-20 for transparency ("the ledger does not lie"). To use FHE:
   - Test on Zama's fhEVM setup or testnets.
   - Would require deploying confidential token versions or migrating logic (advanced track, as per our Phase 6+ plan).
@@ -116,7 +116,7 @@ The funds on these token addresses are meant to help real lives. Protect them wi
 
 Test treasury flows locally on testnet first.
 
-**Exact Steps (Testnet First, PowerShell/Windows — Do This Now Even Without the Tangem Card):**
+**Exact Steps (Testnet First, PowerShell/Windows - Do This Now Even Without the Tangem Card):**
 
 1. **Verify Current Setup (No Funds = Safe to Audit)**
    - Check the token contracts on a Shibarium explorer (puppyscan.shib.io).
@@ -126,7 +126,7 @@ Test treasury flows locally on testnet first.
 
 2. **Create the Official Project Treasury as a Safe Multisig (This Becomes Your "humanityhub*shib wallet")**
    - Go to https://safe.global in a browser (desktop recommended).
-   - Create a new Safe on Shibarium Puppynet (testnet first — use the RPC/chain ID from our code).
+   - Create a new Safe on Shibarium Puppynet (testnet first - use the RPC/chain ID from our code).
    - Set a safe threshold: 2-of-3 to start (you can expand later).
    - Add signers you control today:
      - Your current personal MetaMask address (temporary, we'll replace with Tangem).
@@ -135,9 +135,9 @@ Test treasury flows locally on testnet first.
    - This Safe address is now the canonical "humanityhub*shib" project treasury. Never use a single personal EOA for mission funds long-term.
 
 3. **Handle Existing Token Contracts (Created from Personal Wallet)**
-   - Check if the contracts support `transferOwnership` (most standard ERC-20 do — view on explorer under "Read Contract").
+   - Check if the contracts support `transferOwnership` (most standard ERC-20 do - view on explorer under "Read Contract").
    - If yes: From your personal MetaMask, call `transferOwnership` with the new Safe address.
-   - If no (or you prefer a clean slate): Deploy fresh token contracts on testnet with the **Safe set as owner** from the start. (We can walk through this together using Remix or a simple script — owner preset to the Safe address.)
+   - If no (or you prefer a clean slate): Deploy fresh token contracts on testnet with the **Safe set as owner** from the start. (We can walk through this together using Remix or a simple script - owner preset to the Safe address.)
    - Do not mint or move any value until this is done.
    - When real mainnet Shib names/domains are live and usable: Register a clean .shib name for the Safe address and use it for all project branding.
 
@@ -149,7 +149,7 @@ Test treasury flows locally on testnet first.
    - Remove or reduce the role of the old personal MetaMask signer.
    - Now the Safe is hardware-backed.
 
-5. **FHE (Zama fhEVM) Layer — Plan, Don't Rush**
+5. **FHE (Zama fhEVM) Layer - Plan, Don't Rush**
    - Current tokens are standard (public balances) for mission transparency.
    - FHE allows confidential versions (encrypted balances/transfers) while keeping public totals or proofs where needed for trust.
    - Steps when ready (advanced track):

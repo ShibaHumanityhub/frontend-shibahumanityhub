@@ -33,7 +33,7 @@
   }
 
   // Billion-dollar quality floating hearts & paws throughout the entire card background.
-  // Elon / Vitalik / Bilyeu style: elegant, first-principles, quietly profound.
+  // High caliber style: elegant, first-principles, quietly profound.
   // Slow, random, rhythmic, high-end. Subtle depth, premium glows, organic drifts.
   // Fixed pool of particles for smooth continuous floating (no pop-in/out).
   // Hearts (❤️) and paws (🐾) only. Pure, focused.
@@ -93,7 +93,7 @@
       const baseOpacity = (0.065 + Math.random() * 0.09) * intensity;
       particle.style.opacity = baseOpacity.toFixed(3);
 
-      // Premium, soft, high-end glow (Elon/Vitalik level of craft. Not cheap neon.)
+      // Premium, soft, high-end glow (billionaire level of craft. Not cheap neon.)
       const isHeart = particle.textContent === '❤️';
       if (isHeart) {
         particle.style.color = '#f472b6';

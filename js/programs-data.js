@@ -231,7 +231,7 @@ const programs = [            {
       <p class="text-amber-200 text-xl mb-6">When disaster hits, every single minute matters. I keep thinking about the little girl they pulled from the rubble or the elderly couple found alive after everyone else had stopped looking.</p>
       <p class="text-zinc-300 mb-8">Those moments when a dog crawls through places no human can reach and changes everything.</p>
       <p class="text-zinc-300 mb-8">We maintain a small number of elite teams in a permanent state of readiness. The handlers receive steady living support. The dogs receive full professional care and daily training. When a disaster hits, the teams are activated with additional funding for deployment costs and field bonuses.</p>
-      <p class="text-zinc-300 mb-8">Every time a disaster strikes, $NIBBLES holders know their everyday transactions helped keep these teams ready — and then helped send them into action. This is mercy in motion. Second chances saving lives when it matters most.</p>
+      <p class="text-zinc-300 mb-8">Every time a disaster strikes, $NIBBLES holders know their everyday transactions helped keep these teams ready, and then helped send them into action. This is mercy in motion. Second chances saving lives when it matters most.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
       <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -257,20 +257,20 @@ const programs = [            {
         <div class="space-y-6">
           <div class="bg-amber-900/30 p-6 rounded-3xl">
             <div class="text-amber-300 font-semibold mb-1">Standby • Readiness (always on)</div>
-            <div><strong>Mercy Circle — Hold 50,000+ $NIBBLES</strong></div>
+            <div><strong>Mercy Circle: Hold 50,000+ $NIBBLES</strong></div>
             <div class="text-sm text-zinc-300 mt-1">Keeps the team in permanent professional readiness. Funds handler living support, full dog care (food, veterinary, housing, daily training), equipment, and base costs so a fully trained unit can be wheels-up anywhere on Earth within 48 hours.</div>
           </div>
           
           <div class="bg-amber-900/30 p-6 rounded-3xl border-2 border-amber-400">
             <div class="text-amber-300 font-semibold mb-1">Active Deployment (when the call comes)</div>
-            <div><strong>Guardian Circle — Hold 250,000+ $NIBBLES</strong></div>
+            <div><strong>Guardian Circle: Hold 250,000+ $NIBBLES</strong></div>
             <div class="text-sm text-zinc-300 mt-1">Releases additional funding the moment a team is activated. Covers rapid transport, field operations, handler deployment bonus, and extra support while they are in the disaster zone. A direct portion flows into post-mission recovery for both the dog and the handler.</div>
           </div>
           
           <div class="bg-amber-900/30 p-6 rounded-3xl">
             <div class="text-amber-300 font-semibold mb-1">Long-term Legacy</div>
-            <div><strong>Eternal Guardian Circle — Hold 500,000+ $NIBBLES</strong></div>
-            <div class="text-sm text-zinc-300 mt-1">Lifeline Patron status. Your holding quietly sustains the entire lifecycle of the team — ongoing care, advanced training, retirement for the dog, and development of the next generation of rescuers. Includes private updates and the option for naming rights.</div>
+            <div><strong>Eternal Guardian Circle: Hold 500,000+ $NIBBLES</strong></div>
+            <div class="text-sm text-zinc-300 mt-1">Lifeline Patron status. Your holding quietly sustains the entire lifecycle of the team, ongoing care, advanced training, retirement for the dog, and development of the next generation of rescuers. Includes private updates and the option for naming rights.</div>
           </div>
         </div>
       </div>
@@ -626,7 +626,7 @@ const programs = [            {
     fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Silver Paws</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Silver Paws Therapy Visits Program</h2>
       <p class="text-amber-200 text-xl mb-6">I keep thinking about the seniors who sit alone in rooms that have grown too quiet. Weeks, sometimes months, pass with no one to share a story or a hand to hold.</p>
-      <p class="text-zinc-300 mb-8">Then a gentle therapy dog walks in, looks them in the eyes, and the room begins to breathe again. These are not cute moments. They are real medicine for the soul. They ease the ache of being forgotten, bring memories back to life, and remind our elders that they are still seen, still loved, and still deeply needed in this world. The dogs we send were once the ones almost given up on. Now they get to spend their days healing human hearts — and in doing so, they heal their own.</p>
+      <p class="text-zinc-300 mb-8">Then a gentle therapy dog walks in, looks them in the eyes, and the room begins to breathe again. These are not cute moments. They are real medicine for the soul. They ease the ache of being forgotten, bring memories back to life, and remind our elders that they are still seen, still loved, and still deeply needed in this world. The dogs we send were once the ones almost given up on. Now they get to spend their days healing human hearts, and in doing so, they heal their own.</p>
 
       <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
       <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">

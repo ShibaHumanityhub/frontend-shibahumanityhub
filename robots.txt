@@ -1,4 +1,4 @@
-# Shibahumanityhub Robots.txt — Optimized for Google, Bing, all engines + AI crawlers (2026)
+# Shibahumanityhub Robots.txt - Optimized for Google, Bing, all engines + AI crawlers (2026)
 # Mission: People helping people helping people. Every transaction saves lives.
 
 User-agent: *
@@ -31,7 +31,7 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: *
-Disallow: /assets/videos/   # Heavy media — crawl via sitemap/images only
+Disallow: /assets/videos/   # Heavy media - crawl via sitemap/images only
 Disallow: /*.mp4$
 
 Sitemap: https://shibahumanityhub.github.io/sitemap.xml

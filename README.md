@@ -1,4 +1,4 @@
-# Shiba Humanity Hub — Frontend
+# Shiba Humanity Hub - Frontend
 
 This is the living, loving front door to the Mercy Flywheel.
 
@@ -28,12 +28,12 @@ If something feels hype-y, sales-y, or detached, rewrite it until it feels like 
 ## Phases We Have Walked (All Complete)
 We have executed the full roadmap with care:
 
-1. **Phase 1** — Mobile-first, accessibility (dialogs, focus traps, reduced motion), performance (videos, particles, defer), SEO (sitemap, robots), premium but humble polish.
-2. **Phase 2** — Deeper on-chain truth (real transfer history as "ripples", mainnet-ready config, living ledger).
-3. **Phase 3** — Beautiful interactive Mercy Impact Dashboard (visual circles that fill and glow, enhanced SVG ripple engine, richer personal view, compounding visual, shareable "Mercy Footprint", deep 29 integration, URL state).
-4. **Phase 4** — Premium smooth micro-interactions (particles that wake with your holdings, engine pulses and breathing nodes, scroll-synced gentleness, refined consistent hovers, animateValue polish, performance guardrails).
-5. **Phase 5** — Powerful showcase of the 29 (live search + circle filters with personal badges, stunning interactive Mercy Constellation SVG that reacts to your ripples, loving "Journey Through the Flywheel" scroller, community notes everywhere).
-6. **Phase 6** — Holistic integration (everything now feels like one breath), measurement notes & tone checklist, future hooks for real mainnet and on-chain events, documentation, celebration of what already exists.
+1. **Phase 1** - Mobile-first, accessibility (dialogs, focus traps, reduced motion), performance (videos, particles, defer), SEO (sitemap, robots), premium but humble polish.
+2. **Phase 2** - Deeper on-chain truth (real transfer history as "ripples", mainnet-ready config, living ledger).
+3. **Phase 3** - Beautiful interactive Mercy Impact Dashboard (visual circles that fill and glow, enhanced SVG ripple engine, richer personal view, compounding visual, shareable "Mercy Footprint", deep 29 integration, URL state).
+4. **Phase 4** - Premium smooth micro-interactions (particles that wake with your holdings, engine pulses and breathing nodes, scroll-synced gentleness, refined consistent hovers, animateValue polish, performance guardrails).
+5. **Phase 5** - Powerful showcase of the 29 (live search + circle filters with personal badges, stunning interactive Mercy Constellation SVG that reacts to your ripples, loving "Journey Through the Flywheel" scroller, community notes everywhere).
+6. **Phase 6** - Holistic integration (everything now feels like one breath), measurement notes & tone checklist, future hooks for real mainnet and on-chain events, documentation, celebration of what already exists.
 
 ## Future Hooks (Ready When the Funding Flows)
 - Wallet & history code: easy to add real on-chain program impact events (e.g. "this transfer quietly helped [specific story]").
@@ -50,7 +50,7 @@ We have executed the full roadmap with care:
 6. Keep the single source of truth sacred.
 
 ## Measurement We Care About
-- Lighthouse (mobile + desktop) 95+ for performance and accessibility — or clear, honest improvement.
+- Lighthouse (mobile + desktop) 95+ for performance and accessibility - or clear, honest improvement.
 - Real-device feel (especially video load and particle life on modest phones).
 - Tone fidelity above all.
 
@@ -59,12 +59,12 @@ This is not a landing page.
 This is not marketing.  
 
 This is a quiet, beautiful mirror.  
-A place where someone who has never heard of this before can connect (or just play with the simulator), see their exact place in the 29 living stories, watch the engine breathe with their numbers, and feel — perhaps for the first time — that their quiet holding is already part of something that feeds dogs and children who once had none.
+A place where someone who has never heard of this before can connect (or just play with the simulator), see their exact place in the 29 living stories, watch the engine breathe with their numbers, and feel, perhaps for the first time, that their quiet holding is already part of something that feeds dogs and children who once had none.
 
 It is built with the same tears, the same first-principles care, and the same "people helping people helping people" heart that created the Mercy Blueprint and every program.
 
 Thank you for being here.  
-Whether you hold, simulate, share your footprint, or simply sit with the stories — you are already turning the wheel.
+Whether you hold, simulate, share your footprint, or simply sit with the stories, you are already turning the wheel.
 
 Every holding. Every ripple. Every life.
 

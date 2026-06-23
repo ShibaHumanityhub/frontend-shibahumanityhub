@@ -161,7 +161,7 @@
       50% { opacity: 0.4; }
     }
 
-    /* === TRILLION-DOLLAR MERCY TIMELINE — unique, heartfelt, non-grid ===
+    /* === TRILLION-DOLLAR MERCY TIMELINE - unique, heartfelt, non-grid ===
        Not a boring card wall. A living story of time and mercy.
        Vertical elegant timeline with creative visual souls.
        Addictive micro interactions, live elements, creative categorization.
@@ -298,7 +298,7 @@
     .soul-entry:hover .soul-visual img {
       transform: scale(1.08);
     }
-    /* Creative "AI soul aura" generated effect — unique per category */
+    /* Creative "AI soul aura" generated effect - unique per category */
     .soul-entry .soul-visual::after {
       content: '';
       position: absolute;
@@ -579,7 +579,7 @@
   </div>
 </section>
 
-<!-- FILTERS — creative, high-end, addictive categorization -->
+<!-- FILTERS - creative, high-end, addictive categorization -->
 <section class="max-w-6xl mx-auto px-6 pb-6">
   <div class="flex items-center justify-between mb-3">
     <div>
@@ -610,8 +610,8 @@
     <button onclick="resetFilters()" class="ml-auto text-xs px-4 py-1.5 rounded-2xl border border-white/10 hover:bg-white/5 text-zinc-400">Clear all</button>
   </div>
 
-  <!-- LOCATIONS + CITY POWER — integrated search + major cities + states/provinces.
-       Bilyeu depth: every city is real humans and real dogs. Elon precision: exact local doors. Vitalik elegance: searchable truth. -->
+  <!-- LOCATIONS + CITY POWER - integrated search + major cities + states/provinces.
+       High caliber depth: every city is real humans and real dogs. Precision: exact local doors. Elegance: searchable truth. -->
   <div class="mb-4">
     <div class="flex items-center gap-2 mb-1">
       <span class="text-xs tracking-[2.5px] text-blue-300/70">CITY + LOCATION SEARCH (type city or state. Shelters appear instantly)</span>
@@ -619,7 +619,7 @@
     </div>
     <input id="location-search" type="text" placeholder="e.g. New York, Los Angeles, Toronto, California, ON..." oninput="filterLocationChips(this.value); filterByLocationSearch(this.value)" class="w-full max-w-md bg-zinc-900 border border-white/10 focus:border-blue-400/60 rounded px-3 py-1.5 text-xs mb-2">
 
-    <!-- Major cities — quick high-impact access. Click = search + live shelter list -->
+    <!-- Major cities - quick high-impact access. Click = search + live shelter list -->
     <div class="mb-1">
       <div class="text-[9px] text-blue-300/60 mb-1">MAJOR CITIES (click for shelters + filter souls)</div>
       <div id="major-cities" class="flex flex-wrap gap-1 max-h-14 overflow-auto border border-blue-400/10 p-1 rounded mb-2"></div>
@@ -644,7 +644,7 @@
   </div>
 </section>
 
-<!-- THE SOULS — unique high-end non-grid experience -->
+<!-- THE SOULS - unique high-end non-grid experience -->
 <section id="souls" class="max-w-7xl mx-auto px-6 pb-20">
   <div class="text-center mb-6">
     <div class="uppercase text-xs tracking-[3.5px] text-red-400/80">THE LIVING MERCY TIMELINE</div>
@@ -1105,7 +1105,7 @@ const souls = [
     temperament: ["gentle"],
     special: ["medical"]
   },
-  // === NEW DIVERSE SOULS — real cities, researched shelters, broader breeds for maximum reach ===
+  // === NEW DIVERSE SOULS - real cities, researched shelters, broader breeds for maximum reach ===
   {
     id: 21,
     name: "King",
@@ -1284,7 +1284,7 @@ const canadaShelters = [
   "Fredericton SPCA (Fredericton, NB)", "Yellowknife Animal Shelter (Yellowknife, NT)", "Whitehorse Humane Society (Whitehorse, YT)"
 ];
 
-// === CITY PRECISION — researched major shelters in major cities (US + Canada) ===
+// === CITY PRECISION - researched major shelters in major cities (US + Canada) ===
 // When a city is entered in location search, these appear live. Every name is a real doorway to mercy.
 const cityToShelters = {
   "New York": [
@@ -1469,7 +1469,7 @@ function renderTimeline(filtered, container) {
           ${soul.programNames.map((pn, i) => `<span onclick="event.stopImmediatePropagation(); openProgramResonance(${soul.programs[i]})" class="mercy-pill cursor-pointer">${pn}</span>`).join('')}
         </div>
 
-        <!-- Cool Passport Holder Feature - Bilyeu deep legacy + Vitalik soulbound precision + Elon high-tech elegance -->
+        <!-- Cool Passport Holder Feature - deep legacy + soulbound precision + high-tech elegance -->
         <div class="passport-holder mt-4 p-2 border border-emerald-400/30 rounded-xl bg-zinc-950/50 hover:bg-emerald-900/10 cursor-pointer transition-all group flex items-center gap-3" onclick="openSoulboundPassport(${soul.id})">
           <div class="w-8 h-8 flex-shrink-0 border-2 border-emerald-400/60 rounded flex items-center justify-center text-lg group-hover:scale-110 transition">📖</div>
           <div class="flex-1 min-w-0">
@@ -1496,8 +1496,8 @@ function renderTimeline(filtered, container) {
 }
 
 function renderPassports(filtered, container) {
-  // HIGH-END SOULBOUND NFT MAKER STUDIO — next level for soulbound passports (Rescue Passport maker)
-  // World-wide inspiration: Luxury digital passport UIs (e.g. high-end watch provenance NFTs like Panerai/LV, premium NFT identity/credential makers) — elegant foil, embossed stamps, provenance chain, "bound to soul" precision + heartfelt mercy legacy. Clean dark luxury with gold/emerald accents, subtle holo, maker preview studio feel.
+  // HIGH-END SOULBOUND NFT MAKER STUDIO - next level for soulbound passports (Rescue Passport maker)
+  // World-wide inspiration: Luxury digital passport UIs (e.g. high-end watch provenance NFTs like Panerai/LV, premium NFT identity/credential makers) - elegant foil, embossed stamps, provenance chain, "bound to soul" precision + heartfelt mercy legacy. Clean dark luxury with gold/emerald accents, subtle holo, maker preview studio feel.
   const header = document.createElement('div');
   header.className = 'col-span-full text-center mb-8 bg-zinc-900/60 border border-emerald-400/20 rounded-3xl p-8';
   header.innerHTML = `
@@ -1733,7 +1733,7 @@ function getCity(shelter) {
   return match ? match[1].trim() : null;
 }
 
-// === LIVE CITY SHELTER LIST — the exact request. Research-backed. Appears on city entry. ===
+// === LIVE CITY SHELTER LIST - the exact request. Research-backed. Appears on city entry. ===
 function updateCitySheltersInfo(query) {
   const el = document.getElementById('city-shelters-info');
   if (!el) return;
@@ -1865,7 +1865,7 @@ function startLiveClocks() {
   }, 38000); // slow elegant tick (feels alive, not frantic)
 }
 
-// Legacy filterSouls removed — new advanced filters use toggleFilter + renderSouls()
+// Legacy filterSouls removed - new advanced filters use toggleFilter + renderSouls()
 
 function saveSoul(id) {
   const soul = souls.find(s => s.id === id);
