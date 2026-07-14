@@ -1617,7 +1617,7 @@
       </div>
       <h3 class="section-title text-3xl mb-3">Shiba Barn Table BBQ</h3>
       <p class="text-lg text-zinc-300 max-w-lg mx-auto mb-4">Come have a seat with us. Food, barn souls, Soul Studio bonds for kids, and high-end photo booth shirts the whole family can wear home.</p>
-      <p class="text-sm text-orange-200/80 max-w-md mx-auto mb-6 italic">“Thank you for sitting with us at the Shiba Barn Table — with these souls who are grateful to be loved, alive, happy, and healthy.”</p>
+      <p class="text-sm text-orange-200/80 max-w-md mx-auto mb-6 italic">"Thank you for sitting with us at the Shiba Barn Table, with these souls who are grateful to be loved, alive, happy, and healthy."</p>
       <a href="shiba-barn-table.html" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-amber-400 via-orange-400 to-orange-500 hover:brightness-105 text-black font-semibold rounded-3xl transition">
         Have a seat <span class="text-xl">→</span>
       </a>
@@ -2665,7 +2665,7 @@ async function fetchPublicRecentRipples(tokenAddress, rpcUrl, explorerBase) {
     ripples.sort((a, b) => parseInt(b.blockNumber, 16) - parseInt(a.blockNumber, 16));
     ripples = ripples.slice(0, 5);
 
-    // Fetch timestamps (cached) for gentle age – same pattern as personal for consistency and truth
+    // Fetch timestamps (cached) for gentle age - same pattern as personal for consistency and truth
     const uniqueBlocks = [...new Set(ripples.map(l => l.blockNumber))];
     for (const bn of uniqueBlocks) {
       if (!blockCache[bn]) {
