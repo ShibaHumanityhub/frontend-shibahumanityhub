@@ -1,0 +1,25 @@
+{
+  "name": "frontend-shibahumanityhub",
+  "version": "1.0.0",
+  "description": "This is the living, loving front door to the Mercy Flywheel.",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src-input.css -o ./assets/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src-input.css -o ./assets/css/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShibaHumanityhub/frontend-shibahumanityhub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ShibaHumanityhub/frontend-shibahumanityhub/issues"
+  },
+  "homepage": "https://github.com/ShibaHumanityhub/frontend-shibahumanityhub#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

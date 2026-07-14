@@ -1,16 +1,14 @@
-  <!DOCTYPE html>
-<!-- FORCE REDEPLOY - FOUC fix sitewide: anti-fouc shell + shh-ready reveal after Tailwind CDN; closed missing </head> on index/all-programs. -->
+<!DOCTYPE html>
+<!-- FORCE REDEPLOY - Real FOUC fix: local assets/css/tailwind.css (no Play CDN race). -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Anti-FOUC: dark shell + hide body until Tailwind CDN injects utilities -->
-  <style id="anti-fouc">
+  <!-- Critical shell + local Tailwind (render-blocking, no JS style injection) -->
+  <style id="critical-shell">
     html { background-color: #0a0f1c; color-scheme: dark; }
-    html:not(.shh-ready) body { visibility: hidden; }
-    html.shh-ready body { visibility: visible; }
   </style>
-  <noscript><style>html body { visibility: visible !important; }</style></noscript>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
   <meta name="bingbot" content="index, follow">
@@ -104,28 +102,13 @@
   <!-- Critical preconnects for faster external resource loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <!-- Lightning: preload critical static assets for instant hero/nav -->
   <link rel="preload" href="assets/logos/shibahumanityhublogo3d-new.jpg" as="image">
 
-  <!-- Tailwind Play CDN (deferred). Reveal script must follow so it runs after CDN injects CSS. -->
-  <script src="https://cdn.tailwindcss.com" defer></script>
-  <script defer>
-    (function () {
-      function reveal() { document.documentElement.classList.add('shh-ready'); }
-      // Double rAF: wait until styles from Tailwind are applied to layout before first paint of content
-      requestAnimationFrame(function () { requestAnimationFrame(reveal); });
-      // Failsafe if CDN is slow/blocked — never leave a blank page
-      setTimeout(reveal, 1800);
-    })();
-  </script>
-
-  <!-- FontAwesome CDN (preload for speed) -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <!-- FontAwesome (render-blocking to avoid icon FOUC) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Google Fonts with display=swap for fast rendering, no flash on interactions -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
