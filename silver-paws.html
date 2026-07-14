@@ -275,6 +275,15 @@
 </head>
 <body>
 
+<!-- AUTHENTICITY NOTE -->
+<div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
+  <div class="pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl border border-amber-400/30 bg-zinc-950/90 text-amber-100/90 shadow-xl backdrop-blur">
+    <strong class="text-amber-300">Authenticity:</strong> Facilities, reels, and “treasury credit” flows are interactive demos. No live treasury credit is issued from this page yet.
+    <button type="button" class="ml-2 underline text-amber-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
+  </div>
+</div>
+
+
 <!-- NAV (consistent slick style) -->
 <nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-emerald-500/30">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
@@ -987,10 +996,10 @@ function debounce(func, wait) {
 
 // Reels data (virality / memories section)
 const reelsData = [
-  { id: 1, title: "Bingo Night at Maple Grove", desc: "Luna sat beside Margaret as she called the winning number. For the first time in a long while, the room filled with laughter that felt like coming home.", location: "Toronto, ON", uploader: "@Margaret87", credits: "Treasury funded • +3 referral credits", joy: 94, dog: "luna" },
-  { id: 2, title: "Charlie’s Raffle Magic", desc: "Charlie placed the ticket in Harold’s hand. In that small moment, a man who had forgotten how to smile remembered what it feels like to be seen.", location: "Phoenix, AZ", uploader: "@HaroldSunset", credits: "Treasury funded • Referred by @SilverFriend", joy: 88, dog: "charlie" },
-  { id: 3, title: "Lunch & Leashes at Sunrise Villas", desc: "Three gentle dogs joined the table. People who had barely spoken all week began sharing stories over soup. The room felt alive again.", location: "Vancouver, BC", uploader: "@NurseElena", credits: "Treasury funded", joy: 91, dog: null },
-  { id: 4, title: "Afternoon Tea & Tails", desc: "Max curled into Eleanor’s lap as she spoke of her husband for the first time in years. Sometimes the deepest healing happens in silence, with a warm paw and a listening heart.", location: "Seattle, WA", uploader: "@EleanorRose", credits: "Treasury funded • +2 referral credits", joy: 97, dog: "max" },
+  { id: 1, title: "Bingo Night at Maple Grove", desc: "Luna sat beside Margaret as she called the winning number. For the first time in a long while, the room filled with laughter that felt like coming home.", location: "Toronto, ON", uploader: "@Margaret87", credits: "Demo • not treasury-funded yet • +3 referral credits", joy: 94, dog: "luna" },
+  { id: 2, title: "Charlie’s Raffle Magic", desc: "Charlie placed the ticket in Harold’s hand. In that small moment, a man who had forgotten how to smile remembered what it feels like to be seen.", location: "Phoenix, AZ", uploader: "@HaroldSunset", credits: "Demo • not treasury-funded yet • Referred by @SilverFriend", joy: 88, dog: "charlie" },
+  { id: 3, title: "Lunch & Leashes at Sunrise Villas", desc: "Three gentle dogs joined the table. People who had barely spoken all week began sharing stories over soup. The room felt alive again.", location: "Vancouver, BC", uploader: "@NurseElena", credits: "Demo • not treasury-funded yet", joy: 91, dog: null },
+  { id: 4, title: "Afternoon Tea & Tails", desc: "Max curled into Eleanor’s lap as she spoke of her husband for the first time in years. Sometimes the deepest healing happens in silence, with a warm paw and a listening heart.", location: "Seattle, WA", uploader: "@EleanorRose", credits: "Demo • not treasury-funded yet • +2 referral credits", joy: 97, dog: "max" },
 ];
 
 // Render activities
@@ -1797,7 +1806,7 @@ function submitReelWithAI() {
       // No dog tagged, simple success
       const toast = document.createElement('div');
       toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 bg-zinc-900 border border-emerald-400/40 px-6 py-3 rounded-3xl text-sm shadow z-[230]';
-      toast.innerHTML = `Reel submitted! <span class="text-emerald-400">Treasury credit applied.</span>`;
+      toast.innerHTML = `Reel saved locally as a demo. <span class="text-amber-300">No treasury credit yet. Real credits when rails are live.</span>`;
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 4200);
     }

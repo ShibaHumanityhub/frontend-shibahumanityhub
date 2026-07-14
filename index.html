@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- FORCE REDEPLOY - Truth pass: SEO domain, network honesty, illustrative labels, XSS ref sanitize. -->
+<!-- FORCE REDEPLOY - Full authenticity pass: demo labels, nav, chain truth, dedupe. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -825,7 +825,7 @@
     </div>
 
     <!-- Mobile hamburger -->
-    <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu">
+    <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu" aria-expanded="false" id="mobile-menu-btn">
       <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
     </button>
 
@@ -1548,7 +1548,7 @@
     <div class="text-center mb-12">
       <h2 class="text-5xl font-bold mb-4">The Perpetual Mercy Engine</h2>
       <p class="text-2xl text-amber-200 max-w-3xl mx-auto">We are not building another charity.<br>We are building a perpetual mercy engine on the blockchain.</p>
-      <p class="mt-6 text-lg text-zinc-300 max-w-2xl mx-auto">Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows. Transparently. Forever. No middlemen. No bureaucracy. Just people helping people helping people. Children, seniors, veterans, inmates and the dogs who stand with them. Your participation does not just fund today. It multiplies the engine capacity tomorrow through the stories it enables and the new holders those stories bring.</p>
+      <p class="mt-6 text-lg text-zinc-300 max-w-2xl mx-auto">The engine is designed so that when tax and impact rails are live, activity on $NIBBLES and $hopeseed funds mercy transparently. No middlemen theater. Just people helping people helping people. Children, seniors, veterans, inmates and the dogs who stand with them. Your participation today builds capacity for tomorrow through stories, holders, and verifiable truth.</p>
     </div>
 
     <!-- Global Symbolic Impact (enhanced from Mercy in Motion) -->
@@ -1949,56 +1949,17 @@
             <button onclick="saveLife('Rocky', 'Second Chance')" class="text-xs px-4 py-1 bg-red-500 hover:bg-red-600 rounded-2xl">Save Soul</button>
           </div>
         </div>
-        <p class="text-xs text-amber-300 mt-3">See the full 8 souls + live clocks + all program links on the dedicated page.</p>
+        <p class="text-xs text-amber-300 mt-3">See the full prototype timeline + program links on the dedicated page (illustrative until live partner feeds).</p>
       </div>
     </div>
 
-    <p class="text-center mt-8 text-sm text-zinc-400">This is the beginning. As we hear back from shelters, more dogs and real-time clocks will be added. Every Save Soul click is a ripple that grows the 1=All chain.</p>
+    <p class="text-center mt-8 text-sm text-zinc-400">This is the beginning. As real shelter partners come online, prototype souls become verified clocks. Every Save Soul intent is a ripple that grows the 1=All chain.</p>
   </div>
 </section>
   
-<!-- REAL IMPACT / TRUTH SECTION (elevated) -->
-<section id="impact" class="py-24 bg-gradient-to-b from-zinc-950 to-black">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-5xl font-bold mb-4">Mercy in Motion</h2>
-      <p class="text-2xl text-amber-200">The movement has begun.</p>
-    </div>
+<!-- Impact truth lives once in #mercy-engine (no duplicate ∞ theater) -->
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-10 text-center group">
-        <div class="text-7xl mb-6 transition-transform group-hover:scale-110">🐾</div>
-        <div class="text-7xl font-bold text-amber-400 mb-3 infinity-symbol">∞</div>
-        <p class="text-2xl font-light text-amber-100">Dogs being helped</p>
-        <p class="text-zinc-400 mt-4">Every $NIBBLES transaction is designed to become warmth, food, love, and dignity for dogs who once had none when impact rails are live.</p>
-      </div>
-
-      <div class="bg-zinc-900/70 border border-emerald-400/20 rounded-3xl p-10 text-center group">
-        <div class="text-7xl mb-6 transition-transform group-hover:scale-110">🌱</div>
-        <div class="text-7xl font-bold text-emerald-400 mb-3 infinity-symbol">∞</div>
-        <p class="text-2xl font-light text-emerald-100">Children receiving hope</p>
-        <p class="text-zinc-400 mt-4">Every $hopeseed transaction is designed to plant seeds of love, security, and second chances when impact rails are live.</p>
-      </div>
-
-      <div class="bg-zinc-900/70 border border-white/20 rounded-3xl p-10 text-center group">
-        <div class="text-7xl mb-6 transition-transform group-hover:scale-110">❤️</div>
-        <div class="text-7xl font-bold text-white mb-3 infinity-symbol">∞</div>
-        <p class="text-2xl font-light">People helping people</p>
-        <p class="text-zinc-400 mt-4">A growing global family of holders choosing mercy over hype. Every transaction is a promise kept.</p>
-      </div>
-    </div>
-
-    <div class="text-center mt-16 max-w-2xl mx-auto">
-      <p class="text-lg text-amber-100/80 italic">
-        We don’t inflate numbers.<br>
-        We build real mercy - one honest transaction at a time.
-      </p>
-      <p class="text-emerald-300 mt-6 text-sm tracking-widest">THIS IS THE TRUTH. AND IT’S ONLY BEGINNING.</p>
-    </div>
-  </div>
-</section>
-  
- <!-- VISION (elevated) -->
+<!-- VISION (elevated) -->
 <section id="vision" class="py-24 bg-black">
   <div class="max-w-5xl mx-auto px-6 text-center">
     <h2 class="text-5xl font-bold mb-8">The Vision</h2>
@@ -2008,7 +1969,7 @@
         We are building a <span class="text-emerald-400 font-semibold">perpetual mercy engine</span> on the blockchain - an antifragile, self-reinforcing flywheel that scales compassion without capture, using on-chain truth and voluntary skin in the game as the only sustainable foundation. This is how you build something that lasts: incentives aligned to mercy, proof that endures, participation that multiplies itself.
       </p>
       <p class="text-xl text-zinc-300 mb-10">
-        Every time someone buys, sells, or simply holds $NIBBLES or $hopeseed, real mercy flows - automatically, transparently, and forever. 
+        When the rails are live, activity on $NIBBLES and $hopeseed is meant to fund mercy automatically and transparently.
         No middlemen. No bureaucracy. Just people helping people helping people.
       </p>
       
@@ -2334,15 +2295,16 @@ const SHIBARIUM_NETWORKS = {
 
 // When mainnet contracts are deployed, replace these placeholders with the real addresses.
 // Until then the code will gracefully show 0 balance / no ripples on mainnet. Ready for the moment the funding truly flows.
+// Published contract addresses (same CAs referenced sitewide).
+// Wallet reads whichever network the user is on. Explorer links follow that network.
+// When mainnet and testnet diverge, set distinct values here only.
+const PUBLISHED_TOKEN_CAS = {
+  NIBBLES: '0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF',
+  HOPESEED: '0xF7a5c5634d62e428fD1dbd7292e6895eE8C90833'
+};
 const TOKEN_ADDRESSES = {
-  testnet: {
-    NIBBLES: '0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF',
-    HOPESEED: '0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833'
-  },
-  mainnet: {
-    NIBBLES: '0x0000000000000000000000000000000000000000', // ← LIVE MAINNET $NIBBLES HERE
-    HOPESEED: '0x0000000000000000000000000000000000000000'  // ← LIVE MAINNET $hopeseed HERE
-  }
+  testnet: { NIBBLES: PUBLISHED_TOKEN_CAS.NIBBLES, HOPESEED: PUBLISHED_TOKEN_CAS.HOPESEED },
+  mainnet: { NIBBLES: PUBLISHED_TOKEN_CAS.NIBBLES, HOPESEED: PUBLISHED_TOKEN_CAS.HOPESEED }
 };
 
 async function connectShibariumWallet() {
@@ -2561,9 +2523,13 @@ async function fetchRecentMercyRipples(tokenAddress, userAddress, rpcUrl, explor
   const topicsReceived = [TRANSFER_SIG, null, paddedUser];
 
   try {
+    // Bound the window so public RPCs do not choke (authenticity > infinite scan theater)
+    const latestHex = await rpcCall('eth_blockNumber', [], rpcUrl);
+    const fromBlockNum = Math.max(0, parseInt(latestHex, 16) - 100000);
+    const fromBlock = '0x' + fromBlockNum.toString(16);
     const [sentLogs, receivedLogs] = await Promise.all([
-      rpcCall('eth_getLogs', [{ address: tokenAddress, topics: topicsSent, fromBlock: '0x0', toBlock: 'latest' }], rpcUrl),
-      rpcCall('eth_getLogs', [{ address: tokenAddress, topics: topicsReceived, fromBlock: '0x0', toBlock: 'latest' }], rpcUrl)
+      rpcCall('eth_getLogs', [{ address: tokenAddress, topics: topicsSent, fromBlock, toBlock: 'latest' }], rpcUrl),
+      rpcCall('eth_getLogs', [{ address: tokenAddress, topics: topicsReceived, fromBlock, toBlock: 'latest' }], rpcUrl)
     ]);
 
     let ripples = [...(sentLogs || []), ...(receivedLogs || [])];
@@ -3449,16 +3415,19 @@ function joinChain() {
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const icon = document.getElementById('mobile-menu-icon');
+  const btn = document.getElementById('mobile-menu-btn');
   if (!menu || !icon) return;
   if (menu.classList.contains('hidden')) {
     positionMobileMenu();
     menu.classList.remove('hidden');
     icon.classList.remove('fa-bars');
     icon.classList.add('fa-times');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
   } else {
     menu.classList.add('hidden');
     icon.classList.remove('fa-times');
     icon.classList.add('fa-bars');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
   }
 }
 
