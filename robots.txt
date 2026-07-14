@@ -1,5 +1,5 @@
 # Shibahumanityhub Robots.txt - Optimized for Google, Bing, all engines + AI crawlers (2026)
-# Mission: People helping people helping people. Every transaction saves lives.
+# Mission: People helping people helping people. Every quiet holding is designed to turn the mercy flywheel when impact rails are live.
 
 User-agent: *
 Allow: /
@@ -34,7 +34,7 @@ User-agent: *
 Disallow: /assets/videos/   # Heavy media - crawl via sitemap/images only
 Disallow: /*.mp4$
 
-Sitemap: https://shibahumanityhub.github.io/sitemap.xml
+Sitemap: https://shibahumanityhub.com/sitemap.xml
 
 # Optional: llms.txt for AI models (add this file at root)
 # See llms.txt for structured content guidance for ChatGPT, Perplexity, Claude etc.

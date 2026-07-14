@@ -2,7 +2,7 @@
 
 This guide ensures the site runs cleanly over `http://localhost` (required for wallet, on-chain fetches, and full experience). **Never use `file://`** - browsers block `fetch()` to RPCs from file protocol.
 
-The project is pure static (vanilla HTML + Tailwind CDN + minimal JS + assets). No build step needed.
+The project is pure static (vanilla HTML + local `assets/css/tailwind.css` built via Tailwind CLI + minimal JS + assets). Rebuild CSS after class changes: `npm run build:css`.
 
 ## Prerequisites (Windows/PowerShell)
 
@@ -83,8 +83,8 @@ After serving on localhost:
 
 1. Open http://localhost:8000/index.html (or the port you chose).
 2. Scroll to "Living Mercy on Shibarium".
-3. Observe the gentle network status pill above the Connect button (should show "Puppynet Testnet • quiet previews today (real mainnet ripples when the funding comes through)").
-4. Click "Connect Wallet • Preview the On-Chain Ledger" (requires MetaMask; it will offer Puppynet if needed - safe, read-only).
+3. Observe the network status pill above the Connect button (default: Puppynet previews; after connect: "Puppynet (Testnet) • connected • safe read-only previews").
+4. Click "Connect Wallet • See the Living Ledger" (requires MetaMask; it may offer Shibarium Puppynet (Testnet) - safe, read-only).
 5. After connect: Watch balances populate, circles update, "Your Living Ledger of Mercy" show real or illustrative ripples with block + age hints (e.g., "Block #xxxx • 5m ago").
 6. Use simulator buttons in the "Perpetual Mercy Engine" / personal view section: Circles, engine viz, particles, and personal programs list should react lovingly.
 7. Check "Recent Ripples" list updates with on-chain truth feel.
