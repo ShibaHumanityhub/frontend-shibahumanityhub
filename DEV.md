@@ -83,8 +83,8 @@ After serving on localhost:
 
 1. Open http://localhost:8000/index.html (or the port you chose).
 2. Scroll to "Living Mercy on Shibarium".
-3. Observe the network status pill above the Connect button (default: Puppynet previews; after connect: "Puppynet (Testnet) • connected • safe read-only previews").
-4. Click "Connect Wallet • See the Living Ledger" (requires MetaMask; it may offer Shibarium Puppynet (Testnet) - safe, read-only).
+3. Observe the network status pill (default: Shibarium mainnet / shibariumscan.io).
+4. Click "Connect Wallet • See the Living Ledger" (requires MetaMask; offers **Shibarium** mainnet chain 109, RPC `https://rpc.shibarium.shib.io` - read-only).
 5. After connect: Watch balances populate, circles update, "Your Living Ledger of Mercy" show real or illustrative ripples with block + age hints (e.g., "Block #xxxx • 5m ago").
 6. Use simulator buttons in the "Perpetual Mercy Engine" / personal view section: Circles, engine viz, particles, and personal programs list should react lovingly.
 7. Check "Recent Ripples" list updates with on-chain truth feel.

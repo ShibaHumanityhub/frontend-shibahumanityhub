@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- FORCE REDEPLOY - Full authenticity pass: demo labels, nav, chain truth, dedupe. -->
+<!-- FORCE REDEPLOY - Wallet/RPC mainnet-first: rpc.shibarium.shib.io + shibariumscan.io. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1300,7 +1300,7 @@
 <section id="tokens" class="py-24 bg-zinc-900">
   <div class="max-w-6xl mx-auto px-6 text-center">
     <h2 class="text-5xl font-bold mb-4">Tokens on Shibarium</h2>
-    <p class="text-sm text-zinc-400 max-w-2xl mx-auto mb-12">Contracts are published and linkable on-chain. Wallet ledger previews use Puppynet for safe read-only testing until mainnet addresses are wired for live balances. No hype. Just the state of the chain as it is.</p>
+    <p class="text-sm text-zinc-400 max-w-2xl mx-auto mb-12">Contracts are on Shibarium mainnet and open on shibariumscan.io. Connect a wallet on Shibarium for read-only balances and ripples. No hype. Just the state of the chain as it is.</p>
     
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
       <!-- $NIBBLES PREMIUM MEDALLION - shape mastery, high caliber elegance -->
@@ -1426,7 +1426,7 @@
       <!-- Gentle, always-visible network status (Phase 3 transparency). Read-only, quietly showing where the on-chain truth lives today. -->
       <div id="network-status" class="mb-4 inline-flex items-center gap-2 text-xs px-4 py-1.5 rounded-2xl border border-white/10 bg-zinc-900/60 text-zinc-400">
         <span id="network-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-        <span id="network-label">Puppynet previews available • Mainnet balances when wired</span>
+        <span id="network-label">Shibarium • contracts on shibariumscan.io • connect for balances</span>
       </div>
 
       <button onclick="connectShibariumWallet()" aria-label="Connect your wallet read-only to see the living on-chain ledger. Your ripples and the first community transfers will appear here." class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-xl px-10 py-6 rounded-3xl">
@@ -2276,35 +2276,35 @@ document.getElementById('mercy-form').addEventListener('submit', function(e) {
 // Example: after fetching balances/history, also fetch program-specific events and append "This transfer quietly helped [specific dog/child story]".
 // For now: client-side only, truthful "when the funding comes through". Easy to extend with another RPC call or indexer when ready.
 
+// PRIMARY: Shibarium mainnet (chain 109). Official RPC + explorer from docs.shib.io.
+// Optional Puppynet kept for rare test use only — never the default.
 const SHIBARIUM_NETWORKS = {
-  testnet: {
-    chainId: '0x2cf', // 719 - Puppynet
-    chainName: 'Shibarium Puppynet (Testnet)',
-    rpcUrl: 'https://puppynet.shibrpc.com',
-    nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
-    blockExplorerUrl: 'https://puppyscan.shib.io'
-  },
   mainnet: {
-    chainId: '0x6d', // 109. Shibarium mainnet (update if the official chainId differs when you deploy)
-    chainName: 'Shibarium (Mainnet)',
-    rpcUrl: 'https://www.shibrpc.com', // or the official public RPC when live
+    chainId: '0x6d', // 109
+    chainName: 'Shibarium',
+    rpcUrl: 'https://rpc.shibarium.shib.io',
+    rpcFallbacks: ['https://shibarium.drpc.org'],
     nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
     blockExplorerUrl: 'https://shibariumscan.io'
+  },
+  testnet: {
+    chainId: '0x2cf', // 719 - Puppynet (legacy optional)
+    chainName: 'Shibarium Puppynet (Testnet)',
+    rpcUrl: 'https://puppynet.shibrpc.com',
+    rpcFallbacks: [],
+    nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
+    blockExplorerUrl: 'https://puppyscan.shib.io'
   }
 };
 
-// When mainnet contracts are deployed, replace these placeholders with the real addresses.
-// Until then the code will gracefully show 0 balance / no ripples on mainnet. Ready for the moment the funding truly flows.
-// Published contract addresses (same CAs referenced sitewide).
-// Wallet reads whichever network the user is on. Explorer links follow that network.
-// When mainnet and testnet diverge, set distinct values here only.
+// Published CAs shown sitewide (explorer links use shibariumscan.io / mainnet).
 const PUBLISHED_TOKEN_CAS = {
   NIBBLES: '0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF',
   HOPESEED: '0xF7a5c5634d62e428fD1dbd7292e6895eE8C90833'
 };
 const TOKEN_ADDRESSES = {
-  testnet: { NIBBLES: PUBLISHED_TOKEN_CAS.NIBBLES, HOPESEED: PUBLISHED_TOKEN_CAS.HOPESEED },
-  mainnet: { NIBBLES: PUBLISHED_TOKEN_CAS.NIBBLES, HOPESEED: PUBLISHED_TOKEN_CAS.HOPESEED }
+  mainnet: { NIBBLES: PUBLISHED_TOKEN_CAS.NIBBLES, HOPESEED: PUBLISHED_TOKEN_CAS.HOPESEED },
+  testnet: { NIBBLES: PUBLISHED_TOKEN_CAS.NIBBLES, HOPESEED: PUBLISHED_TOKEN_CAS.HOPESEED }
 };
 
 async function connectShibariumWallet() {
@@ -2333,39 +2333,45 @@ async function connectShibariumWallet() {
     const userAddress = accounts[0];
     __mercyConnectedAddress = userAddress;
 
-    // Detect the actual chain the user is on (testnet or mainnet). Never force. Truth first.
+    // Prefer Shibarium mainnet (where published contracts and explorers point).
     let chainId = await window.ethereum.request({ method: 'eth_chainId' });
-
-    let networkKey = 'testnet';
-    let currentConfig = SHIBARIUM_NETWORKS.testnet;
+    let networkKey = 'mainnet';
+    let currentConfig = SHIBARIUM_NETWORKS.mainnet;
 
     if (chainId === SHIBARIUM_NETWORKS.mainnet.chainId) {
       networkKey = 'mainnet';
       currentConfig = SHIBARIUM_NETWORKS.mainnet;
-    } else if (chainId !== SHIBARIUM_NETWORKS.testnet.chainId) {
-      // Friendly offer to switch to testnet for the full experience today
+    } else if (chainId === SHIBARIUM_NETWORKS.testnet.chainId) {
+      // Allow Puppynet if user is already there, but mainnet is primary
+      networkKey = 'testnet';
+      currentConfig = SHIBARIUM_NETWORKS.testnet;
+    } else {
+      // Offer add/switch to Shibarium mainnet
       try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: SHIBARIUM_NETWORKS.testnet.chainId }]
+          params: [{ chainId: SHIBARIUM_NETWORKS.mainnet.chainId }]
         });
-        chainId = SHIBARIUM_NETWORKS.testnet.chainId;
+        chainId = SHIBARIUM_NETWORKS.mainnet.chainId;
       } catch (switchError) {
         if (switchError.code === 4902) {
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [{
-              chainId: SHIBARIUM_NETWORKS.testnet.chainId,
-              chainName: 'Shibarium Puppynet (Testnet)',
-              rpcUrls: [SHIBARIUM_NETWORKS.testnet.rpcUrl],
-              nativeCurrency: SHIBARIUM_NETWORKS.testnet.nativeCurrency,
-              blockExplorerUrls: [SHIBARIUM_NETWORKS.testnet.blockExplorerUrl]
+              chainId: SHIBARIUM_NETWORKS.mainnet.chainId,
+              chainName: SHIBARIUM_NETWORKS.mainnet.chainName,
+              rpcUrls: [SHIBARIUM_NETWORKS.mainnet.rpcUrl, ...(SHIBARIUM_NETWORKS.mainnet.rpcFallbacks || [])],
+              nativeCurrency: SHIBARIUM_NETWORKS.mainnet.nativeCurrency,
+              blockExplorerUrls: [SHIBARIUM_NETWORKS.mainnet.blockExplorerUrl]
             }]
           });
+          chainId = SHIBARIUM_NETWORKS.mainnet.chainId;
+        } else {
+          throw switchError;
         }
       }
-      networkKey = 'testnet';
-      currentConfig = SHIBARIUM_NETWORKS.testnet;
+      networkKey = 'mainnet';
+      currentConfig = SHIBARIUM_NETWORKS.mainnet;
     }
 
     __mercyCurrentNetworkKey = networkKey;
@@ -2467,22 +2473,36 @@ async function connectShibariumWallet() {
 }
 
 async function getTokenBalance(tokenAddress, userAddress, rpcUrl) {
-  // Standard ERC-20 balanceOf call (read-only, no gas, direct RPC for transparency and minimalism - Vitalik-style on-chain verifiability without trusted intermediaries)
-  const data = '0x70a08231000000000000000000000000' + userAddress.slice(2).padStart(64, '0');
-  const response = await fetch(rpcUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      jsonrpc: '2.0',
-      id: 1,
-      method: 'eth_call',
-      params: [{ to: tokenAddress, data: data }, 'latest']
-    })
-  });
-  const json = await response.json();
-  if (json.error) throw new Error(json.error.message);
-  const raw = BigInt(json.result || '0x0');
-  return Number(raw) / 1e18;
+  // Standard ERC-20 balanceOf (read-only). Primary Shibarium RPC + fallbacks.
+  if (!tokenAddress || tokenAddress === '0x0000000000000000000000000000000000000000') return 0;
+  const data = '0x70a08231' + userAddress.slice(2).toLowerCase().padStart(64, '0');
+  const urls = [rpcUrl];
+  if (rpcUrl === SHIBARIUM_NETWORKS.mainnet.rpcUrl || (SHIBARIUM_NETWORKS.mainnet.rpcFallbacks || []).includes(rpcUrl)) {
+    urls.push(SHIBARIUM_NETWORKS.mainnet.rpcUrl, ...(SHIBARIUM_NETWORKS.mainnet.rpcFallbacks || []));
+  }
+  const uniqueUrls = [...new Set(urls.filter(Boolean))];
+  let lastErr;
+  for (const url of uniqueUrls) {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'eth_call',
+          params: [{ to: tokenAddress, data: data }, 'latest']
+        })
+      });
+      const json = await response.json();
+      if (json.error) throw new Error(json.error.message);
+      const raw = BigInt(json.result || '0x0');
+      return Number(raw) / 1e18;
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  throw lastErr || new Error('Shibarium RPC unavailable');
 }
 
 function getMercyCircle(balance) {
@@ -2502,14 +2522,27 @@ function buildCircleList(token, balance, circleText) {
 // === PHASE 2 HELPERS: deep on-chain truth (vanilla, bounded, respectful of public RPCs) ===
 
 async function rpcCall(method, params, rpcUrl) {
-  const res = await fetch(rpcUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ jsonrpc: '2.0', id: Date.now(), method, params })
-  });
-  const json = await res.json();
-  if (json.error) throw new Error(json.error.message);
-  return json.result;
+  const urls = [rpcUrl];
+  if (rpcUrl === SHIBARIUM_NETWORKS.mainnet.rpcUrl || (SHIBARIUM_NETWORKS.mainnet.rpcFallbacks || []).includes(rpcUrl)) {
+    urls.push(SHIBARIUM_NETWORKS.mainnet.rpcUrl, ...(SHIBARIUM_NETWORKS.mainnet.rpcFallbacks || []));
+  }
+  const uniqueUrls = [...new Set(urls.filter(Boolean))];
+  let lastErr;
+  for (const url of uniqueUrls) {
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: Date.now(), method, params })
+      });
+      const json = await res.json();
+      if (json.error) throw new Error(json.error.message);
+      return json.result;
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  throw lastErr || new Error('Shibarium RPC unavailable');
 }
 
 async function fetchRecentMercyRipples(tokenAddress, userAddress, rpcUrl, explorerBase) {
@@ -2693,9 +2726,9 @@ function renderCommunityRipples(ripples, containerEl) {
 async function fetchAndRenderCommunityRipples() {
   const container = document.getElementById('community-ripples-list');
   if (!container) return;
-  const rpc = __mercyCurrentRpc || 'https://puppynet.shibrpc.com';
-  const explorer = __mercyCurrentExplorer || 'https://puppyscan.shib.io';
-  const key = __mercyCurrentNetworkKey || 'testnet';
+  const rpc = __mercyCurrentRpc || SHIBARIUM_NETWORKS.mainnet.rpcUrl;
+  const explorer = __mercyCurrentExplorer || SHIBARIUM_NETWORKS.mainnet.blockExplorerUrl;
+  const key = __mercyCurrentNetworkKey || 'mainnet';
   const nibblesAddr = TOKEN_ADDRESSES[key].NIBBLES;
   const hopeseedAddr = TOKEN_ADDRESSES[key].HOPESEED;
   const [nibblesRipplesRaw, hopeseedRipplesRaw] = await Promise.all([
@@ -2764,7 +2797,7 @@ function renderSimulatedRipplePreviews(totalHolding) {
 let __mercyConnectedAddress = null;
 let __mercyCurrentRpc = null;
 let __mercyCurrentExplorer = null;
-let __mercyCurrentNetworkKey = 'testnet';
+let __mercyCurrentNetworkKey = 'mainnet';
 
 let blockCache = {}; // small cache for block timestamps to compute gentle age without repeated calls
 
@@ -2786,21 +2819,21 @@ function updateNetworkStatus(networkKey, connected) {
 
   if (connected && networkKey === 'mainnet') {
     dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
-    label.textContent = 'Shibarium Mainnet • connected • read-only ledger';
+    label.textContent = 'Shibarium • connected • read-only ledger';
   } else if (connected) {
-    dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
-    label.textContent = 'Puppynet (Testnet) • connected • safe read-only previews';
-  } else {
     dot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400';
-    label.textContent = 'Puppynet previews available • Mainnet balances when wired';
+    label.textContent = 'Puppynet (Testnet) • connected • optional test network';
+  } else {
+    dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+    label.textContent = 'Shibarium • contracts on shibariumscan.io • connect for balances';
   }
 }
 
-// Set gentle default preview state on load (no wallet needed yet)
+// Default pill: Shibarium mainnet (primary network for this site)
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => updateNetworkStatus('testnet', false));
+  document.addEventListener('DOMContentLoaded', () => updateNetworkStatus('mainnet', false));
 } else {
-  updateNetworkStatus('testnet', false);
+  updateNetworkStatus('mainnet', false);
 }
 
 async function refreshMercyRipples() {
