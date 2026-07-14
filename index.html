@@ -1,9 +1,16 @@
   <!DOCTYPE html>
-<!-- FORCE REDEPLOY - Fixed Programs dropdown behind content (top:100% + mt-3 + z-[999] + JS force 9999, no nav overflow:hidden, clean hover). Consistent nav in main pages. Full site quality/authentic heartfelt review. -->
+<!-- FORCE REDEPLOY - FOUC fix sitewide: anti-fouc shell + shh-ready reveal after Tailwind CDN; closed missing </head> on index/all-programs. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Anti-FOUC: dark shell + hide body until Tailwind CDN injects utilities -->
+  <style id="anti-fouc">
+    html { background-color: #0a0f1c; color-scheme: dark; }
+    html:not(.shh-ready) body { visibility: hidden; }
+    html.shh-ready body { visibility: visible; }
+  </style>
+  <noscript><style>html body { visibility: visible !important; }</style></noscript>
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
   <meta name="bingbot" content="index, follow">
@@ -104,8 +111,17 @@
   <!-- Lightning: preload critical static assets for instant hero/nav -->
   <link rel="preload" href="assets/logos/shibahumanityhublogo3d-new.jpg" as="image">
 
-  <!-- Tailwind Play CDN - deferred for lightning initial load (base styles inlined below) -->
+  <!-- Tailwind Play CDN (deferred). Reveal script must follow so it runs after CDN injects CSS. -->
   <script src="https://cdn.tailwindcss.com" defer></script>
+  <script defer>
+    (function () {
+      function reveal() { document.documentElement.classList.add('shh-ready'); }
+      // Double rAF: wait until styles from Tailwind are applied to layout before first paint of content
+      requestAnimationFrame(function () { requestAnimationFrame(reveal); });
+      // Failsafe if CDN is slow/blocked — never leave a blank page
+      setTimeout(reveal, 1800);
+    })();
+  </script>
 
   <!-- FontAwesome CDN (preload for speed) -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -720,6 +736,7 @@
 <script src="js/programs-data.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
 <script src="js/glossary.js" defer></script>
+</head>
 
 <body>
 

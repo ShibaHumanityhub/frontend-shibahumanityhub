@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Anti-FOUC: dark shell + hide body until Tailwind CDN injects utilities -->
+  <style id="anti-fouc">
+    html { background-color: #0a0f1c; color-scheme: dark; }
+    html:not(.shh-ready) body { visibility: hidden; }
+    html.shh-ready body { visibility: visible; }
+  </style>
+  <noscript><style>html body { visibility: visible !important; }</style></noscript>
   <meta name="robots" content="index, follow">
   <meta name="keywords" content="mercy blueprint shibahumanityhub, NIBBLES hopeseed philosophy, blockchain mercy vision, every transaction saves lives">
 
@@ -24,6 +31,19 @@
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    (function () {
+      function reveal() { document.documentElement.classList.add('shh-ready'); }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+          requestAnimationFrame(function () { requestAnimationFrame(reveal); });
+        });
+      } else {
+        requestAnimationFrame(function () { requestAnimationFrame(reveal); });
+      }
+      setTimeout(reveal, 1800);
+    })();
+  </script>
   <script src="js/shared-animations.js" defer></script>
   <script src="js/glossary.js" defer></script>
 <style>

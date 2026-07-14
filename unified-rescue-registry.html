@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Anti-FOUC: dark shell + hide body until Tailwind CDN injects utilities -->
+  <style id="anti-fouc">
+    html { background-color: #0a0f1c; color-scheme: dark; }
+    html:not(.shh-ready) body { visibility: hidden; }
+    html.shh-ready body { visibility: visible; }
+  </style>
+  <noscript><style>html body { visibility: visible !important; }</style></noscript>
   <meta name="robots" content="index, follow">
   <meta name="author" content="Shibahumanityhub">
   <meta name="keywords" content="unified rescue registry, soulbound passport, digital passport dogs, blockchain rescue, NIBBLES, mercy flywheel, soulbound nft">
@@ -32,6 +39,13 @@
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
   <link rel="preload" href="assets/logos/shibahumanityhublogo3d-new.jpg" as="image">
   <script src="https://cdn.tailwindcss.com" defer></script>
+  <script defer>
+    (function () {
+      function reveal() { document.documentElement.classList.add('shh-ready'); }
+      requestAnimationFrame(function () { requestAnimationFrame(reveal); });
+      setTimeout(reveal, 1800);
+    })();
+  </script>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
