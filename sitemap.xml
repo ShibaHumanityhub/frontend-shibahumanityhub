@@ -84,4 +84,12 @@
     <priority>0.91</priority>
   </url>
 
+  <!-- Shiba Barn Table BBQ -->
+  <url>
+    <loc>https://shibahumanityhub.com/shiba-barn-table.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>
+
 </urlset>
