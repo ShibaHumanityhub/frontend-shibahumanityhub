@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- FORCE REDEPLOY - Wallet/RPC mainnet-first: rpc.shibarium.shib.io + shibariumscan.io. -->
+<!-- FORCE REDEPLOY - Protocol×Mercy scroll experience: progress, chapter rail, reveal-on-scroll. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -715,13 +715,238 @@
     #program-modal .modal {
       transition: transform 0.25s var(--ease-mercy), opacity 0.2s ease;
     }
+
+    /* ========== PROTOCOL × MERCY: laptop scroll experience ========== */
+    /* Inspired by editorial / research sites (sticky chapters, reveal, progress) — kept amber/emerald mercy identity */
+    #shh-scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      z-index: 100;
+      background: linear-gradient(90deg, #fcd34d 0%, #f59e0b 40%, #10b981 100%);
+      box-shadow: 0 0 12px rgba(251,191,36,0.55);
+      pointer-events: none;
+      transition: width 40ms linear;
+    }
+
+    /* Desktop sticky chapter rail */
+    #shh-chapter-rail {
+      display: none;
+    }
+    @media (min-width: 1100px) {
+      #shh-chapter-rail {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        position: fixed;
+        left: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 40;
+        pointer-events: auto;
+      }
+      #shh-chapter-rail a {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        text-decoration: none;
+        color: rgba(161,161,170,0.55);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        transition: color 0.25s ease, transform 0.25s ease;
+      }
+      #shh-chapter-rail a .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 9999px;
+        background: rgba(161,161,170,0.35);
+        box-shadow: none;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+      }
+      #shh-chapter-rail a .label {
+        max-width: 0;
+        overflow: hidden;
+        opacity: 0;
+        white-space: nowrap;
+        transition: max-width 0.35s ease, opacity 0.25s ease;
+      }
+      #shh-chapter-rail:hover a .label,
+      #shh-chapter-rail a.is-active .label {
+        max-width: 9rem;
+        opacity: 1;
+      }
+      #shh-chapter-rail a:hover,
+      #shh-chapter-rail a.is-active {
+        color: #fde68a;
+        transform: translateX(2px);
+      }
+      #shh-chapter-rail a.is-active .dot {
+        background: #fbbf24;
+        box-shadow: 0 0 10px rgba(251,191,36,0.75);
+        transform: scale(1.35);
+      }
+    }
+
+    /* Reveal-on-scroll (editorial) */
+    .shh-reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .shh-reveal.is-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .shh-reveal-delay-1 { transition-delay: 0.08s; }
+    .shh-reveal-delay-2 { transition-delay: 0.16s; }
+    .shh-reveal-delay-3 { transition-delay: 0.24s; }
+    .shh-reveal-delay-4 { transition-delay: 0.32s; }
+
+    /* Stagger children */
+    .shh-stagger > *.shh-reveal:nth-child(1) { transition-delay: 0.05s; }
+    .shh-stagger > *.shh-reveal:nth-child(2) { transition-delay: 0.12s; }
+    .shh-stagger > *.shh-reveal:nth-child(3) { transition-delay: 0.19s; }
+    .shh-stagger > *.shh-reveal:nth-child(4) { transition-delay: 0.26s; }
+    .shh-stagger > *.shh-reveal:nth-child(5) { transition-delay: 0.33s; }
+    .shh-stagger > *.shh-reveal:nth-child(6) { transition-delay: 0.4s; }
+
+    /* Editorial section frame (Protocol-like chapter feel, mercy colors) */
+    .shh-chapter {
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .shh-chapter {
+        padding-top: 6.5rem;
+        padding-bottom: 6.5rem;
+      }
+      .shh-chapter-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+        margin-bottom: 3rem;
+        max-width: 56rem;
+      }
+      .shh-chapter-kicker {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: rgba(252, 211, 77, 0.65);
+      }
+      .shh-chapter-title {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        font-size: clamp(2.4rem, 4.2vw, 3.75rem);
+      }
+      .shh-chapter-lede {
+        font-size: 1.2rem;
+        line-height: 1.55;
+        color: rgba(212, 212, 216, 0.92);
+        max-width: 38rem;
+        font-weight: 400;
+      }
+      .shh-chapter-rule {
+        width: 3.5rem;
+        height: 2px;
+        background: linear-gradient(90deg, #fbbf24, #10b981);
+        border-radius: 2px;
+        margin-top: 0.25rem;
+      }
+      /* Soft horizontal band like research sites */
+      .shh-panel {
+        border: 1px solid rgba(255,255,255,0.08);
+        background: linear-gradient(165deg, rgba(24,24,27,0.72) 0%, rgba(9,12,22,0.88) 100%);
+        backdrop-filter: blur(18px);
+        border-radius: 1.75rem;
+        transition: border-color 0.35s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1), box-shadow 0.45s ease;
+      }
+      .shh-panel:hover {
+        border-color: rgba(251, 191, 36, 0.22);
+        box-shadow: 0 28px 60px -32px rgba(0,0,0,0.65), 0 0 0 1px rgba(251,191,36,0.06) inset;
+        transform: translateY(-3px);
+      }
+    }
+
+    /* Hero: more cinematic / editorial on laptop */
+    @media (min-width: 768px) {
+      .hero-bg.shh-hero {
+        min-height: 100vh;
+        padding-top: 7rem;
+        padding-bottom: 5rem;
+      }
+      .shh-hero-eyebrow {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: rgba(167, 243, 208, 0.7);
+        margin-bottom: 1.75rem;
+      }
+      .shh-scroll-cue {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(252, 211, 77, 0.45);
+        font-size: 0.65rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        pointer-events: none;
+      }
+      .shh-scroll-cue .line {
+        width: 1px;
+        height: 2.5rem;
+        background: linear-gradient(180deg, rgba(251,191,36,0.7), transparent);
+        animation: shh-cue-pulse 2.2s ease-in-out infinite;
+      }
+      @keyframes shh-cue-pulse {
+        0%, 100% { opacity: 0.35; transform: scaleY(0.85); }
+        50% { opacity: 1; transform: scaleY(1); }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shh-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      #shh-scroll-progress { display: none; }
+      .shh-scroll-cue .line { animation: none; }
+      .shh-panel:hover { transform: none; }
+    }
   </style>
 <script src="js/programs-data.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
+<script src="js/scroll-experience.js" defer></script>
 <script src="js/glossary.js" defer></script>
 </head>
 
 <body>
+
+<!-- Scroll progress (Protocol-like top line) -->
+<div id="shh-scroll-progress" aria-hidden="true"></div>
+
+<!-- Desktop chapter rail -->
+<nav id="shh-chapter-rail" aria-label="Page chapters">
+  <a href="#hero" data-chapter="hero" class="is-active"><span class="dot"></span><span class="label">Origin</span></a>
+  <a href="#flywheel" data-chapter="flywheel"><span class="dot"></span><span class="label">Flywheel</span></a>
+  <a href="#blueprint" data-chapter="blueprint"><span class="dot"></span><span class="label">Blueprint</span></a>
+  <a href="#tokens" data-chapter="tokens"><span class="dot"></span><span class="label">Tokens</span></a>
+  <a href="#onchain" data-chapter="onchain"><span class="dot"></span><span class="label">Ledger</span></a>
+  <a href="#mercy-engine" data-chapter="engine"><span class="dot"></span><span class="label">Engine</span></a>
+  <a href="#programs" data-chapter="programs"><span class="dot"></span><span class="label">Programs</span></a>
+  <a href="#vision" data-chapter="vision"><span class="dot"></span><span class="label">Vision</span></a>
+</nav>
 
 <!-- NAV -->
 <nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-amber-500/30">
@@ -1104,12 +1329,14 @@
   </div>
 </div>
 
-<!-- HERO - LEGENDARY -->
-<header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen relative overflow-hidden">
+<!-- HERO - LEGENDARY + editorial laptop experience -->
+<header id="hero" data-chapter-section="hero" class="hero-bg shh-hero pt-24 pb-20 text-center flex items-center min-h-screen relative overflow-hidden">
   <div class="absolute inset-0 bg-[radial-gradient(at_center,#10b98120_0%,transparent_70%)]"></div>
+  <div class="absolute inset-0 pointer-events-none opacity-40" style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(251,191,36,0.08), transparent 60%);"></div>
   
   <div class="max-w-5xl mx-auto px-6 relative z-10 w-full">
-    <div class="hero-title-wrapper mx-auto max-w-[94%]">
+    <p class="shh-hero-eyebrow shh-reveal hidden md:block">Mercy engine · Shibarium · Since 2025</p>
+    <div class="hero-title-wrapper mx-auto max-w-[94%] shh-reveal">
       <h1 class="hero-title hidden md:block">SHIBA</h1>
       <h1 class="hero-title -mt-6 md:-mt-5 hidden md:block">HUMANITYHUB</h1>
       
@@ -1120,12 +1347,12 @@
       </h1>
     </div>
 
-    <p class="mt-10 text-2xl sm:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight px-4">
+    <p class="mt-10 text-2xl sm:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight px-4 shh-reveal shh-reveal-delay-1">
       People helping people helping people.<br>
       <span class="text-emerald-300 font-medium">Every single holding turns the mercy flywheel<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span>. It compounds the capacity for mercy over time.</span>
     </p>
 
-    <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 px-4">
+    <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 px-4 shh-reveal shh-reveal-delay-2">
       <a href="whitepaper.html" target="_blank" class="super-cta-btn whitepaper-btn inline-flex items-center justify-center gap-4 text-xl px-10 py-6 w-full sm:w-auto">
         <i class="fa-solid fa-bone bone-icon text-3xl"></i>
         Read Whitepaper
@@ -1136,24 +1363,30 @@
     </div>
   </div>
 
-  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-12 text-4xl opacity-30 pointer-events-none">
+  <div class="shh-scroll-cue hidden md:flex" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-12 text-4xl opacity-30 pointer-events-none md:hidden">
     <span class="animate-bounce">🐾</span>
     <span class="animate-bounce" style="animation-delay:0.8s">🌱</span>
   </div>
 </header>
 
 <!-- THE MERCY FLYWHEEL: FIRST PRINCIPLES + COMPOUNDING VISION -->
-<section class="py-20 bg-black border-b border-amber-400/10">
+<section id="flywheel" data-chapter-section="flywheel" class="shh-chapter py-20 bg-black border-b border-amber-400/10">
   <div class="max-w-5xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <div class="inline-flex items-center gap-2 text-xs tracking-[3px] uppercase text-amber-300/70 mb-4">First Principles</div>
-      <h2 class="text-5xl md:text-6xl font-bold tracking-tight">The Mercy Flywheel</h2>
-      <p class="mt-4 text-2xl text-zinc-300 max-w-3xl mx-auto">Not charity. Something far more beautiful. When you take part, whether you are a trillionaire with reach or someone who simply cares, the capacity for mercy grows for everyone. Every day. Forever.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span></p>
+    <div class="shh-chapter-head text-center md:text-left mx-auto md:mx-0 mb-12 shh-reveal">
+      <div class="shh-chapter-kicker mb-3">01 · First Principles</div>
+      <div class="shh-chapter-rule mx-auto md:mx-0 mb-5"></div>
+      <h2 class="shh-chapter-title text-5xl md:text-6xl font-bold tracking-tight">The Mercy Flywheel</h2>
+      <p class="shh-chapter-lede mt-4 text-2xl text-zinc-300 max-w-3xl mx-auto md:mx-0">Not charity. Something far more beautiful. When you take part, whether you are a trillionaire with reach or someone who simply cares, the capacity for mercy grows for everyone. Every day. Forever.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span></p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-10 items-start">
+    <div class="grid md:grid-cols-2 gap-10 items-start shh-stagger">
       <!-- First Principles explanation -->
-      <div class="space-y-8">
+      <div class="space-y-8 shh-reveal">
         <div>
           <h3 class="text-xl font-semibold text-amber-200 mb-3">Why this structure works</h3>
           <p class="text-zinc-300 leading-relaxed">When you hold these tokens, something beautiful happens. Your quiet choice becomes tied to the flourishing of children who need a chance, seniors who deserve warmth, veterans who have given everything, and the dogs who have waited their whole lives for someone to see them. No one in the middle takes what belongs to mercy. The more people who stay with it, the stronger the light becomes. This is how we build something that actually lasts. A living system where giving more only creates more to give.</p>
@@ -1245,7 +1478,7 @@
 </section>
   
 <!-- === THE MERCY BLUEPRINT: HEARTFELT LEAD MAGNET (premium) === -->
-<section class="py-24 bg-gradient-to-b from-zinc-950 to-black border-t border-b border-amber-400/20">
+<section id="blueprint" data-chapter-section="blueprint" class="shh-chapter py-24 bg-gradient-to-b from-zinc-950 to-black border-t border-b border-amber-400/20">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <div class="inline-flex items-center gap-3 bg-zinc-900 border border-emerald-400/30 rounded-3xl px-6 py-2 mb-8">
       <span class="text-3xl">❤️</span>
@@ -1297,10 +1530,14 @@
 </section>
   
 <!-- TOKENS -->
-<section id="tokens" class="py-24 bg-zinc-900">
+<section id="tokens" data-chapter-section="tokens" class="shh-chapter py-24 bg-zinc-900">
   <div class="max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-5xl font-bold mb-4">Tokens on Shibarium</h2>
-    <p class="text-sm text-zinc-400 max-w-2xl mx-auto mb-12">Contracts are on Shibarium mainnet and open on shibariumscan.io. Connect a wallet on Shibarium for read-only balances and ripples. No hype. Just the state of the chain as it is.</p>
+    <div class="shh-chapter-head mx-auto mb-10 shh-reveal">
+      <div class="shh-chapter-kicker mb-3">02 · On-chain fuel</div>
+      <div class="shh-chapter-rule mx-auto mb-5"></div>
+      <h2 class="shh-chapter-title text-5xl font-bold mb-4">Tokens on Shibarium</h2>
+      <p class="shh-chapter-lede text-sm text-zinc-400 max-w-2xl mx-auto mb-4">Contracts are on Shibarium mainnet and open on shibariumscan.io. Connect a wallet on Shibarium for read-only balances and ripples. No hype. Just the state of the chain as it is.</p>
+    </div>
     
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
       <!-- $NIBBLES PREMIUM MEDALLION - shape mastery, high caliber elegance -->
@@ -1380,7 +1617,7 @@
 </section>
 
 <!-- LIVING MERCY ON SHIBARIUM - READ-ONLY TRANSPARENCY & PERSONAL CIRCLES -->
-<section id="onchain" class="py-24 bg-zinc-900 border-t border-b border-amber-400/20">
+<section id="onchain" data-chapter-section="onchain" class="shh-chapter py-24 bg-zinc-900 border-t border-b border-amber-400/20">
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="text-5xl font-bold mb-4">Living Mercy on Shibarium</h2>
@@ -1543,10 +1780,12 @@
 </section>
 
 <!-- PHASE 3: THE PERPETUAL MERCY ENGINE + INTERACTIVE IMPACT DASHBOARD -->
-<section id="mercy-engine" class="py-24 bg-gradient-to-b from-zinc-950 to-black">
+<section id="mercy-engine" data-chapter-section="engine" class="shh-chapter py-24 bg-gradient-to-b from-zinc-950 to-black">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-5xl font-bold mb-4">The Perpetual Mercy Engine</h2>
+    <div class="text-center mb-12 shh-reveal">
+      <div class="shh-chapter-kicker mb-3">03 · The machine</div>
+      <div class="shh-chapter-rule mx-auto mb-5"></div>
+      <h2 class="shh-chapter-title text-5xl font-bold mb-4">The Perpetual Mercy Engine</h2>
       <p class="text-2xl text-amber-200 max-w-3xl mx-auto">We are not building another charity.<br>We are building a perpetual mercy engine on the blockchain.</p>
       <p class="mt-6 text-lg text-zinc-300 max-w-2xl mx-auto">The engine is designed so that when tax and impact rails are live, activity on $NIBBLES and $hopeseed funds mercy transparently. No middlemen theater. Just people helping people helping people. Children, seniors, veterans, inmates and the dogs who stand with them. Your participation today builds capacity for tomorrow through stories, holders, and verifiable truth.</p>
     </div>
@@ -1811,10 +2050,12 @@
 </section>
 
 <!-- FEATURED PROGRAMS -->
-<section id="programs" class="py-24 bg-zinc-950">
+<section id="programs" data-chapter-section="programs" class="shh-chapter py-24 bg-zinc-950">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-5xl font-bold">Featured Programs That Change Lives</h2>
+      <div class="shh-chapter-kicker mb-3 shh-reveal">04 · Living stories</div>
+      <div class="shh-chapter-rule mx-auto mb-5 shh-reveal"></div>
+      <h2 class="shh-chapter-title text-5xl font-bold shh-reveal">Featured Programs That Change Lives</h2>
       <p class="text-amber-200 text-2xl mt-4">The 8 most powerful stories of mercy we are building right now.</p>
     </div>
 
@@ -1960,9 +2201,11 @@
 <!-- Impact truth lives once in #mercy-engine (no duplicate ∞ theater) -->
 
 <!-- VISION (elevated) -->
-<section id="vision" class="py-24 bg-black">
+<section id="vision" data-chapter-section="vision" class="shh-chapter py-24 bg-black">
   <div class="max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-5xl font-bold mb-8">The Vision</h2>
+    <div class="shh-chapter-kicker mb-3 shh-reveal">05 · Where we go</div>
+    <div class="shh-chapter-rule mx-auto mb-5 shh-reveal"></div>
+    <h2 class="shh-chapter-title text-5xl font-bold mb-8 shh-reveal">The Vision</h2>
     <div class="max-w-3xl mx-auto">
       <p class="text-2xl leading-relaxed text-amber-100 mb-12">
         We are not building another charity.<br>
