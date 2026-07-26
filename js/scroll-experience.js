@@ -255,8 +255,16 @@
     });
   }
 
+  function openDetailsOnDesktop() {
+    if (!isDesktop()) return;
+    document.querySelectorAll('details.shh-more, details#personal-engine').forEach(function (d) {
+      d.open = true;
+    });
+  }
+
   function boot() {
     try {
+      openDetailsOnDesktop();
       initScrollProgress();
       insertFlowBands();
       autoTagPanels();
