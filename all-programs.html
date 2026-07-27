@@ -493,6 +493,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 
 </style>
 <script src="js/programs-data.js" defer></script>
+<script src="js/programs-flywheel-nav.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
 <script src="js/glossary.js" defer></script>
 </head>
@@ -529,62 +530,11 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
         <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
       </a>
       <div id="programs-menu" 
-           class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 z-[60] shadow-2xl overflow-hidden"
-           style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset; min-width: 340px; max-width: min(420px, calc(100vw - 24px));">
-        <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center justify-between gap-2 border-b border-white/10 mb-1">
-          <span>2 FLYWHEELS · 1 MISSION</span>
-          <span class="text-[9px] tracking-normal text-zinc-500">29 programs</span>
-        </div>
-        <div class="flywheel-pair" role="group" aria-label="Token flywheels">
-          <a href="#nibbles" onclick="filterPrograms('$NIBBLES'); document.getElementById('programs-menu').classList.add('hidden');" class="flywheel-tile nibbles" title="Show $NIBBLES programs">
-            <div class="flywheel-rotor amber" aria-hidden="true"><span class="flywheel-core">🐾</span></div>
-            <span class="fw-name">$NIBBLES</span>
-            <span class="fw-meta">16 mercy programs for shelter dogs</span>
-          </a>
-          <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flywheel-tile hopeseed" title="Show $hopeseed programs">
-            <div class="flywheel-rotor emerald" aria-hidden="true"><span class="flywheel-core">🌱</span></div>
-            <span class="fw-name">$hopeseed</span>
-            <span class="fw-meta">13 hope programs for children &amp; families</span>
-          </a>
-        </div>
-        <p class="fw-mission"><strong>2 flywheels</strong>, one mission: people helping people helping people</p>
-        <a href="#all-programs-grid" onclick="filterPrograms('all'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> All 29 Programs
-        </a>
-        <div class="my-1 border-t border-white/10"></div>
-        <div class="px-5 pt-2 pb-1 text-[9px] tracking-[1.5px] text-amber-300/60 font-medium">$NIBBLES DEEP DIVES</div>
-        <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-amber-400/80">◆</span> K9 Lifeline
-        </a>
-        <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-amber-400/80">❤️</span> Golden Years
-        </a>
-        <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-[#c0c0c0]">🐾</span> Silver Paws
-        </a>
-        <a href="unified-rescue-registry.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-amber-400/80">🪪</span> Unified Rescue Registry
-        </a>
-        <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="chain-heart text-base">🔗❤️</span> Pay It Forward Chain
-        </a>
-        <div class="my-1 border-t border-white/10"></div>
-        <div class="px-5 pt-2 pb-1 text-[9px] tracking-[1.5px] text-emerald-300/60 font-medium">$hopeseed DEEP DIVES</div>
-        <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-emerald-400/80">🎄</span> Orphan Christmas
-        </a>
-        <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-emerald-400/80">👼</span> Guardian Angel Wallet
-        </a>
-        <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-emerald-400/80">✈️</span> Miracle Fight Fund
-        </a>
-        <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-emerald-400/80">✨</span> Dream Room Makeovers
-        </a>
-        <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-emerald-400/80">✿</span> Star Souls
-        </a>
+           class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 z-[9999] shadow-2xl overflow-hidden"
+           style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
+        <!-- Built by js/programs-flywheel-nav.js: dual scrollable program wheels -->
+        <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
+        <div data-prog-fw-mount></div>
       </div>
     </div>
 
@@ -1521,6 +1471,17 @@ function resetMedallion(el) {
 
 function applyHashFilter() {
   const hash = (location.hash || '').replace('#', '').toLowerCase();
+  // Deep-link from flywheel nav: #program-17
+  const progMatch = hash.match(/^program-(\d+)$/);
+  if (progMatch) {
+    const id = parseInt(progMatch[1], 10);
+    const p = (typeof programs !== 'undefined' ? programs : []).find(x => x.id === id);
+    if (p) {
+      filterPrograms(p.category);
+      setTimeout(() => { if (typeof showProgramModal === 'function') showProgramModal(id); }, 80);
+      return true;
+    }
+  }
   if (hash === 'hopeseed' || hash === 'hope') {
     filterPrograms('$hopeseed');
     return true;
@@ -1539,7 +1500,7 @@ function applyHashFilter() {
 window.onload = function() {
   parseUserHoldings();
 
-  // Deep-link: all-programs.html#hopeseed or #nibbles (from dual-flywheel nav)
+  // Deep-link: #hopeseed, #nibbles, or #program-17 (from dual-flywheel nav)
   if (!applyHashFilter()) {
     renderAllPrograms('all');
   }
@@ -1652,15 +1613,27 @@ function toggleProgramsDropdown(e) {
   const isHidden = menu.classList.contains('hidden');
   menu.classList.toggle('hidden');
   if (chevron) chevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+  if (!menu.classList.contains('hidden')) {
+    menu.style.zIndex = '9999';
+    if (window.SHHProgFlywheelNav && window.SHHProgFlywheelNav.init) {
+      window.SHHProgFlywheelNav.init();
+    }
+  }
+  if (window._shhProgMenuCloser) {
+    document.removeEventListener('click', window._shhProgMenuCloser);
+    window._shhProgMenuCloser = null;
+  }
   if (isHidden) {
     setTimeout(() => {
-      document.addEventListener('click', function handler(ev) {
-        if (!menu.contains(ev.target)) {
+      window._shhProgMenuCloser = function (ev) {
+        if (!menu.contains(ev.target) && !ev.target.closest('#programs-dropdown')) {
           menu.classList.add('hidden');
           if (chevron) chevron.style.transform = 'rotate(0deg)';
-          document.removeEventListener('click', handler);
+          document.removeEventListener('click', window._shhProgMenuCloser);
+          window._shhProgMenuCloser = null;
         }
-      }, { once: true });
+      };
+      document.addEventListener('click', window._shhProgMenuCloser);
     }, 10);
   }
 }

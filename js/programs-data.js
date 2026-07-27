@@ -1417,3 +1417,6 @@ const programs = [            {
           <button onclick="sponsorProgram('special-needs-support-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Build A Lifelong Bridge For These Families</button>`
       }
 ];
+
+// Shared access for nav flywheels and multi-script pages
+if (typeof window !== 'undefined') window.programs = programs;
