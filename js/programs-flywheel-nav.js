@@ -377,8 +377,10 @@
     }
     menu.setAttribute('data-fw-init', '1');
 
+    var allList = getPrograms();
+    var totalN = allList.length || 30;
     var footLinks = [
-      { href: 'all-programs.html', icon: '◉', text: 'All 29 Programs' },
+      { href: 'all-programs.html', icon: '◉', text: 'All ' + totalN + ' Programs' },
       { href: 'all-programs.html#nibbles', icon: '🐾', text: 'All $NIBBLES' },
       { href: 'all-programs.html#hopeseed', icon: '🌱', text: 'All $hopeseed' }
     ];
@@ -389,7 +391,7 @@
     }
 
     menu.innerHTML =
-      '<div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">29 programs</span></div>' +
+      '<div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">' + totalN + ' programs</span></div>' +
       '<div data-prog-fw-mount></div>' +
       '<div class="prog-fw-foot" data-prog-fw-foot></div>';
 

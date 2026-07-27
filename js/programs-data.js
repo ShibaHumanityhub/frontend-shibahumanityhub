@@ -1415,7 +1415,71 @@ const programs = [            {
           </div>
           <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding is there, these families will no longer carry that heavy weight alone. Their children will get the medicine, equipment, and support they need to thrive. Parents will have real peace of mind and space to simply love and raise their kids. This is the kind of steady, respectful care the world needs. One family, one child, one beautiful bridge to a better day at a time.</p>
           <button onclick="sponsorProgram('special-needs-support-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Build A Lifelong Bridge For These Families</button>`
-      }
+      },
+  {
+    id: 30,
+    title: "Sibling Keepers Program",
+    category: "$hopeseed",
+    badgeColor: "emerald",
+    image: "assets/images/siblingkeepersprogramphoto.jpg",
+    shortDesc: "When foster systems try to split brothers and sisters apart, we become the quiet force that keeps the pack together. Housing top-ups, sibling transport, shared placement support, and a soulbound bond record so no child loses their last family.",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Family Bond</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
+      <h2 class="text-4xl font-bold mb-3">Sibling Keepers Program</h2>
+      <p class="text-emerald-200 text-xl mb-6">The hardest day in a foster child’s life is often not the day they leave home. It is the day they are told they cannot stay with their brother or sister.</p>
+      <p class="text-zinc-300 mb-8">Sibling groups get split because of bed counts, budgets, zip codes, and paperwork. The kids already lost almost everything. Then they lose the last person who knows their story from the inside. That second wound is quiet. It does not make headlines. It just hollows out a childhood.</p>
+      <p class="text-zinc-300 mb-8">Sibling Keepers exists to refuse that outcome. When a sibling set is about to be separated, we move first. We help fund the extra bed, the larger placement, short-term housing top-ups for kinship or foster homes that can take the whole pack, transport so visits stay real when distance is temporary, and emergency case support so a placement that can keep them together does not fall through for money alone.</p>
+      <p class="text-zinc-300 mb-8">Every sibling set also receives a gentle soulbound Sibling Bond record on-chain. Not a product. A permanent, non-transferable proof that these kids belong to each other. Photos, milestones, and reunion moments can be added with care and consent so the bond stays visible even when the system tries to forget.</p>
+
+      <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
+      <div class="my-10 bg-gradient-to-br from-emerald-900/30 to-amber-900/20 border border-emerald-400/40 rounded-3xl p-8 text-center">
+        <div class="max-w-[340px] mx-auto bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl overflow-hidden shadow-2xl">
+          <video 
+            src="assets/videos/siblingkeepersprogram-animated.mp4" 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            preload="none"
+            poster="assets/images/siblingkeepersprogramphoto.jpg"
+            aria-label="Loving preview of Sibling Keepers. Brothers and sisters staying together when the system would split them."
+            class="w-full rounded-2xl">
+          </video>
+        </div>
+        <p class="text-emerald-200/80 text-sm mt-6">Watch the bond hold. One pack. One home. No child left as the only one who remembers.</p>
+      </div>
+
+      <div class="mb-10">
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Keeps the Pack Whole (when funded)</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
+            <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
+            <strong>Hold 25,000+ $hopeseed</strong><br>Fund sibling visit transport and care kits for one reuniting pair
+          </div>
+          <div class="bg-emerald-900/30 p-6 rounded-3xl text-center border-2 border-emerald-400">
+            <div class="text-emerald-300 font-semibold mb-2">Guardian Circle</div>
+            <strong>Hold 100,000+ $hopeseed</strong><br>Support a whole sibling set placement top-up for 30 to 90 days
+          </div>
+          <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
+            <div class="text-emerald-300 font-semibold mb-2">Eternal Guardian Circle</div>
+            <strong>Hold 250,000+ $hopeseed</strong><br>Become a named Sibling Keeper for a family pack with private impact updates
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-zinc-900/80 border border-emerald-400/20 rounded-3xl p-6">
+          <h5 class="text-emerald-300 font-semibold mb-2">What we fund</h5>
+          <p class="text-zinc-300 text-sm leading-relaxed">Larger foster or kinship home support, short-term rent or bed expansion, sibling transport, shared counseling starts, emergency case fees that would otherwise force a split.</p>
+        </div>
+        <div class="bg-zinc-900/80 border border-emerald-400/20 rounded-3xl p-6">
+          <h5 class="text-emerald-300 font-semibold mb-2">What we never do</h5>
+          <p class="text-zinc-300 text-sm leading-relaxed">We do not buy children. We do not override courts. We do not turn trauma into content. We remove money as the reason a pack is torn in half.</p>
+        </div>
+      </div>
+
+      <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, brothers and sisters who were about to lose each other will keep their last safe room in the world. They will sleep under the same roof. They will still have the person who knows their jokes, their fears, and their real names. This is not a gift basket. This is a vow: the pack stays together.</p>
+      <button onclick="sponsorProgram('sibling-keepers')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Keep Sibling Packs Together</button>`
+  }
 ];
 
 // Shared access for nav flywheels and multi-script pages
