@@ -529,39 +529,61 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
         <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
       </a>
       <div id="programs-menu" 
-           class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[260px] z-[60] shadow-2xl overflow-hidden"
-           style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
-        <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
-          <span>THE CIRCLE OF MERCY</span>
+           class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 z-[60] shadow-2xl overflow-hidden"
+           style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset; min-width: 340px; max-width: min(420px, calc(100vw - 24px));">
+        <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center justify-between gap-2 border-b border-white/10 mb-1">
+          <span>2 FLYWHEELS · 1 MISSION</span>
+          <span class="text-[9px] tracking-normal text-zinc-500">29 programs</span>
         </div>
-        <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+        <div class="flywheel-pair" role="group" aria-label="Token flywheels">
+          <a href="#nibbles" onclick="filterPrograms('$NIBBLES'); document.getElementById('programs-menu').classList.add('hidden');" class="flywheel-tile nibbles" title="Show $NIBBLES programs">
+            <div class="flywheel-rotor amber" aria-hidden="true"><span class="flywheel-core">🐾</span></div>
+            <span class="fw-name">$NIBBLES</span>
+            <span class="fw-meta">16 mercy programs for shelter dogs</span>
+          </a>
+          <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flywheel-tile hopeseed" title="Show $hopeseed programs">
+            <div class="flywheel-rotor emerald" aria-hidden="true"><span class="flywheel-core">🌱</span></div>
+            <span class="fw-name">$hopeseed</span>
+            <span class="fw-meta">13 hope programs for children &amp; families</span>
+          </a>
+        </div>
+        <p class="fw-mission"><strong>2 flywheels</strong>, one mission: people helping people helping people</p>
+        <a href="#all-programs-grid" onclick="filterPrograms('all'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
           <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> All 29 Programs
         </a>
-        <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> K9 Lifeline • Disaster Response
+        <div class="my-1 border-t border-white/10"></div>
+        <div class="px-5 pt-2 pb-1 text-[9px] tracking-[1.5px] text-amber-300/60 font-medium">$NIBBLES DEEP DIVES</div>
+        <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-amber-400/80">◆</span> K9 Lifeline
         </a>
-        <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> Star Souls • Therapy Gigs
+        <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-amber-400/80">❤️</span> Golden Years
         </a>
-        <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🐾</span> 
-          <span>Silver Paws • Senior Healing</span>
+        <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-[#c0c0c0]">🐾</span> Silver Paws
         </a>
-        <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-amber-400/80 group-hover/item:text-amber-400">❤️</span> 
-          <span>Golden Years • Companion Matching</span>
+        <a href="unified-rescue-registry.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-amber-400/80">🪪</span> Unified Rescue Registry
         </a>
-        <a href="unified-rescue-registry.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-amber-400/80 group-hover/item:text-amber-400">🪪</span> 
-          <span>Unified Rescue Registry • Soulbound Passports</span>
-        </a>
-        <a href="silver-paws.html#reels" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
-          <span>Virality • Reels &amp; Memories</span>
+        <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="chain-heart text-base">🔗❤️</span> Pay It Forward Chain
         </a>
         <div class="my-1 border-t border-white/10"></div>
-        <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-          <span class="chain-heart text-base">🔗❤️</span> Pay It Forward Adoption Chain
+        <div class="px-5 pt-2 pb-1 text-[9px] tracking-[1.5px] text-emerald-300/60 font-medium">$hopeseed DEEP DIVES</div>
+        <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-emerald-400/80">🎄</span> Orphan Christmas
+        </a>
+        <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-emerald-400/80">👼</span> Guardian Angel Wallet
+        </a>
+        <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-emerald-400/80">✈️</span> Miracle Fight Fund
+        </a>
+        <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); document.getElementById('programs-menu').classList.add('hidden');" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-emerald-400/80">✨</span> Dream Room Makeovers
+        </a>
+        <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2 text-sm hover:bg-white/5 transition-colors group/item">
+          <span class="text-emerald-400/80">✿</span> Star Souls
         </a>
       </div>
     </div>
@@ -597,39 +619,124 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
   #mobile-menu a {
     transition: background-color 0.1s ease;
   }
+  /* Dual flywheel launcher (shared with index) */
+  .flywheel-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 12px 14px 8px;
+  }
+  .flywheel-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 14px 10px 12px;
+    border-radius: 1.25rem;
+    border: 1px solid transparent;
+    text-decoration: none !important;
+    color: inherit;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .flywheel-tile:hover { transform: translateY(-2px); background: transparent !important; color: inherit !important; }
+  .flywheel-tile.nibbles {
+    background: linear-gradient(160deg, rgba(251,191,36,0.12), rgba(0,0,0,0.25));
+    border-color: rgba(251,191,36,0.28);
+  }
+  .flywheel-tile.nibbles:hover {
+    border-color: rgba(251,191,36,0.65);
+    box-shadow: 0 0 28px -8px rgba(251,191,36,0.55);
+  }
+  .flywheel-tile.hopeseed {
+    background: linear-gradient(160deg, rgba(52,211,153,0.12), rgba(0,0,0,0.25));
+    border-color: rgba(52,211,153,0.28);
+  }
+  .flywheel-tile.hopeseed:hover {
+    border-color: rgba(52,211,153,0.65);
+    box-shadow: 0 0 28px -8px rgba(52,211,153,0.55);
+  }
+  .flywheel-rotor {
+    width: 64px; height: 64px; border-radius: 50%;
+    position: relative; display: grid; place-items: center;
+  }
+  .flywheel-rotor::after {
+    content: '';
+    position: absolute; inset: 0; border-radius: 50%;
+    animation: flywheel-spin 8s linear infinite;
+  }
+  .flywheel-tile:hover .flywheel-rotor::after { animation-duration: 3.2s; }
+  .flywheel-rotor.amber::after {
+    background:
+      radial-gradient(circle at 50% 50%, rgba(251,191,36,0.25) 0 28%, transparent 29%),
+      conic-gradient(from 0deg, #fbbf24, #78350f, #fde68a, #b45309, #fbbf24);
+    box-shadow: 0 0 0 2px rgba(251,191,36,0.35), 0 0 22px -4px rgba(251,191,36,0.7);
+  }
+  .flywheel-rotor.emerald::after {
+    background:
+      radial-gradient(circle at 50% 50%, rgba(52,211,153,0.25) 0 28%, transparent 29%),
+      conic-gradient(from 0deg, #34d399, #064e3b, #a7f3d0, #059669, #34d399);
+    box-shadow: 0 0 0 2px rgba(52,211,153,0.35), 0 0 22px -4px rgba(52,211,153,0.7);
+    animation-direction: reverse;
+  }
+  .flywheel-rotor::before {
+    content: '';
+    position: absolute; inset: 10px; border-radius: 50%;
+    background: #0a0f1c; border: 1px solid rgba(255,255,255,0.08); z-index: 1;
+  }
+  .flywheel-rotor .flywheel-core { position: relative; z-index: 2; font-size: 1.15rem; line-height: 1; }
+  @keyframes flywheel-spin { to { transform: rotate(360deg); } }
+  .flywheel-tile .fw-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; }
+  .flywheel-tile.nibbles .fw-name { color: #fcd34d; }
+  .flywheel-tile.hopeseed .fw-name { color: #6ee7b7; }
+  .flywheel-tile .fw-meta { font-size: 0.65rem; line-height: 1.35; color: #a1a1aa; max-width: 12ch; }
+  .fw-mission {
+    text-align: center; font-size: 10px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: rgba(228,228,231,0.55); padding: 2px 14px 10px;
+  }
+  .fw-mission strong { color: #e4e4e7; font-weight: 600; }
 </style>
 
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 100px;">
   <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
-    <!-- Magical header like desktop -->
-    <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
-      <span>THE CIRCLE OF MERCY</span>
+    <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center justify-between gap-2 border-b border-white/10 mb-1">
+      <span>2 FLYWHEELS · 1 MISSION</span>
+      <span class="text-[9px] tracking-normal text-zinc-500">29</span>
     </div>
+    <div class="flywheel-pair px-3">
+      <a href="#nibbles" onclick="filterPrograms('$NIBBLES'); toggleMobileMenu();" class="flywheel-tile nibbles">
+        <div class="flywheel-rotor amber" aria-hidden="true"><span class="flywheel-core">🐾</span></div>
+        <span class="fw-name">$NIBBLES</span>
+        <span class="fw-meta">16 dog programs</span>
+      </a>
+      <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); toggleMobileMenu();" class="flywheel-tile hopeseed">
+        <div class="flywheel-rotor emerald" aria-hidden="true"><span class="flywheel-core">🌱</span></div>
+        <span class="fw-name">$hopeseed</span>
+        <span class="fw-meta">13 hope programs</span>
+      </a>
+    </div>
+    <p class="fw-mission"><strong>2 flywheels</strong>, one mission</p>
     
-    <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+    <a href="#all-programs-grid" onclick="filterPrograms('all'); toggleMobileMenu();" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
       <span>All 29 Programs</span>
     </a>
     <a href="star-souls.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
-      <span>Star Souls • Therapy Gigs</span>
+      <span>Star Souls</span>
     </a>
     <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🐾</span> 
-      <span>Silver Paws • Senior Healing</span>
+      <span>Silver Paws</span>
     </a>
-    <a href="silver-paws.html#reels" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
-      <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
-      <span>Virality • Reels &amp; Memories</span>
-    </a>
-        <a href="shiba-barn-table.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+    <a href="shiba-barn-table.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-orange-300/90">🍽️</span> 
       <span>Shiba Barn Table BBQ</span>
     </a>
-<a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+    <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
       <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
-      <span>K9 Lifeline • Disaster Response</span>
+      <span>K9 Lifeline</span>
     </a>
     
     <div class="my-1 border-t border-white/10"></div>
@@ -746,16 +853,21 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 <section class="py-24 bg-zinc-950">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-12">
+      <p class="text-[10px] tracking-[3px] uppercase text-zinc-500 mb-3">2 flywheels · 1 mission</p>
       <h2 class="text-5xl font-bold">All 29 Programs</h2>
       <p class="text-amber-200 text-2xl mt-4">Every program is a living act of love.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span><br>No matter who you are, when you step in, you help give these souls the lives they were always meant to have.<br>Click any card to feel it.</p>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-400/30 bg-amber-500/10 text-amber-100">🐾 16 $NIBBLES</span>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-100">🌱 13 $hopeseed</span>
+      </div>
     </div>
 
     <!-- TABS + Phase 5 Extra Special Filters & Search -->
     <div class="flex justify-center gap-4 mb-8 flex-wrap">
       <div role="tablist" aria-label="Program categories">
-        <button onclick="filterPrograms('all')" id="tab-all" role="tab" aria-selected="true" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
-        <button onclick="filterPrograms('$NIBBLES')" id="tab-nibbles" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
-        <button onclick="filterPrograms('$hopeseed')" id="tab-hopeseed" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
+        <button onclick="filterPrograms('all'); history.replaceState(null,'','#all');" id="tab-all" role="tab" aria-selected="true" class="tab-btn active bg-amber-400 text-black font-semibold px-8 py-3 rounded-3xl text-lg">All Programs</button>
+        <button onclick="filterPrograms('$NIBBLES'); history.replaceState(null,'','#nibbles');" id="tab-nibbles" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">🐾 $NIBBLES</button>
+        <button onclick="filterPrograms('$hopeseed'); history.replaceState(null,'','#hopeseed');" id="tab-hopeseed" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-emerald-400">🌱 $hopeseed</button>
         <button onclick="showSoulsTab()" id="tab-souls" role="tab" aria-selected="false" class="tab-btn px-8 py-3 rounded-3xl text-lg border border-white/20 hover:border-amber-400">❤️ Meet the Souls</button>
       </div>
     </div>
@@ -1056,11 +1168,12 @@ function renderAllPrograms(cat = 'all') {
   if (cat === 'all') {
     const nibbles = programs.filter(p => p.category === '$NIBBLES');
     grid.innerHTML += `
-      <div class="programs-section">
+      <div id="nibbles" class="programs-section scroll-mt-28">
         <div class="flex items-center justify-center gap-4 mb-8">
           <h2 class="section-header text-amber-300">$NIBBLES • Mercy Programs</h2>
         </div>
-        <p class="text-center text-amber-200/90 text-xl max-w-3xl mx-auto mb-14">Every transaction quietly becomes mercy for dogs who once had none.</p>
+        <p class="text-center text-amber-200/90 text-xl max-w-3xl mx-auto mb-4">Every transaction quietly becomes mercy for dogs who once had none.</p>
+        <p class="text-center text-amber-200/60 text-sm mb-14">${nibbles.length} living programs in the dog flywheel</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           ${nibbles.map(p => createCardHTML(p)).join('')}
         </div>
@@ -1075,7 +1188,7 @@ function renderAllPrograms(cat = 'all') {
             <span class="text-6xl text-emerald-400">♡</span>
             <span>🌱</span>
           </div>
-          <h3 class="divider-text">29 Living Stories of Mercy</h3>
+          <h3 class="divider-text">2 Flywheels · 1 Mission</h3>
           <p class="text-amber-100/80 text-lg mt-6 max-w-lg mx-auto leading-relaxed">
             People helping people helping people.<br>
             Every single transaction saves lives.
@@ -1086,11 +1199,12 @@ function renderAllPrograms(cat = 'all') {
 
     const hopeseed = programs.filter(p => p.category === '$hopeseed');
     grid.innerHTML += `
-      <div class="programs-section">
+      <div id="hopeseed" class="programs-section scroll-mt-28">
         <div class="flex items-center justify-center gap-4 mb-8">
           <h2 class="section-header text-emerald-300">$hopeseed • Hope Programs</h2>
         </div>
-        <p class="text-center text-emerald-200/90 text-xl max-w-3xl mx-auto mb-14">Every transaction plants a seed of hope for children who need it most.</p>
+        <p class="text-center text-emerald-200/90 text-xl max-w-3xl mx-auto mb-4">Every transaction plants a seed of hope for children who need it most.</p>
+        <p class="text-center text-emerald-200/60 text-sm mb-14">${hopeseed.length} living programs in the hope flywheel</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           ${hopeseed.map(p => createCardHTML(p)).join('')}
         </div>
@@ -1405,34 +1519,54 @@ function resetMedallion(el) {
   }
 }
 
+function applyHashFilter() {
+  const hash = (location.hash || '').replace('#', '').toLowerCase();
+  if (hash === 'hopeseed' || hash === 'hope') {
+    filterPrograms('$hopeseed');
+    return true;
+  }
+  if (hash === 'nibbles' || hash === 'n') {
+    filterPrograms('$NIBBLES');
+    return true;
+  }
+  if (hash === 'all') {
+    filterPrograms('all');
+    return true;
+  }
+  return false;
+}
+
 window.onload = function() {
   parseUserHoldings();
-  renderAllPrograms('all');
+
+  // Deep-link: all-programs.html#hopeseed or #nibbles (from dual-flywheel nav)
+  if (!applyHashFilter()) {
+    renderAllPrograms('all');
+  }
   
-  // Phase 5: Apply any search/circle from URL or holdings on initial load (extra special personal view)
+  // Phase 5: Apply any search/circle from URL or holdings on initial load
   const searchInput = document.getElementById('program-search');
   if (searchInput && currentSearch) searchInput.value = currentSearch;
   applyClientFilters();
   
-  console.log('%c✅ All Programs Page Loaded - Phase 5 Constellation ready. The people are building this together.', 'color:#fcd34d; font-family:monospace;');
+  console.log('%c✅ All Programs Page Loaded - dual flywheels ready ($NIBBLES + $hopeseed).', 'color:#fcd34d; font-family:monospace;');
 
-  // Phase 4/5: init unified premium animations (particles, hovers, reveals)
   if (window.initPremiumAnimations) {
     window.initPremiumAnimations();
   }
   
-  // If holdings present, gently highlight the "your ripples support" experience
   if (userHoldings.n > 0 || userHoldings.h > 0) {
     setTimeout(() => {
       const note = document.querySelector('.max-w-2xl.mx-auto.mb-12 p');
       if (note) note.style.transition = 'color 1.5s';
-      // Already loving copy, just a little emphasis
     }, 800);
   }
 
-  // Set initial active for circle-all
   const allCircleBtn = document.getElementById('circle-all');
   if (allCircleBtn) allCircleBtn.classList.add('bg-emerald-400', 'text-black', 'border-emerald-400');
+
+  // Keep tab state in sync when hash changes (back/forward or in-page links)
+  window.addEventListener('hashchange', applyHashFilter);
 };
 
 // Using centralized glossary from js/glossary.js
