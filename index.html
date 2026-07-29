@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- FORCE REDEPLOY - Mobile tighten + shorter home: collapse depth, compact programs/shelters. -->
+<!-- FORCE REDEPLOY - Home spine tighten: Protocol-style first page, depth in Explore. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1227,6 +1227,25 @@
         color: #6ee7b7;
       }
     }
+    /* Desktop depth panels (Protocol: spine vs depth) */
+    details.home-depth {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1.5rem;
+      background: rgba(9,11,18,0.65);
+      transition: border-color 0.25s ease, box-shadow 0.3s ease;
+    }
+    details.home-depth:hover {
+      border-color: rgba(251,191,36,0.28);
+    }
+    details.home-depth > summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    details.home-depth > summary::-webkit-details-marker { display: none; }
+    details.home-depth[open] {
+      box-shadow: 0 24px 60px -30px rgba(0,0,0,0.7);
+      border-color: rgba(251,191,36,0.22);
+    }
     @media (min-width: 768px) {
       .home-mobile-compact { display: none !important; }
     }
@@ -1254,12 +1273,10 @@
 <!-- Desktop chapter rail -->
 <nav id="shh-chapter-rail" aria-label="Page chapters">
   <a href="#hero" data-chapter="hero" class="is-active"><span class="dot"></span><span class="label">Origin</span></a>
-  <a href="#flywheel" data-chapter="flywheel"><span class="dot"></span><span class="label">Flywheel</span></a>
-  <a href="#blueprint" data-chapter="blueprint"><span class="dot"></span><span class="label">Blueprint</span></a>
+  <a href="#flywheel" data-chapter="flywheel"><span class="dot"></span><span class="label">Story</span></a>
   <a href="#tokens" data-chapter="tokens"><span class="dot"></span><span class="label">Tokens</span></a>
-  <a href="#onchain" data-chapter="onchain"><span class="dot"></span><span class="label">Ledger</span></a>
-  <a href="#mercy-engine" data-chapter="engine"><span class="dot"></span><span class="label">Engine</span></a>
   <a href="#programs" data-chapter="programs"><span class="dot"></span><span class="label">Programs</span></a>
+  <a href="#explore" data-chapter="explore"><span class="dot"></span><span class="label">Explore</span></a>
   <a href="#vision" data-chapter="vision"><span class="dot"></span><span class="label">Vision</span></a>
 </nav>
 
@@ -1794,7 +1811,7 @@
             </div>
             <div>
               <h3 class="text-base font-semibold text-amber-200 mb-2">Seed focus (upon funding)</h3>
-              <p class="text-zinc-400">Healing Hearts · K9 Lifeline · Pay It Forward. Narrow first. Full 29 as capacity grows.</p>
+              <p class="text-zinc-400">Healing Hearts · K9 Lifeline · Pay It Forward. Narrow first. Full 30 as capacity grows.</p>
             </div>
             <div>
               <h3 class="text-base font-semibold text-amber-200 mb-2">Verifiability over trust</h3>
@@ -1809,82 +1826,32 @@
         </details>
       </div>
 
-      <!-- The loop visualized in text + tie to dashboard -->
-      <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-8 text-sm leading-relaxed text-zinc-300">
-        <div class="uppercase tracking-widest text-xs text-emerald-300 mb-3">The self-reinforcing loop</div>
-        <div class="space-y-4">
-          <div><span class="text-amber-300">1. Holding</span> → Your tokens fund specific circles of mercy (25k, 100k, 250k thresholds already written into the programs).</div>
-          <div><span class="text-amber-300">2. Delivery</span> → Programs produce living proof: videos, updates, soulbound records, livestreamed barns.</div>
-          <div><span class="text-amber-300">3. Resonance</span> → Those stories move people. Some become new holders. The network grows.</div>
-          <div><span class="text-amber-300">4. Amplification</span> → More holders = more funding capacity = more stories = more resonance. The engine turns faster with each cycle - a flywheel that becomes stronger precisely because it is decentralized, voluntary, and built on verifiable truth rather than trust in institutions that can be captured.</div>
+      <!-- The loop — short, Protocol-tight -->
+      <div class="bg-zinc-900/60 border border-white/10 rounded-3xl p-7 text-sm leading-relaxed text-zinc-300 shh-reveal">
+        <div class="uppercase tracking-widest text-xs text-emerald-300 mb-4">The loop</div>
+        <div class="space-y-3">
+          <div><span class="text-amber-300 font-medium">Hold</span> → Circles of mercy (25k · 100k · 250k).</div>
+          <div><span class="text-amber-300 font-medium">Deliver</span> → Proof: stories, soulbound records, real care.</div>
+          <div><span class="text-amber-300 font-medium">Resonate</span> → New people join. The wheel turns faster.</div>
         </div>
-        <p class="mt-6 text-emerald-200/80 text-xs">This is not linear charity. It is an antifragile system designed so that success makes future success more likely. Your participation today is already part of tomorrow’s larger capacity for mercy. In the long term, a model for global coordination of compassion that cannot be captured by bureaucracy, misaligned incentives, or centralized power. Soulbound proofs endure. The flywheel turns without end.</p>
-        <a href="#mercy-engine" class="inline-block mt-6 text-xs tracking-widest uppercase text-white/70 hover:text-white border-b border-white/30 hover:border-white pb-px">See the engine in motion →</a>
+        <p class="mt-5 text-emerald-200/80 text-xs">Not linear charity. A flywheel designed so success makes more mercy possible tomorrow.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#tokens" class="inline-block text-xs tracking-widest uppercase text-amber-200/90 hover:text-white border-b border-amber-400/40 hover:border-white pb-px">See tokens →</a>
+          <a href="#explore" class="inline-block text-xs tracking-widest uppercase text-white/60 hover:text-white border-b border-white/25 hover:border-white pb-px">Open the engine →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
   
-<!-- === THE MERCY BLUEPRINT: HEARTFELT LEAD MAGNET (premium) === -->
-<section id="blueprint" data-chapter-section="blueprint" class="shh-chapter py-24 bg-gradient-to-b from-zinc-950 to-black border-t border-b border-amber-400/20">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <div class="inline-flex items-center gap-3 bg-zinc-900 border border-emerald-400/30 rounded-3xl px-6 py-2 mb-8">
-      <span class="text-3xl">❤️</span>
-      <span class="text-emerald-300 font-medium">Instant Delivery • Lifetime Impact</span>
-    </div>
-    
-    <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">Get The Mercy Blueprint</h2>
-    <p class="text-2xl text-zinc-300 max-w-2xl mx-auto mb-10">
-      I wrote this with tears in my eyes. Full vision, all 30 programs, and how every transaction saves lives.
-    </p>
-
-    <form id="mercy-form" action="https://formspree.io/f/xvzlyrzb" method="POST" class="max-w-lg mx-auto">
-      <input type="hidden" name="_subject" value="New Mercy Blueprint Download!">
-      
-      <div class="flex flex-col sm:flex-row gap-4 items-center">
-        <input 
-          type="email" 
-          name="email" 
-          id="email" 
-          placeholder="your@email.com" 
-          required 
-          class="flex-1 bg-zinc-900 border border-amber-400/40 focus:border-emerald-400 rounded-3xl px-8 py-7 text-lg placeholder-zinc-400 outline-none transition-all w-full">
-        
-        <button 
-          type="submit" 
-          id="submit-btn"
-          class="super-cta-btn lead-magnet-btn inline-flex items-center justify-center gap-3 text-black font-semibold px-10 py-7 rounded-3xl text-xl w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-all min-w-[200px]">
-          <img loading="lazy" decoding="async" src="assets/logos/shibahumanityhublogo3d-new.jpg" 
-               class="w-10 h-10 object-cover rounded-full ring-2 ring-white/30 shadow-xl flex-shrink-0" 
-               width="40" height="40" alt="Shibahumanityhub">
-          <span>Send Me The Blueprint</span>
-        </button>
-      </div>
-    </form>
-
-    <!-- Success Message -->
-    <div id="success-message" class="hidden mt-8 p-8 bg-emerald-900/30 border border-emerald-400 rounded-3xl">
-      <p class="text-emerald-300 text-2xl mb-4">Thank you! ❤️ Your Mercy Blueprint is downloading now...</p>
-      <p class="text-emerald-200 mb-6">You should also receive it in your email shortly.</p>
-      <a id="direct-download-btn" href="mercy-blueprint.html" 
-         target="_blank"
-         class="inline-block bg-white text-black font-bold px-10 py-5 rounded-3xl hover:scale-105 transition-all text-xl">
-        📥 Read The Mercy Blueprint
-      </a>
-    </div>
-
-    <p class="text-xs text-zinc-500 mt-6">We respect your inbox. Zero spam ever.</p>
-  </div>
-</section>
-  
-<!-- TOKENS -->
-<section id="tokens" data-chapter-section="tokens" class="shh-chapter py-24 bg-zinc-900">
+<!-- TOKENS (main attraction — keep on spine) -->
+<section id="tokens" data-chapter-section="tokens" class="shh-chapter py-20 md:py-24 bg-zinc-900">
   <div class="max-w-6xl mx-auto px-6 text-center">
     <div class="shh-chapter-head mx-auto mb-10 shh-reveal">
       <div class="shh-chapter-kicker mb-3">02 · On-chain fuel</div>
       <div class="shh-chapter-rule mx-auto mb-5"></div>
       <h2 class="shh-chapter-title text-5xl font-bold mb-4">Tokens on Shibarium</h2>
-      <p class="shh-chapter-lede text-sm text-zinc-400 max-w-2xl mx-auto mb-4">Contracts are on Shibarium mainnet and open on shibariumscan.io. Connect a wallet on Shibarium for read-only balances and ripples. No hype. Just the state of the chain as it is.</p>
+      <p class="shh-chapter-lede text-sm text-zinc-400 max-w-2xl mx-auto mb-4">Two fuels. One mission. Contracts on mainnet. No hype — the chain as it is.</p>
     </div>
     
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -1948,93 +1915,62 @@
       </div>
     </div>
 
-    <!-- Zero-cost design + founder oath (single block, no duplicates) -->
+    <!-- Compact truth + connect (ledger depth opens below) -->
     <div class="max-w-3xl mx-auto mt-12">
-      <div class="text-center px-8 py-6 bg-zinc-950/70 border border-emerald-400/20 rounded-3xl">
-        <p class="text-emerald-200 text-lg">The design goal: <span class="font-semibold">mercy without an extra ask</span>.</p>
-        <p class="text-sm text-emerald-300/80 mt-1.5">When tax and impact rails are live, holding or transacting is meant to fund real programs automatically. Until then, the contracts and the story are the foundation. Not inflated delivery claims.</p>
+      <div class="text-center px-6 py-5 bg-zinc-950/70 border border-emerald-400/20 rounded-3xl">
+        <p class="text-emerald-200 text-base md:text-lg">Design goal: <span class="font-semibold">mercy without an extra ask</span> — when rails are live.</p>
+        <p class="text-xs text-emerald-300/70 mt-1.5">Until then: contracts + honest story. Not inflated delivery claims.</p>
       </div>
     </div>
-
-    <div class="max-w-3xl mx-auto mt-8 text-center">
-      <p class="text-sm text-zinc-400">I originally planned to never buy a single token myself. To remove even the possibility that people might think the founder was doing something shady.</p>
-      <p class="text-sm text-emerald-200 mt-2">I changed my mind. I will buy and hold $NIBBLES and $hopeseed because holding them directly supports the souls. The dogs, the children, the veterans, the families. I make this public oath: I will never sell. My only exit is through the long-term success of this flywheel and every soul it serves.</p>
-      <p class="text-xs text-emerald-300/70 mt-1.5">This is not financial advice. It is a personal commitment. Full on-chain proofs of holdings will be published when registered charity status is complete.</p>
+    <div class="text-center mt-8">
+      <div id="network-status" class="mb-3 inline-flex items-center gap-2 text-xs px-4 py-1.5 rounded-2xl border border-white/10 bg-zinc-900/60 text-zinc-400">
+        <span id="network-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+        <span id="network-label">Shibarium • shibariumscan.io • connect for balances</span>
+      </div>
+      <div>
+        <button onclick="connectShibariumWallet()" aria-label="Connect your wallet read-only to see the living on-chain ledger." class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-lg px-8 py-4 rounded-3xl">
+          Connect Wallet · Living Ledger
+        </button>
+      </div>
+      <p class="mt-3 text-xs text-zinc-500 max-w-md mx-auto">Read-only. No signatures. Full ledger tools open in Explore when you want depth.</p>
+      <div id="wallet-status" class="mt-3 text-sm text-emerald-300 hidden" aria-live="polite"></div>
+      <div id="nibbles-balance" class="hidden"></div>
+      <div id="nibbles-circle" class="hidden"></div>
+      <div id="hopeseed-balance" class="hidden"></div>
+      <div id="hopeseed-circle" class="hidden"></div>
     </div>
   </div>
 </section>
 
-<!-- LIVING MERCY ON SHIBARIUM - READ-ONLY TRANSPARENCY & PERSONAL CIRCLES -->
-<section id="onchain" data-chapter-section="onchain" class="shh-chapter py-24 bg-zinc-900 border-t border-b border-amber-400/20">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-5xl font-bold mb-4">Living Mercy on Shibarium</h2>
-      <p class="text-2xl text-amber-200">The contracts are real. Your transfers on the chain are the living proof. Connect quietly to see your actual ripples and how they are already turning the flywheel for children, seniors, veterans, inmates and the dogs who stand with them. The project treasury lives at shibahumanityhub.shib (resolves to the dedicated project wallet on Shibarium). All future flows are designed to be publicly auditable on-chain the moment holdings begin.</p>
-      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">Every on-chain move you make is a quiet, verifiable act of mercy. No pressure. No signatures. Just the truth the ledger cannot forget.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-      <!-- $NIBBLES -->
-      <div class="bg-zinc-800 rounded-3xl p-8 border border-amber-400/30">
-        <div class="flex items-center gap-4 mb-6">
-          <img loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles logo.jpg" loading="lazy" decoding="async" class="w-14 h-14 rounded-2xl object-contain" alt="Mr. Nibbles" loading="lazy" decoding="async">
-          <div>
-            <p class="text-amber-200 text-2xl font-semibold">Mr. Nibbles ($NIBBLES)</p>
-            <p class="text-sm text-amber-300/70">Mercy for dogs who once had none</p>
+<!-- LIVING LEDGER — depth (collapsed by default; keeps JS hooks) -->
+<section id="onchain" data-chapter-section="onchain" class="shh-chapter py-12 md:py-16 bg-zinc-900 border-t border-b border-amber-400/15">
+  <div class="max-w-4xl mx-auto px-6">
+    <details class="shh-more home-depth group border border-white/10 rounded-3xl bg-zinc-950/50 p-5 md:p-8">
+      <summary class="cursor-pointer list-none flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div>
+          <div class="text-[10px] tracking-[0.2em] uppercase text-amber-300/70 mb-1">Depth · on-chain</div>
+          <h2 class="text-2xl md:text-3xl font-bold text-white">Living ledger &amp; ripples</h2>
+          <p class="text-sm text-zinc-400 mt-1">Balances, circles, public ripples. Open when you want the full machine.</p>
+        </div>
+        <span class="text-xs text-emerald-300 group-open:hidden">Tap to open →</span>
+        <span class="text-xs text-zinc-500 hidden group-open:inline">Tap to close</span>
+      </summary>
+      <div class="mt-8">
+        <p class="text-sm text-zinc-400 mb-6 max-w-2xl">Treasury identity: shibahumanityhub.shib. Every on-chain move is meant to be verifiable. No pressure. No signatures beyond read-only connect above.</p>
+        <div id="your-circles" class="hidden mb-8 max-w-4xl mx-auto bg-black/40 border border-white/10 rounded-3xl p-6 md:p-10">
+          <h3 class="text-xl font-semibold text-center mb-6 text-white">Your Quiet Place in the Circles</h3>
+          <div class="grid md:grid-cols-2 gap-6 text-sm">
+            <div class="bg-zinc-900/60 rounded-2xl p-6">
+              <div class="font-semibold text-amber-300 mb-2">With $NIBBLES</div>
+              <div id="nibbles-circles-list" class="text-amber-100 space-y-1"></div>
+            </div>
+            <div class="bg-zinc-900/60 rounded-2xl p-6">
+              <div class="font-semibold text-emerald-300 mb-2">With $hopeseed</div>
+              <div id="hopeseed-circles-list" class="text-emerald-100 space-y-1"></div>
+            </div>
           </div>
+          <p class="text-center mt-6 text-xs text-zinc-400 italic">Thresholds match the 30 programs. When funding comes through, holdings feed real mercy.</p>
         </div>
-        <a href="https://shibariumscan.io/address/0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0x20a90E0A5346abF59d8244F6c193d0Bb13F7E5CF</a>
-        <p class="text-xs text-emerald-300/70 mt-1">Intended treasury identity: shibahumanityhub.shib</p>
-        <div id="nibbles-balance" class="text-3xl font-semibold text-amber-100 mb-2 hidden"></div>
-        <div id="nibbles-circle" class="text-sm text-amber-300 mb-4 hidden"></div>
-        <p class="text-xs text-zinc-500">When the funding comes through, these holdings unlock the Circles of Mercy<span class="info-icon" data-term="circles of mercy" title="Tap for plain terms">ⓘ</span> described in every program above.</p>
-      </div>
-
-      <!-- $hopeseed -->
-      <div class="bg-zinc-800 rounded-3xl p-8 border border-emerald-400/30">
-        <div class="flex items-center gap-4 mb-6">
-          <img loading="lazy" decoding="async" src="assets/logos/hopeseed-logo.jpg" loading="lazy" decoding="async" class="w-14 h-14 rounded-2xl object-contain" alt="hopeseed" loading="lazy" decoding="async">
-          <div>
-            <p class="text-emerald-300 text-2xl font-semibold">$hopeseed</p>
-            <p class="text-sm text-emerald-300/70">Seeds of hope for children who need it most</p>
-          </div>
-        </div>
-        <a href="https://shibariumscan.io/address/0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833" target="_blank" class="block text-xs font-mono text-blue-300 hover:underline mb-4 break-all">0xF7a5c5634d62e428fD1dbd7292e6925eE8C90833</a>
-        <p class="text-xs text-emerald-300/70 mt-1">Intended treasury identity: shibahumanityhub.shib</p>
-        <div id="hopeseed-balance" class="text-3xl font-semibold text-emerald-100 mb-2 hidden"></div>
-        <div id="hopeseed-circle" class="text-sm text-emerald-300 mb-4 hidden"></div>
-        <p class="text-xs text-zinc-500">Your quiet holding plants real seeds. The thresholds below are the same ones written into the programs you just read.</p>
-      </div>
-    </div>
-
-    <div class="text-center">
-      <!-- Gentle, always-visible network status (Phase 3 transparency). Read-only, quietly showing where the on-chain truth lives today. -->
-      <div id="network-status" class="mb-4 inline-flex items-center gap-2 text-xs px-4 py-1.5 rounded-2xl border border-white/10 bg-zinc-900/60 text-zinc-400">
-        <span id="network-dot" class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-        <span id="network-label">Shibarium • contracts on shibariumscan.io • connect for balances</span>
-      </div>
-
-      <button onclick="connectShibariumWallet()" aria-label="Connect your wallet read-only to see the living on-chain ledger. Your ripples and the first community transfers will appear here." class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-xl px-10 py-6 rounded-3xl">
-        Connect Wallet • See the Living Ledger
-      </button>
-      <p class="mt-4 text-xs text-zinc-500 max-w-md mx-auto">Read-only. No signatures. Real activity appears here the moment the first community holdings and transfers land. The simulator shows exactly what your ripples will unlock.</p>
-      <div id="wallet-status" class="mt-3 text-sm text-emerald-300 hidden" aria-live="polite"></div>
-    </div>
-
-    <div id="your-circles" class="hidden mt-12 max-w-4xl mx-auto bg-black/40 border border-white/10 rounded-3xl p-10">
-      <h3 class="text-3xl font-semibold text-center mb-8 text-white">Your Quiet Place in the Circles</h3>
-      <div class="grid md:grid-cols-2 gap-6 text-sm">
-        <div class="bg-zinc-900/60 rounded-2xl p-6">
-          <div class="font-semibold text-amber-300 mb-2">With $NIBBLES</div>
-          <div id="nibbles-circles-list" class="text-amber-100 space-y-1"></div>
-        </div>
-        <div class="bg-zinc-900/60 rounded-2xl p-6">
-          <div class="font-semibold text-emerald-300 mb-2">With $hopeseed</div>
-          <div id="hopeseed-circles-list" class="text-emerald-100 space-y-1"></div>
-        </div>
-      </div>
-      <p class="text-center mt-8 text-xs text-zinc-400 italic">These are the same thresholds written into the 30 programs. When the funding comes through, every token you hold becomes part of the mercy that reaches children, seniors, veterans, inmates and the dogs who stand with them.</p>
-    </div>
 
     <!-- PHASE 3 COMPLETE: ELECTRIFIED ON-CHAIN LIVING LEDGER + PUBLIC RIPPLES IN THE WILD.
          Real transfers as mind-blowing, truthful ripples. Personal + community view.
@@ -2121,97 +2057,74 @@
           </div>
         </div>
 
-        <p class="mt-6 text-[10px] text-zinc-500 italic">Each entry is a verifiable on-chain act. Every one is a quiet promise that helps unlock the Circles of Mercy for dogs and the people who need them most. Children, seniors, veterans, inmates and families rebuilding their lives. This is what people helping people helping people looks like on the ledger. And the first real ones are being prepared now.</p>
+        <p class="mt-6 text-[10px] text-zinc-500 italic">Each entry is a verifiable on-chain act. Quiet proof of people helping people helping people.</p>
       </div>
     </div>
+      </div>
+    </details>
   </div>
 </section>
 
-<!-- PHASE 3: THE PERPETUAL MERCY ENGINE + INTERACTIVE IMPACT DASHBOARD -->
-<section id="mercy-engine" data-chapter-section="engine" class="shh-chapter py-24 bg-gradient-to-b from-zinc-950 to-black">
+<!-- ENGINE — short teaser on spine; full machine in collapsed depth -->
+<section id="mercy-engine" data-chapter-section="engine" class="shh-chapter py-14 md:py-16 bg-gradient-to-b from-zinc-950 to-black">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-12 shh-reveal">
+    <div class="text-center mb-8 shh-reveal">
       <div class="shh-chapter-kicker mb-3">03 · The machine</div>
       <div class="shh-chapter-rule mx-auto mb-5"></div>
-      <h2 class="shh-chapter-title text-5xl font-bold mb-4">The Perpetual Mercy Engine</h2>
-      <p class="text-2xl text-amber-200 max-w-3xl mx-auto">We are not building another charity.<br>We are building a perpetual mercy engine on the blockchain.</p>
-      <p class="mt-6 text-lg text-zinc-300 max-w-2xl mx-auto">The engine is designed so that when tax and impact rails are live, activity on $NIBBLES and $hopeseed funds mercy transparently. No middlemen theater. Just people helping people helping people. Children, seniors, veterans, inmates and the dogs who stand with them. Your participation today builds capacity for tomorrow through stories, holders, and verifiable truth.</p>
+      <h2 class="shh-chapter-title text-4xl md:text-5xl font-bold mb-3">The Perpetual Mercy Engine</h2>
+      <p class="text-lg md:text-xl text-amber-200 max-w-2xl mx-auto">Not another charity. A self-reinforcing engine — when rails are live, activity funds mercy without theater.</p>
+      <p class="mt-4 text-sm text-zinc-400 max-w-xl mx-auto">$NIBBLES · dogs &amp; healing. $hopeseed · children &amp; families. You are 1.</p>
+      <p class="mt-3 text-xs text-zinc-500">Official home: <a href="https://shibahumanityhub.shib" target="_blank" class="font-mono text-emerald-400/90 hover:underline">shibahumanityhub.shib</a></p>
     </div>
 
-    <!-- Global Symbolic Impact (enhanced from Mercy in Motion) -->
-    <div class="mb-16">
-      <div class="text-center mb-10">
-        <h3 class="text-3xl font-semibold">Mercy in Motion • The Truth We Hold</h3>
-        <p class="text-amber-200 mt-2">We do not inflate numbers. We build real mercy, one honest transaction at a time.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-10 text-center group">
-          <div class="text-7xl mb-6 transition-transform group-hover:scale-110">🐾</div>
-          <div class="text-7xl font-bold text-amber-400 mb-3">∞</div>
-          <p class="text-2xl font-light text-amber-100">Dogs being helped</p>
-          <p class="text-zinc-400 mt-4">Every $NIBBLES transaction is designed to become warmth, food, love, and dignity for dogs who once had none when impact rails are live.</p>
+    <details class="shh-more home-depth group border border-white/10 rounded-3xl bg-zinc-900/40 p-5 md:p-8">
+      <summary class="cursor-pointer list-none">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-emerald-300/70 mb-1">Depth · engine</div>
+            <h3 class="text-xl md:text-2xl font-semibold text-white">Open the engine, simulator &amp; visual flywheel</h3>
+            <p class="text-sm text-zinc-400 mt-1">∞ cards · interactive viz · hold simulator · share footprint</p>
+          </div>
+          <span class="text-xs text-amber-300 group-open:hidden">Tap to open →</span>
         </div>
-        <div class="bg-zinc-900/70 border border-emerald-400/20 rounded-3xl p-10 text-center group">
-          <div class="text-7xl mb-6 transition-transform group-hover:scale-110">🌱</div>
-          <div class="text-7xl font-bold text-emerald-400 mb-3">∞</div>
-          <p class="text-2xl font-light text-emerald-100">Children receiving hope</p>
-          <p class="text-zinc-400 mt-4">Every $hopeseed transaction is designed to plant seeds of love, security, and second chances when impact rails are live.</p>
+      </summary>
+      <div class="mt-8">
+
+    <!-- Global Symbolic Impact -->
+    <div class="mb-12">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-semibold">Mercy in Motion</h3>
+        <p class="text-amber-200/90 mt-2 text-sm">We do not inflate numbers. One honest transaction at a time.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-zinc-900/70 border border-amber-400/20 rounded-3xl p-6 text-center">
+          <div class="text-4xl mb-3">🐾</div>
+          <div class="text-4xl font-bold text-amber-400 mb-2">∞</div>
+          <p class="text-lg text-amber-100">Dogs being helped</p>
+          <p class="text-zinc-400 mt-3 text-sm">$NIBBLES → warmth, food, dignity when rails are live.</p>
         </div>
-        <div class="bg-zinc-900/70 border border-white/20 rounded-3xl p-10 text-center group">
-          <div class="text-7xl mb-6 transition-transform group-hover:scale-110">❤️</div>
-          <div class="text-7xl font-bold text-white mb-3">∞</div>
-          <p class="text-2xl font-light">People helping people</p>
-          <p class="text-zinc-400 mt-4">A growing global family of holders choosing mercy over hype. Every transaction is a promise kept.</p>
+        <div class="bg-zinc-900/70 border border-emerald-400/20 rounded-3xl p-6 text-center">
+          <div class="text-4xl mb-3">🌱</div>
+          <div class="text-4xl font-bold text-emerald-400 mb-2">∞</div>
+          <p class="text-lg text-emerald-100">Children receiving hope</p>
+          <p class="text-zinc-400 mt-3 text-sm">$hopeseed → seeds of love and second chances when rails are live.</p>
+        </div>
+        <div class="bg-zinc-900/70 border border-white/20 rounded-3xl p-6 text-center">
+          <div class="text-4xl mb-3">❤️</div>
+          <div class="text-4xl font-bold text-white mb-2">∞</div>
+          <p class="text-lg">People helping people</p>
+          <p class="text-zinc-400 mt-3 text-sm">Holders choosing mercy over hype.</p>
         </div>
       </div>
-      <p class="text-center mt-6 text-emerald-300 text-sm tracking-widest">THIS IS THE TRUTH. AND IT’S ONLY BEGINNING.</p>
-    <div class="mt-8 text-center">
-      <p class="text-amber-200 text-sm">Official Web3 home on Shibarium SNS:</p>
-      <a href="https://shibahumanityhub.shib" target="_blank" class="text-xl font-mono text-emerald-400 hover:text-emerald-300 underline">shibahumanityhub.shib</a>
-      <p class="text-xs text-zinc-400 mt-1">Wallet • Site • Identity • More</p>
-    </div>
-    <p class="text-center mt-4 text-xs text-amber-200/70">Official .shib domain: <span class="font-mono">shibahumanityhub.shib</span> (wallet, site & identity on Shibarium)</p>
     </div>
 
-    <!-- Interactive Perpetual Mercy Engine Visualization -->
-    <div class="mb-16">
-      <h3 class="text-3xl font-semibold text-center mb-6">Watch the Engine in Motion</h3>
-      <p class="text-center text-zinc-300 max-w-2xl mx-auto mb-8">See how one quiet holding sends ripples through the living chain - a self-reinforcing flywheel where each act of mercy creates the conditions for more. Click any node to open its full story and see the first principles in action.</p>
-      <p class="text-center text-xs mb-4"><a href="all-programs.html" class="text-emerald-300 hover:text-emerald-200 underline">See all 29 in the Mercy Constellation →</a> (use the filters there with your holdings for the full personal experience)</p>
-
-    <!-- Clean Teaser for Pay It Forward (full experience on dedicated page) -->
-    <div id="pay-it-forward-adoption" class="max-w-3xl mx-auto px-6 py-10 border-t border-white/10 text-center">
-      <div class="flex justify-center mb-3">
-        <span class="text-3xl">🔗❤️</span>
-      </div>
-      <h3 class="section-title text-3xl mb-3">Pay It Forward Adoption Chain</h3>
-      <p class="text-lg text-zinc-300 max-w-md mx-auto mb-6">When you help one soul, it melts your heart. You become the link that multiplies mercy forever.</p>
-      <a href="pay-it-forward.html" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-rose-400 to-pink-400 hover:brightness-105 text-black font-semibold rounded-3xl transition">
-        Enter the Chain <span class="text-xl">→</span>
-      </a>
-      <p class="text-xs text-rose-300/70 mt-3">Dedicated page • High energy • Heart-melting details</p>
-    </div>
-
-    <!-- Shiba Barn Table BBQ teaser -->
-    <div id="shiba-barn-table" class="max-w-3xl mx-auto px-6 py-10 border-t border-white/10 text-center">
-      <div class="flex justify-center mb-3">
-        <span class="text-3xl">🍽️</span>
-      </div>
-      <h3 class="section-title text-3xl mb-3">Shiba Barn Table BBQ</h3>
-      <p class="text-lg text-zinc-300 max-w-lg mx-auto mb-4">Come have a seat with us. Food, barn souls, Soul Studio bonds for kids, and high-end photo booth shirts the whole family can wear home.</p>
-      <p class="text-sm text-orange-200/80 max-w-md mx-auto mb-6 italic">"Thank you for sitting with us at the Shiba Barn Table, with these souls who are grateful to be loved, alive, happy, and healthy."</p>
-      <a href="shiba-barn-table.html" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-amber-400 via-orange-400 to-orange-500 hover:brightness-105 text-black font-semibold rounded-3xl transition">
-        Have a seat <span class="text-xl">→</span>
-      </a>
-      <p class="text-xs text-orange-300/70 mt-3">Dedicated page • Quality nights • Proceeds to the treasury</p>
-    </div>
-
-    <p id="glossary" class="text-center text-xs text-zinc-500 mt-6 mb-4 px-4">
+    <p class="text-center text-xs mb-4"><a href="all-programs.html" class="text-emerald-300 hover:text-emerald-200 underline">All 30 programs · Mercy Constellation →</a></p>
+    <p id="glossary" class="text-center text-xs text-zinc-500 mb-6 px-4">
       Plain terms: tap any <span class="text-amber-300">ⓘ</span> on the page.
-      <a href="whitepaper.html" class="text-emerald-300/80 underline ml-1">Whitepaper for full depth →</a>
+      <a href="whitepaper.html" class="text-emerald-300/80 underline ml-1">Whitepaper →</a>
     </p>
 
-      <!-- Interactive Perpetual Mercy Engine Visualization (Phase 3: electrified with SVG ripple river - the people co-building the flow) -->
+      <!-- Interactive Perpetual Mercy Engine Visualization -->
       <div id="engine-viz" role="img" aria-label="Interactive visualization of the perpetual mercy flywheel showing transaction ripples flowing into $NIBBLES and $hopeseed streams and program nodes" class="relative bg-zinc-900/50 border border-white/10 rounded-3xl p-8 min-h-[320px] flex items-center justify-center overflow-hidden">
         <!-- Phase 3 SVG Ripple River Layer - mind-blowing, balance-reactive flow that grows with your ripples -->
         <svg id="ripple-layer" class="ripple-layer absolute inset-0" width="100%" height="100%" viewBox="0 0 800 320" preserveAspectRatio="none" style="opacity:0.55; pointer-events:none;">
@@ -2380,18 +2293,20 @@
       </div>
     </details>
 
-    <p class="text-center mt-8 text-xs text-emerald-300/70 italic">This engine runs on truth. When the funding comes through, the ripples become real lives saved.</p>
+    <p class="text-center mt-6 text-xs text-emerald-300/70 italic">This engine runs on truth. When the funding comes through, the ripples become real lives saved.</p>
+      </div>
+    </details>
   </div>
 </section>
 
-<!-- FEATURED PROGRAMS · dual flywheels -->
-<section id="programs" data-chapter-section="programs" class="shh-chapter py-24 bg-zinc-950">
+<!-- FEATURED PROGRAMS · dual flywheels (spine) -->
+<section id="programs" data-chapter-section="programs" class="shh-chapter py-20 md:py-24 bg-zinc-950">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-10 md:mb-14">
       <div class="shh-chapter-kicker mb-3 shh-reveal">04 · Living stories</div>
       <div class="shh-chapter-rule mx-auto mb-5 shh-reveal"></div>
       <h2 class="shh-chapter-title text-5xl font-bold shh-reveal">Featured Programs That Change Lives</h2>
-      <p class="text-amber-200 text-lg md:text-2xl mt-4">Two flywheels. One mission. A few of the 30.</p>
+      <p class="text-amber-200 text-lg md:text-2xl mt-4">Two flywheels. One mission. A few of the 30. Want more → full constellation.</p>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
         <a href="#nibbles-programs" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-amber-400/40 bg-amber-500/10 text-amber-100 text-sm font-semibold hover:bg-amber-500/20 transition-colors">
           <span aria-hidden="true">🐾</span> $NIBBLES · dogs
@@ -2584,36 +2499,112 @@
   </div>
 </section>
   
-<!-- Impact truth lives once in #mercy-engine (no duplicate ∞ theater) -->
-
-<!-- VISION (elevated) -->
-<section id="vision" data-chapter-section="vision" class="shh-chapter py-24 bg-black">
-  <div class="max-w-5xl mx-auto px-6 text-center">
-    <div class="shh-chapter-kicker mb-3 shh-reveal">05 · Where we go</div>
-    <div class="shh-chapter-rule mx-auto mb-5 shh-reveal"></div>
-    <h2 class="shh-chapter-title text-5xl font-bold mb-8 shh-reveal">The Vision</h2>
-    <div class="max-w-3xl mx-auto">
-      <p class="text-2xl leading-relaxed text-amber-100 mb-12">
-        We are not building another charity.<br>
-        We are building a <span class="text-emerald-400 font-semibold">perpetual mercy engine</span> on the blockchain - an antifragile, self-reinforcing flywheel that scales compassion without capture, using on-chain truth and voluntary skin in the game as the only sustainable foundation. This is how you build something that lasts: incentives aligned to mercy, proof that endures, participation that multiplies itself.
-      </p>
-      <p class="text-xl text-zinc-300 mb-10">
-        When the rails are live, activity on $NIBBLES and $hopeseed is meant to fund mercy automatically and transparently.
-        No middlemen. No bureaucracy. Just people helping people helping people.
-      </p>
-      
-      <div class="inline-flex items-center gap-3 bg-zinc-900 border border-amber-400/30 rounded-3xl px-8 py-4 text-lg">
-        <span class="text-emerald-400">●</span>
-        <span class="font-medium">Decentralized</span>
-        <span class="text-amber-400">•</span>
-        <span class="font-medium">On-chain</span>
-        <span class="text-yellow-300">•</span>
-        <span class="font-medium">Eternal</span>
-      </div>
-
-      <p class="mt-8 text-sm text-zinc-400 home-desktop-only">Thank you for being here. You are already turning the wheel.</p>
-      <a href="whitepaper.html" class="inline-flex mt-6 text-amber-200 underline text-sm">Deep dive: whitepaper →</a>
+<!-- EXPLORE — Protocol-style secondary destinations (depth without drowning the spine) -->
+<section id="explore" data-chapter-section="explore" class="shh-chapter py-16 md:py-20 bg-zinc-950 border-t border-white/10">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-10 shh-reveal">
+      <div class="shh-chapter-kicker mb-3">05 · Explore more</div>
+      <div class="shh-chapter-rule mx-auto mb-5"></div>
+      <h2 class="shh-chapter-title text-4xl md:text-5xl font-bold mb-3">Go deeper when you want more</h2>
+      <p class="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">The first page stays sharp. These doors hold the full experiences — engine, ledger, events, blueprint.</p>
     </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      <a href="#onchain" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-amber-400/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3">📒</div>
+        <h3 class="text-lg font-semibold text-amber-100 group-hover:text-amber-50">Living ledger</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Open the on-chain ripples, circles, and wild feed — depth without the homepage dump.</p>
+      </a>
+      <a href="#mercy-engine" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-emerald-400/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3">⚙️</div>
+        <h3 class="text-lg font-semibold text-emerald-100">Mercy engine</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Simulator, visual flywheel, footprint share. Open when you want to play with the machine.</p>
+      </a>
+      <a href="pay-it-forward.html" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-rose-400/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3">🔗❤️</div>
+        <h3 class="text-lg font-semibold text-rose-100">Pay It Forward</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">The adoption chain. High energy. Dedicated page.</p>
+      </a>
+      <a href="shiba-barn-table.html" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-orange-400/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3">🍽️</div>
+        <h3 class="text-lg font-semibold text-orange-100">Shiba Barn Table</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Build a BBQ night. Dogs main characters. Barns, seniors, school trips.</p>
+      </a>
+      <a href="spin-the-wheel.html" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-amber-400/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3">🎡</div>
+        <h3 class="text-lg font-semibold text-amber-100">Mercy Wheel Live</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">After AMA: spin, save a life energy, trip raffle seasons.</p>
+      </a>
+      <a href="all-programs.html" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-emerald-400/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3">✨</div>
+        <h3 class="text-lg font-semibold text-emerald-100">All 30 programs</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Full constellation. Filters. Stories that keep you scrolling.</p>
+      </a>
+      <a href="shelters.html" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-red-400/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3">❤️</div>
+        <h3 class="text-lg font-semibold text-red-100">Beautiful Souls</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Where the flywheel becomes faces. Search by city, breed, clock.</p>
+      </a>
+      <a href="whitepaper.html" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-amber-400/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3">📄</div>
+        <h3 class="text-lg font-semibold text-amber-100">Whitepaper</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">Full architecture. For people who want the complete map.</p>
+      </a>
+      <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener" class="group block rounded-3xl border border-white/10 bg-zinc-900/60 p-6 hover:border-zinc-300/40 transition-all hover:-translate-y-1">
+        <div class="text-2xl mb-3"><i class="fa-brands fa-x-twitter"></i></div>
+        <h3 class="text-lg font-semibold text-zinc-100">Live on X</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">AMAs, chats, wheel nights. Show up when the room is live.</p>
+      </a>
+    </div>
+
+    <!-- Blueprint — compact lead magnet in Explore (not blocking first page) -->
+    <div id="blueprint" class="mt-12 md:mt-14 max-w-2xl mx-auto rounded-3xl border border-emerald-400/25 bg-gradient-to-b from-zinc-900 to-black p-6 md:p-8 text-center">
+      <div class="text-[10px] tracking-[0.2em] uppercase text-emerald-300/80 mb-2">Mercy Blueprint</div>
+      <h3 class="text-2xl md:text-3xl font-bold mb-2">Get the full write-up</h3>
+      <p class="text-sm text-zinc-400 mb-5">All 30 programs. How the flywheel works. Zero spam.</p>
+      <form id="mercy-form" action="https://formspree.io/f/xvzlyrzb" method="POST" class="max-w-md mx-auto">
+        <input type="hidden" name="_subject" value="New Mercy Blueprint Download!">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input type="email" name="email" id="email" placeholder="your@email.com" required
+            class="flex-1 bg-zinc-950 border border-amber-400/35 focus:border-emerald-400 rounded-2xl px-5 py-3.5 text-sm outline-none">
+          <button type="submit" id="submit-btn"
+            class="super-cta-btn lead-magnet-btn inline-flex items-center justify-center gap-2 text-black font-semibold px-6 py-3.5 rounded-2xl text-sm whitespace-nowrap">
+            Send Blueprint
+          </button>
+        </div>
+      </form>
+      <div id="success-message" class="hidden mt-5 p-5 bg-emerald-900/30 border border-emerald-400/40 rounded-2xl">
+        <p class="text-emerald-300 text-sm mb-2">Thank you. Your Blueprint is ready.</p>
+        <a id="direct-download-btn" href="mercy-blueprint.html" target="_blank" class="text-amber-200 underline text-sm">Read it →</a>
+      </div>
+      <p class="text-[10px] text-zinc-600 mt-3">We respect your inbox.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VISION (tight close) -->
+<section id="vision" data-chapter-section="vision" class="shh-chapter py-16 md:py-20 bg-black">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <div class="shh-chapter-kicker mb-3 shh-reveal">06 · Where we go</div>
+    <div class="shh-chapter-rule mx-auto mb-5 shh-reveal"></div>
+    <h2 class="shh-chapter-title text-4xl md:text-5xl font-bold mb-6 shh-reveal">The Vision</h2>
+    <p class="text-lg md:text-xl leading-relaxed text-amber-100/95 mb-6">
+      Not another charity. A <span class="text-emerald-400 font-semibold">perpetual mercy engine</span> —
+      voluntary skin in the game, on-chain truth, stories that pull the next 1 in.
+    </p>
+    <p class="text-base text-zinc-400 mb-8">
+      When rails are live: hold or transact → mercy funds transparently. No middlemen theater.
+    </p>
+    <div class="inline-flex flex-wrap justify-center items-center gap-2 bg-zinc-900 border border-amber-400/25 rounded-full px-6 py-3 text-sm">
+      <span class="text-emerald-400">●</span>
+      <span>Decentralized</span>
+      <span class="text-amber-400">·</span>
+      <span>On-chain</span>
+      <span class="text-yellow-300">·</span>
+      <span>Eternal</span>
+    </div>
+    <p class="mt-6 text-sm text-zinc-500">Thank you for being here. You are already turning the wheel.</p>
+    <a href="whitepaper.html" class="inline-flex mt-4 text-amber-200 underline text-sm">Whitepaper →</a>
   </div>
 </section>
   
