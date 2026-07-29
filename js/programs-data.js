@@ -1422,37 +1422,21 @@ const programs = [            {
     category: "$hopeseed",
     badgeColor: "emerald",
     image: "assets/images/siblingkeepersprogramphoto.jpg",
-    shortDesc: "Picture two beds in the same room again. Two pairs of shoes by the same door. A big sister still there when the lights go out. That is what Sibling Keepers is for.",
-    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Soul Bond</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
+    shortDesc: "I keep thinking about kids who already lost their home, then get told their brother or sister is going somewhere else. We want them under the same roof again.",
+    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Family</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
       <h2 class="text-4xl font-bold mb-3">Sibling Keepers Program</h2>
-      <p class="text-emerald-200 text-xl mb-6">There is a sound I cannot get out of my heart. A little boy whispering his sister’s name through a car window while someone gently tells him they are going to different houses tonight.</p>
-      <p class="text-zinc-300 mb-8">He is not crying loud. He is just holding the door handle like it is the last warm thing he has left. She is looking back at him the way only a sister can, like she is trying to memorize his face. That is the moment this program is for. Not a speech. Not a press release. That window. That whisper. That look.</p>
-      <p class="text-zinc-300 mb-8">Brothers and sisters already lost so much. Their kitchen. Their dog. Their old school bus stop. The one person who still knows their secret jokes, who they are scared of the dark with, who says their name the right way, should not be next on the list to disappear. Sometimes the only reason they get split is a missing bed, a short rent, a form that cannot stretch far enough. Love is ready. The house is almost ready. Money is the thin wall standing between them.</p>
-      <p class="text-zinc-300 mb-8">Sibling Keepers is us putting our hands on that wall and pushing it down with care. When the funding comes through, we help a grandma take all her grandbabies instead of only one. We help a foster family buy the second bed and the little night light so two kids can fall asleep breathing the same quiet air. We help a caseworker get gas and a ride so a brother and sister can still hold hands on a Tuesday when a shared home is still being found. We do not take over courts. We do not perform pain. We just try to keep the people who love each other from losing each other over dollars.</p>
+      <p class="text-emerald-200 text-xl mb-6">I keep thinking about a little kid holding a trash bag of clothes, watching his sister get put in a different car.</p>
+      <p class="text-zinc-300 mb-8">He already lost his house. His bed. His dog maybe. And now the one person who still knows him is going the other way. He is not yelling. He is just quiet. That quiet stays with me.</p>
+      <p class="text-zinc-300 mb-8">A lot of the time it is not even about love. The grandma would take all of them if she could. The foster home has the heart. They just do not have the extra bed, or the rent for a bigger place, or the gas to keep visits going. Love is there. Money is not. And kids pay for that.</p>
+      <p class="text-zinc-300 mb-8">So this is what Sibling Keepers is. When the funding comes through, we help with the simple things that keep brothers and sisters together. A second bed. A night light. A little rent help so a grandma can take the whole set. Gas so they can still see each other on a Tuesday. We are not trying to run the courts. We are just trying to make sure money is not the reason two kids lose each other.</p>
 
-      <!-- What this looks like in the real world -->
       <div class="mb-10 overflow-hidden rounded-3xl border border-emerald-400/30">
-        <img src="assets/images/siblingkeepers-twobeds.jpg" alt="Two twin beds side by side in a quiet room with one soft night light. The picture Sibling Keepers fights for." class="w-full max-h-72 object-cover" loading="lazy">
+        <img src="assets/images/siblingkeepers-twobeds.jpg" alt="Two beds in the same quiet room. One soft light." class="w-full max-h-72 object-cover" loading="lazy">
         <div class="bg-emerald-950/80 px-6 py-4 text-center">
-          <p class="text-emerald-100 text-base md:text-lg leading-relaxed">This is the picture. Two beds. One night light. Two pairs of shoes by the same door. Nobody getting driven away alone.</p>
-        </div>
-      </div>
-      <div class="mb-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-emerald-950/50 border border-emerald-400/25 rounded-3xl p-6 text-center">
-          <div class="text-3xl mb-3" aria-hidden="true">🛏️</div>
-          <p class="text-emerald-100 text-sm leading-relaxed">Morning light on two backpacks. The same floor under both of their feet.</p>
-        </div>
-        <div class="bg-emerald-950/50 border border-emerald-400/25 rounded-3xl p-6 text-center">
-          <div class="text-3xl mb-3" aria-hidden="true">🤍</div>
-          <p class="text-emerald-100 text-sm leading-relaxed">A hand still there in the dark. A nickname still said out loud.</p>
-        </div>
-        <div class="bg-emerald-950/50 border border-emerald-400/25 rounded-3xl p-6 text-center">
-          <div class="text-3xl mb-3" aria-hidden="true">🏠</div>
-          <p class="text-emerald-100 text-sm leading-relaxed">One front door. One table. Room enough for the people who love each other.</p>
+          <p class="text-emerald-100 text-base md:text-lg leading-relaxed">This is what we want. Two beds. One room. Same door in the morning.</p>
         </div>
       </div>
 
-      <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
       <div class="my-10 bg-gradient-to-br from-emerald-900/30 to-amber-900/20 border border-emerald-400/40 rounded-3xl p-8 text-center">
         <div class="max-w-[340px] mx-auto bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl overflow-hidden shadow-2xl">
           <video 
@@ -1463,46 +1447,46 @@ const programs = [            {
             playsinline 
             preload="none"
             poster="assets/images/siblingkeepersprogramphoto.jpg"
-            aria-label="A soft living picture of Sibling Keepers: brothers and sisters staying close, same room, same love."
+            aria-label="Brothers and sisters staying close. Same room. Same love."
             class="w-full rounded-2xl">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">This is the picture we are fighting for. Same room. Same breath. Same someone who still knows you.</p>
+        <p class="text-emerald-200/80 text-sm mt-6">Same room. Someone who still knows your name, still there.</p>
       </div>
 
-      <p class="text-zinc-300 mb-8">And with real care and consent, we keep a gentle soulbound Sibling Bond on-chain. Not to sell. Not to show off. So the world can never act like their love was temporary paperwork. It is a quiet forever mark that says: these souls belong to each other.</p>
+      <p class="text-zinc-300 mb-8">If a family wants it, we can also keep a simple soulbound record on-chain that these kids belong to each other. Not for sale. Not for show. Just so their bond is not treated like leftover paperwork.</p>
 
       <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How your $hopeseed becomes that picture (when funded)</h4>
+        <h4 class="text-xl font-semibold text-emerald-200 mb-6">How $hopeseed helps (when funded)</h4>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
-            <strong>Hold 25,000+ $hopeseed</strong><br>Help one brother and sister keep visiting, riding together, and holding on while a shared home is found
+            <strong>Hold 25,000+ $hopeseed</strong><br>Help one brother and sister keep visiting and holding on
           </div>
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center border-2 border-emerald-400">
             <div class="text-emerald-300 font-semibold mb-2">Guardian Circle</div>
-            <strong>Hold 100,000+ $hopeseed</strong><br>Help open 30 to 90 days of real placement support so a whole sibling set can stay under one roof
+            <strong>Hold 100,000+ $hopeseed</strong><br>Help fund weeks of real support so a sibling set can stay under one roof
           </div>
           <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
             <div class="text-emerald-300 font-semibold mb-2">Eternal Guardian Circle</div>
-            <strong>Hold 250,000+ $hopeseed</strong><br>Walk with one sibling family over time. Private updates. Real love. Real accountability.
+            <strong>Hold 250,000+ $hopeseed</strong><br>Stay with one sibling family over time. Quiet updates. Real honesty.
           </div>
         </div>
       </div>
 
       <div class="mb-10 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-zinc-900/80 border border-emerald-400/20 rounded-3xl p-6">
-          <h5 class="text-emerald-300 font-semibold mb-2">What your love buys in the real world</h5>
-          <p class="text-zinc-300 text-sm leading-relaxed">A second bed. A night light. A month of rent for a grandma’s full house. Gas for visits. The first counseling sessions they take together. The small soft things that turn “we cannot keep them together” into “come home, both of you.”</p>
+          <h5 class="text-emerald-300 font-semibold mb-2">What the money is for</h5>
+          <p class="text-zinc-300 text-sm leading-relaxed">Beds. Night lights. Rent help for a full house. Gas for visits. The first counseling they take together. Small things that sound small until you are the kid in the wrong car.</p>
         </div>
         <div class="bg-zinc-900/80 border border-emerald-400/20 rounded-3xl p-6">
-          <h5 class="text-emerald-300 font-semibold mb-2">What we will never do with this love</h5>
-          <p class="text-zinc-300 text-sm leading-relaxed">We will not buy a court. We will not film a child’s worst hour for clout. We will not say we saved a life we have not yet touched. We only try to make sure money is not the reason two hearts get torn apart.</p>
+          <h5 class="text-emerald-300 font-semibold mb-2">What we will not do</h5>
+          <p class="text-zinc-300 text-sm leading-relaxed">We will not pretend we run the system. We will not film kids for attention. We will not claim lives we have not helped yet. We just do not want money to be why they get split.</p>
         </div>
       </div>
 
-      <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, I want a little girl to fall asleep and still hear her brother’s breathing in the dark. I want a big brother to still be the one who finds her shoe. I want the last warm room in their lives to have space for both of them. If that picture moves you the way it moves me, you already understand Sibling Keepers. Help us make that picture real, one set of brothers and sisters at a time.</p>
-      <button onclick="sponsorProgram('sibling-keepers')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Keep Them Together With Me</button>`
+      <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, I want a little girl to fall asleep and still hear her brother in the room. I want him to still be the one who finds her shoe. That is all this is. Kids who love each other, still together. If that sits in your chest the way it sits in mine, help us do it.</p>
+      <button onclick="sponsorProgram('sibling-keepers')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Keep Them Together</button>`
   }
 ];
 
