@@ -92,6 +92,14 @@
     <priority>0.92</priority>
   </url>
 
+  <!-- Spin the Mercy Wheel · Live events -->
+  <url>
+    <loc>https://shibahumanityhub.com/spin-the-wheel.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.93</priority>
+  </url>
+
   <!-- Golden Years Companion Matching -->
   <url>
     <loc>https://shibahumanityhub.com/golden-years.html</loc>

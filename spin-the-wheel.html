@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style id="critical-shell">
+    html { background-color: #0a0f1c; color-scheme: dark; }
+  </style>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Shibahumanityhub">
+  <meta name="keywords" content="spin the mercy wheel, live AMA, shibahumanityhub live, save a life raffle, hopeseed live chat, NIBBLES community, donor trip raffle">
+
+  <title>Spin the Mercy Wheel • Live Events • Shibahumanityhub</title>
+  <meta name="description" content="After every AMA and live chat, we spin the Mercy Wheel. A life gets chosen. The room amps up. Select donors enter a raffle for a trip for two. Preview the experience. Full live spins when rails and events are live.">
+
+  <meta property="og:title" content="Spin the Mercy Wheel • Live With SHH">
+  <meta property="og:description" content="Live chats. Spin the wheel. A life is chosen. The room erupts. Donors amp the next save. Trip for two when funded.">
+  <meta property="og:image" content="https://shibahumanityhub.com/assets/logos/shibahumanityhublogo3d-new.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shibahumanityhub.com/spin-the-wheel.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Spin the Mercy Wheel">
+  <meta name="twitter:description" content="AMA ends. Wheel spins. A life gets a chance. Room goes loud.">
+  <meta name="twitter:image" content="https://shibahumanityhub.com/assets/logos/shibahumanityhublogo3d-new.jpg">
+  <meta name="twitter:site" content="@Shibhumanityhub">
+
+  <link rel="canonical" href="https://shibahumanityhub.com/spin-the-wheel.html">
+  <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="js/programs-data.js" defer></script>
+  <script src="js/programs-flywheel-nav.js" defer></script>
+  <script src="js/shared-animations.js" defer></script>
+  <script src="js/glossary.js" defer></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0; overflow-x: hidden;
+      background: #0a0f1c; color: white;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+    .wheel-hero {
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(251,191,36,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 45% at 85% 40%, rgba(16,185,129,0.16) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 40% at 10% 70%, rgba(0,249,255,0.08) 0%, transparent 45%),
+        linear-gradient(180deg, #0a0f1c 0%, #12101c 50%, #0a0f1c 100%);
+    }
+    .step-card {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(160deg, rgba(24,24,35,0.9), rgba(8,11,20,0.95));
+      border-radius: 1.5rem;
+      transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(251,191,36,0.4);
+      box-shadow: 0 24px 50px -24px rgba(251,191,36,0.35);
+    }
+    .live-pill {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.35rem 0.85rem; border-radius: 9999px;
+      font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+      background: rgba(239,68,68,0.15); border: 1px solid rgba(248,113,113,0.45);
+      color: #fecaca;
+    }
+    .live-pill .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #ef4444;
+      box-shadow: 0 0 10px #ef4444;
+      animation: live-pulse 1.2s ease-in-out infinite;
+    }
+    @keyframes live-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    /* ===== EPIC MERCY WHEEL ===== */
+    .mw-stage {
+      position: relative;
+      width: min(100%, 420px);
+      margin: 0 auto;
+      aspect-ratio: 1;
+    }
+    .mw-stage.is-spinning {
+      filter: drop-shadow(0 0 40px rgba(251,191,36,0.45)) drop-shadow(0 0 60px rgba(16,185,129,0.25));
+    }
+    .mw-pointer {
+      position: absolute;
+      top: -6px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      width: 0; height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 28px solid #fcd34d;
+      filter: drop-shadow(0 4px 10px rgba(251,191,36,0.7));
+    }
+    .mw-pointer::after {
+      content: '';
+      position: absolute;
+      top: -32px; left: -6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: #fef3c7;
+      box-shadow: 0 0 12px #fbbf24;
+    }
+    .mw-wheel-wrap {
+      position: absolute;
+      inset: 8%;
+      border-radius: 50%;
+      transition: transform 4.6s cubic-bezier(0.12, 0.85, 0.08, 1);
+      will-change: transform;
+      box-shadow:
+        0 0 0 6px rgba(10,15,28,0.95),
+        0 0 0 8px rgba(251,191,36,0.35),
+        0 0 50px -8px rgba(251,191,36,0.5),
+        0 0 80px -20px rgba(16,185,129,0.4);
+    }
+    .mw-wheel {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      background: #0a0f1c;
+    }
+    .mw-wheel svg { width: 100%; height: 100%; display: block; }
+    .mw-hub {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 22%; height: 22%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #1e293b, #0a0f1c 70%);
+      border: 2px solid rgba(252,211,77,0.55);
+      box-shadow: 0 0 24px rgba(251,191,36,0.35), inset 0 0 16px rgba(0,0,0,0.6);
+      display: grid; place-items: center;
+      z-index: 3;
+      font-size: clamp(1.1rem, 4vw, 1.6rem);
+    }
+    .mw-orbit {
+      position: absolute; inset: 2%;
+      border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.12);
+      animation: mw-orbit 18s linear infinite;
+      pointer-events: none;
+    }
+    .mw-stage.is-spinning .mw-orbit { animation-duration: 2.2s; border-color: rgba(251,191,36,0.4); }
+    @keyframes mw-orbit { to { transform: rotate(360deg); } }
+
+    .mw-spin-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #fcd34d, #f59e0b, #10b981);
+      color: #0a0f1c;
+      border: 0;
+      border-radius: 9999px;
+      padding: 0.95rem 2rem;
+      font-size: 1.05rem;
+      cursor: pointer;
+      box-shadow: 0 0 40px -8px rgba(251,191,36,0.6), 0 16px 40px -16px rgba(16,185,129,0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+    .mw-spin-btn:hover:not(:disabled) {
+      transform: scale(1.05) translateY(-2px);
+      filter: brightness(1.06);
+    }
+    .mw-spin-btn:disabled {
+      opacity: 0.65; cursor: wait; transform: none;
+    }
+
+    .mw-result {
+      min-height: 7.5rem;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(160deg, rgba(24,24,35,0.9), rgba(8,11,20,0.98));
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.4s;
+    }
+    .mw-result.is-hit {
+      border-color: rgba(251,191,36,0.55);
+      box-shadow: 0 0 40px -12px rgba(251,191,36,0.45), 0 0 50px -18px rgba(16,185,129,0.35);
+      animation: mw-hit 0.55s ease;
+    }
+    @keyframes mw-hit {
+      0% { transform: scale(0.96); opacity: 0.7; }
+      60% { transform: scale(1.02); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .mw-result .tag {
+      display: inline-block;
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.2rem 0.65rem; border-radius: 9999px; margin-bottom: 0.5rem;
+    }
+    .mw-result .tag.n { background: rgba(251,191,36,0.18); color: #fcd34d; }
+    .mw-result .tag.h { background: rgba(52,211,153,0.18); color: #6ee7b7; }
+
+    .amp-meter {
+      height: 10px; border-radius: 9999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+    .amp-meter > i {
+      display: block; height: 100%; width: 12%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #f59e0b, #fcd34d, #34d399, #00f9ff);
+      box-shadow: 0 0 16px rgba(52,211,153,0.5);
+      transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .raffle-card {
+      border: 1px solid rgba(52,211,153,0.28);
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.15), transparent 60%),
+        linear-gradient(165deg, rgba(16,24,32,0.95), rgba(8,12,20,0.98));
+      border-radius: 1.75rem;
+    }
+    .honest-note {
+      font-size: 0.8rem;
+      color: #a1a1aa;
+      border-left: 2px solid rgba(251,191,36,0.4);
+      padding-left: 0.85rem;
+    }
+
+    nav a { transition: color 0.15s ease; }
+    #programs-menu { z-index: 9999; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mw-wheel-wrap { transition: none !important; }
+      .mw-orbit, .live-pill .dot { animation: none !important; }
+      .mw-result.is-hit { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-amber-500/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-cyan-400/40">
+        <img src="assets/logos/shibahumanityhublogo3d-new.jpg" alt="SHH" class="w-full h-full object-cover" width="64" height="64">
+      </div>
+      <span class="hidden sm:block text-xl font-bold tracking-tight bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+    </a>
+    <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+      <a href="index.html#tokens" class="hover:text-amber-400">Tokens</a>
+      <div class="relative" id="programs-dropdown">
+        <a href="all-programs.html" onclick="toggleProgramsDropdown(event)" class="hover:text-amber-400 flex items-center gap-1">
+          Programs <i class="fa-solid fa-chevron-down text-[10px]" id="programs-chevron"></i>
+        </a>
+        <div id="programs-menu" class="absolute hidden mt-3 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 shadow-2xl overflow-hidden right-0">
+          <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
+          <div data-prog-fw-mount></div>
+        </div>
+      </div>
+      <a href="spin-the-wheel.html" class="text-amber-300">Spin the Wheel</a>
+      <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener" class="hover:text-emerald-300">Live on X</a>
+    </div>
+    <a href="index.html" class="bg-white/10 hover:bg-white/15 px-4 py-2.5 rounded-full text-sm">← Home</a>
+  </div>
+</nav>
+
+<header class="wheel-hero pt-28 pb-16 px-6">
+  <div class="max-w-5xl mx-auto text-center">
+    <div class="live-pill mb-5">
+      <span class="dot" aria-hidden="true"></span>
+      After AMA · Daily &amp; weekly live chats
+    </div>
+    <h1 class="section-title text-4xl sm:text-5xl md:text-6xl mb-4">
+      Spin the <span class="bg-gradient-to-r from-amber-300 via-yellow-100 to-emerald-300 bg-clip-text text-transparent">Mercy Wheel</span>
+    </h1>
+    <p class="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+      Live ends. The room holds its breath. The wheel spins.
+      A life gets chosen. Donors amp louder. Someone may win a trip for two.
+      That is how we turn chat into mercy.
+    </p>
+    <p class="honest-note max-w-xl mx-auto mt-6 text-left">
+      Preview mode on this page. Full live spins, official raffles, and trip awards run when events and charity rails are live. No purchase required language and full rules publish before any real prize draw.
+    </p>
+  </div>
+</header>
+
+<!-- HOW IT WORKS -->
+<section class="py-14 px-6 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="section-title text-3xl md:text-4xl text-center mb-3">The live loop</h2>
+    <p class="text-center text-zinc-400 mb-10 max-w-2xl mx-auto">Same rhythm every time so the community knows when to show up.</p>
+    <div class="grid md:grid-cols-4 gap-5">
+      <div class="step-card p-6">
+        <div class="text-2xl mb-3">🎙️</div>
+        <h3 class="font-semibold text-amber-200 mb-2">1. AMA &amp; live chats</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">Daily and weekly lives on SHH socials. Stories, updates, questions. Hearts in the room.</p>
+      </div>
+      <div class="step-card p-6">
+        <div class="text-2xl mb-3">🎡</div>
+        <h3 class="font-semibold text-amber-200 mb-2">2. Spin the wheel</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">When the chat peaks, we spin. Programs and souls land under the pointer. Transparent. Loud. Real.</p>
+      </div>
+      <div class="step-card p-6">
+        <div class="text-2xl mb-3">❤️</div>
+        <h3 class="font-semibold text-emerald-200 mb-2">3. A life is chosen</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">That spin points the next mercy: a dog at risk, a child program, a sibling set, a birthday, a backpack run.</p>
+      </div>
+      <div class="step-card p-6">
+        <div class="text-2xl mb-3">✈️</div>
+        <h3 class="font-semibold text-emerald-200 mb-2">4. Room amps · trip raffle</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">Select donors enter the raffle. One draw: a trip for two, one week. More joy in the room means more saves next time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE WHEEL -->
+<section class="py-16 px-6 bg-zinc-950/50 border-t border-white/5">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="text-xs tracking-[0.2em] uppercase text-emerald-300/80 mb-3">Try the energy</p>
+      <h2 class="section-title text-3xl md:text-4xl mb-4">Feel the spin</h2>
+      <p class="text-zinc-300 mb-6 leading-relaxed">
+        This is a demo of the live wheel. On stream it lands on real programs and real needs.
+        Offline it shows you how the room will feel when we go live after AMA.
+      </p>
+      <ul class="space-y-3 text-sm text-zinc-400 mb-8">
+        <li class="flex gap-2"><span class="text-amber-400">◆</span> Wheel mixes $NIBBLES and $hopeseed programs</li>
+        <li class="flex gap-2"><span class="text-emerald-400">◆</span> Land = “this is who we fight for next”</li>
+        <li class="flex gap-2"><span class="text-amber-400">◆</span> Amp meter rises with every spin (demo)</li>
+        <li class="flex gap-2"><span class="text-emerald-400">◆</span> Live shows will log the save for the community</li>
+      </ul>
+      <div class="mb-2 flex justify-between text-xs uppercase tracking-wider text-zinc-500">
+        <span>Room amp</span>
+        <span id="amp-label">12%</span>
+      </div>
+      <div class="amp-meter mb-8" aria-hidden="true"><i id="amp-bar"></i></div>
+      <div class="flex flex-wrap gap-3">
+        <button type="button" id="spin-btn" class="mw-spin-btn">Spin the Mercy Wheel</button>
+        <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 text-sm hover:border-amber-400/50 hover:text-amber-200 transition">
+          <i class="fa-brands fa-x-twitter"></i> Watch lives on X
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div class="mw-stage mb-6" id="mw-stage">
+        <div class="mw-orbit" aria-hidden="true"></div>
+        <div class="mw-pointer" aria-hidden="true"></div>
+        <div class="mw-wheel-wrap" id="mw-wheel-wrap">
+          <div class="mw-wheel" id="mw-wheel" role="img" aria-label="Mercy wheel of programs"></div>
+          <div class="mw-hub" aria-hidden="true">❤️</div>
+        </div>
+      </div>
+      <div class="mw-result" id="mw-result">
+        <p class="text-zinc-500 text-sm">Hit spin. See who the wheel chooses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIP RAFFLE -->
+<section class="py-16 px-6 border-t border-white/5">
+  <div class="max-w-4xl mx-auto raffle-card p-8 md:p-12">
+    <div class="flex flex-col md:flex-row gap-8 items-start">
+      <div class="text-5xl md:text-6xl" aria-hidden="true">✈️</div>
+      <div class="flex-1">
+        <h2 class="section-title text-3xl md:text-4xl mb-3">Trip for two · one week</h2>
+        <p class="text-zinc-300 leading-relaxed mb-4">
+          When live events and funding rails are ready, select donors enter a raffle drawn on stream.
+          One spin of joy for the community. One winner walks with someone they love for a week.
+          The point is not the vacation alone. It is the room getting louder so more lives get chosen.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+          <div class="bg-black/30 rounded-2xl p-4 border border-white/10">
+            <h4 class="text-emerald-300 font-semibold text-sm mb-1">Who enters</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Select donors and community members who meet the live event rules. Clear eligibility published before each draw.</p>
+          </div>
+          <div class="bg-black/30 rounded-2xl p-4 border border-white/10">
+            <h4 class="text-amber-300 font-semibold text-sm mb-1">What the wheel does first</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">Mercy first. Every spin still points at a life or program. The trip raffle is the celebration layer that keeps donors locked in for the next save.</p>
+          </div>
+        </div>
+        <p class="honest-note">
+          Not live yet. No tickets sold on this page. Official rules, age limits, travel terms, and tax notes will publish before the first real trip raffle. Charity status and legal review come before any prize ships.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CADENCE -->
+<section class="py-14 px-6 border-t border-white/5">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="section-title text-3xl mb-8">When we spin</h2>
+    <div class="grid sm:grid-cols-3 gap-5 text-left">
+      <div class="step-card p-6">
+        <h3 class="text-amber-200 font-semibold mb-2">After every AMA</h3>
+        <p class="text-sm text-zinc-400">Questions done. Wheel up. Community chooses the next mercy story together.</p>
+      </div>
+      <div class="step-card p-6">
+        <h3 class="text-emerald-200 font-semibold mb-2">Daily live chats</h3>
+        <p class="text-sm text-zinc-400">Short rooms. Quick spin. Keep the chain warm between big shows.</p>
+      </div>
+      <div class="step-card p-6">
+        <h3 class="text-amber-200 font-semibold mb-2">Weekly main event</h3>
+        <p class="text-sm text-zinc-400">Bigger amp. Full wheel. Deeper stories. Trip raffle draws when that season is live.</p>
+      </div>
+    </div>
+    <div class="mt-12 flex flex-wrap justify-center gap-4">
+      <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener" class="mw-spin-btn inline-flex items-center gap-2 no-underline">
+        Follow for live times
+      </a>
+      <a href="all-programs.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/15 text-sm hover:border-emerald-400/40">
+        See all 30 programs →
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="py-10 px-6 border-t border-white/10 text-center text-sm text-zinc-500">
+  <p>Shibahumanityhub · Spin the Mercy Wheel · Lives first · Amp the room · When rails are live</p>
+  <p class="mt-2"><a href="index.html" class="text-amber-300/80 hover:text-amber-200">Home</a> · <a href="all-programs.html" class="text-emerald-300/80 hover:text-emerald-200">Programs</a></p>
+</footer>
+
+<script>
+function toggleProgramsDropdown(e) {
+  e.preventDefault();
+  const menu = document.getElementById('programs-menu');
+  const chevron = document.getElementById('programs-chevron');
+  if (!menu) return;
+  const isHidden = menu.classList.contains('hidden');
+  menu.classList.toggle('hidden');
+  if (chevron) chevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+  if (!menu.classList.contains('hidden') && window.SHHProgFlywheelNav) {
+    window.SHHProgFlywheelNav.init();
+  }
+  if (window._shhProgMenuCloser) {
+    document.removeEventListener('click', window._shhProgMenuCloser);
+    window._shhProgMenuCloser = null;
+  }
+  if (isHidden) {
+    setTimeout(function () {
+      window._shhProgMenuCloser = function (ev) {
+        if (!menu.contains(ev.target) && !ev.target.closest('#programs-dropdown')) {
+          menu.classList.add('hidden');
+          if (chevron) chevron.style.transform = 'rotate(0deg)';
+          document.removeEventListener('click', window._shhProgMenuCloser);
+          window._shhProgMenuCloser = null;
+        }
+      };
+      document.addEventListener('click', window._shhProgMenuCloser);
+    }, 0);
+  }
+}
+
+(function () {
+  var slices = [
+    { label: 'Beautiful Soul', emoji: '🐕', cat: 'n', line: 'A shelter dog gets a real chance. The clock slows for them.' },
+    { label: 'Sibling Keepers', emoji: '🤍', cat: 'h', line: 'Brothers and sisters stay under one roof a little longer.' },
+    { label: 'Weekend Backpack', emoji: '🎒', cat: 'h', line: 'A kid gets food and quiet joy when school meals stop.' },
+    { label: 'Healing Hearts', emoji: '🐾', cat: 'n', line: 'A therapy dog path lights up for someone who needs comfort.' },
+    { label: 'Birthday Guarantee', emoji: '🎂', cat: 'h', line: 'A child is not forgotten on their day.' },
+    { label: 'Rainbow Bridge', emoji: '🌈', cat: 'n', line: 'A senior dog gets dignity and warm hands for the last chapter.' },
+    { label: 'Miracle Fight', emoji: '✈️', cat: 'h', line: 'A family fighting for a child feels the room behind them.' },
+    { label: 'Pay It Forward', emoji: '🔗', cat: 'n', line: 'One save becomes the next link in the chain.' }
+  ];
+
+  var n = slices.length;
+  var angle = 360 / n;
+  var rotation = 0;
+  var spinning = false;
+  var amp = 12;
+
+  function buildWheel() {
+    var el = document.getElementById('mw-wheel');
+    if (!el) return;
+    var colors = [
+      '#78350f', '#064e3b', '#92400e', '#065f46',
+      '#a16207', '#047857', '#b45309', '#059669'
+    ];
+    var paths = '';
+    var labels = '';
+    for (var i = 0; i < n; i++) {
+      var a0 = (i * angle - 90) * Math.PI / 180;
+      var a1 = ((i + 1) * angle - 90) * Math.PI / 180;
+      var x0 = 50 + 50 * Math.cos(a0);
+      var y0 = 50 + 50 * Math.sin(a0);
+      var x1 = 50 + 50 * Math.cos(a1);
+      var y1 = 50 + 50 * Math.sin(a1);
+      var large = angle > 180 ? 1 : 0;
+      paths += '<path d="M50,50 L' + x0 + ',' + y0 + ' A50,50 0 ' + large + ',1 ' + x1 + ',' + y1 + ' Z" fill="' + colors[i % colors.length] + '" stroke="rgba(10,15,28,0.85)" stroke-width="0.4"/>';
+      var mid = (i * angle + angle / 2 - 90) * Math.PI / 180;
+      var lx = 50 + 32 * Math.cos(mid);
+      var ly = 50 + 32 * Math.sin(mid);
+      var rot = i * angle + angle / 2;
+      labels += '<text x="' + lx + '" y="' + ly + '" fill="#fef3c7" font-size="3.2" font-family="Space Grotesk,system-ui,sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="middle" transform="rotate(' + rot + ' ' + lx + ' ' + ly + ')">' + slices[i].emoji + '</text>';
+    }
+    el.innerHTML = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' + paths + labels + '</svg>';
+  }
+
+  function setAmp(v) {
+    amp = Math.min(100, Math.max(8, v));
+    var bar = document.getElementById('amp-bar');
+    var lab = document.getElementById('amp-label');
+    if (bar) bar.style.width = amp + '%';
+    if (lab) lab.textContent = Math.round(amp) + '%';
+  }
+
+  function spin() {
+    if (spinning) return;
+    spinning = true;
+    var btn = document.getElementById('spin-btn');
+    var wrap = document.getElementById('mw-wheel-wrap');
+    var stage = document.getElementById('mw-stage');
+    var result = document.getElementById('mw-result');
+    if (btn) btn.disabled = true;
+    if (stage) stage.classList.add('is-spinning');
+    if (result) {
+      result.classList.remove('is-hit');
+      result.innerHTML = '<p class="text-amber-200/90 text-sm animate-pulse">Spinning… the room is holding its breath.</p>';
+    }
+
+    var land = Math.floor(Math.random() * n);
+    // pointer at top; segment i is centered when rotation brings mid-angle to top
+    var segmentCenter = land * angle + angle / 2;
+    var extraTurns = 5 + Math.floor(Math.random() * 3);
+    // CSS rotate clockwise; we want final rotation such that segmentCenter is under pointer (top)
+    var target = extraTurns * 360 + (360 - segmentCenter);
+    // accumulate from current visual rotation
+    var current = rotation % 360;
+    var delta = target - current;
+    if (delta < 0) delta += 360;
+    // ensure many full spins
+    while (delta < extraTurns * 360) delta += 360;
+    rotation = rotation + delta;
+    if (wrap) wrap.style.transform = 'rotate(' + rotation + 'deg)';
+
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    var wait = reduce ? 50 : 4700;
+
+    setTimeout(function () {
+      spinning = false;
+      if (btn) btn.disabled = false;
+      if (stage) stage.classList.remove('is-spinning');
+      var s = slices[land];
+      if (result) {
+        result.classList.add('is-hit');
+        result.innerHTML =
+          '<span class="tag ' + s.cat + '">' + (s.cat === 'n' ? '$NIBBLES' : '$hopeseed') + '</span>' +
+          '<h3 class="text-xl font-semibold text-white mb-1">' + s.emoji + ' ' + s.label + '</h3>' +
+          '<p class="text-zinc-300 text-sm leading-relaxed">' + s.line + '</p>' +
+          '<p class="text-xs text-emerald-300/80 mt-3">On a live show, this is the save the room just chose.</p>';
+      }
+      setAmp(amp + 8 + Math.random() * 10);
+    }, wait);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    buildWheel();
+    setAmp(12);
+    var btn = document.getElementById('spin-btn');
+    if (btn) btn.addEventListener('click', spin);
+  });
+})();
+</script>
+</body>
+</html>

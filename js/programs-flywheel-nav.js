@@ -580,6 +580,7 @@
     var totalN = allList.length || 30;
     var footLinks = [
       { href: 'all-programs.html', icon: '◉', text: 'All ' + totalN + ' Programs' },
+      { href: 'spin-the-wheel.html', icon: '🎡', text: 'Spin the Mercy Wheel · Live' },
       { href: 'all-programs.html#nibbles', icon: '🐾', text: 'All $NIBBLES' },
       { href: 'all-programs.html#hopeseed', icon: '🌱', text: 'All $hopeseed' }
     ];
