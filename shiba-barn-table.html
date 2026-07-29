@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="assets/css/tailwind.css">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Shibahumanityhub">
-  <meta name="keywords" content="Shiba Barn Table, BBQ barn events, soulbound NFT kids, dog photo booth shirts, sanctuary gatherings, NIBBLES, mercy flywheel, shiba barn, open barn feast">
+  <meta name="keywords" content="Shiba Barn Table, BBQ barn events, donor sponsored BBQ, senior home dog events, school field trip dogs, soulbound NFT kids, NIBBLES programs, silver paws, golden years, healing hearts, shiba barn">
 
-  <title>Shiba Barn Table BBQ • Come Have a Seat With Us</title>
+  <title>Shiba Barn Table BBQ • Build Your Night • Donor Events</title>
 
-  <meta name="description" content="Come have a seat with us at the Shiba Barn Table BBQ. Quality food, games with barn souls, Soul Studio soulbound bonds for kids, high-end photo booth shirts for the whole family. Proceeds feed the treasury. Donors always welcome.">
+  <meta name="description" content="Donate a BBQ night and build it your way. Barns, senior homes, or school field trips. The furry souls are the main characters. Games, Soul Studio, photo booth, and activities mapped to $NIBBLES mercy programs.">
 
-  <meta property="og:title" content="Shiba Barn Table BBQ • Sit With the Souls We Save">
-  <meta property="og:description" content="A lifetime night at the barn. Long table. Real dogs. Soulbound memories. Premium keepsakes. All proceeds to the treasury that keeps them loved, alive, happy, and healthy.">
+  <meta property="og:title" content="Shiba Barn Table • Sponsor & Build a Mercy Night">
+  <meta property="og:description" content="Donors create the night: venue, activities, dog-centered games. Barns. Senior homes. Elementary and junior high field trips. Quality only.">
   <meta property="og:image" content="https://shibahumanityhub.com/assets/images/shibabarnssanctuarynetworkprogramphoto.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shibahumanityhub.com/shiba-barn-table.html">
@@ -156,6 +156,58 @@
       border-color: rgba(251, 191, 36, 0.7);
       background: rgba(251, 146, 60, 0.18);
     }
+    /* Event builder */
+    .venue-card, .act-card {
+      cursor: pointer;
+      border: 1px solid rgba(251, 191, 36, 0.18);
+      background: rgba(12, 10, 8, 0.85);
+      border-radius: 1.15rem;
+      transition: border-color 0.2s, box-shadow 0.25s, transform 0.2s, background 0.2s;
+      user-select: none;
+    }
+    .venue-card:hover, .act-card:hover {
+      border-color: rgba(251, 146, 60, 0.45);
+      transform: translateY(-2px);
+    }
+    .venue-card.is-on, .act-card.is-on {
+      border-color: rgba(251, 191, 36, 0.75);
+      background: linear-gradient(160deg, rgba(251,146,60,0.14), rgba(8,12,20,0.95));
+      box-shadow: 0 0 28px -10px rgba(251, 146, 60, 0.45);
+    }
+    .act-card .check {
+      width: 1.1rem; height: 1.1rem; border-radius: 0.3rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      display: grid; place-items: center;
+      font-size: 0.65rem; color: transparent;
+      flex-shrink: 0;
+    }
+    .act-card.is-on .check {
+      background: #f59e0b; border-color: #fbbf24; color: #0a0f1c;
+    }
+    .builder-summary {
+      position: sticky; top: 6.5rem;
+      border: 1px solid rgba(251, 146, 60, 0.35);
+      background: linear-gradient(165deg, rgba(28, 18, 10, 0.96), rgba(8, 12, 18, 0.98));
+      border-radius: 1.5rem;
+      box-shadow: 0 24px 50px -24px rgba(0,0,0,0.7);
+    }
+    .prog-chip {
+      display: inline-flex; align-items: center; gap: 0.25rem;
+      font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 9999px;
+      background: rgba(251,191,36,0.12); color: #fcd34d;
+      border: 1px solid rgba(251,191,36,0.25);
+    }
+    .tier-card {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1.25rem;
+      background: rgba(10,12,18,0.7);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tier-card:hover { border-color: rgba(251,191,36,0.45); transform: translateY(-3px); }
+    .tier-card.featured {
+      border-color: rgba(251,146,60,0.55);
+      background: linear-gradient(160deg, rgba(251,146,60,0.12), rgba(10,12,18,0.9));
+    }
   </style>
 </head>
 <body>
@@ -195,7 +247,7 @@
           <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium border-b border-white/10 mb-1">
             THE CIRCLE OF MERCY
           </div>
-          <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5"><span class="text-amber-400/80">◉</span><span>All 29 Programs</span></a>
+          <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5"><span class="text-amber-400/80">◉</span><span>All 30 Programs</span></a>
           <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5"><span>🔗❤️</span><span>Pay It Forward Adoption Chain</span></a>
           <a href="shiba-barn-table.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-orange-500/10 bg-orange-500/5 border border-orange-400/20 rounded-xl mx-2 my-1"><span class="text-orange-300">🍽️</span><span class="font-semibold text-orange-200">Shiba Barn Table BBQ</span></a>
           <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5"><span class="text-amber-400/80">◆</span><span>K9 Lifeline • Disaster Response</span></a>
@@ -215,8 +267,8 @@
       <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
     </button>
 
-    <a href="#seat" class="table-cta hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-full">
-      Have a seat <i class="fa-solid fa-fire text-sm"></i>
+    <a href="#build" class="table-cta hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-full">
+      Build a night <i class="fa-solid fa-fire text-sm"></i>
     </a>
   </div>
 </nav>
@@ -225,7 +277,7 @@
   <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
     <div class="px-5 pb-2 text-[10px] tracking-[2px] text-emerald-300/70 border-b border-white/10 mb-2">THE CIRCLE OF MERCY</div>
     <a href="index.html#tokens" class="px-5 py-2.5 hover:bg-white/5 rounded-lg">Tokens</a>
-    <a href="all-programs.html" class="px-5 py-2.5 hover:bg-white/5 rounded-lg">All 29 Programs</a>
+    <a href="all-programs.html" class="px-5 py-2.5 hover:bg-white/5 rounded-lg">All 30 Programs</a>
     <a href="shiba-barn-table.html" class="px-5 py-2.5 hover:bg-orange-500/10 rounded-lg text-orange-200 font-semibold">🍽️ Shiba Barn Table BBQ</a>
     <a href="pay-it-forward.html" class="px-5 py-2.5 hover:bg-white/5 rounded-lg">Pay It Forward</a>
     <a href="k9-lifeline.html" class="px-5 py-2.5 hover:bg-white/5 rounded-lg">K9 Lifeline</a>
@@ -246,22 +298,26 @@
   <div class="ember-float" style="left:85%; top:55%; animation-delay:2s;"></div>
 
   <div class="max-w-5xl mx-auto px-6 relative z-10 text-center w-full">
-    <p class="text-[11px] tracking-[0.35em] uppercase text-orange-300/80 mb-6">Shiba Barn Gatherings · Flagship night</p>
+    <p class="text-[11px] tracking-[0.35em] uppercase text-orange-300/80 mb-6">Donor-built nights · Barns · Senior homes · School field trips</p>
     <h1 class="section-title text-4xl sm:text-6xl md:text-7xl leading-[0.95] ember-glow">
       Come have a seat<br>
-      <span class="bg-gradient-to-r from-amber-200 via-orange-300 to-emerald-300 bg-clip-text text-transparent">with us at the</span><br>
+      <span class="bg-gradient-to-r from-amber-200 via-orange-300 to-emerald-300 bg-clip-text text-transparent">or build the night</span><br>
       Shiba Barn Table BBQ
     </h1>
     <p class="mt-8 text-lg sm:text-2xl text-amber-100/90 font-light max-w-2xl mx-auto leading-relaxed">
-      Food that matters. Souls that are safe. Memories you can wear home.<br>
-      <span class="text-emerald-300/90 text-base sm:text-lg">Quality people. Quality machines. No cheap nights. Ever.</span>
+      Donate a gathering. Choose the venue. Pick the games.<br>
+      The loving furry souls are the main characters.<br>
+      <span class="text-emerald-300/90 text-base sm:text-lg">Barns. Senior homes. Elementary &amp; junior high field trips.</span>
     </p>
     <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <a href="#night" class="table-cta inline-flex items-center gap-2 px-8 py-4 rounded-full text-base">
-        See the night <i class="fa-solid fa-arrow-down text-sm"></i>
+      <a href="#build" class="table-cta inline-flex items-center gap-2 px-8 py-4 rounded-full text-base">
+        Build your night <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+      </a>
+      <a href="#venues" class="soft-cta inline-flex items-center gap-2 px-8 py-4 rounded-full text-base text-amber-100">
+        Venues &amp; field trips
       </a>
       <a href="#soul-studio" class="soft-cta inline-flex items-center gap-2 px-8 py-4 rounded-full text-base text-amber-100">
-        Soul Studio &amp; Photo Booth
+        Soul Studio
       </a>
     </div>
     <p class="mt-8 text-xs text-zinc-400 max-w-md mx-auto">
@@ -309,20 +365,236 @@
       </article>
       <article class="table-card rounded-3xl p-7">
         <div class="text-3xl mb-4">🐾</div>
-        <h3 class="section-title text-xl text-orange-200 mb-2">Games with the souls</h3>
+        <h3 class="section-title text-xl text-orange-200 mb-2">Dogs are the main characters</h3>
         <p class="text-sm text-zinc-400 leading-relaxed">
-          Gentle play and enrichment with trained people. Dogs choose the game.
-          Humans serve the joy. Rest rotations and welfare rules are non-negotiable.
+          Not props. Stars. Enrichment, gentle games, rest rotations, and handlers
+          who put welfare first. Every activity maps back to $NIBBLES mercy programs.
         </p>
       </article>
       <article class="table-card rounded-3xl p-7">
-        <div class="text-3xl mb-4">📡</div>
-        <h3 class="section-title text-xl text-orange-200 mb-2">Live &amp; shared</h3>
+        <div class="text-3xl mb-4">🛠️</div>
+        <h3 class="section-title text-xl text-orange-200 mb-2">You build the night</h3>
         <p class="text-sm text-zinc-400 leading-relaxed">
-          When we stream, the world sits with us. Donors can be welcomed on air
-          (opt-in only). Partners rep the night on their sites and socials.
+          Donors sponsor a gathering and shape it: venue type, activities, school trip or senior home,
+          Soul Studio, photo booth, livestream. Modify until it feels right.
         </p>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- VENUES -->
+<section id="venues" class="py-20 px-6 border-t border-orange-500/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="station-num mb-3">WHERE THE TABLE LANDS</p>
+      <h2 class="section-title text-3xl sm:text-5xl text-amber-50">Three kinds of holy ground</h2>
+      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">Same quality bar. Different hearts in the seats. Dogs always center stage.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="table-card rounded-3xl p-8">
+        <div class="text-4xl mb-4">🏡</div>
+        <h3 class="section-title text-2xl text-orange-200 mb-2">Shiba Barns</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+          Sanctuary land. Long table under sky. Pods of senior and forever dogs.
+          Ties to <span class="text-amber-200">Shiba Barn Sanctuary</span>,
+          <span class="text-amber-200">Shelter-To-Barn</span>,
+          <span class="text-amber-200">Golden Paws</span>.
+        </p>
+        <ul class="text-xs text-zinc-500 space-y-1.5">
+          <li>· Open barn feast + enrichment walks</li>
+          <li>· Soul Studio under the rafters</li>
+          <li>· Livestream “sit with us” energy</li>
+        </ul>
+      </article>
+      <article class="table-card rounded-3xl p-8">
+        <div class="text-4xl mb-4">👵</div>
+        <h3 class="section-title text-2xl text-orange-200 mb-2">Senior homes</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+          Calm BBQ courtyard or indoor calm room. Soft dogs. Soft hands.
+          Ties to <span class="text-amber-200">Silver Paws</span>,
+          <span class="text-amber-200">Golden Years</span>,
+          <span class="text-amber-200">Healing Hearts</span>.
+        </p>
+        <ul class="text-xs text-zinc-500 space-y-1.5">
+          <li>· Gentle meet-and-greet rotations</li>
+          <li>· Memory lane photo cards</li>
+          <li>· Low-noise music · welfare-first pacing</li>
+        </ul>
+      </article>
+      <article class="table-card rounded-3xl p-8">
+        <div class="text-4xl mb-4">🚌</div>
+        <h3 class="section-title text-2xl text-orange-200 mb-2">School field trips</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+          Elementary &amp; junior high. Learning + love day at the barn (or campus visit with certified dogs).
+          Ties to <span class="text-amber-200">Healing Hearts</span>,
+          <span class="text-amber-200">Bullyproof</span> (culture of kindness),
+          <span class="text-amber-200">Soulbound</span> memory.
+        </p>
+        <ul class="text-xs text-zinc-500 space-y-1.5">
+          <li>· Curriculum kits: empathy, care, responsibility</li>
+          <li>· Handler-led stations · class sizes capped</li>
+          <li>· Parent consent · school policy first</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD YOUR NIGHT -->
+<section id="build" class="py-20 px-6 bg-gradient-to-b from-orange-950/15 via-transparent to-transparent border-t border-orange-500/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="station-num mb-3">DONOR EVENT BUILDER</p>
+      <h2 class="section-title text-3xl sm:text-5xl text-amber-50">Create &amp; modify the night</h2>
+      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">
+        Pick a venue. Toggle activities. Watch your night plan fill in.
+        This is a preview builder for when partner barns, homes, and schools go live.
+        No charge on this page. Intent only.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8 items-start">
+      <div class="lg:col-span-3 space-y-8">
+        <!-- Venue select -->
+        <div>
+          <h3 class="section-title text-xl text-orange-200 mb-4">1 · Where does the table land?</h3>
+          <div class="grid sm:grid-cols-3 gap-3" id="venue-grid" role="radiogroup" aria-label="Venue type"></div>
+        </div>
+
+        <!-- Activities -->
+        <div>
+          <h3 class="section-title text-xl text-orange-200 mb-2">2 · What happens? (toggle freely)</h3>
+          <p class="text-xs text-zinc-500 mb-4">Dogs stay the main characters. Every pick ties to a $NIBBLES-aligned program or night station.</p>
+          <div class="grid sm:grid-cols-2 gap-3" id="act-grid"></div>
+        </div>
+
+        <!-- School extras -->
+        <div id="school-extras" class="hidden table-card rounded-3xl p-6 border-emerald-500/20">
+          <h3 class="section-title text-lg text-emerald-200 mb-3">School field trip extras</h3>
+          <div class="grid sm:grid-cols-2 gap-3" id="school-grid"></div>
+        </div>
+
+        <!-- Senior extras -->
+        <div id="senior-extras" class="hidden table-card rounded-3xl p-6 border-amber-400/20">
+          <h3 class="section-title text-lg text-amber-200 mb-3">Senior home extras</h3>
+          <div class="grid sm:grid-cols-2 gap-3" id="senior-grid"></div>
+        </div>
+      </div>
+
+      <!-- Sticky summary -->
+      <aside class="lg:col-span-2">
+        <div class="builder-summary p-6">
+          <p class="station-num mb-2">YOUR NIGHT PLAN</p>
+          <h3 class="section-title text-2xl text-amber-50 mb-1" id="sum-title">Build it</h3>
+          <p class="text-xs text-zinc-500 mb-4" id="sum-venue">Choose a venue to begin</p>
+          <div class="mb-4">
+            <p class="text-[10px] uppercase tracking-wider text-zinc-500 mb-2">Activities</p>
+            <ul class="space-y-1.5 text-sm text-zinc-300" id="sum-acts">
+              <li class="text-zinc-600 text-xs">Toggle activities on the left</li>
+            </ul>
+          </div>
+          <div class="mb-4">
+            <p class="text-[10px] uppercase tracking-wider text-zinc-500 mb-2">Programs this night touches</p>
+            <div class="flex flex-wrap gap-1.5" id="sum-progs"></div>
+          </div>
+          <div class="mb-5 p-3 rounded-xl bg-black/30 border border-white/5">
+            <p class="text-[10px] uppercase tracking-wider text-orange-300/80 mb-1">Energy score</p>
+            <div class="flex items-end gap-2">
+              <span class="section-title text-3xl text-orange-200" id="sum-energy">0</span>
+              <span class="text-xs text-zinc-500 pb-1">/ 100 joy units (fun only)</span>
+            </div>
+            <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
+              <div id="sum-energy-bar" class="h-full rounded-full bg-gradient-to-r from-amber-600 via-orange-400 to-emerald-400" style="width:0%"></div>
+            </div>
+          </div>
+          <button type="button" id="intent-btn" class="table-cta w-full py-3.5 rounded-full text-sm">
+            Save night intent (preview)
+          </button>
+          <p class="text-[11px] text-zinc-500 mt-3 leading-relaxed" id="intent-note">
+            When events go live, this plan becomes a sponsor request with welfare review and partner approval.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITY UNIVERSE -->
+<section id="activities" class="py-20 px-6 border-t border-orange-500/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="station-num mb-3">EVERYTHING IMAGINABLE (WELFARE FIRST)</p>
+      <h2 class="section-title text-3xl sm:text-4xl text-amber-50">Fun that still honors the souls</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 text-sm">
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">🔥 Table &amp; feast</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Long-table BBQ, vegetarian options, donor “open chair,” dessert for seniors, kid picnic kits, sunset toast for the souls.</p>
+      </div>
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">🎾 Dog-star games</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Scent trails, gentle fetch, bubble chase, puzzle feeders, “which bed is mine,” calm trick demos. Dogs opt in. Handlers call rest.</p>
+      </div>
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">🏥 Healing stations</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Healing Hearts style quiet snuggle corners. Silver Paws visits. Golden Years storytelling with a calm adult dog nearby.</p>
+      </div>
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">🎨 Soul Studio</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Kids mint one soulbound bond with a barn dog. Drawing wall. “Why I chose you” notes. Never for trading.</p>
+      </div>
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">📷 Forever Fit booth</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Pro photo with dog + human. Tees, jerseys, hats. Family sizes. Dog face sacred on the front.</p>
+      </div>
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">🚌 School day arc</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Bus arrival → empathy circle → station rotations → journal → optional soulbound → thank-you howl. Junior high: service hours + leadership helpers.</p>
+      </div>
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">🌈 Honor moments</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Rainbow Bridge quiet corner. Sequoia legacy storytelling. Name-a-pod whispers for sponsors (tasteful, no spectacle).</p>
+      </div>
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">📡 Live room</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Stream the table. Opt-in donor seats on mic. Mercy Wheel spin after AMA when linked to live nights.</p>
+      </div>
+      <div class="table-card rounded-2xl p-6">
+        <h4 class="text-orange-200 font-semibold mb-2">♿ Access &amp; care</h4>
+        <p class="text-zinc-400 text-xs leading-relaxed">Shade, water, seating heights for elders, quiet rooms, allergen plans, zero forced animal contact. Quality people only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSOR TIERS -->
+<section id="sponsor" class="py-20 px-6 border-t border-orange-500/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="station-num mb-3">SPONSOR A GATHERING</p>
+      <h2 class="section-title text-3xl sm:text-4xl text-amber-50">Donate the night into existence</h2>
+      <p class="mt-3 text-zinc-400 max-w-xl mx-auto text-sm">Circles mirror mercy language. Final pricing and availability when venues and charity rails are live.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="tier-card p-7">
+        <p class="text-xs tracking-widest text-zinc-500 uppercase mb-2">Mercy Circle night</p>
+        <h3 class="section-title text-xl text-amber-100 mb-2">Spark Table</h3>
+        <p class="text-xs text-zinc-400 leading-relaxed mb-4">Small courtyard or classroom-scale visit. 1–2 calm dogs. Core feast or snack. One enrichment station. Photo keepsakes optional.</p>
+        <p class="text-[11px] text-orange-300/80">Great for: senior home tea · junior class visit</p>
+      </div>
+      <div class="tier-card featured p-7">
+        <p class="text-xs tracking-widest text-orange-300 uppercase mb-2">Guardian Circle night</p>
+        <h3 class="section-title text-xl text-orange-100 mb-2">Full Barn Table</h3>
+        <p class="text-xs text-zinc-300 leading-relaxed mb-4">Full BBQ. Multi-station games. Soul Studio. Forever Fit booth. Livestream option. You build the activity list. Named thank-you (opt-in).</p>
+        <p class="text-[11px] text-amber-200/90">Flagship donor night · most requested shape</p>
+      </div>
+      <div class="tier-card p-7">
+        <p class="text-xs tracking-widest text-zinc-500 uppercase mb-2">Eternal Guardian</p>
+        <h3 class="section-title text-xl text-amber-100 mb-2">Season of Tables</h3>
+        <p class="text-xs text-zinc-400 leading-relaxed mb-4">Series: barn + senior home + school field trip. Modify each event. Annual impact story. Priority dates when calendar opens.</p>
+        <p class="text-[11px] text-orange-300/80">For families &amp; companies who want a year of mercy</p>
+      </div>
     </div>
   </div>
 </section>
@@ -446,11 +718,11 @@
     </article>
     <article class="table-card rounded-3xl p-8">
       <p class="station-num mb-3">DONORS</p>
-      <h3 class="section-title text-2xl text-amber-50 mb-3">Always welcome at the table</h3>
+      <h3 class="section-title text-2xl text-amber-50 mb-3">Sponsor the night. Shape it.</h3>
       <p class="text-sm text-zinc-400 leading-relaxed">
-        If you give, you belong here. Not as a logo on a wall.
-        as a seat. Guardian Circle and friends of the mission are family on the night.
-        Opt-in shoutouts on stream. Quiet dignity if you prefer to just sit and smile.
+        You can sit as family, or fund a whole gathering and build the activity list.
+        Barns, senior homes, school trips. Opt-in shoutouts or quiet dignity.
+        The dogs stay the main characters either way.
       </p>
     </article>
     <article class="table-card rounded-3xl p-8">
@@ -489,14 +761,17 @@
 <section class="py-20 px-6 text-center">
   <div class="max-w-3xl mx-auto">
     <h2 class="section-title text-3xl sm:text-5xl ember-glow mb-6">
-      Come have a seat with us<br>at the Shiba Barn Table BBQ
+      Come have a seat<br>or sponsor the whole night
     </h2>
     <p class="text-zinc-400 mb-10">
-      First tables light when the barn ground and partners are ready.
-      Until then, hold the flywheel. Share the seat. Be the 1.
+      First tables light when barn ground, senior partners, and schools are ready.
+      Build your night plan above. Hold the flywheel. Be the 1.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="index.html#tokens" class="table-cta inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">
+      <a href="#build" class="table-cta inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">
+        Build your night
+      </a>
+      <a href="index.html#tokens" class="soft-cta inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-amber-100">
         Turn the flywheel
       </a>
       <a href="shelters.html" class="soft-cta inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-amber-100">
@@ -544,6 +819,198 @@ function toggleMobileMenu() {
     icon.classList.toggle('fa-times');
   }
 }
+
+/* ===== DONOR NIGHT BUILDER ===== */
+(function () {
+  var venues = [
+    { id: 'barn', emoji: '🏡', title: 'Shiba Barn', blurb: 'Sanctuary feast · pods · open sky', energy: 8 },
+    { id: 'senior', emoji: '👵', title: 'Senior home', blurb: 'Calm courtyard · soft dogs · soft hands', energy: 6 },
+    { id: 'school', emoji: '🚌', title: 'School field trip', blurb: 'Elementary or junior high · learning + love', energy: 10 }
+  ];
+
+  var coreActs = [
+    { id: 'bbq', emoji: '🔥', title: 'Long-table BBQ feast', desc: 'Real food, open chair for donors', programs: ['Shiba Barn Sanctuary'], energy: 12, venues: ['barn', 'senior', 'school'] },
+    { id: 'enrich', emoji: '🎾', title: 'Dog-star enrichment games', desc: 'Scent, fetch, puzzles · dogs opt in', programs: ['Shelter-To-Barn', 'Golden Paws'], energy: 14, venues: ['barn', 'school'] },
+    { id: 'healing', emoji: '🏥', title: 'Healing Hearts corner', desc: 'Quiet snuggle / visit station', programs: ['Healing Hearts'], energy: 11, venues: ['barn', 'senior', 'school'] },
+    { id: 'silver', emoji: '🐾', title: 'Silver Paws visit set', desc: 'Senior-friendly calm rotations', programs: ['Silver Paws', 'Golden Years'], energy: 10, venues: ['senior', 'barn'] },
+    { id: 'soul', emoji: '✨', title: 'Soul Studio bond', desc: 'One soulbound memory per child', programs: ['Rescue Passport', 'Unified Registry'], energy: 13, venues: ['barn', 'school'] },
+    { id: 'booth', emoji: '📷', title: 'Forever Fit photo booth', desc: 'Pro photo · tees · family sizes', programs: ['Shiba Barn Table'], energy: 9, venues: ['barn', 'senior', 'school'] },
+    { id: 'stream', emoji: '📡', title: 'Livestream the table', desc: 'World sits with us · opt-in shoutouts', programs: ['Pay It Forward'], energy: 8, venues: ['barn', 'senior'] },
+    { id: 'rainbow', emoji: '🌈', title: 'Rainbow Bridge honor', desc: 'Quiet corner · legacy storytelling', programs: ['Rainbow Bridge & Sequoia'], energy: 7, venues: ['barn', 'senior'] },
+    { id: 'pod', emoji: '🏠', title: 'Meet a sponsored pod', desc: 'Walk the barn pods with handlers', programs: ['Corporate Barn Pod', 'Golden Paws'], energy: 12, venues: ['barn'] },
+    { id: 'music', emoji: '🎸', title: 'Soft live music', desc: 'Acoustic only · volume welfare-safe', programs: ['Star Souls energy'], energy: 6, venues: ['barn', 'senior'] },
+    { id: 'dessert', emoji: '🍰', title: 'Sweet table & story circle', desc: 'Dessert + “how this soul got here”', programs: ['Forever-Home Families'], energy: 7, venues: ['barn', 'senior', 'school'] },
+    { id: 'wheel', emoji: '🎡', title: 'Mercy Wheel moment', desc: 'Post-meal spin for next save (when live)', programs: ['Mercy Flywheel'], energy: 15, venues: ['barn'] }
+  ];
+
+  var schoolActs = [
+    { id: 'empathy', emoji: '📖', title: 'Empathy curriculum circle', desc: 'Age-fit lesson on care & kindness', programs: ['Healing Hearts', 'Bullyproof culture'], energy: 9 },
+    { id: 'stations', emoji: '🔁', title: 'Station rotations', desc: 'Small groups · handlers · timers', programs: ['Healing Hearts'], energy: 10 },
+    { id: 'journal', emoji: '✏️', title: 'Field journal & thank-you howl', desc: 'Write · draw · group howl goodbye', programs: ['Soul Studio'], energy: 8 },
+    { id: 'leaders', emoji: '⭐', title: 'Junior high leadership helpers', desc: 'Service hours · peer mentoring', programs: ['Second Chance spirit'], energy: 7 },
+    { id: 'bus', emoji: '🚌', title: 'Bus + chaperone package', desc: 'Logistics support for the trip', programs: ['Field trip ops'], energy: 5 }
+  ];
+
+  var seniorActs = [
+    { id: 'lap', emoji: '🤍', title: 'Lap-visit rotations', desc: 'Very calm dogs · short windows', programs: ['Silver Paws'], energy: 10 },
+    { id: 'memory', emoji: '🖼️', title: 'Memory photo cards', desc: 'Print of resident + dog (consent)', programs: ['Golden Years'], energy: 8 },
+    { id: 'stories', emoji: '🗣️', title: 'Life-story swaps', desc: 'Elders tell · dogs listen · kids optional', programs: ['Golden Years', 'Healing Hearts'], energy: 9 },
+    { id: 'access', emoji: '♿', title: 'Full access kit', desc: 'Shade, seating heights, quiet room', programs: ['Welfare first'], energy: 4 }
+  ];
+
+  var state = { venue: null, acts: {}, school: {}, senior: {} };
+
+  function el(id) { return document.getElementById(id); }
+
+  function renderVenues() {
+    var g = el('venue-grid');
+    if (!g) return;
+    g.innerHTML = venues.map(function (v) {
+      return '<button type="button" class="venue-card p-4 text-left' + (state.venue === v.id ? ' is-on' : '') + '" data-venue="' + v.id + '">' +
+        '<div class="text-2xl mb-2">' + v.emoji + '</div>' +
+        '<div class="font-semibold text-amber-100 text-sm">' + v.title + '</div>' +
+        '<div class="text-[11px] text-zinc-500 mt-1">' + v.blurb + '</div></button>';
+    }).join('');
+    g.querySelectorAll('[data-venue]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state.venue = btn.getAttribute('data-venue');
+        renderVenues();
+        renderActs();
+        renderExtras();
+        updateSummary();
+      });
+    });
+  }
+
+  function actHtml(list, storeKey, selectedMap) {
+    return list.map(function (a) {
+      var on = !!selectedMap[a.id];
+      return '<button type="button" class="act-card p-3.5 text-left flex gap-3' + (on ? ' is-on' : '') + '" data-act="' + a.id + '" data-store="' + storeKey + '">' +
+        '<span class="check" aria-hidden="true">✓</span>' +
+        '<span class="min-w-0"><span class="block text-sm text-amber-50 font-medium">' + a.emoji + ' ' + a.title + '</span>' +
+        '<span class="block text-[11px] text-zinc-500 mt-0.5 leading-snug">' + a.desc + '</span></span></button>';
+    }).join('');
+  }
+
+  function bindActs(container, list, storeKey) {
+    if (!container) return;
+    container.querySelectorAll('[data-act]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-act');
+        var map = state[storeKey];
+        if (map[id]) delete map[id]; else map[id] = true;
+        renderActs();
+        renderExtras();
+        updateSummary();
+      });
+    });
+  }
+
+  function renderActs() {
+    var g = el('act-grid');
+    if (!g) return;
+    var filtered = coreActs.filter(function (a) {
+      return !state.venue || a.venues.indexOf(state.venue) !== -1;
+    });
+    g.innerHTML = actHtml(filtered, 'acts', state.acts);
+    bindActs(g, filtered, 'acts');
+  }
+
+  function renderExtras() {
+    var se = el('school-extras');
+    var sen = el('senior-extras');
+    var sg = el('school-grid');
+    var sng = el('senior-grid');
+    if (se) se.classList.toggle('hidden', state.venue !== 'school');
+    if (sen) sen.classList.toggle('hidden', state.venue !== 'senior');
+    if (sg && state.venue === 'school') {
+      sg.innerHTML = actHtml(schoolActs, 'school', state.school);
+      bindActs(sg, schoolActs, 'school');
+    }
+    if (sng && state.venue === 'senior') {
+      sng.innerHTML = actHtml(seniorActs, 'senior', state.senior);
+      bindActs(sng, seniorActs, 'senior');
+    }
+  }
+
+  function collectSelected() {
+    var out = [];
+    function pull(list, map) {
+      list.forEach(function (a) {
+        if (map[a.id]) out.push(a);
+      });
+    }
+    pull(coreActs, state.acts);
+    if (state.venue === 'school') pull(schoolActs, state.school);
+    if (state.venue === 'senior') pull(seniorActs, state.senior);
+    return out;
+  }
+
+  function updateSummary() {
+    var v = venues.find(function (x) { return x.id === state.venue; });
+    var title = el('sum-title');
+    var venueEl = el('sum-venue');
+    var actsEl = el('sum-acts');
+    var progsEl = el('sum-progs');
+    var energyEl = el('sum-energy');
+    var bar = el('sum-energy-bar');
+    if (title) title.textContent = v ? (v.emoji + ' ' + v.title + ' Night') : 'Build it';
+    if (venueEl) venueEl.textContent = v ? v.blurb : 'Choose a venue to begin';
+    var selected = collectSelected();
+    if (actsEl) {
+      actsEl.innerHTML = selected.length
+        ? selected.map(function (a) { return '<li>· ' + a.emoji + ' ' + a.title + '</li>'; }).join('')
+        : '<li class="text-zinc-600 text-xs">Toggle activities on the left</li>';
+    }
+    var progSet = {};
+    selected.forEach(function (a) {
+      (a.programs || []).forEach(function (p) { progSet[p] = true; });
+    });
+    if (progsEl) {
+      var keys = Object.keys(progSet);
+      progsEl.innerHTML = keys.length
+        ? keys.map(function (p) { return '<span class="prog-chip">' + p + '</span>'; }).join('')
+        : '<span class="text-xs text-zinc-600">Programs appear as you add activities</span>';
+    }
+    var energy = (v ? v.energy : 0);
+    selected.forEach(function (a) { energy += a.energy || 0; });
+    energy = Math.min(100, energy);
+    if (energyEl) energyEl.textContent = String(energy);
+    if (bar) bar.style.width = energy + '%';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    renderVenues();
+    renderActs();
+    renderExtras();
+    updateSummary();
+    var intent = el('intent-btn');
+    var note = el('intent-note');
+    if (intent) {
+      intent.addEventListener('click', function () {
+        if (!state.venue) {
+          if (note) note.textContent = 'Pick a venue first — barn, senior home, or school trip.';
+          return;
+        }
+        var selected = collectSelected();
+        if (!selected.length) {
+          if (note) note.textContent = 'Add at least one activity so the souls have a real night.';
+          return;
+        }
+        try {
+          localStorage.setItem('shh_barn_night_intent', JSON.stringify({
+            venue: state.venue,
+            acts: selected.map(function (a) { return a.id; }),
+            at: new Date().toISOString()
+          }));
+        } catch (e) {}
+        if (note) note.innerHTML = 'Night intent saved on this device. When sponsor rails open, we will turn plans like yours into real tables. <span class="text-orange-300">Thank you for building with the souls.</span>';
+        intent.textContent = 'Intent saved ✓';
+      });
+    }
+  });
+})();
+
 document.addEventListener('click', function (e) {
   const dd = document.getElementById('programs-dropdown');
   const menu = document.getElementById('programs-menu');
