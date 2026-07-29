@@ -41,176 +41,330 @@
   <script src="js/glossary.js" defer></script>
 
   <style>
+    :root {
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ember: #f59e0b;
+      --ember-hot: #fb923c;
+      --gold: #fcd34d;
+      --leaf: #34d399;
+      --ink: #05070d;
+      --panel: rgba(12, 14, 22, 0.72);
+    }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0; padding: 0; overflow-x: hidden;
-      background: #0a0f1c; color: white;
+      background: var(--ink); color: #f4f4f5;
       font-family: 'Inter', system-ui, sans-serif;
+    }
+    /* Protocol-like top progress */
+    #bt-progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      z-index: 120;
+      background: linear-gradient(90deg, #fbbf24, #fb923c, #34d399, #22d3ee);
+      box-shadow: 0 0 16px rgba(251,191,36,0.7);
+      pointer-events: none;
     }
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
     }
+    /* Ambient world */
     .hero-table {
+      position: relative;
+      isolation: isolate;
       background:
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(251,146,60,0.18) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(16,185,129,0.12) 0%, transparent 50%),
-        linear-gradient(180deg, #0a0f1c 0%, #1a120c 45%, #0f1a14 100%);
+        radial-gradient(ellipse 90% 55% at 50% -10%, rgba(251,146,60,0.28) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 90% 60%, rgba(16,185,129,0.14) 0%, transparent 50%),
+        radial-gradient(ellipse 45% 35% at 8% 80%, rgba(0,249,255,0.08) 0%, transparent 45%),
+        linear-gradient(180deg, #05070d 0%, #120e0a 42%, #07120f 100%);
+    }
+    .hero-table::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 40%, #000 10%, transparent 72%);
+      opacity: 0.55;
+    }
+    .hero-table::after {
+      content: '';
+      position: absolute; left: 10%; right: 10%; bottom: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(251,191,36,0.45), rgba(52,211,153,0.35), transparent);
     }
     .table-card {
-      border: 1px solid rgba(251, 191, 36, 0.22);
-      background: linear-gradient(155deg, rgba(28, 20, 12, 0.95) 0%, rgba(8, 12, 20, 0.98) 100%);
-      transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s, box-shadow 0.35s;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(155deg, rgba(22, 18, 16, 0.92) 0%, rgba(8, 10, 16, 0.96) 100%);
+      backdrop-filter: blur(14px);
+      transition: transform 0.45s var(--ease), border-color 0.35s, box-shadow 0.45s var(--ease);
+      overflow: hidden;
+    }
+    .table-card::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none; opacity: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 0%, rgba(251,146,60,0.14), transparent 55%);
+      transition: opacity 0.4s ease;
     }
     .table-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(251, 146, 60, 0.55);
-      box-shadow: 0 28px 60px -20px rgba(251, 146, 60, 0.25);
+      transform: translateY(-8px);
+      border-color: rgba(251, 146, 60, 0.45);
+      box-shadow:
+        0 32px 70px -28px rgba(0,0,0,0.85),
+        0 0 50px -20px rgba(251,146,60,0.35);
     }
+    .table-card:hover::before { opacity: 1; }
     .ember-glow {
-      text-shadow: 0 0 40px rgba(251, 146, 60, 0.45), 0 0 80px rgba(16, 185, 129, 0.2);
+      text-shadow: 0 0 50px rgba(251, 146, 60, 0.5), 0 0 100px rgba(16, 185, 129, 0.2);
     }
     .table-cta {
-      background: linear-gradient(145deg, #fbbf24, #f59e0b, #ea580c);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(120deg, #fde68a, #f59e0b 40%, #ea580c 75%, #34d399);
+      background-size: 200% 100%;
       color: #0a0f1c;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      letter-spacing: -0.02em;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s, filter 0.3s;
+      box-shadow: 0 0 40px -8px rgba(251,146,60,0.65), 0 16px 40px -16px rgba(234,88,12,0.5);
+      animation: cta-sheen 5s ease infinite;
+    }
+    @keyframes cta-sheen {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
     .table-cta:hover {
-      transform: scale(1.04) translateY(-2px);
-      box-shadow: 0 18px 40px -12px rgba(251, 146, 60, 0.55);
+      transform: scale(1.05) translateY(-3px);
+      filter: brightness(1.06);
+      box-shadow: 0 0 60px -6px rgba(251,191,36,0.75), 0 24px 50px -14px rgba(16,185,129,0.35);
     }
     .soft-cta {
-      border: 1px solid rgba(251, 191, 36, 0.4);
-      background: rgba(251, 191, 36, 0.08);
-      transition: all 0.25s ease;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s var(--ease);
     }
     .soft-cta:hover {
-      background: rgba(251, 191, 36, 0.16);
-      border-color: rgba(251, 191, 36, 0.7);
+      background: rgba(251, 191, 36, 0.12);
+      border-color: rgba(251, 191, 36, 0.75);
+      box-shadow: 0 0 30px -10px rgba(251,191,36,0.45);
     }
     .station-num {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      color: rgba(251, 191, 36, 0.7);
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(251, 191, 36, 0.75);
     }
+    .section-rule {
+      width: 3.5rem; height: 2px; margin: 0.85rem auto 0;
+      background: linear-gradient(90deg, #f59e0b, #34d399);
+      border-radius: 2px;
+      box-shadow: 0 0 12px rgba(251,191,36,0.4);
+    }
+    .section-rule.left { margin-left: 0; }
     .quote-block {
-      border-left: 3px solid rgba(251, 146, 60, 0.7);
-      background: rgba(251, 146, 60, 0.06);
+      position: relative;
+      border: 1px solid rgba(251,146,60,0.25);
+      background:
+        radial-gradient(ellipse 80% 80% at 0% 0%, rgba(251,146,60,0.12), transparent 50%),
+        rgba(8,10,16,0.75);
+      border-radius: 1.5rem;
+      padding: 2rem 2rem 2rem 2.25rem !important;
+      box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7);
+    }
+    .quote-block::before {
+      content: '“';
+      position: absolute; top: 0.4rem; left: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4rem; line-height: 1;
+      color: rgba(251,146,60,0.25);
     }
     .info-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      margin-left: 5px;
-      font-size: 11px;
-      line-height: 1;
-      border: 1px solid rgba(251, 191, 36, 0.45);
-      border-radius: 9999px;
-      color: #fcd34d;
-      background: rgba(0,0,0,0.4);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      vertical-align: middle;
-      font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 18px; height: 18px; margin-left: 5px; font-size: 11px; line-height: 1;
+      border: 1px solid rgba(251, 191, 36, 0.45); border-radius: 9999px;
+      color: #fcd34d; background: rgba(0,0,0,0.4); cursor: pointer;
+      transition: all 0.2s ease; vertical-align: middle; font-weight: 600;
     }
     .info-icon:hover {
-      border-color: #fcd34d;
-      background: rgba(251,191,36,0.15);
-      transform: scale(1.15);
+      border-color: #fcd34d; background: rgba(251,191,36,0.15); transform: scale(1.15);
     }
     .ember-float {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 9999px;
-      background: rgba(251, 146, 60, 0.55);
-      filter: blur(1px);
-      animation: ember-rise 7s ease-in-out infinite;
-      pointer-events: none;
+      position: absolute; width: 7px; height: 7px; border-radius: 9999px;
+      background: rgba(251, 146, 60, 0.65); filter: blur(1px);
+      animation: ember-rise 8s ease-in-out infinite; pointer-events: none; z-index: 1;
     }
     @keyframes ember-rise {
-      0%, 100% { transform: translateY(0) scale(1); opacity: 0.35; }
-      50% { transform: translateY(-40px) scale(1.3); opacity: 0.8; }
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.25; }
+      50% { transform: translateY(-55px) scale(1.4); opacity: 0.9; }
     }
     nav {
-      background: linear-gradient(180deg, rgba(10,15,28,0.98) 0%, rgba(5,7,15,0.95) 100%);
-      border-bottom: 1px solid rgba(251, 146, 60, 0.2);
+      background: rgba(5,7,13,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(251, 146, 60, 0.15);
     }
     nav a { transition: color 0.15s ease, letter-spacing 0.2s ease; }
     nav a:hover { letter-spacing: 0.02em; color: #fbbf24; }
     .table-nav-pill {
-      color: #fdba74;
-      padding: 4px 12px;
-      border-radius: 9999px;
+      color: #fdba74; padding: 4px 12px; border-radius: 9999px;
       border: 1px solid rgba(251, 146, 60, 0.35);
       background: rgba(251, 146, 60, 0.08);
     }
     .table-nav-pill:hover {
-      color: #fff;
-      border-color: rgba(251, 191, 36, 0.7);
+      color: #fff; border-color: rgba(251, 191, 36, 0.7);
       background: rgba(251, 146, 60, 0.18);
     }
-    /* Event builder */
+    /* Builder */
     .venue-card, .act-card {
       cursor: pointer;
-      border: 1px solid rgba(251, 191, 36, 0.18);
-      background: rgba(12, 10, 8, 0.85);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(8, 10, 16, 0.75);
       border-radius: 1.15rem;
-      transition: border-color 0.2s, box-shadow 0.25s, transform 0.2s, background 0.2s;
+      transition: border-color 0.25s, box-shadow 0.3s var(--ease), transform 0.3s var(--ease), background 0.25s;
       user-select: none;
     }
     .venue-card:hover, .act-card:hover {
       border-color: rgba(251, 146, 60, 0.45);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px -20px rgba(251,146,60,0.3);
     }
     .venue-card.is-on, .act-card.is-on {
-      border-color: rgba(251, 191, 36, 0.75);
-      background: linear-gradient(160deg, rgba(251,146,60,0.14), rgba(8,12,20,0.95));
-      box-shadow: 0 0 28px -10px rgba(251, 146, 60, 0.45);
+      border-color: rgba(251, 191, 36, 0.8);
+      background: linear-gradient(160deg, rgba(251,146,60,0.18), rgba(8,12,20,0.95));
+      box-shadow: 0 0 36px -8px rgba(251, 146, 60, 0.55), 0 0 0 1px rgba(251,191,36,0.15) inset;
     }
     .act-card .check {
-      width: 1.1rem; height: 1.1rem; border-radius: 0.3rem;
-      border: 1.5px solid rgba(255,255,255,0.25);
+      width: 1.15rem; height: 1.15rem; border-radius: 0.35rem;
+      border: 1.5px solid rgba(255,255,255,0.22);
       display: grid; place-items: center;
-      font-size: 0.65rem; color: transparent;
-      flex-shrink: 0;
+      font-size: 0.65rem; color: transparent; flex-shrink: 0;
+      transition: all 0.2s ease;
     }
     .act-card.is-on .check {
-      background: #f59e0b; border-color: #fbbf24; color: #0a0f1c;
+      background: linear-gradient(135deg, #fbbf24, #ea580c);
+      border-color: transparent; color: #0a0f1c;
     }
     .builder-summary {
-      position: sticky; top: 6.5rem;
-      border: 1px solid rgba(251, 146, 60, 0.35);
-      background: linear-gradient(165deg, rgba(28, 18, 10, 0.96), rgba(8, 12, 18, 0.98));
-      border-radius: 1.5rem;
-      box-shadow: 0 24px 50px -24px rgba(0,0,0,0.7);
+      position: sticky; top: 5.5rem;
+      border: 1px solid rgba(251, 146, 60, 0.4);
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 0%, rgba(251,146,60,0.18), transparent 55%),
+        linear-gradient(165deg, rgba(22, 14, 8, 0.98), rgba(6, 8, 14, 0.99));
+      border-radius: 1.65rem;
+      box-shadow: 0 30px 70px -28px rgba(0,0,0,0.85), 0 0 50px -20px rgba(251,146,60,0.35);
+    }
+    .builder-summary .pulse-ring {
+      position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+      border: 1px solid rgba(251,191,36,0.25);
+      animation: sum-pulse 3.5s ease-in-out infinite;
+    }
+    @keyframes sum-pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.005); }
     }
     .prog-chip {
       display: inline-flex; align-items: center; gap: 0.25rem;
-      font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 9999px;
+      font-size: 0.65rem; padding: 0.2rem 0.55rem; border-radius: 9999px;
       background: rgba(251,191,36,0.12); color: #fcd34d;
-      border: 1px solid rgba(251,191,36,0.25);
+      border: 1px solid rgba(251,191,36,0.3);
     }
     .tier-card {
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 1.25rem;
-      background: rgba(10,12,18,0.7);
-      transition: border-color 0.2s, transform 0.2s;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.35rem;
+      background: rgba(8,10,16,0.8);
+      transition: border-color 0.3s, transform 0.4s var(--ease), box-shadow 0.4s;
+      position: relative; overflow: hidden;
     }
-    .tier-card:hover { border-color: rgba(251,191,36,0.45); transform: translateY(-3px); }
+    .tier-card:hover {
+      border-color: rgba(251,191,36,0.45);
+      transform: translateY(-6px);
+      box-shadow: 0 28px 50px -24px rgba(251,146,60,0.3);
+    }
     .tier-card.featured {
-      border-color: rgba(251,146,60,0.55);
-      background: linear-gradient(160deg, rgba(251,146,60,0.12), rgba(10,12,18,0.9));
+      border-color: rgba(251,146,60,0.6);
+      background: linear-gradient(160deg, rgba(251,146,60,0.16), rgba(8,10,16,0.95));
+      box-shadow: 0 0 50px -18px rgba(251,146,60,0.45);
+    }
+    .tier-card.featured::after {
+      content: 'MOST LOVED';
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: 0.58rem; letter-spacing: 0.14em;
+      color: #0a0f1c; background: #fcd34d; padding: 0.25rem 0.5rem; border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    }
+    /* Scroll reveal — Protocol cinematic */
+    .bt-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .bt-reveal.is-in { opacity: 1; transform: none; }
+    .bt-reveal-delay-1 { transition-delay: 0.08s; }
+    .bt-reveal-delay-2 { transition-delay: 0.16s; }
+    .bt-reveal-delay-3 { transition-delay: 0.24s; }
+    /* Floating invite bar */
+    .invite-bar {
+      position: fixed; bottom: 1.25rem; left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      z-index: 90;
+      display: flex; align-items: center; gap: 0.85rem;
+      padding: 0.65rem 0.75rem 0.65rem 1.15rem;
+      border-radius: 9999px;
+      background: rgba(8,10,16,0.92);
+      border: 1px solid rgba(251,191,36,0.4);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px -16px rgba(0,0,0,0.8), 0 0 40px -12px rgba(251,146,60,0.45);
+      transition: transform 0.5s var(--ease);
+      max-width: calc(100vw - 1.5rem);
+    }
+    .invite-bar.is-show { transform: translateX(-50%) translateY(0); }
+    .invite-bar p { margin: 0; font-size: 0.78rem; color: #d4d4d8; white-space: nowrap; }
+    .invite-bar p strong { color: #fcd34d; }
+    .marquee {
+      overflow: hidden; border-block: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.35);
+    }
+    .marquee-track {
+      display: flex; gap: 2.5rem; width: max-content;
+      padding: 0.75rem 0;
+      animation: marquee 32s linear infinite;
+      font-size: 0.78rem; color: #a1a1aa;
+      font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.04em;
+    }
+    .marquee-track span { white-space: nowrap; }
+    .marquee-track em { color: #fcd34d; font-style: normal; font-weight: 600; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    .hero-stat {
+      padding: 0.85rem 1.1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+    .hero-stat b {
+      display: block; font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem; color: #fde68a; letter-spacing: -0.02em;
+    }
+    .hero-stat span {
+      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: #71717a;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bt-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .table-cta, .ember-float, .marquee-track, .builder-summary .pulse-ring { animation: none !important; }
+      .invite-bar { transition: none; }
     }
   </style>
 </head>
 <body>
+
+<div id="bt-progress" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav class="fixed w-full z-50 backdrop-blur-lg">
@@ -291,91 +445,118 @@
 </div>
 
 <!-- HERO -->
-<header id="seat" class="hero-table pt-32 pb-24 relative overflow-hidden min-h-[88vh] flex items-center">
+<header id="seat" class="hero-table pt-28 sm:pt-32 pb-20 sm:pb-28 relative overflow-hidden min-h-[92vh] flex items-center">
   <div class="ember-float" style="left:12%; top:70%; animation-delay:0s;"></div>
   <div class="ember-float" style="left:28%; top:60%; animation-delay:1.2s;"></div>
   <div class="ember-float" style="left:70%; top:75%; animation-delay:0.6s;"></div>
   <div class="ember-float" style="left:85%; top:55%; animation-delay:2s;"></div>
+  <div class="ember-float" style="left:50%; top:40%; width:10px; height:10px; animation-delay:0.4s;"></div>
 
-  <div class="max-w-5xl mx-auto px-6 relative z-10 text-center w-full">
-    <p class="text-[11px] tracking-[0.35em] uppercase text-orange-300/80 mb-6">Donor-built nights · Barns · Senior homes · School field trips</p>
-    <h1 class="section-title text-4xl sm:text-6xl md:text-7xl leading-[0.95] ember-glow">
-      Come have a seat<br>
-      <span class="bg-gradient-to-r from-amber-200 via-orange-300 to-emerald-300 bg-clip-text text-transparent">or build the night</span><br>
-      Shiba Barn Table BBQ
+  <div class="max-w-6xl mx-auto px-6 relative z-10 text-center w-full">
+    <p class="station-num mb-5 bt-reveal">01 · Experience · You are invited</p>
+    <h1 class="section-title text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] ember-glow bt-reveal bt-reveal-delay-1">
+      Have a seat.<br>
+      <span class="bg-gradient-to-r from-amber-100 via-orange-300 to-emerald-300 bg-clip-text text-transparent">Or build the whole night.</span>
     </h1>
-    <p class="mt-8 text-lg sm:text-2xl text-amber-100/90 font-light max-w-2xl mx-auto leading-relaxed">
-      Donate a gathering. Choose the venue. Pick the games.<br>
-      The loving furry souls are the main characters.<br>
-      <span class="text-emerald-300/90 text-base sm:text-lg">Barns. Senior homes. Elementary &amp; junior high field trips.</span>
+    <div class="section-rule bt-reveal bt-reveal-delay-1"></div>
+    <p class="mt-8 text-lg sm:text-2xl text-zinc-300 font-light max-w-2xl mx-auto leading-relaxed bt-reveal bt-reveal-delay-2">
+      Sponsor a gathering. Shape every activity.
+      The furry souls are the main characters —
+      at barns, senior homes, and school field trips.
     </p>
-    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <a href="#build" class="table-cta inline-flex items-center gap-2 px-8 py-4 rounded-full text-base">
-        Build your night <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+    <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-center bt-reveal bt-reveal-delay-2">
+      <a href="#build" class="table-cta inline-flex items-center gap-2 px-9 py-4 rounded-full text-base">
+        Build your night <i class="fa-solid fa-fire text-sm"></i>
       </a>
-      <a href="#venues" class="soft-cta inline-flex items-center gap-2 px-8 py-4 rounded-full text-base text-amber-100">
-        Venues &amp; field trips
+      <a href="#venues" class="soft-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-base text-amber-50">
+        See the venues
       </a>
-      <a href="#soul-studio" class="soft-cta inline-flex items-center gap-2 px-8 py-4 rounded-full text-base text-amber-100">
-        Soul Studio
+      <a href="#sponsor" class="soft-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-base text-amber-50">
+        Sponsor tiers
       </a>
     </div>
-    <p class="mt-8 text-xs text-zinc-400 max-w-md mx-auto">
+    <div class="mt-12 flex flex-wrap justify-center gap-3 bt-reveal bt-reveal-delay-3">
+      <div class="hero-stat"><b>3</b><span>Venue types</span></div>
+      <div class="hero-stat"><b>20+</b><span>Activities</span></div>
+      <div class="hero-stat"><b>$NIBBLES</b><span>Program-aligned</span></div>
+      <div class="hero-stat"><b>You</b><span>Build the night</span></div>
+    </div>
+    <p class="mt-8 text-xs text-zinc-500 max-w-md mx-auto bt-reveal bt-reveal-delay-3">
       Powered by the mercy flywheel<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span>.
-      Proceeds route to the project treasury that funds barn care and the souls who live there.
+      Proceeds feed barn care and the souls who live there.
     </p>
   </div>
 </header>
 
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span><em>LONG TABLE</em> · real food · real seats</span>
+    <span>🐾 Dogs are the main characters</span>
+    <span><em>BARNS</em> · senior homes · school trips</span>
+    <span>Soul Studio · Forever Fit booth</span>
+    <span><em>DONORS BUILD</em> the night</span>
+    <span>Healing Hearts · Silver Paws · Golden Years</span>
+    <span>No cheap nights. Ever.</span>
+    <span><em>LONG TABLE</em> · real food · real seats</span>
+    <span>🐾 Dogs are the main characters</span>
+    <span><em>BARNS</em> · senior homes · school trips</span>
+    <span>Soul Studio · Forever Fit booth</span>
+    <span><em>DONORS BUILD</em> the night</span>
+    <span>Healing Hearts · Silver Paws · Golden Years</span>
+    <span>No cheap nights. Ever.</span>
+  </div>
+</div>
+
 <!-- HOST THANKS -->
-<section class="py-16 px-6 border-t border-orange-500/10">
-  <div class="max-w-3xl mx-auto">
-    <div class="quote-block rounded-r-2xl pl-6 pr-5 py-6">
-      <p class="text-xl sm:text-2xl font-light text-amber-50 leading-relaxed">
-        I’d like to thank you all for being with us tonight.
-        For sitting here with us at the <span class="text-orange-300 font-medium">Shiba Barn Table</span>,
-        with these souls who are grateful to be loved, alive, happy, and healthy.
+<section class="py-16 sm:py-20 px-6">
+  <div class="max-w-3xl mx-auto bt-reveal">
+    <div class="quote-block">
+      <p class="text-xl sm:text-2xl md:text-[1.65rem] font-light text-amber-50 leading-relaxed relative z-[1]">
+        Thank you for being with us tonight.
+        For sitting at the <span class="text-orange-300 font-medium">Shiba Barn Table</span>
+        with these souls — loved, alive, happy, and healthy.
       </p>
-      <p class="mt-4 text-sm text-zinc-400">Host words · every gathering</p>
+      <p class="mt-5 text-xs tracking-[0.2em] uppercase text-zinc-500 relative z-[1]">Host words · every gathering</p>
     </div>
   </div>
 </section>
 
 <!-- THE NIGHT -->
-<section id="night" class="py-20 px-6">
+<section id="night" class="py-20 sm:py-24 px-6">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-14">
-      <p class="station-num mb-3">THE NIGHT</p>
-      <h2 class="section-title text-3xl sm:text-5xl text-amber-50">One table. Real barn souls. A lifetime memory.</h2>
-      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">
-        This is not a carnival with dogs in the corner. This is hospitality with purpose:
-        long table energy, enrichment with the animals, livestream when we run it,
-        and donors always welcome as family, not ATMs.
+    <div class="text-center mb-14 bt-reveal">
+      <p class="station-num mb-3">02 · The night</p>
+      <h2 class="section-title text-3xl sm:text-5xl md:text-6xl text-white">One table. Real souls.<br class="hidden sm:block"> A lifetime memory.</h2>
+      <div class="section-rule"></div>
+      <p class="mt-5 text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+        Not a carnival with dogs in the corner. Hospitality with purpose —
+        long table energy, enrichment, livestream when we run it,
+        donors as family, not ATMs.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
-      <article class="table-card rounded-3xl p-7">
+    <div class="grid md:grid-cols-3 gap-5">
+      <article class="table-card rounded-3xl p-7 sm:p-8 bt-reveal bt-reveal-delay-1">
         <div class="text-3xl mb-4">🔥</div>
-        <h3 class="section-title text-xl text-orange-200 mb-2">The Table BBQ</h3>
+        <h3 class="section-title text-xl text-orange-100 mb-2">The Table BBQ</h3>
         <p class="text-sm text-zinc-400 leading-relaxed">
-          Real food. Real seats. Smoke, sun, and conversation. Come hungry.
-          Leave knowing every plate helped keep barn souls warm.
+          Real food. Real seats. Smoke, sun, conversation. Come hungry.
+          Leave knowing every plate kept barn souls warm.
         </p>
       </article>
-      <article class="table-card rounded-3xl p-7">
+      <article class="table-card rounded-3xl p-7 sm:p-8 bt-reveal bt-reveal-delay-2">
         <div class="text-3xl mb-4">🐾</div>
-        <h3 class="section-title text-xl text-orange-200 mb-2">Dogs are the main characters</h3>
+        <h3 class="section-title text-xl text-orange-100 mb-2">Dogs are the main characters</h3>
         <p class="text-sm text-zinc-400 leading-relaxed">
-          Not props. Stars. Enrichment, gentle games, rest rotations, and handlers
-          who put welfare first. Every activity maps back to $NIBBLES mercy programs.
+          Not props. Stars. Enrichment, gentle games, rest rotations, handlers
+          who put welfare first. Every activity maps to $NIBBLES programs.
         </p>
       </article>
-      <article class="table-card rounded-3xl p-7">
+      <article class="table-card rounded-3xl p-7 sm:p-8 bt-reveal bt-reveal-delay-3">
         <div class="text-3xl mb-4">🛠️</div>
-        <h3 class="section-title text-xl text-orange-200 mb-2">You build the night</h3>
+        <h3 class="section-title text-xl text-orange-100 mb-2">You build the night</h3>
         <p class="text-sm text-zinc-400 leading-relaxed">
-          Donors sponsor a gathering and shape it: venue type, activities, school trip or senior home,
+          Sponsor a gathering and shape it: venue, activities, school trip or senior home,
           Soul Studio, photo booth, livestream. Modify until it feels right.
         </p>
       </article>
@@ -384,12 +565,14 @@
 </section>
 
 <!-- VENUES -->
-<section id="venues" class="py-20 px-6 border-t border-orange-500/10">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="station-num mb-3">WHERE THE TABLE LANDS</p>
-      <h2 class="section-title text-3xl sm:text-5xl text-amber-50">Three kinds of holy ground</h2>
-      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">Same quality bar. Different hearts in the seats. Dogs always center stage.</p>
+<section id="venues" class="py-20 sm:py-24 px-6 relative">
+  <div class="absolute inset-0 pointer-events-none opacity-40" style="background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(251,146,60,0.1), transparent);"></div>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="text-center mb-12 bt-reveal">
+      <p class="station-num mb-3">03 · Where the table lands</p>
+      <h2 class="section-title text-3xl sm:text-5xl md:text-6xl text-white">Three kinds of holy ground</h2>
+      <div class="section-rule"></div>
+      <p class="mt-5 text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg">Same quality bar. Different hearts. Dogs always center stage.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
       <article class="table-card rounded-3xl p-8">
@@ -442,15 +625,18 @@
 </section>
 
 <!-- BUILD YOUR NIGHT -->
-<section id="build" class="py-20 px-6 bg-gradient-to-b from-orange-950/15 via-transparent to-transparent border-t border-orange-500/10">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="station-num mb-3">DONOR EVENT BUILDER</p>
-      <h2 class="section-title text-3xl sm:text-5xl text-amber-50">Create &amp; modify the night</h2>
-      <p class="mt-4 text-zinc-400 max-w-2xl mx-auto">
-        Pick a venue. Toggle activities. Watch your night plan fill in.
-        This is a preview builder for when partner barns, homes, and schools go live.
-        No charge on this page. Intent only.
+<section id="build" class="py-20 sm:py-28 px-6 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background:
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(251,146,60,0.12), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 10% 80%, rgba(16,185,129,0.08), transparent 50%);"></div>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="text-center mb-12 bt-reveal">
+      <p class="station-num mb-3">04 · Donor event builder</p>
+      <h2 class="section-title text-3xl sm:text-5xl md:text-6xl text-white">Create the night.<br class="hidden sm:block"> Feel it before it exists.</h2>
+      <div class="section-rule"></div>
+      <p class="mt-5 text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+        Pick a venue. Toggle activities. Watch your plan light up.
+        Preview only — when partners go live, this becomes a real sponsor request.
       </p>
     </div>
 
@@ -484,9 +670,10 @@
 
       <!-- Sticky summary -->
       <aside class="lg:col-span-2">
-        <div class="builder-summary p-6">
-          <p class="station-num mb-2">YOUR NIGHT PLAN</p>
-          <h3 class="section-title text-2xl text-amber-50 mb-1" id="sum-title">Build it</h3>
+        <div class="builder-summary p-6 sm:p-7 relative">
+          <div class="pulse-ring" aria-hidden="true"></div>
+          <p class="station-num mb-2">Your night plan</p>
+          <h3 class="section-title text-2xl sm:text-3xl text-amber-50 mb-1" id="sum-title">Build it</h3>
           <p class="text-xs text-zinc-500 mb-4" id="sum-venue">Choose a venue to begin</p>
           <div class="mb-4">
             <p class="text-[10px] uppercase tracking-wider text-zinc-500 mb-2">Activities</p>
@@ -521,11 +708,12 @@
 </section>
 
 <!-- ACTIVITY UNIVERSE -->
-<section id="activities" class="py-20 px-6 border-t border-orange-500/10">
+<section id="activities" class="py-20 sm:py-24 px-6">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="station-num mb-3">EVERYTHING IMAGINABLE (WELFARE FIRST)</p>
-      <h2 class="section-title text-3xl sm:text-4xl text-amber-50">Fun that still honors the souls</h2>
+    <div class="text-center mb-12 bt-reveal">
+      <p class="station-num mb-3">05 · Activity universe</p>
+      <h2 class="section-title text-3xl sm:text-5xl text-white">Fun that still honors the souls</h2>
+      <div class="section-rule"></div>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 text-sm">
       <div class="table-card rounded-2xl p-6">
@@ -569,12 +757,14 @@
 </section>
 
 <!-- SPONSOR TIERS -->
-<section id="sponsor" class="py-20 px-6 border-t border-orange-500/10">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="station-num mb-3">SPONSOR A GATHERING</p>
-      <h2 class="section-title text-3xl sm:text-4xl text-amber-50">Donate the night into existence</h2>
-      <p class="mt-3 text-zinc-400 max-w-xl mx-auto text-sm">Circles mirror mercy language. Final pricing and availability when venues and charity rails are live.</p>
+<section id="sponsor" class="py-20 sm:py-24 px-6 relative">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 55% 45% at 50% 100%, rgba(251,146,60,0.1), transparent 55%);"></div>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="text-center mb-12 bt-reveal">
+      <p class="station-num mb-3">06 · Sponsor a gathering</p>
+      <h2 class="section-title text-3xl sm:text-5xl text-white">Donate the night<br class="hidden sm:block"> into existence</h2>
+      <div class="section-rule"></div>
+      <p class="mt-5 text-zinc-400 max-w-xl mx-auto">Circles mirror mercy language. Pricing when venues and charity rails are live.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-5">
       <div class="tier-card p-7">
@@ -792,11 +982,19 @@
   <div class="mt-4 flex flex-wrap justify-center gap-4">
     <a href="index.html" class="hover:text-amber-300">Home</a>
     <a href="all-programs.html" class="hover:text-amber-300">Programs</a>
+    <a href="spin-the-wheel.html" class="hover:text-amber-300">Mercy Wheel</a>
     <a href="unified-rescue-registry.html" class="hover:text-amber-300">Soulbound</a>
     <a href="whitepaper.html" class="hover:text-amber-300">Whitepaper</a>
     <a href="https://x.com/Shibhumanityhub" class="hover:text-amber-300" target="_blank" rel="noopener">X</a>
   </div>
 </footer>
+
+<!-- Sticky invite -->
+<div class="invite-bar" id="invite-bar" role="complementary">
+  <p class="hidden sm:block"><strong>Feel that pull?</strong> Build a night for the souls.</p>
+  <p class="sm:hidden"><strong>Build a night</strong></p>
+  <a href="#build" class="table-cta shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm no-underline">Start →</a>
+</div>
 
 <script>
 function toggleProgramsDropdown(e) {
@@ -1020,6 +1218,44 @@ document.addEventListener('click', function (e) {
     if (chev) chev.style.transform = '';
   }
 });
+
+/* Protocol-style progress + reveals + invite bar */
+(function () {
+  var bar = document.getElementById('bt-progress');
+  var invite = document.getElementById('invite-bar');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    if (bar) bar.style.width = p + '%';
+    if (invite) {
+      if (h.scrollTop > 420) invite.classList.add('is-show');
+      else invite.classList.remove('is-show');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var nodes = document.querySelectorAll('.bt-reveal');
+  if (!nodes.length) return;
+  if (!('IntersectionObserver' in window)) {
+    nodes.forEach(function (n) { n.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  nodes.forEach(function (n) { io.observe(n); });
+  // Hero failsafes
+  setTimeout(function () {
+    document.querySelectorAll('header .bt-reveal').forEach(function (n) { n.classList.add('is-in'); });
+  }, 80);
+})();
 </script>
 </body>
 </html>
