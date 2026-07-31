@@ -775,49 +775,143 @@ const programs = [            {
     category: "$hopeseed",
     badgeColor: "emerald",
     image: "assets/images/orphanxmasphoto.jpg",
-    shortDesc: "On Christmas Eve, orphaned and foster kids open real personalized gifts live on stream while a global family of kind hearts cheers with them, wrapping every child in pure love and magic.",
-    fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Holiday Magic</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
-      <h2 class="text-4xl font-bold mb-3">Orphan Christmas</h2>
-      <p class="text-emerald-200 text-xl mb-6">All over the world there are children who wake up on Christmas morning feeling unseen, forgotten, and completely alone.</p>
-      <p class="text-zinc-300 mb-8">Orphaned kids. Foster kids. Kids in shelters. Their little hearts carry a quiet ache on the one day the whole world is supposed to feel full of wonder and love.</p>
-      <p class="text-zinc-300 mb-8">We want to change that with every beat of our hearts. Every December 24th we create pure, unforgettable magic. Wish lists come in with so much care. Hopeseed Anons and kind companies step up to sponsor gifts chosen just for each child. On Christmas Eve we go live so these beautiful children can open their presents on camera while a global family of loving hearts joins the stream in real time. We cheer, we send hearts, we chat with them, and we wrap every single child in the warmest love they may ever have felt.</p>
+    shortDesc: "Verified orphans, foster kids, and youth-shelter hearts get a real Christmas. Proven need only. Holly, holy, and built so no child wakes up forgotten.",
+    fullHTML: `<div class="oc-root">
+<style>
+  .oc-root{--oc-red:#c41e3a;--oc-green:#0d5c3d;--oc-gold:#e8c547;--oc-cream:#fff8ee;--oc-pine:#0a2f22;font-family:Georgia,'Times New Roman',serif;color:var(--oc-cream);margin:-0.5rem -0.25rem;padding:0}
+  .oc-hero{position:relative;border-radius:1.5rem;overflow:hidden;border:1px solid rgba(232,197,71,.35);background:radial-gradient(ellipse at 30% 20%,rgba(196,30,58,.35),transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(13,92,61,.45),transparent 50%),#0a1a14;margin-bottom:1.5rem}
+  .oc-hero-img{width:100%;height:220px;object-fit:cover;display:block;opacity:.92}
+  @media(min-width:640px){.oc-hero-img{height:280px}}
+  .oc-hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,20,.15) 0%,rgba(10,26,20,.85) 100%);pointer-events:none}
+  .oc-hero-text{position:absolute;left:0;right:0;bottom:0;padding:1.25rem 1.5rem 1.5rem}
+  .oc-holly{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem}
+  .oc-pill{font-family:system-ui,sans-serif;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .7rem;border-radius:999px;border:1px solid rgba(232,197,71,.4);background:rgba(10,47,34,.65);color:var(--oc-gold)}
+  .oc-title{font-size:clamp(1.85rem,4vw,2.6rem);line-height:1.05;font-weight:700;color:#fff;text-shadow:0 2px 20px rgba(196,30,58,.45);margin:0 0 .35rem}
+  .oc-subtitle{font-family:system-ui,sans-serif;font-size:.95rem;color:rgba(255,248,238,.85);max-width:36rem;margin:0;font-style:italic}
+  .oc-cross{color:var(--oc-gold);margin-right:.35rem}
+  .oc-body{font-family:system-ui,-apple-system,sans-serif;padding:.25rem .15rem 0}
+  .oc-lede{font-size:1.2rem;line-height:1.55;color:#fde8c8;margin:0 0 1rem;font-weight:500}
+  .oc-p{font-size:1rem;line-height:1.65;color:#d4d4d8;margin:0 0 1rem}
+  .oc-p strong{color:#fef3c7;font-weight:600}
+  .oc-scripture{margin:1.25rem 0 1.5rem;padding:1.1rem 1.25rem;border-left:3px solid var(--oc-gold);background:linear-gradient(90deg,rgba(196,30,58,.12),transparent);border-radius:0 1rem 1rem 0}
+  .oc-scripture p{margin:0;font-family:Georgia,serif;font-size:1.05rem;color:#fde68a;line-height:1.5;font-style:italic}
+  .oc-scripture cite{display:block;margin-top:.45rem;font-family:system-ui,sans-serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,197,71,.75);font-style:normal}
+  .oc-tv-stage{position:relative;margin:1.75rem 0;padding:1.25rem;border-radius:1.5rem;background:linear-gradient(160deg,#1a0a0c 0%,#0a2f22 55%,#0c1220 100%);border:1px solid rgba(232,197,71,.3);box-shadow:0 0 40px -12px rgba(196,30,58,.45),inset 0 0 60px rgba(13,92,61,.15)}
+  .oc-tv-stage::before{content:'✦ holly · jolly · holy ✦';display:block;text-align:center;font-family:system-ui,sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(232,197,71,.7);margin-bottom:.85rem}
+  .oc-desk{position:relative;max-width:420px;margin:0 auto}
+  .oc-desk-wood{height:14px;border-radius:4px;background:linear-gradient(180deg,#6b3e2e,#3d2218);box-shadow:0 8px 16px rgba(0,0,0,.4);margin-top:-4px}
+  .oc-tv{position:relative;border-radius:12px 12px 4px 4px;overflow:hidden;border:3px solid #1f1f23;background:#000;box-shadow:0 0 0 1px rgba(232,197,71,.25),0 20px 40px rgba(0,0,0,.5)}
+  .oc-tv-bezel{position:absolute;inset:0;border:8px solid #111;border-radius:8px;pointer-events:none;z-index:2}
+  .oc-tv video,.oc-tv img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+  .oc-tv-caption{text-align:center;font-family:system-ui,sans-serif;font-size:.8rem;color:rgba(253,232,200,.8);margin-top:1rem}
+  .oc-verify{margin:1.5rem 0;padding:1.15rem 1.2rem;border-radius:1.15rem;border:1px solid rgba(52,211,153,.35);background:rgba(6,40,30,.55)}
+  .oc-verify h4{font-family:system-ui,sans-serif;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#6ee7b7;margin:0 0 .65rem}
+  .oc-verify ul{margin:0;padding:0 0 0 1.1rem;font-family:system-ui,sans-serif;font-size:.9rem;color:#d1d5db;line-height:1.55}
+  .oc-verify li{margin-bottom:.35rem}
+  .oc-who{display:grid;grid-template-columns:1fr;gap:.65rem;margin:1.25rem 0 1.5rem}
+  @media(min-width:560px){.oc-who{grid-template-columns:1fr 1fr}}
+  .oc-who-card{padding:.9rem 1rem;border-radius:1rem;background:rgba(196,30,58,.1);border:1px solid rgba(196,30,58,.28);font-family:system-ui,sans-serif}
+  .oc-who-card b{display:block;color:#fecaca;font-size:.85rem;margin-bottom:.25rem}
+  .oc-who-card span{font-size:.8rem;color:#a1a1aa;line-height:1.4}
+  .oc-circles h4{font-family:system-ui,sans-serif;font-size:1rem;color:#fde68a;margin:0 0 1rem}
+  .oc-circles-grid{display:grid;grid-template-columns:1fr;gap:.75rem}
+  @media(min-width:640px){.oc-circles-grid{grid-template-columns:1fr 1fr 1fr}}
+  .oc-circle{padding:1rem;border-radius:1.1rem;background:rgba(13,92,61,.35);border:1px solid rgba(13,92,61,.5);text-align:center;font-family:system-ui,sans-serif;font-size:.85rem;color:#d4d4d8}
+  .oc-circle.featured{border-color:rgba(232,197,71,.55);box-shadow:0 0 24px -8px rgba(232,197,71,.4)}
+  .oc-circle .lab{color:var(--oc-gold);font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem}
+  .oc-close{margin:1.75rem 0 1rem;text-align:center;font-family:Georgia,serif;font-size:1.15rem;line-height:1.55;color:#fde68a;font-style:italic}
+  .oc-cta{display:block;width:100%;text-align:center;font-family:system-ui,sans-serif;font-weight:700;font-size:1.1rem;padding:1.05rem 1.5rem;border-radius:999px;border:none;cursor:pointer;color:#1a0a0c;background:linear-gradient(135deg,#f5e6a8 0%,#e8c547 40%,#c41e3a 100%);box-shadow:0 8px 28px -6px rgba(196,30,58,.55);transition:transform .15s ease}
+  .oc-cta:hover{transform:scale(1.02)}
+  .oc-garland{display:flex;justify-content:center;gap:.35rem;font-size:1.1rem;opacity:.85;margin:1rem 0 .25rem;letter-spacing:.15em}
+</style>
 
-      <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
-      <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
-        <div class="max-w-[340px] mx-auto bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl overflow-hidden shadow-2xl">
-          <video 
-            src="assets/videos/orphanchristmas-animated.mp4" 
-            autoplay 
-            loop 
-            muted 
-            playsinline 
-            preload="none"
-            aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
-            class="w-full rounded-2xl">
+  <div class="oc-hero">
+    <img class="oc-hero-img" src="assets/images/orphanxmasphoto.jpg" alt="Christmas morning light, stockings, gifts, and a TV glowing with a warm tree." loading="lazy" decoding="async">
+    <div class="oc-hero-veil"></div>
+    <div class="oc-hero-text">
+      <div class="oc-holly">
+        <span class="oc-pill">$hopeseed</span>
+        <span class="oc-pill">Verified need only</span>
+        <span class="oc-pill">Christmas Eve live</span>
+      </div>
+      <h2 class="oc-title"><span class="oc-cross">✝</span>Orphan Christmas</h2>
+      <p class="oc-subtitle">For hearts that wake up broken on the morning the whole world sings.</p>
+    </div>
+  </div>
+
+  <div class="oc-body">
+    <p class="oc-lede">Some kids open nothing but quiet on Christmas morning. No tree that smells like pine. No name on a gift. Just another day in a shelter bed, a foster home, or a house where the lights got turned off so the rent could stay on.</p>
+
+    <p class="oc-p">I am talking about <strong>orphans</strong>. <strong>Foster kids</strong>. Kids in <strong>youth shelters</strong>. Families whose money ran out for real, and can prove it. Not a wish list from a scammer. Not a story cooked up for clicks. Real children. Real case files. Real empty stockings.</p>
+
+    <p class="oc-p">Christmas is not only shopping. It is the night we remember a Child was born for the lonely and the left behind. <strong>Jesus came for hearts like theirs.</strong> God sees the kid who pretends they do not care about presents. We want that kid to feel seen too.</p>
+
+    <div class="oc-scripture">
+      <p>"Whatever you did for one of the least of these brothers and sisters of mine, you did for me."</p>
+      <cite>Matthew 25:40</cite>
+    </div>
+
+    <p class="oc-p">When this program is funded, every December we build a holly-jolly night that is also holy. Personalized gifts. Warm clothes. A little magic on camera only when a child and their caregivers want it. A global family on the stream sending love, not judgment. For one night they are not a file number. They are a name. They are cheered for. They matter.</p>
+
+    <!-- BIG TV ON A DESK -->
+    <div class="oc-tv-stage">
+      <div class="oc-desk">
+        <div class="oc-tv">
+          <div class="oc-tv-bezel" aria-hidden="true"></div>
+          <video
+            src="assets/videos/orphanchristmas-animated.mp4"
+            poster="assets/images/orphanxmas-tvdesk.jpg"
+            autoplay loop muted playsinline preload="none"
+            aria-label="Christmas TV on a desk: warm tree light, holly, and a quiet night of hope.">
           </video>
         </div>
-        <p class="text-emerald-200/80 text-sm mt-6">Watch the pure joy on a child’s face as they open their special Christmas gift live on stream.</p>
+        <div class="oc-desk-wood" aria-hidden="true"></div>
       </div>
+      <p class="oc-tv-caption">The big TV on the desk. Christmas Eve glow. That is the room we are building for kids who thought nobody was coming.</p>
+    </div>
 
-      <div class="mb-10">
-        <h4 class="text-xl font-semibold text-emerald-200 mb-6">Circles of Mercy: How $hopeseed Makes This Magic Happen (when funded)</h4>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
-            <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
-            <strong>Hold 25,000+ $hopeseed</strong><br>Personally sponsor gifts for one child and watch them open live
-          </div>
-          <div class="bg-emerald-900/30 p-6 rounded-3xl text-center border-2 border-emerald-400">
-            <div class="text-emerald-300 font-semibold mb-2">Guardian Circle</div>
-            <strong>Hold 100,000+ $hopeseed</strong><br>Request a special personalized gift and see it delivered on stream
-          </div>
-          <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
-            <div class="text-emerald-300 font-semibold mb-2">Eternal Guardian Circle</div>
-            <strong>Hold 250,000+ $hopeseed</strong><br>Become an annual Christmas Guardian with naming rights and private updates
-          </div>
+    <div class="oc-who">
+      <div class="oc-who-card"><b>Orphans &amp; foster youth</b><span>Through licensed agencies and homes that already know their story.</span></div>
+      <div class="oc-who-card"><b>Youth shelters</b><span>Teens who aged into hard places and still deserve a holy night.</span></div>
+      <div class="oc-who-card"><b>Proven family hardship</b><span>Documented need. Caseworker or partner sign-off. No random DMs.</span></div>
+      <div class="oc-who-card"><b>Privacy first</b><span>No child is a prop. Faces and streams only with real consent.</span></div>
+    </div>
+
+    <div class="oc-verify">
+      <h4>No scammers · How need is proven</h4>
+      <ul>
+        <li>Partnered shelters, foster agencies, churches, and school social workers nominate children.</li>
+        <li>Hardship is documented the old-fashioned way: files, letters, known case managers. Not internet sob stories alone.</li>
+        <li>Gifts go to the child through the partner. Not cash to strangers in a chat.</li>
+        <li>When rails are live, impact notes and honest reporting. When they are not yet, we do not pretend.</li>
+      </ul>
+    </div>
+
+    <p class="oc-p">Hopeseed holders and kind companies can sponsor a child, a whole shelter floor, or stand as an annual Christmas Guardian. The circles below are the path when funding and charity rails are live.</p>
+
+    <div class="oc-circles mb-10">
+      <h4>Circles of Mercy · $hopeseed (when funded)</h4>
+      <div class="oc-circles-grid">
+        <div class="oc-circle">
+          <div class="lab">Mercy Circle</div>
+          <strong>25,000+ $hopeseed</strong><br>Sponsor gifts for one verified child
+        </div>
+        <div class="oc-circle featured">
+          <div class="lab">Guardian Circle</div>
+          <strong>100,000+ $hopeseed</strong><br>Personal gift request + stream delivery when the family wants it
+        </div>
+        <div class="oc-circle">
+          <div class="lab">Eternal Guardian</div>
+          <strong>250,000+ $hopeseed</strong><br>Annual Christmas Guardian · private updates
         </div>
       </div>
-      <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every orphaned and foster child will experience a Christmas filled with real magic and overwhelming love. They will open gifts chosen just for them. They will feel the warmth of a global family cheering for them. For one beautiful night they will know without any doubt that they are seen, they are loved, and they truly matter to so many hearts around the world. This is the kind of pure, healing magic the world desperately needs.</p>
-      <button onclick="sponsorProgram('orphan-christmas')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Make Orphan Christmas Happen</button>`
+    </div>
+
+    <div class="oc-garland" aria-hidden="true">🎄 ✝ 🎁 ✝ 🎄</div>
+    <p class="oc-close">When God puts a broken Christmas morning in front of us, love does not look away. It wraps a gift. It lights a room. It says: you are not alone. Jesus is the reason. These kids are the why.</p>
+    <button type="button" onclick="sponsorProgram('orphan-christmas')" class="oc-cta">Stand With Orphan Christmas</button>
+  </div>
+</div>`
   },
                                   {
     id: 18,
