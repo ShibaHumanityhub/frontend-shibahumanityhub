@@ -2026,8 +2026,8 @@
  <div class="text-center mb-10 shh-reveal">
  <div class="shh-chapter-kicker mb-2">02 · The machine</div>
  <div class="shh-chapter-rule mx-auto mb-4"></div>
- <h2 class="shh-chapter-title text-3xl md:text-5xl font-bold mb-3">The Perpetual Mercy Engine</h2>
- <p class="text-lg md:text-xl text-amber-200 max-w-2xl mx-auto">Not another charity. A flywheel on-chain. When rails are live, activity funds mercy. Transparently.</p>
+ <h2 class="shh-chapter-title text-3xl md:text-5xl font-bold mb-3">The Mercy Engine</h2>
+ <p class="text-lg md:text-xl text-amber-200 max-w-2xl mx-auto">Not another charity pitch. A flywheel on-chain. When rails are live, activity is meant to fund mercy. Straight.</p>
  </div>
  <div class="grid md:grid-cols-3 gap-4 md:gap-6 mb-10">
  <div class="bg-zinc-900/70 border border-amber-400/20 rounded-2xl p-6 text-center">
@@ -2171,7 +2171,7 @@
  <div id="personal-impact" class="text-sm text-white/90 leading-relaxed">Every holding sends gentle ripples. Simulate or connect to see programs touched.</div>
  <div id="compounding-visual" class="compounding-visual">
  <div class="flex gap-1" id="compounding-links"></div>
- <div class="label">12-month quiet compounding</div>
+ <div class="label">12-month compounding (estimate)</div>
  </div>
  <div id="flywheel-projection" class="mt-3 text-xs text-emerald-200/80 italic"></div>
  <button onclick="copyMercyFootprint()" class="footprint-share-btn mt-4 inline-flex items-center gap-2 text-xs px-5 py-2 rounded-2xl">
@@ -2345,7 +2345,7 @@
  <div class="max-w-3xl mx-auto px-6 text-center">
  <div class="text-xs tracking-[3px] text-red-400/80 mb-2">THE LIVING HEART</div>
  <h2 class="text-3xl md:text-4xl font-bold mb-3">Real Dogs. Real Time.</h2>
- <p class="text-base md:text-lg text-amber-200 mb-2">Where the flywheel becomes faces.</p>
+ <p class="text-base md:text-lg text-amber-200 mb-2">Where the system becomes faces.</p>
  <p class="text-sm text-zinc-400 mb-6 max-w-md mx-auto">Prototype clocks until partner feeds are live. Full Beautiful Souls experience on its own page.</p>
  <a href="shelters.html" class="inline-flex min-h-[48px] items-center px-8 py-3 rounded-full bg-red-500/15 border border-red-400/40 text-red-100 font-semibold hover:bg-red-500/25 transition-colors">
  Enter Beautiful Souls →
@@ -2690,7 +2690,7 @@ async function connectShibariumWallet() {
  }
 
  try {
- statusEl.textContent = 'Connecting quietly to the chain...';
+ statusEl.textContent = 'Connecting to the chain...';
  statusEl.classList.remove('hidden');
 
  // Request accounts (read-only intent. We will never ask for a signature.)
@@ -2875,7 +2875,7 @@ async function getTokenBalance(tokenAddress, userAddress, rpcUrl) {
 function getMercyCircle(balance) {
  if (balance >= MERCY_THRESHOLDS.ETERNAL) return 'Eternal Guardian Circle • permanent recognition when the funding comes through.';
  if (balance >= MERCY_THRESHOLDS.GUARDIAN) return 'Guardian Circle • regular impact updates and deeper support.';
- if (balance >= MERCY_THRESHOLDS.MERCY) return 'Mercy Circle • quietly funding the next link in the chain.';
+ if (balance >= MERCY_THRESHOLDS.MERCY) return 'Mercy Circle • funding the next link when rails are live.';
  return 'Supporter • every token still adds to the living mercy.';
 }
 
