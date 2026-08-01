@@ -31,7 +31,7 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: *
-Disallow: /assets/videos/   # Heavy media - crawl via sitemap/images only
+Disallow: /assets/videos/ # Heavy media - crawl via sitemap/images only
 Disallow: /*.mp4$
 
 Sitemap: https://shibahumanityhub.com/sitemap.xml

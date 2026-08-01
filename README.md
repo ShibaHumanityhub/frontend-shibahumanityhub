@@ -2,7 +2,7 @@
 
 This is the living, loving front door to the Mercy Flywheel.
 
-**People helping people helping people.**  
+**People helping people helping people.** 
 **Every single transaction saves lives.**
 
 ## The Voice (Non-Negotiable)
@@ -55,20 +55,20 @@ We have executed the full roadmap with care:
 - Tone fidelity above all.
 
 ## What This Site Already Is (A Short Love Note)
-This is not a landing page.  
-This is not marketing.  
+This is not a landing page. 
+This is not marketing. 
 
-This is a quiet, beautiful mirror.  
+This is a quiet, beautiful mirror. 
 A place where someone who has never heard of this before can connect (or just play with the simulator), see their exact place in the 30 living stories, watch the engine breathe with their numbers, and feel, perhaps for the first time, that their quiet holding is already part of something that feeds dogs and children who once had none.
 
 It is built with the same tears, the same first-principles care, and the same "people helping people helping people" heart that created the Mercy Blueprint and every program.
 
-Thank you for being here.  
+Thank you for being here. 
 Whether you hold, simulate, share your footprint, or simply sit with the stories, you are already turning the wheel.
 
 Every holding. Every ripple. Every life.
 
-People helping people helping people.  
+People helping people helping people. 
 Every single transaction saves lives.
 
 And the flywheel is already turning.

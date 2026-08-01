@@ -107,9 +107,9 @@ The funds on these token addresses are meant to help real lives. Protect them wi
 - Since zero funds right now, this is the perfect low-risk moment to do it right.
 - Tangem cards are excellent hardware (Shibarium supported) - order one when ready (they are NFC cards, very user-friendly for cold storage).
 - FHE (Zama fhEVM) is powerful for future confidential calculations (private balances/impact without revealing exact amounts). Not a simple "wrap" for existing tokens. Current Shibarium tokens are standard ERC-20 for transparency ("the ledger does not lie"). To use FHE:
-  - Test on Zama's fhEVM setup or testnets.
-  - Would require deploying confidential token versions or migrating logic (advanced track, as per our Phase 6+ plan).
-  - For now, prioritize multisig + hardware (when you have the Tangem) + on-chain visibility. FHE can layer on later for private views while keeping public verifiability.
+ - Test on Zama's fhEVM setup or testnets.
+ - Would require deploying confidential token versions or migrating logic (advanced track, as per our Phase 6+ plan).
+ - For now, prioritize multisig + hardware (when you have the Tangem) + on-chain visibility. FHE can layer on later for private views while keeping public verifiability.
 - Best practice: 2-of-3 or 3-of-5 multisig with Tangem as one signer once received, plus timelocks for large moves, on-chain monitoring.
 - Never share seeds. Verify addresses. Small test transfers first.
 - Tie to mission: This security ensures the "1 we are all 1" funds truly snowball mercy without risk.
@@ -119,58 +119,58 @@ Test treasury flows locally on testnet first.
 **Exact Steps (Testnet First, PowerShell/Windows - Do This Now Even Without the Tangem Card):**
 
 1. **Verify Current Setup (No Funds = Safe to Audit)**
-   - Check the token contracts on a Shibarium explorer (puppyscan.shib.io).
-   - Confirm owner/admin functions point to your personal MetaMask address.
-   - Note the exact contract addresses (from TOKEN_ADDRESSES in our local index.html).
-   - Confirm zero balances/liquidity.
+ - Check the token contracts on a Shibarium explorer (puppyscan.shib.io).
+ - Confirm owner/admin functions point to your personal MetaMask address.
+ - Note the exact contract addresses (from TOKEN_ADDRESSES in our local index.html).
+ - Confirm zero balances/liquidity.
 
 2. **Create the Official Project Treasury as a Safe Multisig (This Becomes Your "humanityhub*shib wallet")**
-   - Go to https://safe.global in a browser (desktop recommended).
-   - Create a new Safe on Shibarium Puppynet (testnet first - use the RPC/chain ID from our code).
-   - Set a safe threshold: 2-of-3 to start (you can expand later).
-   - Add signers you control today:
-     - Your current personal MetaMask address (temporary, we'll replace with Tangem).
-     - At least one other backup you control (another wallet, email recovery if available, or plan for the Tangem address once you have the card).
-   - Deploy the Safe (tiny gas on testnet).
-   - This Safe address is now the canonical "humanityhub*shib" project treasury. Never use a single personal EOA for mission funds long-term.
+ - Go to https://safe.global in a browser (desktop recommended).
+ - Create a new Safe on Shibarium Puppynet (testnet first - use the RPC/chain ID from our code).
+ - Set a safe threshold: 2-of-3 to start (you can expand later).
+ - Add signers you control today:
+ - Your current personal MetaMask address (temporary, we'll replace with Tangem).
+ - At least one other backup you control (another wallet, email recovery if available, or plan for the Tangem address once you have the card).
+ - Deploy the Safe (tiny gas on testnet).
+ - This Safe address is now the canonical "humanityhub*shib" project treasury. Never use a single personal EOA for mission funds long-term.
 
 3. **Handle Existing Token Contracts (Created from Personal Wallet)**
-   - Check if the contracts support `transferOwnership` (most standard ERC-20 do - view on explorer under "Read Contract").
-   - If yes: From your personal MetaMask, call `transferOwnership` with the new Safe address.
-   - If no (or you prefer a clean slate): Deploy fresh token contracts on testnet with the **Safe set as owner** from the start. (We can walk through this together using Remix or a simple script - owner preset to the Safe address.)
-   - Do not mint or move any value until this is done.
-   - When real mainnet Shib names/domains are live and usable: Register a clean .shib name for the Safe address and use it for all project branding.
+ - Check if the contracts support `transferOwnership` (most standard ERC-20 do - view on explorer under "Read Contract").
+ - If yes: From your personal MetaMask, call `transferOwnership` with the new Safe address.
+ - If no (or you prefer a clean slate): Deploy fresh token contracts on testnet with the **Safe set as owner** from the start. (We can walk through this together using Remix or a simple script - owner preset to the Safe address.)
+ - Do not mint or move any value until this is done.
+ - When real mainnet Shib names/domains are live and usable: Register a clean .shib name for the Safe address and use it for all project branding.
 
 4. **When You Receive the Tangem Card**
-   - Set up the card in the official Tangem app.
-   - Add Shibarium Puppynet (and mainnet when ready).
-   - Test a small transaction.
-   - Add the Tangem-derived address as a new signer in your Safe (via the Safe app).
-   - Remove or reduce the role of the old personal MetaMask signer.
-   - Now the Safe is hardware-backed.
+ - Set up the card in the official Tangem app.
+ - Add Shibarium Puppynet (and mainnet when ready).
+ - Test a small transaction.
+ - Add the Tangem-derived address as a new signer in your Safe (via the Safe app).
+ - Remove or reduce the role of the old personal MetaMask signer.
+ - Now the Safe is hardware-backed.
 
 5. **FHE (Zama fhEVM) Layer - Plan, Don't Rush**
-   - Current tokens are standard (public balances) for mission transparency.
-   - FHE allows confidential versions (encrypted balances/transfers) while keeping public totals or proofs where needed for trust.
-   - Steps when ready (advanced track):
-     - Test on Zama fhEVM testnets (see their docs/github for fhEVM).
-     - Deploy confidential ERC20 variants (balances as encrypted integers).
-     - For existing value: Bridge/migrate in a way that preserves the "when the funding comes through" public visibility.
-     - Use the Tangem-controlled Safe to govern keys for any future confidential contracts.
-   - For now: Focus on multisig + hardware (once you have the card). This gives "maximum security" today while we keep the public ledger honest.
+ - Current tokens are standard (public balances) for mission transparency.
+ - FHE allows confidential versions (encrypted balances/transfers) while keeping public totals or proofs where needed for trust.
+ - Steps when ready (advanced track):
+ - Test on Zama fhEVM testnets (see their docs/github for fhEVM).
+ - Deploy confidential ERC20 variants (balances as encrypted integers).
+ - For existing value: Bridge/migrate in a way that preserves the "when the funding comes through" public visibility.
+ - Use the Tangem-controlled Safe to govern keys for any future confidential contracts.
+ - For now: Focus on multisig + hardware (once you have the card). This gives "maximum security" today while we keep the public ledger honest.
 
 6. **Test & Verify on Testnet**
-   - Send a few test tokens to the Safe.
-   - Use our local site (via DEV.md commands) + Safe interface to verify everything shows correctly in wallet connect, ripples, network pill, etc.
-   - Test a small "program funding" transfer out of the Safe (as if helping a life).
-   - Once Tangem arrives, test signing through the Safe with the card.
+ - Send a few test tokens to the Safe.
+ - Use our local site (via DEV.md commands) + Safe interface to verify everything shows correctly in wallet connect, ripples, network pill, etc.
+ - Test a small "program funding" transfer out of the Safe (as if helping a life).
+ - Once Tangem arrives, test signing through the Safe with the card.
 
 7. **Ongoing Best Practices (for the Lives These Funds Will Touch)**
-   - Always verify addresses on hardware (when you have it).
-   - Add timelocks on the Safe for larger moves.
-   - Monitor via Safe dashboard.
-   - Keep only tiny gas in personal MetaMask; everything else in the Safe.
-   - When Shib names are live: Bind the nice .shib name to the Safe and update docs/site.
+ - Always verify addresses on hardware (when you have it).
+ - Add timelocks on the Safe for larger moves.
+ - Monitor via Safe dashboard.
+ - Keep only tiny gas in personal MetaMask; everything else in the Safe.
+ - When Shib names are live: Bind the nice .shib name to the Safe and update docs/site.
 
 This setup turns the current personal-wallet situation into a strength. The funds become properly governed, hardware-secured (once Tangem arrives), FHE-ready for the future, and still fully on-chain transparent where it builds the "1 we are all 1" conviction.
 

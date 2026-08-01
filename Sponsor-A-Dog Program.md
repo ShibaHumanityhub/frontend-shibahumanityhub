@@ -13,9 +13,9 @@ Core Mechanics:
 - Every Sponsor-A-Dog payment automatically sends 20-25% directly to the guardian in $NIBBLES - their real salary for the daily care and content creation.
 
 2. Guardian Staking with Multipliers
-- Guardians can stake their earned $NIBBLES for powerful multipliers that reward them for staying committed:  Bronze: 30-day lock - 1.3x (just 1 video per week)  
-Silver: 90-day lock - 2x (3 videos per week)  
-Gold: 180-day lock - 3x (5 videos or 3 streams per week)  
+- Guardians can stake their earned $NIBBLES for powerful multipliers that reward them for staying committed: Bronze: 30-day lock - 1.3x (just 1 video per week) 
+Silver: 90-day lock - 2x (3 videos per week) 
+Gold: 180-day lock - 3x (5 videos or 3 streams per week) 
 Diamond: 365-day lock - 5x (daily 2-min update or weekend long stream)
 
 3. Proof-of-Care System
@@ -29,20 +29,20 @@ Smart Flow Contract
 solidity
 
 struct GuardianStake {
-    address guardian;
-    uint256 dogId;           // links to Rescue Passport Soulbound NFT
-    uint256 stakedAmount;
-    uint256 lockUntil;
-    uint8 tier; // Bronze to Diamond
-    uint256 lastProofTimestamp;
+ address guardian;
+ uint256 dogId; // links to Rescue Passport Soulbound NFT
+ uint256 stakedAmount;
+ uint256 lockUntil;
+ uint8 tier; // Bronze to Diamond
+ uint256 lastProofTimestamp;
 }
 
 function submitProof(uint256 stakeId, string calldata videoHash) external {
-    // verify proof, update timestamp, calculate boosted rewards
+ // verify proof, update timestamp, calculate boosted rewards
 }
 
 function claimRewards(uint256 stakeId) external {
-    // calculate multiplier based on tier and lock time
+ // calculate multiplier based on tier and lock time
 }
 
 Result:
