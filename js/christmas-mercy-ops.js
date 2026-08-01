@@ -82,32 +82,128 @@
     { name: 'Load Dock', work: 'Pallets sealed · trucks scanned out', workers: 7 }
   ];
 
-  /** Many wrapping paper styles elves can pull for each pack */
+  /**
+   * Wrapping paper catalog — filter by cat:
+   * classic | elegant | kids | holy | shiba | hopeseed | nibbles | funny | loving
+   */
   var WRAP_PAPERS = [
-    { id: 'holly-classic', name: 'Holly Classic', vibe: 'Traditional red & green holly', mood: 'Classic Christmas', bg: 'repeating-linear-gradient(45deg,#8b1a2b 0 8px,#0d5c3d 8px 16px),radial-gradient(circle at 20% 30%,#e8c547 0 3px,transparent 4px)' },
-    { id: 'gold-starfield', name: 'Gold Starfield', vibe: 'Midnight navy with gold stars', mood: 'Wonder night', bg: 'radial-gradient(circle at 15% 20%,#e8c547 0 2px,transparent 3px),radial-gradient(circle at 70% 40%,#fde68a 0 1.5px,transparent 2px),radial-gradient(circle at 40% 80%,#e8c547 0 2px,transparent 3px),#0c1220' },
-    { id: 'candy-cane', name: 'Candy Cane Stripe', vibe: 'Bold red & white diagonals', mood: 'Playful', bg: 'repeating-linear-gradient(-45deg,#c41e3a 0 12px,#fff8ee 12px 24px)' },
-    { id: 'pine-forest', name: 'Pine Forest', vibe: 'Deep green trees on cream', mood: 'Quiet woods', bg: 'repeating-linear-gradient(0deg,transparent 0 18px,rgba(13,92,61,.35) 18px 19px),repeating-linear-gradient(90deg,transparent 0 22px,rgba(13,92,61,.25) 22px 23px),#f5f0e6' },
-    { id: 'nativity-gold', name: 'Nativity Gold', vibe: 'Soft cream, gold cross light', mood: 'Holy night', bg: 'radial-gradient(ellipse at 50% 40%,rgba(232,197,71,.55),transparent 55%),linear-gradient(160deg,#fff8ee,#e8d5a3 60%,#c4a35a)' },
-    { id: 'snowflake-blue', name: 'Snowflake Blue', vibe: 'Icy blue flakes on white', mood: 'Winter soft', bg: 'radial-gradient(circle at 25% 25%,#93c5fd 0 2px,transparent 3px),radial-gradient(circle at 75% 60%,#bfdbfe 0 3px,transparent 4px),radial-gradient(circle at 50% 80%,#60a5fa 0 2px,transparent 3px),#eff6ff' },
-    { id: 'plaid-cabin', name: 'Cabin Plaid', vibe: 'Red & forest buffalo plaid', mood: 'Cozy cabin', bg: 'repeating-linear-gradient(0deg,#5c0a12 0 10px,#0d3d28 10px 20px),repeating-linear-gradient(90deg,rgba(232,197,71,.4) 0 2px,transparent 2px 20px)' },
-    { id: 'kraft-twine', name: 'Kraft & Twine', vibe: 'Brown kraft with twine look', mood: 'Handmade', bg: 'repeating-linear-gradient(90deg,transparent 0 40px,rgba(120,80,40,.15) 40px 41px),linear-gradient(135deg,#c4a574,#a67c52 50%,#8b6914)' },
-    { id: 'reindeer-red', name: 'Reindeer Parade', vibe: 'Crimson with gold dots', mood: 'Merry run', bg: 'radial-gradient(circle at 30% 40%,#e8c547 0 4px,transparent 5px),radial-gradient(circle at 70% 70%,#fde68a 0 3px,transparent 4px),#9b1b2e' },
-    { id: 'aurora-north', name: 'Northern Aurora', vibe: 'Green & violet sky bands', mood: 'North lights', bg: 'linear-gradient(120deg,#0a0f1c 0%,#0d5c3d 35%,#312e81 70%,#0a0f1c 100%)' },
-    { id: 'gingerbread', name: 'Gingerbread House', vibe: 'Warm tan & icing white', mood: 'Sweet kitchen', bg: 'repeating-linear-gradient(45deg,#d4a574 0 10px,#fff8ee 10px 14px,#c4894a 14px 24px)' },
-    { id: 'velvet-burgundy', name: 'Velvet Burgundy', vibe: 'Deep wine with gold edge', mood: 'Elegant', bg: 'linear-gradient(145deg,#4a0e18,#6b1525 40%,#2a0810),repeating-linear-gradient(90deg,transparent 0 28px,rgba(232,197,71,.35) 28px 29px)' },
-    { id: 'kids-crayon', name: 'Kids Crayon Joy', vibe: 'Bright multi-color scribbles', mood: 'Kid energy', bg: 'repeating-linear-gradient(15deg,#f87171 0 8px,#fbbf24 8px 16px,#34d399 16px 24px,#60a5fa 24px 32px,#c084fc 32px 40px)' },
-    { id: 'silver-bells', name: 'Silver Bells', vibe: 'Silver & ice on charcoal', mood: 'Quiet glam', bg: 'radial-gradient(circle at 40% 30%,#e5e7eb 0 3px,transparent 4px),radial-gradient(circle at 80% 70%,#d1d5db 0 2px,transparent 3px),#1f2937' },
-    { id: 'poinsetta-bloom', name: 'Poinsettia Bloom', vibe: 'Red blooms on green leaf', mood: 'Table flower', bg: 'radial-gradient(circle at 30% 40%,#c41e3a 0 12px,transparent 13px),radial-gradient(circle at 70% 60%,#9b1b2e 0 10px,transparent 11px),#14532d' },
-    { id: 'scripture-cream', name: 'Peace on Earth', vibe: 'Cream paper, soft gold lines', mood: 'Faith first', bg: 'repeating-linear-gradient(0deg,transparent 0 22px,rgba(232,197,71,.25) 22px 23px),#faf6eb' },
-    { id: 'ice-mint', name: 'Ice Mint', vibe: 'Mint & white chevron', mood: 'Fresh cold', bg: 'repeating-linear-gradient(135deg,#ecfdf5 0 12px,#a7f3d0 12px 24px,#6ee7b7 24px 28px,#ecfdf5 28px 40px)' },
-    { id: 'coal-spark', name: 'Hearth Spark', vibe: 'Charcoal with ember flecks', mood: 'Fireplace', bg: 'radial-gradient(circle at 20% 50%,#f59e0b 0 2px,transparent 3px),radial-gradient(circle at 60% 20%,#ef4444 0 1.5px,transparent 2px),radial-gradient(circle at 80% 80%,#fbbf24 0 2px,transparent 3px),#18181b' },
-    { id: 'maple-canada', name: 'Maple North', vibe: 'Red maple feel on white', mood: 'Canada home', bg: 'radial-gradient(circle at 50% 45%,#c41e3a 0 14px,transparent 15px),#fff8ee' },
-    { id: 'rainbow-hope', name: 'Rainbow Hope', vibe: 'Soft rainbow wash', mood: 'Every child', bg: 'linear-gradient(90deg,#fecaca,#fde68a,#bbf7d0,#bfdbfe,#e9d5ff,#fecaca)' },
-    { id: 'matte-black-gold', name: 'Matte Black Gold', vibe: 'Black wrap, gold foil lines', mood: 'Modern gift', bg: 'repeating-linear-gradient(90deg,transparent 0 16px,rgba(232,197,71,.5) 16px 17px),#0a0a0a' },
-    { id: 'linen-sage', name: 'Linen Sage', vibe: 'Soft sage fabric look', mood: 'Gentle', bg: 'repeating-linear-gradient(0deg,rgba(255,255,255,.08) 0 1px,transparent 1px 4px),#9caf88' },
-    { id: 'toy-soldiers', name: 'Toy Soldier Stripe', vibe: 'Navy, red, gold bands', mood: 'Nutcracker', bg: 'repeating-linear-gradient(90deg,#1e3a5f 0 14px,#c41e3a 14px 28px,#e8c547 28px 34px)' },
-    { id: 'angel-white', name: 'Angel White', vibe: 'Pearl white with soft sheen', mood: 'Heavenly', bg: 'linear-gradient(145deg,#ffffff,#f1f5f9 40%,#e2e8f0 70%,#f8fafc)' }
+    // —— Classic ——
+    { id: 'holly-classic', cat: 'classic', name: 'Holly Classic', vibe: 'Red & green holly', mood: 'Classic', bg: 'repeating-linear-gradient(45deg,#8b1a2b 0 8px,#0d5c3d 8px 16px),radial-gradient(circle at 20% 30%,#e8c547 0 3px,transparent 4px)' },
+    { id: 'candy-cane', cat: 'classic', name: 'Candy Cane Stripe', vibe: 'Red & white diagonals', mood: 'Classic', bg: 'repeating-linear-gradient(-45deg,#c41e3a 0 12px,#fff8ee 12px 24px)' },
+    { id: 'pine-forest', cat: 'classic', name: 'Pine Forest', vibe: 'Trees on cream', mood: 'Classic', bg: 'repeating-linear-gradient(0deg,transparent 0 18px,rgba(13,92,61,.35) 18px 19px),repeating-linear-gradient(90deg,transparent 0 22px,rgba(13,92,61,.25) 22px 23px),#f5f0e6' },
+    { id: 'plaid-cabin', cat: 'classic', name: 'Cabin Plaid', vibe: 'Buffalo plaid', mood: 'Classic', bg: 'repeating-linear-gradient(0deg,#5c0a12 0 10px,#0d3d28 10px 20px),repeating-linear-gradient(90deg,rgba(232,197,71,.4) 0 2px,transparent 2px 20px)' },
+    { id: 'reindeer-red', cat: 'classic', name: 'Reindeer Parade', vibe: 'Crimson gold dots', mood: 'Classic', bg: 'radial-gradient(circle at 30% 40%,#e8c547 0 4px,transparent 5px),radial-gradient(circle at 70% 70%,#fde68a 0 3px,transparent 4px),#9b1b2e' },
+    { id: 'poinsetta-bloom', cat: 'classic', name: 'Poinsettia Bloom', vibe: 'Red on green leaf', mood: 'Classic', bg: 'radial-gradient(circle at 30% 40%,#c41e3a 0 12px,transparent 13px),radial-gradient(circle at 70% 60%,#9b1b2e 0 10px,transparent 11px),#14532d' },
+    { id: 'snowflake-blue', cat: 'classic', name: 'Snowflake Blue', vibe: 'Icy flakes', mood: 'Classic', bg: 'radial-gradient(circle at 25% 25%,#93c5fd 0 2px,transparent 3px),radial-gradient(circle at 75% 60%,#bfdbfe 0 3px,transparent 4px),#eff6ff' },
+    { id: 'maple-canada', cat: 'classic', name: 'Maple North', vibe: 'Canada home', mood: 'Classic', bg: 'radial-gradient(circle at 50% 45%,#c41e3a 0 14px,transparent 15px),#fff8ee' },
+    // —— Elegant / classy ——
+    { id: 'velvet-burgundy', cat: 'elegant', name: 'Velvet Burgundy', vibe: 'Wine & gold edge', mood: 'Elegant', bg: 'linear-gradient(145deg,#4a0e18,#6b1525 40%,#2a0810),repeating-linear-gradient(90deg,transparent 0 28px,rgba(232,197,71,.35) 28px 29px)' },
+    { id: 'matte-black-gold', cat: 'elegant', name: 'Matte Black Gold', vibe: 'Foil line luxury', mood: 'Elegant', bg: 'repeating-linear-gradient(90deg,transparent 0 16px,rgba(232,197,71,.5) 16px 17px),#0a0a0a' },
+    { id: 'silver-bells', cat: 'elegant', name: 'Silver Bells', vibe: 'Silver on charcoal', mood: 'Elegant', bg: 'radial-gradient(circle at 40% 30%,#e5e7eb 0 3px,transparent 4px),#1f2937' },
+    { id: 'champagne-silk', cat: 'elegant', name: 'Champagne Silk', vibe: 'Soft gold champagne', mood: 'Classy', bg: 'linear-gradient(135deg,#f5e6c8,#e8d5a3 40%,#d4af37 70%,#f5e6c8)' },
+    { id: 'pearl-marble', cat: 'elegant', name: 'Pearl Marble', vibe: 'White marble veins', mood: 'Classy', bg: 'linear-gradient(120deg,#fafafa 0%,#e5e5e5 25%,#fff 50%,#d4d4d4 75%,#fafafa)' },
+    { id: 'emerald-foil', cat: 'elegant', name: 'Emerald Foil', vibe: 'Deep emerald gold trim', mood: 'Elegant', bg: 'linear-gradient(160deg,#064e3b,#0d5c3d 50%,#022c22),repeating-linear-gradient(45deg,transparent 0 20px,rgba(232,197,71,.3) 20px 21px)' },
+    { id: 'navy-tuxedo', cat: 'elegant', name: 'Navy Tuxedo', vibe: 'Midnight blue satin', mood: 'Classy', bg: 'linear-gradient(160deg,#0c1220,#1e3a5f 45%,#0a1628)' },
+    { id: 'rose-gold-dust', cat: 'elegant', name: 'Rose Gold Dust', vibe: 'Blush metal flecks', mood: 'Elegant', bg: 'radial-gradient(circle at 20% 30%,#f9a8d4 0 2px,transparent 3px),radial-gradient(circle at 70% 60%,#fda4af 0 2px,transparent 3px),linear-gradient(145deg,#4c0519,#881337)' },
+    { id: 'ivory-lace', cat: 'elegant', name: 'Ivory Lace', vibe: 'Cream lace grid', mood: 'Classy', bg: 'repeating-linear-gradient(0deg,transparent 0 8px,rgba(180,150,100,.2) 8px 9px),repeating-linear-gradient(90deg,transparent 0 8px,rgba(180,150,100,.2) 8px 9px),#faf6eb' },
+    // —— Kids ——
+    { id: 'kids-crayon', cat: 'kids', name: 'Kids Crayon Joy', vibe: 'Bright scribble stripes', mood: 'Kids', bg: 'repeating-linear-gradient(15deg,#f87171 0 8px,#fbbf24 8px 16px,#34d399 16px 24px,#60a5fa 24px 32px,#c084fc 32px 40px)' },
+    { id: 'rainbow-hope', cat: 'kids', name: 'Rainbow Hope', vibe: 'Soft rainbow wash', mood: 'Kids', bg: 'linear-gradient(90deg,#fecaca,#fde68a,#bbf7d0,#bfdbfe,#e9d5ff,#fecaca)' },
+    { id: 'dino-dots', cat: 'kids', name: 'Dino Dots', vibe: 'Lime & purple dots', mood: 'Kids', bg: 'radial-gradient(circle at 25% 30%,#a3e635 0 8px,transparent 9px),radial-gradient(circle at 70% 60%,#c084fc 0 10px,transparent 11px),#1e1b4b' },
+    { id: 'space-rockets', cat: 'kids', name: 'Space Rockets', vibe: 'Stars on deep space', mood: 'Kids', bg: 'radial-gradient(circle at 20% 20%,#fff 0 2px,transparent 3px),radial-gradient(circle at 60% 40%,#fde68a 0 1.5px,transparent 2px),radial-gradient(circle at 80% 70%,#93c5fd 0 2px,transparent 3px),#0f172a' },
+    { id: 'unicorn-cloud', cat: 'kids', name: 'Unicorn Cloud', vibe: 'Pastel pink purple', mood: 'Kids', bg: 'linear-gradient(135deg,#fce7f3,#e9d5ff 40%,#dbeafe 70%,#fce7f3)' },
+    { id: 'soccer-pitch', cat: 'kids', name: 'Soccer Pitch', vibe: 'Green field lines', mood: 'Kids', bg: 'repeating-linear-gradient(0deg,transparent 0 20px,rgba(255,255,255,.25) 20px 21px),#15803d' },
+    { id: 'building-blocks', cat: 'kids', name: 'Building Blocks', vibe: 'Primary color blocks', mood: 'Kids', bg: 'repeating-linear-gradient(0deg,#ef4444 0 20px,#3b82f6 20px 40px,#fbbf24 40px 60px,#22c55e 60px 80px)' },
+    { id: 'polka-party', cat: 'kids', name: 'Polka Party', vibe: 'Big happy polka dots', mood: 'Kids', bg: 'radial-gradient(circle at 20% 30%,#f472b6 0 10px,transparent 11px),radial-gradient(circle at 60% 50%,#38bdf8 0 12px,transparent 13px),radial-gradient(circle at 80% 20%,#facc15 0 9px,transparent 10px),#fef3c7' },
+    { id: 'ice-mint', cat: 'kids', name: 'Ice Mint', vibe: 'Mint chevron', mood: 'Kids', bg: 'repeating-linear-gradient(135deg,#ecfdf5 0 12px,#a7f3d0 12px 24px,#6ee7b7 24px 28px,#ecfdf5 28px 40px)' },
+    // —— Holy / Jesus ——
+    { id: 'nativity-gold', cat: 'holy', name: 'Nativity Gold', vibe: 'Star of Bethlehem glow', mood: 'Holy', bg: 'radial-gradient(ellipse at 50% 40%,rgba(232,197,71,.55),transparent 55%),linear-gradient(160deg,#fff8ee,#e8d5a3 60%,#c4a35a)' },
+    { id: 'scripture-cream', cat: 'holy', name: 'Peace on Earth', vibe: 'Cream gold lines', mood: 'Holy', bg: 'repeating-linear-gradient(0deg,transparent 0 22px,rgba(232,197,71,.25) 22px 23px),#faf6eb' },
+    { id: 'angel-white', cat: 'holy', name: 'Angel White', vibe: 'Pearl heavenly', mood: 'Holy', bg: 'linear-gradient(145deg,#ffffff,#f1f5f9 40%,#e2e8f0 70%,#f8fafc)' },
+    { id: 'cross-light', cat: 'holy', name: 'Cross of Light', vibe: 'Soft cross on deep blue', mood: 'Jesus', bg: 'linear-gradient(90deg,transparent 46%,rgba(253,230,138,.7) 46% 54%,transparent 54%),linear-gradient(0deg,transparent 46%,rgba(253,230,138,.7) 46% 54%,transparent 54%),#0c1a3a' },
+    { id: 'manger-straw', cat: 'holy', name: 'Manger Straw', vibe: 'Warm straw gold', mood: 'Jesus', bg: 'repeating-linear-gradient(85deg,#c4a35a 0 3px,#e8d5a3 3px 6px,#a67c52 6px 8px)' },
+    { id: 'shepherd-night', cat: 'holy', name: 'Shepherd Night', vibe: 'Stars over quiet field', mood: 'Holy', bg: 'radial-gradient(circle at 30% 20%,#fde68a 0 2px,transparent 3px),radial-gradient(circle at 70% 35%,#fff 0 1.5px,transparent 2px),linear-gradient(180deg,#0c1220 0 55%,#14532d 55%)' },
+    { id: 'lamb-gentle', cat: 'holy', name: 'Gentle Lamb', vibe: 'Soft wool white', mood: 'Holy', bg: 'radial-gradient(circle at 40% 40%,#f8fafc 0 20%,transparent 50%),#e2e8f0' },
+    { id: 'kingdom-purple', cat: 'holy', name: 'Kingdom Purple', vibe: 'Royal purple gold', mood: 'Jesus', bg: 'linear-gradient(145deg,#3b0764,#5b21b6 50%,#1e1b4b),repeating-linear-gradient(90deg,transparent 0 24px,rgba(232,197,71,.4) 24px 25px)' },
+    { id: 'amen-green', cat: 'holy', name: 'Amen Evergreen', vibe: 'Church pine gold', mood: 'Holy', bg: 'linear-gradient(160deg,#052e16,#14532d),radial-gradient(circle at 50% 30%,rgba(232,197,71,.4),transparent 40%)' },
+    // —— Shiba / hopeseed / NIBBLES / treat / bone / leash ——
+    { id: 'shiba-orange', cat: 'shiba', name: 'Shiba Sunrise', vibe: 'Warm shiba orange cream', mood: 'Shiba', bg: 'linear-gradient(135deg,#fb923c,#fdba74 40%,#fff7ed 70%,#ea580c)' },
+    { id: 'shiba-paw', cat: 'shiba', name: 'Paw Print Trail', vibe: 'Paw dots on cream', mood: 'Shiba', bg: 'radial-gradient(circle at 20% 30%,#78350f 0 6px,transparent 7px),radial-gradient(circle at 22% 22%,#78350f 0 3px,transparent 4px),radial-gradient(circle at 28% 22%,#78350f 0 3px,transparent 4px),radial-gradient(circle at 60% 70%,#78350f 0 6px,transparent 7px),#fef3c7' },
+    { id: 'shiba-fluffy', cat: 'shiba', name: 'Fluffy Cloud Shiba', vibe: 'Cream fluff bands', mood: 'Shiba', bg: 'repeating-linear-gradient(0deg,#fff7ed 0 12px,#fed7aa 12px 14px,#ffedd5 14px 26px)' },
+    { id: 'hopeseed-emerald', cat: 'hopeseed', name: '$hopeseed Emerald', vibe: 'Hope green seed glow', mood: 'hopeseed', bg: 'radial-gradient(circle at 50% 50%,#6ee7b7 0 20%,transparent 50%),linear-gradient(160deg,#022c22,#065f46 50%,#10b981)' },
+    { id: 'hopeseed-sprout', cat: 'hopeseed', name: 'Sprout Rows', vibe: 'Tiny seed rows', mood: 'hopeseed', bg: 'repeating-linear-gradient(0deg,transparent 0 14px,rgba(16,185,129,.35) 14px 15px),repeating-linear-gradient(90deg,transparent 0 10px,rgba(52,211,153,.25) 10px 11px),#ecfdf5' },
+    { id: 'hopeseed-heart', cat: 'hopeseed', name: 'Seed of Hope', vibe: 'Teal heart field', mood: 'hopeseed', bg: 'radial-gradient(circle at 40% 45%,#34d399 0 12px,transparent 13px),radial-gradient(circle at 55% 45%,#34d399 0 12px,transparent 13px),#042f2e' },
+    { id: 'nibbles-amber', cat: 'nibbles', name: '$NIBBLES Amber', vibe: 'Mercy gold amber', mood: 'NIBBLES', bg: 'linear-gradient(135deg,#78350f,#f59e0b 40%,#fde68a 70%,#b45309)' },
+    { id: 'nibbles-coin', cat: 'nibbles', name: 'Mercy Coin', vibe: 'Coin circles on dark', mood: 'NIBBLES', bg: 'radial-gradient(circle at 30% 40%,#fbbf24 0 14px,transparent 15px),radial-gradient(circle at 70% 65%,#f59e0b 0 12px,transparent 13px),#1c1917' },
+    { id: 'treat-biscuit', cat: 'nibbles', name: 'Treat Biscuit', vibe: 'Dog treat tan dots', mood: 'Treat', bg: 'radial-gradient(circle at 25% 35%,#d6a35c 0 10px,transparent 11px),radial-gradient(circle at 65% 55%,#c4894a 0 9px,transparent 10px),#f5e6c8' },
+    { id: 'bone-white', cat: 'nibbles', name: 'Bone Yard', vibe: 'Bone shapes on blue', mood: 'Bone', bg: 'radial-gradient(ellipse at 30% 40%,#f8fafc 0 8px 18px,transparent 19px),radial-gradient(ellipse at 70% 60%,#e2e8f0 0 7px 16px,transparent 17px),#1e3a5f' },
+    { id: 'leash-stripe', cat: 'shiba', name: 'Leash Stripe', vibe: 'Red leash webbing', mood: 'Leash', bg: 'repeating-linear-gradient(90deg,#991b1b 0 8px,#fef2f2 8px 12px,#7f1d1d 12px 20px)' },
+    { id: 'collar-tags', cat: 'shiba', name: 'Collar Tags', vibe: 'Metal tag glints', mood: 'Shiba', bg: 'radial-gradient(circle at 40% 50%,#d4d4d8 0 8px,transparent 9px),radial-gradient(circle at 55% 50%,#a1a1aa 0 6px,transparent 7px),#27272a' },
+    { id: 'dual-flywheel', cat: 'hopeseed', name: '2 Flywheels 1 Mission', vibe: 'Amber + emerald split', mood: 'SHH', bg: 'linear-gradient(90deg,#f59e0b 0 50%,#10b981 50%)' },
+    { id: 'shibarium-chain', cat: 'nibbles', name: 'Shibarium Chain', vibe: 'Link pattern night', mood: 'Chain', bg: 'repeating-linear-gradient(45deg,transparent 0 12px,rgba(251,191,36,.3) 12px 14px),repeating-linear-gradient(-45deg,transparent 0 12px,rgba(52,211,153,.25) 12px 14px),#0a0f1c' },
+    // —— Funny ——
+    { id: 'ugly-sweater', cat: 'funny', name: 'Ugly Sweater', vibe: 'Chaotic holiday knit', mood: 'Funny', bg: 'repeating-linear-gradient(0deg,#166534 0 6px,#dc2626 6px 12px,#fbbf24 12px 14px,#166534 14px 20px),repeating-linear-gradient(90deg,transparent 0 10px,rgba(0,0,0,.15) 10px 11px)' },
+    { id: 'grumpy-cat', cat: 'funny', name: 'Grumpy Holiday', vibe: 'Grey scowl vibes', mood: 'Funny', bg: 'linear-gradient(160deg,#52525b,#a1a1aa 40%,#3f3f46)' },
+    { id: 'banana-for-scale', cat: 'funny', name: 'Banana for Scale', vibe: 'Yellow banana party', mood: 'Funny', bg: 'repeating-linear-gradient(25deg,#fde047 0 16px,#facc15 16px 20px,#eab308 20px 36px)' },
+    { id: 'socks-again', cat: 'funny', name: 'Socks… Again?!', vibe: 'Argyle sock pattern', mood: 'Funny', bg: 'repeating-linear-gradient(60deg,#1e3a5f 0 12px,#c41e3a 12px 24px,#f8fafc 24px 28px)' },
+    { id: 'coal-spark', cat: 'funny', name: 'Nice List… Maybe', vibe: 'Ember coal joke', mood: 'Funny', bg: 'radial-gradient(circle at 20% 50%,#f59e0b 0 2px,transparent 3px),radial-gradient(circle at 60% 20%,#ef4444 0 1.5px,transparent 2px),#18181b' },
+    { id: 'dad-joke-stripe', cat: 'funny', name: 'Dad Joke Stripe', vibe: 'Loud neon stripes', mood: 'Funny', bg: 'repeating-linear-gradient(90deg,#22d3ee 0 10px,#f472b6 10px 20px,#a3e635 20px 30px)' },
+    { id: 'pickle-rickmas', cat: 'funny', name: 'Pickle Rickmas', vibe: 'Green pickle chaos', mood: 'Funny', bg: 'repeating-linear-gradient(40deg,#166534 0 8px,#4d7c0f 8px 12px,#a3e635 12px 16px)' },
+    { id: 'error-404-gift', cat: 'funny', name: '404 Gift Not Found', vibe: 'Terminal green on black', mood: 'Funny', bg: 'repeating-linear-gradient(0deg,transparent 0 14px,rgba(34,197,94,.4) 14px 15px),#052e16' },
+    // —— Loving ——
+    { id: 'hearts-everywhere', cat: 'loving', name: 'Hearts Everywhere', vibe: 'Soft pink hearts', mood: 'Loving', bg: 'radial-gradient(circle at 25% 35%,#f472b6 0 8px,transparent 9px),radial-gradient(circle at 65% 55%,#fb7185 0 7px,transparent 8px),#fff1f2' },
+    { id: 'you-are-loved', cat: 'loving', name: 'You Are Loved', vibe: 'Warm rose gold wash', mood: 'Loving', bg: 'linear-gradient(135deg,#fecdd3,#fda4af 40%,#fb7185 70%,#fff1f2)' },
+    { id: 'hug-in-a-box', cat: 'loving', name: 'Hug in a Box', vibe: 'Soft coral stripes', mood: 'Loving', bg: 'repeating-linear-gradient(90deg,#fb7185 0 10px,#fecdd3 10px 20px)' },
+    { id: 'family-forever', cat: 'loving', name: 'Family Forever', vibe: 'Linked ring gold', mood: 'Loving', bg: 'radial-gradient(circle at 40% 50%,transparent 0 10px,#e8c547 10px 12px,transparent 13px),radial-gradient(circle at 55% 50%,transparent 0 10px,#e8c547 10px 12px,transparent 13px),#1c1917' },
+    { id: 'quiet-kindness', cat: 'loving', name: 'Quiet Kindness', vibe: 'Soft lavender peace', mood: 'Loving', bg: 'linear-gradient(160deg,#f5f3ff,#ddd6fe 50%,#c4b5fd)' },
+    { id: 'handwritten-love', cat: 'loving', name: 'Handwritten Love', vibe: 'Notebook lines cream', mood: 'Loving', bg: 'repeating-linear-gradient(0deg,transparent 0 22px,rgba(196,30,58,.2) 22px 23px),#fffbeb' },
+    { id: 'forever-home', cat: 'loving', name: 'Forever Home', vibe: 'House-warm amber', mood: 'Loving', bg: 'linear-gradient(180deg,#fef3c7 0 60%,#b45309 60%)' },
+    { id: 'kraft-twine', cat: 'loving', name: 'Kraft & Twine', vibe: 'Handmade care', mood: 'Loving', bg: 'repeating-linear-gradient(90deg,transparent 0 40px,rgba(120,80,40,.15) 40px 41px),linear-gradient(135deg,#c4a574,#a67c52 50%,#8b6914)' },
+    { id: 'linen-sage', cat: 'loving', name: 'Linen Sage', vibe: 'Gentle fabric', mood: 'Loving', bg: 'repeating-linear-gradient(0deg,rgba(255,255,255,.08) 0 1px,transparent 1px 4px),#9caf88' },
+    { id: 'gold-starfield', cat: 'loving', name: 'Wish Upon Stars', vibe: 'Gold stars night', mood: 'Loving', bg: 'radial-gradient(circle at 15% 20%,#e8c547 0 2px,transparent 3px),radial-gradient(circle at 70% 40%,#fde68a 0 1.5px,transparent 2px),#0c1220' }
+  ];
+
+  var RIBBONS = [
+    { id: 'none', name: 'No ribbon', color: 'transparent', preview: 'none' },
+    { id: 'gold', name: 'Gold satin', color: '#e8c547', preview: 'gold' },
+    { id: 'crimson', name: 'Crimson velvet', color: '#c41e3a', preview: 'red' },
+    { id: 'emerald', name: 'Emerald hope', color: '#10b981', preview: 'green' },
+    { id: 'amber-nibbles', name: 'Amber $NIBBLES', color: '#f59e0b', preview: 'amber' },
+    { id: 'silver', name: 'Silver bells', color: '#d1d5db', preview: 'silver' },
+    { id: 'rose', name: 'Rose loving', color: '#f472b6', preview: 'rose' },
+    { id: 'navy', name: 'Navy classic', color: '#1e3a5f', preview: 'navy' },
+    { id: 'twine', name: 'Natural twine', color: '#a67c52', preview: 'twine' },
+    { id: 'rainbow', name: 'Rainbow joy', color: 'linear-gradient(90deg,#f87171,#fbbf24,#34d399,#60a5fa,#c084fc)', preview: 'rainbow' },
+    { id: 'plaid-bow', name: 'Plaid bow', color: '#7f1d1d', preview: 'plaid' },
+    { id: 'bone-tag', name: 'Bone charm ribbon', color: '#fef3c7', preview: 'bone' }
+  ];
+
+  var STOCKINGS = [
+    { id: 'none', name: 'No stocking', emoji: '—' },
+    { id: 'classic-red', name: 'Classic red', emoji: '🧦', color: '#c41e3a' },
+    { id: 'forest-green', name: 'Forest green', emoji: '🧦', color: '#14532d' },
+    { id: 'gold-trim', name: 'Gold trim cream', emoji: '🧦', color: '#faf6eb' },
+    { id: 'shiba-paw', name: 'Shiba paw stocking', emoji: '🐾', color: '#fb923c' },
+    { id: 'hopeseed-green', name: '$hopeseed green', emoji: '🌱', color: '#10b981' },
+    { id: 'nibbles-amber', name: '$NIBBLES amber', emoji: '🦴', color: '#f59e0b' },
+    { id: 'striped-candy', name: 'Candy stripe', emoji: '🍬', color: '#fff' },
+    { id: 'holy-white', name: 'Holy white gold', emoji: '✝', color: '#f8fafc' },
+    { id: 'funny-ugly', name: 'Ugly sweater sock', emoji: '🎄', color: '#166534' },
+    { id: 'loving-heart', name: 'Heart cuff', emoji: '❤️', color: '#fb7185' },
+    { id: 'plaid-cabin', name: 'Cabin plaid', emoji: '🏠', color: '#5c0a12' }
+  ];
+
+  var WRAP_CATS = [
+    { id: 'all', label: 'All styles' },
+    { id: 'classic', label: 'Classic' },
+    { id: 'elegant', label: 'Classy · elegant' },
+    { id: 'kids', label: 'Kids' },
+    { id: 'holy', label: 'Jesus · holy' },
+    { id: 'shiba', label: 'Shiba · leash' },
+    { id: 'hopeseed', label: '$hopeseed' },
+    { id: 'nibbles', label: '$NIBBLES · bone · treat' },
+    { id: 'funny', label: 'Funny' },
+    { id: 'loving', label: 'Loving' }
   ];
 
   function hubById(id) {
@@ -183,7 +279,20 @@
       '.xops-paper.is-picked .xops-paper-check{display:flex}',
       '.xops-preview-box{border-radius:1.1rem;border:1px solid rgba(255,255,255,.12);padding:1rem;background:rgba(0,0,0,.35)}',
       '.xops-preview-gift{width:100%;max-width:200px;margin:0 auto;aspect-ratio:1;border-radius:.75rem;position:relative;box-shadow:0 16px 40px -12px rgba(0,0,0,.6)}',
-      '.xops-preview-gift .bow{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fde68a,#b45309);box-shadow:0 0 0 3px rgba(232,197,71,.3)}'
+      '.xops-preview-gift .ribbon-h{position:absolute;left:0;right:0;top:46%;height:14px;transform:translateY(-50%);opacity:.95}',
+      '.xops-preview-gift .ribbon-v{position:absolute;top:0;bottom:0;left:50%;width:14px;transform:translateX(-50%);opacity:.95}',
+      '.xops-preview-gift .bow{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 3px rgba(0,0,0,.15);display:none}',
+      '.xops-preview-gift.has-ribbon .bow{display:block}',
+      '.xops-preview-gift.no-ribbon .ribbon-h,.xops-preview-gift.no-ribbon .ribbon-v{display:none}',
+      '.xops-stock-preview{text-align:center;font-size:2.5rem;margin-top:.75rem;min-height:2.5rem;line-height:1}',
+      '.xops-filter-row{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 1rem}',
+      '.xops-filter{font-size:.65rem;padding:.35rem .65rem;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:transparent;color:#a1a1aa;cursor:pointer;font-family:inherit}',
+      '.xops-filter.is-on{background:rgba(232,197,71,.18);border-color:rgba(232,197,71,.5);color:#fde68a}',
+      '.xops-opt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem}',
+      '@media(min-width:480px){.xops-opt-grid{grid-template-columns:repeat(3,1fr)}}',
+      '.xops-opt{font-size:.68rem;padding:.45rem .5rem;border-radius:.65rem;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.25);color:#d4d4d8;cursor:pointer;font-family:inherit;text-align:left}',
+      '.xops-opt.is-on{border-color:rgba(232,197,71,.55);color:#fde68a;background:rgba(232,197,71,.1)}',
+      '.xops-opt .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:.35rem;vertical-align:middle;border:1px solid rgba(255,255,255,.2)}'
     ].join('\n');
     document.head.appendChild(s);
   }
@@ -270,16 +379,22 @@
     }).join('');
   }
 
-  function wrapPaperCards() {
-    return WRAP_PAPERS.map(function (p, i) {
+  function wrapPaperCards(filterCat) {
+    var list = !filterCat || filterCat === 'all'
+      ? WRAP_PAPERS
+      : WRAP_PAPERS.filter(function (p) { return p.cat === filterCat; });
+    if (!list.length) {
+      return '<p class="xops-muted">No styles in this filter yet.</p>';
+    }
+    return list.map(function (p, i) {
       return (
-        '<button type="button" class="xops-paper' + (i === 0 ? ' is-picked' : '') + '" data-wrap="' + p.id + '" title="' + p.name + '">' +
+        '<button type="button" class="xops-paper' + (i === 0 && filterCat === 'all' ? ' is-picked' : '') + '" data-wrap="' + p.id + '" data-cat="' + p.cat + '" title="' + p.name + '">' +
           '<span class="xops-paper-check" aria-hidden="true">✓</span>' +
           '<div class="xops-paper-swatch" style="background:' + p.bg + '"></div>' +
           '<div class="xops-paper-meta">' +
             '<strong>' + p.name + '</strong>' +
             '<span>' + p.vibe + '</span>' +
-            '<span style="color:#fde68a;margin-top:.2rem">' + p.mood + '</span>' +
+            '<span style="color:#fde68a;margin-top:.2rem">' + p.mood + ' · ' + p.cat + '</span>' +
           '</div>' +
         '</button>'
       );
@@ -288,6 +403,33 @@
 
   function wrapById(id) {
     return WRAP_PAPERS.find(function (p) { return p.id === id; }) || WRAP_PAPERS[0];
+  }
+  function ribbonById(id) {
+    return RIBBONS.find(function (r) { return r.id === id; }) || RIBBONS[0];
+  }
+  function stockingById(id) {
+    return STOCKINGS.find(function (s) { return s.id === id; }) || STOCKINGS[0];
+  }
+
+  function filterChipsHtml() {
+    return WRAP_CATS.map(function (c, i) {
+      return '<button type="button" class="xops-filter' + (i === 0 ? ' is-on' : '') + '" data-cat="' + c.id + '">' + c.label + '</button>';
+    }).join('');
+  }
+
+  function ribbonOptsHtml() {
+    return RIBBONS.map(function (r, i) {
+      var sw = r.id === 'none'
+        ? '<span class="sw" style="background:transparent;border-style:dashed"></span>'
+        : '<span class="sw" style="background:' + r.color + '"></span>';
+      return '<button type="button" class="xops-opt' + (i === 1 ? ' is-on' : '') + '" data-ribbon="' + r.id + '">' + sw + r.name + '</button>';
+    }).join('');
+  }
+
+  function stockingOptsHtml() {
+    return STOCKINGS.map(function (s, i) {
+      return '<button type="button" class="xops-opt' + (i === 0 ? ' is-on' : '') + '" data-stock="' + s.id + '">' + s.emoji + ' ' + s.name + '</button>';
+    }).join('');
   }
 
   // Simple schematic map positions (percent)
@@ -404,18 +546,29 @@
           '<div class="xops-panel" data-panel="wrap">' +
             '<div class="xops-grid xops-grid-2" style="margin-bottom:1.1rem">' +
               '<div class="xops-card">' +
-                '<h3>Wrapping paper styles</h3>' +
-                '<p class="xops-muted">Elves on the wrap line pull from many rolls. Sponsors can request a style when funded. Kids open something that feels chosen — not generic warehouse brown only.</p>' +
-                '<p class="xops-muted" style="margin-top:.5rem"><strong style="color:#fde68a">' + WRAP_PAPERS.length + ' styles</strong> in the design catalog · more rolls as partners join.</p>' +
-                '<p class="xops-muted" style="margin-top:.75rem" id="xops-wrap-picked">Selected: <strong style="color:#ecfdf5">Holly Classic</strong> — Traditional red &amp; green holly</p>' +
+                '<h3>Build the look</h3>' +
+                '<p class="xops-muted">Pick paper · ribbon · stocking. Elves wrap to your selection when funded. Classy, kids, holy, Shiba, $hopeseed, $NIBBLES, funny, loving — filter and choose.</p>' +
+                '<p class="xops-muted" style="margin-top:.5rem"><strong style="color:#fde68a" id="xops-wrap-count">' + WRAP_PAPERS.length + ' papers</strong> · ' + RIBBONS.length + ' ribbons · ' + STOCKINGS.length + ' stockings</p>' +
+                '<p class="xops-muted" style="margin-top:.75rem" id="xops-wrap-picked">Paper: <strong style="color:#ecfdf5">Holly Classic</strong></p>' +
+                '<p class="xops-muted" id="xops-extras-picked">Ribbon: <strong style="color:#ecfdf5">Gold satin</strong> · Stocking: <strong style="color:#ecfdf5">None</strong></p>' +
+                '<h4 style="margin:1rem 0 .4rem;color:#fde68a;font-size:.8rem">Ribbon</h4>' +
+                '<div class="xops-opt-grid" id="xops-ribbon-grid">' + ribbonOptsHtml() + '</div>' +
+                '<h4 style="margin:1rem 0 .4rem;color:#fde68a;font-size:.8rem">Stocking</h4>' +
+                '<div class="xops-opt-grid" id="xops-stock-grid">' + stockingOptsHtml() + '</div>' +
               '</div>' +
               '<div class="xops-preview-box">' +
                 '<p class="xops-muted" style="text-align:center;margin-bottom:.75rem">Gift preview</p>' +
-                '<div class="xops-preview-gift" id="xops-gift-preview" style="background:' + WRAP_PAPERS[0].bg + '"><div class="bow" aria-hidden="true"></div></div>' +
-                '<p class="xops-muted" style="text-align:center;margin-top:.75rem" id="xops-gift-label">Holly Classic</p>' +
+                '<div class="xops-preview-gift has-ribbon" id="xops-gift-preview" style="background:' + WRAP_PAPERS[0].bg + '">' +
+                  '<div class="ribbon-h" id="xops-rib-h" style="background:#e8c547"></div>' +
+                  '<div class="ribbon-v" id="xops-rib-v" style="background:#e8c547"></div>' +
+                  '<div class="bow" id="xops-bow" style="background:radial-gradient(circle at 40% 35%,#fde68a,#b45309)" aria-hidden="true"></div>' +
+                '</div>' +
+                '<div class="xops-stock-preview" id="xops-stock-preview" title="Stocking"></div>' +
+                '<p class="xops-muted" style="text-align:center;margin-top:.5rem" id="xops-gift-label">Holly Classic + Gold satin</p>' +
               '</div>' +
             '</div>' +
-            '<div class="xops-wrap-grid" id="xops-wrap-grid">' + wrapPaperCards() + '</div>' +
+            '<div class="xops-filter-row" id="xops-filter-row">' + filterChipsHtml() + '</div>' +
+            '<div class="xops-wrap-grid" id="xops-wrap-grid">' + wrapPaperCards('all') + '</div>' +
           '</div>' +
 
           '<div class="xops-panel" data-panel="elves">' +
@@ -477,22 +630,101 @@
     var drop = root.querySelector('#xops-drop');
     var summary = root.querySelector('#xops-donate-summary');
     var selectedWrap = WRAP_PAPERS[0].id;
+    var selectedRibbon = 'gold';
+    var selectedStock = 'none';
+    var wrapFilter = 'all';
 
     function refreshSummary() {
       if (!summary || !region || !drop) return;
       var h = hubById(region.value);
       var d = dropById(drop.value);
       var w = wrapById(selectedWrap);
-      summary.textContent = 'Child Mercy Bag · wrap: ' + w.name + ' → ' + h.city + ' hub → ' + d.name + ' (' + d.city + ')';
+      var r = ribbonById(selectedRibbon);
+      var s = stockingById(selectedStock);
+      summary.textContent =
+        'Child Mercy Bag · ' + w.name +
+        ' · ribbon: ' + r.name +
+        (s.id !== 'none' ? ' · stocking: ' + s.name : '') +
+        ' → ' + h.city + ' hub → ' + d.name + ' (' + d.city + ')';
     }
+
+    function updatePreview() {
+      var w = wrapById(selectedWrap);
+      var r = ribbonById(selectedRibbon);
+      var s = stockingById(selectedStock);
+      var giftPreview = root.querySelector('#xops-gift-preview');
+      var giftLabel = root.querySelector('#xops-gift-label');
+      var wrapPicked = root.querySelector('#xops-wrap-picked');
+      var extras = root.querySelector('#xops-extras-picked');
+      var ribH = root.querySelector('#xops-rib-h');
+      var ribV = root.querySelector('#xops-rib-v');
+      var bow = root.querySelector('#xops-bow');
+      var stockPrev = root.querySelector('#xops-stock-preview');
+
+      if (giftPreview) {
+        giftPreview.style.background = w.bg;
+        giftPreview.classList.toggle('no-ribbon', r.id === 'none');
+        giftPreview.classList.toggle('has-ribbon', r.id !== 'none');
+      }
+      if (ribH && ribV) {
+        ribH.style.background = r.color;
+        ribV.style.background = r.color;
+      }
+      if (bow) {
+        if (r.id === 'none') {
+          bow.style.display = 'none';
+        } else {
+          bow.style.display = 'block';
+          bow.style.background =
+            r.id === 'rainbow'
+              ? 'conic-gradient(#f87171,#fbbf24,#34d399,#60a5fa,#c084fc,#f87171)'
+              : 'radial-gradient(circle at 40% 35%,#fff,' + (r.color.indexOf('gradient') === 0 ? '#e8c547' : r.color) + ')';
+        }
+      }
+      if (stockPrev) stockPrev.textContent = s.id === 'none' ? '' : s.emoji;
+      if (wrapPicked) {
+        wrapPicked.innerHTML = 'Paper: <strong style="color:#ecfdf5">' + w.name + '</strong> — ' + w.vibe;
+      }
+      if (extras) {
+        extras.innerHTML =
+          'Ribbon: <strong style="color:#ecfdf5">' + r.name + '</strong> · Stocking: <strong style="color:#ecfdf5">' + s.name + '</strong>';
+      }
+      if (giftLabel) {
+        giftLabel.textContent = w.name + (r.id !== 'none' ? ' + ' + r.name : '') + (s.id !== 'none' ? ' + ' + s.emoji : '');
+      }
+      refreshSummary();
+    }
+
     if (region) region.addEventListener('change', refreshSummary);
     if (drop) drop.addEventListener('change', refreshSummary);
 
-    // Wrapping paper picker
+    // Category filters
+    var filterRow = root.querySelector('#xops-filter-row');
     var wrapGrid = root.querySelector('#xops-wrap-grid');
-    var wrapPicked = root.querySelector('#xops-wrap-picked');
-    var giftPreview = root.querySelector('#xops-gift-preview');
-    var giftLabel = root.querySelector('#xops-gift-label');
+    if (filterRow && wrapGrid) {
+      filterRow.addEventListener('click', function (e) {
+        var chip = e.target.closest('.xops-filter');
+        if (!chip) return;
+        wrapFilter = chip.getAttribute('data-cat') || 'all';
+        filterRow.querySelectorAll('.xops-filter').forEach(function (c) {
+          c.classList.toggle('is-on', c === chip);
+        });
+        wrapGrid.innerHTML = wrapPaperCards(wrapFilter);
+        // re-mark selected paper if visible
+        var still = wrapGrid.querySelector('[data-wrap="' + selectedWrap + '"]');
+        if (still) still.classList.add('is-picked');
+        else {
+          var first = wrapGrid.querySelector('.xops-paper');
+          if (first) {
+            selectedWrap = first.getAttribute('data-wrap');
+            first.classList.add('is-picked');
+            updatePreview();
+          }
+        }
+      });
+    }
+
+    // Wrapping paper picker
     if (wrapGrid) {
       wrapGrid.addEventListener('click', function (e) {
         var btn = e.target.closest('.xops-paper');
@@ -501,16 +733,39 @@
         wrapGrid.querySelectorAll('.xops-paper').forEach(function (b) {
           b.classList.toggle('is-picked', b === btn);
         });
-        var w = wrapById(selectedWrap);
-        if (wrapPicked) {
-          wrapPicked.innerHTML = 'Selected: <strong style="color:#ecfdf5">' + w.name + '</strong> — ' + w.vibe;
-        }
-        if (giftPreview) giftPreview.style.background = w.bg;
-        if (giftLabel) giftLabel.textContent = w.name;
-        refreshSummary();
+        updatePreview();
       });
     }
-    refreshSummary();
+
+    // Ribbons
+    var ribGrid = root.querySelector('#xops-ribbon-grid');
+    if (ribGrid) {
+      ribGrid.addEventListener('click', function (e) {
+        var btn = e.target.closest('.xops-opt');
+        if (!btn) return;
+        selectedRibbon = btn.getAttribute('data-ribbon') || 'none';
+        ribGrid.querySelectorAll('.xops-opt').forEach(function (b) {
+          b.classList.toggle('is-on', b === btn);
+        });
+        updatePreview();
+      });
+    }
+
+    // Stockings
+    var stockGrid = root.querySelector('#xops-stock-grid');
+    if (stockGrid) {
+      stockGrid.addEventListener('click', function (e) {
+        var btn = e.target.closest('.xops-opt');
+        if (!btn) return;
+        selectedStock = btn.getAttribute('data-stock') || 'none';
+        stockGrid.querySelectorAll('.xops-opt').forEach(function (b) {
+          b.classList.toggle('is-on', b === btn);
+        });
+        updatePreview();
+      });
+    }
+
+    updatePreview();
 
     var btn = root.querySelector('#xops-sponsor-btn');
     if (btn) {
