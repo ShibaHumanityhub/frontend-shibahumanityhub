@@ -775,7 +775,7 @@ const programs = [            {
     category: "$hopeseed",
     badgeColor: "emerald",
     image: "assets/images/orphanxmasphoto.jpg",
-    shortDesc: "Verified orphans, foster kids, and youth-shelter hearts get a real Christmas. Proven need only. Holly, holy, and built so no child wakes up forgotten.",
+    shortDesc: "Verified orphans, foster kids, and youth-shelter hearts get a real Christmas. Donations by size and location. Live elf warehouse. Hub shipping. Truck trackers to local drops. Proven need only.",
     fullHTML: `<div class="oc-root">
 <style>
   .oc-root{--oc-red:#c41e3a;--oc-green:#0d5c3d;--oc-gold:#e8c547;--oc-cream:#fff8ee;--oc-pine:#0a2f22;font-family:Georgia,'Times New Roman',serif;color:var(--oc-cream);margin:-0.5rem -0.25rem;padding:0}
@@ -852,6 +852,8 @@ const programs = [            {
     </div>
 
     <p class="oc-p">When this program is funded, every December we build a holly-jolly night that is also holy. Personalized gifts. Warm clothes. A little magic on camera only when a child and their caregivers want it. A global family on the stream sending love, not judgment. For one night they are not a file number. They are a name. They are cheered for. They matter.</p>
+
+    <p class="oc-p"><strong>How the gift actually moves:</strong> people donate by <strong>pack size</strong> and <strong>location</strong>. Elves on a live warehouse floor sort, wrap, and seal. Boxes ship hub to hub, then roll out on Christmas-season trucks with trackers to local partner drops — shelters, foster homes, verified families. Not a wish list on the internet. A real supply chain of mercy.</p>
 
     <!-- BIG TV ON A DESK -->
     <div class="oc-tv-stage">

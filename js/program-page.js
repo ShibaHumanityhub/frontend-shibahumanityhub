@@ -220,8 +220,12 @@
         renderRelated(program) +
       '</main>';
 
-    // Pause any autoplay videos when leaving? optional
     root.setAttribute('data-rendered-slug', slug);
+
+    // Christmas logistics layer (Orphan Christmas + Santa's Workshop)
+    if (window.SHHChristmasMercyOps && typeof window.SHHChristmasMercyOps.mount === 'function') {
+      try { window.SHHChristmasMercyOps.mount(program); } catch (e) { /* non-fatal */ }
+    }
   }
 
   function boot() {
