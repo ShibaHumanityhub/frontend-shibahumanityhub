@@ -976,8 +976,8 @@
         var dinner = dinnerById(selectedDinner);
         refreshSummary();
         var msg =
-          'When funded: sponsor “‘ + dinner.name + '” for a verified low-income family. ' +
-          dinner.includes + '. Redeemed via local grocery voucher or partner delivery. Not printing vouchers yet — truth first.';
+          'When funded: sponsor "' + dinner.name + '" for a verified low-income family. ' +
+          dinner.includes + '. Redeemed via local grocery voucher or partner delivery. Not printing vouchers yet - truth first.';
         if (typeof window.sponsorProgram === 'function') {
           window.sponsorProgram('orphan-christmas-dinner-' + dinner.id);
         } else {
