@@ -2433,8 +2433,10 @@ const MERCY_THRESHOLDS = {
 };
 
 function showProgramModal(id) {
-  const program = programs.find(p => p.id === id);
+  const program = programs.find(p => p.id === id || p.id === Number(id));
   if (!program) return;
+  // Ensure flywheel nav / other scripts can always call this
+  window.showProgramModal = showProgramModal;
   const modal = document.getElementById('program-modal');
   const content = document.getElementById('modal-content');
 

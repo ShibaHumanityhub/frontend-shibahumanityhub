@@ -237,6 +237,8 @@
       '  padding: 0 12px; text-align: center; font-size: 0.72rem; line-height: 1.2;',
       '  color: #a1a1aa; background: transparent; border: 0; width: 100%;',
       '  cursor: pointer; font-family: inherit;',
+      '  position: relative; z-index: 5;',
+      '  pointer-events: auto;',
       '  transition: color 0.22s ease, opacity 0.22s ease, text-shadow 0.22s ease, filter 0.22s ease;',
       '  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;',
       '  transform-origin: center center;',
@@ -247,7 +249,7 @@
       '  color: var(--fw-accent) !important;',
       '  font-weight: 700; font-size: 0.82rem;',
       '  opacity: 1 !important;',
-      '  z-index: 3; position: relative;',
+      '  z-index: 6;',
       '  text-shadow: 0 0 16px var(--fw-glow), 0 0 2px rgba(0,0,0,0.8);',
       '  filter: none !important;',
       '}',
@@ -313,13 +315,28 @@
     if (menu) menu.classList.add('hidden');
     var chevron = document.getElementById('programs-chevron');
     if (chevron) chevron.style.transform = 'rotate(0deg)';
+    // Close mobile drawer if open
+    var mobile = document.getElementById('mobile-menu');
+    if (mobile && !mobile.classList.contains('hidden')) {
+      mobile.classList.add('hidden');
+      var icon = document.getElementById('mobile-menu-icon');
+      if (icon) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    }
 
+    var numId = typeof id === 'string' ? parseInt(id, 10) : id;
+    if (typeof window.showProgramModal === 'function') {
+      window.showProgramModal(numId);
+      return;
+    }
     if (typeof showProgramModal === 'function') {
-      showProgramModal(id);
+      showProgramModal(numId);
       return;
     }
     // Cross-page: land on all-programs with program deep-link
-    window.location.href = 'all-programs.html#program-' + id;
+    window.location.href = 'all-programs.html#program-' + numId;
   }
 
   function shortTitle(title) {
@@ -338,10 +355,14 @@
     var index = 0;
     var dragY = 0;
     var dragging = false;
+    var dragArmed = false;
+    var didDrag = false;
     var startY = 0;
     var startIndex = 0;
+    var activePointerId = null;
     var spinTimer = null;
     var reduceMotion = false;
+    var DRAG_THRESHOLD = 6;
     try {
       reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     } catch (e) { reduceMotion = false; }
@@ -376,15 +397,18 @@
       btn.setAttribute('role', 'option');
       btn.setAttribute('data-id', String(p.id));
       btn.setAttribute('data-index', String(i));
-      btn.title = p.title;
+      btn.title = p.title + ' · open program';
       btn.textContent = shortTitle(p.title);
       btn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        if (i !== index) {
-          setIndex(i);
+        // After a drag, suppress accidental click
+        if (didDrag) {
+          didDrag = false;
           return;
         }
+        // Click always opens (snap first if needed)
+        if (i !== index) setIndex(i, true);
         openProgram(p.id);
       });
       track.appendChild(btn);
@@ -492,22 +516,39 @@
     });
 
     function endDrag() {
+      if (activePointerId != null) {
+        try { viewport.releasePointerCapture(activePointerId); } catch (err) { /* already released */ }
+        activePointerId = null;
+      }
       dragging = false;
+      dragArmed = false;
       col.classList.remove('is-dragging');
       setIndex(index);
     }
 
+    // Drag only after a small move so button clicks still fire and open programs
     viewport.addEventListener('pointerdown', function (e) {
-      dragging = true;
+      // Ignore non-primary mouse / leave buttons free for click
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragArmed = true;
+      didDrag = false;
+      dragging = false;
       startY = e.clientY;
       startIndex = index;
       dragY = 0;
-      col.classList.add('is-dragging');
-      viewport.setPointerCapture(e.pointerId);
+      activePointerId = e.pointerId;
     });
     viewport.addEventListener('pointermove', function (e) {
-      if (!dragging) return;
+      if (!dragArmed && !dragging) return;
       dragY = e.clientY - startY;
+      if (!dragging) {
+        if (Math.abs(dragY) < DRAG_THRESHOLD) return;
+        // Commit to drag: capture only after threshold so clicks work
+        dragging = true;
+        didDrag = true;
+        col.classList.add('is-dragging');
+        try { viewport.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+      }
       var offset = Math.round(-dragY / ITEM_H);
       var next = startIndex + offset;
       var clamped = Math.max(0, Math.min(list.length - 1, next));
@@ -528,12 +569,29 @@
       }
     });
     viewport.addEventListener('pointerup', function (e) {
-      if (!dragging) return;
-      var offset = Math.round(-(e.clientY - startY) / ITEM_H);
-      index = startIndex + offset;
-      endDrag();
+      if (!dragArmed && !dragging) return;
+      if (dragging) {
+        var offset = Math.round(-(e.clientY - startY) / ITEM_H);
+        index = Math.max(0, Math.min(list.length - 1, startIndex + offset));
+        endDrag();
+        // Keep didDrag true briefly so the trailing click is ignored
+        setTimeout(function () { didDrag = false; }, 40);
+        return;
+      }
+      // Click (no drag): let the button's click handler open the program.
+      // Also handle clicks on empty viewport chrome (center rail gap).
+      dragArmed = false;
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      var onItem = el && el.closest && el.closest('.prog-fw-item');
+      if (!onItem && list[index]) {
+        // Clicked the rail chrome, not a row — open the highlighted center program
+        openProgram(list[index].id);
+      }
     });
-    viewport.addEventListener('pointercancel', endDrag);
+    viewport.addEventListener('pointercancel', function () {
+      dragArmed = false;
+      if (dragging) endDrag();
+    });
 
     setIndex(0, true);
     return col;

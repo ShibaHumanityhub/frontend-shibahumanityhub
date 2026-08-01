@@ -1372,8 +1372,9 @@ function filterPrograms(cat) {
 
 // === MODAL FUNCTIONS ===
 function showProgramModal(id) {
-  const program = programs.find(p => p.id === id);
+  const program = programs.find(p => p.id === id || p.id === Number(id));
   if (!program) return;
+  window.showProgramModal = showProgramModal;
   const modal = document.getElementById('program-modal');
   const content = document.getElementById('modal-content');
 
