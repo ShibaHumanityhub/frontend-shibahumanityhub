@@ -775,7 +775,7 @@ const programs = [            {
     category: "$hopeseed",
     badgeColor: "emerald",
     image: "assets/images/orphanxmasphoto.jpg",
-    shortDesc: "Verified orphans, foster kids, and youth-shelter hearts get a real Christmas. Donations by size and location. Live elf warehouse. Hub shipping. Truck trackers to local drops. Proven need only.",
+    shortDesc: "Verified orphans, foster kids, and youth-shelter hearts get a real Christmas. Gift packs, wrap styles, turkey dinners and grocery vouchers for low-income families. Live elf warehouse. Hub shipping. Truck trackers. Proven need only.",
     fullHTML: `<div class="oc-root">
 <style>
   .oc-root{--oc-red:#c41e3a;--oc-green:#0d5c3d;--oc-gold:#e8c547;--oc-cream:#fff8ee;--oc-pine:#0a2f22;font-family:Georgia,'Times New Roman',serif;color:var(--oc-cream);margin:-0.5rem -0.25rem;padding:0}

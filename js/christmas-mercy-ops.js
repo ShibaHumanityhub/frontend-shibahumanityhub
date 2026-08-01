@@ -50,6 +50,73 @@
     }
   ];
 
+  /** Christmas dinner sponsorship — low-income families, verified need */
+  var DINNER_SPONSORS = [
+    {
+      id: 'turkey-full',
+      name: 'Full Turkey Dinner',
+      type: 'Everything included',
+      feeds: 'Family of 4–6',
+      includes: 'Turkey · stuffing · gravy · potatoes · veg · rolls · pie or dessert',
+      how: 'Partner agency picks up or delivers · or store voucher for the full cart',
+      icon: '🦃'
+    },
+    {
+      id: 'turkey-ham',
+      name: 'Turkey or Ham Choice',
+      type: 'Main + sides',
+      feeds: 'Family of 4–8',
+      includes: 'Turkey or ham · sides kit · gravy · rolls · dessert mix',
+      how: 'Local grocery voucher covering a set meal list',
+      icon: '🍖'
+    },
+    {
+      id: 'grocery-voucher-150',
+      name: 'Grocery Dinner Voucher',
+      type: 'Store voucher',
+      feeds: 'Family of 3–5',
+      includes: 'Prepaid card / voucher at a local grocery for Christmas meal staples',
+      how: 'Redeem at Superstore, Safeway, No Frills, Walmart, or partner store (region)',
+      icon: '🛒'
+    },
+    {
+      id: 'grocery-voucher-250',
+      name: 'Full Table Voucher',
+      type: 'Larger store voucher',
+      feeds: 'Larger family or 2 small households',
+      includes: 'Higher voucher for turkey + all trimmings + breakfast next morning',
+      how: 'Verified families only · receipt trail when rails live',
+      icon: '💳'
+    },
+    {
+      id: 'hamper-box',
+      name: 'Dinner Hamper Box',
+      type: 'Pre-packed box',
+      feeds: 'Family of 4',
+      includes: 'Non-perishables + voucher slip for fresh turkey / produce',
+      how: 'Warehouse packs dry goods · store voucher for the bird & fresh sides',
+      icon: '📦'
+    },
+    {
+      id: 'shelter-floor-dinners',
+      name: 'Shelter Floor Feast',
+      type: 'Group meal',
+      feeds: 'Whole wing / floor',
+      includes: 'Catered or bulk grocery for youth shelter / foster group Christmas dinner',
+      how: 'Agency kitchen or local grocery catering voucher',
+      icon: '🏠'
+    }
+  ];
+
+  var GROCERY_PARTNERS = [
+    { name: 'Local Superstore / Real Canadian Superstore', region: 'Canada' },
+    { name: 'Safeway / Sobeys', region: 'Canada' },
+    { name: 'No Frills / FreshCo', region: 'Canada' },
+    { name: 'Walmart Grocery', region: 'Canada · USA' },
+    { name: 'Save-On-Foods', region: 'West Canada' },
+    { name: 'Regional independent grocer', region: 'Partner towns' }
+  ];
+
   var DROP_SITES = [
     { id: 'd1', name: 'Hope House Youth Shelter', city: 'Edmonton, AB', type: 'Youth shelter', kids: 28, need: 'Verified' },
     { id: 'd2', name: 'Prairie Foster Collective', city: 'St. Albert, AB', type: 'Foster network', kids: 41, need: 'Verified' },
@@ -292,7 +359,12 @@
       '@media(min-width:480px){.xops-opt-grid{grid-template-columns:repeat(3,1fr)}}',
       '.xops-opt{font-size:.68rem;padding:.45rem .5rem;border-radius:.65rem;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.25);color:#d4d4d8;cursor:pointer;font-family:inherit;text-align:left}',
       '.xops-opt.is-on{border-color:rgba(232,197,71,.55);color:#fde68a;background:rgba(232,197,71,.1)}',
-      '.xops-opt .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:.35rem;vertical-align:middle;border:1px solid rgba(255,255,255,.2)}'
+      '.xops-opt .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:.35rem;vertical-align:middle;border:1px solid rgba(255,255,255,.2)}',
+      '.xops-dinner-card{transition:border-color .2s,box-shadow .2s}',
+      '.xops-dinner-card.is-picked{border-color:rgba(232,197,71,.55)!important;box-shadow:0 0 0 1px rgba(232,197,71,.35),0 12px 28px -14px rgba(196,30,58,.4)}',
+      '.xops-pack-card{cursor:pointer;transition:border-color .2s}',
+      '.xops-pack-card.is-picked{border-color:rgba(52,211,153,.5)}',
+      '.xops-section-label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,197,71,.85);margin:1.25rem 0 .65rem}'
     ].join('\n');
     document.head.appendChild(s);
   }
@@ -300,11 +372,45 @@
   function donationCards() {
     return DONATION_SIZES.map(function (d) {
       return (
-        '<div class="xops-card">' +
+        '<div class="xops-card xops-pack-card" data-pack="' + d.id + '" role="button" tabindex="0">' +
           '<div class="xops-pill">' + d.size + '</div>' +
           '<h4 style="margin-top:.55rem">' + d.name + '</h4>' +
           '<p class="xops-muted"><strong style="color:#ecfdf5">' + d.kids + '</strong> · ' + d.fills + '</p>' +
           '<p class="xops-muted" style="margin-top:.4rem">' + d.when + '</p>' +
+        '</div>'
+      );
+    }).join('');
+  }
+
+  function dinnerCards() {
+    return DINNER_SPONSORS.map(function (d, i) {
+      return (
+        '<button type="button" class="xops-card xops-dinner-card' + (i === 0 ? ' is-picked' : '') + '" data-dinner="' + d.id + '" style="text-align:left;cursor:pointer;width:100%;font-family:inherit;color:inherit">' +
+          '<div style="display:flex;align-items:flex-start;gap:.5rem">' +
+            '<span style="font-size:1.5rem" aria-hidden="true">' + d.icon + '</span>' +
+            '<div style="flex:1">' +
+              '<div class="xops-pill">' + d.type + '</div>' +
+              '<h4 style="margin-top:.45rem">' + d.name + '</h4>' +
+              '<p class="xops-muted"><strong style="color:#fde68a">' + d.feeds + '</strong></p>' +
+              '<p class="xops-muted" style="margin-top:.35rem">' + d.includes + '</p>' +
+              '<p class="xops-muted" style="margin-top:.35rem;color:#6ee7b7">' + d.how + '</p>' +
+            '</div>' +
+          '</div>' +
+        '</button>'
+      );
+    }).join('');
+  }
+
+  function dinnerById(id) {
+    return DINNER_SPONSORS.find(function (d) { return d.id === id; }) || DINNER_SPONSORS[0];
+  }
+
+  function groceryPartnersHtml() {
+    return GROCERY_PARTNERS.map(function (g) {
+      return (
+        '<div class="xops-muted" style="padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.06)">' +
+          '<strong style="color:#ecfdf5">' + g.name + '</strong>' +
+          '<span style="color:#71717a"> · ' + g.region + '</span>' +
         '</div>'
       );
     }).join('');
@@ -495,17 +601,18 @@
 
           '<div class="xops-flow">' +
             '<b>Donate</b><span class="xops-arrow">→</span>' +
-            '<b>Size + location</b><span class="xops-arrow">→</span>' +
+            '<b>Gifts + dinners</b><span class="xops-arrow">→</span>' +
             '<b>Wrap style</b><span class="xops-arrow">→</span>' +
             '<b>Elf warehouse</b><span class="xops-arrow">→</span>' +
-            '<b>Hub to hub</b><span class="xops-arrow">→</span>' +
+            '<b>Hub / grocery voucher</b><span class="xops-arrow">→</span>' +
             '<b>Truck trackers</b><span class="xops-arrow">→</span>' +
-            '<b>Local Christmas drops</b><span class="xops-arrow">→</span>' +
-            '<b>Verified kids</b>' +
+            '<b>Local drops</b><span class="xops-arrow">→</span>' +
+            '<b>Verified families</b>' +
           '</div>' +
 
           '<div class="xops-tabs" role="tablist">' +
-            '<button type="button" class="xops-tab is-on" data-tab="donate">Donations · size</button>' +
+            '<button type="button" class="xops-tab is-on" data-tab="donate">Gifts · size</button>' +
+            '<button type="button" class="xops-tab" data-tab="dinners">Turkey dinners</button>' +
             '<button type="button" class="xops-tab" data-tab="wrap">Wrapping paper</button>' +
             '<button type="button" class="xops-tab" data-tab="elves">Live elf floor</button>' +
             '<button type="button" class="xops-tab" data-tab="hubs">Warehouses</button>' +
@@ -514,7 +621,7 @@
           '</div>' +
 
           '<div class="xops-panel is-on" data-panel="donate">' +
-            '<p class="xops-muted" style="margin-bottom:1rem">Pick a pack size. Choose a region. When funded, gifts ship through the warehouse network to verified partners — not random inboxes.</p>' +
+            '<p class="xops-muted" style="margin-bottom:1rem">Pick a gift pack size. Choose a region. When funded, gifts ship through the warehouse network to verified partners — not random inboxes. Add a turkey dinner on the dinners tab.</p>' +
             '<div class="xops-grid xops-grid-2" style="margin-bottom:1rem">' +
               '<div class="xops-card">' +
                 '<h3>Where should this go?</h3>' +
@@ -530,17 +637,45 @@
                     return '<option value="' + d.id + '">' + d.city + ' — ' + d.name + '</option>';
                   }).join('') +
                 '</select>' +
-                '<p class="xops-muted" style="margin-top:.75rem" id="xops-donate-summary">Stocking Pack → Edmonton hub → local verified drop</p>' +
+                '<p class="xops-muted" style="margin-top:.75rem" id="xops-donate-summary">Child Mercy Bag → Edmonton hub → local verified drop</p>' +
                 '<button type="button" class="xops-cta" id="xops-sponsor-btn">Sponsor this route (when funded)</button>' +
               '</div>' +
               '<div class="xops-card">' +
                 '<h3>Season clock</h3>' +
                 '<p class="xops-muted">Christmas outbound window: <strong style="color:#fde68a">Nov 15 – Dec 23</strong> (design target)</p>' +
                 '<p class="xops-muted" style="margin-top:.5rem">Peak packing nights stream live from the main hub. Holders watch elves build packs that match verified lists by age, size, and location.</p>' +
+                '<p class="xops-muted" style="margin-top:.5rem">Dinner vouchers redeem at local grocery the same week — so the turkey is fresh, not stuck in a warehouse.</p>' +
                 '<p class="xops-muted" style="margin-top:.5rem">Linked programs: <a href="orphan-christmas.html" style="color:#6ee7b7">Orphan Christmas</a> · <a href="santa-s-workshop-live.html" style="color:#6ee7b7">Santa\'s Workshop Live</a></p>' +
               '</div>' +
             '</div>' +
-            '<div class="xops-grid xops-grid-4">' + donationCards() + '</div>' +
+            '<p class="xops-section-label">Gift pack sizes</p>' +
+            '<div class="xops-grid xops-grid-4" id="xops-pack-grid">' + donationCards() + '</div>' +
+          '</div>' +
+
+          '<div class="xops-panel" data-panel="dinners">' +
+            '<p class="xops-muted" style="margin-bottom:1rem">Sponsor a <strong style="color:#ecfdf5">Christmas dinner for low-income families</strong> with proven need. Full turkey dinner with everything included, or a local grocery voucher so they shop with dignity. Verified through partners — same no-scammer rules as gifts.</p>' +
+            '<div class="xops-grid xops-grid-2" style="margin-bottom:1.1rem">' +
+              '<div class="xops-card">' +
+                '<h3>How dinner sponsorship works</h3>' +
+                '<ul class="xops-muted" style="margin:.5rem 0 0;padding-left:1.1rem;line-height:1.7">' +
+                  '<li><strong style="color:#fde68a">Full turkey dinner</strong> — bird + stuffing + gravy + potatoes + veg + rolls + dessert</li>' +
+                  '<li><strong style="color:#fde68a">Grocery voucher</strong> — prepaid amount at a local store for the Christmas cart</li>' +
+                  '<li><strong style="color:#fde68a">Hamper + voucher</strong> — dry goods from the warehouse + store slip for fresh turkey</li>' +
+                  '<li><strong style="color:#fde68a">Shelter feast</strong> — one voucher or bulk order for a whole youth shelter floor</li>' +
+                '</ul>' +
+                '<p class="xops-muted" style="margin-top:.75rem">Families keep their dignity. They walk into a grocery store with a voucher, not a handout bag of mystery cans when possible.</p>' +
+                '<p class="xops-muted" style="margin-top:.5rem" id="xops-dinner-summary">Selected: Full Turkey Dinner · Family of 4–6</p>' +
+                '<button type="button" class="xops-cta" id="xops-dinner-btn">Sponsor this dinner (when funded)</button>' +
+              '</div>' +
+              '<div class="xops-card">' +
+                '<h3>Local grocery partners (design list)</h3>' +
+                '<p class="xops-muted" style="margin-bottom:.5rem">When live, vouchers map to real stores near the family. Illustrative partners:</p>' +
+                groceryPartnersHtml() +
+                '<p class="xops-muted" style="margin-top:.75rem">Honest note: store partnerships and voucher rails activate with funding and charity status. Until then this is the design of mercy — not a claim that cards are already printing.</p>' +
+              '</div>' +
+            '</div>' +
+            '<p class="xops-section-label">Choose a dinner package</p>' +
+            '<div class="xops-grid xops-grid-2" id="xops-dinner-grid">' + dinnerCards() + '</div>' +
           '</div>' +
 
           '<div class="xops-panel" data-panel="wrap">' +
@@ -633,19 +768,40 @@
     var selectedRibbon = 'gold';
     var selectedStock = 'none';
     var wrapFilter = 'all';
+    var selectedPack = 'child-bag';
+    var selectedDinner = DINNER_SPONSORS[0].id;
+    var includeDinner = false;
+
+    function packById(id) {
+      return DONATION_SIZES.find(function (p) { return p.id === id; }) || DONATION_SIZES[1];
+    }
 
     function refreshSummary() {
       if (!summary || !region || !drop) return;
       var h = hubById(region.value);
       var d = dropById(drop.value);
+      var pack = packById(selectedPack);
       var w = wrapById(selectedWrap);
       var r = ribbonById(selectedRibbon);
       var s = stockingById(selectedStock);
-      summary.textContent =
-        'Child Mercy Bag · ' + w.name +
+      var dinner = dinnerById(selectedDinner);
+      var line =
+        pack.name + ' · ' + w.name +
         ' · ribbon: ' + r.name +
         (s.id !== 'none' ? ' · stocking: ' + s.name : '') +
         ' → ' + h.city + ' hub → ' + d.name + ' (' + d.city + ')';
+      if (includeDinner) {
+        line += ' · + dinner: ' + dinner.name + ' (' + dinner.feeds + ')';
+      }
+      summary.textContent = line;
+
+      var dinnerSum = root.querySelector('#xops-dinner-summary');
+      if (dinnerSum) {
+        dinnerSum.innerHTML =
+          'Selected: <strong style="color:#ecfdf5">' + dinner.name + '</strong> · ' + dinner.feeds +
+          ' · ' + dinner.type +
+          (includeDinner ? ' · <span style="color:#6ee7b7">added to sponsorship</span>' : ' · <span style="color:#a1a1aa">tap “Include dinner” to attach</span>');
+      }
     }
 
     function updatePreview() {
@@ -767,13 +923,65 @@
 
     updatePreview();
 
+    // Gift pack pick
+    var packGrid = root.querySelector('#xops-pack-grid');
+    if (packGrid) {
+      var initialPack = packGrid.querySelector('[data-pack="child-bag"]') || packGrid.querySelector('[data-pack]');
+      if (initialPack) initialPack.classList.add('is-picked');
+      packGrid.addEventListener('click', function (e) {
+        var card = e.target.closest('[data-pack]');
+        if (!card) return;
+        selectedPack = card.getAttribute('data-pack') || 'child-bag';
+        packGrid.querySelectorAll('[data-pack]').forEach(function (c) {
+          c.classList.toggle('is-picked', c === card);
+        });
+        refreshSummary();
+      });
+    }
+
+    // Dinner package pick
+    var dinnerGrid = root.querySelector('#xops-dinner-grid');
+    if (dinnerGrid) {
+      dinnerGrid.addEventListener('click', function (e) {
+        var card = e.target.closest('[data-dinner]');
+        if (!card) return;
+        selectedDinner = card.getAttribute('data-dinner') || DINNER_SPONSORS[0].id;
+        includeDinner = true;
+        dinnerGrid.querySelectorAll('[data-dinner]').forEach(function (c) {
+          c.classList.toggle('is-picked', c === card);
+        });
+        refreshSummary();
+      });
+    }
+
     var btn = root.querySelector('#xops-sponsor-btn');
     if (btn) {
       btn.addEventListener('click', function () {
+        var msg =
+          'When funding rails are live, this sponsors a real warehouse → truck → local drop path for verified kids' +
+          (includeDinner ? ', plus a Christmas dinner package for a low-income family' : '') +
+          '. Not live yet — truth first.';
         if (typeof window.sponsorProgram === 'function') {
-          window.sponsorProgram('orphan-christmas-route');
+          window.sponsorProgram(includeDinner ? 'orphan-christmas-gift-and-dinner' : 'orphan-christmas-route');
         } else {
-          alert('When funding rails are live, this sponsors a real warehouse → truck → local drop path for verified kids. Not live yet — truth first.');
+          alert(msg);
+        }
+      });
+    }
+
+    var dinnerBtn = root.querySelector('#xops-dinner-btn');
+    if (dinnerBtn) {
+      dinnerBtn.addEventListener('click', function () {
+        includeDinner = true;
+        var dinner = dinnerById(selectedDinner);
+        refreshSummary();
+        var msg =
+          'When funded: sponsor “‘ + dinner.name + '” for a verified low-income family. ' +
+          dinner.includes + '. Redeemed via local grocery voucher or partner delivery. Not printing vouchers yet — truth first.';
+        if (typeof window.sponsorProgram === 'function') {
+          window.sponsorProgram('orphan-christmas-dinner-' + dinner.id);
+        } else {
+          alert(msg);
         }
       });
     }
