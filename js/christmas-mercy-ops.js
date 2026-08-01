@@ -76,10 +76,38 @@
   var ELF_STATIONS = [
     { name: 'Receiving Bay', work: 'Donations sorted by size & destination', workers: 6 },
     { name: 'Wish Desk', work: 'Verified lists matched to packs', workers: 4 },
-    { name: 'Wrap Line', work: 'Paper, ribbons, quiet prayer tags', workers: 12 },
+    { name: 'Wrap Line', work: 'Many paper styles · ribbons · prayer tags', workers: 12 },
     { name: 'Warm Layer', work: 'Coats · socks · winter kits', workers: 8 },
     { name: 'Quality Heart Check', work: 'No empty boxes · no wrong ages', workers: 5 },
     { name: 'Load Dock', work: 'Pallets sealed · trucks scanned out', workers: 7 }
+  ];
+
+  /** Many wrapping paper styles elves can pull for each pack */
+  var WRAP_PAPERS = [
+    { id: 'holly-classic', name: 'Holly Classic', vibe: 'Traditional red & green holly', mood: 'Classic Christmas', bg: 'repeating-linear-gradient(45deg,#8b1a2b 0 8px,#0d5c3d 8px 16px),radial-gradient(circle at 20% 30%,#e8c547 0 3px,transparent 4px)' },
+    { id: 'gold-starfield', name: 'Gold Starfield', vibe: 'Midnight navy with gold stars', mood: 'Wonder night', bg: 'radial-gradient(circle at 15% 20%,#e8c547 0 2px,transparent 3px),radial-gradient(circle at 70% 40%,#fde68a 0 1.5px,transparent 2px),radial-gradient(circle at 40% 80%,#e8c547 0 2px,transparent 3px),#0c1220' },
+    { id: 'candy-cane', name: 'Candy Cane Stripe', vibe: 'Bold red & white diagonals', mood: 'Playful', bg: 'repeating-linear-gradient(-45deg,#c41e3a 0 12px,#fff8ee 12px 24px)' },
+    { id: 'pine-forest', name: 'Pine Forest', vibe: 'Deep green trees on cream', mood: 'Quiet woods', bg: 'repeating-linear-gradient(0deg,transparent 0 18px,rgba(13,92,61,.35) 18px 19px),repeating-linear-gradient(90deg,transparent 0 22px,rgba(13,92,61,.25) 22px 23px),#f5f0e6' },
+    { id: 'nativity-gold', name: 'Nativity Gold', vibe: 'Soft cream, gold cross light', mood: 'Holy night', bg: 'radial-gradient(ellipse at 50% 40%,rgba(232,197,71,.55),transparent 55%),linear-gradient(160deg,#fff8ee,#e8d5a3 60%,#c4a35a)' },
+    { id: 'snowflake-blue', name: 'Snowflake Blue', vibe: 'Icy blue flakes on white', mood: 'Winter soft', bg: 'radial-gradient(circle at 25% 25%,#93c5fd 0 2px,transparent 3px),radial-gradient(circle at 75% 60%,#bfdbfe 0 3px,transparent 4px),radial-gradient(circle at 50% 80%,#60a5fa 0 2px,transparent 3px),#eff6ff' },
+    { id: 'plaid-cabin', name: 'Cabin Plaid', vibe: 'Red & forest buffalo plaid', mood: 'Cozy cabin', bg: 'repeating-linear-gradient(0deg,#5c0a12 0 10px,#0d3d28 10px 20px),repeating-linear-gradient(90deg,rgba(232,197,71,.4) 0 2px,transparent 2px 20px)' },
+    { id: 'kraft-twine', name: 'Kraft & Twine', vibe: 'Brown kraft with twine look', mood: 'Handmade', bg: 'repeating-linear-gradient(90deg,transparent 0 40px,rgba(120,80,40,.15) 40px 41px),linear-gradient(135deg,#c4a574,#a67c52 50%,#8b6914)' },
+    { id: 'reindeer-red', name: 'Reindeer Parade', vibe: 'Crimson with gold dots', mood: 'Merry run', bg: 'radial-gradient(circle at 30% 40%,#e8c547 0 4px,transparent 5px),radial-gradient(circle at 70% 70%,#fde68a 0 3px,transparent 4px),#9b1b2e' },
+    { id: 'aurora-north', name: 'Northern Aurora', vibe: 'Green & violet sky bands', mood: 'North lights', bg: 'linear-gradient(120deg,#0a0f1c 0%,#0d5c3d 35%,#312e81 70%,#0a0f1c 100%)' },
+    { id: 'gingerbread', name: 'Gingerbread House', vibe: 'Warm tan & icing white', mood: 'Sweet kitchen', bg: 'repeating-linear-gradient(45deg,#d4a574 0 10px,#fff8ee 10px 14px,#c4894a 14px 24px)' },
+    { id: 'velvet-burgundy', name: 'Velvet Burgundy', vibe: 'Deep wine with gold edge', mood: 'Elegant', bg: 'linear-gradient(145deg,#4a0e18,#6b1525 40%,#2a0810),repeating-linear-gradient(90deg,transparent 0 28px,rgba(232,197,71,.35) 28px 29px)' },
+    { id: 'kids-crayon', name: 'Kids Crayon Joy', vibe: 'Bright multi-color scribbles', mood: 'Kid energy', bg: 'repeating-linear-gradient(15deg,#f87171 0 8px,#fbbf24 8px 16px,#34d399 16px 24px,#60a5fa 24px 32px,#c084fc 32px 40px)' },
+    { id: 'silver-bells', name: 'Silver Bells', vibe: 'Silver & ice on charcoal', mood: 'Quiet glam', bg: 'radial-gradient(circle at 40% 30%,#e5e7eb 0 3px,transparent 4px),radial-gradient(circle at 80% 70%,#d1d5db 0 2px,transparent 3px),#1f2937' },
+    { id: 'poinsetta-bloom', name: 'Poinsettia Bloom', vibe: 'Red blooms on green leaf', mood: 'Table flower', bg: 'radial-gradient(circle at 30% 40%,#c41e3a 0 12px,transparent 13px),radial-gradient(circle at 70% 60%,#9b1b2e 0 10px,transparent 11px),#14532d' },
+    { id: 'scripture-cream', name: 'Peace on Earth', vibe: 'Cream paper, soft gold lines', mood: 'Faith first', bg: 'repeating-linear-gradient(0deg,transparent 0 22px,rgba(232,197,71,.25) 22px 23px),#faf6eb' },
+    { id: 'ice-mint', name: 'Ice Mint', vibe: 'Mint & white chevron', mood: 'Fresh cold', bg: 'repeating-linear-gradient(135deg,#ecfdf5 0 12px,#a7f3d0 12px 24px,#6ee7b7 24px 28px,#ecfdf5 28px 40px)' },
+    { id: 'coal-spark', name: 'Hearth Spark', vibe: 'Charcoal with ember flecks', mood: 'Fireplace', bg: 'radial-gradient(circle at 20% 50%,#f59e0b 0 2px,transparent 3px),radial-gradient(circle at 60% 20%,#ef4444 0 1.5px,transparent 2px),radial-gradient(circle at 80% 80%,#fbbf24 0 2px,transparent 3px),#18181b' },
+    { id: 'maple-canada', name: 'Maple North', vibe: 'Red maple feel on white', mood: 'Canada home', bg: 'radial-gradient(circle at 50% 45%,#c41e3a 0 14px,transparent 15px),#fff8ee' },
+    { id: 'rainbow-hope', name: 'Rainbow Hope', vibe: 'Soft rainbow wash', mood: 'Every child', bg: 'linear-gradient(90deg,#fecaca,#fde68a,#bbf7d0,#bfdbfe,#e9d5ff,#fecaca)' },
+    { id: 'matte-black-gold', name: 'Matte Black Gold', vibe: 'Black wrap, gold foil lines', mood: 'Modern gift', bg: 'repeating-linear-gradient(90deg,transparent 0 16px,rgba(232,197,71,.5) 16px 17px),#0a0a0a' },
+    { id: 'linen-sage', name: 'Linen Sage', vibe: 'Soft sage fabric look', mood: 'Gentle', bg: 'repeating-linear-gradient(0deg,rgba(255,255,255,.08) 0 1px,transparent 1px 4px),#9caf88' },
+    { id: 'toy-soldiers', name: 'Toy Soldier Stripe', vibe: 'Navy, red, gold bands', mood: 'Nutcracker', bg: 'repeating-linear-gradient(90deg,#1e3a5f 0 14px,#c41e3a 14px 28px,#e8c547 28px 34px)' },
+    { id: 'angel-white', name: 'Angel White', vibe: 'Pearl white with soft sheen', mood: 'Heavenly', bg: 'linear-gradient(145deg,#ffffff,#f1f5f9 40%,#e2e8f0 70%,#f8fafc)' }
   ];
 
   function hubById(id) {
@@ -137,7 +165,25 @@
       '.xops-cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;margin-top:1rem;padding:.75rem 1.25rem;border-radius:999px;border:0;cursor:pointer;font-weight:700;font-size:.9rem;color:#1a0a0c;background:linear-gradient(135deg,#f5e6a8,#e8c547 40%,#c41e3a);font-family:inherit}',
       '.xops-flow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;font-size:.75rem;color:#d4d4d8;margin:1rem 0}',
       '.xops-flow b{color:#fde68a;font-weight:600}',
-      '.xops-arrow{color:#71717a}'
+      '.xops-arrow{color:#71717a}',
+      /* Wrapping paper gallery */
+      '.xops-wrap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem}',
+      '@media(min-width:560px){.xops-wrap-grid{grid-template-columns:repeat(3,1fr)}}',
+      '@media(min-width:900px){.xops-wrap-grid{grid-template-columns:repeat(4,1fr)}}',
+      '.xops-paper{position:relative;border-radius:1rem;border:2px solid rgba(255,255,255,.1);overflow:hidden;cursor:pointer;background:#18181b;text-align:left;padding:0;font-family:inherit;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s}',
+      '.xops-paper:hover{transform:translateY(-2px);border-color:rgba(232,197,71,.45)}',
+      '.xops-paper.is-picked{border-color:#e8c547;box-shadow:0 0 0 1px rgba(232,197,71,.5),0 12px 28px -12px rgba(232,197,71,.45)}',
+      '.xops-paper-swatch{height:88px;width:100%;position:relative}',
+      '.xops-paper-swatch::after{content:"";position:absolute;left:12%;right:12%;top:42%;height:10px;background:linear-gradient(90deg,transparent,#e8c547,transparent);opacity:.55;box-shadow:0 0 8px rgba(232,197,71,.4)}',
+      '.xops-paper-swatch::before{content:"";position:absolute;left:48%;top:18%;bottom:18%;width:10px;transform:translateX(-50%);background:linear-gradient(180deg,transparent,#e8c547,transparent);opacity:.55}',
+      '.xops-paper-meta{padding:.55rem .65rem .7rem}',
+      '.xops-paper-meta strong{display:block;font-size:.78rem;color:#fafafa;margin-bottom:.15rem}',
+      '.xops-paper-meta span{font-size:.65rem;color:#a1a1aa;line-height:1.3;display:block}',
+      '.xops-paper-check{position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:#e8c547;color:#1a0a0c;font-size:12px;font-weight:700;display:none;align-items:center;justify-content:center;z-index:2}',
+      '.xops-paper.is-picked .xops-paper-check{display:flex}',
+      '.xops-preview-box{border-radius:1.1rem;border:1px solid rgba(255,255,255,.12);padding:1rem;background:rgba(0,0,0,.35)}',
+      '.xops-preview-gift{width:100%;max-width:200px;margin:0 auto;aspect-ratio:1;border-radius:.75rem;position:relative;box-shadow:0 16px 40px -12px rgba(0,0,0,.6)}',
+      '.xops-preview-gift .bow{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fde68a,#b45309);box-shadow:0 0 0 3px rgba(232,197,71,.3)}'
     ].join('\n');
     document.head.appendChild(s);
   }
@@ -224,6 +270,26 @@
     }).join('');
   }
 
+  function wrapPaperCards() {
+    return WRAP_PAPERS.map(function (p, i) {
+      return (
+        '<button type="button" class="xops-paper' + (i === 0 ? ' is-picked' : '') + '" data-wrap="' + p.id + '" title="' + p.name + '">' +
+          '<span class="xops-paper-check" aria-hidden="true">✓</span>' +
+          '<div class="xops-paper-swatch" style="background:' + p.bg + '"></div>' +
+          '<div class="xops-paper-meta">' +
+            '<strong>' + p.name + '</strong>' +
+            '<span>' + p.vibe + '</span>' +
+            '<span style="color:#fde68a;margin-top:.2rem">' + p.mood + '</span>' +
+          '</div>' +
+        '</button>'
+      );
+    }).join('');
+  }
+
+  function wrapById(id) {
+    return WRAP_PAPERS.find(function (p) { return p.id === id; }) || WRAP_PAPERS[0];
+  }
+
   // Simple schematic map positions (percent)
   var MAP_POS = {
     yeg: { x: 28, y: 38 },
@@ -288,6 +354,7 @@
           '<div class="xops-flow">' +
             '<b>Donate</b><span class="xops-arrow">→</span>' +
             '<b>Size + location</b><span class="xops-arrow">→</span>' +
+            '<b>Wrap style</b><span class="xops-arrow">→</span>' +
             '<b>Elf warehouse</b><span class="xops-arrow">→</span>' +
             '<b>Hub to hub</b><span class="xops-arrow">→</span>' +
             '<b>Truck trackers</b><span class="xops-arrow">→</span>' +
@@ -297,6 +364,7 @@
 
           '<div class="xops-tabs" role="tablist">' +
             '<button type="button" class="xops-tab is-on" data-tab="donate">Donations · size</button>' +
+            '<button type="button" class="xops-tab" data-tab="wrap">Wrapping paper</button>' +
             '<button type="button" class="xops-tab" data-tab="elves">Live elf floor</button>' +
             '<button type="button" class="xops-tab" data-tab="hubs">Warehouses</button>' +
             '<button type="button" class="xops-tab" data-tab="trucks">Truck trackers</button>' +
@@ -331,6 +399,23 @@
               '</div>' +
             '</div>' +
             '<div class="xops-grid xops-grid-4">' + donationCards() + '</div>' +
+          '</div>' +
+
+          '<div class="xops-panel" data-panel="wrap">' +
+            '<div class="xops-grid xops-grid-2" style="margin-bottom:1.1rem">' +
+              '<div class="xops-card">' +
+                '<h3>Wrapping paper styles</h3>' +
+                '<p class="xops-muted">Elves on the wrap line pull from many rolls. Sponsors can request a style when funded. Kids open something that feels chosen — not generic warehouse brown only.</p>' +
+                '<p class="xops-muted" style="margin-top:.5rem"><strong style="color:#fde68a">' + WRAP_PAPERS.length + ' styles</strong> in the design catalog · more rolls as partners join.</p>' +
+                '<p class="xops-muted" style="margin-top:.75rem" id="xops-wrap-picked">Selected: <strong style="color:#ecfdf5">Holly Classic</strong> — Traditional red &amp; green holly</p>' +
+              '</div>' +
+              '<div class="xops-preview-box">' +
+                '<p class="xops-muted" style="text-align:center;margin-bottom:.75rem">Gift preview</p>' +
+                '<div class="xops-preview-gift" id="xops-gift-preview" style="background:' + WRAP_PAPERS[0].bg + '"><div class="bow" aria-hidden="true"></div></div>' +
+                '<p class="xops-muted" style="text-align:center;margin-top:.75rem" id="xops-gift-label">Holly Classic</p>' +
+              '</div>' +
+            '</div>' +
+            '<div class="xops-wrap-grid" id="xops-wrap-grid">' + wrapPaperCards() + '</div>' +
           '</div>' +
 
           '<div class="xops-panel" data-panel="elves">' +
@@ -391,14 +476,40 @@
     var region = root.querySelector('#xops-region');
     var drop = root.querySelector('#xops-drop');
     var summary = root.querySelector('#xops-donate-summary');
+    var selectedWrap = WRAP_PAPERS[0].id;
+
     function refreshSummary() {
       if (!summary || !region || !drop) return;
       var h = hubById(region.value);
       var d = dropById(drop.value);
-      summary.textContent = 'Child Mercy Bag → ' + h.city + ' hub → ' + d.name + ' (' + d.city + ')';
+      var w = wrapById(selectedWrap);
+      summary.textContent = 'Child Mercy Bag · wrap: ' + w.name + ' → ' + h.city + ' hub → ' + d.name + ' (' + d.city + ')';
     }
     if (region) region.addEventListener('change', refreshSummary);
     if (drop) drop.addEventListener('change', refreshSummary);
+
+    // Wrapping paper picker
+    var wrapGrid = root.querySelector('#xops-wrap-grid');
+    var wrapPicked = root.querySelector('#xops-wrap-picked');
+    var giftPreview = root.querySelector('#xops-gift-preview');
+    var giftLabel = root.querySelector('#xops-gift-label');
+    if (wrapGrid) {
+      wrapGrid.addEventListener('click', function (e) {
+        var btn = e.target.closest('.xops-paper');
+        if (!btn) return;
+        selectedWrap = btn.getAttribute('data-wrap') || WRAP_PAPERS[0].id;
+        wrapGrid.querySelectorAll('.xops-paper').forEach(function (b) {
+          b.classList.toggle('is-picked', b === btn);
+        });
+        var w = wrapById(selectedWrap);
+        if (wrapPicked) {
+          wrapPicked.innerHTML = 'Selected: <strong style="color:#ecfdf5">' + w.name + '</strong> — ' + w.vibe;
+        }
+        if (giftPreview) giftPreview.style.background = w.bg;
+        if (giftLabel) giftLabel.textContent = w.name;
+        refreshSummary();
+      });
+    }
     refreshSummary();
 
     var btn = root.querySelector('#xops-sponsor-btn');
