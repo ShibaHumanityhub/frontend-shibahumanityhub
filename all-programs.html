@@ -493,6 +493,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 
 </style>
 <script src="js/programs-data.js" defer></script>
+<script src="js/program-pages-map.js" defer></script>
 <script src="js/programs-flywheel-nav.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
 <script src="js/glossary.js" defer></script>
@@ -1372,6 +1373,13 @@ function filterPrograms(cat) {
 
 // === MODAL FUNCTIONS ===
 function showProgramModal(id) {
+  if (typeof window.SHH_programPageUrl === 'function') {
+    const url = window.SHH_programPageUrl(id);
+    if (url) {
+      window.location.href = url;
+      return;
+    }
+  }
   const program = programs.find(p => p.id === id || p.id === Number(id));
   if (!program) return;
   window.showProgramModal = showProgramModal;

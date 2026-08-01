@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build:css": "tailwindcss -i ./src-input.css -o ./assets/css/tailwind.css --minify",
-    "watch:css": "tailwindcss -i ./src-input.css -o ./assets/css/tailwind.css --watch"
+    "watch:css": "tailwindcss -i ./src-input.css -o ./assets/css/tailwind.css --watch",
+    "generate:programs": "node scripts/generate-program-pages.js && node scripts/update-sitemap-programs.js"
   },
   "repository": {
     "type": "git",

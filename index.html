@@ -1232,6 +1232,7 @@
     }
   </style>
 <script src="js/programs-data.js" defer></script>
+<script src="js/program-pages-map.js" defer></script>
 <script src="js/programs-flywheel-nav.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
 <script src="js/scroll-experience.js" defer></script>
@@ -2433,6 +2434,14 @@ const MERCY_THRESHOLDS = {
 };
 
 function showProgramModal(id) {
+  // Prefer dedicated program page (each program has its own URL for stats & depth)
+  if (typeof window.SHH_programPageUrl === 'function') {
+    const url = window.SHH_programPageUrl(id);
+    if (url) {
+      window.location.href = url;
+      return;
+    }
+  }
   const program = programs.find(p => p.id === id || p.id === Number(id));
   if (!program) return;
   // Ensure flywheel nav / other scripts can always call this

@@ -327,15 +327,26 @@
     }
 
     var numId = typeof id === 'string' ? parseInt(id, 10) : id;
+    // Dedicated program page (each program has its own URL)
+    var url = null;
+    if (typeof window.SHH_programPageUrl === 'function') {
+      url = window.SHH_programPageUrl(numId);
+    } else if (window.SHH_PROGRAM_PAGES) {
+      url = window.SHH_PROGRAM_PAGES[numId] || window.SHH_PROGRAM_PAGES[String(numId)];
+    }
+    if (url) {
+      // If already under /programs/, avoid double prefix
+      if (location.pathname.indexOf('/programs/') !== -1 && url.indexOf('programs/') === 0) {
+        url = url.replace(/^programs\//, '');
+      }
+      window.location.href = url;
+      return;
+    }
+    // Fallback: modal or all-programs deep-link
     if (typeof window.showProgramModal === 'function') {
       window.showProgramModal(numId);
       return;
     }
-    if (typeof showProgramModal === 'function') {
-      showProgramModal(numId);
-      return;
-    }
-    // Cross-page: land on all-programs with program deep-link
     window.location.href = 'all-programs.html#program-' + numId;
   }
 

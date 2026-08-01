@@ -860,7 +860,7 @@ const programs = [            {
           <div class="oc-tv-bezel" aria-hidden="true"></div>
           <video
             src="assets/videos/orphanchristmas-animated.mp4"
-            poster="assets/images/orphanxmas-tvdesk.jpg"
+            poster="assets/images/orphanxmasphoto.jpg"
             autoplay loop muted playsinline preload="none"
             aria-label="Christmas TV on a desk: warm tree light, holly, and a quiet night of hope.">
           </video>
