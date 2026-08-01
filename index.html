@@ -2419,11 +2419,11 @@
 </div>
 
 <script>
-// programs now loaded from js/programs-data.js (full 29-entry master)
+// programs now loaded from js/programs-data.js (full 30-entry master)
 
 // === SINGLE SOURCE OF TRUTH FOR CIRCLE THRESHOLDS (logic only) ===
 // These values drive wallet circles, simulator, personal view, and projections.
-// They are kept in perfect sync with the "exact thresholds written into the 29 programs"
+// They are kept in perfect sync with the "exact thresholds written into the 30 programs"
 // described throughout the site. Descriptive copy inside each program's fullHTML
 // (in programs-data.js) remains hand-crafted, program-specific, and loving - untouched here.
 const MERCY_THRESHOLDS = {
@@ -2756,7 +2756,7 @@ async function connectShibariumWallet() {
     nibblesBalEl.classList.remove('hidden');
     hopeseedBalEl.classList.remove('hidden');
 
-    // Circles. Still perfectly synced to the 29 programs.
+    // Circles. Still perfectly synced to the 30 programs.
     const nibblesCircle = getMercyCircle(nibblesBal);
     const hopeseedCircle = getMercyCircle(hopeseedBal);
 
@@ -3245,7 +3245,7 @@ function populateEngineNodes() {
   const container = document.getElementById('engine-nodes');
   if (!container || typeof programs === 'undefined') return;
   container.innerHTML = '';
-  // Phase 3: more alive representative mix (6+6 from the 29) so the engine feels like the full movement the people are building
+  // Phase 3: more alive representative mix (6+6 from the 30) so the engine feels like the full movement the people are building
   const samples = [...programs.filter(p => p.category === '$NIBBLES').slice(0,6), ...programs.filter(p => p.category === '$hopeseed').slice(0,6)];
   samples.forEach(p => {
     const el = document.createElement('div');
@@ -3580,7 +3580,7 @@ function updatePersonalView(nBal, hBal, isSim) {
     const total = nBal + hBal;
     if (total > 0) {
       const base = Math.floor(total / MERCY_THRESHOLDS.MERCY);
-      const projected = base * 3; // Conservative, first-principles estimate: each Mercy Circle threshold enables ~3x network effect (stories + emotional contagion + new voluntary holders) over 12 months, based on the 29 programs' described scale and patterns.
+      const projected = base * 3; // Conservative, first-principles estimate: each Mercy Circle threshold enables ~3x network effect (stories + emotional contagion + new voluntary holders) over 12 months, based on the 30 programs' described scale and patterns.
       projectionEl.innerHTML = `Your Quiet Compounding: Holding this amount today is already part of a self-reinforcing loop the people are building. In 12 months, through the stories and new participants your holding helps enable, this could touch approximately <strong><span id="projected-lives">0</span></strong> additional lives as the flywheel turns.`;
       const projNum = document.getElementById('projected-lives');
       if (projNum) {
@@ -3908,7 +3908,7 @@ document.addEventListener('click', function(e) {
 <!--
 Phase 6 holistic (a11y/perf/SEO/mobile + full integration + future readiness). All phases complete:
 
-Optional future convenience (Phase 6 note): a tiny static sitemap generator script could walk the programs array in programs-data.js and emit fresh entries for the 29 stories if/when individual program pages are added. Current sitemap.xml + robots.txt (created in Phase 1) remain clean and sufficient for the two main pages. Keep it optional and hand-editable. No build step required.
+Optional future convenience (Phase 6 note): a tiny static sitemap generator script could walk the programs array in programs-data.js and emit fresh entries for the 30 stories if/when individual program pages are added. Current sitemap.xml + robots.txt (created in Phase 1) remain clean and sufficient for the two main pages. Keep it optional and hand-editable. No build step required.
 
 Tone & measurement checklist (for anyone touching the code):
 - Does every new sentence feel like it could come from the original Mercy Blueprint or a program fullHTML? (loving, specific, "when the funding comes through", "people helping people helping people")
