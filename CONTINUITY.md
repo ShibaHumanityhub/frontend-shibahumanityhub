@@ -66,14 +66,22 @@ Files touched for one-voice honesty:
 - `k9-lifeline.html` (LIVE OPS → PREVIEW / ILLUSTRATIVE)
 - `shelters.html` footer mantra
 
+## Orphan Christmas · 30 Days (active build)
+
+- Page: `programs/orphan-christmas.html`
+- Modules: `js/thirty-days-christmas.js` + arena + christmas-mercy-ops
+- Season design window: **Nov 25 → Dec 24** (30 days)
+- Features: scroll day-path, freight trackers + sponsor ribbons, AMA/carols/Santa stage, donor wall, intent form
+- Truth: preview until rails/partners/GPS/streams are real
+
 ## P1 next (when you say go)
 
-1. First real proof loop (one delivery + photo + amount + date)
-2. Publish treasury path (custody → multisig → impact wallet + explorers)
-3. Charity status page (timeline, no theater)
-4. Tax routing proof or soft language if not active
-5. Homepage further tighten / single primary CTA for cold traffic
-6. Optional: clear session `recap_requests` after backup
+1. Wire real X Space / stream links when season dates lock
+2. First real proof loop (one delivery + photo + amount + date)
+3. Publish treasury path (custody → multisig → impact wallet + explorers)
+4. Charity status page (timeline, no theater)
+5. Live donor opt-in backend (replace localStorage intent)
+6. Homepage further tighten / single primary CTA for cold traffic
 
 ## Working tree notes
 

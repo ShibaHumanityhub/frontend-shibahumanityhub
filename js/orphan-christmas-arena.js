@@ -39,8 +39,11 @@
 
   var CRAWL = [
     'LIVE FROM THE MERCY WAREHOUSE',
+    '30 DAYS OF CHRISTMAS · HARD DISTRIBUTION',
     'EVERY BOX HAS A NAME BEHIND A PARTNER CODE',
     'NO SCAMMERS · VERIFIED NEED ONLY',
+    'FREIGHT TRACKERS · CAROLS · DAILY AMA CHEER',
+    'SPONSORED FROM THE HEARTS OF THOSE WHO SAY YES',
     'TURKEY DINNERS · GROCERY VOUCHERS · GIFT PACKS',
     'JESUS IS THE REASON · THESE KIDS ARE THE WHY',
     'WHEN FUNDED THIS FEED GOES REAL'
@@ -275,18 +278,20 @@ function snow(n) {
             '<div><b>Proven hardship</b><span>Documented. Caseworker sign-off. No DMs.</span></div>' +
             '<div><b>Privacy first</b><span>No child used as a prop for clout.</span></div>' +
           '</div>' +
-          '<p>Scroll into the ops floor below. Build a gift. Pick paper. Sponsor a dinner. Watch the cams. When funding is real, this stops being a preview.</p>' +
+          '<p>Then walk the <strong>30 Days of Christmas</strong>. Freights. Carols. Named hearts. Build a gift. When funding is real, this stops being a preview.</p>' +
           '<div class="oca-cta-row" style="margin-top:1.5rem">' +
-            '<a class="oca-cta oca-cta-primary" href="#christmas-ops">Enter the ops floor</a>' +
+            '<a class="oca-cta oca-cta-primary" href="#tdx-heart">30 Days of Christmas</a>' +
+            '<a class="oca-cta oca-cta-ghost" href="#christmas-ops">Enter the ops floor</a>' +
           '</div>' +
         '</section>' +
 
+        '<div id="tdx-mount" class="oca-ops-anchor"></div>' +
         '<div id="oca-ops-slot" class="oca-ops-anchor"></div>' +
         '<div id="program-stats" style="display:none"></div>' +
         '<div class="oca-mobile-bar" aria-label="Quick jumps">' +
           '<a class="pri" href="#oca-broadcast">Live floor</a>' +
+          '<a class="sec" href="#tdx-heart">30 Days</a>' +
           '<a class="sec" href="#christmas-ops">Build gift</a>' +
-          '<a class="sec" href="#christmas-ops">Dinners</a>' +
         '</div>' +
       '</div>';
 
@@ -296,6 +301,14 @@ function snow(n) {
     if (!reduceMotion) document.body.appendChild(snow(isNarrow ? 14 : 32));
 
     wire(root, viewers);
+
+    // 30 Days of Christmas campaign layer (scroll journey · freights · stage · donor hearts)
+    var tdxHost = document.getElementById('tdx-mount');
+    if (tdxHost && window.SHHThirtyDaysChristmas && window.SHHThirtyDaysChristmas.mount) {
+      try {
+        window.SHHThirtyDaysChristmas.mount(tdxHost);
+      } catch (eTdx) { /* ignore */ }
+    }
 
     // Mount logistics into slot: temporarily put #program-stats after slot so christmas ops inserts before it
     var slot = document.getElementById('oca-ops-slot');
@@ -359,10 +372,12 @@ function snow(n) {
       ['@anon', 'Dinner voucher for a family of 6. Do it.'],
       ['@host', 'Cam 01 live. Hands only. No kid faces without consent.'],
       ['@hopeseed', 'Verified list just hit the wish desk.'],
-      ['@yeg', 'Truck T-104 rolling local. Edmonton drops.'],
+      ['@yeg', 'Truck FX-104 rolling local. Edmonton drops.'],
       ['@heart', 'This is what Christmas is supposed to feel like.'],
       ['@truth', 'Preview feed. Real cams when funded. Still watching.'],
-      ['@shib', '2 flywheels. 1 mission. Pack another crate.']
+      ['@vessymink', 'Carol night soon. Soft room. Open hearts.'],
+      ['@northlight', 'Sponsored from the hearts of Northlight Energy Co.'],
+      ['@shib', '30 days. Hard distribution. Pack another crate.']
     ];
     var li = 0;
     function pushChat() {
