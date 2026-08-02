@@ -118,17 +118,152 @@
  ];
 
  var DROP_SITES = [
- { id: 'd1', name: 'Hope House Youth Shelter', city: 'Edmonton, AB', type: 'Youth shelter', kids: 28, need: 'Verified' },
- { id: 'd2', name: 'Prairie Foster Collective', city: 'St. Albert, AB', type: 'Foster network', kids: 41, need: 'Verified' },
- { id: 'd3', name: 'Northside Family Crisis Home', city: 'Edmonton, AB', type: 'Family hardship', kids: 19, need: 'Documented' },
- { id: 'd4', name: 'Riverbend Children\'s Home', city: 'Calgary, AB', type: 'Orphan / residential', kids: 34, need: 'Verified' },
- { id: 'd5', name: 'Maple Kinship Circle', city: 'Red Deer, AB', type: 'Kinship care', kids: 16, need: 'Verified' },
- { id: 'd6', name: 'Pacific Youth Haven', city: 'Surrey, BC', type: 'Youth shelter', kids: 22, need: 'Verified' },
- { id: 'd7', name: 'GTA Second Chance House', city: 'Brampton, ON', type: 'Foster / shelter', kids: 37, need: 'Verified' },
- { id: 'd8', name: 'Cascadia Care House', city: 'Tacoma, WA', type: 'Youth shelter', kids: 15, need: 'Partner pending' }
- ];
+    { id: 'd1', name: 'Hope House Youth Shelter', city: 'Edmonton, AB', type: 'Youth shelter', kids: 28, need: 'Verified' },
+    { id: 'd2', name: 'Prairie Foster Collective', city: 'St. Albert, AB', type: 'Foster network', kids: 41, need: 'Verified' },
+    { id: 'd3', name: 'Northside Family Crisis Home', city: 'Edmonton, AB', type: 'Family hardship', kids: 19, need: 'Documented' },
+    { id: 'd4', name: 'Riverbend Children\'s Home', city: 'Calgary, AB', type: 'Orphan / residential', kids: 34, need: 'Verified' },
+    { id: 'd5', name: 'Maple Kinship Circle', city: 'Red Deer, AB', type: 'Kinship care', kids: 16, need: 'Verified' },
+    { id: 'd6', name: 'Pacific Youth Haven', city: 'Surrey, BC', type: 'Youth shelter', kids: 22, need: 'Verified' },
+    { id: 'd7', name: 'GTA Second Chance House', city: 'Brampton, ON', type: 'Foster / shelter', kids: 37, need: 'Verified' },
+    { id: 'd8', name: 'Cascadia Care House', city: 'Tacoma, WA', type: 'Youth shelter', kids: 15, need: 'Partner pending' },
+    { id: 'd9', name: 'Fort McMurray Youth Haven', city: 'Fort McMurray, AB', type: 'Youth shelter', kids: 18, need: 'Verified' },
+    { id: 'd10', name: 'Lethbridge Kinship Net', city: 'Lethbridge, AB', type: 'Kinship care', kids: 14, need: 'Verified' },
+    { id: 'd11', name: 'Grande Prairie Care Home', city: 'Grande Prairie, AB', type: 'Residential', kids: 21, need: 'Documented' },
+    { id: 'd12', name: 'Medicine Hat Family Bridge', city: 'Medicine Hat, AB', type: 'Family hardship', kids: 12, need: 'Verified' },
+    { id: 'd13', name: 'Saskatoon Hope Lodge', city: 'Saskatoon, SK', type: 'Youth shelter', kids: 24, need: 'Verified' },
+    { id: 'd14', name: 'Regina Foster Circle', city: 'Regina, SK', type: 'Foster network', kids: 29, need: 'Verified' },
+    { id: 'd15', name: 'Winnipeg Children\'s Rest', city: 'Winnipeg, MB', type: 'Residential', kids: 33, need: 'Verified' },
+    { id: 'd16', name: 'Vancouver East Youth', city: 'Vancouver, BC', type: 'Youth shelter', kids: 40, need: 'Verified' },
+    { id: 'd17', name: 'Victoria Island Care', city: 'Victoria, BC', type: 'Youth shelter', kids: 16, need: 'Verified' },
+    { id: 'd18', name: 'Kelowna Valley Foster', city: 'Kelowna, BC', type: 'Foster network', kids: 19, need: 'Documented' },
+    { id: 'd19', name: 'Prince George North Home', city: 'Prince George, BC', type: 'Residential', kids: 15, need: 'Verified' },
+    { id: 'd20', name: 'Ottawa Capital Youth', city: 'Ottawa, ON', type: 'Youth shelter', kids: 31, need: 'Verified' },
+    { id: 'd21', name: 'Hamilton Steel City Care', city: 'Hamilton, ON', type: 'Foster / shelter', kids: 27, need: 'Verified' },
+    { id: 'd22', name: 'London Thames Kids', city: 'London, ON', type: 'Family hardship', kids: 20, need: 'Documented' },
+    { id: 'd23', name: 'Windsor Border Youth', city: 'Windsor, ON', type: 'Youth shelter', kids: 17, need: 'Verified' },
+    { id: 'd24', name: 'Montreal Second Chance', city: 'Montreal, QC', type: 'Youth shelter', kids: 36, need: 'Verified' },
+    { id: 'd25', name: 'Quebec City Family House', city: 'Quebec City, QC', type: 'Family hardship', kids: 22, need: 'Verified' },
+    { id: 'd26', name: 'Halifax Harbour Youth', city: 'Halifax, NS', type: 'Youth shelter', kids: 19, need: 'Verified' },
+    { id: 'd27', name: 'St. John\'s Atlantic Care', city: 'St. John\'s, NL', type: 'Residential', kids: 14, need: 'Documented' },
+    { id: 'd28', name: 'Whitehorse North Youth', city: 'Whitehorse, YT', type: 'Youth shelter', kids: 11, need: 'Verified' },
+    { id: 'd29', name: 'Yellowknife Arctic Care', city: 'Yellowknife, NT', type: 'Residential', kids: 9, need: 'Partner pending' },
+    { id: 'd30', name: 'Seattle Rain City Youth', city: 'Seattle, WA', type: 'Youth shelter', kids: 38, need: 'Verified' },
+    { id: 'd31', name: 'Portland Rose Foster', city: 'Portland, OR', type: 'Foster network', kids: 26, need: 'Verified' },
+    { id: 'd32', name: 'Los Angeles Valley Care', city: 'Los Angeles, CA', type: 'Youth shelter', kids: 55, need: 'Verified' },
+    { id: 'd33', name: 'San Francisco Bay Youth', city: 'San Francisco, CA', type: 'Youth shelter', kids: 29, need: 'Documented' },
+    { id: 'd34', name: 'Phoenix Desert Kids', city: 'Phoenix, AZ', type: 'Family hardship', kids: 34, need: 'Verified' },
+    { id: 'd35', name: 'Denver Mile High Care', city: 'Denver, CO', type: 'Residential', kids: 25, need: 'Verified' },
+    { id: 'd36', name: 'Chicago Lakeshore Youth', city: 'Chicago, IL', type: 'Youth shelter', kids: 48, need: 'Verified' },
+    { id: 'd37', name: 'Detroit Motor City Care', city: 'Detroit, MI', type: 'Foster / shelter', kids: 32, need: 'Verified' },
+    { id: 'd38', name: 'New York Five Borough Youth', city: 'New York, NY', type: 'Youth shelter', kids: 62, need: 'Verified' },
+    { id: 'd39', name: 'Boston Harbor Kids', city: 'Boston, MA', type: 'Residential', kids: 23, need: 'Documented' },
+    { id: 'd40', name: 'Miami Bay Care', city: 'Miami, FL', type: 'Youth shelter', kids: 35, need: 'Verified' },
+    { id: 'd41', name: 'Houston Gulf Youth', city: 'Houston, TX', type: 'Youth shelter', kids: 44, need: 'Verified' },
+    { id: 'd42', name: 'Dallas Plains Foster', city: 'Dallas, TX', type: 'Foster network', kids: 30, need: 'Verified' },
+    { id: 'd43', name: 'Atlanta Peach Care', city: 'Atlanta, GA', type: 'Family hardship', kids: 28, need: 'Documented' },
+    { id: 'd44', name: 'Minneapolis North Star', city: 'Minneapolis, MN', type: 'Youth shelter', kids: 21, need: 'Verified' },
+    { id: 'd45', name: 'Anchorage Frontier Youth', city: 'Anchorage, AK', type: 'Youth shelter', kids: 13, need: 'Partner pending' },
+    { id: 'd46', name: 'Brooklyn Safe Harbor', city: 'Brooklyn, NY', type: 'Youth shelter', kids: 41, need: 'Verified' },
+    { id: 'd47', name: 'Queens Kinship Net', city: 'Queens, NY', type: 'Kinship care', kids: 27, need: 'Verified' },
+    { id: 'd48', name: 'Oakland East Bay Care', city: 'Oakland, CA', type: 'Youth shelter', kids: 33, need: 'Documented' },
+    { id: 'd49', name: 'Tucson Desert Family', city: 'Tucson, AZ', type: 'Family hardship', kids: 18, need: 'Verified' },
+    { id: 'd50', name: 'Spokane Inland Youth', city: 'Spokane, WA', type: 'Youth shelter', kids: 16, need: 'Verified' }
+  ];
 
- // Simulated Christmas-season truck routes (preview until GPS live)
+  /** Big scrollable directory: country, province, state, city, town, shelter */
+  var LOCATION_DIR = (function () {
+    var rows = [];
+    function add(type, name, region, country, extra) {
+      rows.push({
+        id: 'loc-' + rows.length,
+        type: type,
+        name: name,
+        region: region || '',
+        country: country || '',
+        label: [name, region, country].filter(Boolean).join(', '),
+        extra: extra || '',
+        search: [type, name, region, country, extra || ''].join(' ').toLowerCase()
+      });
+    }
+    ['Canada', 'United States', 'Mexico', 'United Kingdom', 'Ireland', 'Australia', 'New Zealand', 'Philippines', 'India', 'Nigeria', 'Kenya', 'South Africa', 'Brazil', 'Germany', 'France', 'Ukraine', 'Japan', 'South Korea'].forEach(function (c) {
+      add('country', c, '', c);
+    });
+    [
+      ['Alberta', 'AB'], ['British Columbia', 'BC'], ['Manitoba', 'MB'], ['New Brunswick', 'NB'],
+      ['Newfoundland and Labrador', 'NL'], ['Northwest Territories', 'NT'], ['Nova Scotia', 'NS'],
+      ['Nunavut', 'NU'], ['Ontario', 'ON'], ['Prince Edward Island', 'PE'], ['Quebec', 'QC'],
+      ['Saskatchewan', 'SK'], ['Yukon', 'YT']
+    ].forEach(function (p) { add('province', p[0], p[1], 'Canada'); });
+    var usNames = {
+      AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California', CO: 'Colorado', CT: 'Connecticut',
+      DE: 'Delaware', FL: 'Florida', GA: 'Georgia', HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois', IN: 'Indiana', IA: 'Iowa',
+      KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana', ME: 'Maine', MD: 'Maryland', MA: 'Massachusetts', MI: 'Michigan',
+      MN: 'Minnesota', MS: 'Mississippi', MO: 'Missouri', MT: 'Montana', NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire',
+      NJ: 'New Jersey', NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota', OH: 'Ohio', OK: 'Oklahoma',
+      OR: 'Oregon', PA: 'Pennsylvania', RI: 'Rhode Island', SC: 'South Carolina', SD: 'South Dakota', TN: 'Tennessee',
+      TX: 'Texas', UT: 'Utah', VT: 'Vermont', VA: 'Virginia', WA: 'Washington', WV: 'West Virginia', WI: 'Wisconsin',
+      WY: 'Wyoming', DC: 'District of Columbia'
+    };
+    Object.keys(usNames).forEach(function (code) { add('state', usNames[code], code, 'United States'); });
+    var cities = [
+      ['Edmonton','AB','Canada','city'],['Calgary','AB','Canada','city'],['Red Deer','AB','Canada','city'],
+      ['Lethbridge','AB','Canada','city'],['Medicine Hat','AB','Canada','city'],['Grande Prairie','AB','Canada','city'],
+      ['Fort McMurray','AB','Canada','city'],['St. Albert','AB','Canada','city'],['Sherwood Park','AB','Canada','town'],
+      ['Spruce Grove','AB','Canada','town'],['Leduc','AB','Canada','town'],['Airdrie','AB','Canada','city'],
+      ['Okotoks','AB','Canada','town'],['Canmore','AB','Canada','town'],['Banff','AB','Canada','town'],
+      ['Jasper','AB','Canada','town'],['Cold Lake','AB','Canada','city'],['Brooks','AB','Canada','town'],
+      ['Camrose','AB','Canada','city'],['Wetaskiwin','AB','Canada','city'],['Hinton','AB','Canada','town'],
+      ['Whitecourt','AB','Canada','town'],['Peace River','AB','Canada','town'],['High Level','AB','Canada','town'],
+      ['Beaumont','AB','Canada','town'],['Fort Saskatchewan','AB','Canada','city'],['Devon','AB','Canada','town'],
+      ['Morinville','AB','Canada','town'],['Stony Plain','AB','Canada','town'],['Cochrane','AB','Canada','town'],
+      ['Vancouver','BC','Canada','city'],['Surrey','BC','Canada','city'],['Burnaby','BC','Canada','city'],
+      ['Richmond','BC','Canada','city'],['Victoria','BC','Canada','city'],['Kelowna','BC','Canada','city'],
+      ['Kamloops','BC','Canada','city'],['Prince George','BC','Canada','city'],['Nanaimo','BC','Canada','city'],
+      ['Abbotsford','BC','Canada','city'],['Chilliwack','BC','Canada','city'],['Vernon','BC','Canada','city'],
+      ['Toronto','ON','Canada','city'],['Ottawa','ON','Canada','city'],['Mississauga','ON','Canada','city'],
+      ['Brampton','ON','Canada','city'],['Hamilton','ON','Canada','city'],['London','ON','Canada','city'],
+      ['Windsor','ON','Canada','city'],['Kitchener','ON','Canada','city'],['Markham','ON','Canada','city'],
+      ['Vaughan','ON','Canada','city'],['Thunder Bay','ON','Canada','city'],['Sudbury','ON','Canada','city'],
+      ['Kingston','ON','Canada','city'],['Barrie','ON','Canada','city'],['Guelph','ON','Canada','city'],
+      ['Montreal','QC','Canada','city'],['Quebec City','QC','Canada','city'],['Laval','QC','Canada','city'],
+      ['Gatineau','QC','Canada','city'],['Sherbrooke','QC','Canada','city'],['Trois-Rivieres','QC','Canada','city'],
+      ['Winnipeg','MB','Canada','city'],['Brandon','MB','Canada','city'],['Saskatoon','SK','Canada','city'],
+      ['Regina','SK','Canada','city'],['Prince Albert','SK','Canada','city'],['Moose Jaw','SK','Canada','city'],
+      ['Halifax','NS','Canada','city'],['Dartmouth','NS','Canada','city'],['Sydney','NS','Canada','city'],
+      ['Moncton','NB','Canada','city'],['Saint John','NB','Canada','city'],['Fredericton','NB','Canada','city'],
+      ['Charlottetown','PE','Canada','city'],["St. John's",'NL','Canada','city'],['Corner Brook','NL','Canada','city'],
+      ['Whitehorse','YT','Canada','city'],['Yellowknife','NT','Canada','city'],['Iqaluit','NU','Canada','city'],
+      ['Seattle','WA','United States','city'],['Spokane','WA','United States','city'],['Tacoma','WA','United States','city'],
+      ['Portland','OR','United States','city'],['Eugene','OR','United States','city'],['Boise','ID','United States','city'],
+      ['Los Angeles','CA','United States','city'],['San Francisco','CA','United States','city'],['San Diego','CA','United States','city'],
+      ['Sacramento','CA','United States','city'],['San Jose','CA','United States','city'],['Fresno','CA','United States','city'],
+      ['Oakland','CA','United States','city'],['Phoenix','AZ','United States','city'],['Tucson','AZ','United States','city'],
+      ['Las Vegas','NV','United States','city'],['Denver','CO','United States','city'],['Colorado Springs','CO','United States','city'],
+      ['Salt Lake City','UT','United States','city'],['Albuquerque','NM','United States','city'],['El Paso','TX','United States','city'],
+      ['Houston','TX','United States','city'],['Dallas','TX','United States','city'],['Austin','TX','United States','city'],
+      ['San Antonio','TX','United States','city'],['Chicago','IL','United States','city'],['Detroit','MI','United States','city'],
+      ['Minneapolis','MN','United States','city'],['Milwaukee','WI','United States','city'],['Indianapolis','IN','United States','city'],
+      ['Columbus','OH','United States','city'],['Cleveland','OH','United States','city'],['Pittsburgh','PA','United States','city'],
+      ['Philadelphia','PA','United States','city'],['New York','NY','United States','city'],['Buffalo','NY','United States','city'],
+      ['Brooklyn','NY','United States','city'],['Queens','NY','United States','city'],['Boston','MA','United States','city'],
+      ['Hartford','CT','United States','city'],['Providence','RI','United States','city'],['Baltimore','MD','United States','city'],
+      ['Washington','DC','United States','city'],['Richmond','VA','United States','city'],['Charlotte','NC','United States','city'],
+      ['Raleigh','NC','United States','city'],['Atlanta','GA','United States','city'],['Miami','FL','United States','city'],
+      ['Orlando','FL','United States','city'],['Tampa','FL','United States','city'],['Jacksonville','FL','United States','city'],
+      ['New Orleans','LA','United States','city'],['Nashville','TN','United States','city'],['Memphis','TN','United States','city'],
+      ['Kansas City','MO','United States','city'],['St. Louis','MO','United States','city'],['Oklahoma City','OK','United States','city'],
+      ['Omaha','NE','United States','city'],['Des Moines','IA','United States','city'],['Anchorage','AK','United States','city'],
+      ['Honolulu','HI','United States','city'],['Billings','MT','United States','city'],['Fargo','ND','United States','city']
+    ];
+    cities.forEach(function (c) { add(c[3], c[0], c[1], c[2]); });
+    DROP_SITES.forEach(function (d) {
+      var isCa = /, (AB|BC|ON|QC|SK|MB|NS|NB|NL|PE|YT|NT|NU)\b/.test(d.city);
+      add('shelter', d.name, d.city, isCa ? 'Canada' : 'United States', d.type + ' · ' + d.need);
+    });
+    return rows;
+  })();
+
+  // Simulated Christmas-season truck routes (preview until GPS live)
  var TRUCKS = [
  { id: 'T-104', from: 'yeg', toDrop: 'd1', label: 'Edmonton local run', progress: 0.72, eta: '46 min', cargo: '14 Child Bags · 3 Sibling Crates' },
  { id: 'T-207', from: 'yeg', toDrop: 'd2', label: 'St. Albert foster route', progress: 0.41, eta: '1h 12m', cargo: '22 Stocking Packs · 8 Child Bags' },
@@ -317,7 +452,7 @@
  '.xops-tab{font-size:.72rem;padding:.45rem .8rem;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:transparent;color:#a1a1aa;cursor:pointer;font-family:inherit}',
  '.xops-tab.is-on{background:rgba(232,197,71,.15);border-color:rgba(232,197,71,.45);color:#fde68a}',
  '.xops-panel{display:none}.xops-panel.is-on{display:block}',
- '.xops-select{width:100%;background:#09090b;border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:.75rem;padding:.55rem .7rem;font-size:.85rem;margin-top:.35rem}',
+ '.xops-select{width:100%;background:#09090b;border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:.75rem;padding:.55rem .7rem;font-size:.85rem;margin-top:.35rem},.xops-loc-scroll{max-height:min(52vh,420px);overflow-y:auto;overscroll-behavior:contain;border:1px solid rgba(255,255,255,.12);border-radius:.85rem;background:rgba(0,0,0,.4);margin-top:.4rem},.xops-loc-row{display:flex;align-items:flex-start;gap:.55rem;width:100%;text-align:left;padding:.55rem .7rem;border:0;border-bottom:1px solid rgba(255,255,255,.06);background:transparent;color:#e4e4e7;cursor:pointer;font-family:inherit;font-size:.78rem;line-height:1.35},.xops-loc-row:hover,.xops-loc-row.is-on{background:rgba(232,197,71,.1);color:#fde68a},.xops-loc-type{flex-shrink:0;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .4rem;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:#a1a1aa;min-width:3.6rem;text-align:center},.xops-loc-type.city,.xops-loc-type.town{border-color:rgba(52,211,153,.35);color:#6ee7b7},.xops-loc-type.province,.xops-loc-type.state{border-color:rgba(96,165,250,.4);color:#93c5fd},.xops-loc-type.country{border-color:rgba(251,191,36,.4);color:#fcd34d},.xops-loc-type.shelter{border-color:rgba(248,113,113,.4);color:#fca5a5},.xops-loc-meta{font-size:.68rem;color:#71717a;margin-top:.1rem},.xops-loc-count{font-size:.65rem;color:#a1a1aa;margin-top:.35rem}',
  '.xops-cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;margin-top:1rem;padding:.75rem 1.25rem;border-radius:999px;border:0;cursor:pointer;font-weight:700;font-size:.9rem;color:#1a0a0c;background:linear-gradient(135deg,#f5e6a8,#e8c547 40%,#c41e3a);font-family:inherit}',
  '.xops-flow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;font-size:.75rem;color:#d4d4d8;margin:1rem 0}',
  '.xops-flow b{color:#fde68a;font-weight:600}',
@@ -625,11 +760,20 @@
  }).join('') +
  '</select>' +
  '<label class="xops-muted" style="display:block;margin-top:.75rem">Local drop focus</label>' +
- '<select class="xops-select" id="xops-drop">' +
- DROP_SITES.map(function (d) {
- return '<option value="' + d.id + '">' + d.city + ' - ' + d.name + '</option>';
- }).join('') +
- '</select>' +
+                'City · town · province · state · country · shelter</label>' +
+                '<input type="search" class="xops-select" id="xops-loc-search" placeholder="Type Edmonton, Alberta, California, youth shelter..." autocomplete="off">' +
+                '<div class="xops-filter-row" id="xops-loc-filters" style="margin-top:.45rem">' +
+                  '<button type="button" class="xops-filter is-on" data-loctype="all">All</button>' +
+                  '<button type="button" class="xops-filter" data-loctype="city">Cities</button>' +
+                  '<button type="button" class="xops-filter" data-loctype="town">Towns</button>' +
+                  '<button type="button" class="xops-filter" data-loctype="province">Provinces</button>' +
+                  '<button type="button" class="xops-filter" data-loctype="state">States</button>' +
+                  '<button type="button" class="xops-filter" data-loctype="country">Countries</button>' +
+                  '<button type="button" class="xops-filter" data-loctype="shelter">Shelters</button>' +
+                '</div>' +
+                '<div class="xops-loc-scroll" id="xops-loc-list" role="listbox" aria-label="Locations directory"></div>' +
+                '<p class="xops-loc-count" id="xops-loc-count"></p>' +
+                '<input type="hidden" id="xops-drop" value="d1">' +
  '<p class="xops-muted" style="margin-top:.75rem" id="xops-donate-summary">Child Mercy Bag → Edmonton hub → local verified drop</p>' +
  '<button type="button" class="xops-cta" id="xops-sponsor-btn">Sponsor this route (when funded)</button>' +
  '</div>' +
@@ -734,7 +878,7 @@
 
  '<div class="xops-panel" data-panel="drops">' +
  '<p class="xops-muted" style="margin-bottom:1rem">Local Christmas drops only serve <strong style="color:#ecfdf5">verified</strong> partners: orphans, foster, youth shelters, documented family hardship. No scammer wish lists.</p>' +
- '<div class="xops-grid xops-grid-2">' + dropList() + '</div>' +
+ '<div class="xops-loc-scroll xops-drop-scroll" style="max-height:min(60vh,520px);padding:.5rem"><div class="xops-grid xops-grid-2">' + dropList() + '</div></div>' +
  '</div>' +
  '</div>' +
  '</section>'
@@ -786,7 +930,14 @@
  if (includeDinner) {
  line += ' · + dinner: ' + dinner.name + ' (' + dinner.feeds + ')';
  }
- summary.textContent = line;
+ var locLab = dropHidden && dropHidden.getAttribute('data-loc-label');
+      if (selectedLocId && LOCATION_DIR) {
+        var sl = LOCATION_DIR.find(function (r) { return r.id === selectedLocId; });
+        if (sl) line += ' · place: ' + sl.label;
+      } else if (locLab) {
+        line += ' · place: ' + locLab;
+      }
+      summary.textContent = line;
 
  var dinnerSum = root.querySelector('#xops-dinner-summary');
  if (dinnerSum) {
@@ -844,7 +995,74 @@
  refreshSummary();
  }
 
- if (region) region.addEventListener('change', refreshSummary);
+ 
+    // Large location directory (city/town/province/state/country/shelter)
+    var locSearch = root.querySelector('#xops-loc-search');
+    var locList = root.querySelector('#xops-loc-list');
+    var locCount = root.querySelector('#xops-loc-count');
+    var locFilters = root.querySelector('#xops-loc-filters');
+    var locType = 'all';
+    var selectedLocId = '';
+    var dropHidden = root.querySelector('#xops-drop');
+
+    function renderLocList() {
+      if (!locList || !LOCATION_DIR) return;
+      var q = (locSearch && locSearch.value ? locSearch.value : '').trim().toLowerCase();
+      var rows = LOCATION_DIR.filter(function (r) {
+        if (locType !== 'all' && r.type !== locType) return false;
+        if (!q) return true;
+        return r.search.indexOf(q) !== -1;
+      });
+      // cap render for speed but keep scrollable set large
+      var max = 400;
+      var show = rows.slice(0, max);
+      locList.innerHTML = show.map(function (r) {
+        return '<button type="button" class="xops-loc-row' + (r.id === selectedLocId ? ' is-on' : '') + '" data-loc="' + r.id + '" role="option">' +
+          '<span class="xops-loc-type ' + r.type + '">' + r.type + '</span>' +
+          '<span><strong style="color:#fafafa;font-weight:600">' + r.name + '</strong>' +
+          '<div class="xops-loc-meta">' + [r.region, r.country, r.extra].filter(Boolean).join(' · ') + '</div></span></button>';
+      }).join('');
+      if (locCount) {
+        locCount.textContent = rows.length + ' places' + (rows.length > max ? ' (showing first ' + max + ' - refine search)' : '') +
+          ' · scroll the list · filter by type';
+      }
+    }
+
+    if (locList) {
+      renderLocList();
+      locList.addEventListener('click', function (e) {
+        var row = e.target.closest('[data-loc]');
+        if (!row) return;
+        selectedLocId = row.getAttribute('data-loc');
+        var loc = LOCATION_DIR.find(function (r) { return r.id === selectedLocId; });
+        // Map shelter rows to drop site when possible
+        if (loc && loc.type === 'shelter') {
+          var match = DROP_SITES.find(function (d) { return d.name === loc.name; });
+          if (match && dropHidden) dropHidden.value = match.id;
+        } else if (dropHidden) {
+          // keep drop, attach location label via data
+          dropHidden.setAttribute('data-loc-label', loc ? loc.label : '');
+        }
+        renderLocList();
+        refreshSummary();
+      });
+    }
+    if (locSearch) {
+      locSearch.addEventListener('input', function () { renderLocList(); });
+    }
+    if (locFilters) {
+      locFilters.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-loctype]');
+        if (!btn) return;
+        locType = btn.getAttribute('data-loctype') || 'all';
+        locFilters.querySelectorAll('.xops-filter').forEach(function (b) {
+          b.classList.toggle('is-on', b === btn);
+        });
+        renderLocList();
+      });
+    }
+
+    if (region) region.addEventListener('change', refreshSummary);
  if (drop) drop.addEventListener('change', refreshSummary);
 
  // Category filters
