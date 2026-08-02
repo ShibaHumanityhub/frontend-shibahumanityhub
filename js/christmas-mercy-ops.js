@@ -170,6 +170,45 @@
     { id: 'd50', name: 'Spokane Inland Youth', city: 'Spokane, WA', type: 'Youth shelter', kids: 16, need: 'Verified' }
   ];
 
+  
+  // Local designated pickup points (shelters come here to collect)
+  var PICKUP_POINTS = [
+    { id: 'pk-yeg-north', label: 'Edmonton North Pole Hub · Dock A', city: 'Edmonton, AB', window: 'Tue / Thu / Sat 10:00-16:00' },
+    { id: 'pk-yeg-south', label: 'South Edmonton Church Lot · Bay 2', city: 'Edmonton, AB', window: 'Wed / Fri 11:00-15:00' },
+    { id: 'pk-yyc', label: 'Calgary Mercy Annex · Loading bay', city: 'Calgary, AB', window: 'Mon / Wed / Fri 09:00-15:00' },
+    { id: 'pk-yvr', label: 'Pacific Gift Gate · Door 3', city: 'Surrey, BC', window: 'Tue / Fri 10:00-16:00' },
+    { id: 'pk-yyz', label: 'Toronto Hope Dock · Bay B', city: 'Mississauga, ON', window: 'Mon-Sat 09:00-17:00' },
+    { id: 'pk-sea', label: 'Seattle Sister Shed · Gate 1', city: 'Kent, WA', window: 'Wed / Sat 10:00-14:00' },
+    { id: 'pk-den', label: 'Denver Mountain Mail · Dock 2', city: 'Aurora, CO', window: 'Thu / Sat 11:00-15:00' },
+    { id: 'pk-local', label: 'Nearest partner church / community hall', city: 'By arrangement', window: 'Call to book' }
+  ];
+
+  // Enrich each partner site with rooms filled (from phone call) + designated pickup
+  DROP_SITES.forEach(function (d, i) {
+    var rooms = Math.max(4, Math.min(d.kids || 12, 20));
+    var filled = Math.max(1, Math.min(rooms, Math.round((d.kids || 10) * 0.65)));
+    d.roomsTotal = rooms;
+    d.roomsFilled = filled; // current individual quantity from call sheet
+    d.kidsOnList = d.kids; // gifts needed often tracks occupancy
+    d.callStatus = d.need === 'Partner pending' ? 'not-called' : (i % 5 === 0 ? 'left-voicemail' : 'confirmed');
+    d.lastCalled = d.callStatus === 'confirmed' ? '2026-11-2' + (i % 8) : '';
+    d.contactRole = 'Site lead / house manager';
+    // Map city to nearest designated pickup
+    var city = (d.city || '').toLowerCase();
+    if (city.indexOf('edmonton') >= 0 || city.indexOf('st. albert') >= 0 || city.indexOf('fort mcmurray') >= 0 || city.indexOf('grande prairie') >= 0 || city.indexOf('lethbridge') >= 0 || city.indexOf('medicine hat') >= 0 || city.indexOf('red deer') >= 0) {
+      d.pickupId = i % 2 === 0 ? 'pk-yeg-north' : 'pk-yeg-south';
+    } else if (city.indexOf('calgary') >= 0) d.pickupId = 'pk-yyc';
+    else if (city.indexOf('vancouver') >= 0 || city.indexOf('surrey') >= 0 || city.indexOf('victoria') >= 0 || city.indexOf('kelowna') >= 0 || city.indexOf('prince george') >= 0) d.pickupId = 'pk-yvr';
+    else if (city.indexOf('toronto') >= 0 || city.indexOf('brampton') >= 0 || city.indexOf('ottawa') >= 0 || city.indexOf('hamilton') >= 0 || city.indexOf('london') >= 0 || city.indexOf('windsor') >= 0 || city.indexOf('montreal') >= 0 || city.indexOf('quebec') >= 0 || city.indexOf('halifax') >= 0) d.pickupId = 'pk-yyz';
+    else if (city.indexOf('seattle') >= 0 || city.indexOf('tacoma') >= 0 || city.indexOf('portland') >= 0 || city.indexOf('spokane') >= 0) d.pickupId = 'pk-sea';
+    else if (city.indexOf('denver') >= 0 || city.indexOf('phoenix') >= 0 || city.indexOf('los angeles') >= 0 || city.indexOf('san francisco') >= 0 || city.indexOf('oakland') >= 0 || city.indexOf('tucson') >= 0) d.pickupId = 'pk-den';
+    else d.pickupId = 'pk-local';
+  });
+
+  function pickupById(id) {
+    return PICKUP_POINTS.find(function (p) { return p.id === id; }) || PICKUP_POINTS[PICKUP_POINTS.length - 1];
+  }
+
   /** Big scrollable directory: country, province, state, city, town, shelter */
   var LOCATION_DIR = (function () {
     var rows = [];
@@ -492,7 +531,7 @@
  '.xops-dinner-card.is-picked{border-color:rgba(232,197,71,.55)!important;box-shadow:0 0 0 1px rgba(232,197,71,.35),0 12px 28px -14px rgba(196,30,58,.4)}',
  '.xops-pack-card{cursor:pointer;transition:border-color .2s}',
  '.xops-pack-card.is-picked{border-color:rgba(52,211,153,.5)}',
- '.xops-section-label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,197,71,.85);margin:1.25rem 0 .65rem}'
+ '.xops-section-label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,197,71,.85);margin:1.25rem 0 .65rem},.xops-call-row{display:grid;grid-template-columns:1.4fr .7fr .9fr 1.1fr .85fr;gap:.5rem;align-items:center;padding:.65rem .7rem;border-bottom:1px solid rgba(255,255,255,.06);font-size:.72rem},@media(max-width:800px){.xops-call-row{grid-template-columns:1fr;gap:.25rem}},.xops-call-head{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#a1a1aa;padding:.4rem .7rem},.xops-rooms{font-family:ui-monospace,monospace;font-size:.85rem;color:#fde68a;font-weight:700},.xops-rooms small{display:block;font-size:.6rem;color:#71717a;font-weight:500},.xops-status{font-size:.62rem;padding:.2rem .45rem;border-radius:999px;border:1px solid rgba(255,255,255,.15)},.xops-status.confirmed{color:#6ee7b7;border-color:rgba(52,211,153,.4)},.xops-status.left-voicemail{color:#fcd34d;border-color:rgba(251,191,36,.4)},.xops-status.not-called{color:#fca5a5;border-color:rgba(248,113,113,.35)},.xops-qty-input{width:3.2rem;background:#09090b;border:1px solid rgba(255,255,255,.15);color:#fde68a;border-radius:.4rem;padding:.25rem .35rem;font-size:.8rem;font-family:ui-monospace,monospace},.xops-totals{display:flex;flex-wrap:wrap;gap:.75rem;margin:.75rem 0 1rem}'
  ].join('\n');
  document.head.appendChild(s);
  }
@@ -714,7 +753,7 @@
  ? 'From warehouse floor to Christmas morning'
  : 'Santa\'s Workshop · the living warehouse';
  var lede = isOrphan
- ? 'Orphan Christmas is not only a night of gifts. It is a mercy supply chain: donations by size, sorted by location, packed by elves on a live warehouse floor, moved hub to hub, then tracked on trucks to verified local drops before Christmas.'
+ ? 'Orphan Christmas is not only a night of gifts. It is a mercy supply chain: donations by size, sorted by location, packed by elves on a live warehouse floor, moved hub to hub, then our people call each shelter for rooms filled, and sites collect from a designated local pickup.'
  : 'Year-round workshop that feeds Orphan Christmas season. Live elves, conveyors, hub transfers, and Christmas outbound trackers when the season lights up.';
 
  return (
@@ -745,7 +784,8 @@
  '<button type="button" class="xops-tab" data-tab="elves">Live elf floor</button>' +
  '<button type="button" class="xops-tab" data-tab="hubs">Warehouses</button>' +
  '<button type="button" class="xops-tab" data-tab="trucks">Truck trackers</button>' +
- '<button type="button" class="xops-tab" data-tab="drops">Local drops</button>' +
+ '<button type="button" class="xops-tab" data-tab="calls">Call shelters</button>' +
+            '<button type="button" class="xops-tab" data-tab="drops">Local drops</button>' +
  '</div>' +
 
  '<div class="xops-panel is-on" data-panel="donate">' +
@@ -759,8 +799,7 @@
  return '<option value="' + h.id + '">' + h.city + ' - ' + h.name + '</option>';
  }).join('') +
  '</select>' +
- '<label class="xops-muted" style="display:block;margin-top:.75rem">Local drop focus</label>' +
-                'City · town · province · state · country · shelter</label>' +
+ '<label class="xops-muted" style="display:block;margin-top:.75rem">City · town · province · state · country · shelter</label>' +
                 '<input type="search" class="xops-select" id="xops-loc-search" placeholder="Type Edmonton, Alberta, California, youth shelter..." autocomplete="off">' +
                 '<div class="xops-filter-row" id="xops-loc-filters" style="margin-top:.45rem">' +
                   '<button type="button" class="xops-filter is-on" data-loctype="all">All</button>' +
@@ -876,7 +915,38 @@
  truckList() +
  '</div>' +
 
- '<div class="xops-panel" data-panel="drops">' +
+ 
+          '<div class="xops-panel" data-panel="calls">' +
+            '<p class="xops-muted" style="margin-bottom:1rem"><strong style="color:#ecfdf5">Our people call each shelter / home</strong> and write down the <strong style="color:#fde68a">current individual quantity of rooms filled</strong>. That number drives how many gift packs and dinners we stage. Then the site comes to a <strong style="color:#fde68a">designated local pickup</strong> to collect. We do not guess occupancy. We call.</p>' +
+            '<div class="xops-grid xops-grid-2" style="margin-bottom:1rem">' +
+              '<div class="xops-card">' +
+                '<h3>How the call works</h3>' +
+                '<ul class="xops-muted" style="margin:.5rem 0 0;padding-left:1.1rem;line-height:1.7">' +
+                  '<li>SHH team dials the site lead or house manager</li>' +
+                  '<li>Ask: how many rooms are filled right now (individual kids / beds)</li>' +
+                  '<li>Write rooms filled · rooms total · gifts needed this week</li>' +
+                  '<li>Confirm their designated local pickup point and window</li>' +
+                  '<li>They come pick up packs at that dock. Or we stage for truck drop when arranged</li>' +
+                '</ul>' +
+                '<p class="xops-muted" style="margin-top:.65rem">Preview sheet below. When ops are live, every call logs a timestamp and a verified quantity.</p>' +
+              '</div>' +
+              '<div class="xops-card">' +
+                '<h3>Designated local pickups</h3>' +
+                '<p class="xops-muted" style="margin-bottom:.5rem">Shelters and homes collect from these docks. Not random doorsteps.</p>' +
+                PICKUP_POINTS.map(function (p) {
+                  return '<div class="xops-muted" style="padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.06)"><strong style="color:#ecfdf5">' + p.label + '</strong><br>' + p.city + ' · window: ' + p.window + '</div>';
+                }).join('') +
+              '</div>' +
+            '</div>' +
+            '<div class="xops-totals" id="xops-call-totals"></div>' +
+            '<div class="xops-loc-scroll" style="max-height:min(58vh,520px)">' +
+              '<div class="xops-call-row xops-call-head"><span>Shelter / home</span><span>Rooms filled</span><span>Call status</span><span>Designated pickup</span><span>Edit qty</span></div>' +
+              '<div id="xops-call-sheet"></div>' +
+            '</div>' +
+            '<p class="xops-muted" style="margin-top:.75rem">Honest note: quantities here are design-sample until real call logs land. When live, your team updates rooms filled from the phone, and packs match that number.</p>' +
+          '</div>' +
+
+          '<div class="xops-panel" data-panel="drops">' +
  '<p class="xops-muted" style="margin-bottom:1rem">Local Christmas drops only serve <strong style="color:#ecfdf5">verified</strong> partners: orphans, foster, youth shelters, documented family hardship. No scammer wish lists.</p>' +
  '<div class="xops-loc-scroll xops-drop-scroll" style="max-height:min(60vh,520px);padding:.5rem"><div class="xops-grid xops-grid-2">' + dropList() + '</div></div>' +
  '</div>' +
@@ -1134,7 +1204,59 @@
 
  updatePreview();
 
- // Gift pack pick
+ 
+    // Shelter call sheet: rooms filled + designated pickup
+    var callSheet = root.querySelector('#xops-call-sheet');
+    var callTotals = root.querySelector('#xops-call-totals');
+    function renderCallSheet() {
+      if (!callSheet) return;
+      callSheet.innerHTML = DROP_SITES.map(function (d) {
+        var pk = pickupById(d.pickupId);
+        var st = d.callStatus || 'not-called';
+        var stLabel = st === 'confirmed' ? 'Confirmed' : st === 'left-voicemail' ? 'Left voicemail' : 'Not called';
+        return '<div class="xops-call-row" data-call-id="' + d.id + '">' +
+          '<span><strong style="color:#fafafa">' + d.name + '</strong><div class="xops-loc-meta">' + d.city + ' · ' + d.type + '</div></span>' +
+          '<span class="xops-rooms">' + (d.roomsFilled || 0) + ' / ' + (d.roomsTotal || 0) +
+          '<small>rooms filled</small></span>' +
+          '<span><span class="xops-status ' + st + '">' + stLabel + '</span>' +
+          (d.lastCalled ? '<div class="xops-loc-meta">last: ' + d.lastCalled + '</div>' : '') + '</span>' +
+          '<span class="xops-muted">' + pk.label + '<div class="xops-loc-meta">' + pk.window + '</div></span>' +
+          '<span><input class="xops-qty-input" type="number" min="0" max="' + (d.roomsTotal || 99) + '" value="' + (d.roomsFilled || 0) + '" data-rooms-id="' + d.id + '" aria-label="Rooms filled at ' + d.name + '"></span>' +
+          '</div>';
+      }).join('');
+      var filled = 0, total = 0, confirmed = 0;
+      DROP_SITES.forEach(function (d) {
+        filled += d.roomsFilled || 0;
+        total += d.roomsTotal || 0;
+        if (d.callStatus === 'confirmed') confirmed++;
+      });
+      if (callTotals) {
+        callTotals.innerHTML =
+          '<div class="xops-card" style="padding:.65rem 1rem"><div class="xops-rooms">' + filled + '</div><div class="xops-muted">Rooms filled (all sites)</div></div>' +
+          '<div class="xops-card" style="padding:.65rem 1rem"><div class="xops-rooms">' + total + '</div><div class="xops-muted">Rooms capacity</div></div>' +
+          '<div class="xops-card" style="padding:.65rem 1rem"><div class="xops-rooms">' + confirmed + ' / ' + DROP_SITES.length + '</div><div class="xops-muted">Calls confirmed</div></div>' +
+          '<div class="xops-card" style="padding:.65rem 1rem"><div class="xops-rooms">' + PICKUP_POINTS.length + '</div><div class="xops-muted">Designated pickups</div></div>';
+      }
+    }
+    if (callSheet) {
+      renderCallSheet();
+      callSheet.addEventListener('change', function (e) {
+        var inp = e.target.closest('[data-rooms-id]');
+        if (!inp) return;
+        var id = inp.getAttribute('data-rooms-id');
+        var site = DROP_SITES.find(function (d) { return d.id === id; });
+        if (!site) return;
+        var v = parseInt(inp.value, 10);
+        if (isNaN(v) || v < 0) v = 0;
+        if (site.roomsTotal && v > site.roomsTotal) v = site.roomsTotal;
+        site.roomsFilled = v;
+        site.callStatus = 'confirmed';
+        site.lastCalled = 'today (preview edit)';
+        renderCallSheet();
+      });
+    }
+
+    // Gift pack pick
  var packGrid = root.querySelector('#xops-pack-grid');
  if (packGrid) {
  var initialPack = packGrid.querySelector('[data-pack="child-bag"]') || packGrid.querySelector('[data-pack]');
