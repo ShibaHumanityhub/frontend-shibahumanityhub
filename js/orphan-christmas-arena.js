@@ -207,6 +207,18 @@ function snow(n) {
   }
 
   function build() {
+    /* Dedicated mobile app-shell when it wins UX (phone / coarse pointer). Desktop keeps full scroll. */
+    try {
+      if (
+        window.SHHOrphanChristmasMobile &&
+        typeof window.SHHOrphanChristmasMobile.shouldUse === 'function' &&
+        window.SHHOrphanChristmasMobile.shouldUse() &&
+        typeof window.SHHOrphanChristmasMobile.render === 'function'
+      ) {
+        if (window.SHHOrphanChristmasMobile.render()) return;
+      }
+    } catch (eMob) { /* fall through to desktop arena */ }
+
     styles();
     document.body.classList.add('oc-arena-on');
     var climax = isClimax();
