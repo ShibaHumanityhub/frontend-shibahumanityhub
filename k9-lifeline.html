@@ -444,12 +444,12 @@
  <a href="#lifeline-call" class="nav-link active" onclick="smoothNavTo('lifeline-call')">THE CALL</a>
  <a href="#tactical-map" class="nav-link" onclick="smoothNavTo('tactical-map')">DEPLOYMENT ZONES</a>
  <a href="#mission-phases" class="nav-link" onclick="smoothNavTo('mission-phases')">MISSION PHASES</a>
- <a href="#teams" class="nav-link" onclick="smoothNavTo('teams')">LIVE OPS BOARD</a>
+ <a href="#teams" class="nav-link" onclick="smoothNavTo('teams')">OPS BOARD (PREVIEW)</a>
  <a href="#support" class="nav-link" onclick="smoothNavTo('support')">SUPPORT THE LINE</a>
  </div>
  <div class="ml-auto flex items-center gap-3 text-xs text-red-400/60 font-mono">
- <span>STATUS: ALL TEAMS STANDBY</span>
- <span class="px-2 py-0.5 bg-red-500/20 text-red-400 rounded">READY FOR DEPLOY</span>
+ <span>STATUS: ILLUSTRATIVE STANDBY</span>
+ <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 rounded">PREVIEW DESIGN</span>
  </div>
  </div>
 </nav>
@@ -600,20 +600,21 @@
  </div>
 </section>
 
-<!-- LIVE OPS BOARD -->
+<!-- OPS BOARD (illustrative until real partners publish proof) -->
 <section id="teams" class="max-w-6xl mx-auto px-6 pb-12">
  <div class="flex items-baseline justify-between mb-6">
  <div class="flex items-center gap-3">
  <div>
- <div class="text-red-400 text-xs tracking-[3px]">LIVE OPERATIONS</div>
- <h2 class="section-title text-4xl font-bold">Ops Board. Teams in the Field.</h2>
+ <div class="text-amber-400 text-xs tracking-[3px]">OPS PREVIEW</div>
+ <h2 class="section-title text-4xl font-bold">Ops Board. Designed for the Field.</h2>
  </div>
- <div class="px-2.5 py-0.5 text-[10px] bg-red-600/20 text-red-400 rounded font-mono flex items-center gap-1">
- <span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span> LIVE
+ <div class="px-2.5 py-0.5 text-[10px] bg-amber-600/20 text-amber-300 rounded font-mono flex items-center gap-1">
+ <span class="w-1.5 h-1.5 bg-amber-400 rounded-full"></span> ILLUSTRATIVE
  </div>
  </div>
- <div id="team-count" class="text-sm text-red-400/70 font-medium">8 teams standing by</div>
+ <div id="team-count" class="text-sm text-amber-200/70 font-medium">8 sample teams for product design</div>
  </div>
+ <p class="text-xs text-zinc-400 mb-6 max-w-2xl">Preview only. Real teams, missions, and deployment logs replace this board when K9 partners and proofs are live.</p>
  
  <div id="teams-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
  <!-- Populated by JS -->
