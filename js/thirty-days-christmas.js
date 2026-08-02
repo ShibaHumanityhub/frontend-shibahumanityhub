@@ -64,23 +64,44 @@
     { name: 'Someone who still believes', type: 'Anonymous', line: 'One shelter feast · whole wing', public: false }
   ];
 
-  var STAGE_NIGHTS = [
-    { when: 'Nightly · peak season', title: 'Mercy AMA Live', who: 'Host + community', what: 'Freight updates · day theme · daily prize · shoutouts', tag: 'AMA' },
-    { when: 'Select Fridays', title: 'Carols with Vessymink', who: 'Vessymink + friends', what: 'Live Christmas carols. Soft room. Hard mission.', tag: 'MUSIC' },
-    { when: 'Mid + late season', title: 'Santa on the Floor', who: 'Santa + consent team', what: 'Live video at events where partners invite us. Kids first. Cameras second.', tag: 'SANTA' },
-    { when: 'Dec 23-24', title: 'Holy Night Buildup', who: 'Everyone in the chat', what: 'Final freights. Final carols. No spam. Pure cheer.', tag: 'CLIMAX' }
+  /**
+   * Live Night schedule (design times until links publish).
+   * month is 0-index. year resolves to current season year.
+   * link: null until real X Space / stream URL exists.
+   */
+  var LIVE_NIGHTS = [
+    { id: 'open-ama', m: 10, d: 25, time: '7:00 PM MT', end: '8:30 PM', title: 'Season Open AMA', who: 'Host + community', tag: 'AMA', what: 'We open the books. Quiet list. Verified only. First freight board lights.', vibe: 'The room takes a breath. Then we begin.', prize: 'Warmth Token draw', link: null },
+    { id: 'carol-1', m: 10, d: 28, time: '7:30 PM MT', end: '9:00 PM', title: 'Carols with Vessymink', who: 'Vessymink + friends', tag: 'MUSIC', what: 'Live Christmas carols. Soft room. Hard mission underneath every note.', vibe: 'Music that makes the warehouse feel like a cathedral.', prize: 'Setlist heart card (design)', link: null },
+    { id: 'freight-ama', m: 11, d: 2, time: '7:00 PM MT', end: '8:15 PM', title: 'Freight Friday AMA', who: 'Host · drivers · elves', tag: 'AMA', what: 'Every truck on the board. Routes. Packs. Named hearts. Daily prize.', vibe: 'Watch the board like a scoreboard for mercy.', prize: 'Daily Warmth Token', link: null },
+    { id: 'santa-mid', m: 11, d: 7, time: '6:00 PM MT', end: '7:30 PM', title: 'Santa at Partner Events', who: 'Santa + consent team', tag: 'SANTA', what: 'Live video only where partners invite us. Kids first. Cameras second. No exploitation.', vibe: 'Wonder without stealing dignity.', prize: null, link: null },
+    { id: 'carol-2', m: 11, d: 12, time: '7:30 PM MT', end: '9:00 PM', title: 'Carol Night II · Vessymink', who: 'Vessymink + guest voices', tag: 'MUSIC', what: 'Second carol night. Teens. Shelters. The songs get softer. The room gets louder with love.', vibe: 'If you only show up once, make it a night with music.', prize: 'Community cheer prize (rules when live)', link: null },
+    { id: 'teen-ama', m: 11, d: 16, time: '7:00 PM MT', end: '8:30 PM', title: 'Teen Holy Night AMA', who: 'Host + youth-shelter partners', tag: 'AMA', what: 'Sixteen still deserves Christmas. Gear. Dignity. No pity theater.', vibe: 'Respect over spectacle.', prize: 'Daily Warmth Token', link: null },
+    { id: 'santa-late', m: 11, d: 20, time: '5:30 PM MT', end: '7:00 PM', title: 'Santa Live · Final Mile Week', who: 'Santa + floor team', tag: 'SANTA', what: 'Partner floors only. Soft close energy. Consent on every frame.', vibe: 'Last soft miracles before the holy nights.', prize: null, link: null },
+    { id: 'eve-eve', m: 11, d: 23, time: '6:00 PM MT', end: '11:00 PM', title: 'Eve Eve · The Room Goes Loud', who: 'Everyone · carols · freights', tag: 'CLIMAX', what: 'Final freights. Continuous cheer. Vessymink segment. Named shoutouts. No spam. Pure hope.', vibe: 'The night the season becomes a roar of love.', prize: 'Finale cheer (legal rules first)', link: null, climax: true },
+    { id: 'holy-night', m: 11, d: 24, time: '4:00 PM MT', end: 'Midnight', title: 'Holy Night · Final Drops', who: 'Elves · drivers · the whole circle', tag: 'CLIMAX', what: 'Last mile. Quiet trucks. Full stockings. Carols at dusk. We protect Christmas morning.', vibe: 'Jesus is the reason. These kids are the why.', prize: null, link: null, climax: true }
   ];
 
   var PRIZES = [
-    { day: 'Daily', name: 'Warmth Token', how: 'Be in the live AMA · kind chat only · random draw (rules when live)' },
+    { day: 'Daily AMA', name: 'Warmth Token', how: 'Be in the live room · kind chat only · random draw (rules when live)' },
     { day: 'Weekly', name: 'Mercy Merch Drop', how: 'Holders + donors enter when season rules publish' },
     { day: 'Carol nights', name: 'Signed setlist card', how: 'Show up for Vessymink night · community prize (design)' },
-    { day: 'Finale', name: 'Trip-adjacent cheer', how: 'Only if charity rails + legal rules are live. Mercy always first.' }
+    { day: 'Eve Eve / Holy Night', name: 'Finale cheer', how: 'Only if charity rails + legal rules are live. Mercy always first.' }
   ];
+
+  function seasonYear(now) {
+    now = now || new Date();
+    /* If we are past Dec 24, next season is next year; if before Nov 25, still this year's upcoming season */
+    if (now.getMonth() === 11 && now.getDate() > 24) return now.getFullYear() + 1;
+    return now.getFullYear();
+  }
 
   function seasonDayIndex(now) {
     now = now || new Date();
-    var y = now.getFullYear();
+    var y = seasonYear(now);
+    /* During Jan–Oct, show day 0 (pre-season) against upcoming Nov */
+    if (now.getMonth() < SEASON_START.m || (now.getMonth() === SEASON_START.m && now.getDate() < SEASON_START.d)) {
+      if (now.getFullYear() === y || now < new Date(y, SEASON_START.m, SEASON_START.d)) return 0;
+    }
     var start = new Date(y, SEASON_START.m, SEASON_START.d);
     var end = new Date(y, SEASON_END.m, SEASON_END.d, 23, 59, 59);
     if (now < start) return 0;
@@ -90,6 +111,44 @@
     if (day < 1) day = 1;
     if (day > 30) day = 30;
     return day;
+  }
+
+  function isClimaxEve(now) {
+    now = now || new Date();
+    try {
+      var q = typeof location !== 'undefined' ? location.search || '' : '';
+      if (/[?&](climax|eve|holynight)=1/i.test(q)) return true;
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('shh_force_climax') === '1') return true;
+    } catch (e) { /* ignore */ }
+    var m = now.getMonth();
+    var d = now.getDate();
+    return m === 11 && (d === 23 || d === 24);
+  }
+
+  function nightDate(n, year) {
+    year = year || seasonYear();
+    return new Date(year, n.m, n.d, 12, 0, 0);
+  }
+
+  function nightState(n, now) {
+    now = now || new Date();
+    var y = seasonYear(now);
+    var start = new Date(y, n.m, n.d, 0, 0, 0);
+    var end = new Date(y, n.m, n.d, 23, 59, 59);
+    if (now < start) return 'upcoming';
+    if (now > end) return 'past';
+    return 'tonight';
+  }
+
+  function nextLiveNight(now) {
+    now = now || new Date();
+    var y = seasonYear(now);
+    var upcoming = LIVE_NIGHTS.filter(function (n) {
+      return nightState(n, now) !== 'past';
+    });
+    if (!upcoming.length) return LIVE_NIGHTS[LIVE_NIGHTS.length - 1];
+    var tonight = upcoming.filter(function (n) { return nightState(n, now) === 'tonight'; })[0];
+    return tonight || upcoming[0];
   }
 
   function styles() {
@@ -178,15 +237,61 @@
       '.tdx-donor .type{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,197,71,.7);margin-bottom:.35rem}',
       '.tdx-donor .line{font-size:.8rem;color:rgba(255,244,224,.75);line-height:1.4}',
       '.tdx-ribbon{display:inline-block;margin-top:.45rem;font-size:.68rem;color:#fecaca;font-style:italic}',
-      '.tdx-stage{display:grid;gap:.75rem}',
-      '@media(min-width:800px){.tdx-stage{grid-template-columns:1.2fr .8fr}}',
+      '.tdx-stage{display:grid;gap:1rem}',
+      '@media(min-width:900px){.tdx-stage{grid-template-columns:1.25fr .85fr;align-items:start}}',
       '.tdx-night{border-left:3px solid var(--gold);padding:.85rem 1rem;background:linear-gradient(90deg,rgba(196,30,58,.2),transparent);border-radius:0 1rem 1rem 0;margin-bottom:.65rem}',
       '.tdx-night .tag{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#fca5a5}',
       '.tdx-night h4{font-family:Georgia,serif;font-size:1.05rem;margin:.2rem 0;color:#fff}',
-      '.tdx-chat-live{border-radius:1rem;border:1px solid rgba(232,197,71,.3);background:rgba(0,0,0,.5);padding:.85rem;min-height:200px;max-height:280px;overflow:auto}',
+      '.tdx-featured{position:relative;overflow:hidden;border-radius:1.4rem;border:1px solid rgba(232,197,71,.45);padding:1.35rem 1.2rem 1.4rem;background:radial-gradient(ellipse 90% 80% at 10% 0%,rgba(196,30,58,.55),transparent 55%),radial-gradient(ellipse 70% 60% at 100% 100%,rgba(13,61,44,.45),transparent 50%),rgba(8,4,6,.92);box-shadow:0 28px 70px -24px rgba(0,0,0,.85),0 0 50px -16px rgba(196,30,58,.4);margin-bottom:1rem}',
+      '.tdx-featured::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(232,197,71,.06));pointer-events:none}',
+      '.tdx-featured > *{position:relative;z-index:1}',
+      '.tdx-featured .live-pill{display:inline-flex;align-items:center;gap:.4rem;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:#fecaca;border:1px solid rgba(239,68,68,.5);background:rgba(127,29,29,.45);padding:.35rem .7rem;border-radius:999px;margin-bottom:.75rem}',
+      '.tdx-featured .live-pill i{width:7px;height:7px;border-radius:50%;background:#ef4444;box-shadow:0 0 10px #ef4444;animation:tdx-pulse 1.2s ease infinite}',
+      '.tdx-featured h3{font-family:Georgia,serif;font-size:clamp(1.35rem,4vw,1.85rem);color:#fff;margin:0 0 .35rem;line-height:1.15}',
+      '.tdx-featured .when{font-size:.85rem;color:#fde68a;margin:0 0 .65rem}',
+      '.tdx-featured .what{font-size:.95rem;line-height:1.55;color:rgba(255,244,224,.88);margin:0 0 .5rem}',
+      '.tdx-featured .vibe{font-family:Georgia,serif;font-style:italic;font-size:.95rem;color:#fca5a5;margin:0 0 .85rem}',
+      '.tdx-sched{display:grid;gap:.55rem}',
+      '.tdx-night-card{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;padding:1rem;border-radius:1.1rem;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.38);text-align:left;width:100%;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s}',
+      '.tdx-night-card:hover{border-color:rgba(232,197,71,.4);transform:translateY(-1px)}',
+      '.tdx-night-card.is-tonight{border-color:rgba(196,30,58,.7);background:linear-gradient(135deg,rgba(107,15,26,.5),rgba(10,6,8,.85));box-shadow:0 0 36px -12px rgba(196,30,58,.55)}',
+      '.tdx-night-card.is-past{opacity:.55}',
+      '.tdx-night-card.is-on{outline:2px solid rgba(232,197,71,.55);outline-offset:1px}',
+      '.tdx-night-date{min-width:3.4rem;text-align:center;padding:.45rem .35rem;border-radius:.75rem;border:1px solid rgba(232,197,71,.3);background:rgba(0,0,0,.35)}',
+      '.tdx-night-date b{display:block;font-family:Georgia,serif;font-size:1.2rem;color:#fde68a;line-height:1}',
+      '.tdx-night-date span{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,244,224,.5)}',
+      '.tdx-night-body .tag{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#fca5a5}',
+      '.tdx-night-body h4{font-family:Georgia,serif;font-size:1.05rem;margin:.15rem 0 .25rem;color:#fff}',
+      '.tdx-night-body p{margin:0;font-size:.8rem;line-height:1.45;color:rgba(255,244,224,.72)}',
+      '.tdx-night-body .meta{margin-top:.35rem;font-size:.72rem;color:rgba(253,230,138,.8)}',
+      '.tdx-chat-live{border-radius:1rem;border:1px solid rgba(232,197,71,.3);background:rgba(0,0,0,.5);padding:.85rem;min-height:220px;max-height:320px;overflow:auto}',
       '.tdx-chat-live .line{font-size:.75rem;line-height:1.4;color:rgba(255,244,224,.78);margin-bottom:.45rem}',
       '.tdx-chat-live .line b{color:#fde68a}',
       '.tdx-chat-live .line .gift{color:#fecaca}',
+      '.tdx-chat-live.is-climax{min-height:280px;max-height:380px;border-color:rgba(196,30,58,.55);box-shadow:inset 0 0 40px rgba(196,30,58,.12)}',
+      '.tdx-climax-banner{position:relative;overflow:hidden;border-radius:1.5rem;border:1px solid rgba(253,230,138,.55);margin:0 auto 0;padding:1.5rem 1.2rem 1.6rem;background:radial-gradient(ellipse 100% 90% at 50% -20%,rgba(253,230,138,.35),transparent 50%),radial-gradient(ellipse 80% 70% at 0% 100%,rgba(196,30,58,.55),transparent 55%),radial-gradient(ellipse 70% 60% at 100% 80%,rgba(13,61,44,.4),transparent 50%),#0a0608;box-shadow:0 0 80px -20px rgba(232,197,71,.45),0 30px 80px -30px rgba(196,30,58,.5)}',
+      '.tdx-climax-banner .k{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,230,138,.9);margin:0 0 .5rem}',
+      '.tdx-climax-banner h2{font-family:Georgia,serif;font-size:clamp(1.6rem,5.5vw,2.4rem);line-height:1.1;margin:0 0 .65rem;color:#fff;text-shadow:0 0 40px rgba(196,30,58,.5)}',
+      '.tdx-climax-banner p{margin:0;font-size:clamp(.95rem,3vw,1.1rem);line-height:1.55;color:rgba(255,244,224,.9);max-width:38rem}',
+      '.tdx-climax-banner .stars{position:absolute;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(1px 1px at 10% 20%,#fff,transparent),radial-gradient(1px 1px at 30% 70%,#fde68a,transparent),radial-gradient(1.5px 1.5px at 70% 30%,#fff,transparent),radial-gradient(1px 1px at 90% 60%,#fca5a5,transparent)}',
+      /* CLIMAX EVE MODE */
+      '.tdx.is-climax{--crimson:#e11d48;--gold:#fde68a}',
+      '.tdx.is-climax .tdx-rail{border-bottom-color:rgba(253,230,138,.45);background:rgba(12,4,8,.96)}',
+      '.tdx.is-climax .tdx-rail a.is-on{background:rgba(196,30,58,.35);border-color:rgba(253,230,138,.55);color:#fff}',
+      '.tdx.is-climax .tdx-hero-band,.tdx.is-climax .tdx-featured{border-color:rgba(253,230,138,.5);box-shadow:0 0 60px -16px rgba(232,197,71,.5),0 24px 60px -20px rgba(196,30,58,.55)}',
+      '.tdx.is-climax .tdx-fr{border-color:rgba(253,230,138,.25);background:linear-gradient(120deg,rgba(196,30,58,.2),rgba(10,6,8,.9))}',
+      '.tdx.is-climax .tdx-fr-status{border-color:rgba(253,230,138,.45);color:#fde68a;background:rgba(127,29,29,.4)}',
+      '.tdx.is-climax .tdx-bar > i{background:linear-gradient(90deg,#fde68a,#e11d48,#fde68a);background-size:200% 100%;animation:tdx-bar-glow 2.8s linear infinite}',
+      '@keyframes tdx-bar-glow{0%{background-position:0% 50%}100%{background-position:200% 50%}}',
+      '.tdx.is-climax .tdx-h2 em{background:linear-gradient(90deg,#fff,#fde68a,#fca5a5);-webkit-background-clip:text;background-clip:text}',
+      'body.oc-climax-eve{background:#080306!important}',
+      'body.oc-climax-eve .oca-hero-bg{background:radial-gradient(ellipse 100% 60% at 50% -10%,rgba(253,230,138,.28),transparent 50%),radial-gradient(ellipse 90% 55% at 50% -5%,rgba(196,30,58,.65),transparent 55%),radial-gradient(ellipse 60% 40% at 100% 90%,rgba(13,61,44,.45),transparent 50%),linear-gradient(180deg,#2a0a12 0%,#0a0608 55%,#050308 100%)!important}',
+      'body.oc-climax-eve .oca-live-pill{border-color:rgba(253,230,138,.55);background:rgba(127,29,29,.7);color:#fde68a;box-shadow:0 0 32px rgba(232,197,71,.35)}',
+      'body.oc-climax-eve .oca-h1{text-shadow:0 0 60px rgba(253,230,138,.35),0 0 50px rgba(196,30,58,.55),0 2px 0 rgba(0,0,0,.5)}',
+      'body.oc-climax-eve .oca-main-feed{border-color:rgba(253,230,138,.5);box-shadow:0 0 0 1px rgba(196,30,58,.35),0 20px 50px -16px rgba(0,0,0,.85),0 0 60px -12px rgba(232,197,71,.4)}',
+      'body.oc-climax-eve .oca-ticker{border-color:rgba(253,230,138,.4)}',
+      'body.oc-climax-eve .oca-chat{border-color:rgba(196,30,58,.45);max-height:220px;min-height:160px}',
+      '@media(min-width:900px){body.oc-climax-eve .oca-chat{max-height:260px;min-height:180px}}',
       '.tdx-cta-row{display:flex;flex-direction:column;gap:.55rem;margin-top:1.1rem}',
       '@media(min-width:520px){.tdx-cta-row{flex-direction:row;flex-wrap:wrap}}',
       '.tdx-cta{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.25rem;border-radius:999px;font-weight:700;font-size:.9rem;text-decoration:none;border:0;cursor:pointer;font-family:inherit;min-height:48px}',
@@ -306,16 +411,77 @@
     }).join('');
   }
 
-  function stageHtml() {
-    return STAGE_NIGHTS.map(function (n) {
+  var MONTH_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  function formatNightWhen(n) {
+    return MONTH_SHORT[n.m] + ' ' + n.d + ' · ' + n.time + (n.end ? ' – ' + n.end : '');
+  }
+
+  function featuredNightHtml(n, state) {
+    if (!n) return '';
+    var stateLabel = state === 'tonight' ? 'Tonight' : state === 'past' ? 'Season memory' : 'Next live night';
+    var pill = state === 'tonight'
+      ? '<div class="live-pill"><i></i> Live tonight · join the room</div>'
+      : '<div class="live-pill" style="border-color:rgba(232,197,71,.4);color:#fde68a;background:rgba(0,0,0,.35)"><i style="background:#e8c547;box-shadow:0 0 10px #e8c547;animation:none"></i> ' + stateLabel + '</div>';
+    var cta = n.link
+      ? '<a class="tdx-cta tdx-cta-gold" href="' + esc(n.link) + '" target="_blank" rel="noopener">Join live now</a>'
+      : '<a class="tdx-cta tdx-cta-gold" href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener">Get live times on X</a>';
+    return (
+      '<div class="tdx-featured" id="tdx-featured-night">' +
+        pill +
+        '<p class="tdx-kicker" style="margin:0 0 .35rem">' + esc(n.tag) + ' · ' + esc(n.who) + '</p>' +
+        '<h3>' + esc(n.title) + '</h3>' +
+        '<p class="when">' + esc(formatNightWhen(n)) + '</p>' +
+        '<p class="what">' + esc(n.what) + '</p>' +
+        '<p class="vibe">“' + esc(n.vibe) + '”</p>' +
+        (n.prize ? '<p style="margin:0 0 .85rem;font-size:.78rem;color:rgba(253,230,138,.85)"><strong>Tonight\'s room prize:</strong> ' + esc(n.prize) + '</p>' : '') +
+        '<div class="tdx-cta-row" style="margin-top:0">' +
+          cta +
+          '<a class="tdx-cta tdx-cta-ghost" href="#tdx-schedule">Full schedule</a>' +
+          '<button type="button" class="tdx-cta tdx-cta-ghost" id="tdx-share-night">Share this night</button>' +
+        '</div>' +
+        '<p class="tdx-honest">Stream links publish when the night is real. Until then: date, time, and the promise stay honest.</p>' +
+      '</div>'
+    );
+  }
+
+  function scheduleHtml(now) {
+    now = now || new Date();
+    return LIVE_NIGHTS.map(function (n) {
+      var st = nightState(n, now);
+      var cls = 'tdx-night-card' + (st === 'tonight' ? ' is-tonight' : '') + (st === 'past' ? ' is-past' : '');
       return (
-        '<div class="tdx-night">' +
-          '<div class="tag">' + esc(n.tag) + ' · ' + esc(n.when) + '</div>' +
-          '<h4>' + esc(n.title) + '</h4>' +
-          '<p style="margin:0;font-size:.82rem;color:rgba(255,244,224,.72)"><strong style="color:#fde68a">' + esc(n.who) + '</strong> — ' + esc(n.what) + '</p>' +
-        '</div>'
+        '<button type="button" class="' + cls + '" data-night="' + esc(n.id) + '" aria-pressed="false">' +
+          '<div class="tdx-night-date"><b>' + n.d + '</b><span>' + MONTH_SHORT[n.m] + '</span></div>' +
+          '<div class="tdx-night-body">' +
+            '<div class="tag">' + esc(n.tag) + (st === 'tonight' ? ' · TONIGHT' : st === 'upcoming' ? ' · UPCOMING' : ' · DONE') + '</div>' +
+            '<h4>' + esc(n.title) + '</h4>' +
+            '<p>' + esc(n.what) + '</p>' +
+            '<div class="meta">' + esc(n.time) + (n.end ? ' – ' + esc(n.end) : '') + ' · ' + esc(n.who) + '</div>' +
+          '</div>' +
+        '</button>'
       );
     }).join('');
+  }
+
+  function climaxBannerHtml(climax) {
+    if (!climax) return '';
+    return (
+      '<section class="tdx-sec" id="tdx-climax" style="padding-bottom:0">' +
+        '<div class="tdx-climax-banner">' +
+          '<div class="stars" aria-hidden="true"></div>' +
+          '<p class="k">Holy nights · Dec 23–24</p>' +
+          '<h2>The room goes quiet.<br>Then it goes <em style="font-style:normal;color:#fde68a">holy.</em></h2>' +
+          '<p>Eve Eve and Christmas Eve. Final freights. Final carols. Named hearts on the wall. No spam. No clout harvest. Just the last miles between a warehouse floor and a child who thought morning would stay empty.</p>' +
+          '<div class="tdx-cta-row">' +
+            '<a class="tdx-cta tdx-cta-gold" href="#tdx-stage">Enter the live stage</a>' +
+            '<a class="tdx-cta tdx-cta-ghost" href="#tdx-freight">Final-mile freights</a>' +
+            '<a class="tdx-cta tdx-cta-ghost" href="#oca-broadcast">Warehouse floor</a>' +
+          '</div>' +
+          '<p class="tdx-honest" style="position:relative;z-index:1;color:rgba(255,244,224,.55)">Climax mode is on. Preview anytime with <code style="color:#fde68a">?climax=1</code> on this URL.</p>' +
+        '</div>' +
+      '</section>'
+    );
   }
 
   function prizeHtml() {
@@ -330,7 +496,7 @@
     }).join('');
   }
 
-  function html(today) {
+  function html(today, climax) {
     var meterLabel = today === 0
       ? 'Season opens Nov 25'
       : today >= 30
@@ -338,19 +504,25 @@
         : 'Day ' + today + ' of 30';
     var meterSub = today === 0
       ? 'Preview the full path now'
-      : 'Hard distribution window';
+      : climax
+        ? 'Holy nights · final mile'
+        : 'Hard distribution window';
+    var next = nextLiveNight();
+    var nextState = next ? nightState(next) : 'upcoming';
 
     return (
-      '<div class="tdx" id="tdx-root">' +
+      '<div class="tdx' + (climax ? ' is-climax' : '') + '" id="tdx-root">' +
         '<nav class="tdx-rail" aria-label="30 Days chapters">' +
           '<a href="#tdx-heart">Heart</a>' +
+          (climax ? '<a href="#tdx-climax">Holy Night</a>' : '') +
           '<a href="#tdx-days">30 Days</a>' +
           '<a href="#tdx-freight">Freight</a>' +
-          '<a href="#tdx-stage">Live stage</a>' +
+          '<a href="#tdx-stage">Live nights</a>' +
           '<a href="#tdx-givers">Givers</a>' +
           '<a href="#tdx-sponsor">Name a gift</a>' +
           '<a href="#christmas-ops">Build gift</a>' +
         '</nav>' +
+        climaxBannerHtml(climax) +
 
         /* HEART */
         '<section class="tdx-sec" id="tdx-heart">' +
@@ -431,27 +603,33 @@
           '</div>' +
         '</section>' +
 
-        /* STAGE */
+        /* STAGE · LIVE NIGHTS */
         '<section class="tdx-sec" id="tdx-stage">' +
-          '<p class="tdx-kicker">Holiday cheer · live room</p>' +
-          '<h2 class="tdx-h2">Buildup that feels like <em>Christmas in the chest.</em></h2>' +
+          '<p class="tdx-kicker">' + (climax ? 'Holy Night stage · peak cheer' : 'Live night schedule · holiday cheer') + '</p>' +
+          '<h2 class="tdx-h2">' + (climax
+            ? 'The stadium is open. <em>Stay until the last truck sleeps.</em>'
+            : 'Nights worth showing up for. <em>Music. Mercy. A room that feels like home.</em>') + '</h2>' +
           '<p class="tdx-lede">' +
-            'Daily AMAs. Prize draws for the people who show up kind. ' +
-            'Friends like <strong>Vessymink</strong> singing carols with others. ' +
-            'Santa at real partner events on live video when invited and safe. ' +
-            'The chat is the stadium. The freight board is the scoreboard.' +
+            'AMAs with freight truth. <strong>Vessymink</strong> and friends on carols. ' +
+            'Santa only where partners invite us and kids stay protected. ' +
+            'Daily prizes for kindness. The chat is the stadium. The freights are the scoreboard.' +
           '</p>' +
+          featuredNightHtml(next, nextState) +
           '<div class="tdx-stage">' +
             '<div>' +
-              stageHtml() +
-              '<p class="tdx-kicker" style="margin-top:1.25rem">Daily prize ladder (design)</p>' +
+              '<p class="tdx-kicker" id="tdx-schedule">Full live schedule</p>' +
+              '<div class="tdx-sched" id="tdx-sched">' + scheduleHtml() + '</div>' +
+              '<div class="tdx-detail is-on" id="tdx-night-detail" style="margin-top:1rem"></div>' +
+              '<p class="tdx-kicker" style="margin-top:1.35rem">Prize ladder (design · rules when live)</p>' +
               '<div class="tdx-grid tdx-grid-2">' + prizeHtml() + '</div>' +
             '</div>' +
             '<div class="tdx-card">' +
-              '<h3>Live cheer feed</h3>' +
-              '<p style="margin-bottom:.65rem">Simulated holiday room until streams go real. Sponsor lines will interrupt with love, not spam.</p>' +
-              '<div class="tdx-chat-live" id="tdx-cheer" aria-live="polite"></div>' +
-              '<p class="tdx-honest">Preview chat. Real X Spaces / stream links publish with season dates.</p>' +
+              '<h3>' + (climax ? 'Holy Night cheer feed' : 'Live cheer feed') + '</h3>' +
+              '<p style="margin-bottom:.65rem">' + (climax
+                ? 'Eve energy. Thicker room. Sponsor lines land like candles, not ads.'
+                : 'Simulated holiday room until streams go real. Sponsor lines interrupt with love, not spam.') + '</p>' +
+              '<div class="tdx-chat-live' + (climax ? ' is-climax' : '') + '" id="tdx-cheer" aria-live="polite"></div>' +
+              '<p class="tdx-honest">Preview chat. Real X Spaces / stream links attach to each night when published.</p>' +
               '<div class="tdx-cta-row">' +
                 '<a class="tdx-cta tdx-cta-gold" href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener">Follow live times on X</a>' +
                 '<a class="tdx-cta tdx-cta-ghost" href="../spin-the-wheel.html">Practice the Mercy Wheel</a>' +
@@ -519,7 +697,79 @@
     }, 4200);
   }
 
-  function wire(root, today) {
+  function wire(root, today, climax) {
+    function shareText(text, url) {
+      var full = text + (url ? '\n' + url : '');
+      if (navigator.share) {
+        navigator.share({ title: 'Orphan Christmas', text: text, url: url || location.href }).catch(function () {
+          copyShare(full);
+        });
+      } else {
+        copyShare(full);
+      }
+    }
+    function copyShare(full) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(full).then(function () {
+          toast('Copied. Paste it anywhere the room needs to feel this.');
+        }).catch(function () {
+          window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(full), '_blank', 'noopener');
+        });
+      } else {
+        window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(full), '_blank', 'noopener');
+      }
+    }
+
+    /* Night schedule interactivity */
+    var nightDetail = document.getElementById('tdx-night-detail');
+    function showNight(id) {
+      var n = LIVE_NIGHTS.filter(function (x) { return x.id === id; })[0];
+      if (!n || !nightDetail) return;
+      var st = nightState(n);
+      nightDetail.innerHTML =
+        '<p class="tdx-kicker">' + esc(n.tag) + ' · ' + (st === 'tonight' ? 'Tonight' : st === 'past' ? 'Past night' : 'Upcoming') + '</p>' +
+        '<h3 style="font-family:Georgia,serif;color:#fff;margin:0 0 .35rem">' + esc(n.title) + '</h3>' +
+        '<p style="margin:0 0 .4rem;color:#fde68a;font-size:.9rem">' + esc(formatNightWhen(n)) + ' · ' + esc(n.who) + '</p>' +
+        '<p style="margin:0 0 .5rem;color:rgba(255,244,224,.88);line-height:1.55">' + esc(n.what) + '</p>' +
+        '<p style="margin:0;font-family:Georgia,serif;font-style:italic;color:#fca5a5">' + esc(n.vibe) + '</p>' +
+        (n.prize ? '<p style="margin:.65rem 0 0;font-size:.8rem;color:rgba(253,230,138,.85)"><strong>Room prize:</strong> ' + esc(n.prize) + '</p>' : '') +
+        '<div class="tdx-cta-row">' +
+          (n.link
+            ? '<a class="tdx-cta tdx-cta-gold" href="' + esc(n.link) + '" target="_blank" rel="noopener">Join live</a>'
+            : '<a class="tdx-cta tdx-cta-gold" href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener">Watch for the link on X</a>') +
+          '<button type="button" class="tdx-cta tdx-cta-ghost" data-share-this-night="' + esc(n.id) + '">Share night</button>' +
+        '</div>';
+      root.querySelectorAll('.tdx-night-card').forEach(function (c) {
+        c.classList.toggle('is-on', c.getAttribute('data-night') === id);
+      });
+      var sb = nightDetail.querySelector('[data-share-this-night]');
+      if (sb) {
+        sb.addEventListener('click', function () {
+          shareText(
+            n.title + ' · ' + formatNightWhen(n) + ' · ' + n.vibe + ' Orphan Christmas · Shibahumanityhub',
+            'https://shibahumanityhub.com/programs/orphan-christmas.html#tdx-stage'
+          );
+        });
+      }
+    }
+    root.querySelectorAll('[data-night]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        showNight(btn.getAttribute('data-night'));
+      });
+    });
+    var nx = nextLiveNight();
+    if (nx) showNight(nx.id);
+
+    var shareNight = document.getElementById('tdx-share-night');
+    if (shareNight && nx) {
+      shareNight.addEventListener('click', function () {
+        shareText(
+          nx.title + ' · ' + formatNightWhen(nx) + ' · ' + nx.vibe + ' Orphan Christmas',
+          'https://shibahumanityhub.com/programs/orphan-christmas.html#tdx-stage'
+        );
+      });
+    }
+
     /* Countdown */
     function tickCountdown() {
       var t = countdownTarget();
@@ -591,28 +841,6 @@
             'https://shibahumanityhub.com/programs/orphan-christmas.html#tdx-day-' + d.day
           );
         });
-      }
-    }
-
-    function shareText(text, url) {
-      var full = text + (url ? '\n' + url : '');
-      if (navigator.share) {
-        navigator.share({ title: 'Orphan Christmas', text: text, url: url || location.href }).catch(function () {
-          copyShare(full);
-        });
-      } else {
-        copyShare(full);
-      }
-    }
-    function copyShare(full) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(full).then(function () {
-          toast('Copied. Paste it anywhere the room needs to feel this.');
-        }).catch(function () {
-          window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(full), '_blank', 'noopener');
-        });
-      } else {
-        window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(full), '_blank', 'noopener');
       }
     }
 
@@ -697,11 +925,24 @@
       });
     }, 5000);
 
-    /* Cheer feed */
+    /* Cheer feed — thicker + faster on climax */
     var cheer = document.getElementById('tdx-cheer');
-    var lines = [
+    var lines = climax ? [
+      ['@host', 'HOLY NIGHT MODE. Final freights on the board. Stay kind. Stay loud with love.'],
+      ['@vessymink', 'Carol soft open. Soft room. Every note for a kid who thought morning was empty.'],
+      ['@northlight', 'Sponsored from the hearts of Northlight Energy Co. — whole floor dinners.'],
+      ['@elf', 'FX-419 sealed. Last eastbound. Gold paper. Names private.'],
+      ['@driver', 'Final mile. Roads are quiet. Hearts are not.'],
+      ['@santa_ops', 'Consent first. Cameras second. Kids always first. Always.'],
+      ['@maple', 'Sponsored from the hearts of Maple Family Trust. Go with God.'],
+      ['@chat', 'No spam. Only cheer. Prize rules only when legal and live.'],
+      ['@hopeseed', 'You are 1. We are all 1. One more pack. One more table.'],
+      ['@truth', 'Preview room until streams are real. The feeling is already real.'],
+      ['@anon', 'Anonymous. Just get it there before morning.'],
+      ['@host', 'Eve Eve energy. Named hearts on the wall. Freight board is the scoreboard.']
+    ] : [
       ['@host', 'Day board is lit. Freight FX-211 rolling in the preview lane.'],
-      ['@vessymink', 'Warming up carols for Friday. Soft room. Open hearts.'],
+      ['@vessymink', 'Warming up carols. Soft room. Open hearts.'],
       ['@northlight', 'From the hearts of Northlight Energy Co. — dinners for a whole floor.'],
       ['@elf', 'Sibling crate sealed. Gold paper. Names stay private.'],
       ['@anon', 'Anonymous again. Just move the truck.'],
@@ -721,11 +962,12 @@
       var gift = /hearts of|sponsored/i.test(L[1]);
       div.innerHTML = '<b>' + esc(L[0]) + '</b> <span class="' + (gift ? 'gift' : '') + '">' + esc(L[1]) + '</span>';
       cheer.appendChild(div);
-      while (cheer.children.length > 10) cheer.removeChild(cheer.firstChild);
+      var maxLines = climax ? 14 : 10;
+      while (cheer.children.length > maxLines) cheer.removeChild(cheer.firstChild);
       cheer.scrollTop = cheer.scrollHeight;
     }
     pushCheer();
-    setInterval(pushCheer, 3600);
+    setInterval(pushCheer, climax ? 2200 : 3600);
 
     /* Freight bar animate on view */
     if (typeof IntersectionObserver !== 'undefined') {
@@ -841,10 +1083,18 @@
       openDay(today > 0 ? today : 1, false);
     }, 500);
 
+    /* Climax freights: push status language */
+    if (climax) {
+      root.querySelectorAll('.tdx-fr-status').forEach(function (el, i) {
+        var finals = ['Final mile', 'Loading holy night', 'En route · last push', 'Dock priority', 'Cold route final', 'Hub clear-out'];
+        el.textContent = finals[i % finals.length];
+      });
+    }
+
     /* Rail highlight */
     var railLinks = root.querySelectorAll('.tdx-rail a');
     if (typeof IntersectionObserver !== 'undefined' && railLinks.length) {
-      var sections = ['tdx-heart', 'tdx-days', 'tdx-freight', 'tdx-stage', 'tdx-givers', 'tdx-sponsor']
+      var sections = ['tdx-climax', 'tdx-heart', 'tdx-days', 'tdx-freight', 'tdx-stage', 'tdx-givers', 'tdx-sponsor']
         .map(function (id) { return document.getElementById(id); })
         .filter(Boolean);
       var rio = new IntersectionObserver(function (entries) {
@@ -864,14 +1114,23 @@
     if (!host) return null;
     styles();
     var today = seasonDayIndex();
-    host.innerHTML = html(today);
-    wire(host, today);
+    var climax = isClimaxEve();
+    if (climax) {
+      document.body.classList.add('oc-climax-eve');
+    } else {
+      document.body.classList.remove('oc-climax-eve');
+    }
+    host.innerHTML = html(today, climax);
+    wire(host, today, climax);
     return host;
   }
 
   window.SHHThirtyDaysChristmas = {
     mount: mount,
     seasonDayIndex: seasonDayIndex,
+    isClimaxEve: isClimaxEve,
+    LIVE_NIGHTS: LIVE_NIGHTS,
     DAY_THEMES: DAY_THEMES
   };
 })();
+

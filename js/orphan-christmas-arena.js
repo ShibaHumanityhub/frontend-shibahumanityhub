@@ -40,9 +40,11 @@
   var CRAWL = [
     'LIVE FROM THE MERCY WAREHOUSE',
     '30 DAYS OF CHRISTMAS · HARD DISTRIBUTION',
+    'LIVE NIGHTS · VESSYMINK CAROLS · AMA · SANTA',
     'EVERY BOX HAS A NAME BEHIND A PARTNER CODE',
     'NO SCAMMERS · VERIFIED NEED ONLY',
-    'FREIGHT TRACKERS · CAROLS · DAILY AMA CHEER',
+    'FREIGHT TRACKERS · DAILY CHEER · NAMED HEARTS',
+    'DEC 23–24 HOLY NIGHT · FINAL MILE',
     'SPONSORED FROM THE HEARTS OF THOSE WHO SAY YES',
     'TURKEY DINNERS · GROCERY VOUCHERS · GIFT PACKS',
     'JESUS IS THE REASON · THESE KIDS ARE THE WHY',
@@ -180,41 +182,78 @@ function snow(n) {
     return '<div class="oca-ticker" aria-hidden="true"><div class="oca-ticker-track">' + twice + '</div></div>';
   }
 
+  function isClimax() {
+    try {
+      if (window.SHHThirtyDaysChristmas && window.SHHThirtyDaysChristmas.isClimaxEve) {
+        return !!window.SHHThirtyDaysChristmas.isClimaxEve();
+      }
+      var q = location.search || '';
+      if (/[?&](climax|eve|holynight)=1/i.test(q)) return true;
+      var n = new Date();
+      return n.getMonth() === 11 && (n.getDate() === 23 || n.getDate() === 24);
+    } catch (e) {
+      return false;
+    }
+  }
+
   function build() {
     styles();
     document.body.classList.add('oc-arena-on');
+    var climax = isClimax();
+    if (climax) document.body.classList.add('oc-climax-eve');
 
     var root = document.getElementById('program-page-root');
     if (!root) return;
 
-    var viewers = 1200 + Math.floor(Math.random() * 800);
+    var viewers = climax ? 2800 + Math.floor(Math.random() * 1200) : 1200 + Math.floor(Math.random() * 800);
 
     root.innerHTML =
-      '<div class="oca" id="oca-root">' +
+      '<div class="oca' + (climax ? ' oca-climax' : '') + '" id="oca-root">' +
         // hero
         '<section class="oca-hero">' +
           '<div class="oca-hero-bg" aria-hidden="true"></div>' +
           '<div class="oca-hero-inner">' +
-            '<div class="oca-live-pill"><span class="dot"></span> Live warehouse broadcast · Preview feed</div>' +
-            '<p class="oca-kicker">$hopeseed · Orphan Christmas</p>' +
-            '<h1 class="oca-h1">Some kids wake up on Christmas<br>with <em>nothing but quiet.</em><br>We refuse to look away.</h1>' +
-            '<p class="oca-lede">' +
-              'Orphans. Foster kids. Youth shelters. Families who can prove the money ran out. ' +
-              '<strong>Not a scam wish list.</strong> A warehouse floor. Live elves. Trucks. Turkey dinners. ' +
-              'Gifts that land with a name behind a partner code. ' +
-              '<strong>Jesus is the reason. These kids are the why.</strong>' +
-            '</p>' +
-            '<div class="oca-cta-row">' +
-              '<a class="oca-cta oca-cta-primary" href="#oca-broadcast">Watch the floor live</a>' +
-              '<a class="oca-cta oca-cta-ghost" href="#christmas-ops">Build a gift · dinner · wrap</a>' +
-              '<button type="button" class="oca-cta oca-cta-ghost" id="oca-sponsor">Stand with them</button>' +
-            '</div>' +
-            '<div class="oca-stats">' +
-              '<div class="oca-stat"><b>LIVE</b><span>Floor cams</span></div>' +
-              '<div class="oca-stat"><b id="oca-viewers">' + viewers.toLocaleString() + '</b><span>Watching (sim)</span></div>' +
-              '<div class="oca-stat"><b>Verified</b><span>Need only</span></div>' +
-              '<div class="oca-stat"><b>When funded</b><span>Real trucks</span></div>' +
-            '</div>' +
+            (climax
+              ? '<div class="oca-live-pill"><span class="dot"></span> Holy Night · Final mile · Preview feed</div>' +
+                '<p class="oca-kicker">$hopeseed · Orphan Christmas · Dec 23–24</p>' +
+                '<h1 class="oca-h1">The last quiet miles<br>before a child wakes up<br>to <em>something warm.</em></h1>' +
+                '<p class="oca-lede">' +
+                  'Eve Eve and Christmas Eve. Final freights. Final carols. Named hearts on the wall. ' +
+                  '<strong>No spam. No clout harvest.</strong> Just the warehouse, the trucks, and the holy work. ' +
+                  '<strong>Jesus is the reason. These kids are the why.</strong>' +
+                '</p>' +
+                '<div class="oca-cta-row">' +
+                  '<a class="oca-cta oca-cta-primary" href="#tdx-stage">Live nights · stage</a>' +
+                  '<a class="oca-cta oca-cta-ghost" href="#tdx-freight">Final freights</a>' +
+                  '<a class="oca-cta oca-cta-ghost" href="#oca-broadcast">Warehouse floor</a>' +
+                '</div>' +
+                '<div class="oca-stats">' +
+                  '<div class="oca-stat"><b>HOLY</b><span>Night mode</span></div>' +
+                  '<div class="oca-stat"><b id="oca-viewers">' + viewers.toLocaleString() + '</b><span>In the room (sim)</span></div>' +
+                  '<div class="oca-stat"><b>Final</b><span>Mile freights</span></div>' +
+                  '<div class="oca-stat"><b>Truth</b><span>When funded</span></div>' +
+                '</div>'
+              : '<div class="oca-live-pill"><span class="dot"></span> Live warehouse broadcast · Preview feed</div>' +
+                '<p class="oca-kicker">$hopeseed · Orphan Christmas</p>' +
+                '<h1 class="oca-h1">Some kids wake up on Christmas<br>with <em>nothing but quiet.</em><br>We refuse to look away.</h1>' +
+                '<p class="oca-lede">' +
+                  'Orphans. Foster kids. Youth shelters. Families who can prove the money ran out. ' +
+                  '<strong>Not a scam wish list.</strong> A warehouse floor. Live elves. Trucks. Turkey dinners. ' +
+                  'Gifts that land with a name behind a partner code. ' +
+                  '<strong>Jesus is the reason. These kids are the why.</strong>' +
+                '</p>' +
+                '<div class="oca-cta-row">' +
+                  '<a class="oca-cta oca-cta-primary" href="#oca-broadcast">Watch the floor live</a>' +
+                  '<a class="oca-cta oca-cta-ghost" href="#tdx-stage">Live nights · carols</a>' +
+                  '<a class="oca-cta oca-cta-ghost" href="#christmas-ops">Build a gift · dinner · wrap</a>' +
+                  '<button type="button" class="oca-cta oca-cta-ghost" id="oca-sponsor">Stand with them</button>' +
+                '</div>' +
+                '<div class="oca-stats">' +
+                  '<div class="oca-stat"><b>LIVE</b><span>Floor cams</span></div>' +
+                  '<div class="oca-stat"><b id="oca-viewers">' + viewers.toLocaleString() + '</b><span>Watching (sim)</span></div>' +
+                  '<div class="oca-stat"><b>Verified</b><span>Need only</span></div>' +
+                  '<div class="oca-stat"><b>When funded</b><span>Real trucks</span></div>' +
+                '</div>') +
           '</div>' +
         '</section>' +
 
@@ -367,7 +406,19 @@ function snow(n) {
 
     // Chat crawl
     var chat = document.getElementById('oca-chat');
-    var lines = [
+    var climaxChat = document.body.classList.contains('oc-climax-eve');
+    var lines = climaxChat ? [
+      ['@host', 'Holy Night floor. Final packs. Stay soft. Stay focused.'],
+      ['@vessymink', 'Carol in the room. Every note for someone who felt forgotten.'],
+      ['@elf', 'Last sibling crate sealed. Gold paper. Names private.'],
+      ['@driver', 'Final mile. Quiet roads. Loud purpose.'],
+      ['@northlight', 'Sponsored from the hearts of Northlight Energy Co.'],
+      ['@santa_ops', 'Consent first. Cameras second. Kids always first.'],
+      ['@truth', 'Preview until real. The vow is already real.'],
+      ['@hopeseed', 'You are 1. We are all 1. One more morning fixed.'],
+      ['@maple', 'Sponsored from the hearts of Maple Family Trust.'],
+      ['@shib', 'Eve Eve. Holy Night. Pack another crate.']
+    ] : [
       ['@mercy', 'Wrap line is stacked. That gold paper hits different.'],
       ['@anon', 'Dinner voucher for a family of 6. Do it.'],
       ['@host', 'Cam 01 live. Hands only. No kid faces without consent.'],
