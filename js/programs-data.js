@@ -383,7 +383,7 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/goldenpawsretirementprogram.jpg",
- shortDesc: "Senior service dogs and senior shelter heroes listed for certified forever homes. Screening + program funds the care when live.",
+ shortDesc: "Mercy engine for senior heroes: service retirees and shelter seniors into certified forever homes. Screening hard. Care funded when live.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Golden Paws</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Golden Paws Retirement Program</h2>
  <p class="text-amber-200 text-xl mb-6">Too many heroic service dogs and gentle senior shelter dogs spend their final years in a cold kennel after giving everything they had.</p>
