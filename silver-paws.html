@@ -44,6 +44,7 @@
 
  <script src="js/shared-animations.js" defer></script>
  <script src="js/glossary.js" defer></script>
+ <script src="js/silver-paws-locations.js"></script>
 
  <style>
  /* ═══════════════════════════════════════════════
@@ -759,7 +760,7 @@
  class="search-input w-full bg-zinc-950 border border-white/10 focus:border-emerald-400 rounded-3xl px-6 py-3.5 text-lg placeholder:text-zinc-500 outline-none"
  oninput="debouncedFilterLocations()">
  
- <div class="text-[10px] text-emerald-300/50 mt-2">Covers every province, territory, and state • 100+ cities &amp; towns</div>
+ <div class="text-[10px] text-emerald-300/50 mt-2" id="location-coverage-hint">All provinces, territories &amp; states · cities + demo homes (design directory)</div>
  
  <div id="location-results" class="mt-4 max-h-[210px] overflow-auto pr-1 text-sm space-y-1"></div>
  </div>
@@ -1079,88 +1080,29 @@
 
 <script>
 // === SILVER PAWS DEDICATED PAGE DATA & LOGIC ===
-// Heartfelt, comprehensive data for Canada + USA
-// Glossary and info-icon system centralized in js/glossary.js (loaded in head)
+// Full location + facility directory: js/silver-paws-locations.js
+// Glossary: js/glossary.js
 
-const locationsData = [
- // Canada
- {country: "Canada", province: "Ontario", city: "Toronto"}, {country: "Canada", province: "Ontario", city: "Ottawa"}, {country: "Canada", province: "Ontario", city: "Hamilton"},
- {country: "Canada", province: "British Columbia", city: "Vancouver"}, {country: "Canada", province: "British Columbia", city: "Victoria"}, {country: "Canada", province: "British Columbia", city: "Kelowna"},
- {country: "Canada", province: "Alberta", city: "Calgary"}, {country: "Canada", province: "Alberta", city: "Edmonton"}, {country: "Canada", province: "Alberta", city: "Banff"},
- {country: "Canada", province: "Quebec", city: "Montreal"}, {country: "Canada", province: "Quebec", city: "Quebec City"},
- {country: "Canada", province: "Nova Scotia", city: "Halifax"}, {country: "Canada", province: "Manitoba", city: "Winnipeg"},
- {country: "Canada", province: "Saskatchewan", city: "Saskatoon"}, {country: "Canada", province: "New Brunswick", city: "Saint John"},
- 
- // USA
- {country: "USA", province: "California", city: "Los Angeles"}, {country: "USA", province: "California", city: "San Francisco"}, {country: "USA", province: "California", city: "San Diego"},
- {country: "USA", province: "New York", city: "New York City"}, {country: "USA", province: "New York", city: "Buffalo"},
- {country: "USA", province: "Florida", city: "Miami"}, {country: "USA", province: "Florida", city: "Orlando"}, {country: "USA", province: "Florida", city: "Tampa"},
- {country: "USA", province: "Texas", city: "Houston"}, {country: "USA", province: "Texas", city: "Dallas"}, {country: "USA", province: "Texas", city: "Austin"},
- {country: "USA", province: "Arizona", city: "Phoenix"}, {country: "USA", province: "Arizona", city: "Tucson"},
- {country: "USA", province: "Illinois", city: "Chicago"}, {country: "USA", province: "Washington", city: "Seattle"},
- {country: "USA", province: "Pennsylvania", city: "Philadelphia"}, {country: "USA", province: "Ohio", city: "Columbus"},
- {country: "USA", province: "North Carolina", city: "Charlotte"}, {country: "USA", province: "Georgia", city: "Atlanta"},
-];
+var locationsData = (window.locationsData && window.locationsData.length)
+  ? window.locationsData
+  : [];
+var seniorFacilities = (window.seniorFacilities && window.seniorFacilities.length)
+  ? window.seniorFacilities
+  : [];
+var regionIndex = (window.SHH_SILVER_LOCATIONS && window.SHH_SILVER_LOCATIONS.regionIndex)
+  ? window.SHH_SILVER_LOCATIONS.regionIndex
+  : [];
+window.facilitiesData = seniorFacilities;
 
-const seniorFacilities = [
- {id: 1, name: "Maple Grove Retirement Villa", location: "Toronto, Ontario", type: "Retirement Home", capacity: "120 seniors", specialties: "Memory care, independent living"},
- {id: 2, name: "Sunrise Senior Villas", location: "Vancouver, British Columbia", type: "Senior Living Community", capacity: "85 seniors", specialties: "Garden walks, bingo nights"},
- {id: 3, name: "Golden Heart Manor", location: "Calgary, Alberta", type: "Assisted Living", capacity: "65 seniors", specialties: "Pet friendly, afternoon tea"},
- {id: 4, name: "Harbor View Senior Residences", location: "Halifax, Nova Scotia", type: "Retirement Home", capacity: "95 seniors", specialties: "Music therapy, raffles"},
- {id: 5, name: "Desert Rose Villas", location: "Phoenix, Arizona", type: "Senior Community", capacity: "200 seniors", specialties: "Outdoor patios, lunches"},
- {id: 6, name: "Evergreen Senior Living", location: "Seattle, Washington", type: "Memory Care + Assisted", capacity: "110 seniors", specialties: "Story time, gentle walks"},
- {id: 7, name: "Lakeside Retirement Villas", location: "Orlando, Florida", type: "Retirement Home", capacity: "140 seniors", specialties: "Bingo, crafts, dog visits"},
- {id: 8, name: "Oakwood Senior Villas", location: "Los Angeles, California", type: "Assisted Living", capacity: "78 seniors", specialties: "Raffles, sing-alongs"},
- {id: 9, name: "Prairie Rose Senior Home", location: "Winnipeg, Manitoba", type: "Senior Residence", capacity: "55 seniors", specialties: "Lunch clubs, gentle petting"},
- {id: 10, name: "Blue Ridge Senior Villas", location: "Charlotte, North Carolina", type: "Retirement Community", capacity: "130 seniors", specialties: "Memory sharing, bingo"},
- // Expanded list - way more for richer search experience across US & Canada
- {id: 11, name: "Sunshine Horizons", location: "Miami, Florida", type: "Assisted Living", capacity: "95 seniors", specialties: "Ocean views, music therapy, pet visits"},
- {id: 12, name: "Riverbend Manor", location: "Chicago, Illinois", type: "Retirement Home", capacity: "160 seniors", specialties: "River walks, art classes, dog therapy"},
- {id: 13, name: "Lone Star Villas", location: "Houston, Texas", type: "Senior Living Community", capacity: "180 seniors", specialties: "Garden courtyards, bingo, gentle yoga"},
- {id: 14, name: "Cactus Bloom Residences", location: "Tucson, Arizona", type: "Memory Care", capacity: "70 seniors", specialties: "Desert gardens, music, animal visits"},
- {id: 15, name: "Golden Gate Senior Villas", location: "San Francisco, California", type: "Independent Living", capacity: "110 seniors", specialties: "Bay views, cultural programs, therapy dogs"},
- {id: 16, name: "Liberty Bell Manor", location: "Philadelphia, Pennsylvania", type: "Retirement Home", capacity: "140 seniors", specialties: "Historic tours, crafts, pet therapy"},
- {id: 17, name: "Alamo Heights Villas", location: "San Antonio, Texas", type: "Assisted Living", capacity: "90 seniors", specialties: "Courtyard gardens, sing-alongs, dog visits"},
- {id: 18, name: "Emerald City Living", location: "Seattle, Washington", type: "Senior Community", capacity: "125 seniors", specialties: "Parks nearby, storytelling, therapy animals"},
- {id: 19, name: "Maple Leaf Residences", location: "Montreal, Quebec", type: "Retirement Home", capacity: "105 seniors", specialties: "Bilingual programs, music, gentle petting"},
- {id: 20, name: "Rocky Mountain Villas", location: "Denver, Colorado", type: "Independent Living", capacity: "85 seniors", specialties: "Mountain views, hiking paths (gentle), bingo"},
- {id: 21, name: "Harbor Lights Manor", location: "Boston, Massachusetts", type: "Assisted Living", capacity: "115 seniors", specialties: "Waterfront walks, history talks, dog therapy"},
- {id: 22, name: "Palm Tree Villas", location: "San Diego, California", type: "Senior Living Community", capacity: "155 seniors", specialties: "Beach nearby, yoga, animal visits"},
- {id: 23, name: "Prairie Wind Residences", location: "Omaha, Nebraska", type: "Retirement Home", capacity: "75 seniors", specialties: "Open spaces, crafts, therapy dogs"},
- {id: 24, name: "Niagara Falls Villas", location: "Niagara Falls, Ontario", type: "Memory Care", capacity: "60 seniors", specialties: "Garden views, music therapy, pet programs"},
- {id: 25, name: "Big Apple Senior Homes", location: "New York City, New York", type: "Assisted Living", capacity: "200 seniors", specialties: "City programs, cultural events, dog visits"},
- {id: 26, name: "Cowboy Country Villas", location: "Dallas, Texas", type: "Senior Community", capacity: "135 seniors", specialties: "Ranch-style, line dancing (gentle), pets"},
- {id: 27, name: "Queen City Residences", location: "Cincinnati, Ohio", type: "Retirement Home", capacity: "100 seniors", specialties: "Parks, storytelling circles, therapy animals"},
- {id: 28, name: "Capital Hill Villas", location: "Washington D.C.", type: "Independent Living", capacity: "90 seniors", specialties: "Monuments nearby, history, pet therapy"},
- {id: 29, name: "Wild Rose Manor", location: "Edmonton, Alberta", type: "Assisted Living", capacity: "80 seniors", specialties: "Indoor gardens, crafts, dog visits"},
- {id: 30, name: "Island Breeze Villas", location: "Honolulu, Hawaii", type: "Senior Living Community", capacity: "70 seniors", specialties: "Ocean breezes, music, gentle petting"},
- {id: 31, name: "Rocky Shore Residences", location: "Portland, Maine", type: "Retirement Home", capacity: "65 seniors", specialties: "Coastal walks, storytelling, therapy dogs"},
- {id: 32, name: "Great Lakes Villas", location: "Detroit, Michigan", type: "Memory Care", capacity: "55 seniors", specialties: "Lakeside views, music therapy, animal visits"},
- {id: 33, name: "Desert Oasis Manor", location: "Las Vegas, Nevada", type: "Senior Community", capacity: "120 seniors", specialties: "Pools (gentle), entertainment, pet programs"},
- {id: 34, name: "Canuck Place Villas", location: "Ottawa, Ontario", type: "Assisted Living", capacity: "95 seniors", specialties: "Capital tours, crafts, therapy dogs"},
- {id: 35, name: "Bayou Bend Residences", location: "New Orleans, Louisiana", type: "Retirement Home", capacity: "85 seniors", specialties: "Music, culture, gentle animal visits"},
- {id: 36, name: "Liberty Manor", location: "Atlanta, Georgia", type: "Retirement Home", capacity: "115 seniors", specialties: "Historic district, music therapy, pet visits"},
- {id: 37, name: "Buckeye Villas", location: "Columbus, Ohio", type: "Assisted Living", capacity: "80 seniors", specialties: "Parks, crafts, therapy dogs"},
- {id: 38, name: "Twin Cities Living", location: "Minneapolis, Minnesota", type: "Senior Community", capacity: "100 seniors", specialties: "Lakes, cultural events, animal therapy"},
- {id: 39, name: "Heartland Villas", location: "Kansas City, Missouri", type: "Retirement Home", capacity: "90 seniors", specialties: "Gardens, bingo, gentle pet programs"},
- {id: 40, name: "River City Residences", location: "Richmond, Virginia", type: "Assisted Living", capacity: "70 seniors", specialties: "River views, history, dog visits"},
- {id: 41, name: "Peach State Villas", location: "Jacksonville, Florida", type: "Senior Living Community", capacity: "125 seniors", specialties: "Beaches nearby, music, therapy animals"},
- {id: 42, name: "Mile High Manor", location: "Denver, Colorado", type: "Memory Care", capacity: "60 seniors", specialties: "Mountain air, storytelling, pet therapy"},
- {id: 43, name: "Emerald City Homes", location: "Portland, Oregon", type: "Independent Living", capacity: "95 seniors", specialties: "Forests, yoga, animal visits"},
- {id: 44, name: "Big Easy Villas", location: "New Orleans, Louisiana", type: "Retirement Home", capacity: "85 seniors", specialties: "Jazz, culture, dog programs"},
- {id: 45, name: "Motor City Residences", location: "Detroit, Michigan", type: "Assisted Living", capacity: "75 seniors", specialties: "Museums, crafts, therapy dogs"},
- {id: 46, name: "Sunshine State Villas", location: "Tampa, Florida", type: "Senior Community", capacity: "130 seniors", specialties: "Gulf views, bingo, pet visits"},
- {id: 47, name: "Buckeye State Living", location: "Cleveland, Ohio", type: "Retirement Home", capacity: "80 seniors", specialties: "Lakes, music therapy, gentle animals"},
- {id: 48, name: "Queen City Villas", location: "Charlotte, North Carolina", type: "Assisted Living", capacity: "105 seniors", specialties: "Gardens, storytelling, dog therapy"},
- {id: 49, name: "Twin Peaks Residences", location: "San Francisco, California", type: "Senior Living Community", capacity: "90 seniors", specialties: "Views, cultural, pet programs"},
- {id: 50, name: "Alamo Villas", location: "San Antonio, Texas", type: "Retirement Home", capacity: "110 seniors", specialties: "Historic, crafts, therapy visits"},
- {id: 51, name: "Riverwalk Manor", location: "Austin, Texas", type: "Independent Living", capacity: "85 seniors", specialties: "Live music, gardens, animal therapy"},
- {id: 52, name: "Capital Villas", location: "Sacramento, California", type: "Assisted Living", capacity: "70 seniors", specialties: "Parks, history, dog visits"},
- {id: 53, name: "Maple City Homes", location: "Indianapolis, Indiana", type: "Retirement Home", capacity: "95 seniors", specialties: "Downtown, bingo, pet therapy"},
- {id: 54, name: "Desert Star Villas", location: "Albuquerque, New Mexico", type: "Senior Community", capacity: "65 seniors", specialties: "Views, crafts, therapy animals"},
- {id: 55, name: "Prairie State Residences", location: "Springfield, Illinois", type: "Memory Care", capacity: "55 seniors", specialties: "Open land, music, gentle pet programs"},
- {id: 56, name: "Ocean Breeze Villas", location: "Virginia Beach, Virginia", type: "Retirement Home", capacity: "100 seniors", specialties: "Beach access, yoga, dog visits"},
-];
+(function updateCoverageHint() {
+  var el = document.getElementById('location-coverage-hint');
+  var st = window.SHH_SILVER_LOCATIONS && window.SHH_SILVER_LOCATIONS.stats;
+  if (el && st) {
+    el.textContent = st.provinces + ' provinces/territories · ' + st.states + ' states · ' +
+      st.cities.toLocaleString() + ' cities · ' + st.facilities.toLocaleString() +
+      ' homes/villas (design directory until partners go live)';
+  }
+})();
 
 const silverDogs = [
  {id: "luna", name: "Luna", breed: "Golden Retriever", age: "6", story: "Rescued from a shelter after her owner passed. Now brings calm and joy to seniors every week.", visits: 142, personality: "Gentle, loves ear scratches and being read to"},
@@ -1276,53 +1218,92 @@ function filterLocations() {
  const container = document.getElementById('location-results');
  if (!container) return;
  container.innerHTML = '';
- 
- let filtered = locationsData;
- 
+
+ let filtered = locationsData.slice();
+ let regions = regionIndex.slice();
+
  if (currentFilters.country !== 'all') {
  filtered = filtered.filter(loc => loc.country === currentFilters.country);
+ regions = regions.filter(loc => loc.country === currentFilters.country);
  }
- 
+
  if (query) {
- filtered = filtered.filter(loc => 
- loc.city.toLowerCase().includes(query) || 
+ filtered = filtered.filter(loc =>
+ loc.city.toLowerCase().includes(query) ||
  loc.province.toLowerCase().includes(query) ||
  loc.country.toLowerCase().includes(query)
  );
+ regions = regions.filter(loc =>
+ loc.province.toLowerCase().includes(query) ||
+ loc.country.toLowerCase().includes(query)
+ );
+ } else {
+ /* No query: show a sample of regions first so the list feels complete */
+ regions = regions.slice(0, 20);
+ filtered = filtered.slice(0, 40);
  }
- 
- const shown = filtered.slice(0, 8);
- 
+
+ /* Regions (province/state) first when searching, then cities */
+ const combined = [];
+ const seen = new Set();
+ regions.forEach(function (r) {
+ const key = 'R:' + r.country + r.province;
+ if (seen.has(key)) return;
+ seen.add(key);
+ combined.push(r);
+ });
+ filtered.forEach(function (loc) {
+ const key = loc.country + '|' + loc.province + '|' + loc.city;
+ if (seen.has(key)) return;
+ seen.add(key);
+ combined.push(loc);
+ });
+
+ const shown = combined.slice(0, 48);
+
  if (shown.length === 0) {
- container.innerHTML = `<div class="text-xs text-zinc-400 px-2 py-1">No matches. Try a major city or province/state.</div>`;
+ container.innerHTML = `<div class="text-xs text-zinc-400 px-2 py-1">No matches. Try a city, province, or state name.</div>`;
  return;
  }
- 
+
  const frag = document.createDocumentFragment();
  shown.forEach(loc => {
  const item = document.createElement('div');
- item.className = 'px-3 py-1.5 rounded-xl hover:bg-white/5 cursor-pointer flex justify-between text-sm';
+ item.className = 'px-3 py-1.5 rounded-xl hover:bg-white/5 cursor-pointer flex justify-between text-sm gap-2';
+ const label = loc.isRegion
+   ? `<span><strong>${loc.province}</strong> <span class="text-[10px] opacity-60">(${loc.regionType === 'state' ? 'state' : 'province'})</span></span>`
+   : `<span>${loc.city}, ${loc.province}</span>`;
  item.innerHTML = `
- <span>${loc.city}, ${loc.province}</span>
- <span class="text-xs text-emerald-400/70">${loc.country}</span>
+ ${label}
+ <span class="text-xs text-emerald-400/70 shrink-0">${loc.country}</span>
  `;
  item.onclick = () => selectLocation(loc);
  frag.appendChild(item);
  });
+ if (combined.length > shown.length) {
+ const more = document.createElement('div');
+ more.className = 'text-[10px] text-zinc-500 px-2 py-1';
+ more.textContent = 'Showing ' + shown.length + ' of ' + combined.length + ' matches. Keep typing to narrow.';
+ frag.appendChild(more);
+ }
  container.appendChild(frag);
 }
 
 function selectLocation(loc) {
  const input = document.getElementById('location-search');
- if (input) input.value = `${loc.city}, ${loc.province}`;
- 
- // Also filter facilities in same area if possible
- const facInput = document.getElementById('facility-search');
- // Show relevant facilities
+ if (input) {
+   input.value = loc.isRegion
+     ? loc.province + (loc.country === 'USA' ? ' (state)' : ' (province)')
+     : `${loc.city}, ${loc.province}`;
+ }
+
  filterFacilities(loc);
- 
- // Nice toast feedback
- showToast(`Searching senior homes near ${loc.city}...`);
+
+ if (loc.isRegion) {
+   showToast(`Showing homes across ${loc.province}...`);
+ } else {
+   showToast(`Searching senior homes near ${loc.city}...`);
+ }
 }
 
 const debouncedFilterFacilities = debounce(filterFacilities, 150);
@@ -1333,41 +1314,69 @@ function filterFacilities(preferredLocation = null) {
  const container = document.getElementById('facility-results');
  if (!container) return;
  container.innerHTML = '';
- 
- let filtered = seniorFacilities;
- 
+
+ let filtered = seniorFacilities.slice();
+
  if (query) {
- filtered = filtered.filter(f => 
- f.name.toLowerCase().includes(query) || 
+ filtered = filtered.filter(f =>
+ f.name.toLowerCase().includes(query) ||
  f.location.toLowerCase().includes(query) ||
+ (f.province && f.province.toLowerCase().includes(query)) ||
+ (f.city && f.city.toLowerCase().includes(query)) ||
+ (f.country && f.country.toLowerCase().includes(query)) ||
  f.type.toLowerCase().includes(query)
  );
  }
- 
+
  if (preferredLocation) {
- const locStr = preferredLocation.city.toLowerCase();
- const matched = filtered.filter(f => f.location.toLowerCase().includes(locStr));
- if (matched.length) filtered = matched;
+ if (preferredLocation.isRegion) {
+   const prov = preferredLocation.province.toLowerCase();
+   const matched = filtered.filter(f =>
+     (f.province && f.province.toLowerCase() === prov) ||
+     f.location.toLowerCase().includes(prov)
+   );
+   if (matched.length) filtered = matched;
+ } else {
+   const locStr = preferredLocation.city.toLowerCase();
+   const prov = (preferredLocation.province || '').toLowerCase();
+   let matched = filtered.filter(f =>
+     (f.city && f.city.toLowerCase() === locStr) ||
+     f.location.toLowerCase().includes(locStr)
+   );
+   if (!matched.length && prov) {
+     matched = filtered.filter(f =>
+       (f.province && f.province.toLowerCase() === prov) ||
+       f.location.toLowerCase().includes(prov)
+     );
+   }
+   if (matched.length) filtered = matched;
  }
- 
- const shown = filtered.slice(0, 6);
- 
+ }
+
+ const shown = filtered.slice(0, 40);
+
  if (shown.length === 0) {
- container.innerHTML = `<div class="text-xs px-2 py-1 text-zinc-400">No homes found. Try “Villa” or a city name.</div>`;
+ container.innerHTML = `<div class="text-xs px-2 py-1 text-zinc-400">No homes found. Try a city, state, province, or “Villa”.</div>`;
  return;
  }
- 
+
  const frag = document.createDocumentFragment();
  shown.forEach(fac => {
  const item = document.createElement('div');
- item.className = 'px-3 py-2 rounded-xl hover:bg-emerald-900/10 cursor-pointer text-sm border-l-2 border-emerald-400/30 pl-3';
+ item.className = 'px-3 py-2 rounded-xl hover:bg-white/5 cursor-pointer text-sm border-l-2 border-white/20 pl-3';
  item.innerHTML = `
  <div class="font-medium">${fac.name}</div>
- <div class="text-xs text-emerald-300/70">${fac.location} • ${fac.type}</div>
+ <div class="text-xs text-zinc-400">${fac.location} · ${fac.type}${fac.design ? ' · design listing' : ''}</div>
  `;
  item.onclick = () => selectFacility(fac);
  frag.appendChild(item);
  });
+ if (filtered.length > shown.length) {
+   const more = document.createElement('div');
+   more.className = 'text-[10px] text-zinc-500 px-2 py-1';
+   more.textContent = 'Showing ' + shown.length + ' of ' + filtered.length + ' homes. Narrow with a city name.';
+   frag.appendChild(more);
+ }
  container.appendChild(frag);
 }
 
@@ -1381,12 +1390,17 @@ function selectFacility(fac) {
 }
 
 // Render the main Silver Paws grid (dogs + homes)
+// Full directory is searchable above; grid shows a featured slice so the page stays fast
 function renderSilverGrid(filtered = null) {
  const container = document.getElementById('silver-grid');
  if (!container) return;
  container.innerHTML = '';
- 
- const items = filtered || [...silverDogs.map(d => ({type: 'dog', ...d})), ...seniorFacilities.map(f => ({type: 'facility', ...f}))];
+
+ const featuredHomes = seniorFacilities.slice(0, 36);
+ const items = filtered || [
+   ...silverDogs.map(d => ({ type: 'dog', ...d })),
+   ...featuredHomes.map(f => ({ type: 'facility', ...f }))
+ ];
  
  const fragment = document.createDocumentFragment();
  
@@ -1427,7 +1441,14 @@ function renderSilverGrid(filtered = null) {
  });
  
  container.appendChild(fragment);
- document.getElementById('results-count').textContent = `${items.length} hearts waiting`;
+ const totalHomes = seniorFacilities.length;
+ const totalCities = locationsData.length;
+ const countEl = document.getElementById('results-count');
+ if (countEl) {
+   countEl.textContent = filtered
+     ? `${items.length} shown`
+     : `${items.length} featured · ${totalHomes.toLocaleString()} homes · ${totalCities.toLocaleString()} cities in directory`;
+ }
 }
 
 function showVisitDetail(item) {
