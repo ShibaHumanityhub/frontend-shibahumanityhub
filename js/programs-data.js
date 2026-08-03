@@ -182,12 +182,12 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/healingheartstherapydognetworkphoto.jpg",
- shortDesc: "Trained therapy dogs bringing joy, comfort and healing to seniors, hospital patients and those who need love the most.",
+ shortDesc: "Network engine: recruit shelter dogs, train and certify them, then place into hospitals, schools, hospice, and community — seniors via Silver Paws.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Healing Hearts</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Healing Hearts Therapy Dog Network</h2>
- <p class="text-amber-200 text-xl mb-6">Trained therapy dogs spreading love, comfort and joy to elderly people, hospital patients, and anyone who needs a gentle heart to lean on.</p>
- <p class="text-zinc-300 mb-8">There is nothing quite like the healing power of a loving dog. A simple wagging tail, a warm nuzzle, or a quiet presence beside someone can brighten an entire day and lift heavy hearts.</p>
- <p class="text-zinc-300 mb-8">The Healing Hearts program will train and place gentle therapy dogs into nursing homes, hospitals, hospice care, and community programs so that more people can experience the pure love and comfort only a dog can give.</p>
+ <p class="text-amber-200 text-xl mb-6">The pipeline that turns shelter dogs into certified healing partners — multi-setting, truth-first, when funded.</p>
+ <p class="text-zinc-300 mb-6">Healing Hearts is the <strong>network engine</strong>: recruit gentle shelter dogs, train and certify them with handlers, then place them where comfort is needed — hospitals, schools, hospice, veterans halls, and community programs.</p>
+ <p class="text-zinc-300 mb-8"><strong>Clear split:</strong> Healing Hearts trains and places across settings. <a href="silver-paws.html" class="text-emerald-300 underline">Silver Paws</a> is the senior visit product (homes directory, visit packages, photographer). HH feeds certified dogs into SP for elders. No double product, one mercy.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -203,20 +203,21 @@ const programs = [ {
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Watch the beautiful bond between a therapy dog and a happy senior.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Preview motion · network model, not a live placement feed.</p>
  </div>
 
  <div class="mb-10">
  <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy • How $NIBBLES Makes This Real (when funded)</h4>
  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Hold 25,000+ $NIBBLES</strong><br>Fund training, vests, and initial placements</div>
- <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Sponsor multiple dogs and receive regular impact updates</div>
+ <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Hold 100,000+ $NIBBLES</strong><br>Sponsor multiple dogs and receive honest stage updates</div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Hold 250,000+ $NIBBLES</strong><br>Full program support with soulbound recognition and legacy features</div>
  </div>
  </div>
 
- <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">Every $NIBBLES transaction will help bring more healing tails and wagging hearts into the lives of people who need them most. One gentle visit at a time, we are proving that love really is the best medicine.</p>
+ <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">Every $NIBBLES holding that funds this network helps more healing partners reach the rooms that need them. Train. Certify. Place. Truth first.</p>
 
+ <a href="healing-hearts.html" class="block text-center mt-3 text-sm text-emerald-300 hover:text-emerald-200 underline">Open the full Healing Hearts network model → Pipeline, settings, dogs</a>
  <button onclick="sponsorProgram('healing-hearts')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Grow the Healing Hearts Therapy Dog Network</button>`
  },
  {
@@ -622,10 +623,11 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/silverpawstherapyvisitsprogramphoto.jpg",
- shortDesc: "Gentle therapy dogs bringing warm companionship and real comfort to seniors who often sit alone, healing hearts one visit at a time.",
+ shortDesc: "Senior visit product: homes directory, packages, and photographer every visit. Dogs feed from the Healing Hearts network when live.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Silver Paws</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Silver Paws Therapy Visits Program</h2>
  <p class="text-amber-200 text-xl mb-6">I keep thinking about the seniors who sit alone in rooms that have grown too quiet. Weeks, sometimes months, pass with no one to share a story or a hand to hold.</p>
+ <p class="text-zinc-400 text-sm mb-4"><strong class="text-zinc-200">Product vs network:</strong> Silver Paws runs senior visits (packages + photographer). <a href="healing-hearts.html" class="text-emerald-300 underline">Healing Hearts</a> is the multi-setting train/cert/place network that feeds dogs into SP.</p>
  <p class="text-zinc-300 mb-8">Then a gentle therapy dog walks in, looks them in the eyes, and the room begins to breathe again. These are not cute moments. They are real medicine for the soul. They ease the ache of being forgotten, bring memories back to life, and remind our elders that they are still seen, still loved, and still deeply needed in this world. The dogs we send were once the ones almost given up on. Now they get to spend their days healing human hearts, and in doing so, they heal their own.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->

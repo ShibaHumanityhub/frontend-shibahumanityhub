@@ -74,6 +74,18 @@ Files touched for one-voice honesty:
 - Features: scroll day-path, freight trackers + sponsor ribbons, AMA/carols/Santa stage, donor wall, intent form
 - Truth: preview until rails/partners/GPS/streams are real
 
+## Healing Hearts · Network model (shipped design)
+
+- Page: `healing-hearts.html` + `js/healing-hearts-experience.js`
+- Split: **HH** = train/cert/place multi-setting network; **Silver Paws** = senior visit product (+ photographer)
+- Panels: Heart · Pipeline · Settings · Dogs · Network · Split/more
+- Truth: demo lanes/chapters only until partners + funding
+
+## Silver Paws · Senior product (elevated)
+
+- Page: `silver-paws.html` + experience + locations directory
+- Always-on visit photographer; click panels not full-page scroll
+
 ## P1 next (when you say go)
 
 1. Wire real X Space / stream links when season dates lock

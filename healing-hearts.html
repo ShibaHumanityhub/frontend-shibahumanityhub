@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style id="critical-shell">
+ html { background-color: #0a0c12; color-scheme: dark; }
+ </style>
+ <link rel="stylesheet" href="assets/css/tailwind.css">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Shibahumanityhub">
+ <meta name="keywords" content="healing hearts, therapy dog network, train certify place, hospital therapy dogs, school therapy dogs, hospice dogs, NIBBLES, silver paws pipeline, shelter dogs healing">
+
+ <title>Healing Hearts • Therapy Dog Network • Train · Certify · Place</title>
+
+ <meta name="description" content="Healing Hearts is the therapy-dog network: recruit shelter dogs, train and certify them, then place into hospitals, schools, hospice, community programs — and feed Silver Paws for senior visits. Powered by $NIBBLES when funded.">
+
+ <meta property="og:title" content="Healing Hearts • Therapy Dog Network on Shibarium">
+ <meta property="og:description" content="Train. Certify. Place. Multi-setting therapy dogs from shelter to hospital, school, hospice — and Silver Paws for seniors.">
+ <meta property="og:image" content="https://shibahumanityhub.com/assets/images/healingheartstherapydognetworkphoto.jpg">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://shibahumanityhub.com/healing-hearts.html">
+
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="Healing Hearts Therapy Dog Network">
+ <meta name="twitter:description" content="The pipeline that turns shelter dogs into certified healing partners across settings.">
+ <meta name="twitter:image" content="https://shibahumanityhub.com/assets/images/healingheartstherapydognetworkphoto.jpg">
+
+ <link rel="canonical" href="https://shibahumanityhub.com/healing-hearts.html">
+ <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+ <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+ <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+ <script src="js/shared-animations.js" defer></script>
+ <script src="js/glossary.js" defer></script>
+ <script src="js/healing-hearts-experience.js" defer></script>
+
+ <style>
+ :root {
+  --hh-ink: #0a0c12;
+  --hh-panel: #120e14;
+  --hh-rose: #f0a8b8;
+  --hh-coral: #e88b9a;
+  --hh-blush: #ffe8ed;
+  --hh-line: rgba(240, 168, 184, 0.3);
+  --hh-line-strong: rgba(255, 214, 222, 0.48);
+  --hh-emerald: #6ee7b7;
+  --hh-text: #fff5f7;
+  --hh-muted: #d4a8b4;
+ }
+ * { box-sizing: border-box; }
+ html { scroll-behavior: smooth; }
+ body {
+  margin: 0; padding: 0; overflow-x: hidden;
+  background:
+    radial-gradient(ellipse 120% 70% at 50% -10%, rgba(240, 168, 184, 0.1), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 40%, rgba(110, 231, 183, 0.05), transparent 50%),
+    radial-gradient(ellipse 45% 35% at 0% 70%, rgba(232, 139, 154, 0.05), transparent 45%),
+    linear-gradient(180deg, #0a0c12 0%, #100c12 45%, #0a0c12 100%);
+  color: var(--hh-text);
+  font-family: 'Inter', system-ui, sans-serif;
+ }
+ nav.bg-black\/95,
+ nav[class*="bg-black"] {
+  background: rgba(10, 12, 18, 0.94) !important;
+  border-bottom-color: var(--hh-line) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 12px 40px -20px rgba(0,0,0,0.8);
+ }
+ nav .border-emerald-400\/70,
+ nav .border-emerald-500\/30 { border-color: rgba(240, 168, 184, 0.45) !important; }
+ nav a.hover\:text-amber-400:hover,
+ nav a.hover\:text-emerald-400:hover { color: var(--hh-blush) !important; }
+
+ .hero-bg {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(240, 168, 184, 0.16), transparent 58%),
+    radial-gradient(ellipse 50% 40% at 85% 70%, rgba(110, 231, 183, 0.07), transparent 50%),
+    linear-gradient(180deg, #140e14 0%, #0c0a10 55%, #0a0c12 100%);
+  border-bottom: 1px solid var(--hh-line);
+  position: relative;
+ }
+ .hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 214, 222, 0.04) 42%, transparent 55%);
+  animation: hh-sheen 10s ease-in-out infinite;
+ }
+ @keyframes hh-sheen {
+  0%, 100% { opacity: 0.35; transform: translateX(-6%); }
+  50% { opacity: 0.75; transform: translateX(6%); }
+ }
+
+ .section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #fff 0%, #f0a8b8 42%, #ffe8ed 58%, #6ee7b7 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hh-title 10s ease infinite;
+ }
+ @keyframes hh-title {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+ }
+
+ .hh-card {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid var(--hh-line);
+  background:
+    linear-gradient(155deg, rgba(240, 168, 184, 0.08) 0%, transparent 38%),
+    linear-gradient(165deg, #1a1218 0%, #100c12 55%, #0a0c12 100%);
+  box-shadow: 0 20px 50px -24px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.06);
+ }
+ .hh-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--hh-line-strong);
+  box-shadow: 0 28px 60px -20px rgba(0,0,0,0.7), 0 0 40px -12px rgba(232, 139, 154, 0.25);
+ }
+
+ .hh-sig {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255, 232, 237, 0.8);
+  padding: 0.4rem 0.85rem; border-radius: 999px;
+  border: 1px solid rgba(240, 168, 184, 0.4);
+  background: linear-gradient(145deg, rgba(240, 168, 184, 0.12), rgba(110, 231, 183, 0.06));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 0 24px rgba(240, 168, 184, 0.12);
+ }
+ .hh-sig b {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #f0a8b8; box-shadow: 0 0 10px #f0a8b8;
+  animation: hh-pulse 1.6s ease infinite;
+ }
+ @keyframes hh-pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+ .hh-rect {
+  background: linear-gradient(145deg, rgba(240, 168, 184, 0.1), rgba(110, 231, 183, 0.05));
+  border: 1px solid var(--hh-line-strong);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 12px 32px -16px rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+ }
+
+ .pay-forward-nav { color: #f9a8d4; position: relative; }
+ .pay-forward-nav:hover { color: #fb7185; text-shadow: 0 0 8px rgba(251,113,133,0.5); }
+ .chain-heart { display: inline-block; animation: heart-beat 1.3s ease-in-out infinite; filter: drop-shadow(0 0 4px rgba(251,113,133,0.4)); }
+ @keyframes heart-beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.35)} }
+
+ #mobile-menu { display: none; font-family: 'Inter', system-ui, sans-serif; }
+ #mobile-menu:not(.hidden) { display: block; }
+
+ .hh-bg-layer {
+  position: fixed; inset: 0; pointer-events: none; z-index: -2;
+  opacity: 0.08;
+  background-image:
+    url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2224%22 fill=%22%23f0a8b8%22 opacity=%220.4%22>♥</text><text x=%22170%22 y=%22190%22 font-size=%2220%22 fill=%22%236ee7b7%22 opacity=%220.25%22>🐾</text><text x=%22230%22 y=%2290%22 font-size=%2216%22 fill=%22%23ffe8ed%22 opacity=%220.3%22>✦</text></svg>');
+  background-size: 280px 280px;
+  animation: hh-drift 48s linear infinite;
+ }
+ @keyframes hh-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 280px 280px; }
+ }
+
+ footer {
+  background: #060508 !important;
+  border-top: 1px solid var(--hh-line) !important;
+  color: var(--hh-muted) !important;
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+  .section-title, .hero-bg::before, .hh-bg-layer, .hh-sig b, .chain-heart { animation: none !important; }
+ }
+ </style>
+</head>
+<body>
+
+<!-- AUTHENTICITY NOTE -->
+<div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
+ <div class="pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl border border-rose-400/30 bg-zinc-950/90 text-rose-100/90 shadow-xl backdrop-blur">
+ <strong class="text-rose-300">Authenticity:</strong> Pipeline lanes, chapters, and dog tracks are design demos. No live placements or partner contracts are issued from this page yet.
+ <button type="button" class="ml-2 underline text-rose-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
+ </div>
+</div>
+
+<!-- NAV -->
+<nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-emerald-500/30">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+ <a href="index.html" class="flex items-center gap-3 group">
+ <div class="logo-3d-wrapper w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-emerald-400/70 shadow-2xl transition-transform group-hover:scale-105">
+ <video
+ src="assets/videos/shibahumanityhub-logo-animated.mp4"
+ autoplay loop muted playsinline preload="metadata"
+ poster="assets/logos/shibahumanityhublogo3d-new.jpg"
+ width="96" height="96" aria-hidden="true"
+ class="w-full h-full object-cover">
+ </video>
+ </div>
+ <span class="hidden sm:block text-xl sm:text-2xl font-bold tracking-[-1.2px] bg-gradient-to-r from-rose-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+ </a>
+
+ <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+ <a href="index.html" class="hover:text-amber-400 transition-colors">Flywheel</a>
+
+ <div class="relative" id="programs-dropdown">
+ <a href="all-programs.html" onclick="toggleProgramsDropdown(event)" class="hover:text-emerald-400 transition-colors flex items-center gap-1 group/nav">
+ <span>Programs</span>
+ <i class="fa-solid fa-chevron-down text-[10px]" id="programs-chevron"></i>
+ </a>
+ <div id="programs-menu"
+ class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[280px] z-[60] shadow-2xl overflow-hidden">
+ <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-rose-300/70 font-medium border-b border-white/10 mb-1">
+ <span>THE CIRCLE OF MERCY</span>
+ </div>
+ <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors">
+ <span class="text-amber-400/80">◉</span><span>All 30 Programs</span>
+ </a>
+ <a href="healing-hearts.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors bg-white/5">
+ <span class="text-rose-300">♥</span><span>Healing Hearts • Network</span>
+ </a>
+ <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors">
+ <span class="text-[#c0c0c0]">🐾</span><span>Silver Paws • Senior Visits</span>
+ </a>
+ <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors">
+ <span class="text-amber-400/80">◆</span><span>K9 Lifeline • Disaster SAR</span>
+ </a>
+ <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors">
+ <span class="text-amber-400/80">❤️</span><span>Golden Years • Companions</span>
+ </a>
+ <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors">
+ <span class="chain-heart text-base">🔗❤️</span><span>Pay It Forward</span>
+ </a>
+ </div>
+ </div>
+
+ <a href="pay-it-forward.html" class="pay-forward-nav flex items-center gap-1.5 font-medium">
+ <span>Pay It Forward</span><span class="chain-heart text-lg leading-none">🔗❤️</span>
+ </a>
+ <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium">Beautiful Souls</a>
+ <a href="silver-paws.html" class="hover:text-rose-300 transition-colors font-medium hidden lg:inline">Silver Paws</a>
+ </div>
+
+ <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu">
+ <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+ </button>
+
+ <a href="all-programs.html" class="inline-flex items-center gap-2.5 px-5 py-3 text-sm sm:text-base font-bold rounded-full bg-gradient-to-r from-rose-200 via-rose-300 to-emerald-200 text-zinc-900 shadow-lg shadow-rose-500/20">
+ Support Healing Hearts <i class="fa-solid fa-heart text-lg"></i>
+ </a>
+ </div>
+</nav>
+
+<div class="hh-bg-layer" aria-hidden="true"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 110px;">
+ <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
+ <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 hover:bg-white/5 rounded-xl">◉ All 30 Programs</a>
+ <a href="healing-hearts.html" class="flex items-center gap-3 px-5 py-2.5 hover:bg-white/5 rounded-xl text-rose-200">♥ Healing Hearts</a>
+ <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 hover:bg-white/5 rounded-xl">🐾 Silver Paws</a>
+ <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 hover:bg-white/5 rounded-xl">◆ K9 Lifeline</a>
+ <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 hover:bg-white/5 rounded-xl">❤️ Golden Years</a>
+ <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 hover:bg-white/5 rounded-xl">🔗❤️ Pay It Forward</a>
+ <a href="shelters.html" class="flex items-center gap-3 px-5 py-2.5 hover:bg-white/5 rounded-xl">Beautiful Souls</a>
+ <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 hover:bg-white/5 rounded-xl">Flywheel Home</a>
+ </div>
+</div>
+
+<!-- HERO -->
+<header class="hero-bg pt-28 pb-16 text-center border-b border-white/10">
+ <div class="max-w-5xl mx-auto px-6 relative z-[2]">
+ <div class="hh-sig mb-5">
+ <b></b> Network model · Preview
+ </div>
+ <div class="inline-flex items-center gap-2 hh-rect rounded-full px-4 py-2 text-[11px] tracking-[0.14em] uppercase text-rose-100/90 mb-4">
+ <span>Train</span><span class="opacity-40">·</span>
+ <span>Certify</span><span class="opacity-40">·</span>
+ <span>Place</span>
+ </div>
+ <h1 class="section-title text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-4">
+ Healing Hearts
+ <span class="block text-2xl sm:text-3xl md:text-4xl mt-2 opacity-95">Therapy Dog Network</span>
+ </h1>
+ <p class="mt-6 text-lg sm:text-xl text-rose-100/80 max-w-2xl mx-auto leading-relaxed">
+ Shelter dogs become certified healing partners — for hospitals, schools, hospice, community halls, and veterans spaces. Seniors run through <a href="silver-paws.html" class="underline text-rose-200 hover:text-white">Silver Paws</a>, the visit product. This page is the network engine.
+ </p>
+ <p class="mt-4 text-sm text-rose-200/50 max-w-xl mx-auto">
+ Seed focus when funding lands. Lanes and chapters below are design demos — truth first.
+ </p>
+ <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+ <a href="#hhx-board" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-zinc-900 bg-gradient-to-r from-rose-200 via-rose-300 to-emerald-200 shadow-lg shadow-rose-500/25">
+ Open the board
+ </a>
+ <a href="silver-paws.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold border border-rose-300/40 text-rose-100 hover:bg-white/5">
+ Silver Paws product →
+ </a>
+ </div>
+
+ <!-- Preview media -->
+ <div class="mt-12 max-w-md mx-auto hh-card rounded-3xl overflow-hidden p-2">
+ <video
+ src="assets/videos/healingheartstherapydognetwork-animated.mp4"
+ autoplay loop muted playsinline preload="none"
+ poster="assets/images/healingheartstherapydognetworkphoto.jpg"
+ aria-label="Animated preview of Healing Hearts therapy dog network"
+ class="w-full rounded-2xl">
+ </video>
+ <p class="text-xs text-rose-200/50 py-3 px-2">Preview motion · not a live placement feed</p>
+ </div>
+ </div>
+</header>
+
+<!-- Experience JS injects board + panel host after hero -->
+
+<footer class="py-14 text-center text-xs">
+ <p class="text-rose-100/80 text-sm mb-2">People helping people. Helping people.</p>
+ <p class="mb-1">Healing Hearts · Network engine · $NIBBLES when funded</p>
+ <p class="mb-4 opacity-70">© Shibahumanityhub · Truth first · Design model until partners + rails are live</p>
+ <div class="flex flex-wrap justify-center gap-4 text-sm">
+ <a href="silver-paws.html" class="underline text-rose-200/80 hover:text-white">Silver Paws</a>
+ <a href="k9-lifeline.html" class="underline text-rose-200/80 hover:text-white">K9 Lifeline</a>
+ <a href="all-programs.html" class="underline text-rose-200/80 hover:text-white">All 30 programs</a>
+ <a href="programs/healing-hearts-therapy-dog-network.html" class="underline text-rose-200/80 hover:text-white">Classic program page</a>
+ <a href="index.html" class="underline text-rose-200/80 hover:text-white">Home</a>
+ </div>
+</footer>
+
+<script>
+ function toggleMobileMenu() {
+  var m = document.getElementById('mobile-menu');
+  var icon = document.getElementById('mobile-menu-icon');
+  if (!m) return;
+  m.classList.toggle('hidden');
+  if (icon) {
+   icon.classList.toggle('fa-bars');
+   icon.classList.toggle('fa-xmark');
+  }
+ }
+ function toggleProgramsDropdown(e) {
+  if (e) e.preventDefault();
+  var menu = document.getElementById('programs-menu');
+  if (menu) menu.classList.toggle('hidden');
+ }
+ document.addEventListener('click', function (ev) {
+  var dd = document.getElementById('programs-dropdown');
+  var menu = document.getElementById('programs-menu');
+  if (dd && menu && !dd.contains(ev.target)) menu.classList.add('hidden');
+ });
+</script>
+</body>
+</html>

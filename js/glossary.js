@@ -49,9 +49,19 @@ window.SHHGlossary = {
  simple: "The other token. It mainly powers programs that help children, families, and people rebuilding their lives.",
  impact: "Holding it quietly routes support to human programs."
  },
+ "healing hearts": {
+ title: "Healing Hearts Therapy Dog Network",
+ simple: "The network engine: recruit shelter dogs, train and certify them with handlers, then place them into hospitals, schools, hospice, veterans spaces, and community programs. Seniors are served through Silver Paws, which HH feeds.",
+ impact: "One pipeline, many rooms. Dogs find purpose. People find a calm heart beside them."
+ },
+ "therapy dog network": {
+ title: "Therapy Dog Network (Healing Hearts)",
+ simple: "The multi-setting placement system: pipeline stages from recruit to support, chapters of handlers, and partner seats — design model until funded and agreements are live.",
+ impact: "Structure before scale. Truth over volume of claims."
+ },
  "silver paws": {
  title: "Silver Paws Therapy Visits",
- simple: "Gentle therapy dogs bringing warmth, stories, bingo, and real companionship to seniors in homes across North America. Every visit includes a photographer for beautiful keepsake portraits of each elder with their soul friend.",
+ simple: "The senior visit product: homes directory, visit packages (bingo, lunch, stories), and a photographer on every visit for soul-friend portraits. Dogs come from the Healing Hearts network track when live.",
  impact: "One wag at a time, loneliness fades. The photos remain. Hearts remember they still matter."
  },
  "visit photographer": {
