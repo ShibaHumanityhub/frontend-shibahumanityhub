@@ -78,8 +78,9 @@ Files touched for one-voice honesty:
 
 - Page: `healing-hearts.html` + `js/healing-hearts-experience.js`
 - Split: **HH** = train/cert/place multi-setting network; **Silver Paws** = senior visit product (+ photographer)
-- Panels: Heart · Pipeline · Settings · Dogs · Network · Split/more
-- Truth: demo lanes/chapters only until partners + funding
+- **★ Star Souls** = public roster + design gigs **inside HH** (not a 31st program). `star-souls.html` redirects to `#hhx-stars`
+- Panels: Heart · Pipeline · Settings · Star Souls · Network · Split/more
+- Truth: demo lanes/chapters/roster only until partners + funding
 
 ## Silver Paws · Senior product (elevated)
 

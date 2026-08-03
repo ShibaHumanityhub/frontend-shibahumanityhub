@@ -182,12 +182,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/healingheartstherapydognetworkphoto.jpg",
- shortDesc: "Network engine: recruit shelter dogs, train and certify them, then place into hospitals, schools, hospice, and community — seniors via Silver Paws.",
+ shortDesc: "Network engine: train, certify, place. Star Souls is the public roster face (not a separate program). Seniors via Silver Paws.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Healing Hearts</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Healing Hearts Therapy Dog Network</h2>
  <p class="text-amber-200 text-xl mb-6">The pipeline that turns shelter dogs into certified healing partners — multi-setting, truth-first, when funded.</p>
  <p class="text-zinc-300 mb-6">Healing Hearts is the <strong>network engine</strong>: recruit gentle shelter dogs, train and certify them with handlers, then place them where comfort is needed — hospitals, schools, hospice, veterans halls, and community programs.</p>
- <p class="text-zinc-300 mb-8"><strong>Clear split:</strong> Healing Hearts trains and places across settings. <a href="silver-paws.html" class="text-emerald-300 underline">Silver Paws</a> is the senior visit product (homes directory, visit packages, photographer). HH feeds certified dogs into SP for elders. No double product, one mercy.</p>
+ <p class="text-zinc-300 mb-4"><strong>★ Star Souls</strong> is the public roster and design-gig face of this network — <em>not</em> a separate program. Open it inside the full model.</p>
+ <p class="text-zinc-300 mb-8"><strong>Clear split:</strong> Healing Hearts trains and places. <a href="silver-paws.html" class="text-emerald-300 underline">Silver Paws</a> is the senior visit product. HH feeds certified dogs into SP for elders.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -217,7 +218,8 @@ const programs = [ {
 
  <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">Every $NIBBLES holding that funds this network helps more healing partners reach the rooms that need them. Train. Certify. Place. Truth first.</p>
 
- <a href="healing-hearts.html" class="block text-center mt-3 text-sm text-emerald-300 hover:text-emerald-200 underline">Open the full Healing Hearts network model → Pipeline, settings, dogs</a>
+ <a href="healing-hearts.html" class="block text-center mt-3 text-sm text-emerald-300 hover:text-emerald-200 underline">Open the full Healing Hearts network model →</a>
+ <a href="healing-hearts.html#hhx-stars" class="block text-center mt-2 text-sm text-amber-200/90 hover:text-amber-100 underline">★ Star Souls roster (inside Healing Hearts)</a>
  <button onclick="sponsorProgram('healing-hearts')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Grow the Healing Hearts Therapy Dog Network</button>`
  },
  {

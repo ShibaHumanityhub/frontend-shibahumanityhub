@@ -302,7 +302,7 @@
         '<button type="button" class="is-on" data-hhx-go="heart" role="tab" aria-selected="true">Heart</button>' +
         '<button type="button" data-hhx-go="pipeline" role="tab">Pipeline</button>' +
         '<button type="button" data-hhx-go="settings" role="tab">Settings</button>' +
-        '<button type="button" data-hhx-go="dogs" role="tab">Dogs</button>' +
+        '<button type="button" data-hhx-go="stars" role="tab">Star Souls</button>' +
         '<button type="button" data-hhx-go="network" role="tab">Network</button>' +
         '<button type="button" data-hhx-go="more" role="tab">Split &amp; more</button>' +
       '</nav>'
@@ -313,9 +313,9 @@
     var cards = [
       { go: 'pipeline', k: '01 · Engine', title: 'Pipeline', p: 'Recruit → train → certify → place → support. The network assembly line.', cta: 'See more' },
       { go: 'settings', k: '02 · Where', title: 'Settings', p: 'Hospitals, schools, hospice, veterans, community — seniors via Silver Paws.', cta: 'See more' },
-      { go: 'dogs', k: '03 · Who', title: 'Dog profiles', p: 'Temperaments and tracks. Right presence for the right room.', cta: 'See more' },
+      { go: 'stars', k: '03 · Roster', title: 'Star Souls', p: 'Public face of the network: certified dogs, design gigs, not a separate program.', cta: 'See more' },
       { go: 'network', k: '04 · Who runs it', title: 'Network', p: 'Handlers, chapters, and partner seats (design).', cta: 'See more' },
-      { go: 'more', k: '05 · Clarity', title: 'HH vs Silver Paws', p: 'Sharp split, circles of mercy, and truth labels.', cta: 'See more' }
+      { go: 'more', k: '05 · Clarity', title: 'HH · SP · Stars', p: 'Sharp split: two programs, one roster face, truth labels.', cta: 'See more' }
     ];
     return (
       '<div class="hhx-more-grid" id="hhx-more-grid" aria-label="Open a section">' +
@@ -343,7 +343,7 @@
         '<button type="button" class="hhx-mtab is-on" data-tab="heart" role="tab" aria-selected="true"><span class="ic" aria-hidden="true">♥</span>Heart</button>' +
         '<button type="button" class="hhx-mtab" data-tab="pipeline" role="tab"><span class="ic" aria-hidden="true">◎</span>Pipe</button>' +
         '<button type="button" class="hhx-mtab" data-tab="settings" role="tab"><span class="ic" aria-hidden="true">◇</span>Place</button>' +
-        '<button type="button" class="hhx-mtab" data-tab="dogs" role="tab"><span class="ic" aria-hidden="true">🐾</span>Dogs</button>' +
+        '<button type="button" class="hhx-mtab" data-tab="stars" role="tab"><span class="ic" aria-hidden="true">★</span>Stars</button>' +
         '<button type="button" class="hhx-mtab" data-tab="more" role="tab"><span class="ic" aria-hidden="true">◆</span>More</button>' +
       '</nav>'
     );
@@ -393,29 +393,55 @@
     );
   }
 
-  function dogsPanelHtml() {
-    var dogs = [
-      { name: 'Willow', tag: 'Low stim · hospital', body: 'Soft eyes, slow approach. Best for quiet wards and long sits beside a bed.', icon: '🐕' },
-      { name: 'Bear', tag: 'Steady · veterans', body: 'Solid presence without pushiness. Good for groups and hallway routes.', icon: '🐻' },
-      { name: 'Nori', tag: 'Playful calm · schools', body: 'Curious but polite. Reading-buddy energy without chaos.', icon: '🐾' },
-      { name: 'Atlas', tag: 'Hospice soft', body: 'Ultra-quiet. Thrives when the room needs stillness more than tricks.', icon: '✨' },
-      { name: 'Mabel', tag: 'Silver Paws track', body: 'Senior-home ready temperament. Routes into SP visit packages + photographer.', icon: '🤍' },
-      { name: 'Theo', tag: 'Intake · design', body: 'New shelter pull on the board. Screening first, training second.', icon: '🌱' }
+  function starsPanelHtml() {
+    /* Star Souls = public roster face of HH (not a 31st program) */
+    var stars = [
+      { name: 'Willow', tag: 'Hospital · low stim', body: 'Soft eyes, slow approach. Quiet wards and long sits beside a bed.', icon: '🐕', track: 'HH' },
+      { name: 'Bear', tag: 'Veterans · steady', body: 'Solid presence without pushiness. Groups and hallway routes.', icon: '🐻', track: 'HH' },
+      { name: 'Nori', tag: 'Schools · reading buddy', body: 'Curious but polite. Classroom energy without chaos.', icon: '🐾', track: 'HH' },
+      { name: 'Atlas', tag: 'Hospice · soft', body: 'Ultra-quiet. When the room needs stillness more than tricks.', icon: '✨', track: 'HH' },
+      { name: 'Mabel', tag: 'Seniors · Silver Paws', body: 'Senior-home ready. Routes into SP packages + photographer.', icon: '🤍', track: 'SP' },
+      { name: 'Theo', tag: 'Intake · design', body: 'New shelter pull. Screening first, training second.', icon: '🌱', track: 'HH' }
+    ];
+    var gigs = [
+      { when: 'Design · week 1', who: 'Willow', where: 'Pediatric wing (preview)', kind: 'Hospital' },
+      { when: 'Design · week 1', who: 'Nori', where: 'Elementary reading hour (preview)', kind: 'School' },
+      { when: 'Design · week 2', who: 'Mabel', where: 'Silver Paws senior visit (preview)', kind: 'Seniors' },
+      { when: 'Design · week 2', who: 'Bear', where: 'VA community hall (preview)', kind: 'Veterans' },
+      { when: 'Design · week 3', who: 'Atlas', where: 'Hospice soft visit (preview)', kind: 'Hospice' }
     ];
     return (
-      '<div class="hhx-section-head"><h2>Dog tracks (preview)</h2><p>Illustrative profiles. Real dogs appear only with shelter partners and consent.</p></div>' +
-      '<div class="hhx-dog-grid">' +
-        dogs.map(function (d) {
+      '<div class="hhx-section-head">' +
+        '<h2>★ Star Souls · roster</h2>' +
+        '<p><strong>Not a separate program.</strong> Star Souls is the public face of Healing Hearts: who is certified, where they may serve, and design gig lanes until partners are live. Seniors still run through <a href="silver-paws.html" style="color:#f4a8ba;text-decoration:underline">Silver Paws</a>.</p>' +
+      '</div>' +
+      '<div class="hhx-dog-grid" id="hhx-stars-grid">' +
+        stars.map(function (d) {
           return (
             '<button type="button" class="hhx-dog" data-dog="' + d.name + '">' +
               '<div class="avatar" aria-hidden="true">' + d.icon + '</div>' +
-              '<p class="tag">' + d.tag + '</p>' +
+              '<p class="tag">' + d.tag + ' · ' + d.track + '</p>' +
               '<h4>' + d.name + '</h4>' +
               '<p>' + d.body + '</p>' +
             '</button>'
           );
         }).join('') +
-      '</div>'
+      '</div>' +
+      '<div class="hhx-section-head" style="padding-top:.25rem">' +
+        '<h2>Design gigs</h2>' +
+        '<p>Illustrative calendar only. No live bookings. Real gigs appear when chapters, handlers, and facilities agree.</p>' +
+      '</div>' +
+      '<div class="hhx-net-list" id="hhx-gig-list">' +
+        gigs.map(function (g) {
+          return (
+            '<div class="hhx-net-row">' +
+              '<div><strong>' + g.who + ' · ' + g.kind + '</strong><br><span>' + g.where + '</span></div>' +
+              '<span class="badge">' + g.when + '</span>' +
+            '</div>'
+          );
+        }).join('') +
+      '</div>' +
+      '<p class="hhx-mtruth" style="padding-bottom:1.5rem">Star Souls brand lives here under Healing Hearts. The old standalone page redirects into this roster.</p>'
     );
   }
 
@@ -425,6 +451,7 @@
       { who: 'Chapter · Midwest Mercy', what: 'VA halls + community clinics', badge: 'Design' },
       { who: 'Chapter · Quiet Light', what: 'Hospice and palliative partners', badge: 'Design' },
       { who: 'Handler pool', what: 'Screened volunteers + pro handlers (when funded)', badge: 'Model' },
+      { who: '★ Star Souls roster', what: 'Public face of HH dogs + design gigs (not a program)', badge: 'HH surface' },
       { who: 'Silver Paws product', what: 'Senior visit ops, packages, photographer', badge: 'Live page' },
       { who: 'K9 Lifeline', what: 'Disaster SAR — different mission, shared brand mercy', badge: 'Sibling' }
     ];
@@ -445,22 +472,22 @@
 
   function morePanelHtml() {
     return (
-      '<div class="hhx-section-head"><h2>Clear split · Circles · Truth</h2><p>Two programs. One mercy. Zero confusion about who does what.</p></div>' +
+      '<div class="hhx-section-head"><h2>Clear split · Circles · Truth</h2><p>Two programs. One roster face. Zero confusion.</p></div>' +
       '<div class="hhx-split">' +
         '<div class="hhx-split-card">' +
           '<h3>♥ Healing Hearts</h3>' +
           '<ul>' +
-            '<li>Network &amp; pipeline engine</li>' +
+            '<li>Network &amp; pipeline engine (the program)</li>' +
             '<li>Train · certify · place</li>' +
             '<li>Multi-setting: hospital, school, hospice, community, veterans</li>' +
+            '<li><strong>★ Star Souls</strong> = public roster &amp; design gigs (not a separate program)</li>' +
             '<li>Feeds certified dogs into Silver Paws for seniors</li>' +
-            '<li>Handler chapters &amp; partner seats</li>' +
           '</ul>' +
         '</div>' +
         '<div class="hhx-split-card sp">' +
           '<h3>🐾 Silver Paws</h3>' +
           '<ul>' +
-            '<li>Senior visit product</li>' +
+            '<li>Senior visit product (the other program)</li>' +
             '<li>Homes directory · visit packages</li>' +
             '<li>Bingo, lunch, stories + photographer every visit</li>' +
             '<li>Soul-friend portraits seniors can keep</li>' +
@@ -485,6 +512,8 @@
 
   function goTab(id) {
     if (!id) return;
+    /* legacy aliases */
+    if (id === 'dogs') id = 'stars';
     if (id === 'network' && isMobile()) id = 'more';
     document.querySelectorAll('.hhx-panel').forEach(function (p) {
       p.classList.toggle('is-on', p.getAttribute('data-hhx-panel') === id);
@@ -558,7 +587,7 @@
     quick.innerHTML =
       '<button type="button" class="pri" data-hhx-go="pipeline">Pipeline</button>' +
       '<button type="button" data-hhx-go="settings">Settings</button>' +
-      '<button type="button" data-hhx-go="dogs">Dogs</button>' +
+      '<button type="button" data-hhx-go="stars">Star Souls</button>' +
       '<button type="button" data-hhx-go="more">Split &amp; more</button>';
 
     var moreGrid = document.createElement('div');
@@ -577,7 +606,7 @@
     host.appendChild(panel('heart', null, heartNodes));
     host.appendChild(panel('pipeline', pipelinePanelHtml()));
     host.appendChild(panel('settings', settingsPanelHtml()));
-    host.appendChild(panel('dogs', dogsPanelHtml()));
+    host.appendChild(panel('stars', starsPanelHtml()));
     if (!isMobile()) host.appendChild(panel('network', networkPanelHtml()));
     host.appendChild(panel('more', morePanelHtml() + (isMobile() ? networkPanelHtml() : '')));
   }
@@ -852,7 +881,7 @@
     if (hash.indexOf('hhx-') === 0) goTab(hash.replace('hhx-', ''));
     else if (hash === 'pipeline') goTab('pipeline');
     else if (hash === 'settings') goTab('settings');
-    else if (hash === 'dogs') goTab('dogs');
+    else if (hash === 'dogs' || hash === 'stars' || hash === 'star-souls') goTab('stars');
     else if (hash === 'network') goTab(isMobile() ? 'more' : 'network');
     else goTab('heart');
 

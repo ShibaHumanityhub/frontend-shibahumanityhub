@@ -59,6 +59,11 @@ window.SHHGlossary = {
  simple: "The multi-setting placement system: pipeline stages from recruit to support, chapters of handlers, and partner seats — design model until funded and agreements are live.",
  impact: "Structure before scale. Truth over volume of claims."
  },
+ "star souls": {
+ title: "Star Souls · Healing Hearts roster",
+ simple: "Not a separate program. Star Souls is the public face of Healing Hearts: the certified dogs, their stories, and design gig lanes. Seniors still use Silver Paws as the visit product.",
+ impact: "One network engine. One clear roster brand. Zero fake third program."
+ },
  "silver paws": {
  title: "Silver Paws Therapy Visits",
  simple: "The senior visit product: homes directory, visit packages (bingo, lunch, stories), and a photographer on every visit for soul-friend portraits. Dogs come from the Healing Hearts network track when live.",
