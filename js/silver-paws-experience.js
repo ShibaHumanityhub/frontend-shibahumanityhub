@@ -86,44 +86,124 @@
       'body.spx-ready #search > div:first-child h2,.spx-lift{letter-spacing:-.03em}',
       'body.spx-ready #search .bg-zinc-900\\/70{border-color:rgba(200,205,214,.2)!important;background:linear-gradient(160deg,rgba(15,22,36,.9),rgba(10,15,28,.95))!important}',
       'body.spx-ready .search-input:focus{border-color:rgba(200,205,214,.55)!important;box-shadow:0 0 0 3px rgba(200,205,214,.08)!important}',
-      /* Mobile shell */
-      'body.spx-mobile{padding-bottom:calc(4.4rem + env(safe-area-inset-bottom))}',
+      /* Mobile shell — app-native, dense, thumb-first */
+      'body.spx-mobile{padding-bottom:calc(4.6rem + env(safe-area-inset-bottom));overflow-x:hidden;background:#070b14!important}',
       'body.spx-mobile .spx-rail{display:none!important}',
       'body.spx-mobile > nav{display:none!important}',
-      'body.spx-mobile > footer{padding-bottom:5rem}',
+      'body.spx-mobile > footer{padding:1.5rem 1rem 6rem!important;font-size:11px!important}',
       'body.spx-mobile #mobile-menu{display:none!important}',
-      'body.spx-mobile .fixed.bottom-3{bottom:5.2rem!important}',
-      '.spx-mtop{display:none;position:sticky;top:0;z-index:70;align-items:center;justify-content:space-between;gap:.5rem;padding:.55rem .75rem;padding-top:max(.55rem,env(safe-area-inset-top));background:rgba(7,11,20,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--sp-line)}',
+      'body.spx-mobile .fixed.bottom-3{display:none!important}',
+      'body.spx-mobile .spx-progress{top:0;z-index:85}',
+      'body.spx-mobile .silver-bg-layer,body.spx-mobile .scroll-warmth{opacity:.04!important}',
+      '.spx-mtop{display:none;position:sticky;top:0;z-index:70;align-items:center;justify-content:space-between;gap:.5rem;padding:.5rem .7rem;padding-top:max(.45rem,env(safe-area-inset-top));background:rgba(7,11,20,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--sp-line)}',
       'body.spx-mobile .spx-mtop{display:flex}',
-      '.spx-mtop a{display:flex;align-items:center;gap:.45rem;text-decoration:none;color:inherit;min-width:0}',
-      '.spx-mtop img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid rgba(200,205,214,.4)}',
-      '.spx-mtop span{font-size:.68rem;font-weight:700;letter-spacing:.06em;color:#e8ecf4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
-      '.spx-mtabs{display:none;position:fixed;left:0;right:0;bottom:0;z-index:75;grid-template-columns:repeat(5,1fr);padding:.3rem .2rem calc(.3rem + env(safe-area-inset-bottom));background:rgba(7,11,20,.97);border-top:1px solid var(--sp-line);backdrop-filter:blur(16px)}',
+      '.spx-mtop a{display:flex;align-items:center;gap:.4rem;text-decoration:none;color:inherit;min-width:0}',
+      '.spx-mtop img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid rgba(200,205,214,.4)}',
+      '.spx-mtop span{font-size:.65rem;font-weight:700;letter-spacing:.05em;color:#e8ecf4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
+      '.spx-mtop .spx-live{display:inline-flex;align-items:center;gap:.28rem;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#6ee7b7;border:1px solid rgba(52,211,153,.35);background:rgba(6,78,59,.3);padding:.28rem .5rem;border-radius:999px;flex-shrink:0}',
+      '.spx-mtop .spx-live i{width:5px;height:5px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}',
+      '.spx-mtabs{display:none;position:fixed;left:0;right:0;bottom:0;z-index:75;grid-template-columns:repeat(5,1fr);padding:.28rem .15rem calc(.28rem + env(safe-area-inset-bottom));background:rgba(5,8,14,.98);border-top:1px solid var(--sp-line);backdrop-filter:blur(18px);box-shadow:0 -16px 40px rgba(0,0,0,.55)}',
       'body.spx-mobile .spx-mtabs{display:grid}',
-      '.spx-mtab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;border:0;background:transparent;color:rgba(200,205,214,.4);font-size:.5rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600;font-family:inherit;padding:.35rem .1rem;min-height:48px;cursor:pointer}',
-      '.spx-mtab .ic{font-size:1rem;line-height:1}',
-      '.spx-mtab.is-on{color:#e8ecf4}',
-      'body.spx-mobile .spx-panel{display:none;padding-bottom:1rem}',
+      '.spx-mtab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.12rem;border:0;background:transparent;color:rgba(200,205,214,.38);font-size:.48rem;letter-spacing:.03em;text-transform:uppercase;font-weight:700;font-family:inherit;padding:.3rem .05rem;min-height:50px;cursor:pointer;border-radius:.65rem;position:relative;-webkit-tap-highlight-color:transparent}',
+      '.spx-mtab .ic{font-size:1.05rem;line-height:1;opacity:.7}',
+      '.spx-mtab.is-on{color:#f1f5f9;background:rgba(200,205,214,.08)}',
+      '.spx-mtab.is-on .ic{opacity:1;filter:drop-shadow(0 0 8px rgba(52,211,153,.45))}',
+      '.spx-mtab.is-on::after{content:"";position:absolute;top:4px;width:16px;height:2px;border-radius:2px;background:linear-gradient(90deg,#94a3b8,#34d399)}',
+      'body.spx-mobile .spx-panel{display:none;padding:0 0 1.25rem;animation:spx-fade .2s ease}',
       'body.spx-mobile .spx-panel.is-on{display:block}',
-      'body.spx-mobile header.hero-bg{padding-top:4.5rem!important;padding-bottom:1.25rem!important}',
-      'body.spx-mobile header.hero-bg h1{font-size:2.4rem!important;letter-spacing:-.04em!important}',
-      'body.spx-mobile header.hero-bg .text-3xl{font-size:1.25rem!important}',
-      'body.spx-mobile header.hero-bg .text-xl{font-size:.92rem!important;line-height:1.5!important}',
-      'body.spx-mobile .spx-board{padding-top:.75rem}',
-      'body.spx-mobile .spx-visits{max-height:220px}',
-      '@media(prefers-reduced-motion:reduce){.spx-scan,.spx-bar > i{animation:none!important;transition:none!important}}'
+      '@keyframes spx-fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}',
+      /* Hero mobile: short & sharp */
+      'body.spx-mobile header.hero-bg{padding:3.6rem .75rem .85rem!important;border-bottom:1px solid rgba(200,205,214,.12)!important}',
+      'body.spx-mobile header.hero-bg .max-w-5xl{padding-top:.35rem!important;padding-left:0!important;padding-right:0!important}',
+      'body.spx-mobile header.hero-bg .inline-flex.items-center.gap-2{margin-bottom:.55rem!important;padding:.3rem .65rem!important;font-size:9px!important;letter-spacing:.14em!important}',
+      'body.spx-mobile header.hero-bg .silver-rect{padding:.35rem .7rem!important;margin-bottom:.35rem!important;border-radius:12px!important}',
+      'body.spx-mobile header.hero-bg h1{font-size:1.85rem!important;letter-spacing:-.03em!important;line-height:1!important;gap:.35rem!important}',
+      'body.spx-mobile header.hero-bg h1 .silver-paw{font-size:1.5rem!important;margin-left:0!important}',
+      'body.spx-mobile header.hero-bg .text-3xl,.body.spx-mobile header.hero-bg p.text-3xl{font-size:1.05rem!important;line-height:1.25!important;margin-top:.35rem!important}',
+      'body.spx-mobile header.hero-bg .text-xl{display:none!important}',
+      'body.spx-mobile header.hero-bg .mt-8.flex{display:none!important}',
+      'body.spx-mobile header.hero-bg .mt-9{margin-top:.65rem!important;gap:.4rem!important}',
+      'body.spx-mobile header.hero-bg .mt-9 a{padding:.65rem .9rem!important;font-size:.82rem!important;border-radius:999px!important;flex:1 1 auto;justify-content:center}',
+      'body.spx-mobile header.hero-bg .mt-4{display:none!important}',
+      'body.spx-mobile .spx-mlede{font-size:.86rem;line-height:1.45;color:rgba(226,232,240,.85);margin:.45rem 0 .55rem;padding:0 .1rem}',
+      /* Board mobile compact */
+      'body.spx-mobile .spx-board{padding:.55rem .7rem 0}',
+      'body.spx-mobile .spx-hud{padding:.85rem .75rem .9rem;border-radius:1rem}',
+      'body.spx-mobile .spx-title{font-size:1.15rem!important;margin-bottom:.25rem}',
+      'body.spx-mobile .spx-lede{font-size:.8rem;margin-bottom:.65rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}',
+      'body.spx-mobile .spx-meters{gap:.35rem;margin-bottom:.65rem}',
+      'body.spx-mobile .spx-meter{padding:.5rem .45rem;border-radius:.7rem}',
+      'body.spx-mobile .spx-meter b{font-size:1rem}',
+      'body.spx-mobile .spx-meter span{font-size:.48rem}',
+      'body.spx-mobile .spx-visits{max-height:none;gap:.35rem}',
+      'body.spx-mobile .spx-visit{padding:.6rem .65rem;border-radius:.75rem}',
+      'body.spx-mobile .spx-route{font-size:.82rem}',
+      'body.spx-mobile .spx-note{font-size:.68rem}',
+      'body.spx-mobile .spx-side{padding:.7rem;margin-top:.15rem}',
+      'body.spx-mobile .spx-side h3{font-size:.9rem;margin-bottom:.35rem}',
+      'body.spx-mobile .spx-chat{min-height:56px;max-height:72px;font-size:.68rem}',
+      'body.spx-mobile .spx-cta{padding:.6rem .85rem;font-size:.78rem;min-height:42px;flex:1}',
+      'body.spx-mobile .spx-scan{display:none}',
+      'body.spx-mobile .spx-visit.is-extra{display:none}',
+      'body.spx-mobile .spx-show-more{display:block;width:100%;margin-top:.35rem;padding:.55rem;border-radius:.7rem;border:1px dashed rgba(200,205,214,.3);background:transparent;color:rgba(200,205,214,.7);font-size:.72rem;font-family:inherit;cursor:pointer}',
+      'body.spx-mobile.spx-show-all-lanes .spx-visit.is-extra{display:block}',
+      'body.spx-mobile.spx-show-all-lanes .spx-show-more{display:none}',
+      /* Sections inside panels */
+      'body.spx-mobile section{padding-left:.7rem!important;padding-right:.7rem!important;padding-top:1rem!important;padding-bottom:1rem!important}',
+      'body.spx-mobile section .section-title,body.spx-mobile section h2{font-size:1.35rem!important;letter-spacing:-.02em!important;line-height:1.15!important}',
+      'body.spx-mobile section .text-5xl{font-size:1.35rem!important}',
+      'body.spx-mobile section .text-4xl{font-size:1.25rem!important}',
+      'body.spx-mobile section .text-3xl{font-size:1.1rem!important}',
+      'body.spx-mobile section .text-lg{font-size:.88rem!important;line-height:1.45!important}',
+      'body.spx-mobile section .text-xl{font-size:.92rem!important}',
+      'body.spx-mobile #search .grid.md\\:grid-cols-2{gap:.55rem!important}',
+      'body.spx-mobile #search .rounded-3xl{padding:1rem!important;border-radius:1rem!important}',
+      'body.spx-mobile #search input{font-size:16px!important;padding:.75rem 1rem!important;border-radius:14px!important}',
+      'body.spx-mobile #location-results,body.spx-mobile #facility-results{max-height:140px!important}',
+      'body.spx-mobile #package .flex-col.lg\\:flex-row{gap:1rem!important}',
+      'body.spx-mobile #activity-grid{grid-template-columns:1fr 1fr!important;gap:.4rem!important}',
+      'body.spx-mobile #activity-grid .activity-chip,body.spx-mobile #activity-grid button{font-size:.72rem!important;padding:.55rem .45rem!important;min-height:44px}',
+      'body.spx-mobile #package-preview{min-height:44px!important;font-size:.8rem!important;position:sticky;bottom:calc(4.8rem + env(safe-area-inset-bottom));z-index:20;border:1px solid rgba(200,205,214,.25);backdrop-filter:blur(10px)}',
+      'body.spx-mobile #silver-grid,body.spx-mobile #reels-grid{grid-template-columns:1fr!important;gap:.65rem!important}',
+      'body.spx-mobile .silver-card{padding:1rem!important;border-radius:1rem!important}',
+      'body.spx-mobile #soul-search .silver-card{padding:1rem!important}',
+      'body.spx-mobile #sp-quiz-container{padding:1rem!important}',
+      'body.spx-mobile #referral-input{font-size:16px!important}',
+      'body.spx-mobile .spx-panel > section:first-child{padding-top:.75rem!important}',
+      'body.spx-mobile .spx-quick{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;padding:.65rem .7rem 0}',
+      'body.spx-mobile .spx-quick button{min-height:44px;border-radius:999px;border:1px solid rgba(200,205,214,.28);background:rgba(0,0,0,.35);color:#e8ecf4;font-size:.78rem;font-weight:700;font-family:inherit;cursor:pointer;padding:.55rem .5rem}',
+      'body.spx-mobile .spx-quick button.pri{background:linear-gradient(135deg,#e8ecf4,#c8cdd6);color:#0a0f1c;border-color:transparent}',
+      'body.spx-mobile .spx-mtruth{font-size:.6rem;line-height:1.35;color:rgba(200,205,214,.45);padding:.35rem .7rem .15rem}',
+      '@media(prefers-reduced-motion:reduce){.spx-scan,.spx-bar > i,.spx-panel{animation:none!important;transition:none!important}}'
     ].join('\n');
     document.head.appendChild(s);
   }
 
-  function boardHtml() {
+  function boardHtml(compact) {
+    var list = compact ? VISITS.slice(0, 3) : VISITS;
+    var extra = compact ? VISITS.slice(3) : [];
+    function visitCard(v, extraClass) {
+      return (
+        '<article class="spx-visit' + (extraClass || '') + '" data-vid="' + v.id + '">' +
+          '<div class="spx-visit-top">' +
+            '<span class="spx-id">' + v.id + '</span>' +
+            '<span class="spx-status">' + v.status + '</span>' +
+          '</div>' +
+          '<p class="spx-route">' + v.home + ' · ' + v.city + '</p>' +
+          '<p class="spx-note">' + v.dog + ' · ' + v.note + '</p>' +
+          '<div class="spx-bar" aria-hidden="true"><i style="width:' + v.progress + '%"></i></div>' +
+        '</article>'
+      );
+    }
     return (
       '<div class="spx-board" id="spx-board">' +
         '<div class="spx-hud">' +
           '<div class="spx-scan" aria-hidden="true"></div>' +
           '<p class="spx-kicker">Silver Paws command · $NIBBLES</p>' +
-          '<h2 class="spx-title">Visit control. Quiet tech. Real warmth.</h2>' +
-          '<p class="spx-lede">A living board for senior-home therapy routes. Design preview now. Real schedules, partner homes, and treasury credits when rails and agreements are live.</p>' +
+          '<h2 class="spx-title">' + (compact ? 'Visit control' : 'Visit control. Quiet tech. Real warmth.') + '</h2>' +
+          '<p class="spx-lede">' + (compact
+            ? 'Therapy routes for senior homes. Preview until partners and rails are live.'
+            : 'A living board for senior-home therapy routes. Design preview now. Real schedules, partner homes, and treasury credits when rails and agreements are live.') + '</p>' +
           '<div class="spx-meters">' +
             '<div class="spx-meter"><b id="spx-m-routes">6</b><span>Visit routes</span></div>' +
             '<div class="spx-meter"><b id="spx-m-homes">0</b><span>Homes in directory</span></div>' +
@@ -134,29 +214,19 @@
             '<div>' +
               '<p class="spx-kicker" style="margin-bottom:.45rem">Active visit lanes</p>' +
               '<div class="spx-visits" id="spx-visits">' +
-                VISITS.map(function (v) {
-                  return (
-                    '<article class="spx-visit" data-vid="' + v.id + '">' +
-                      '<div class="spx-visit-top">' +
-                        '<span class="spx-id">' + v.id + '</span>' +
-                        '<span class="spx-status">' + v.status + '</span>' +
-                      '</div>' +
-                      '<p class="spx-route">' + v.home + ' · ' + v.city + '</p>' +
-                      '<p class="spx-note">' + v.dog + ' · ' + v.note + ' · ' + v.team + '</p>' +
-                      '<div class="spx-bar" aria-hidden="true"><i style="width:' + v.progress + '%"></i></div>' +
-                    '</article>'
-                  );
-                }).join('') +
+                list.map(function (v) { return visitCard(v, ''); }).join('') +
+                extra.map(function (v) { return visitCard(v, ' is-extra'); }).join('') +
               '</div>' +
+              (compact ? '<button type="button" class="spx-show-more" id="spx-show-lanes">Show all 6 lanes</button>' : '') +
             '</div>' +
             '<div class="spx-side">' +
-              '<h3>Floor chatter (preview)</h3>' +
+              '<h3>Floor chatter</h3>' +
               '<div class="spx-chat" id="spx-chat" aria-live="polite"></div>' +
               '<div class="spx-cta-row">' +
-                '<a class="spx-cta spx-cta-main" href="#search">Find a home</a>' +
-                '<a class="spx-cta spx-cta-ghost" href="#soul-search">Match a dog</a>' +
+                '<button type="button" class="spx-cta spx-cta-main" data-spx-go="find">Find a home</button>' +
+                '<button type="button" class="spx-cta spx-cta-ghost" data-spx-go="match">Match a dog</button>' +
               '</div>' +
-              '<p class="spx-honest">Illustrative lanes. No live treasury credit. No fake GPS. Partner homes replace demos when agreements are real.</p>' +
+              '<p class="spx-honest">Illustrative lanes. No live treasury credit. No fake GPS.</p>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -181,24 +251,66 @@
   function mobileChromeHtml() {
     return (
       '<div class="spx-mtop">' +
-        '<a href="index.html"><img src="assets/logos/shibahumanityhublogo3d-new.jpg" alt=""><span>SILVER PAWS</span></a>' +
-        '<span style="font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(200,205,214,.7);border:1px solid rgba(200,205,214,.3);padding:.28rem .5rem;border-radius:999px">$NIBBLES</span>' +
+        '<a href="index.html"><img src="assets/logos/shibahumanityhublogo3d-new.jpg" width="30" height="30" alt=""><span>SILVER PAWS</span></a>' +
+        '<span class="spx-live"><i></i> Preview</span>' +
       '</div>' +
       '<nav class="spx-mtabs" aria-label="Silver Paws mobile">' +
-        '<button type="button" class="spx-mtab is-on" data-tab="heart"><span class="ic">♥</span>Heart</button>' +
-        '<button type="button" class="spx-mtab" data-tab="find"><span class="ic">◎</span>Find</button>' +
-        '<button type="button" class="spx-mtab" data-tab="build"><span class="ic">✦</span>Build</button>' +
-        '<button type="button" class="spx-mtab" data-tab="match"><span class="ic">🐾</span>Match</button>' +
-        '<button type="button" class="spx-mtab" data-tab="more"><span class="ic">◆</span>More</button>' +
+        '<button type="button" class="spx-mtab is-on" data-tab="heart" role="tab" aria-selected="true"><span class="ic" aria-hidden="true">♥</span>Heart</button>' +
+        '<button type="button" class="spx-mtab" data-tab="find" role="tab" aria-selected="false"><span class="ic" aria-hidden="true">◎</span>Find</button>' +
+        '<button type="button" class="spx-mtab" data-tab="build" role="tab" aria-selected="false"><span class="ic" aria-hidden="true">✦</span>Build</button>' +
+        '<button type="button" class="spx-mtab" data-tab="match" role="tab" aria-selected="false"><span class="ic" aria-hidden="true">🐾</span>Match</button>' +
+        '<button type="button" class="spx-mtab" data-tab="more" role="tab" aria-selected="false"><span class="ic" aria-hidden="true">◆</span>More</button>' +
       '</nav>'
     );
+  }
+
+  function goTab(id) {
+    if (!id) return;
+    document.querySelectorAll('.spx-panel').forEach(function (p) {
+      p.classList.toggle('is-on', p.getAttribute('data-spx-panel') === id);
+    });
+    document.querySelectorAll('.spx-mtab').forEach(function (t) {
+      var on = t.getAttribute('data-tab') === id;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    try {
+      if (history.replaceState) history.replaceState(null, '', '#spx-' + id);
+    } catch (e) { /* ignore */ }
+    window.scrollTo(0, 0);
+  }
+
+  function compactHero(hero) {
+    if (!hero) return;
+    /* Replace long desktop lede with mobile-short copy once */
+    if (hero.querySelector('.spx-mlede')) return;
+    var longP = hero.querySelector('p.mt-7, p.text-xl');
+    if (longP) {
+      var short = document.createElement('p');
+      short.className = 'spx-mlede';
+      short.textContent = 'Gentle therapy dogs for quiet rooms. Search a home. Build a visit. Two hearts heal at once.';
+      longP.parentNode.insertBefore(short, longP);
+    }
+    /* Hero CTAs become tab jumpers */
+    hero.querySelectorAll('a[href="#spx-board"], a[href="#search"]').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      a.setAttribute('href', '#');
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        if (href.indexOf('search') !== -1) goTab('find');
+        else {
+          goTab('heart');
+          var b = document.getElementById('spx-board');
+          if (b) setTimeout(function () { b.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40);
+        }
+      });
+    });
   }
 
   function wrapPanels() {
     var hero = document.querySelector('header.hero-bg');
     var board = document.getElementById('spx-board');
     var search = document.getElementById('search');
-    /* package section has no id - find by heading */
     var packageSec = null;
     document.querySelectorAll('section').forEach(function (sec) {
       if (sec.querySelector('#activity-grid') || sec.querySelector('#package-preview')) packageSec = sec;
@@ -217,7 +329,6 @@
     var circles = null;
     var angels = null;
     document.querySelectorAll('section').forEach(function (sec) {
-      var t = (sec.textContent || '').slice(0, 80);
       if (sec.querySelector('.senior-quote')) magic = sec;
       if (/Mercy Circle|Guardian Circle/.test(sec.textContent || '') && sec.querySelector('a[href*="onchain"]')) circles = sec;
       if (/Angels Who Choose|YOUR COMPANY HERE|Acme Legacy/i.test(sec.textContent || '')) {
@@ -231,6 +342,8 @@
       if (sec.querySelector('#referral-input')) referral = sec;
     });
 
+    compactHero(hero);
+
     function panel(id, nodes) {
       var p = document.createElement('div');
       p.className = 'spx-panel' + (id === 'heart' ? ' is-on' : '');
@@ -241,18 +354,29 @@
       return p;
     }
 
-    var bodyKids = [];
-    var insertBefore = document.querySelector('footer') || null;
     var host = document.createElement('div');
     host.id = 'spx-mobile-host';
 
-    var heartNodes = [hero, board, referral, magic].filter(Boolean);
+    /* Quick actions for heart */
+    var quick = document.createElement('div');
+    quick.className = 'spx-quick';
+    quick.innerHTML =
+      '<button type="button" class="pri" data-spx-go="find">Find a home</button>' +
+      '<button type="button" data-spx-go="build">Build a visit</button>' +
+      '<button type="button" data-spx-go="match">Match a dog</button>' +
+      '<button type="button" data-spx-go="more">Reels &amp; angels</button>';
+
+    var truth = document.createElement('p');
+    truth.className = 'spx-mtruth';
+    truth.textContent = 'Demo homes and visit lanes. Real partners replace this when agreements are live.';
+
+    var heartNodes = [hero, quick, board, truth, magic].filter(Boolean);
+    /* referral tucked under more so heart stays clean */
     var findNodes = [search, homes].filter(Boolean);
     var buildNodes = [packageSec].filter(Boolean);
     var matchNodes = [soul].filter(Boolean);
-    var moreNodes = [reels, circles, angels].filter(Boolean);
+    var moreNodes = [referral, reels, circles, angels].filter(Boolean);
 
-    /* Detach from current place */
     [hero, board, referral, search, packageSec, soul, homes, reels, magic, circles, angels].forEach(function (n) {
       if (n && n.parentNode) n.parentNode.removeChild(n);
     });
@@ -267,19 +391,31 @@
     if (footer) document.body.insertBefore(host, footer);
     else document.body.appendChild(host);
 
-    /* Tabs */
     document.querySelectorAll('.spx-mtab').forEach(function (tab) {
       tab.addEventListener('click', function () {
-        var id = tab.getAttribute('data-tab');
-        document.querySelectorAll('.spx-panel').forEach(function (p) {
-          p.classList.toggle('is-on', p.getAttribute('data-spx-panel') === id);
-        });
-        document.querySelectorAll('.spx-mtab').forEach(function (t) {
-          t.classList.toggle('is-on', t === tab);
-        });
-        window.scrollTo(0, 0);
+        goTab(tab.getAttribute('data-tab'));
       });
     });
+    document.querySelectorAll('[data-spx-go]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        goTab(btn.getAttribute('data-spx-go'));
+      });
+    });
+
+    var showLanes = document.getElementById('spx-show-lanes');
+    if (showLanes) {
+      showLanes.addEventListener('click', function () {
+        document.body.classList.add('spx-show-all-lanes');
+      });
+    }
+
+    /* Deep link */
+    var hash = (location.hash || '').replace(/^#/, '');
+    if (hash.indexOf('spx-') === 0) goTab(hash.replace('spx-', ''));
+    else if (hash === 'search' || hash === 'silver-homes' || hash === 'silver-grid') goTab('find');
+    else if (hash === 'package') goTab('build');
+    else if (hash === 'soul-search') goTab('match');
+    else if (hash === 'reels' || hash === 'spx-angels') goTab('more');
   }
 
   function wireBoard() {
@@ -403,6 +539,7 @@
     if (!document.body || document.getElementById('spx-board')) return;
     styles();
     document.body.classList.add('spx-ready');
+    var mobile = isMobile();
 
     /* Inject rail + board after nav */
     var nav = document.querySelector('nav');
@@ -413,30 +550,37 @@
     else document.body.insertBefore(railEl, document.body.firstChild);
 
     var boardWrap = document.createElement('div');
-    boardWrap.innerHTML = boardHtml();
+    boardWrap.innerHTML = boardHtml(mobile);
     var boardEl = boardWrap.firstChild;
     var hero = document.querySelector('header.hero-bg');
     if (hero && hero.nextSibling) document.body.insertBefore(boardEl, hero.nextSibling);
     else if (hero) hero.parentNode.insertBefore(boardEl, hero.nextSibling);
 
-    /* Mobile chrome */
-    if (isMobile()) {
+    /* Mobile chrome + panel shell */
+    if (mobile) {
       document.body.classList.add('spx-mobile');
       var chrome = document.createElement('div');
       chrome.innerHTML = mobileChromeHtml();
       while (chrome.firstChild) document.body.insertBefore(chrome.firstChild, document.body.firstChild);
-      setTimeout(wrapPanels, 50);
+      /* Wait a tick so layout paints, then rehome sections into tabs */
+      setTimeout(wrapPanels, 30);
     }
 
     wireBoard();
-    wireRail();
+    if (!mobile) wireRail();
     wireProgress();
     softLabelStories();
 
-    /* Ensure package section id for anchors */
     document.querySelectorAll('section').forEach(function (sec) {
       if (sec.querySelector('#activity-grid') && !sec.id) sec.id = 'package';
       if (sec.querySelector('#silver-grid') && !sec.id) sec.id = 'silver-homes';
+    });
+
+    /* Desktop board CTAs still work via hash; mobile uses data-spx-go after wrap */
+    document.querySelectorAll('[data-spx-go]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (document.body.classList.contains('spx-mobile')) goTab(btn.getAttribute('data-spx-go'));
+      });
     });
   }
 
@@ -446,5 +590,5 @@
     init();
   }
 
-  window.SHHSilverPawsExperience = { init: init, isMobile: isMobile };
+  window.SHHSilverPawsExperience = { init: init, isMobile: isMobile, goTab: goTab };
 })();
