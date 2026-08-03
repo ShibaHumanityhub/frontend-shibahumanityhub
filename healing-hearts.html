@@ -78,8 +78,6 @@
  body.is-scrolling .hh-aurora,
  body.is-scrolling .hero-bg::before,
  body.is-scrolling .hero-bg::after,
- body.is-scrolling .hh-media,
- body.is-scrolling .hh-media-glow,
  body.is-scrolling .hh-cta-main,
  body.is-scrolling .hh-mega,
  body.is-scrolling .section-title,
@@ -291,28 +289,41 @@
 
  .hh-media {
   position: relative;
-  max-width: 380px; margin: 0 auto;
-  border-radius: 1.5rem;
-  padding: 3px;
-  background: linear-gradient(135deg, rgba(255,232,239,0.5), rgba(110,231,183,0.3), rgba(244,168,186,0.45));
-  box-shadow: 0 24px 60px -24px rgba(0,0,0,0.8), 0 0 40px -16px rgba(244, 168, 186, 0.25);
-  contain: layout style paint;
+  max-width: min(340px, 88vw); margin: 0 auto;
+  border-radius: 1.35rem;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255,232,239,0.45), rgba(110,231,183,0.25), rgba(244,168,186,0.4));
+  box-shadow: 0 16px 40px -20px rgba(0,0,0,0.75);
+  /* isolate video paint from page scroll compositing */
+  contain: layout paint;
  }
  .hh-media-inner {
-  border-radius: calc(1.5rem - 2px);
+  border-radius: calc(1.35rem - 1px);
   overflow: hidden;
   background: #0a0810;
   position: relative;
+  transform: translateZ(0);
  }
  .hh-media-inner video {
-  display: block; width: 100%;
-  content-visibility: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Own compositor layer — stops video decode thrashing layout paint */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  pointer-events: none;
  }
- .hh-media-glow {
-  position: absolute; inset: -12%; pointer-events: none; z-index: -1;
-  background: radial-gradient(circle, rgba(244, 168, 186, 0.22), transparent 62%);
-  opacity: 0.85;
+ /* While scrolling: show poster freeze (JS also pauses decode) */
+ body.is-scrolling .hh-media-inner video {
+  visibility: hidden;
  }
+ body.is-scrolling .hh-media-inner {
+  background:
+    #0a0810
+    url('assets/images/healingheartstherapydognetworkphoto.jpg')
+    center / cover no-repeat;
+ }
+ .hh-media-glow { display: none; }
 
  .hh-card {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -373,7 +384,7 @@
   .hh-sig b, .chain-heart { animation: none !important; }
   .hh-bg-layer { opacity: 0.04; }
   .hh-aurora { display: none; }
-  .hh-media-glow { display: none; }
+  .hh-media { max-width: min(280px, 86vw); }
   /* lifeline motion stays on mobile */
  }
  @media (prefers-reduced-motion: reduce) {
@@ -541,13 +552,19 @@
  </div>
  <p class="mt-4 text-[11px] tracking-wide text-rose-200/40">High-tech pipeline board · settings · dogs · network. Demo until partners and rails are live.</p>
 
- <div class="mt-12 hh-media">
-  <div class="hh-media-glow" aria-hidden="true"></div>
+ <div class="mt-12 hh-media" id="hh-media">
   <div class="hh-media-inner">
    <video
+    id="hh-hero-video"
     src="assets/videos/healingheartstherapydognetwork-animated.mp4"
-    autoplay loop muted playsinline preload="none"
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="metadata"
     poster="assets/images/healingheartstherapydognetworkphoto.jpg"
+    disablePictureInPicture
+    disableRemotePlayback
     aria-label="Animated preview of Healing Hearts therapy dog network"
    ></video>
    <p class="text-[10px] tracking-[0.14em] uppercase text-rose-200/45 py-2.5 px-3 text-center border-t border-white/5">Preview motion · not a live placement feed</p>

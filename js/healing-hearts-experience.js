@@ -707,6 +707,87 @@
     }, { passive: true });
   }
 
+  /**
+   * Hero preview video: only decode when heart panel is on, element is in view,
+   * tab is visible, and user is not mid-scroll. Cuts the main lag source.
+   */
+  function wireHeroVideo() {
+    var vid = document.getElementById('hh-hero-video');
+    if (!vid) return;
+
+    vid.muted = true;
+    vid.playsInline = true;
+    vid.setAttribute('playsinline', '');
+    vid.setAttribute('muted', '');
+    /* Prefer low decode cost when browser supports it */
+    try {
+      if ('disableRemotePlayback' in vid) vid.disableRemotePlayback = true;
+    } catch (e) { /* ignore */ }
+
+    var inView = false;
+    var wantPlay = false;
+
+    function heartOn() {
+      var heart = document.querySelector('.hhx-panel[data-hhx-panel="heart"]');
+      /* Before panels mount, treat as on */
+      if (!heart) return true;
+      return heart.classList.contains('is-on');
+    }
+
+    function sync() {
+      wantPlay =
+        inView &&
+        heartOn() &&
+        !document.hidden &&
+        !document.body.classList.contains('is-scrolling') &&
+        !reducedMotion();
+
+      if (wantPlay) {
+        if (vid.paused) {
+          var p = vid.play();
+          if (p && typeof p.catch === 'function') p.catch(function () { /* autoplay blocked */ });
+        }
+      } else if (!vid.paused) {
+        try { vid.pause(); } catch (e2) { /* ignore */ }
+      }
+    }
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      var io = new IntersectionObserver(function (entries) {
+        inView = !!(entries[0] && entries[0].isIntersecting && entries[0].intersectionRatio > 0.15);
+        sync();
+      }, { threshold: [0, 0.15, 0.4], rootMargin: '40px 0px' });
+      io.observe(vid);
+    } else {
+      inView = true;
+    }
+
+    document.addEventListener('visibilitychange', sync);
+    /* React to panel switches + scroll freeze class */
+    var mo = new MutationObserver(sync);
+    mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    var host = document.getElementById('hhx-panel-host');
+    if (host) {
+      mo.observe(host, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    }
+
+    /* After scroll freeze ends, resume if still eligible */
+    var lastScroll = 0;
+    window.addEventListener('scroll', function () {
+      lastScroll = Date.now();
+      if (!vid.paused) {
+        try { vid.pause(); } catch (e3) { /* ignore */ }
+      }
+      setTimeout(function () {
+        if (Date.now() - lastScroll >= 120) sync();
+      }, 160);
+    }, { passive: true });
+
+    /* Delay first play a tick so layout settles */
+    setTimeout(sync, 200);
+    setTimeout(sync, 800);
+  }
+
   function injectChrome() {
     styles();
     forgeDust();
@@ -774,6 +855,9 @@
     else if (hash === 'dogs') goTab('dogs');
     else if (hash === 'network') goTab(isMobile() ? 'more' : 'network');
     else goTab('heart');
+
+    /* After panels exist so visibility + heart tab drive play/pause */
+    wireHeroVideo();
   }
 
   if (document.readyState === 'loading') {
