@@ -87,6 +87,14 @@ Files touched for one-voice honesty:
 - Page: `silver-paws.html` + experience + locations directory
 - Always-on visit photographer; click panels not full-page scroll
 
+## Golden Paws · Retirement forever homes (shipped design)
+
+- Page: `golden-paws.html` + `js/golden-paws-experience.js`
+- Lists senior **service** + **shelter** heroes; click → certified forever-home connect
+- Certified = screening checklist + program funds ($250 / $350–450 / $700+ design circles)
+- Distinct from **Golden Years** (senior people + companion dogs)
+- Truth: design roster + localStorage intent only until partners + rails
+
 ## P1 next (when you say go)
 
 1. Wire real X Space / stream links when season dates lock

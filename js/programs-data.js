@@ -383,12 +383,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/goldenpawsretirementprogram.jpg",
- shortDesc: "Retired service dogs and senior shelter heroes finally get the sofa, the love, and the peace they earned for life.",
- fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Golden Years</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+ shortDesc: "Senior service dogs and senior shelter heroes listed for certified forever homes. Screening + program funds the care when live.",
+ fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Golden Paws</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Golden Paws Retirement Program</h2>
  <p class="text-amber-200 text-xl mb-6">Too many heroic service dogs and gentle senior shelter dogs spend their final years in a cold kennel after giving everything they had.</p>
- <p class="text-zinc-300 mb-8">They deserve the sofa, the love, and the peaceful retirement they earned.</p>
- <p class="text-zinc-300 mb-8">Through Golden Paws, every retiring service dog and every senior shelter dog will get a permanent, loving, zero cost forever home. They will finally get to relax, be spoiled, and know they are deeply valued for the rest of their days.</p>
+ <p class="text-zinc-300 mb-6">They deserve the sofa, the love, and the peaceful retirement they earned.</p>
+ <p class="text-zinc-300 mb-6">Through Golden Paws, every retiring service dog and every senior shelter dog will get a permanent, loving, zero cost forever home. Families are <strong>certified</strong> through thorough screening. Program funds cover the care amounts listed below when rails are live.</p>
+ <p class="text-zinc-300 mb-8"><a href="golden-paws.html" class="text-amber-300 underline">Open the dedicated Golden Paws page</a> to browse senior heroes and submit a forever-home intent. Different from <a href="golden-years.html" class="text-emerald-300 underline">Golden Years</a> (matching senior people with companion dogs).</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -418,6 +419,7 @@ const programs = [ {
 
  <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, these quiet heroes will finally get the golden years they earned. They will rest on warm sofas, feel the sun on their faces, and know they are loved until their very last day. This is how we say thank you to the dogs who gave us everything.</p>
 
+ <a href="golden-paws.html" class="block text-center mt-3 text-sm text-amber-300 hover:text-amber-200 underline">Browse senior heroes &amp; connect a certified forever home →</a>
  <button onclick="sponsorProgram('golden-paws-retirement')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch the Golden Paws Retirement Program</button>`
  },
  {

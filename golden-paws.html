@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style id="critical-shell">
+ html { background-color: #0a0c10; color-scheme: dark; }
+ </style>
+ <link rel="stylesheet" href="assets/css/tailwind.css">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Shibahumanityhub">
+ <meta name="keywords" content="golden paws, senior service dogs, senior shelter dogs, retirement forever home, certified forever home, NIBBLES, dog retirement">
+
+ <title>Golden Paws • Senior Heroes → Certified Forever Homes</title>
+ <meta name="description" content="Golden Paws lists retiring service dogs and senior shelter dogs, then connects them to thoroughly screened forever homes. Program funds cover the care listed on the program when funded.">
+
+ <meta property="og:title" content="Golden Paws Retirement • Forever Homes for Senior Heroes">
+ <meta property="og:description" content="Browse senior service and shelter dogs. One click toward a certified forever home with screening and program-funded care.">
+ <meta property="og:image" content="https://shibahumanityhub.com/assets/images/goldenpawsretirementprogram.jpg">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://shibahumanityhub.com/golden-paws.html">
+
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="Golden Paws • Senior Heroes Forever Homes">
+ <meta name="twitter:description" content="Service retirees and senior shelter dogs. Screened homes. Program funds the care when live.">
+ <meta name="twitter:image" content="https://shibahumanityhub.com/assets/images/goldenpawsretirementprogram.jpg">
+
+ <link rel="canonical" href="https://shibahumanityhub.com/golden-paws.html">
+ <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+ <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+ <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+ <script src="js/shared-animations.js" defer></script>
+ <script src="js/glossary.js" defer></script>
+ <script src="js/golden-paws-experience.js" defer></script>
+
+ <style>
+ :root {
+  --gp-gold: #fcd34d;
+  --gp-amber: #f59e0b;
+  --gp-warm: #fde68a;
+  --gp-ink: #0a0c10;
+  --gp-line: rgba(252, 211, 77, 0.32);
+ }
+ * { box-sizing: border-box; }
+ html { scroll-behavior: auto; }
+ body {
+  margin: 0; padding: 0; overflow-x: hidden;
+  background:
+    radial-gradient(ellipse 100% 55% at 50% -8%, rgba(252, 211, 77, 0.12), transparent 52%),
+    radial-gradient(ellipse 45% 35% at 100% 40%, rgba(245, 158, 11, 0.06), transparent 50%),
+    linear-gradient(180deg, #0a0c10 0%, #12100a 45%, #0a0c10 100%);
+  color: #fff8e7;
+  font-family: 'Inter', system-ui, sans-serif;
+ }
+ nav.bg-black\/95, nav[class*="bg-black"] {
+  background: rgba(8, 8, 10, 0.96) !important;
+  border-bottom-color: var(--gp-line) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04);
+ }
+ .hero-bg {
+  background:
+    radial-gradient(ellipse 85% 50% at 50% 0%, rgba(252, 211, 77, 0.16), transparent 55%),
+    linear-gradient(180deg, #141008 0%, #0c0a08 55%, #0a0c10 100%);
+  border-bottom: 1px solid var(--gp-line);
+  position: relative;
+ }
+ .section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #fff 0%, #fde68a 35%, #fcd34d 60%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+ }
+ .gp-mega {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  font-size: clamp(2.6rem, 9vw, 5.2rem);
+  background: linear-gradient(135deg, #fff 0%, #fde68a 30%, #fcd34d 55%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+ }
+ .gp-sig {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(253, 230, 138, 0.85);
+  padding: 0.4rem 0.9rem; border-radius: 999px;
+  border: 1px solid rgba(252, 211, 77, 0.4);
+  background: linear-gradient(145deg, rgba(252, 211, 77, 0.12), rgba(245, 158, 11, 0.06));
+ }
+ .gp-sig b {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #fcd34d; box-shadow: 0 0 10px #fcd34d;
+ }
+ .gp-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.95rem 1.45rem; border-radius: 1rem;
+  font-weight: 700; font-size: 1rem; text-decoration: none;
+  color: #1a1200;
+  background: linear-gradient(135deg, #fde68a, #fcd34d 50%, #f59e0b);
+  box-shadow: 0 12px 32px -12px rgba(245, 158, 11, 0.55);
+  transition: transform .15s ease;
+ }
+ .gp-cta:hover { transform: translateY(-2px); }
+ .gp-ghost {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.95rem 1.3rem; border-radius: 1rem;
+  font-weight: 600; font-size: 0.98rem; text-decoration: none;
+  color: #fde68a;
+  border: 1px solid rgba(252, 211, 77, 0.4);
+  background: rgba(0,0,0,0.28);
+ }
+ .gp-pill {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 0.9rem; border-radius: 999px;
+  font-size: 0.8rem; font-weight: 600;
+  border: 1px solid rgba(252, 211, 77, 0.28);
+  background: rgba(0,0,0,0.3);
+  color: rgba(253, 230, 138, 0.9);
+ }
+ .gp-media {
+  max-width: min(320px, 88vw); margin: 0 auto;
+  border-radius: 1.25rem; padding: 2px;
+  background: linear-gradient(135deg, rgba(253,230,138,0.5), rgba(245,158,11,0.35));
+  box-shadow: 0 20px 50px -22px rgba(0,0,0,0.8);
+  contain: layout paint;
+ }
+ .gp-media-inner {
+  border-radius: calc(1.25rem - 1px); overflow: hidden; background: #0a0806;
+  transform: translateZ(0);
+ }
+ .gp-media video {
+  display: block; width: 100%;
+  transform: translateZ(0);
+  pointer-events: none;
+ }
+ body.is-scrolling .gp-media video { visibility: hidden; }
+ body.is-scrolling .gp-media-inner {
+  background: #0a0806 url('assets/images/goldenpawsretirementprogram.jpg') center / cover no-repeat;
+ }
+ #mobile-menu { display: none; }
+ #mobile-menu:not(.hidden) { display: block; }
+ .pay-forward-nav { color: #f9a8d4; }
+ .chain-heart { display: inline-block; }
+ footer {
+  background: #060508 !important;
+  border-top: 1px solid var(--gp-line) !important;
+  color: rgba(200, 170, 100, 0.65) !important;
+ }
+ .gp-auth {
+  border: 1px solid rgba(252, 211, 77, 0.35) !important;
+  background: linear-gradient(160deg, rgba(20, 16, 8, 0.95), rgba(8, 6, 4, 0.96)) !important;
+ }
+ @media (max-width: 767px) {
+  .gp-media { max-width: min(260px, 86vw); }
+ }
+ @media (prefers-reduced-motion: reduce) {
+  .gp-cta:hover { transform: none; }
+ }
+ </style>
+ <script>
+ (function () {
+  var t;
+  window.addEventListener('scroll', function () {
+   document.body.classList.add('is-scrolling');
+   clearTimeout(t);
+   t = setTimeout(function () { document.body.classList.remove('is-scrolling'); }, 140);
+  }, { passive: true });
+ })();
+ </script>
+</head>
+<body>
+
+<div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
+ <div class="gp-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-amber-100/90">
+ <strong class="text-amber-300">Authenticity:</strong> Hero roster and forever-home intents are design demos. No live matches or program payments are issued from this page yet.
+ <button type="button" class="ml-2 underline text-amber-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
+ </div>
+</div>
+
+<nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-amber-500/30">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+ <a href="index.html" class="flex items-center gap-3 group">
+ <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-amber-400/60 shadow-xl">
+ <video src="assets/videos/shibahumanityhub-logo-animated.mp4" autoplay loop muted playsinline preload="metadata"
+  poster="assets/logos/shibahumanityhublogo3d-new.jpg" width="80" height="80" aria-hidden="true" class="w-full h-full object-cover"></video>
+ </div>
+ <span class="hidden sm:block text-xl font-bold tracking-tight bg-gradient-to-r from-amber-200 via-white to-amber-300 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+ </a>
+ <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+ <a href="index.html" class="hover:text-amber-300 transition-colors">Flywheel</a>
+ <a href="all-programs.html" class="hover:text-amber-300 transition-colors">Programs</a>
+ <a href="healing-hearts.html" class="hover:text-amber-300 transition-colors hidden lg:inline">Healing Hearts</a>
+ <a href="golden-years.html" class="hover:text-amber-300 transition-colors">Golden Years</a>
+ <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
+ </div>
+ <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1" aria-label="Menu"><i id="mobile-menu-icon" class="fa-solid fa-bars"></i></button>
+ <a href="all-programs.html" class="gp-cta !py-2.5 !px-4 !text-sm !rounded-full">Support</a>
+ </div>
+</nav>
+
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 100px;">
+ <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+ <a href="all-programs.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 Programs</a>
+ <a href="golden-paws.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-amber-200">Golden Paws</a>
+ <a href="golden-years.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Golden Years</a>
+ <a href="healing-hearts.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Healing Hearts</a>
+ <a href="silver-paws.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Silver Paws</a>
+ <a href="shelters.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Beautiful Souls</a>
+ <a href="index.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Home</a>
+ </div>
+</div>
+
+<header class="hero-bg pt-28 pb-16 text-center">
+ <div class="max-w-5xl mx-auto px-6 relative z-[2]">
+ <div class="gp-sig mb-5"><b></b> Retirement program · Preview</div>
+ <h1 class="gp-mega mb-3">Golden Paws</h1>
+ <p class="text-xl sm:text-2xl font-light text-amber-100/85 tracking-tight">Senior service dogs. Senior shelter dogs.<br class="hidden sm:block"> One path to a certified forever home.</p>
+ <p class="gpx-hide-m mt-6 max-w-2xl mx-auto text-lg text-amber-100/75 leading-relaxed">
+ They gave their best years. Now they get the sofa, the sun, and a screened home for life. <strong>Certified</strong> means thorough screening plus the program covers the funds listed on Golden Paws when rails are live. Families bring love — not the monthly care bill for covered items.
+ </p>
+ <div class="mt-7 flex flex-wrap justify-center gap-2">
+ <div class="gp-pill"><i class="fa-solid fa-shield-dog text-amber-300"></i> Service retirees</div>
+ <div class="gp-pill"><i class="fa-solid fa-house-chimney-heart text-amber-300"></i> Senior shelter</div>
+ <div class="gp-pill"><i class="fa-solid fa-clipboard-check text-amber-300"></i> Screened homes</div>
+ </div>
+ <div class="mt-9 flex flex-wrap justify-center gap-3">
+ <a href="#gpx-heroes" class="gp-cta">Browse senior heroes <i class="fa-solid fa-paw"></i></a>
+ <a href="#gpx-connect" class="gp-ghost">Connect forever home →</a>
+ </div>
+ <p class="mt-4 text-[11px] tracking-wide text-amber-200/40">Design roster · local intent form · not a live match ledger yet</p>
+ <p class="mt-2 text-xs text-amber-200/50">Different from <a href="golden-years.html" class="underline text-amber-200/80">Golden Years</a> (senior people + companion dogs).</p>
+
+ <div class="mt-10 gp-media">
+  <div class="gp-media-inner">
+   <video
+    id="gp-hero-video"
+    src="assets/videos/goldenpawsretirementprogram-animated.mp4"
+    muted loop playsinline preload="metadata"
+    poster="assets/images/goldenpawsretirementprogram.jpg"
+    aria-label="Golden Paws retirement preview"
+   ></video>
+   <p class="text-[10px] tracking-[0.12em] uppercase text-amber-200/45 py-2 text-center border-t border-white/5">Preview motion · not a live placement feed</p>
+  </div>
+ </div>
+ </div>
+</header>
+
+<footer class="py-14 text-center text-xs">
+ <p class="text-amber-100/80 text-sm mb-2">People helping people. Helping people.</p>
+ <p class="mb-1">Golden Paws Retirement · $NIBBLES when funded</p>
+ <p class="mb-4 opacity-70">© Shibahumanityhub · Truth first · Design model until partners + rails are live</p>
+ <div class="flex flex-wrap justify-center gap-4 text-sm">
+ <a href="golden-years.html" class="underline text-amber-200/80 hover:text-white">Golden Years</a>
+ <a href="healing-hearts.html" class="underline text-amber-200/80 hover:text-white">Healing Hearts</a>
+ <a href="all-programs.html" class="underline text-amber-200/80 hover:text-white">All 30 programs</a>
+ <a href="programs/golden-paws-retirement-program.html" class="underline text-amber-200/80 hover:text-white">Classic program page</a>
+ <a href="index.html" class="underline text-amber-200/80 hover:text-white">Home</a>
+ </div>
+</footer>
+
+<script>
+ function toggleMobileMenu() {
+  var m = document.getElementById('mobile-menu');
+  var icon = document.getElementById('mobile-menu-icon');
+  if (!m) return;
+  m.classList.toggle('hidden');
+  if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
+ }
+ /* Light video: play only when visible + not scrolling */
+ (function () {
+  var vid = document.getElementById('gp-hero-video');
+  if (!vid) return;
+  vid.muted = true;
+  function sync() {
+   var heart = document.querySelector('.gpx-panel[data-gpx-panel="heart"]');
+   var on = !heart || heart.classList.contains('is-on');
+   var play = on && !document.hidden && !document.body.classList.contains('is-scrolling');
+   if (play && vid.paused) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
+   else if (!play && !vid.paused) try { vid.pause(); } catch (e) {}
+  }
+  if (window.IntersectionObserver) {
+   var io = new IntersectionObserver(function (ents) {
+    vid.__in = !!(ents[0] && ents[0].isIntersecting);
+    sync();
+   }, { threshold: 0.2 });
+   io.observe(vid);
+  }
+  document.addEventListener('visibilitychange', sync);
+  window.addEventListener('scroll', function () {
+   if (!vid.paused) try { vid.pause(); } catch (e) {}
+   setTimeout(sync, 160);
+  }, { passive: true });
+  setTimeout(sync, 400);
+  var mo = new MutationObserver(sync);
+  mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+ })();
+</script>
+</body>
+</html>

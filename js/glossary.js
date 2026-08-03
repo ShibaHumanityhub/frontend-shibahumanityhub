@@ -84,9 +84,19 @@ window.SHHGlossary = {
  simple: "A permanent, non-transferable digital record on the blockchain that travels with the dog. It holds their full story, every visit, every memory.",
  impact: "This soul is never lost again. The legacy is real and forever."
  },
+ "golden paws": {
+ title: "Golden Paws Retirement Program",
+ simple: "Dedicated path for retiring service dogs and senior shelter dogs into thoroughly screened forever homes. The program covers the monthly care amounts listed on the program (when funded). Families bring love and pass certification screening.",
+ impact: "Heroes who gave everything finally get the sofa and peace they earned — without the family carrying covered care costs alone."
+ },
+ "certified forever home": {
+ title: "Certified Forever Home",
+ simple: "A home that passed Golden Paws screening: background and ID, environment check, lifestyle fit, vet plan, written forever commitment, and wellness check-ins. Plus program funding for listed care when rails are live.",
+ impact: "Love with accountability. The dog is never a free impulse — and never abandoned mid-story."
+ },
  "golden years companion": {
  title: "Golden Years Companion Program",
- simple: "Matching screened seniors 60+ (especially widows and widowers) with calm shelter dogs five years and older. Every cost for the dog's life is covered so the bond can simply be love.",
+ simple: "Matching screened seniors 60+ (especially widows and widowers) with calm shelter dogs five years and older. Every cost for the dog's life is covered so the bond can simply be love. Different from Golden Paws (retiring dogs into forever homes).",
  impact: "Two souls who need each other finally get to be each other's quiet home, for the rest of their days."
  },
  "golden pair": {
