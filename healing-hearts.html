@@ -4,7 +4,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <style id="critical-shell">
- html { background-color: #0a0c12; color-scheme: dark; }
+ html { background-color: #07060a; color-scheme: dark; }
  </style>
  <link rel="stylesheet" href="assets/css/tailwind.css">
  <meta name="robots" content="index, follow">
@@ -42,111 +42,301 @@
  <script src="js/healing-hearts-experience.js" defer></script>
 
  <style>
+ /* ═══════════════════════════════════════════════════
+    HEALING HEARTS · rose-gold forge / living mercy
+    ═══════════════════════════════════════════════════ */
  :root {
-  --hh-ink: #0a0c12;
+  --hh-ink: #07060a;
   --hh-panel: #120e14;
-  --hh-rose: #f0a8b8;
-  --hh-coral: #e88b9a;
-  --hh-blush: #ffe8ed;
-  --hh-line: rgba(240, 168, 184, 0.3);
-  --hh-line-strong: rgba(255, 214, 222, 0.48);
+  --hh-rose: #f4a8ba;
+  --hh-coral: #ef8a9c;
+  --hh-blush: #ffe8ef;
+  --hh-gold: #f5d0a9;
+  --hh-line: rgba(244, 168, 186, 0.32);
+  --hh-line-strong: rgba(255, 214, 222, 0.55);
   --hh-emerald: #6ee7b7;
-  --hh-text: #fff5f7;
-  --hh-muted: #d4a8b4;
+  --hh-text: #fff6f8;
+  --hh-muted: #c9a0ad;
+  --hh-glow: rgba(239, 138, 156, 0.45);
  }
  * { box-sizing: border-box; }
  html { scroll-behavior: smooth; }
  body {
   margin: 0; padding: 0; overflow-x: hidden;
   background:
-    radial-gradient(ellipse 120% 70% at 50% -10%, rgba(240, 168, 184, 0.1), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 100% 40%, rgba(110, 231, 183, 0.05), transparent 50%),
-    radial-gradient(ellipse 45% 35% at 0% 70%, rgba(232, 139, 154, 0.05), transparent 45%),
-    linear-gradient(180deg, #0a0c12 0%, #100c12 45%, #0a0c12 100%);
+    radial-gradient(ellipse 100% 60% at 50% -8%, rgba(244, 168, 186, 0.16), transparent 52%),
+    radial-gradient(ellipse 55% 45% at 100% 25%, rgba(110, 231, 183, 0.07), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 0% 80%, rgba(245, 208, 169, 0.05), transparent 48%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(239, 138, 156, 0.06), transparent 55%),
+    linear-gradient(180deg, #07060a 0%, #0e0a10 35%, #0a0810 70%, #07060a 100%);
   color: var(--hh-text);
   font-family: 'Inter', system-ui, sans-serif;
  }
+
  nav.bg-black\/95,
  nav[class*="bg-black"] {
-  background: rgba(10, 12, 18, 0.94) !important;
+  background: rgba(7, 6, 10, 0.92) !important;
   border-bottom-color: var(--hh-line) !important;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 12px 40px -20px rgba(0,0,0,0.8);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 16px 48px -20px rgba(0,0,0,0.85);
+  backdrop-filter: blur(18px);
  }
  nav .border-emerald-400\/70,
- nav .border-emerald-500\/30 { border-color: rgba(240, 168, 184, 0.45) !important; }
+ nav .border-emerald-500\/30 { border-color: rgba(244, 168, 186, 0.5) !important; }
  nav a.hover\:text-amber-400:hover,
  nav a.hover\:text-emerald-400:hover { color: var(--hh-blush) !important; }
 
+ /* HERO forge */
  .hero-bg {
   background:
-    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(240, 168, 184, 0.16), transparent 58%),
-    radial-gradient(ellipse 50% 40% at 85% 70%, rgba(110, 231, 183, 0.07), transparent 50%),
-    linear-gradient(180deg, #140e14 0%, #0c0a10 55%, #0a0c12 100%);
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(244, 168, 186, 0.2), transparent 58%),
+    radial-gradient(ellipse 40% 35% at 15% 70%, rgba(110, 231, 183, 0.08), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 90% 60%, rgba(245, 208, 169, 0.06), transparent 50%),
+    linear-gradient(180deg, #120c14 0%, #0a0810 55%, #07060a 100%);
   border-bottom: 1px solid var(--hh-line);
   position: relative;
+  overflow: hidden;
  }
  .hero-bg::before {
   content: '';
   position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(105deg, transparent 0%, rgba(255, 214, 222, 0.04) 42%, transparent 55%);
-  animation: hh-sheen 10s ease-in-out infinite;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 232, 239, 0.05) 44%, transparent 58%);
+  animation: hh-sheen 8s ease-in-out infinite;
+ }
+ .hero-bg::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(244, 168, 186, 0.12), transparent 42%);
+  animation: hh-core-breathe 4.5s ease-in-out infinite;
  }
  @keyframes hh-sheen {
-  0%, 100% { opacity: 0.35; transform: translateX(-6%); }
-  50% { opacity: 0.75; transform: translateX(6%); }
+  0%, 100% { opacity: 0.3; transform: translateX(-10%); }
+  50% { opacity: 0.85; transform: translateX(10%); }
+ }
+ @keyframes hh-core-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+ }
+
+ .hh-ingot-ring {
+  position: absolute; left: 50%; top: 44%; width: min(94vw, 560px); height: min(94vw, 560px);
+  transform: translate(-50%, -52%); pointer-events: none; z-index: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 40%, rgba(244,168,186,0.1) 41.5%, transparent 43%),
+    conic-gradient(from 0deg, transparent, rgba(255,232,239,0.28), transparent 22%, rgba(110,231,183,0.18), transparent 48%, rgba(245,208,169,0.16), transparent 70%, rgba(239,138,156,0.22), transparent 92%);
+  mask: radial-gradient(circle, transparent 36%, #000 37.5%, #000 49%, transparent 50.5%);
+  -webkit-mask: radial-gradient(circle, transparent 36%, #000 37.5%, #000 49%, transparent 50.5%);
+  animation: hh-ring-spin 22s linear infinite;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 40px rgba(244, 168, 186, 0.25));
+ }
+ @keyframes hh-ring-spin { to { transform: translate(-50%, -52%) rotate(360deg); } }
+ .hh-ingot-ring::after {
+  content: ''; position: absolute; inset: 16%; border-radius: 50%;
+  border: 1px solid rgba(255, 232, 239, 0.14);
+  box-shadow: inset 0 0 50px rgba(244, 168, 186, 0.1), 0 0 80px rgba(110, 231, 183, 0.08);
+  animation: hh-ring-pulse 3.2s ease-in-out infinite;
+ }
+ @keyframes hh-ring-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+ }
+ .hh-ingot-ring::before {
+  content: '♥';
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  opacity: 0.07;
+  color: #ffe8ef;
+  filter: blur(0.5px);
+  animation: hh-heart-thump 1.35s ease-in-out infinite;
+ }
+ @keyframes hh-heart-thump {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.06; }
+  14% { transform: translate(-50%, -50%) scale(1.12); opacity: 0.12; }
+  28% { transform: translate(-50%, -50%) scale(0.96); opacity: 0.07; }
+  42% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.1; }
  }
 
  .section-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  letter-spacing: -0.04em;
-  background: linear-gradient(135deg, #fff 0%, #f0a8b8 42%, #ffe8ed 58%, #6ee7b7 100%);
-  background-size: 200% 200%;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe8ef 22%, #f4a8ba 45%, #ffffff 58%, #6ee7b7 78%, #f5d0a9 100%);
+  background-size: 220% 220%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: hh-title 10s ease infinite;
+  animation: hh-title 9s ease infinite;
+  filter: drop-shadow(0 0 32px rgba(244, 168, 186, 0.35));
  }
  @keyframes hh-title {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
  }
 
+ .hh-mega {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.88;
+  font-size: clamp(3.1rem, 11vw, 6.5rem);
+  background: linear-gradient(135deg, #fff 0%, #ffe8ef 18%, #f4a8ba 38%, #fff 52%, #6ee7b7 72%, #f5d0a9 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hh-title 8s ease infinite;
+  filter: drop-shadow(0 0 40px rgba(244, 168, 186, 0.4));
+ }
+ .hh-subline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.15rem, 3.2vw, 1.85rem);
+  color: rgba(255, 232, 239, 0.88);
+  text-shadow: 0 0 40px rgba(244, 168, 186, 0.25);
+ }
+
+ .hh-ecg {
+  display: block; width: min(320px, 70vw); height: 28px; margin: 0.85rem auto 0;
+  opacity: 0.75;
+ }
+ .hh-ecg path {
+  fill: none;
+  stroke: url(#hh-ecg-grad);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: hh-ecg-draw 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(244, 168, 186, 0.7));
+ }
+ @keyframes hh-ecg-draw {
+  0% { stroke-dashoffset: 420; opacity: 0.3; }
+  40% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: -420; opacity: 0.3; }
+ }
+
+ .hh-sig {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255, 232, 239, 0.85);
+  padding: 0.45rem 1rem; border-radius: 999px;
+  border: 1px solid rgba(244, 168, 186, 0.45);
+  background: linear-gradient(145deg, rgba(244, 168, 186, 0.16), rgba(110, 231, 183, 0.07));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 0 32px rgba(244, 168, 186, 0.18);
+ }
+ .hh-sig b {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #f4a8ba; box-shadow: 0 0 12px #f4a8ba, 0 0 24px rgba(110, 231, 183, 0.5);
+  animation: hh-pulse 1.4s ease infinite;
+ }
+ @keyframes hh-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.85)} }
+
+ .hh-rect {
+  background: linear-gradient(145deg, rgba(244, 168, 186, 0.14), rgba(110, 231, 183, 0.06));
+  border: 1px solid var(--hh-line-strong);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 16px 40px -16px rgba(0,0,0,0.55), 0 0 40px -12px var(--hh-glow);
+  backdrop-filter: blur(14px);
+ }
+
+ .hh-pill {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.55rem 1rem; border-radius: 999px;
+  font-size: 0.82rem; font-weight: 600;
+  border: 1px solid rgba(244, 168, 186, 0.28);
+  background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(0,0,0,0.35));
+  color: rgba(255, 232, 239, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+ }
+ .hh-pill:hover {
+  border-color: rgba(255, 214, 222, 0.55);
+  box-shadow: 0 0 24px -6px rgba(244, 168, 186, 0.4);
+  transform: translateY(-2px);
+ }
+ .hh-pill i { color: var(--hh-rose); }
+
+ .hh-cta-main {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 1rem 1.6rem; border-radius: 1.1rem;
+  font-weight: 700; font-size: 1.05rem; text-decoration: none;
+  color: #1a0a10;
+  background: linear-gradient(135deg, #ffe8ef 0%, #f4a8ba 40%, #ef8a9c 70%, #f5d0a9 100%);
+  background-size: 200% 100%;
+  box-shadow: 0 14px 40px -12px rgba(239, 138, 156, 0.65), inset 0 1px 0 rgba(255,255,255,0.7);
+  transition: transform .2s, box-shadow .2s, background-position .4s;
+  animation: hh-cta-shine 4s ease infinite;
+ }
+ .hh-cta-main:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 50px -12px rgba(239, 138, 156, 0.75), 0 0 40px -8px rgba(110, 231, 183, 0.35);
+  background-position: 100% 0;
+ }
+ @keyframes hh-cta-shine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+ }
+ .hh-cta-ghost {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 1rem 1.4rem; border-radius: 1.1rem;
+  font-weight: 600; font-size: 1.02rem; text-decoration: none;
+  color: #ffe8ef;
+  border: 1px solid rgba(244, 168, 186, 0.4);
+  background: linear-gradient(160deg, rgba(244, 168, 186, 0.08), rgba(0,0,0,0.35));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+ }
+ .hh-cta-ghost:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 232, 239, 0.6);
+  box-shadow: 0 0 30px -8px rgba(244, 168, 186, 0.45);
+ }
+
+ .hh-stamp {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(244, 168, 186, 0.55);
+ }
+
+ .hh-media {
+  position: relative;
+  max-width: 380px; margin: 0 auto;
+  border-radius: 1.5rem;
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(255,232,239,0.55), rgba(110,231,183,0.35), rgba(245,208,169,0.4), rgba(244,168,186,0.5));
+  background-size: 300% 300%;
+  animation: hh-frame 6s ease infinite;
+  box-shadow: 0 30px 80px -24px rgba(0,0,0,0.85), 0 0 60px -12px rgba(244, 168, 186, 0.35);
+ }
+ @keyframes hh-frame {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+ }
+ .hh-media-inner {
+  border-radius: calc(1.5rem - 2px);
+  overflow: hidden;
+  background: #0a0810;
+  position: relative;
+ }
+ .hh-media-inner video { display: block; width: 100%; }
+ .hh-media-glow {
+  position: absolute; inset: -20%; pointer-events: none; z-index: -1;
+  background: radial-gradient(circle, rgba(244, 168, 186, 0.35), transparent 60%);
+  filter: blur(20px);
+  animation: hh-core-breathe 3.5s ease-in-out infinite;
+ }
+
  .hh-card {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   border: 1px solid var(--hh-line);
   background:
-    linear-gradient(155deg, rgba(240, 168, 184, 0.08) 0%, transparent 38%),
-    linear-gradient(165deg, #1a1218 0%, #100c12 55%, #0a0c12 100%);
-  box-shadow: 0 20px 50px -24px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.06);
- }
- .hh-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--hh-line-strong);
-  box-shadow: 0 28px 60px -20px rgba(0,0,0,0.7), 0 0 40px -12px rgba(232, 139, 154, 0.25);
- }
-
- .hh-sig {
-  display: inline-flex; align-items: center; gap: 0.45rem;
-  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(255, 232, 237, 0.8);
-  padding: 0.4rem 0.85rem; border-radius: 999px;
-  border: 1px solid rgba(240, 168, 184, 0.4);
-  background: linear-gradient(145deg, rgba(240, 168, 184, 0.12), rgba(110, 231, 183, 0.06));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 0 24px rgba(240, 168, 184, 0.12);
- }
- .hh-sig b {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: #f0a8b8; box-shadow: 0 0 10px #f0a8b8;
-  animation: hh-pulse 1.6s ease infinite;
- }
- @keyframes hh-pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
-
- .hh-rect {
-  background: linear-gradient(145deg, rgba(240, 168, 184, 0.1), rgba(110, 231, 183, 0.05));
-  border: 1px solid var(--hh-line-strong);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 12px 32px -16px rgba(0,0,0,0.5);
-  backdrop-filter: blur(12px);
+    linear-gradient(155deg, rgba(244, 168, 186, 0.1) 0%, transparent 40%),
+    linear-gradient(165deg, #1c121a 0%, #100c12 55%, #0a0810 100%);
+  box-shadow: 0 20px 50px -24px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.08);
  }
 
  .pay-forward-nav { color: #f9a8d4; position: relative; }
@@ -159,25 +349,52 @@
 
  .hh-bg-layer {
   position: fixed; inset: 0; pointer-events: none; z-index: -2;
-  opacity: 0.08;
+  opacity: 0.1;
   background-image:
-    url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2224%22 fill=%22%23f0a8b8%22 opacity=%220.4%22>♥</text><text x=%22170%22 y=%22190%22 font-size=%2220%22 fill=%22%236ee7b7%22 opacity=%220.25%22>🐾</text><text x=%22230%22 y=%2290%22 font-size=%2216%22 fill=%22%23ffe8ed%22 opacity=%220.3%22>✦</text></svg>');
-  background-size: 280px 280px;
-  animation: hh-drift 48s linear infinite;
+    url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2226%22 fill=%22%23f4a8ba%22 opacity=%220.45%22>♥</text><text x=%22170%22 y=%22190%22 font-size=%2222%22 fill=%22%236ee7b7%22 opacity=%220.28%22>🐾</text><text x=%22230%22 y=%2290%22 font-size=%2218%22 fill=%22%23f5d0a9%22 opacity=%220.3%22>✦</text></svg>');
+  background-size: 300px 300px;
+  animation: hh-drift 42s linear infinite;
  }
  @keyframes hh-drift {
   0% { background-position: 0 0; }
-  100% { background-position: 280px 280px; }
+  100% { background-position: 300px 300px; }
+ }
+ .hh-aurora {
+  position: fixed; inset: 0; pointer-events: none; z-index: -1;
+  background:
+    radial-gradient(ellipse 50% 30% at 20% 20%, rgba(244, 168, 186, 0.08), transparent 60%),
+    radial-gradient(ellipse 40% 25% at 80% 60%, rgba(110, 231, 183, 0.06), transparent 55%),
+    radial-gradient(ellipse 35% 20% at 50% 90%, rgba(245, 208, 169, 0.05), transparent 50%);
+  animation: hh-aurora 14s ease-in-out infinite alternate;
+ }
+ @keyframes hh-aurora {
+  from { opacity: 0.6; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(-12px); }
  }
 
  footer {
-  background: #060508 !important;
+  background: #040308 !important;
   border-top: 1px solid var(--hh-line) !important;
   color: var(--hh-muted) !important;
+  position: relative;
+ }
+ footer::before {
+  content: '';
+  position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244,168,186,0.5), rgba(110,231,183,0.4), transparent);
+ }
+
+ .hh-auth {
+  border: 1px solid rgba(244, 168, 186, 0.35) !important;
+  background: linear-gradient(160deg, rgba(20,12,16,0.95), rgba(8,6,10,0.96)) !important;
+  box-shadow: 0 16px 40px -16px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.06);
  }
 
  @media (prefers-reduced-motion: reduce) {
-  .section-title, .hero-bg::before, .hh-bg-layer, .hh-sig b, .chain-heart { animation: none !important; }
+  .section-title, .hh-mega, .hero-bg::before, .hero-bg::after, .hh-bg-layer, .hh-aurora,
+  .hh-sig b, .chain-heart, .hh-ingot-ring, .hh-ingot-ring::after, .hh-ingot-ring::before,
+  .hh-ecg path, .hh-cta-main, .hh-media, .hh-media-glow { animation: none !important; }
+  .hh-ecg path { stroke-dashoffset: 0; opacity: 0.8; }
  }
  </style>
 </head>
@@ -185,7 +402,7 @@
 
 <!-- AUTHENTICITY NOTE -->
 <div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
- <div class="pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl border border-rose-400/30 bg-zinc-950/90 text-rose-100/90 shadow-xl backdrop-blur">
+ <div class="hh-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-rose-100/90">
  <strong class="text-rose-300">Authenticity:</strong> Pipeline lanes, chapters, and dog tracks are design demos. No live placements or partner contracts are issued from this page yet.
  <button type="button" class="ml-2 underline text-rose-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
  </div>
@@ -195,7 +412,7 @@
 <nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-emerald-500/30">
  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
  <a href="index.html" class="flex items-center gap-3 group">
- <div class="logo-3d-wrapper w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-emerald-400/70 shadow-2xl transition-transform group-hover:scale-105">
+ <div class="logo-3d-wrapper w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-emerald-400/70 shadow-2xl transition-transform group-hover:scale-105" style="box-shadow:0 0 24px rgba(244,168,186,0.25)">
  <video
  src="assets/videos/shibahumanityhub-logo-animated.mp4"
  autoplay loop muted playsinline preload="metadata"
@@ -252,13 +469,14 @@
  <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
  </button>
 
- <a href="all-programs.html" class="inline-flex items-center gap-2.5 px-5 py-3 text-sm sm:text-base font-bold rounded-full bg-gradient-to-r from-rose-200 via-rose-300 to-emerald-200 text-zinc-900 shadow-lg shadow-rose-500/20">
- Support Healing Hearts <i class="fa-solid fa-heart text-lg"></i>
+ <a href="all-programs.html" class="hh-cta-main !py-2.5 !px-5 !text-sm !rounded-full">
+ Support <i class="fa-solid fa-heart"></i>
  </a>
  </div>
 </nav>
 
 <div class="hh-bg-layer" aria-hidden="true"></div>
+<div class="hh-aurora" aria-hidden="true"></div>
 
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 110px;">
@@ -274,46 +492,67 @@
  </div>
 </div>
 
-<!-- HERO -->
-<header class="hero-bg pt-28 pb-16 text-center border-b border-white/10">
- <div class="max-w-5xl mx-auto px-6 relative z-[2]">
- <div class="hh-sig mb-5">
- <b></b> Network model · Preview
- </div>
- <div class="inline-flex items-center gap-2 hh-rect rounded-full px-4 py-2 text-[11px] tracking-[0.14em] uppercase text-rose-100/90 mb-4">
- <span>Train</span><span class="opacity-40">·</span>
- <span>Certify</span><span class="opacity-40">·</span>
- <span>Place</span>
- </div>
- <h1 class="section-title text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-4">
- Healing Hearts
- <span class="block text-2xl sm:text-3xl md:text-4xl mt-2 opacity-95">Therapy Dog Network</span>
- </h1>
- <p class="mt-6 text-lg sm:text-xl text-rose-100/80 max-w-2xl mx-auto leading-relaxed">
- Shelter dogs become certified healing partners — for hospitals, schools, hospice, community halls, and veterans spaces. Seniors run through <a href="silver-paws.html" class="underline text-rose-200 hover:text-white">Silver Paws</a>, the visit product. This page is the network engine.
- </p>
- <p class="mt-4 text-sm text-rose-200/50 max-w-xl mx-auto">
- Seed focus when funding lands. Lanes and chapters below are design demos — truth first.
- </p>
- <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
- <a href="#hhx-board" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-zinc-900 bg-gradient-to-r from-rose-200 via-rose-300 to-emerald-200 shadow-lg shadow-rose-500/25">
- Open the board
- </a>
- <a href="silver-paws.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold border border-rose-300/40 text-rose-100 hover:bg-white/5">
- Silver Paws product →
- </a>
+<!-- HERO · forge -->
+<header class="hero-bg pt-28 pb-20 text-center border-b border-white/10">
+ <div class="hh-ingot-ring" aria-hidden="true"></div>
+ <div class="max-w-5xl mx-auto px-6 relative z-[2] pt-6">
+ <div class="hh-sig mb-6">
+ <b></b> $NIBBLES · network forge · preview
  </div>
 
- <!-- Preview media -->
- <div class="mt-12 max-w-md mx-auto hh-card rounded-3xl overflow-hidden p-2">
- <video
- src="assets/videos/healingheartstherapydognetwork-animated.mp4"
- autoplay loop muted playsinline preload="none"
- poster="assets/images/healingheartstherapydognetworkphoto.jpg"
- aria-label="Animated preview of Healing Hearts therapy dog network"
- class="w-full rounded-2xl">
- </video>
- <p class="text-xs text-rose-200/50 py-3 px-2">Preview motion · not a live placement feed</p>
+ <div class="hh-rect inline-block px-6 sm:px-10 py-4 mb-3 rounded-3xl">
+ <h1 class="hh-mega flex items-center justify-center gap-2 sm:gap-4">
+ <span style="font-size:clamp(2.2rem,8vw,4.5rem);-webkit-text-fill-color:#f4a8ba;filter:drop-shadow(0 0 20px rgba(244,168,186,.6))" aria-hidden="true">♥</span>
+ Healing Hearts
+ </h1>
+ </div>
+
+ <svg class="hh-ecg" viewBox="0 0 320 28" aria-hidden="true">
+  <defs>
+   <linearGradient id="hh-ecg-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#6ee7b7"/>
+    <stop offset="40%" stop-color="#f4a8ba"/>
+    <stop offset="70%" stop-color="#ffe8ef"/>
+    <stop offset="100%" stop-color="#f5d0a9"/>
+   </linearGradient>
+  </defs>
+  <path d="M0 14 H40 L48 14 L56 4 L64 24 L72 10 L80 14 H140 L148 14 L156 2 L164 26 L172 12 L180 14 H240 L248 14 L256 6 L264 22 L272 12 L280 14 H320"/>
+ </svg>
+
+ <p class="hh-subline mt-4">Train. Certify. Place. Heal.</p>
+ <p class="hh-stamp mt-2">Built for dignity · designed for proof · ready when funded</p>
+
+ <p class="mt-7 max-w-2xl mx-auto text-lg sm:text-xl text-rose-100/85 leading-relaxed">
+ Shelter dogs become certified healing partners for hospitals, schools, hospice, veterans halls, and community rooms. Seniors run through <a href="silver-paws.html" class="underline decoration-rose-300/50 underline-offset-4 text-rose-100 hover:text-white">Silver Paws</a>. This is the network engine.
+ </p>
+
+ <div class="mt-8 flex flex-wrap justify-center gap-2.5">
+ <div class="hh-pill"><i class="fa-solid fa-dog"></i> Shelter → certified</div>
+ <div class="hh-pill"><i class="fa-solid fa-hospital"></i> Multi-setting</div>
+ <div class="hh-pill"><i class="fa-solid fa-heart-pulse"></i> Two hearts healed</div>
+ </div>
+
+ <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+ <a href="#hhx-board" class="hh-cta-main">
+ Open network command <i class="fa-solid fa-display"></i>
+ </a>
+ <a href="silver-paws.html" class="hh-cta-ghost">
+ Silver Paws product <i class="fa-solid fa-arrow-right"></i>
+ </a>
+ </div>
+ <p class="mt-4 text-[11px] tracking-wide text-rose-200/40">High-tech pipeline board · settings · dogs · network. Demo until partners and rails are live.</p>
+
+ <div class="mt-12 hh-media">
+  <div class="hh-media-glow" aria-hidden="true"></div>
+  <div class="hh-media-inner">
+   <video
+    src="assets/videos/healingheartstherapydognetwork-animated.mp4"
+    autoplay loop muted playsinline preload="none"
+    poster="assets/images/healingheartstherapydognetworkphoto.jpg"
+    aria-label="Animated preview of Healing Hearts therapy dog network"
+   ></video>
+   <p class="text-[10px] tracking-[0.14em] uppercase text-rose-200/45 py-2.5 px-3 text-center border-t border-white/5">Preview motion · not a live placement feed</p>
+  </div>
  </div>
  </div>
 </header>
@@ -321,8 +560,8 @@
 <!-- Experience JS injects board + panel host after hero -->
 
 <footer class="py-14 text-center text-xs">
- <p class="text-rose-100/80 text-sm mb-2">People helping people. Helping people.</p>
- <p class="mb-1">Healing Hearts · Network engine · $NIBBLES when funded</p>
+ <p class="text-rose-100/85 text-sm mb-2 font-medium">People helping people. Helping people.</p>
+ <p class="mb-1 tracking-wide">Healing Hearts · Network forge · $NIBBLES when funded</p>
  <p class="mb-4 opacity-70">© Shibahumanityhub · Truth first · Design model until partners + rails are live</p>
  <div class="flex flex-wrap justify-center gap-4 text-sm">
  <a href="silver-paws.html" class="underline text-rose-200/80 hover:text-white">Silver Paws</a>
