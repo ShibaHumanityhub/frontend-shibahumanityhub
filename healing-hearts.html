@@ -76,7 +76,6 @@
  body.is-scrolling .hh-ingot-ring::after,
  body.is-scrolling .hh-bg-layer,
  body.is-scrolling .hh-aurora,
- body.is-scrolling .hh-ecg path,
  body.is-scrolling .hero-bg::before,
  body.is-scrolling .hero-bg::after,
  body.is-scrolling .hh-media,
@@ -201,7 +200,19 @@
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.85;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: hh-ecg-draw 2.8s ease-in-out infinite;
+  /* no filter — keeps lifeline motion cheap while scrolling */
+ }
+ @keyframes hh-ecg-draw {
+  0% { stroke-dashoffset: 420; opacity: 0.35; }
+  40% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: -420; opacity: 0.35; }
+ }
+ /* Keep lifeline drawing even while other FX freeze on scroll */
+ body.is-scrolling .hh-ecg path {
+  animation-play-state: running !important;
  }
 
  .hh-sig {
@@ -356,16 +367,18 @@
  }
 
  /* Mobile / low power: kill continuous paint */
- @media (max-width: 767px), (prefers-reduced-motion: reduce) {
+ @media (max-width: 767px) {
   .hh-ingot-ring { animation: none !important; opacity: 0.55; will-change: auto; }
   .hh-ingot-ring::before, .hh-ingot-ring::after { animation: none !important; }
   .hh-sig b, .chain-heart { animation: none !important; }
   .hh-bg-layer { opacity: 0.04; }
   .hh-aurora { display: none; }
   .hh-media-glow { display: none; }
+  /* lifeline motion stays on mobile */
  }
  @media (prefers-reduced-motion: reduce) {
-  .hh-ingot-ring, .hh-sig b, .chain-heart { animation: none !important; }
+  .hh-ingot-ring, .hh-sig b, .chain-heart, .hh-ecg path { animation: none !important; }
+  .hh-ecg path { stroke-dashoffset: 0; opacity: 0.85; }
  }
  </style>
  <script>
