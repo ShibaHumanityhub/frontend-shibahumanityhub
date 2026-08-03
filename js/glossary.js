@@ -51,8 +51,18 @@ window.SHHGlossary = {
  },
  "silver paws": {
  title: "Silver Paws Therapy Visits",
- simple: "Gentle therapy dogs bringing warmth, stories, bingo, and real companionship to seniors in homes and communities across North America.",
- impact: "One wag at a time, loneliness fades and hearts remember they still matter."
+ simple: "Gentle therapy dogs bringing warmth, stories, bingo, and real companionship to seniors in homes across North America. Every visit includes a photographer for beautiful keepsake portraits of each elder with their soul friend.",
+ impact: "One wag at a time, loneliness fades. The photos remain. Hearts remember they still matter."
+ },
+ "visit photographer": {
+ title: "Visit Photographer · Soul-Friend Portraits",
+ simple: "A quiet photographer joins every Silver Paws visit. Soft light. Consent first. Seniors receive printed and digital photos with their therapy dog so the friendship can be held in the hand, not only in the moment.",
+ impact: "Memory becomes something you can frame. The bond does not leave when the leash goes home."
+ },
+ "visit activities": {
+ title: "Visit Activities",
+ simple: "The joys you choose for a Silver Paws hour: bingo, lunch, stories, tea, walks, and more. Soul-friend portraits with a photographer are always included.",
+ impact: "Each activity is a doorway back into belonging."
  },
  "soulbound nft": {
  title: "Soulbound NFT / Rescue Passport",

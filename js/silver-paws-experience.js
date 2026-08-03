@@ -8,12 +8,12 @@
   'use strict';
 
   var VISITS = [
-    { id: 'SV-01', home: 'Maple Grove Villa', city: 'Toronto, ON', dog: 'Luna', status: 'Ready (preview)', progress: 18, note: 'Bingo + calm lap time', team: 'Silver Unit A' },
-    { id: 'SV-02', home: 'Sunset Villas', city: 'Phoenix, AZ', dog: 'Charlie', status: 'Route set', progress: 42, note: 'Weekly lunch visit design', team: 'Desert Paws' },
-    { id: 'SV-03', home: 'Golden Heart Manor', city: 'Vancouver, BC', dog: 'Mochi', status: 'Packing joy kit', progress: 61, note: 'Memory care soft visit', team: 'Coast Care' },
-    { id: 'SV-04', home: 'Riverbend Residences', city: 'Chicago, IL', dog: 'Scout', status: 'Partner pending', progress: 12, note: 'Raffle night design', team: 'Midwest Mercy' },
-    { id: 'SV-05', home: 'Harbour Light Senior', city: 'Halifax, NS', dog: 'Biscuit', status: 'Scheduled (design)', progress: 33, note: 'Story circle + gentle walk', team: 'Atlantic Soft' },
-    { id: 'SV-06', home: 'Palm Court Living', city: 'Tampa, FL', dog: 'Daisy', status: 'Ready (preview)', progress: 55, note: 'Music hour + paw prints', team: 'Sun Belt' }
+    { id: 'SV-01', home: 'Maple Grove Villa', city: 'Toronto, ON', dog: 'Luna', photographer: 'Ava Chen', status: 'Ready (preview)', progress: 18, note: 'Bingo + memory portraits', team: 'Silver Unit A' },
+    { id: 'SV-02', home: 'Sunset Villas', city: 'Phoenix, AZ', dog: 'Charlie', photographer: 'Marcus Reed', status: 'Route set', progress: 42, note: 'Lunch + keepsake photos', team: 'Desert Paws' },
+    { id: 'SV-03', home: 'Golden Heart Manor', city: 'Vancouver, BC', dog: 'Mochi', photographer: 'Sofia Hale', status: 'Packing joy kit', progress: 61, note: 'Soft visit + portrait print', team: 'Coast Care' },
+    { id: 'SV-04', home: 'Riverbend Residences', city: 'Chicago, IL', dog: 'Scout', photographer: 'Jordan Miles', status: 'Partner pending', progress: 12, note: 'Raffle night + photo cards', team: 'Midwest Mercy' },
+    { id: 'SV-05', home: 'Harbour Light Senior', city: 'Halifax, NS', dog: 'Biscuit', photographer: 'Elena Brooks', status: 'Scheduled (design)', progress: 33, note: 'Story circle + album page', team: 'Atlantic Soft' },
+    { id: 'SV-06', home: 'Palm Court Living', city: 'Tampa, FL', dog: 'Daisy', photographer: 'Noah Ellis', status: 'Ready (preview)', progress: 55, note: 'Music hour + soul-friend print', team: 'Sun Belt' }
   ];
 
   function isMobile() {
@@ -212,7 +212,7 @@
             '<span class="spx-status">' + v.status + '</span>' +
           '</div>' +
           '<p class="spx-route">' + v.home + ' · ' + v.city + '</p>' +
-          '<p class="spx-note">' + v.dog + ' · ' + v.note + '</p>' +
+          '<p class="spx-note">🐾 ' + v.dog + ' · 📷 ' + (v.photographer || 'Visit photographer') + ' · ' + v.note + '</p>' +
           '<div class="spx-bar" aria-hidden="true"><i style="width:' + v.progress + '%"></i></div>' +
         '</article>'
       );
@@ -275,7 +275,7 @@
   function seeMoreGridHtml() {
     var cards = [
       { go: 'find', k: '01 · Locate', title: 'Find a home', p: 'Search cities and senior homes across Canada and the USA.', cta: 'See more' },
-      { go: 'build', k: '02 · Design', title: 'Build a visit', p: 'Bingo, lunch, raffles, stories. Shape the hour of warmth.', cta: 'See more' },
+      { go: 'build', k: '02 · Design', title: 'Build a visit', p: 'Bingo, lunch, stories, and a photographer for keepsake photos with their soul friend.', cta: 'See more' },
       { go: 'match', k: '03 · Pair', title: 'Match a dog', p: 'Quiet questionnaire. Right presence for the right soul.', cta: 'See more' },
       { go: 'homes', k: '04 · Browse', title: 'Homes & visits', p: 'Directory cards and schedule intent when you are ready.', cta: 'See more' },
       { go: 'more', k: '05 · Share', title: 'Reels, angels, circles', p: 'Memories, sponsor wall, and how holdings fund visits.', cta: 'See more' }
@@ -490,12 +490,12 @@
   function wireBoard() {
     var chat = document.getElementById('spx-chat');
     var lines = [
-      ['@desk', 'Maple Grove request queued. Bingo kit flagged.'],
-      ['@luna', 'Calm mode. Memory care soft entry.'],
-      ['@route', 'SV-02 Phoenix lane ready for partner confirm.'],
-      ['@heart', 'Two hearts. One visit. No rush.'],
+      ['@desk', 'Maple Grove queued. Photographer Ava confirmed.'],
+      ['@luna', 'Calm mode. Soft light. Portrait chair ready.'],
+      ['@route', 'SV-02 Phoenix · Marcus packing print kits.'],
+      ['@heart', 'Two hearts. One photo they can keep forever.'],
       ['@truth', 'Preview board. Real homes when agreements land.'],
-      ['@scout', 'Chicago raffle night design locked.']
+      ['@scout', 'Chicago · prints for every senior on the list.']
     ];
     var i = 0;
     function push() {

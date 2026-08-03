@@ -19,14 +19,14 @@
   ];
 
   var SPECS = [
-    'Pet-friendly · bingo nights · garden walks',
-    'Memory care · soft music · therapy dog ready',
-    'Independent living · afternoon tea · gentle visits',
-    'Assisted living · story circles · calm dogs',
-    'Raffles · sing-alongs · outdoor patios',
-    'Lunch clubs · crafts · paw print moments',
-    'Quiet halls · wheelchair-friendly · lap time',
-    'Family open days · community room · dog visits'
+    'Pet-friendly · bingo · portrait photographer on visits',
+    'Memory care · soft music · keepsake photos with dogs',
+    'Independent living · afternoon tea · soul-friend portraits',
+    'Assisted living · story circles · printed photo keepsakes',
+    'Raffles · sing-alongs · visit photographer included',
+    'Lunch clubs · crafts · beautiful memory pictures',
+    'Quiet halls · wheelchair-friendly · soft portrait sessions',
+    'Family open days · community room · photo cards for elders'
   ];
 
   var HOME_WORDS = [

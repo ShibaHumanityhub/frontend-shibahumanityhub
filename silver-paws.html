@@ -792,10 +792,15 @@
  <div class="flex-1">
  <div class="uppercase tracking-[3px] text-xs text-[#a1a1aa] mb-1">THE FULL VISIT EXPERIENCE</div>
  <h2 class="section-title text-5xl tracking-[-1.5px]">Build a visit that heals <span class="info-icon" data-term="visit activities">ⓘ</span></h2>
- <p class="mt-3 text-lg text-zinc-300 max-w-prose">Every Silver Paws visit is a quiet act of mercy. Choose the simple, true joys that remind a senior they are still part of the living world. The dogs bring presence without demand. You bring the intention that turns an ordinary afternoon into a moment that lingers in the heart long after the leash is clipped.</p>
+ <p class="mt-3 text-lg text-zinc-300 max-w-prose">Every Silver Paws visit is a quiet act of mercy. Choose the simple, true joys that remind a senior they are still part of the living world. The dogs bring presence without demand. <strong class="text-[#c5ccd6]">Every visit includes a photographer</strong> so each elder can keep a beautiful picture of their new soul friend. A print they can hold. A face they can remember. A friendship that does not disappear when the leash goes home.</p>
+
+ <div class="mt-5 p-4 rounded-2xl border border-white/15" style="background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(12,16,24,.5));border-color:rgba(214,220,230,.3)">
+ <div class="text-xs tracking-[2px] text-[#c5ccd6] mb-1">📷 ALWAYS INCLUDED · MEMORY PORTRAIT</div>
+ <p class="text-sm text-zinc-300 m-0 leading-relaxed">Dog handler + gentle photographer. Soft light. Consent first. No flash chaos. Seniors receive a printed keepsake and a digital copy for family when partners and rails are live. Dignity in every frame.</p>
+ </div>
 
  <div class="mt-6 text-sm text-[#a1a1aa]">
- <span class="font-medium">A visit is 45 to 90 minutes of connection shaped for the people in that home.</span>
+ <span class="font-medium">A visit is 45 to 90 minutes of connection shaped for the people in that home. Photographer is standard on every package.</span>
  </div>
  </div>
 
@@ -1112,6 +1117,7 @@ const silverDogs = [
 ];
 
 const activities = [
+ {id: "photos", label: "Soul-Friend Portraits", icon: "📷", desc: "A dedicated visit photographer captures soft, beautiful pictures of each senior with their dog. Printed keepsakes and digital copies for family. Consent first. Always included.", alwaysOn: true},
  {id: "bingo", label: "Bingo with the Dogs", icon: "🎲", desc: "Numbers are called while a warm friend rests against your leg. Laughter returns. For a little while, nobody feels alone."},
  {id: "lunch", label: "Shared Lunch & Leashes", icon: "🍽️", desc: "A dog sits with you at the table. Somehow the food tastes better when there is love sitting beside you."},
  {id: "raffle", label: "Raffle & Wags Night", icon: "🎟️", desc: "Small prizes. Big joy. A dog helps deliver the winning ticket and suddenly the room feels like a celebration of life itself."},
@@ -1122,7 +1128,7 @@ const activities = [
  {id: "tea", label: "Afternoon Tea & Treats", icon: "☕", desc: "A cup of tea, a cookie, and a dog who thinks you are the most important person in the world. This is what peace feels like."},
 ];
 
-let selectedActivities = new Set();
+let selectedActivities = new Set(['photos']);
 let currentFilters = { country: 'all' };
 
 // Simple debounce for smoother search (no lag on typing)
@@ -1153,20 +1159,35 @@ function renderActivities() {
  container.innerHTML = '';
  
  activities.forEach(act => {
+ if (act.alwaysOn) selectedActivities.add(act.id);
  const el = document.createElement('div');
- el.className = `activity-chip cursor-pointer px-4 py-3 rounded-2xl border border-white/10 text-sm flex items-center gap-2 ${selectedActivities.has(act.id) ? 'selected' : ''}`;
+ const locked = !!act.alwaysOn;
+ el.className = `activity-chip cursor-pointer px-4 py-3 rounded-2xl border border-white/10 text-sm flex items-center gap-2 ${selectedActivities.has(act.id) ? 'selected' : ''}${locked ? ' always-on' : ''}`;
  el.innerHTML = `
  <span class="text-lg">${act.icon}</span>
  <div class="flex-1 min-w-0">
- <div class="font-medium">${act.label}</div>
+ <div class="font-medium">${act.label}${locked ? ' <span class="text-[9px] tracking-wide opacity-80">· ALWAYS ON</span>' : ''}</div>
  </div>
  `;
+ if (locked) {
+ el.title = 'Included with every visit. Photographer for keepsake portraits.';
+ el.style.cursor = 'default';
+ el.onclick = () => showToast('Portrait photographer is always included. Every senior gets photos with their soul friend.');
+ } else {
  el.onclick = () => toggleActivity(act.id, el);
+ }
  container.appendChild(el);
  });
 }
 
 function toggleActivity(id, el) {
+ const act = activities.find(a => a.id === id);
+ if (act && act.alwaysOn) {
+ selectedActivities.add(id);
+ showToast('Portrait photographer stays on every visit.');
+ updatePackagePreview();
+ return;
+ }
  if (selectedActivities.has(id)) {
  selectedActivities.delete(id);
  el.classList.remove('selected');
@@ -1180,21 +1201,24 @@ function toggleActivity(id, el) {
 function updatePackagePreview() {
  const preview = document.getElementById('package-preview');
  if (!preview) return;
- 
+
+ selectedActivities.add('photos');
+
  if (selectedActivities.size === 0) {
  preview.innerHTML = `Choose activities above to build the perfect visit...`;
  return;
  }
- 
+
  const selectedLabels = Array.from(selectedActivities).map(id => {
  const act = activities.find(a => a.id === id);
- return act ? act.label : '';
+ return act ? `${act.icon || ''} ${act.label}` : '';
  }).filter(Boolean);
- 
+
  preview.innerHTML = `
- <div class="flex-1">
- <strong class="text-emerald-300">Package includes:</strong><br>
- ${selectedLabels.join(' • ')}
+ <div class="flex-1 w-full">
+ <div class="text-[11px] tracking-wide text-[#c5ccd6] mb-1">📷 Photographer included · keepsake prints for every senior</div>
+ <strong class="text-[#e8ecf2]">Package includes:</strong><br>
+ <span class="text-sm text-zinc-300">${selectedLabels.join(' · ')}</span>
  </div>
  `;
 }
@@ -1515,25 +1539,26 @@ function matchHomeToDog(facId) {
 
 // Schedule / build package
 function scheduleVisit() {
+ selectedActivities.add('photos');
  const locVal = document.getElementById('location-search')?.value || 'a beautiful location';
  const facVal = document.getElementById('facility-search')?.value || 'a warm senior home';
  const acts = Array.from(selectedActivities).map(id => activities.find(a=>a.id===id)?.label).filter(Boolean);
- 
+
  const msg = document.getElementById('schedule-message');
  if (msg) {
  msg.innerHTML = `
  A visit has been noted for <strong>${facVal}</strong> in <strong>${locVal}</strong>.<br><br>
- Activities: ${acts.length ? acts.join(', ') : 'gentle companionship and love'}<br>
- A Silver Paw dog will bring bingo, smiles, and everything in between.
+ Activities: ${acts.length ? acts.join(', ') : 'gentle companionship and love'}<br><br>
+ <strong>📷 Photographer included.</strong> Beautiful portraits of each senior with their soul friend, for keepsakes they can hold long after the visit ends.
  `;
  }
- 
+
  const modal = document.getElementById('schedule-modal');
  if (modal) modal.classList.remove('hidden');
- 
- // Reset for demo feel
+
  setTimeout(() => {
  selectedActivities.clear();
+ selectedActivities.add('photos');
  updatePackagePreview();
  renderActivities();
  }, 1200);
@@ -2118,14 +2143,15 @@ function copyReferralLink() {
 
 
 
-// Enhanced schedule that now factors referral + shows the calculation
+// Enhanced schedule that now factors referral + photographer keepsakes
 function scheduleVisit() {
+ selectedActivities.add('photos');
  const locVal = document.getElementById('location-search')?.value || 'a beautiful location';
  const facVal = document.getElementById('facility-search')?.value || 'a warm senior home';
  const acts = Array.from(selectedActivities).map(id => activities.find(a=>a.id===id)?.label).filter(Boolean);
- 
+
  const refName = document.getElementById('referral-input')?.value || localStorage.getItem('silverReferralName') || null;
- 
+
  const msg = document.getElementById('schedule-message');
  if (msg) {
  let extra = '';
@@ -2134,14 +2160,22 @@ function scheduleVisit() {
  }
  msg.innerHTML = `
  A visit has been noted for <strong>${facVal}</strong> in <strong>${locVal}</strong>.<br><br>
- Activities: ${acts.length ? acts.join(', ') : 'gentle companionship and love'}
+ Activities: ${acts.length ? acts.join(', ') : 'gentle companionship and love'}<br><br>
+ <strong>📷 Photographer included.</strong> Soft portraits of each senior with their soul friend. Printed keepsakes + digital copies for family when visits are live.
  ${extra}
  `;
  }
- 
+
  const modal = document.getElementById('schedule-modal');
  if (modal) modal.classList.remove('hidden');
- 
+
+ setTimeout(() => {
+ selectedActivities.clear();
+ selectedActivities.add('photos');
+ updatePackagePreview();
+ renderActivities();
+ }, 1200);
+
  // Simulate referral credit (if present)
  if (refName) {
  let count = parseInt(localStorage.getItem('silverReferralCount') || '0');
