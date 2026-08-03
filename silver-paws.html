@@ -5,7 +5,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <!-- Critical shell: paint dark immediately (no hide/reveal flash) -->
  <style id="critical-shell">
- html { background-color: #0a0f1c; color-scheme: dark; }
+ html { background-color: #080a0f; color-scheme: dark; }
  </style>
  <link rel="stylesheet" href="assets/css/tailwind.css">
 <meta name="robots" content="index, follow">
@@ -46,230 +46,344 @@
  <script src="js/glossary.js" defer></script>
 
  <style>
+ /* ═══════════════════════════════════════════════
+    SILVER PAWS · high-end platinum / chrome theme
+    Polished metal, soft sheen, quiet luxury
+    ═══════════════════════════════════════════════ */
+ :root {
+  --sp-ink: #080a0f;
+  --sp-panel: #0e121a;
+  --sp-panel-2: #141a24;
+  --sp-silver: #c5ccd6;
+  --sp-silver-mid: #9aa3b0;
+  --sp-platinum: #eef1f6;
+  --sp-chrome: #d7dde6;
+  --sp-line: rgba(214, 220, 230, 0.28);
+  --sp-line-strong: rgba(236, 240, 246, 0.45);
+  --sp-shine: rgba(255, 255, 255, 0.14);
+  --sp-glow: rgba(200, 210, 225, 0.22);
+  --sp-text: #f3f5f8;
+  --sp-muted: #a8b0bc;
+  --sp-soft: #8b939f;
+ }
  * { box-sizing: border-box; }
  html { scroll-behavior: smooth; }
- body { 
- margin:0; padding:0; overflow-x:hidden; 
- background:#0a0f1c; color:white; 
- font-family: 'Inter', system-ui, sans-serif; 
+ body {
+  margin: 0; padding: 0; overflow-x: hidden;
+  background:
+    radial-gradient(ellipse 120% 70% at 50% -10%, rgba(200, 210, 225, 0.09), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 30%, rgba(160, 170, 185, 0.05), transparent 50%),
+    radial-gradient(ellipse 50% 35% at 0% 70%, rgba(180, 190, 205, 0.04), transparent 45%),
+    linear-gradient(180deg, #080a0f 0%, #0b0e15 40%, #090b11 100%);
+  color: var(--sp-text);
+  font-family: 'Inter', system-ui, sans-serif;
  }
- .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #121a2e 100%); }
- .section-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.04em; }
- 
+ /* Nav: gunmetal + silver edge */
+ nav.bg-black\/95,
+ nav[class*="bg-black"] {
+  background: rgba(8, 10, 15, 0.94) !important;
+  border-bottom-color: var(--sp-line) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 12px 40px -20px rgba(0,0,0,0.8);
+ }
+ nav .border-emerald-400\/70,
+ nav .border-emerald-500\/30 { border-color: rgba(200, 210, 225, 0.45) !important; }
+ nav a.hover\:text-amber-400:hover,
+ nav a.hover\:text-emerald-400:hover { color: var(--sp-platinum) !important; }
+ nav .from-amber-200 { --tw-gradient-from: #e8ecf2 !important; }
+ nav .via-white { --tw-gradient-via: #ffffff !important; }
+ nav .to-emerald-200 { --tw-gradient-to: #c5ccd6 !important; }
+
+ .hero-bg {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(220, 228, 238, 0.14), transparent 58%),
+    radial-gradient(ellipse 50% 40% at 15% 80%, rgba(160, 170, 185, 0.07), transparent 50%),
+    linear-gradient(180deg, #0c1018 0%, #0a0d14 55%, #080a0f 100%);
+  border-bottom: 1px solid var(--sp-line);
+  position: relative;
+ }
+ .hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.03) 42%, transparent 55%);
+  animation: silver-sheen-sweep 9s ease-in-out infinite;
+ }
+ @keyframes silver-sheen-sweep {
+  0%, 100% { opacity: 0.35; transform: translateX(-8%); }
+  50% { opacity: 0.7; transform: translateX(8%); }
+ }
+
+ .section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #f7f8fa 0%, #c5ccd6 42%, #ffffff 58%, #9aa3b0 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: silver-title-shine 10s ease infinite;
+ }
+ @keyframes silver-title-shine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+ }
+
  .silver-card {
- transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
- border: 1px solid rgba(192, 192, 192, 0.2);
- background: linear-gradient(145deg, #0f1624 0%, #0a0f1c 100%);
+  transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid var(--sp-line);
+  background:
+    linear-gradient(155deg, rgba(255,255,255,0.06) 0%, transparent 38%),
+    linear-gradient(165deg, #151b26 0%, #0c1018 55%, #0a0d13 100%);
+  box-shadow:
+    0 20px 50px -24px rgba(0,0,0,0.75),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+ }
+ .silver-card::before {
+  content: '';
+  position: absolute; top: 0; left: -40%; width: 40%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
  }
  .silver-card:hover {
- transform: translateY(-8px);
- border-color: rgba(192, 192, 192, 0.6);
- box-shadow: 0 30px 70px -20px rgba(192, 192, 192, 0.2), 0 0 0 1px rgba(192, 192, 192, 0.1) inset;
+  transform: translateY(-6px);
+  border-color: var(--sp-line-strong);
+  box-shadow:
+    0 28px 60px -20px rgba(0,0,0,0.7),
+    0 0 40px -12px var(--sp-glow),
+    inset 0 1px 0 rgba(255,255,255,0.12);
  }
+ .silver-card:hover::before { left: 120%; }
 
- /* Refined silver theme: elegant, serene, precise */
- .silver-accent {
- color: #c0c0c0;
- }
+ .silver-accent { color: var(--sp-silver); }
  .silver-rect {
- background: linear-gradient(145deg, rgba(192,192,192,0.08), rgba(163,163,172,0.03));
- border: 1px solid rgba(192, 192, 192, 0.4);
- box-shadow: 0 15px 40px -15px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
- backdrop-filter: blur(12px);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(200,210,225,0.04) 50%, rgba(140,150,165,0.06) 100%);
+  border: 1px solid var(--sp-line-strong);
+  box-shadow:
+    0 18px 40px -18px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.16),
+    inset 0 -1px 0 rgba(0,0,0,0.25);
+  backdrop-filter: blur(14px);
  }
- .silver-paw {
- opacity: 0.12;
- color: #e5e7eb;
- }
- 
- .silver-shimmer {
- position: relative;
- overflow: hidden;
- }
+ .silver-paw { opacity: 0.22; color: var(--sp-platinum); filter: drop-shadow(0 0 8px rgba(220,228,238,0.25)); }
+
+ .silver-shimmer { position: relative; overflow: hidden; }
  .silver-shimmer::after {
- content: '';
- position: absolute;
- top: -50%;
- left: -100%;
- width: 50%;
- height: 200%;
- background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
- transition: left 0.7s;
+  content: '';
+  position: absolute; top: -50%; left: -100%; width: 50%; height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.75s ease;
  }
- .silver-shimmer:hover::after {
- left: 250%;
- }
+ .silver-shimmer:hover::after { left: 250%; }
 
  .heart-melt {
- background: linear-gradient(145deg, rgba(52,211,153,0.06), rgba(192,192,192,0.03));
+  background: linear-gradient(145deg, rgba(200,210,225,0.08), rgba(120,130,145,0.04));
+  border-color: var(--sp-line) !important;
  }
 
  .level-bar {
- transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
- background: linear-gradient(to right, #c0c0c0, #e5e7eb);
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(90deg, #7a8494, #c5ccd6, #f0f3f7, #a8b2c0);
+  background-size: 200% 100%;
+  box-shadow: 0 0 12px rgba(200, 210, 225, 0.35);
+  animation: bar-chrome 4s linear infinite;
+ }
+ @keyframes bar-chrome {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
  }
 
  .search-input {
- transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  background: rgba(8, 10, 15, 0.85) !important;
+  border-color: var(--sp-line) !important;
+  color: var(--sp-text) !important;
  }
  .search-input:focus {
- border-color: #34d399;
- box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.1);
+  border-color: var(--sp-line-strong) !important;
+  box-shadow: 0 0 0 3px rgba(200, 210, 225, 0.1), 0 0 24px -8px var(--sp-glow) !important;
  }
 
  .activity-chip {
- transition: all 0.2s ease;
- user-select: none;
+  transition: all 0.2s ease;
+  user-select: none;
+  border-color: var(--sp-line) !important;
+  background: rgba(12, 16, 24, 0.7);
+  color: var(--sp-silver);
  }
  .activity-chip.selected {
- background: #10b981;
- color: #0a0f1c;
- border-color: #10b981;
+  background: linear-gradient(135deg, #eef1f6, #c5ccd6 55%, #9aa3b0);
+  color: #0a0d12;
+  border-color: transparent !important;
+  box-shadow: 0 8px 24px -10px rgba(200, 210, 225, 0.55), inset 0 1px 0 rgba(255,255,255,0.5);
+  font-weight: 600;
  }
 
  .senior-quote {
- font-style: italic;
- border-left: 3px solid #34d399;
+  font-style: italic;
+  border-left: 3px solid var(--sp-silver);
+  border-image: linear-gradient(180deg, #f0f3f7, #8b949e) 1;
  }
 
- .joy-stat {
- font-family: 'Space Grotesk', sans-serif;
- }
+ .joy-stat { font-family: 'Space Grotesk', sans-serif; }
+ .package-item { transition: transform .2s ease, background .2s ease; }
 
- .package-item {
- transition: transform .2s ease, background .2s ease;
- }
-
- /* Consistent Info Icon System (levelled up for all pages) */
  .info-icon {
- display: inline-flex;
- align-items: center;
- justify-content: center;
- width: 18px;
- height: 18px;
- margin-left: 5px;
- font-size: 11px;
- line-height: 1;
- border: 1px solid rgba(192, 192, 192, 0.45);
- border-radius: 9999px;
- color: #c0c0c0;
- background: rgba(255,255,255,0.06);
- cursor: pointer;
- transition: all 0.2s ease;
- vertical-align: middle;
- font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; margin-left: 5px; font-size: 11px; line-height: 1;
+  border: 1px solid var(--sp-line-strong); border-radius: 9999px;
+  color: var(--sp-silver);
+  background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+  cursor: pointer; transition: all 0.2s ease; vertical-align: middle; font-weight: 600;
  }
  .info-icon:hover {
- border-color: #c0c0c0;
- background: rgba(192, 192, 192, 0.15);
- transform: scale(1.15);
- box-shadow: 0 0 0 2px rgba(192, 192, 192, 0.1);
+  border-color: var(--sp-platinum);
+  background: rgba(200, 210, 225, 0.18);
+  transform: scale(1.12);
+  box-shadow: 0 0 0 2px rgba(200, 210, 225, 0.12), 0 0 16px rgba(200, 210, 225, 0.2);
  }
 
  .explain-modal {
- position: fixed;
- inset: 0;
- background: rgba(0,0,0,0.9);
- display: none;
- align-items: center;
- justify-content: center;
- z-index: 300;
- padding: 20px;
+  position: fixed; inset: 0; background: rgba(4, 6, 10, 0.92);
+  display: none; align-items: center; justify-content: center; z-index: 300; padding: 20px;
  }
  .explain-modal.show { display: flex; }
  .explain-card {
- background: #0a0f1c;
- border: 1px solid rgba(192, 192, 192, 0.35);
- border-radius: 20px;
- max-width: 480px;
- width: 100%;
- padding: 28px;
- position: relative;
- color: white;
- box-shadow: 0 20px 60px -15px rgba(0,0,0,0.6);
+  background: linear-gradient(165deg, #161c28, #0c1018);
+  border: 1px solid var(--sp-line-strong);
+  border-radius: 20px; max-width: 480px; width: 100%; padding: 28px;
+  position: relative; color: var(--sp-text);
+  box-shadow: 0 24px 70px -20px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.1);
  }
  .explain-card h4 {
- font-family: 'Space Grotesk', sans-serif;
- font-size: 1.15rem;
- color: #c0c0c0;
- margin-bottom: 10px;
- letter-spacing: -0.5px;
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem;
+  color: var(--sp-platinum); margin-bottom: 10px; letter-spacing: -0.5px;
  }
- .explain-card p {
- color: #e2e8f0;
- font-size: 0.95rem;
- line-height: 1.55;
- }
- .explain-card .impact {
- margin-top: 12px;
- font-size: 0.8rem;
- color: #a1a1aa;
- font-style: italic;
- }
+ .explain-card p { color: #d8dee8; font-size: 0.95rem; line-height: 1.55; }
+ .explain-card .impact { margin-top: 12px; font-size: 0.8rem; color: var(--sp-soft); font-style: italic; }
  .explain-close {
- position: absolute;
- top: 16px;
- right: 20px;
- font-size: 24px;
- cursor: pointer;
- color: #a1a1aa;
- transition: color 0.2s;
+  position: absolute; top: 16px; right: 20px; font-size: 24px;
+  cursor: pointer; color: var(--sp-soft); transition: color 0.2s;
  }
- .explain-close:hover {
- color: #c0c0c0;
- }
+ .explain-close:hover { color: var(--sp-platinum); }
 
- /* === LOVELY SCROLL BACKGROUNDS - Heartwarming & Fun ===
- Multi-layered, faint, scroll-reactive designs.
- Gold + Hopeseed tones, paws, hearts, bingo motifs, soft senior/dog silhouettes.
- Makes every scroll feel like a warm visit.
- */
+ /* Ambient silver field */
  .silver-bg-layer {
- position: fixed;
- inset: 0;
- pointer-events: none;
- z-index: -2;
- mix-blend-mode: screen;
- opacity: 0.07;
+  position: fixed; inset: 0; pointer-events: none; z-index: -2;
+  mix-blend-mode: screen; opacity: 0.09;
  }
-
  .paw-pattern {
- background-image: 
- url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2228%22 fill=%22%23a1a1aa%22 opacity=%220.4%22>🐾</text><text x=%22160%22 y=%22180%22 font-size=%2224%22 fill=%22%23c0c0c0%22 opacity=%220.3%22>❤️</text><text x=%22220%22 y=%2290%22 font-size=%2220%22 fill=%22%23a1a1aa%22 opacity=%220.35%22>🎲</text></svg>'),
- linear-gradient(120deg, rgba(192,192,192,0.04) 0%, transparent 50%, rgba(163,163,172,0.03) 100%);
- background-size: 280px 280px, cover;
- animation: gentle-drift 38s linear infinite;
+  background-image:
+    url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2226%22 fill=%22%23c5ccd6%22 opacity=%220.35%22>🐾</text><text x=%22170%22 y=%22190%22 font-size=%2222%22 fill=%22%23eef1f6%22 opacity=%220.22%22>✦</text><text x=%22230%22 y=%2290%22 font-size=%2218%22 fill=%22%239aa3b0%22 opacity=%220.3%22>◇</text></svg>'),
+    linear-gradient(125deg, rgba(200,210,225,0.05) 0%, transparent 45%, rgba(150,160,175,0.04) 100%);
+  background-size: 300px 300px, cover;
+  animation: gentle-drift 42s linear infinite;
  }
-
  @keyframes gentle-drift {
- 0% { background-position: 0 0, 0 0; }
- 100% { background-position: 280px 280px, 40px 120px; }
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 300px 300px, 50px 100px; }
  }
-
  .scroll-warmth {
- position: fixed;
- inset: 0;
- pointer-events: none;
- z-index: -1;
- background: radial-gradient(circle at 30% 40%, rgba(252,211,77,0.035) 0%, transparent 65%),
- radial-gradient(circle at 75% 65%, rgba(52,211,153,0.028) 0%, transparent 70%);
- transition: opacity 600ms ease;
+  position: fixed; inset: 0; pointer-events: none; z-index: -1;
+  background:
+    radial-gradient(circle at 28% 35%, rgba(220, 228, 238, 0.055) 0%, transparent 58%),
+    radial-gradient(circle at 78% 68%, rgba(160, 175, 195, 0.04) 0%, transparent 62%);
+  transition: opacity 600ms ease;
  }
-
- /* Scroll-reactive heartwarming overlays per section */
  .memory-reel-bg {
- background: 
- linear-gradient(to bottom, rgba(16,185,129,0.015), transparent),
- repeating-linear-gradient(135deg, rgba(252,211,77,0.012) 0px, rgba(252,211,77,0.012) 1px, transparent 1px, transparent 22px);
+  background:
+    linear-gradient(to bottom, rgba(200, 210, 225, 0.04), transparent),
+    repeating-linear-gradient(135deg, rgba(200, 210, 225, 0.025) 0px, rgba(200, 210, 225, 0.025) 1px, transparent 1px, transparent 24px);
  }
 
- /* Fun micro elements */
  .joy-float {
- position: absolute;
- font-size: 13px;
- opacity: 0.08;
- pointer-events: none;
- animation: joy-float-up 22s linear infinite;
+  position: absolute; font-size: 13px; opacity: 0.07; pointer-events: none;
+  animation: joy-float-up 22s linear infinite; filter: grayscale(0.4);
+ }
+
+ /* Page-wide emerald/amber → silver retints */
+ .text-emerald-300, .text-emerald-200, .text-emerald-400,
+ .text-emerald-300\/70, .text-emerald-300\/60, .text-emerald-300\/80,
+ .text-emerald-300\/50 {
+  color: var(--sp-silver) !important;
+ }
+ .text-amber-300, .text-amber-200, .text-amber-400 { color: var(--sp-chrome) !important; }
+ .border-emerald-400\/30, .border-emerald-400\/70, .border-emerald-500\/30,
+ .border-emerald-400, .hover\:border-emerald-400:hover {
+  border-color: var(--sp-line) !important;
+ }
+ .bg-emerald-500, .bg-emerald-400, .hover\:bg-emerald-400:hover {
+  background: linear-gradient(135deg, #eef1f6, #c5ccd6 60%, #9aa3b0) !important;
+  color: #0a0d12 !important;
+ }
+ .bg-emerald-900\/20, .bg-emerald-900\/30, .from-emerald-900\/20 {
+  background: rgba(200, 210, 225, 0.06) !important;
+ }
+ .from-emerald-900\/20 { --tw-gradient-from: rgba(200, 210, 225, 0.1) !important; }
+ .to-white\/5 { --tw-gradient-to: rgba(255, 255, 255, 0.04) !important; }
+ .bg-zinc-900\/70, .bg-zinc-900\/50, .bg-zinc-950 {
+  background-color: rgba(12, 16, 24, 0.82) !important;
+ }
+ .border-white\/10, .border-white\/20 {
+  border-color: var(--sp-line) !important;
+ }
+ section.border-t, section.border-y, .border-t.border-white\/10 {
+  border-color: var(--sp-line) !important;
+ }
+ /* Primary buttons on page */
+ a.bg-gradient-to-r.from-\[\#c0c0c0\],
+ a.from-\[\#c0c0c0\] {
+  background: linear-gradient(135deg, #f7f8fb 0%, #d7dde6 40%, #aeb6c2 78%, #e8ecf2 100%) !important;
+  box-shadow: 0 12px 36px -14px rgba(200, 210, 225, 0.55), inset 0 1px 0 rgba(255,255,255,0.65);
+  color: #0a0d12 !important;
+ }
+ button.bg-emerald-500, button.bg-gradient-to-r {
+  box-shadow: 0 8px 28px -12px rgba(200, 210, 225, 0.45);
+ }
+ /* Authenticity toast → silver */
+ .fixed.bottom-3 .border-amber-400\/30 {
+  border-color: var(--sp-line-strong) !important;
+  background: rgba(10, 12, 18, 0.94) !important;
+  color: var(--sp-silver) !important;
+  box-shadow: 0 12px 40px -16px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.06);
+ }
+ .fixed.bottom-3 .text-amber-300, .fixed.bottom-3 .text-amber-200\/80 {
+  color: var(--sp-platinum) !important;
+ }
+ /* Modals */
+ #schedule-modal .border-emerald-400\/30,
+ #reel-submit-modal .border-emerald-400\/30 {
+  border-color: var(--sp-line-strong) !important;
+  background: linear-gradient(165deg, #161c28, #0c1018) !important;
+  box-shadow: 0 30px 80px -24px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.08);
+ }
+ footer {
+  background: #05070b !important;
+  border-top: 1px solid var(--sp-line) !important;
+  color: var(--sp-soft) !important;
+ }
+
+ /* Section surfaces */
+ section .bg-zinc-900\/70.rounded-3xl,
+ section .rounded-3xl.bg-zinc-900\/70 {
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.05) 0%, transparent 40%),
+    linear-gradient(165deg, #141a24, #0c1018) !important;
+  border: 1px solid var(--sp-line) !important;
+  box-shadow: 0 16px 40px -22px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.06);
+ }
+ /* Soft chrome divider lines */
+ .spx-chrome-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230,236,245,0.45), transparent);
+  box-shadow: 0 0 12px rgba(200, 210, 225, 0.2);
+ }
+ @media (prefers-reduced-motion: reduce) {
+  .section-title, .level-bar, .hero-bg::before, .paw-pattern { animation: none !important; }
  }
  </style>
 </head>
@@ -477,12 +591,12 @@
  <span>$NIBBLES · TWO HEARTS, ONE GENTLE WAG</span>
  </div>
 
- <div class="silver-rect inline-block px-8 py-3 mb-4 rounded-2xl">
- <h1 class="section-title text-[62px] md:text-[88px] leading-[0.78] font-bold tracking-[-6.2px] bg-gradient-to-br from-[#c0c0c0] via-[#a1a1aa] to-white bg-clip-text text-transparent flex items-center gap-4">
- <span class="silver-paw text-6xl md:text-7xl -ml-2">🐾</span> Silver Paws
+ <div class="silver-rect inline-block px-8 py-3 mb-4 rounded-2xl silver-shimmer">
+ <h1 class="text-[52px] md:text-[84px] leading-[0.8] font-bold tracking-[-0.06em] flex items-center gap-3 md:gap-4" style="font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#ffffff 0%,#d7dde6 28%,#f4f6fa 48%,#9aa3b0 72%,#eef1f6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 28px rgba(200,210,225,.25))">
+ <span class="silver-paw text-5xl md:text-7xl -ml-1" style="opacity:.85;-webkit-text-fill-color:#e8ecf2">🐾</span> Silver Paws
  </h1>
  </div>
- <p class="text-3xl md:text-5xl font-light text-[#c0c0c0] tracking-tight">Healing the sweetest souls.<br>One gentle visit at a time.</p>
+ <p class="text-2xl md:text-4xl font-light tracking-tight" style="color:#c5ccd6;text-shadow:0 0 40px rgba(200,210,225,.15)">Healing the sweetest souls.<br>One gentle visit at a time.</p>
  
  <p class="mt-7 max-w-2xl mx-auto text-xl text-zinc-300">I keep thinking about the seniors who sit alone in rooms that have grown too quiet. Weeks pass, sometimes months, without a story shared or a hand to hold. Then a gentle therapy dog enters, meets their eyes, and something shifts. The silence softens. A smile returns. These visits are not entertainment. They are quiet medicine. They tell every elder: you are still seen. You are still needed. You still matter.</p>
 
