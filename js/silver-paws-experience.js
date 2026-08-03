@@ -33,12 +33,31 @@
     s.id = 'spx-css';
     s.textContent = [
       ':root{--sp-silver:#c5ccd6;--sp-platinum:#eef1f6;--sp-ink:#080a0f;--sp-panel:#0e121a;--sp-line:rgba(214,220,230,.3);--sp-glow:rgba(200,210,225,.28)}',
-      /* Chapter rail */
-      '.spx-rail{position:sticky;top:4.5rem;z-index:45;display:none;gap:.3rem;padding:.4rem .75rem;overflow-x:auto;scrollbar-width:none;background:rgba(8,10,15,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--sp-line);box-shadow:0 1px 0 rgba(255,255,255,.04)}',
+      /* Chapter rail = click panels (not scroll-the-page) */
+      'body.spx-panels{scroll-behavior:auto}',
+      'body.spx-panels .spx-panel{display:none;padding-bottom:2rem}',
+      'body.spx-panels .spx-panel.is-on{display:block;animation:spx-fade .22s ease}',
+      '.spx-rail{position:sticky;top:0;z-index:55;display:flex;gap:.3rem;padding:.45rem .75rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:rgba(8,10,15,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--sp-line);box-shadow:0 1px 0 rgba(255,255,255,.04),0 12px 40px -20px rgba(0,0,0,.65);justify-content:flex-start}',
       '.spx-rail::-webkit-scrollbar{display:none}',
-      '@media(min-width:900px){.spx-rail{display:flex;justify-content:center;flex-wrap:wrap}}',
-      '.spx-rail a{flex:0 0 auto;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(200,210,225,.5);padding:.35rem .65rem;border-radius:999px;border:1px solid transparent;white-space:nowrap}',
-      '.spx-rail a:hover,.spx-rail a.is-on{color:#eef1f6;border-color:rgba(230,236,245,.45);background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(200,210,225,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}',
+      '@media(min-width:900px){.spx-rail{justify-content:center;flex-wrap:wrap;top:0}}',
+      'body.spx-panels:not(.spx-mobile) > nav{position:relative}',
+      'body.spx-panels:not(.spx-mobile) .spx-rail{top:0}',
+      '.spx-rail button,.spx-rail a{flex:0 0 auto;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(200,210,225,.5);padding:.4rem .75rem;border-radius:999px;border:1px solid transparent;white-space:nowrap;background:transparent;cursor:pointer;font-family:inherit;font-weight:600}',
+      '.spx-rail button:hover,.spx-rail a:hover,.spx-rail button.is-on,.spx-rail a.is-on{color:#eef1f6;border-color:rgba(230,236,245,.45);background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(200,210,225,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}',
+      /* See more cards on Heart */
+      '.spx-more-grid{display:grid;grid-template-columns:1fr;gap:.55rem;max-width:72rem;margin:0 auto;padding:1rem .85rem 1.5rem}',
+      '@media(min-width:640px){.spx-more-grid{grid-template-columns:1fr 1fr;padding:1.25rem 1.5rem 2rem}}',
+      '@media(min-width:1000px){.spx-more-grid{grid-template-columns:repeat(3,1fr)}}',
+      '.spx-more-card{text-align:left;border-radius:1.1rem;border:1px solid rgba(214,220,230,.28);background:linear-gradient(155deg,rgba(255,255,255,.07),rgba(12,16,24,.92));padding:1rem 1.05rem;cursor:pointer;font:inherit;color:inherit;transition:transform .2s,border-color .2s,box-shadow .2s;box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 16px 40px -24px rgba(0,0,0,.7)}',
+      '.spx-more-card:hover{transform:translateY(-3px);border-color:rgba(238,241,246,.5);box-shadow:0 0 36px -12px rgba(220,228,238,.35),inset 0 1px 0 rgba(255,255,255,.12)}',
+      '.spx-more-card .k{font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(200,210,225,.65);margin:0 0 .3rem}',
+      '.spx-more-card h3{font-family:"Space Grotesk",sans-serif;font-size:1.1rem;margin:0 0 .35rem;color:#eef1f6;letter-spacing:-.02em}',
+      '.spx-more-card p{margin:0;font-size:.82rem;line-height:1.4;color:rgba(200,210,225,.72)}',
+      '.spx-more-card .go{display:inline-flex;margin-top:.65rem;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0a0d12;background:linear-gradient(135deg,#f7f8fb,#c5ccd6);padding:.4rem .75rem;border-radius:999px}',
+      'body.spx-panels:not(.spx-mobile) .spx-quick{display:none}',
+      'body.spx-panels:not(.spx-mobile) .spx-mtruth{max-width:72rem;margin:0 auto;padding:.25rem 1.5rem 0;font-size:.68rem;color:rgba(180,190,205,.5)}',
+      'body.spx-panels:not(.spx-mobile) header.hero-bg{padding-top:5.5rem!important;padding-bottom:1.75rem!important}',
+      'body.spx-panels footer{margin-top:0}',
       /* Command board · chrome HUD */
       '.spx-board{position:relative;max-width:72rem;margin:0 auto;padding:1.25rem 1rem 0}',
       '@media(min-width:768px){.spx-board{padding:1.75rem 1.5rem 0}}',
@@ -97,6 +116,8 @@
       'body.spx-mobile .fixed.bottom-3{display:none!important}',
       'body.spx-mobile .spx-progress{top:0;z-index:85}',
       'body.spx-mobile .silver-bg-layer,body.spx-mobile .scroll-warmth{opacity:.04!important}',
+      'body.spx-panels:not(.spx-mobile) > nav{display:block}',
+      'body.spx-panels:not(.spx-mobile){padding-bottom:0}',
       '.spx-mtop{display:none;position:sticky;top:0;z-index:70;align-items:center;justify-content:space-between;gap:.5rem;padding:.5rem .7rem;padding-top:max(.45rem,env(safe-area-inset-top));background:rgba(7,11,20,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--sp-line)}',
       'body.spx-mobile .spx-mtop{display:flex}',
       '.spx-mtop a{display:flex;align-items:center;gap:.4rem;text-decoration:none;color:inherit;min-width:0}',
@@ -111,8 +132,7 @@
       '.spx-mtab.is-on{color:#f4f6fa;background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(200,210,225,.05))}',
       '.spx-mtab.is-on .ic{opacity:1;filter:drop-shadow(0 0 8px rgba(220,228,238,.5))}',
       '.spx-mtab.is-on::after{content:"";position:absolute;top:4px;width:16px;height:2px;border-radius:2px;background:linear-gradient(90deg,#9aa3b0,#eef1f6,#c5ccd6)}',
-      'body.spx-mobile .spx-panel{display:none;padding:0 0 1.25rem;animation:spx-fade .2s ease}',
-      'body.spx-mobile .spx-panel.is-on{display:block}',
+      'body.spx-mobile .spx-panel{padding:0 0 1.25rem}',
       '@keyframes spx-fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}',
       /* Hero mobile: short & sharp */
       'body.spx-mobile header.hero-bg{padding:3.6rem .75rem .85rem!important;border-bottom:1px solid rgba(200,205,214,.12)!important}',
@@ -222,7 +242,7 @@
                 list.map(function (v) { return visitCard(v, ''); }).join('') +
                 extra.map(function (v) { return visitCard(v, ' is-extra'); }).join('') +
               '</div>' +
-              (compact ? '<button type="button" class="spx-show-more" id="spx-show-lanes">Show all 6 lanes</button>' : '') +
+              '<button type="button" class="spx-show-more" id="spx-show-lanes" style="' + (compact ? '' : 'display:none') + '">Show all 6 lanes</button>' +
             '</div>' +
             '<div class="spx-side">' +
               '<h3>Floor chatter</h3>' +
@@ -231,7 +251,7 @@
                 '<button type="button" class="spx-cta spx-cta-main" data-spx-go="find">Find a home</button>' +
                 '<button type="button" class="spx-cta spx-cta-ghost" data-spx-go="match">Match a dog</button>' +
               '</div>' +
-              '<p class="spx-honest">Illustrative lanes. No live treasury credit. No fake GPS.</p>' +
+              '<p class="spx-honest">Illustrative lanes. No live treasury credit. No fake GPS. Click a chapter below to open it. No need to scroll the whole page.</p>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -241,15 +261,38 @@
 
   function railHtml() {
     return (
-      '<nav class="spx-rail" id="spx-rail" aria-label="Silver Paws chapters">' +
-        '<a href="#spx-board">Command</a>' +
-        '<a href="#search">Find</a>' +
-        '<a href="#package">Build visit</a>' +
-        '<a href="#soul-search">Match</a>' +
-        '<a href="#silver-grid">Homes</a>' +
-        '<a href="#reels">Reels</a>' +
-        '<a href="#spx-angels">Angels</a>' +
+      '<nav class="spx-rail" id="spx-rail" aria-label="Silver Paws sections" role="tablist">' +
+        '<button type="button" class="is-on" data-spx-go="heart" role="tab" aria-selected="true">Heart</button>' +
+        '<button type="button" data-spx-go="find" role="tab">Find</button>' +
+        '<button type="button" data-spx-go="build" role="tab">Build visit</button>' +
+        '<button type="button" data-spx-go="match" role="tab">Match</button>' +
+        '<button type="button" data-spx-go="homes" role="tab">Homes</button>' +
+        '<button type="button" data-spx-go="more" role="tab">Reels &amp; more</button>' +
       '</nav>'
+    );
+  }
+
+  function seeMoreGridHtml() {
+    var cards = [
+      { go: 'find', k: '01 · Locate', title: 'Find a home', p: 'Search cities and senior homes across Canada and the USA.', cta: 'See more' },
+      { go: 'build', k: '02 · Design', title: 'Build a visit', p: 'Bingo, lunch, raffles, stories. Shape the hour of warmth.', cta: 'See more' },
+      { go: 'match', k: '03 · Pair', title: 'Match a dog', p: 'Quiet questionnaire. Right presence for the right soul.', cta: 'See more' },
+      { go: 'homes', k: '04 · Browse', title: 'Homes & visits', p: 'Directory cards and schedule intent when you are ready.', cta: 'See more' },
+      { go: 'more', k: '05 · Share', title: 'Reels, angels, circles', p: 'Memories, sponsor wall, and how holdings fund visits.', cta: 'See more' }
+    ];
+    return (
+      '<div class="spx-more-grid" id="spx-more-grid" aria-label="Open a section">' +
+        cards.map(function (c) {
+          return (
+            '<button type="button" class="spx-more-card" data-spx-go="' + c.go + '">' +
+              '<p class="k">' + c.k + '</p>' +
+              '<h3>' + c.title + '</h3>' +
+              '<p>' + c.p + '</p>' +
+              '<span class="go">' + c.cta + ' →</span>' +
+            '</button>'
+          );
+        }).join('') +
+      '</div>'
     );
   }
 
@@ -271,11 +314,19 @@
 
   function goTab(id) {
     if (!id) return;
+    /* homes is separate panel on desktop; mobile maps homes into find */
+    if (id === 'homes' && isMobile()) id = 'find';
     document.querySelectorAll('.spx-panel').forEach(function (p) {
       p.classList.toggle('is-on', p.getAttribute('data-spx-panel') === id);
     });
     document.querySelectorAll('.spx-mtab').forEach(function (t) {
-      var on = t.getAttribute('data-tab') === id;
+      var tab = t.getAttribute('data-tab');
+      var on = tab === id || (id === 'homes' && tab === 'find');
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('#spx-rail [data-spx-go]').forEach(function (t) {
+      var on = t.getAttribute('data-spx-go') === id;
       t.classList.toggle('is-on', on);
       t.setAttribute('aria-selected', on ? 'true' : 'false');
     });
@@ -287,32 +338,41 @@
 
   function compactHero(hero) {
     if (!hero) return;
-    /* Replace long desktop lede with mobile-short copy once */
-    if (hero.querySelector('.spx-mlede')) return;
-    var longP = hero.querySelector('p.mt-7, p.text-xl');
-    if (longP) {
-      var short = document.createElement('p');
-      short.className = 'spx-mlede';
-      short.textContent = 'Gentle therapy dogs for quiet rooms. Search a home. Build a visit. Two hearts heal at once.';
-      longP.parentNode.insertBefore(short, longP);
+    if (!hero.querySelector('.spx-mlede')) {
+      var longP = hero.querySelector('p.mt-7, p.text-xl');
+      if (longP && isMobile()) {
+        var short = document.createElement('p');
+        short.className = 'spx-mlede';
+        short.textContent = 'Gentle therapy dogs for quiet rooms. Click below to open a section. No endless scroll.';
+        longP.parentNode.insertBefore(short, longP);
+      }
     }
-    /* Hero CTAs become tab jumpers */
     hero.querySelectorAll('a[href="#spx-board"], a[href="#search"]').forEach(function (a) {
       var href = a.getAttribute('href') || '';
       a.setAttribute('href', '#');
       a.addEventListener('click', function (ev) {
         ev.preventDefault();
         if (href.indexOf('search') !== -1) goTab('find');
-        else {
-          goTab('heart');
-          var b = document.getElementById('spx-board');
-          if (b) setTimeout(function () { b.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40);
-        }
+        else goTab('heart');
+      });
+    });
+  }
+
+  function bindGoClicks(root) {
+    (root || document).querySelectorAll('[data-spx-go]').forEach(function (btn) {
+      if (btn.getAttribute('data-spx-bound') === '1') return;
+      btn.setAttribute('data-spx-bound', '1');
+      btn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        goTab(btn.getAttribute('data-spx-go'));
       });
     });
   }
 
   function wrapPanels() {
+    if (document.getElementById('spx-panel-host')) return;
+    document.body.classList.add('spx-panels');
+
     var hero = document.querySelector('header.hero-bg');
     var board = document.getElementById('spx-board');
     var search = document.getElementById('search');
@@ -353,6 +413,7 @@
       var p = document.createElement('div');
       p.className = 'spx-panel' + (id === 'heart' ? ' is-on' : '');
       p.setAttribute('data-spx-panel', id);
+      p.setAttribute('role', 'tabpanel');
       nodes.forEach(function (n) {
         if (n) p.appendChild(n);
       });
@@ -360,27 +421,31 @@
     }
 
     var host = document.createElement('div');
-    host.id = 'spx-mobile-host';
+    host.id = 'spx-panel-host';
 
-    /* Quick actions for heart */
     var quick = document.createElement('div');
     quick.className = 'spx-quick';
     quick.innerHTML =
       '<button type="button" class="pri" data-spx-go="find">Find a home</button>' +
       '<button type="button" data-spx-go="build">Build a visit</button>' +
       '<button type="button" data-spx-go="match">Match a dog</button>' +
-      '<button type="button" data-spx-go="more">Reels &amp; angels</button>';
+      '<button type="button" data-spx-go="more">Reels &amp; more</button>';
+
+    var moreGrid = document.createElement('div');
+    moreGrid.innerHTML = seeMoreGridHtml();
+    moreGrid = moreGrid.firstChild;
 
     var truth = document.createElement('p');
     truth.className = 'spx-mtruth';
-    truth.textContent = 'Demo homes and visit lanes. Real partners replace this when agreements are live.';
+    truth.textContent = 'Demo homes and visit lanes. Open a section with See more. Real partners replace demos when agreements are live.';
 
-    var heartNodes = [hero, quick, board, truth, magic].filter(Boolean);
-    /* referral tucked under more so heart stays clean */
-    var findNodes = [search, homes].filter(Boolean);
+    /* Heart stays light: hero + board + see-more cards. Stories live under more. */
+    var heartNodes = [hero, quick, board, moreGrid, truth].filter(Boolean);
+    var findNodes = isMobile() ? [search, homes].filter(Boolean) : [search].filter(Boolean);
     var buildNodes = [packageSec].filter(Boolean);
     var matchNodes = [soul].filter(Boolean);
-    var moreNodes = [referral, reels, circles, angels].filter(Boolean);
+    var homesNodes = [homes].filter(Boolean);
+    var moreNodes = [magic, referral, reels, circles, angels].filter(Boolean);
 
     [hero, board, referral, search, packageSec, soul, homes, reels, magic, circles, angels].forEach(function (n) {
       if (n && n.parentNode) n.parentNode.removeChild(n);
@@ -390,6 +455,7 @@
     host.appendChild(panel('find', findNodes));
     host.appendChild(panel('build', buildNodes));
     host.appendChild(panel('match', matchNodes));
+    if (!isMobile()) host.appendChild(panel('homes', homesNodes));
     host.appendChild(panel('more', moreNodes));
 
     var footer = document.querySelector('footer');
@@ -401,26 +467,24 @@
         goTab(tab.getAttribute('data-tab'));
       });
     });
-    document.querySelectorAll('[data-spx-go]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        goTab(btn.getAttribute('data-spx-go'));
-      });
-    });
+    bindGoClicks(document);
 
     var showLanes = document.getElementById('spx-show-lanes');
     if (showLanes) {
       showLanes.addEventListener('click', function () {
         document.body.classList.add('spx-show-all-lanes');
+        showLanes.style.display = 'none';
       });
     }
 
-    /* Deep link */
     var hash = (location.hash || '').replace(/^#/, '');
     if (hash.indexOf('spx-') === 0) goTab(hash.replace('spx-', ''));
-    else if (hash === 'search' || hash === 'silver-homes' || hash === 'silver-grid') goTab('find');
+    else if (hash === 'search') goTab('find');
+    else if (hash === 'silver-homes' || hash === 'silver-grid') goTab(isMobile() ? 'find' : 'homes');
     else if (hash === 'package') goTab('build');
     else if (hash === 'soul-search') goTab('match');
     else if (hash === 'reels' || hash === 'spx-angels') goTab('more');
+    else goTab('heart');
   }
 
   function wireBoard() {
@@ -487,42 +551,18 @@
     }, 4500);
   }
 
-  function wireRail() {
-    var links = document.querySelectorAll('.spx-rail a');
-    if (!links.length || typeof IntersectionObserver === 'undefined') return;
-    var ids = ['spx-board', 'search', 'package', 'soul-search', 'silver-homes', 'silver-grid', 'reels', 'spx-angels'];
-    var secs = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
-    /* silver-grid might be inside section without id */
-    if (!document.getElementById('silver-homes')) {
-      var g = document.getElementById('silver-grid');
-      if (g && g.closest('section')) {
-        g.closest('section').id = 'silver-homes';
-        secs.push(g.closest('section'));
-      }
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        var id = en.target.id;
-        links.forEach(function (a) {
-          var href = a.getAttribute('href') || '';
-          a.classList.toggle('is-on', href === '#' + id || (id === 'silver-homes' && href === '#silver-grid'));
-        });
-      });
-    }, { rootMargin: '-35% 0px -50% 0px', threshold: 0 });
-    secs.forEach(function (s) { io.observe(s); });
-  }
-
   function wireProgress() {
+    /* Thin progress only inside the active panel scroll depth */
     var bar = document.createElement('div');
     bar.className = 'spx-progress';
     bar.id = 'spx-progress';
     document.body.appendChild(bar);
     function onScroll() {
+      var panel = document.querySelector('.spx-panel.is-on') || document.documentElement;
       var h = document.documentElement;
       var max = h.scrollHeight - h.clientHeight;
       var p = max > 0 ? (h.scrollTop / max) * 100 : 0;
-      bar.style.width = p + '%';
+      bar.style.width = Math.min(100, p) + '%';
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -561,25 +601,13 @@
   }
 
   function revealOnScroll() {
-    var nodes = document.querySelectorAll(
-      'header.hero-bg, #spx-board, #search, #package, #soul-search, #silver-homes, #reels, #spx-angels, section'
-    );
-    nodes.forEach(function (el) {
-      if (!el.classList.contains('sp-reveal')) el.classList.add('sp-reveal');
+    /* Panels already fade in; mark active content visible immediately */
+    document.querySelectorAll('.spx-panel.is-on .sp-reveal, .spx-panel.is-on').forEach(function (el) {
+      el.classList.add('is-in');
     });
-    if (!window.IntersectionObserver) {
-      nodes.forEach(function (el) { el.classList.add('is-in'); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add('is-in');
-          io.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
-    nodes.forEach(function (el) { io.observe(el); });
+    document.querySelectorAll('.sp-reveal').forEach(function (el) {
+      el.classList.add('is-in');
+    });
   }
 
   function hudClock() {
@@ -639,7 +667,7 @@
     var mobile = isMobile();
     forgeDust();
 
-    /* Inject rail + board after nav */
+    /* Inject rail after nav (desktop click-nav). Mobile uses bottom tabs. */
     var nav = document.querySelector('nav');
     var rail = document.createElement('div');
     rail.innerHTML = railHtml();
@@ -647,42 +675,37 @@
     if (nav && nav.nextSibling) document.body.insertBefore(railEl, nav.nextSibling);
     else document.body.insertBefore(railEl, document.body.firstChild);
 
+    /* Board always compact-first: 3 lanes + see more */
     var boardWrap = document.createElement('div');
-    boardWrap.innerHTML = boardHtml(mobile);
+    boardWrap.innerHTML = boardHtml(true);
     var boardEl = boardWrap.firstChild;
     var hero = document.querySelector('header.hero-bg');
     if (hero && hero.nextSibling) document.body.insertBefore(boardEl, hero.nextSibling);
     else if (hero) hero.parentNode.insertBefore(boardEl, hero.nextSibling);
 
-    /* Mobile chrome + panel shell */
     if (mobile) {
       document.body.classList.add('spx-mobile');
       var chrome = document.createElement('div');
       chrome.innerHTML = mobileChromeHtml();
       while (chrome.firstChild) document.body.insertBefore(chrome.firstChild, document.body.firstChild);
-      /* Wait a tick so layout paints, then rehome sections into tabs */
-      setTimeout(wrapPanels, 30);
     }
 
-    wireBoard();
-    if (!mobile) wireRail();
-    wireProgress();
-    softLabelStories();
-    hudClock();
-    wireVisitFocus();
-    meterCountUp();
-    setTimeout(revealOnScroll, mobile ? 80 : 40);
+    /* Always panel mode: click to open, not scroll the whole page */
+    setTimeout(function () {
+      wrapPanels();
+      wireBoard();
+      wireProgress();
+      softLabelStories();
+      hudClock();
+      wireVisitFocus();
+      meterCountUp();
+      revealOnScroll();
+      bindGoClicks(document);
+    }, 30);
 
     document.querySelectorAll('section').forEach(function (sec) {
       if (sec.querySelector('#activity-grid') && !sec.id) sec.id = 'package';
       if (sec.querySelector('#silver-grid') && !sec.id) sec.id = 'silver-homes';
-    });
-
-    /* Desktop board CTAs still work via hash; mobile uses data-spx-go after wrap */
-    document.querySelectorAll('[data-spx-go]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (document.body.classList.contains('spx-mobile')) goTab(btn.getAttribute('data-spx-go'));
-      });
     });
   }
 
