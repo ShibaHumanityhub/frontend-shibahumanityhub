@@ -186,7 +186,7 @@
     var extra = compact ? VISITS.slice(3) : [];
     function visitCard(v, extraClass) {
       return (
-        '<article class="spx-visit' + (extraClass || '') + '" data-vid="' + v.id + '">' +
+        '<article class="spx-visit' + (extraClass || '') + '" data-vid="' + v.id + '" tabindex="0">' +
           '<div class="spx-visit-top">' +
             '<span class="spx-id">' + v.id + '</span>' +
             '<span class="spx-status">' + v.status + '</span>' +
@@ -199,13 +199,16 @@
     }
     return (
       '<div class="spx-board" id="spx-board">' +
-        '<div class="spx-hud">' +
+        '<div class="spx-hud" id="spx-hud">' +
           '<div class="spx-scan" aria-hidden="true"></div>' +
-          '<p class="spx-kicker">Silver Paws command · $NIBBLES</p>' +
-          '<h2 class="spx-title">' + (compact ? 'Visit control' : 'Visit control. Quiet tech. Real warmth.') + '</h2>' +
+          '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.35rem">' +
+            '<p class="spx-kicker" style="margin:0">Silver forge · visit command · $NIBBLES</p>' +
+            '<span class="spx-kicker" style="margin:0;opacity:.7" id="spx-clock"></span>' +
+          '</div>' +
+          '<h2 class="spx-title">' + (compact ? 'Quiet tech. Real warmth.' : 'Visit control. Quiet tech. Real warmth.') + '</h2>' +
           '<p class="spx-lede">' + (compact
             ? 'Therapy routes for senior homes. Preview until partners and rails are live.'
-            : 'A living board for senior-home therapy routes. Design preview now. Real schedules, partner homes, and treasury credits when rails and agreements are live.') + '</p>' +
+            : 'A living board for senior-home therapy routes. Design preview now. Real schedules, partner homes, and treasury credits when rails and agreements are live. No theater. Only the system that will carry the love.') + '</p>' +
           '<div class="spx-meters">' +
             '<div class="spx-meter"><b id="spx-m-routes">6</b><span>Visit routes</span></div>' +
             '<div class="spx-meter"><b id="spx-m-homes">0</b><span>Homes in directory</span></div>' +
@@ -531,10 +534,102 @@
       if (!card || card.querySelector('.spx-demo-tag')) return;
       var tag = document.createElement('div');
       tag.className = 'spx-demo-tag';
-      tag.style.cssText = 'font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(200,205,214,.55);margin-bottom:8px';
+      tag.style.cssText = 'font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(200,210,225,.55);margin-bottom:8px';
       tag.textContent = 'Illustrative story · design';
       card.insertBefore(tag, card.firstChild);
     });
+  }
+
+  function forgeDust() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (document.getElementById('sp-forge-dust')) return;
+    var box = document.createElement('div');
+    box.className = 'sp-forge-dust';
+    box.id = 'sp-forge-dust';
+    box.setAttribute('aria-hidden', 'true');
+    var n = isMobile() ? 14 : 28;
+    for (var i = 0; i < n; i++) {
+      var d = document.createElement('i');
+      d.style.left = Math.random() * 100 + '%';
+      d.style.bottom = Math.random() * 20 + '%';
+      d.style.animationDuration = 8 + Math.random() * 14 + 's';
+      d.style.animationDelay = Math.random() * 10 + 's';
+      d.style.width = d.style.height = (1 + Math.random() * 2.5) + 'px';
+      box.appendChild(d);
+    }
+    document.body.appendChild(box);
+  }
+
+  function revealOnScroll() {
+    var nodes = document.querySelectorAll(
+      'header.hero-bg, #spx-board, #search, #package, #soul-search, #silver-homes, #reels, #spx-angels, section'
+    );
+    nodes.forEach(function (el) {
+      if (!el.classList.contains('sp-reveal')) el.classList.add('sp-reveal');
+    });
+    if (!window.IntersectionObserver) {
+      nodes.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('is-in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    nodes.forEach(function (el) { io.observe(el); });
+  }
+
+  function hudClock() {
+    var el = document.getElementById('spx-clock');
+    if (!el) return;
+    function tick() {
+      var d = new Date();
+      el.textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' · forge clock';
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  function wireVisitFocus() {
+    var visits = document.querySelectorAll('.spx-visit');
+    visits.forEach(function (v) {
+      function hot() {
+        visits.forEach(function (x) { x.classList.remove('is-hot'); });
+        v.classList.add('is-hot');
+      }
+      v.addEventListener('mouseenter', hot);
+      v.addEventListener('focus', hot);
+      v.addEventListener('click', hot);
+    });
+    if (visits[0]) visits[0].classList.add('is-hot');
+  }
+
+  function meterCountUp() {
+    function run(id, target, dur) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var start = 0;
+      var t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur);
+        var ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = String(Math.round(start + (target - start) * ease));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    setTimeout(function () {
+      var homes = (window.facilitiesData && window.facilitiesData.length) || 48;
+      var acts = document.querySelectorAll('#activity-grid .activity-chip, #activity-grid button').length || 12;
+      run('spx-m-routes', 6, 900);
+      run('spx-m-homes', homes, 1100);
+      run('spx-m-acts', acts, 1000);
+      run('spx-m-heart', 2, 700);
+    }, 200);
   }
 
   function init() {
@@ -542,6 +637,7 @@
     styles();
     document.body.classList.add('spx-ready');
     var mobile = isMobile();
+    forgeDust();
 
     /* Inject rail + board after nav */
     var nav = document.querySelector('nav');
@@ -572,6 +668,10 @@
     if (!mobile) wireRail();
     wireProgress();
     softLabelStories();
+    hudClock();
+    wireVisitFocus();
+    meterCountUp();
+    setTimeout(revealOnScroll, mobile ? 80 : 40);
 
     document.querySelectorAll('section').forEach(function (sec) {
       if (sec.querySelector('#activity-grid') && !sec.id) sec.id = 'package';
