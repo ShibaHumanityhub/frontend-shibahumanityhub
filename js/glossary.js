@@ -49,6 +49,16 @@ window.SHHGlossary = {
  simple: "The other token. It mainly powers programs that help children, families, and people rebuilding their lives.",
  impact: "Holding it quietly routes support to human programs."
  },
+ "new beginnings": {
+ title: "New Beginnings Home Start Packs",
+ simple: "First 30 to 90 day kits for newly adopted dogs. Donors pick pack size, then choose bed, leash, toys, food, crate, and care add-ons. When live, items come from give-back partners with receipts.",
+ impact: "Families stay focused on love. Dogs keep the home instead of bouncing back to the shelter."
+ },
+ "home start pack": {
+ title: "Home Start Pack",
+ simple: "A built kit for a dog's first weeks home. Starter, Settle-In, or Full Launch sizes, with selectable items for each slot.",
+ impact: "You see exactly what your gift buys. No mystery black box."
+ },
  "healing hearts": {
  title: "Healing Hearts Therapy Dog Network",
  simple: "Recruit shelter dogs, train and certify them with handlers, then place them in hospitals, schools, hospice, veterans spaces, and community programs. Seniors go through Silver Paws, which HH feeds.",

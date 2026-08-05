@@ -87,6 +87,13 @@ Files touched for one-voice honesty:
 - Page: `silver-paws.html` + experience + locations directory
 - Always-on visit photographer; click panels not full-page scroll
 
+## New Beginnings · Home Start Pack studio (shipped design)
+
+- Page: `new-beginnings.html` + `js/new-beginnings-experience.js`
+- Fun pack builder: Starter / Settle-In / Full Launch with selectable bed, leash, toys, food, crate, training, insurance, camera, vet buffer, extras
+- Shop policy: prefer give-back partners; SHH shop only if 100% margin to program + public books
+- Truth: design intents in localStorage; no live checkout yet
+
 ## Golden Paws · Retirement forever homes (shipped design)
 
 - Page: `golden-paws.html` + `js/golden-paws-experience.js`

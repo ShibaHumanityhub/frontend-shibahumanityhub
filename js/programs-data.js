@@ -139,12 +139,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/newbeginningshomestartpacks.jpg",
- shortDesc: "Give every adopted dog the perfect launch into their forever home with everything they need for those precious first days.",
+ shortDesc: "Build a first-home pack for a new adoptee. Pick pack size, then choose bed, leash, toys, food, crate, and more. Give-back partners when live.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">First Days</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">New Beginnings Home Start Packs</h2>
  <p class="text-amber-200 text-xl mb-6">The first few weeks after adoption are the hardest. The dog is excited but scared. Everything is new.</p>
- <p class="text-zinc-300 mb-8">The family is full of love but suddenly staring at real costs for food, crate, training, and vet visits. Too many good dogs end up back at the shelter simply because the new family was not ready for those early days.</p>
- <p class="text-zinc-300 mb-8">The New Beginnings Home Start Pack removes that stress completely. It covers everything the dog needs for the first thirty to ninety days so the family can focus only on love. Premium food, crate, leash, training, insurance, and even an optional webcam if the family wants one. No more returns because money got tight. Just a calm, happy dog finally learning that this home is forever.</p>
+ <p class="text-zinc-300 mb-6">The family is full of love but suddenly staring at real costs for food, crate, training, and vet visits. Too many good dogs end up back at the shelter simply because the new family was not ready for those early days.</p>
+ <p class="text-zinc-300 mb-6">The New Beginnings Home Start Pack removes that stress. It covers what the dog needs for the first thirty to ninety days so the family can focus on love. You can build the pack yourself: pick Starter, Settle-In, or Full Launch, then choose every bed, leash, toy, and care add-on.</p>
+ <p class="text-zinc-300 mb-8"><a href="new-beginnings.html" class="text-emerald-300 underline">Open the pack studio</a> to pick items. When live, we buy through give-back partners with receipts. A first-party shop only if every margin dollar goes back to the program with public books.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -174,6 +175,7 @@ const programs = [ {
 
  <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every adopted dog will get the strongest possible start. Scared shelter dogs will relax into their new beds and play in their new yards with families who feel supported instead of overwhelmed. This is how we turn nervous beginnings into forever homes - one loving pack at a time.</p>
 
+ <a href="new-beginnings.html" class="block text-center mt-3 text-sm text-emerald-300 hover:text-emerald-200 underline">Open the full pack studio (pick toys, bed, leash, and more) →</a>
  <button onclick="sponsorProgram('new-beginnings')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch New Beginnings Home Start Packs</button>`
  },
  {

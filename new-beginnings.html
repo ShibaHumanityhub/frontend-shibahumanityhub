@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style id="critical-shell">
+ html { background-color: #061018; color-scheme: dark; }
+ </style>
+ <link rel="stylesheet" href="assets/css/tailwind.css">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Shibahumanityhub">
+ <meta name="keywords" content="new beginnings, home start packs, adoption starter kit, dog bed leash toys, first 30 days adoption, NIBBLES, shelter dog welcome pack">
+
+ <title>New Beginnings • Build Their First Home Pack</title>
+ <meta name="description" content="Build a Home Start Pack for a newly adopted dog. Pick pack size, then choose bed, leash, toys, food, crate, and more. Give-back partners when live. Proof over promises.">
+
+ <meta property="og:title" content="New Beginnings Home Start Packs • Pack Studio">
+ <meta property="og:description" content="Fun pack builder for the first 30 to 90 days home. Donors choose every toy and tool. Families keep the love.">
+ <meta property="og:image" content="https://shibahumanityhub.com/assets/images/newbeginningshomestartpacks.jpg">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://shibahumanityhub.com/new-beginnings.html">
+
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="New Beginnings • Pack Studio">
+ <meta name="twitter:description" content="Pick the pack. Fill every slot. Welcome them home right.">
+ <meta name="twitter:image" content="https://shibahumanityhub.com/assets/images/newbeginningshomestartpacks.jpg">
+
+ <link rel="canonical" href="https://shibahumanityhub.com/new-beginnings.html">
+ <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+ <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+ <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+ <script src="js/shared-animations.js" defer></script>
+ <script src="js/glossary.js" defer></script>
+ <script src="js/new-beginnings-experience.js" defer></script>
+
+ <style>
+ /* New Beginnings · welcome-home studio (sky / mint / sun) */
+ :root {
+  --nb-ink: #061018;
+  --nb-sky: #7dd3fc;
+  --nb-mint: #6ee7b7;
+  --nb-sun: #fde68a;
+  --nb-coral: #fb7185;
+  --nb-line: rgba(125, 211, 252, 0.35);
+  --nb-text: #f0f9ff;
+ }
+ * { box-sizing: border-box; }
+ html { scroll-behavior: auto; }
+ body {
+  margin: 0; padding: 0; overflow-x: hidden;
+  background:
+    radial-gradient(ellipse 100% 55% at 50% -10%, rgba(125, 211, 252, 0.16), transparent 52%),
+    radial-gradient(ellipse 50% 40% at 100% 30%, rgba(110, 231, 183, 0.1), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 0% 70%, rgba(253, 230, 138, 0.07), transparent 48%),
+    linear-gradient(180deg, #061018 0%, #0a1a24 40%, #061018 100%);
+  color: var(--nb-text);
+  font-family: 'Inter', system-ui, sans-serif;
+ }
+ body.is-scrolling .nb-float { animation-play-state: paused !important; }
+
+ nav.bg-black\/95, nav[class*="bg-black"] {
+  background: rgba(6, 16, 24, 0.96) !important;
+  border-bottom-color: var(--nb-line) !important;
+ }
+
+ .nb-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--nb-line);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(125, 211, 252, 0.18), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 80% 60%, rgba(110, 231, 183, 0.1), transparent 50%),
+    linear-gradient(180deg, #0c1c28 0%, #08141c 55%, #061018 100%);
+  text-align: center;
+  padding: 7rem 1rem 3.5rem;
+ }
+
+ .nb-float {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.14;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  animation: nb-bob 7s ease-in-out infinite;
+ }
+ .nb-float.f1 { top: 18%; left: 8%; animation-delay: 0s; }
+ .nb-float.f2 { top: 28%; right: 10%; animation-delay: 1.2s; }
+ .nb-float.f3 { bottom: 22%; left: 14%; animation-delay: 0.6s; }
+ .nb-float.f4 { bottom: 18%; right: 16%; animation-delay: 1.8s; }
+ @keyframes nb-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+ }
+
+ .nb-sig {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(224, 242, 254, 0.85);
+  padding: 0.4rem 0.9rem; border-radius: 999px;
+  border: 1px solid rgba(125, 211, 252, 0.4);
+  background: linear-gradient(145deg, rgba(125, 211, 252, 0.14), rgba(110, 231, 183, 0.08));
+  margin-bottom: 1rem;
+ }
+ .nb-sig b {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #6ee7b7; box-shadow: 0 0 10px #6ee7b7;
+ }
+
+ .nb-mega {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  font-size: clamp(2.6rem, 10vw, 5.4rem);
+  background: linear-gradient(135deg, #fff 0%, #e0f2fe 25%, #7dd3fc 48%, #6ee7b7 72%, #fde68a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0 0 0.5rem;
+ }
+ .nb-sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  letter-spacing: -0.02em;
+  color: rgba(224, 242, 254, 0.92);
+  margin: 0 0 0.35rem;
+ }
+ .nb-stamp {
+  font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(253, 230, 138, 0.65);
+  margin-bottom: 1.25rem;
+ }
+ .nb-lede {
+  max-width: 36rem; margin: 0 auto 1.25rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  line-height: 1.55;
+  color: rgba(186, 230, 253, 0.88);
+ }
+ .nb-pill-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.45rem;
+  margin-bottom: 1.35rem;
+ }
+ .nb-pill {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.45rem 0.85rem; border-radius: 999px;
+  font-size: 0.78rem; font-weight: 600;
+  border: 1px solid rgba(125, 211, 252, 0.3);
+  background: rgba(0, 0, 0, 0.28);
+  color: rgba(224, 242, 254, 0.9);
+ }
+ .nb-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.95rem 1.4rem; border-radius: 999px;
+  font-weight: 700; font-size: 1rem; text-decoration: none;
+  color: #042f2e;
+  background: linear-gradient(135deg, #fde68a, #6ee7b7 55%, #7dd3fc);
+  box-shadow: 0 14px 36px -12px rgba(110, 231, 183, 0.55);
+  transition: transform .15s ease;
+ }
+ .nb-cta:hover { transform: translateY(-2px); }
+ .nb-ghost {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.95rem 1.25rem; border-radius: 999px;
+  font-weight: 600; text-decoration: none;
+  color: #e0f2fe;
+  border: 1px solid rgba(125, 211, 252, 0.4);
+  background: rgba(0, 0, 0, 0.28);
+ }
+ .nb-cta-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+  margin-bottom: 0.75rem;
+ }
+ .nb-media {
+  max-width: min(320px, 86vw); margin: 1.5rem auto 0;
+  border-radius: 1.35rem; padding: 2px;
+  background: linear-gradient(135deg, rgba(125,211,252,.5), rgba(110,231,183,.4), rgba(253,230,138,.45));
+  box-shadow: 0 24px 60px -22px rgba(0,0,0,.8);
+  contain: layout paint;
+ }
+ .nb-media-inner {
+  border-radius: calc(1.35rem - 1px); overflow: hidden; background: #061018;
+  transform: translateZ(0);
+ }
+ .nb-media video {
+  display: block; width: 100%;
+  transform: translateZ(0);
+  pointer-events: none;
+ }
+ body.is-scrolling .nb-media video { visibility: hidden; }
+ body.is-scrolling .nb-media-inner {
+  background: #061018 url('assets/images/newbeginningshomestartpacks.jpg') center / cover no-repeat;
+ }
+
+ .nb-auth {
+  border: 1px solid rgba(125, 211, 252, 0.35) !important;
+  background: linear-gradient(160deg, rgba(8, 24, 36, 0.96), rgba(4, 12, 18, 0.97)) !important;
+ }
+ #mobile-menu { display: none; }
+ #mobile-menu:not(.hidden) { display: block; }
+ footer {
+  background: #030a10 !important;
+  border-top: 1px solid var(--nb-line) !important;
+  color: rgba(148, 180, 200, 0.65) !important;
+ }
+
+ @media (max-width: 390px) {
+  .nb-mega { font-size: 2.4rem; }
+  .nb-cta, .nb-ghost { width: 100%; justify-content: center; }
+  nav .nb-cta { display: none !important; }
+ }
+ @media (max-width: 767px) {
+  .nb-float { display: none; }
+  .nb-hero { padding: 5.5rem 0.75rem 1.5rem; }
+  .nb-media { max-width: min(240px, 78vw); }
+ }
+ @media (prefers-reduced-motion: reduce) {
+  .nb-float { animation: none !important; }
+ }
+ </style>
+ <script>
+ (function () {
+  var t;
+  window.addEventListener('scroll', function () {
+   document.body.classList.add('is-scrolling');
+   clearTimeout(t);
+   t = setTimeout(function () { document.body.classList.remove('is-scrolling'); }, 140);
+  }, { passive: true });
+ })();
+ </script>
+</head>
+<body>
+
+<div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
+ <div class="nb-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-sky-100/90">
+ <strong class="text-sky-300">Authenticity:</strong> Pack builder and intents are design demos. No live checkout or product shipping from this page yet.
+ <button type="button" class="ml-2 underline text-sky-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
+ </div>
+</div>
+
+<nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-sky-500/30">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+ <a href="index.html" class="flex items-center gap-3 group">
+ <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-sky-400/50 shadow-xl">
+ <video src="assets/videos/shibahumanityhub-logo-animated.mp4" autoplay loop muted playsinline preload="metadata"
+  poster="assets/logos/shibahumanityhublogo3d-new.jpg" width="64" height="64" aria-hidden="true" class="w-full h-full object-cover"></video>
+ </div>
+ <span class="hidden sm:block text-lg font-bold tracking-tight bg-gradient-to-r from-sky-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+ </a>
+ <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+ <a href="index.html" class="hover:text-sky-300 transition-colors">Flywheel</a>
+ <a href="all-programs.html" class="hover:text-sky-300 transition-colors">Programs</a>
+ <a href="pay-it-forward.html" class="hover:text-rose-300 transition-colors">Pay It Forward</a>
+ <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
+ </div>
+ <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1" aria-label="Menu"><i id="mobile-menu-icon" class="fa-solid fa-bars"></i></button>
+ <a href="#nbx-build" class="nb-cta !py-2.5 !px-4 !text-sm">Build a pack</a>
+ </div>
+</nav>
+
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 88px;">
+ <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+ <a href="all-programs.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 Programs</a>
+ <a href="new-beginnings.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-sky-200">New Beginnings</a>
+ <a href="pay-it-forward.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Pay It Forward</a>
+ <a href="golden-paws.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Golden Paws</a>
+ <a href="healing-hearts.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Healing Hearts</a>
+ <a href="shelters.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Beautiful Souls</a>
+ <a href="index.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Home</a>
+ </div>
+</div>
+
+<header class="nb-hero">
+ <span class="nb-float f1" aria-hidden="true">🧸</span>
+ <span class="nb-float f2" aria-hidden="true">🛏️</span>
+ <span class="nb-float f3" aria-hidden="true">🦮</span>
+ <span class="nb-float f4" aria-hidden="true">🥣</span>
+
+ <div class="relative z-[2] max-w-4xl mx-auto px-1">
+ <div class="nb-sig"><b></b> $NIBBLES welcome pack studio</div>
+ <h1 class="nb-mega">New Beginnings</h1>
+ <p class="nb-sub">Build their first home pack.</p>
+ <p class="nb-stamp">Fun to build. Serious about forever.</p>
+
+ <p class="nb-lede nbx-hide-m">
+ The first weeks after adoption are when love is huge and the cart total is scary. This studio lets you pick a pack size, then choose every bed, leash, toy, and care add-on. Families keep the joy. Dogs keep the home.
+ </p>
+
+ <div class="nb-pill-row nbx-hide-m">
+ <div class="nb-pill">🎁 Pick every item</div>
+ <div class="nb-pill">📦 3 pack sizes</div>
+ <div class="nb-pill">🤝 Give-back partners</div>
+ <div class="nb-pill">🧾 Receipts when live</div>
+ </div>
+
+ <div class="nb-cta-row">
+ <a href="#nbx-build" class="nb-cta">Start packing <i class="fa-solid fa-gift"></i></a>
+ <a href="#nbx-shop" class="nb-ghost">Where we buy →</a>
+ </div>
+ <p class="text-[11px] tracking-wide text-sky-200/45">Design studio. No live checkout yet. When funded, purchases go through give-back partners with public receipts.</p>
+
+ <div class="nb-media">
+  <div class="nb-media-inner">
+   <video
+    id="nb-hero-video"
+    src="assets/videos/newbeginningshomestartpacks-animated.mp4"
+    muted loop playsinline preload="metadata"
+    poster="assets/images/newbeginningshomestartpacks.jpg"
+    aria-label="New Beginnings pack preview"
+   ></video>
+   <p class="text-[10px] tracking-[0.12em] uppercase text-sky-200/45 py-2 text-center border-t border-white/5">Preview clip. Not a live order feed.</p>
+  </div>
+ </div>
+ </div>
+</header>
+
+<footer class="py-14 text-center text-xs">
+ <p class="text-sky-100/85 text-sm mb-2 font-medium">People helping people. Helping people.</p>
+ <p class="mb-1 tracking-wide">New Beginnings Home Start Packs. $NIBBLES when funded.</p>
+ <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until partners and funding are real.</p>
+ <div class="flex flex-wrap justify-center gap-4 text-sm">
+ <a href="pay-it-forward.html" class="underline text-sky-200/80 hover:text-white">Pay It Forward</a>
+ <a href="all-programs.html" class="underline text-sky-200/80 hover:text-white">All 30 programs</a>
+ <a href="programs/new-beginnings-home-start-packs.html" class="underline text-sky-200/80 hover:text-white">Classic program card</a>
+ <a href="index.html" class="underline text-sky-200/80 hover:text-white">Home</a>
+ </div>
+</footer>
+
+<script>
+ function toggleMobileMenu() {
+  var m = document.getElementById('mobile-menu');
+  var icon = document.getElementById('mobile-menu-icon');
+  if (!m) return;
+  m.classList.toggle('hidden');
+  if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
+ }
+ (function () {
+  var vid = document.getElementById('nb-hero-video');
+  if (!vid) return;
+  vid.muted = true;
+  function sync() {
+   var heart = document.querySelector('.nbx-panel[data-nbx-panel="heart"]');
+   var on = !heart || heart.classList.contains('is-on');
+   var play = on && !document.hidden && !document.body.classList.contains('is-scrolling');
+   if (play && vid.paused) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
+   else if (!play && !vid.paused) try { vid.pause(); } catch (e) {}
+  }
+  if (window.IntersectionObserver) {
+   new IntersectionObserver(function (ents) {
+    if (!ents[0] || !ents[0].isIntersecting) { try { vid.pause(); } catch (e) {} }
+    else sync();
+   }, { threshold: 0.2 }).observe(vid);
+  }
+  document.addEventListener('visibilitychange', sync);
+  window.addEventListener('scroll', function () {
+   if (!vid.paused) try { vid.pause(); } catch (e) {}
+   setTimeout(sync, 160);
+  }, { passive: true });
+  setTimeout(sync, 400);
+  new MutationObserver(sync).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+ })();
+</script>
+</body>
+</html>
