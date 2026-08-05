@@ -87,12 +87,12 @@ window.SHHGlossary = {
  "golden paws": {
  title: "Golden Paws Retirement Program",
  simple: "Dedicated path for retiring service dogs and senior shelter dogs into thoroughly screened forever homes. The program covers the monthly care amounts listed on the program (when funded). Families bring love and pass certification screening.",
- impact: "Heroes who gave everything finally get the sofa and peace they earned — without the family carrying covered care costs alone."
+ impact: "Heroes who gave everything finally get the sofa and peace they earned, without the family carrying covered care costs alone."
  },
  "certified forever home": {
  title: "Certified Forever Home",
  simple: "A home that passed Golden Paws screening: background and ID, environment check, lifestyle fit, vet plan, written forever commitment, and wellness check-ins. Plus program funding for listed care when rails are live.",
- impact: "Love with accountability. The dog is never a free impulse — and never abandoned mid-story."
+ impact: "Love with accountability. The dog is never a free impulse, and never abandoned mid-story."
  },
  "golden years companion": {
  title: "Golden Years Companion Program",
