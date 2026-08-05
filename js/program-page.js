@@ -177,27 +177,27 @@
  var root = document.getElementById('program-page-root');
  if (!root || !program) return;
 
-  // Orphan Christmas full arena (live warehouse broadcast)
-  if (
-    window.SHHOrphanChristmasArena &&
-    typeof window.SHHOrphanChristmasArena.isOrphanChristmas === 'function' &&
-    window.SHHOrphanChristmasArena.isOrphanChristmas(program) &&
-    typeof window.SHHOrphanChristmasArena.render === 'function'
-  ) {
-    document.title = 'Orphan Christmas · Live Warehouse · Shibahumanityhub';
-    var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Orphan Christmas. Live warehouse broadcast. Verified kids. Gift packs, wrap, turkey dinners. Jesus is the reason. These kids are the why.'
-      );
-    }
-    window.SHHOrphanChristmasArena.render();
-    root.setAttribute('data-rendered-slug', program.slug || slugify(program.title));
-    return;
-  }
+ // Orphan Christmas full arena (live warehouse broadcast)
+ if (
+ window.SHHOrphanChristmasArena &&
+ typeof window.SHHOrphanChristmasArena.isOrphanChristmas === 'function' &&
+ window.SHHOrphanChristmasArena.isOrphanChristmas(program) &&
+ typeof window.SHHOrphanChristmasArena.render === 'function'
+ ) {
+ document.title = 'Orphan Christmas · Live Warehouse · Shibahumanityhub';
+ var metaDesc = document.querySelector('meta[name="description"]');
+ if (metaDesc) {
+ metaDesc.setAttribute(
+ 'content',
+ 'Orphan Christmas. Live warehouse broadcast. Verified kids. Gift packs, wrap, turkey dinners. Jesus is the reason. These kids are the why.'
+ );
+ }
+ window.SHHOrphanChristmasArena.render();
+ root.setAttribute('data-rendered-slug', program.slug || slugify(program.title));
+ return;
+ }
 
-   var theme = accentFor(program.category);
+ var theme = accentFor(program.category);
  var slug = program.slug || slugify(program.title);
  var img = program.image || '';
  if (img && !/^https?:|^\//.test(img) && !img.startsWith('../')) {

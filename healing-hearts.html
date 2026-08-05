@@ -43,32 +43,32 @@
 
  <style>
  /* ═══════════════════════════════════════════════════
-    HEALING HEARTS · rose-gold forge / living mercy
-    ═══════════════════════════════════════════════════ */
+ HEALING HEARTS · rose-gold forge / living mercy
+ ═══════════════════════════════════════════════════ */
  :root {
-  --hh-ink: #07060a;
-  --hh-panel: #120e14;
-  --hh-rose: #f4a8ba;
-  --hh-coral: #ef8a9c;
-  --hh-blush: #ffe8ef;
-  --hh-gold: #f5d0a9;
-  --hh-line: rgba(244, 168, 186, 0.32);
-  --hh-line-strong: rgba(255, 214, 222, 0.55);
-  --hh-emerald: #6ee7b7;
-  --hh-text: #fff6f8;
-  --hh-muted: #c9a0ad;
-  --hh-glow: rgba(239, 138, 156, 0.45);
+ --hh-ink: #07060a;
+ --hh-panel: #120e14;
+ --hh-rose: #f4a8ba;
+ --hh-coral: #ef8a9c;
+ --hh-blush: #ffe8ef;
+ --hh-gold: #f5d0a9;
+ --hh-line: rgba(244, 168, 186, 0.32);
+ --hh-line-strong: rgba(255, 214, 222, 0.55);
+ --hh-emerald: #6ee7b7;
+ --hh-text: #fff6f8;
+ --hh-muted: #c9a0ad;
+ --hh-glow: rgba(239, 138, 156, 0.45);
  }
  * { box-sizing: border-box; }
  html { scroll-behavior: auto; }
  body {
-  margin: 0; padding: 0; overflow-x: hidden;
-  background:
-    radial-gradient(ellipse 100% 60% at 50% -8%, rgba(244, 168, 186, 0.14), transparent 52%),
-    radial-gradient(ellipse 55% 45% at 100% 25%, rgba(110, 231, 183, 0.06), transparent 50%),
-    linear-gradient(180deg, #07060a 0%, #0e0a10 40%, #07060a 100%);
-  color: var(--hh-text);
-  font-family: 'Inter', system-ui, sans-serif;
+ margin: 0; padding: 0; overflow-x: hidden;
+ background:
+ radial-gradient(ellipse 100% 60% at 50% -8%, rgba(244, 168, 186, 0.14), transparent 52%),
+ radial-gradient(ellipse 55% 45% at 100% 25%, rgba(110, 231, 183, 0.06), transparent 50%),
+ linear-gradient(180deg, #07060a 0%, #0e0a10 40%, #07060a 100%);
+ color: var(--hh-text);
+ font-family: 'Inter', system-ui, sans-serif;
  }
  /* Scroll performance: freeze ambient FX while finger/wheel is moving */
  body.is-scrolling .hh-ingot-ring,
@@ -83,21 +83,21 @@
  body.is-scrolling .section-title,
  body.is-scrolling .hh-sig b,
  body.is-scrolling .chain-heart {
-  animation-play-state: paused !important;
+ animation-play-state: paused !important;
  }
  body.is-scrolling .hhx-dust,
  body.is-scrolling .hh-aurora {
-  visibility: hidden !important;
+ visibility: hidden !important;
  }
  body.is-scrolling .hh-ingot-ring {
-  filter: none !important;
+ filter: none !important;
  }
 
  nav.bg-black\/95,
  nav[class*="bg-black"] {
-  background: rgba(7, 6, 10, 0.96) !important;
-  border-bottom-color: var(--hh-line) !important;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.04);
+ background: rgba(7, 6, 10, 0.96) !important;
+ border-bottom-color: var(--hh-line) !important;
+ box-shadow: 0 1px 0 rgba(255,255,255,0.04);
  }
  nav .border-emerald-400\/70,
  nav .border-emerald-500\/30 { border-color: rgba(244, 168, 186, 0.5) !important; }
@@ -106,232 +106,232 @@
 
  /* HERO forge */
  .hero-bg {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(244, 168, 186, 0.2), transparent 58%),
-    radial-gradient(ellipse 40% 35% at 15% 70%, rgba(110, 231, 183, 0.08), transparent 50%),
-    radial-gradient(ellipse 40% 35% at 90% 60%, rgba(245, 208, 169, 0.06), transparent 50%),
-    linear-gradient(180deg, #120c14 0%, #0a0810 55%, #07060a 100%);
-  border-bottom: 1px solid var(--hh-line);
-  position: relative;
-  overflow: hidden;
+ background:
+ radial-gradient(ellipse 80% 50% at 50% 0%, rgba(244, 168, 186, 0.2), transparent 58%),
+ radial-gradient(ellipse 40% 35% at 15% 70%, rgba(110, 231, 183, 0.08), transparent 50%),
+ radial-gradient(ellipse 40% 35% at 90% 60%, rgba(245, 208, 169, 0.06), transparent 50%),
+ linear-gradient(180deg, #120c14 0%, #0a0810 55%, #07060a 100%);
+ border-bottom: 1px solid var(--hh-line);
+ position: relative;
+ overflow: hidden;
  }
  .hero-bg::before {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(105deg, transparent 0%, rgba(255, 232, 239, 0.04) 44%, transparent 58%);
-  opacity: 0.55;
+ content: '';
+ position: absolute; inset: 0; pointer-events: none;
+ background: linear-gradient(105deg, transparent 0%, rgba(255, 232, 239, 0.04) 44%, transparent 58%);
+ opacity: 0.55;
  }
  .hero-bg::after {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(circle at 50% 42%, rgba(244, 168, 186, 0.1), transparent 42%);
-  opacity: 0.85;
+ content: '';
+ position: absolute; inset: 0; pointer-events: none;
+ background: radial-gradient(circle at 50% 42%, rgba(244, 168, 186, 0.1), transparent 42%);
+ opacity: 0.85;
  }
 
  .hh-ingot-ring {
-  position: absolute; left: 50%; top: 44%; width: min(94vw, 560px); height: min(94vw, 560px);
-  transform: translate3d(-50%, -52%, 0);
-  pointer-events: none; z-index: 0;
-  border-radius: 50%;
-  will-change: transform;
-  contain: layout style paint;
-  background:
-    radial-gradient(circle at 50% 50%, transparent 40%, rgba(244,168,186,0.1) 41.5%, transparent 43%),
-    conic-gradient(from 0deg, transparent, rgba(255,232,239,0.28), transparent 22%, rgba(110,231,183,0.18), transparent 48%, rgba(245,208,169,0.16), transparent 70%, rgba(239,138,156,0.22), transparent 92%);
-  mask: radial-gradient(circle, transparent 36%, #000 37.5%, #000 49%, transparent 50.5%);
-  -webkit-mask: radial-gradient(circle, transparent 36%, #000 37.5%, #000 49%, transparent 50.5%);
-  animation: hh-ring-spin 36s linear infinite;
-  opacity: 0.9;
+ position: absolute; left: 50%; top: 44%; width: min(94vw, 560px); height: min(94vw, 560px);
+ transform: translate3d(-50%, -52%, 0);
+ pointer-events: none; z-index: 0;
+ border-radius: 50%;
+ will-change: transform;
+ contain: layout style paint;
+ background:
+ radial-gradient(circle at 50% 50%, transparent 40%, rgba(244,168,186,0.1) 41.5%, transparent 43%),
+ conic-gradient(from 0deg, transparent, rgba(255,232,239,0.28), transparent 22%, rgba(110,231,183,0.18), transparent 48%, rgba(245,208,169,0.16), transparent 70%, rgba(239,138,156,0.22), transparent 92%);
+ mask: radial-gradient(circle, transparent 36%, #000 37.5%, #000 49%, transparent 50.5%);
+ -webkit-mask: radial-gradient(circle, transparent 36%, #000 37.5%, #000 49%, transparent 50.5%);
+ animation: hh-ring-spin 36s linear infinite;
+ opacity: 0.9;
  }
  @keyframes hh-ring-spin { to { transform: translate3d(-50%, -52%, 0) rotate(360deg); } }
  .hh-ingot-ring::after {
-  content: ''; position: absolute; inset: 16%; border-radius: 50%;
-  border: 1px solid rgba(255, 232, 239, 0.14);
-  box-shadow: 0 0 40px rgba(244, 168, 186, 0.08);
+ content: ''; position: absolute; inset: 16%; border-radius: 50%;
+ border: 1px solid rgba(255, 232, 239, 0.14);
+ box-shadow: 0 0 40px rgba(244, 168, 186, 0.08);
  }
  .hh-ingot-ring::before {
-  content: '♥';
-  position: absolute; left: 50%; top: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  font-size: clamp(3rem, 10vw, 5.5rem);
-  opacity: 0.08;
-  color: #ffe8ef;
+ content: '♥';
+ position: absolute; left: 50%; top: 50%;
+ transform: translate3d(-50%, -50%, 0);
+ font-size: clamp(3rem, 10vw, 5.5rem);
+ opacity: 0.08;
+ color: #ffe8ef;
  }
 
  .section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  background: linear-gradient(135deg, #ffffff 0%, #ffe8ef 28%, #f4a8ba 52%, #6ee7b7 82%, #f5d0a9 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+ font-family: 'Space Grotesk', sans-serif;
+ font-weight: 700;
+ letter-spacing: -0.05em;
+ background: linear-gradient(135deg, #ffffff 0%, #ffe8ef 28%, #f4a8ba 52%, #6ee7b7 82%, #f5d0a9 100%);
+ -webkit-background-clip: text;
+ background-clip: text;
+ color: transparent;
  }
 
  .hh-mega {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.06em;
-  line-height: 0.88;
-  font-size: clamp(3.1rem, 11vw, 6.5rem);
-  background: linear-gradient(135deg, #fff 0%, #ffe8ef 22%, #f4a8ba 48%, #6ee7b7 78%, #f5d0a9 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+ font-family: 'Space Grotesk', sans-serif;
+ font-weight: 700;
+ letter-spacing: -0.06em;
+ line-height: 0.88;
+ font-size: clamp(3.1rem, 11vw, 6.5rem);
+ background: linear-gradient(135deg, #fff 0%, #ffe8ef 22%, #f4a8ba 48%, #6ee7b7 78%, #f5d0a9 100%);
+ -webkit-background-clip: text;
+ background-clip: text;
+ color: transparent;
  }
  .hh-subline {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  font-size: clamp(1.15rem, 3.2vw, 1.85rem);
-  color: rgba(255, 232, 239, 0.88);
-  text-shadow: 0 0 40px rgba(244, 168, 186, 0.25);
+ font-family: 'Space Grotesk', sans-serif;
+ font-weight: 600;
+ letter-spacing: -0.03em;
+ font-size: clamp(1.15rem, 3.2vw, 1.85rem);
+ color: rgba(255, 232, 239, 0.88);
+ text-shadow: 0 0 40px rgba(244, 168, 186, 0.25);
  }
 
  .hh-ecg {
-  display: block; width: min(320px, 70vw); height: 28px; margin: 0.85rem auto 0;
-  opacity: 0.75;
+ display: block; width: min(320px, 70vw); height: 28px; margin: 0.85rem auto 0;
+ opacity: 0.75;
  }
  .hh-ecg path {
-  fill: none;
-  stroke: url(#hh-ecg-grad);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 420;
-  stroke-dashoffset: 420;
-  animation: hh-ecg-draw 2.8s ease-in-out infinite;
-  /* no filter: keeps lifeline motion cheap while scrolling */
+ fill: none;
+ stroke: url(#hh-ecg-grad);
+ stroke-width: 1.6;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+ stroke-dasharray: 420;
+ stroke-dashoffset: 420;
+ animation: hh-ecg-draw 2.8s ease-in-out infinite;
+ /* no filter: keeps lifeline motion cheap while scrolling */
  }
  @keyframes hh-ecg-draw {
-  0% { stroke-dashoffset: 420; opacity: 0.35; }
-  40% { stroke-dashoffset: 0; opacity: 1; }
-  100% { stroke-dashoffset: -420; opacity: 0.35; }
+ 0% { stroke-dashoffset: 420; opacity: 0.35; }
+ 40% { stroke-dashoffset: 0; opacity: 1; }
+ 100% { stroke-dashoffset: -420; opacity: 0.35; }
  }
  /* Keep lifeline drawing even while other FX freeze on scroll */
  body.is-scrolling .hh-ecg path {
-  animation-play-state: running !important;
+ animation-play-state: running !important;
  }
 
  .hh-sig {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(255, 232, 239, 0.85);
-  padding: 0.45rem 1rem; border-radius: 999px;
-  border: 1px solid rgba(244, 168, 186, 0.45);
-  background: linear-gradient(145deg, rgba(244, 168, 186, 0.16), rgba(110, 231, 183, 0.07));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 0 32px rgba(244, 168, 186, 0.18);
+ display: inline-flex; align-items: center; gap: 0.5rem;
+ font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+ color: rgba(255, 232, 239, 0.85);
+ padding: 0.45rem 1rem; border-radius: 999px;
+ border: 1px solid rgba(244, 168, 186, 0.45);
+ background: linear-gradient(145deg, rgba(244, 168, 186, 0.16), rgba(110, 231, 183, 0.07));
+ box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 0 32px rgba(244, 168, 186, 0.18);
  }
  .hh-sig b {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #f4a8ba; box-shadow: 0 0 12px #f4a8ba, 0 0 24px rgba(110, 231, 183, 0.5);
-  animation: hh-pulse 1.4s ease infinite;
+ width: 7px; height: 7px; border-radius: 50%;
+ background: #f4a8ba; box-shadow: 0 0 12px #f4a8ba, 0 0 24px rgba(110, 231, 183, 0.5);
+ animation: hh-pulse 1.4s ease infinite;
  }
  @keyframes hh-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.85)} }
 
  .hh-rect {
-  background: linear-gradient(145deg, rgba(244, 168, 186, 0.14), rgba(110, 231, 183, 0.06));
-  border: 1px solid var(--hh-line-strong);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 12px 28px -16px rgba(0,0,0,0.55);
+ background: linear-gradient(145deg, rgba(244, 168, 186, 0.14), rgba(110, 231, 183, 0.06));
+ border: 1px solid var(--hh-line-strong);
+ box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 12px 28px -16px rgba(0,0,0,0.55);
  }
 
  .hh-pill {
-  display: inline-flex; align-items: center; gap: 0.45rem;
-  padding: 0.55rem 1rem; border-radius: 999px;
-  font-size: 0.82rem; font-weight: 600;
-  border: 1px solid rgba(244, 168, 186, 0.28);
-  background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(0,0,0,0.35));
-  color: rgba(255, 232, 239, 0.9);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-  transition: border-color .25s, box-shadow .25s, transform .25s;
+ display: inline-flex; align-items: center; gap: 0.45rem;
+ padding: 0.55rem 1rem; border-radius: 999px;
+ font-size: 0.82rem; font-weight: 600;
+ border: 1px solid rgba(244, 168, 186, 0.28);
+ background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(0,0,0,0.35));
+ color: rgba(255, 232, 239, 0.9);
+ box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+ transition: border-color .25s, box-shadow .25s, transform .25s;
  }
  .hh-pill:hover {
-  border-color: rgba(255, 214, 222, 0.55);
-  box-shadow: 0 0 24px -6px rgba(244, 168, 186, 0.4);
-  transform: translateY(-2px);
+ border-color: rgba(255, 214, 222, 0.55);
+ box-shadow: 0 0 24px -6px rgba(244, 168, 186, 0.4);
+ transform: translateY(-2px);
  }
  .hh-pill i { color: var(--hh-rose); }
 
  .hh-cta-main {
-  display: inline-flex; align-items: center; gap: 0.55rem;
-  padding: 1rem 1.6rem; border-radius: 1.1rem;
-  font-weight: 700; font-size: 1.05rem; text-decoration: none;
-  color: #1a0a10;
-  background: linear-gradient(135deg, #ffe8ef 0%, #f4a8ba 45%, #ef8a9c 100%);
-  box-shadow: 0 12px 28px -12px rgba(239, 138, 156, 0.55), inset 0 1px 0 rgba(255,255,255,0.65);
-  transition: transform .15s ease, box-shadow .15s ease;
+ display: inline-flex; align-items: center; gap: 0.55rem;
+ padding: 1rem 1.6rem; border-radius: 1.1rem;
+ font-weight: 700; font-size: 1.05rem; text-decoration: none;
+ color: #1a0a10;
+ background: linear-gradient(135deg, #ffe8ef 0%, #f4a8ba 45%, #ef8a9c 100%);
+ box-shadow: 0 12px 28px -12px rgba(239, 138, 156, 0.55), inset 0 1px 0 rgba(255,255,255,0.65);
+ transition: transform .15s ease, box-shadow .15s ease;
  }
  .hh-cta-main:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px -12px rgba(239, 138, 156, 0.65);
+ transform: translateY(-2px);
+ box-shadow: 0 16px 36px -12px rgba(239, 138, 156, 0.65);
  }
  .hh-cta-ghost {
-  display: inline-flex; align-items: center; gap: 0.55rem;
-  padding: 1rem 1.4rem; border-radius: 1.1rem;
-  font-weight: 600; font-size: 1.02rem; text-decoration: none;
-  color: #ffe8ef;
-  border: 1px solid rgba(244, 168, 186, 0.4);
-  background: linear-gradient(160deg, rgba(244, 168, 186, 0.08), rgba(0,0,0,0.35));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-  transition: transform .2s, border-color .2s, box-shadow .2s;
+ display: inline-flex; align-items: center; gap: 0.55rem;
+ padding: 1rem 1.4rem; border-radius: 1.1rem;
+ font-weight: 600; font-size: 1.02rem; text-decoration: none;
+ color: #ffe8ef;
+ border: 1px solid rgba(244, 168, 186, 0.4);
+ background: linear-gradient(160deg, rgba(244, 168, 186, 0.08), rgba(0,0,0,0.35));
+ box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+ transition: transform .2s, border-color .2s, box-shadow .2s;
  }
  .hh-cta-ghost:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 232, 239, 0.6);
-  box-shadow: 0 0 30px -8px rgba(244, 168, 186, 0.45);
+ transform: translateY(-2px);
+ border-color: rgba(255, 232, 239, 0.6);
+ box-shadow: 0 0 30px -8px rgba(244, 168, 186, 0.45);
  }
 
  .hh-stamp {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(244, 168, 186, 0.55);
+ font-family: 'Space Grotesk', sans-serif;
+ font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+ color: rgba(244, 168, 186, 0.55);
  }
 
  .hh-media {
-  position: relative;
-  max-width: min(340px, 88vw); margin: 0 auto;
-  border-radius: 1.35rem;
-  padding: 2px;
-  background: linear-gradient(135deg, rgba(255,232,239,0.45), rgba(110,231,183,0.25), rgba(244,168,186,0.4));
-  box-shadow: 0 16px 40px -20px rgba(0,0,0,0.75);
-  /* isolate video paint from page scroll compositing */
-  contain: layout paint;
+ position: relative;
+ max-width: min(340px, 88vw); margin: 0 auto;
+ border-radius: 1.35rem;
+ padding: 2px;
+ background: linear-gradient(135deg, rgba(255,232,239,0.45), rgba(110,231,183,0.25), rgba(244,168,186,0.4));
+ box-shadow: 0 16px 40px -20px rgba(0,0,0,0.75);
+ /* isolate video paint from page scroll compositing */
+ contain: layout paint;
  }
  .hh-media-inner {
-  border-radius: calc(1.35rem - 1px);
-  overflow: hidden;
-  background: #0a0810;
-  position: relative;
-  transform: translateZ(0);
+ border-radius: calc(1.35rem - 1px);
+ overflow: hidden;
+ background: #0a0810;
+ position: relative;
+ transform: translateZ(0);
  }
  .hh-media-inner video {
-  display: block;
-  width: 100%;
-  height: auto;
-  /* Own compositor layer so video decode does not thrash layout paint */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  pointer-events: none;
+ display: block;
+ width: 100%;
+ height: auto;
+ /* Own compositor layer so video decode does not thrash layout paint */
+ transform: translateZ(0);
+ backface-visibility: hidden;
+ pointer-events: none;
  }
  /* While scrolling: show poster freeze (JS also pauses decode) */
  body.is-scrolling .hh-media-inner video {
-  visibility: hidden;
+ visibility: hidden;
  }
  body.is-scrolling .hh-media-inner {
-  background:
-    #0a0810
-    url('assets/images/healingheartstherapydognetworkphoto.jpg')
-    center / cover no-repeat;
+ background:
+ #0a0810
+ url('assets/images/healingheartstherapydognetworkphoto.jpg')
+ center / cover no-repeat;
  }
  .hh-media-glow { display: none; }
 
  .hh-card {
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 1px solid var(--hh-line);
-  background:
-    linear-gradient(155deg, rgba(244, 168, 186, 0.1) 0%, transparent 40%),
-    linear-gradient(165deg, #1c121a 0%, #100c12 55%, #0a0810 100%);
-  box-shadow: 0 20px 50px -24px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.08);
+ transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+ border: 1px solid var(--hh-line);
+ background:
+ linear-gradient(155deg, rgba(244, 168, 186, 0.1) 0%, transparent 40%),
+ linear-gradient(165deg, #1c121a 0%, #100c12 55%, #0a0810 100%);
+ box-shadow: 0 20px 50px -24px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.08);
  }
 
  .pay-forward-nav { color: #f9a8d4; position: relative; }
@@ -343,68 +343,68 @@
  #mobile-menu:not(.hidden) { display: block; }
 
  .hh-bg-layer {
-  position: fixed; inset: 0; pointer-events: none; z-index: -2;
-  opacity: 0.07;
-  background-image:
-    url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2226%22 fill=%22%23f4a8ba%22 opacity=%220.45%22>♥</text><text x=%22170%22 y=%22190%22 font-size=%2222%22 fill=%22%236ee7b7%22 opacity=%220.28%22>🐾</text><text x=%22230%22 y=%2290%22 font-size=%2218%22 fill=%22%23f5d0a9%22 opacity=%220.3%22>✦</text></svg>');
-  background-size: 300px 300px;
-  /* static: animated bg-position forces full-viewport repaints on scroll */
+ position: fixed; inset: 0; pointer-events: none; z-index: -2;
+ opacity: 0.07;
+ background-image:
+ url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2226%22 fill=%22%23f4a8ba%22 opacity=%220.45%22>♥</text><text x=%22170%22 y=%22190%22 font-size=%2222%22 fill=%22%236ee7b7%22 opacity=%220.28%22>🐾</text><text x=%22230%22 y=%2290%22 font-size=%2218%22 fill=%22%23f5d0a9%22 opacity=%220.3%22>✦</text></svg>');
+ background-size: 300px 300px;
+ /* static: animated bg-position forces full-viewport repaints on scroll */
  }
  .hh-aurora {
-  position: fixed; inset: 0; pointer-events: none; z-index: -1;
-  background:
-    radial-gradient(ellipse 50% 30% at 20% 20%, rgba(244, 168, 186, 0.07), transparent 60%),
-    radial-gradient(ellipse 40% 25% at 80% 60%, rgba(110, 231, 183, 0.05), transparent 55%);
-  opacity: 0.85;
-  contain: strict;
+ position: fixed; inset: 0; pointer-events: none; z-index: -1;
+ background:
+ radial-gradient(ellipse 50% 30% at 20% 20%, rgba(244, 168, 186, 0.07), transparent 60%),
+ radial-gradient(ellipse 40% 25% at 80% 60%, rgba(110, 231, 183, 0.05), transparent 55%);
+ opacity: 0.85;
+ contain: strict;
  }
 
  footer {
-  background: #040308 !important;
-  border-top: 1px solid var(--hh-line) !important;
-  color: var(--hh-muted) !important;
-  position: relative;
+ background: #040308 !important;
+ border-top: 1px solid var(--hh-line) !important;
+ color: var(--hh-muted) !important;
+ position: relative;
  }
  footer::before {
-  content: '';
-  position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(244,168,186,0.5), rgba(110,231,183,0.4), transparent);
+ content: '';
+ position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+ background: linear-gradient(90deg, transparent, rgba(244,168,186,0.5), rgba(110,231,183,0.4), transparent);
  }
 
  .hh-auth {
-  border: 1px solid rgba(244, 168, 186, 0.35) !important;
-  background: linear-gradient(160deg, rgba(20,12,16,0.95), rgba(8,6,10,0.96)) !important;
-  box-shadow: 0 16px 40px -16px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.06);
+ border: 1px solid rgba(244, 168, 186, 0.35) !important;
+ background: linear-gradient(160deg, rgba(20,12,16,0.95), rgba(8,6,10,0.96)) !important;
+ box-shadow: 0 16px 40px -16px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.06);
  }
 
  /* Mobile / low power: kill continuous paint */
  @media (max-width: 767px) {
-  .hh-ingot-ring { animation: none !important; opacity: 0.55; will-change: auto; }
-  .hh-ingot-ring::before, .hh-ingot-ring::after { animation: none !important; }
-  .hh-sig b, .chain-heart { animation: none !important; }
-  .hh-bg-layer { opacity: 0.04; }
-  .hh-aurora { display: none; }
-  .hh-media { max-width: min(280px, 86vw); }
-  /* lifeline motion stays on mobile */
+ .hh-ingot-ring { animation: none !important; opacity: 0.55; will-change: auto; }
+ .hh-ingot-ring::before, .hh-ingot-ring::after { animation: none !important; }
+ .hh-sig b, .chain-heart { animation: none !important; }
+ .hh-bg-layer { opacity: 0.04; }
+ .hh-aurora { display: none; }
+ .hh-media { max-width: min(280px, 86vw); }
+ /* lifeline motion stays on mobile */
  }
  @media (prefers-reduced-motion: reduce) {
-  .hh-ingot-ring, .hh-sig b, .chain-heart, .hh-ecg path { animation: none !important; }
-  .hh-ecg path { stroke-dashoffset: 0; opacity: 0.85; }
+ .hh-ingot-ring, .hh-sig b, .chain-heart, .hh-ecg path { animation: none !important; }
+ .hh-ecg path { stroke-dashoffset: 0; opacity: 0.85; }
  }
  </style>
  <script>
  /* Early scroll freeze before experience JS loads */
  (function () {
-  var t, b = document.documentElement;
-  window.addEventListener('scroll', function () {
-   b.classList.add('is-scrolling');
-   document.body.classList.add('is-scrolling');
-   clearTimeout(t);
-   t = setTimeout(function () {
-    b.classList.remove('is-scrolling');
-    document.body.classList.remove('is-scrolling');
-   }, 140);
-  }, { passive: true });
+ var t, b = document.documentElement;
+ window.addEventListener('scroll', function () {
+ b.classList.add('is-scrolling');
+ document.body.classList.add('is-scrolling');
+ clearTimeout(t);
+ t = setTimeout(function () {
+ b.classList.remove('is-scrolling');
+ document.body.classList.remove('is-scrolling');
+ }, 140);
+ }, { passive: true });
  })();
  </script>
 </head>
@@ -521,15 +521,15 @@
  </div>
 
  <svg class="hh-ecg" viewBox="0 0 320 28" aria-hidden="true">
-  <defs>
-   <linearGradient id="hh-ecg-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#6ee7b7"/>
-    <stop offset="40%" stop-color="#f4a8ba"/>
-    <stop offset="70%" stop-color="#ffe8ef"/>
-    <stop offset="100%" stop-color="#f5d0a9"/>
-   </linearGradient>
-  </defs>
-  <path d="M0 14 H40 L48 14 L56 4 L64 24 L72 10 L80 14 H140 L148 14 L156 2 L164 26 L172 12 L180 14 H240 L248 14 L256 6 L264 22 L272 12 L280 14 H320"/>
+ <defs>
+ <linearGradient id="hh-ecg-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+ <stop offset="0%" stop-color="#6ee7b7"/>
+ <stop offset="40%" stop-color="#f4a8ba"/>
+ <stop offset="70%" stop-color="#ffe8ef"/>
+ <stop offset="100%" stop-color="#f5d0a9"/>
+ </linearGradient>
+ </defs>
+ <path d="M0 14 H40 L48 14 L56 4 L64 24 L72 10 L80 14 H140 L148 14 L156 2 L164 26 L172 12 L180 14 H240 L248 14 L256 6 L264 22 L272 12 L280 14 H320"/>
  </svg>
 
  <p class="hh-subline mt-4">Train. Certify. Place. Heal.</p>
@@ -556,22 +556,22 @@
  <p class="mt-4 text-[11px] tracking-wide text-rose-200/40">Pipeline, settings, dogs, network. Demo until partners and rails are real.</p>
 
  <div class="mt-12 hh-media" id="hh-media">
-  <div class="hh-media-inner">
-   <video
-    id="hh-hero-video"
-    src="assets/videos/healingheartstherapydognetwork-animated.mp4"
-    muted
-    loop
-    playsinline
-    webkit-playsinline
-    preload="metadata"
-    poster="assets/images/healingheartstherapydognetworkphoto.jpg"
-    disablePictureInPicture
-    disableRemotePlayback
-    aria-label="Animated preview of Healing Hearts therapy dog network"
-   ></video>
-   <p class="text-[10px] tracking-[0.14em] uppercase text-rose-200/45 py-2.5 px-3 text-center border-t border-white/5">Preview clip. Not a live placement feed.</p>
-  </div>
+ <div class="hh-media-inner">
+ <video
+ id="hh-hero-video"
+ src="assets/videos/healingheartstherapydognetwork-animated.mp4"
+ muted
+ loop
+ playsinline
+ webkit-playsinline
+ preload="metadata"
+ poster="assets/images/healingheartstherapydognetworkphoto.jpg"
+ disablePictureInPicture
+ disableRemotePlayback
+ aria-label="Animated preview of Healing Hearts therapy dog network"
+ ></video>
+ <p class="text-[10px] tracking-[0.14em] uppercase text-rose-200/45 py-2.5 px-3 text-center border-t border-white/5">Preview clip. Not a live placement feed.</p>
+ </div>
  </div>
  </div>
 </header>
@@ -593,24 +593,24 @@
 
 <script>
  function toggleMobileMenu() {
-  var m = document.getElementById('mobile-menu');
-  var icon = document.getElementById('mobile-menu-icon');
-  if (!m) return;
-  m.classList.toggle('hidden');
-  if (icon) {
-   icon.classList.toggle('fa-bars');
-   icon.classList.toggle('fa-xmark');
-  }
+ var m = document.getElementById('mobile-menu');
+ var icon = document.getElementById('mobile-menu-icon');
+ if (!m) return;
+ m.classList.toggle('hidden');
+ if (icon) {
+ icon.classList.toggle('fa-bars');
+ icon.classList.toggle('fa-xmark');
+ }
  }
  function toggleProgramsDropdown(e) {
-  if (e) e.preventDefault();
-  var menu = document.getElementById('programs-menu');
-  if (menu) menu.classList.toggle('hidden');
+ if (e) e.preventDefault();
+ var menu = document.getElementById('programs-menu');
+ if (menu) menu.classList.toggle('hidden');
  }
  document.addEventListener('click', function (ev) {
-  var dd = document.getElementById('programs-dropdown');
-  var menu = document.getElementById('programs-menu');
-  if (dd && menu && !dd.contains(ev.target)) menu.classList.add('hidden');
+ var dd = document.getElementById('programs-dropdown');
+ var menu = document.getElementById('programs-menu');
+ if (dd && menu && !dd.contains(ev.target)) menu.classList.add('hidden');
  });
 </script>
 </body>

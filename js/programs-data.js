@@ -383,12 +383,12 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/goldenpawsretirementprogram.jpg",
- shortDesc: "Mercy engine for senior heroes: service retirees and shelter seniors into certified forever homes. Screening hard. Care funded when live.",
+ shortDesc: "Service retirees and senior shelter dogs into carefully screened forever homes. Screening hard. Care funded when live.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Golden Paws</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Golden Paws Retirement Program</h2>
  <p class="text-amber-200 text-xl mb-6">Too many heroic service dogs and gentle senior shelter dogs spend their final years in a cold kennel after giving everything they had.</p>
  <p class="text-zinc-300 mb-6">They deserve the sofa, the love, and the peaceful retirement they earned.</p>
- <p class="text-zinc-300 mb-6">Through Golden Paws, every retiring service dog and every senior shelter dog will get a permanent, loving, zero cost forever home. Families are <strong>certified</strong> through thorough screening. Program funds cover the care amounts listed below when rails are live.</p>
+ <p class="text-zinc-300 mb-6">Through Golden Paws, every retiring service dog and every senior shelter dog will get a permanent, loving, zero cost forever home. Families are <strong>certified</strong> through thorough screening. Program funds cover the care amounts listed below when funding and delivery are live.</p>
  <p class="text-zinc-300 mb-8"><a href="golden-paws.html" class="text-amber-300 underline">Open the dedicated Golden Paws page</a> to browse senior heroes and submit a forever-home intent. Different from <a href="golden-years.html" class="text-emerald-300 underline">Golden Years</a> (matching senior people with companion dogs).</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
@@ -891,7 +891,7 @@ const programs = [ {
  <li>Partnered shelters, foster agencies, churches, and school social workers nominate children.</li>
  <li>Hardship is documented the old-fashioned way: files, letters, known case managers. Not internet sob stories alone.</li>
  <li>Gifts go to the child through the partner. Not cash to strangers in a chat.</li>
- <li>When rails are live, impact notes and honest reporting. When they are not yet, we do not pretend.</li>
+ <li>when funding and delivery are live, impact notes and honest reporting. When they are not yet, we do not pretend.</li>
  </ul>
  </div>
 

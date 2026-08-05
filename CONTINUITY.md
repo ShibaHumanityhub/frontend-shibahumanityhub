@@ -1,7 +1,7 @@
 # Continuity handoff (replaces frozen Grok session)
 
-**Broken session ID:** `019f5e1b-bea5-7b53-91eb-6b356536e314`  
-**Title:** review shibahumanityhub.com , also review our entire chat history  
+**Broken session ID:** `019f5e1b-bea5-7b53-91eb-6b356536e314` 
+**Title:** review shibahumanityhub.com , also review our entire chat history 
 **Status:** Unrecoverable for practical use even after cleanup. **This successor chat is the permanent continuation.** Same mission, same bar, same files.
 
 ## Why that chat will not open reliably
@@ -15,7 +15,7 @@
 | Stale lock | `summary.json.lock` was **~427 hours** old and not held by a process (removed 2026-08-02) |
 | Disk | Host `C:` often ~**3.8 GB free** (tight under load) |
 
-**What we did:** removed the stale lock.  
+**What we did:** removed the stale lock. 
 **What still needs your OK:** delete or archive `recap_requests` (~381 MB) to free disk and make `/resume` less likely to choke. Core chat files stay intact if only that folder is cleared.
 
 Optional recovery after cleanup:
@@ -91,7 +91,7 @@ Files touched for one-voice honesty:
 
 - Page: `golden-paws.html` + `js/golden-paws-experience.js`
 - Lists senior **service** + **shelter** heroes; click → certified forever-home connect
-- Certified = screening checklist + program funds ($250 / $350–450 / $700+ design circles)
+- Certified = screening checklist + program funds ($250 / $350-450 / $700+ design circles)
 - Distinct from **Golden Years** (senior people + companion dogs)
 - Truth: design roster + localStorage intent only until partners + rails
 

@@ -34,7 +34,7 @@
  <!-- Twitter / X -->
  <meta name="twitter:card" content="summary_large_image">
  <meta name="twitter:title" content="Shibahumanityhub • Mercy Flywheel on Shibarium">
- <meta name="twitter:description" content="$NIBBLES and $hopeseed on Shibarium. Built for shelter dogs, kids, and the people who need them. Truth first. When rails are live, holdings fund the work.">
+ <meta name="twitter:description" content="$NIBBLES and $hopeseed on Shibarium. Built for shelter dogs, kids, and the people who need them. Truth first. when funding and delivery are live, holdings fund the work.">
  <meta name="twitter:image" content="https://shibahumanityhub.com/assets/logos/shibahumanityhublogo3d-new.jpg">
  <meta name="twitter:site" content="@Shibhumanityhub">
 
@@ -1682,7 +1682,7 @@
  </a>
  <a href="healing-hearts.html#hhx-stars" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
  <span class="text-emerald-400/80">✿</span> 
- <span>HH � Star Souls</span>
+ <span>HH � Star Souls</span>
  </a>
  
  <div class="my-1 border-t border-white/10"></div>
@@ -1978,7 +1978,7 @@
  Contracts on Shibarium. Real ledger rows appear when transfers exist on the network your wallet reads.
  </div>
  <div class="mb-4">
- <div class="text-[10px] uppercase tracking-[1.5px] text-amber-300/70 mb-2">Illustrative first ripples</div>
+ <div class="text-[10px] uppercase tracking-[1.5px] text-amber-300/70 mb-2">Demo first ripples</div>
  <div class="space-y-2 text-sm">
  <div class="bg-zinc-900/70 border border-dashed border-amber-400/30 rounded-xl p-3 flex gap-3">
  <span>🐾</span>
@@ -2027,7 +2027,7 @@
  <div class="shh-chapter-kicker mb-2">02 · The machine</div>
  <div class="shh-chapter-rule mx-auto mb-4"></div>
  <h2 class="shh-chapter-title text-3xl md:text-5xl font-bold mb-3">The Mercy Engine</h2>
- <p class="text-lg md:text-xl text-amber-200 max-w-2xl mx-auto">Not another charity pitch. A flywheel on-chain. When rails are live, activity is meant to fund mercy. Straight.</p>
+ <p class="text-lg md:text-xl text-amber-200 max-w-2xl mx-auto">Not another charity pitch. A flywheel on-chain. when funding and delivery are live, activity is meant to fund mercy. Straight.</p>
  </div>
  <div class="grid md:grid-cols-3 gap-4 md:gap-6 mb-10">
  <div class="bg-zinc-900/70 border border-amber-400/20 rounded-2xl p-6 text-center">
@@ -2363,7 +2363,7 @@
  <h2 class="shh-chapter-title text-3xl md:text-4xl font-bold mb-4 shh-reveal">Mercy that can last</h2>
  <p class="text-lg md:text-xl text-zinc-300 leading-relaxed max-w-2xl mx-auto">
  On-chain. Voluntary. Built so success multiplies capacity for kids, dogs, veterans, and families.
- When rails are live: transparent funding. No middlemen theater.
+ when funding and delivery are live: transparent funding. No middlemen theater.
  </p>
  <a href="whitepaper.html" class="inline-flex mt-5 text-amber-200 underline text-sm">Full vision in the whitepaper →</a>
  </div>
@@ -2815,7 +2815,7 @@ async function connectShibariumWallet() {
  combined.sort((a, b) => b.block - a.block);
  combined = combined.slice(0, 5);
 
- // Use unified renderer for real on-chain data (the illustrative previews above stay until real activity begins)
+ // Use unified renderer for real on-chain data (the demo previews above stay until real activity begins)
  if (liveList) {
  renderRippleList(combined, liveList, true);
  }
@@ -2876,7 +2876,7 @@ async function getTokenBalance(tokenAddress, userAddress, rpcUrl) {
 function getMercyCircle(balance) {
  if (balance >= MERCY_THRESHOLDS.ETERNAL) return 'Eternal Guardian Circle • permanent recognition when the funding comes through.';
  if (balance >= MERCY_THRESHOLDS.GUARDIAN) return 'Guardian Circle • regular impact updates and deeper support.';
- if (balance >= MERCY_THRESHOLDS.MERCY) return 'Mercy Circle • funding the next link when rails are live.';
+ if (balance >= MERCY_THRESHOLDS.MERCY) return 'Mercy Circle • funding the next link when funding and delivery are live.';
  return 'Supporter • every token still adds to the living mercy.';
 }
 
@@ -3496,7 +3496,7 @@ function copyMercyFootprint() {
  refPart = `\n\nReferred by: ${currentReferralName}\nJoin via my referral: https://shibahumanityhub.com/?ref=${encodedRef}`;
  }
 
- const text = `With my holding of ${nBal.toLocaleString()} $NIBBLES (${nCircle} Circle) and ${hBal.toLocaleString()} $hopeseed (${hCircle} Circle), I am quietly turning the mercy flywheel.\n\nIllustrative projection only: this could touch approximately ${projected} additional lives in the next 12 months through the stories and new holders it helps create when funding and impact rails are live.\n\nWe are building something the people will help build. People helping people. Helping people.${refPart}\n\n#PeopleHelpingPeople #MercyFlywheel`;
+ const text = `With my holding of ${nBal.toLocaleString()} $NIBBLES (${nCircle} Circle) and ${hBal.toLocaleString()} $hopeseed (${hCircle} Circle), I am quietly turning the mercy flywheel.\n\nDemo projection only: this could touch approximately ${projected} additional lives in the next 12 months through the stories and new holders it helps create when funding and impact rails are live.\n\nWe are building something the people will help build. People helping people. Helping people.${refPart}\n\n#PeopleHelpingPeople #MercyFlywheel`;
 
  navigator.clipboard.writeText(text).then(() => {
  const btns = document.querySelectorAll('.footprint-share-btn');
