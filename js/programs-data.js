@@ -182,13 +182,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/healingheartstherapydognetworkphoto.jpg",
- shortDesc: "Network engine: train, certify, place. Star Souls is the public roster face (not a separate program). Seniors via Silver Paws.",
+ shortDesc: "Train, certify, place. Star Souls is the dog roster (not its own program). Seniors go through Silver Paws.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Healing Hearts</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Healing Hearts Therapy Dog Network</h2>
- <p class="text-amber-200 text-xl mb-6">The pipeline that turns shelter dogs into certified healing partners — multi-setting, truth-first, when funded.</p>
- <p class="text-zinc-300 mb-6">Healing Hearts is the <strong>network engine</strong>: recruit gentle shelter dogs, train and certify them with handlers, then place them where comfort is needed — hospitals, schools, hospice, veterans halls, and community programs.</p>
- <p class="text-zinc-300 mb-4"><strong>★ Star Souls</strong> is the public roster and design-gig face of this network — <em>not</em> a separate program. Open it inside the full model.</p>
- <p class="text-zinc-300 mb-8"><strong>Clear split:</strong> Healing Hearts trains and places. <a href="silver-paws.html" class="text-emerald-300 underline">Silver Paws</a> is the senior visit product. HH feeds certified dogs into SP for elders.</p>
+ <p class="text-amber-200 text-xl mb-6">The path that turns shelter dogs into certified healing partners, in many kinds of rooms, when funded, with honest proof.</p>
+ <p class="text-zinc-300 mb-6">Healing Hearts is the <strong>network</strong>: recruit gentle shelter dogs, train and certify them with handlers, then place them where comfort is needed in hospitals, schools, hospice, veterans halls, and community programs.</p>
+ <p class="text-zinc-300 mb-4"><strong>★ Star Souls</strong> is the roster name for those dogs and sample gigs. It is <em>not</em> a separate program. Open it inside the full model.</p>
+ <p class="text-zinc-300 mb-8"><strong>Simple split:</strong> Healing Hearts trains and places. <a href="silver-paws.html" class="text-emerald-300 underline">Silver Paws</a> is the senior visit product. HH sends certified dogs into SP for elders.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -204,7 +204,7 @@ const programs = [ {
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Preview motion · network model, not a live placement feed.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Preview clip. Network plan, not a live placement feed.</p>
  </div>
 
  <div class="mb-10">

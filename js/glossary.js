@@ -51,18 +51,18 @@ window.SHHGlossary = {
  },
  "healing hearts": {
  title: "Healing Hearts Therapy Dog Network",
- simple: "The network engine: recruit shelter dogs, train and certify them with handlers, then place them into hospitals, schools, hospice, veterans spaces, and community programs. Seniors are served through Silver Paws, which HH feeds.",
- impact: "One pipeline, many rooms. Dogs find purpose. People find a calm heart beside them."
+ simple: "Recruit shelter dogs, train and certify them with handlers, then place them in hospitals, schools, hospice, veterans spaces, and community programs. Seniors go through Silver Paws, which HH feeds.",
+ impact: "One pipeline, many rooms. Dogs get purpose. People get a calm heart beside them."
  },
  "therapy dog network": {
  title: "Therapy Dog Network (Healing Hearts)",
- simple: "The multi-setting placement system: pipeline stages from recruit to support, chapters of handlers, and partner seats — design model until funded and agreements are live.",
- impact: "Structure before scale. Truth over volume of claims."
+ simple: "The placement system from recruit to support, plus handler chapters and partner seats. Design only until funded and agreements are live.",
+ impact: "Structure before scale. Honest claims only."
  },
  "star souls": {
- title: "Star Souls · Healing Hearts roster",
- simple: "Not a separate program. Star Souls is the public face of Healing Hearts: the certified dogs, their stories, and design gig lanes. Seniors still use Silver Paws as the visit product.",
- impact: "One network engine. One clear roster brand. Zero fake third program."
+ title: "Star Souls (Healing Hearts roster)",
+ simple: "Not a separate program. Star Souls is the name for Healing Hearts dogs, their stories, and design gig lanes. Seniors still use Silver Paws as the visit product.",
+ impact: "One network. One roster name. No fake third program."
  },
  "silver paws": {
  title: "Silver Paws Therapy Visits",

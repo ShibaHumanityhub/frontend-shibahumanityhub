@@ -8,12 +8,12 @@
   'use strict';
 
   var LANES = [
-    { id: 'HH-01', dog: 'Willow', stage: 'Temperament screen', setting: 'Hospital pediatrics', progress: 22, team: 'Coast Care', note: 'Shelter calm · vest pending' },
+    { id: 'HH-01', dog: 'Willow', stage: 'Temperament screen', setting: 'Hospital pediatrics', progress: 22, team: 'Coast Care', note: 'Shelter calm, vest pending' },
     { id: 'HH-02', dog: 'Bear', stage: 'Handler pairing', setting: 'VA community hall', progress: 48, team: 'Midwest Mercy', note: 'Veteran soft-approach training' },
     { id: 'HH-03', dog: 'Nori', stage: 'Cert path', setting: 'Elementary school', progress: 61, team: 'Prairie Soft', note: 'Reading-buddy protocol' },
-    { id: 'HH-04', dog: 'Atlas', stage: 'Placement ready', setting: 'Hospice wing', progress: 78, team: 'Quiet Light', note: 'Low-stim · consent first' },
+    { id: 'HH-04', dog: 'Atlas', stage: 'Placement ready', setting: 'Hospice wing', progress: 78, team: 'Quiet Light', note: 'Low stim, consent first' },
     { id: 'HH-05', dog: 'Mabel', stage: 'Silver Paws feed', setting: 'Senior homes (SP)', progress: 35, team: 'Silver Unit A', note: 'Routes into Silver Paws product' },
-    { id: 'HH-06', dog: 'Theo', stage: 'Recruit intake', setting: 'Community clinic', progress: 12, team: 'Atlantic Soft', note: 'Shelter pull · design lane' }
+    { id: 'HH-06', dog: 'Theo', stage: 'Recruit intake', setting: 'Community clinic', progress: 12, team: 'Atlantic Soft', note: 'Shelter pull, design lane' }
   ];
 
   var SETTINGS = [
@@ -29,7 +29,7 @@
     { n: '01', title: 'Recruit', body: 'Gentle shelter dogs with steady temperament. No force. Health and behavior screens before any training dollar is spent.' },
     { n: '02', title: 'Train', body: 'Handler pairing, public-access manners, multi-setting drills, and emotional regulation around medical gear and crowds.' },
     { n: '03', title: 'Certify', body: 'Independent evaluation path (design). Vest, passport entry, and clear pass/hold/retire decisions. Truth over volume.' },
-    { n: '04', title: 'Place', body: 'Match dog + handler to a setting that fits. Hospitals, schools, hospice, community — or feed into Silver Paws for seniors.' },
+    { n: '04', title: 'Place', body: 'Match dog and handler to a setting that fits: hospitals, schools, hospice, community, or into Silver Paws for seniors.' },
     { n: '05', title: 'Support', body: 'Ongoing wellness for dog and handler. Rest days. Retire with dignity into Golden Paws or companion homes when the work is done.' }
   ];
 
@@ -65,7 +65,7 @@
       'body.is-scrolling .hhx-scan,body.is-scrolling .hhx-bar > i,body.is-scrolling .hhx-kicker .pulse,body.is-scrolling .hhx-pipe-beam,body.is-scrolling .hhx-pipe-card .node,body.is-scrolling .hhx-mtop .hhx-live i{animation-play-state:paused!important}',
       'body.is-scrolling .hhx-dust{visibility:hidden!important}',
       'body.is-scrolling .hhx-title,body.is-scrolling .hhx-section-head h2{filter:none!important}',
-      /* Rail — solid bg, no blur (blur is expensive over scrolling content) */
+      /* Rail: solid bg, no blur (blur is expensive over scrolling content) */
       '.hhx-rail{position:sticky;top:0;z-index:55;display:flex;gap:.35rem;padding:.5rem .85rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:rgba(7,6,10,.98);border-bottom:1px solid var(--hh-line);box-shadow:0 1px 0 rgba(255,255,255,.04);justify-content:flex-start}',
       '.hhx-rail::-webkit-scrollbar{display:none}',
       '@media(min-width:900px){.hhx-rail{justify-content:center;flex-wrap:wrap}}',
@@ -139,7 +139,7 @@
       '.hhx-cta-ghost:hover{border-color:rgba(255,232,239,.55);transform:translateY(-1px)}',
       '.hhx-scan{position:absolute;left:8%;right:8%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,232,239,.4),transparent);pointer-events:none;opacity:.4}',
       'body.hhx-ready .hhx-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:80;background:linear-gradient(90deg,#6ee7b7,#f4a8ba,#ffe8ef);will-change:width;transform:translateZ(0)}',
-      /* Forge dust — few particles, GPU-friendly transform only */
+      /* Forge dust: few particles, GPU-friendly transform only */
       '.hhx-dust{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;contain:strict}',
       '.hhx-dust i{position:absolute;width:2px;height:2px;border-radius:50%;background:#ffe8ef;opacity:0;animation:hhx-dust-float linear infinite;will-change:transform,opacity}',
       '.hhx-dust i.em{background:#6ee7b7}',
@@ -260,8 +260,8 @@
       return (
         '<div class="hhx-visit" data-hh-lane="' + v.id + '">' +
           '<div class="hhx-visit-top"><span class="hhx-id">' + v.id + '</span><span class="hhx-status">' + v.stage + '</span></div>' +
-          '<p class="hhx-route">' + v.dog + ' · ' + v.setting + '</p>' +
-          '<p class="hhx-note">' + v.note + ' · ' + v.team + '</p>' +
+          '<p class="hhx-route">' + v.dog + ' / ' + v.setting + '</p>' +
+          '<p class="hhx-note">' + v.note + ' / ' + v.team + '</p>' +
           '<div class="hhx-bar"><i style="width:' + v.progress + '%"></i></div>' +
         '</div>'
       );
@@ -275,20 +275,20 @@
           '<span class="hhx-br bl" aria-hidden="true"></span>' +
           '<span class="hhx-br br" aria-hidden="true"></span>' +
           '<div class="hhx-scan" aria-hidden="true"></div>' +
-          '<p class="hhx-kicker"><span class="pulse"></span> Network command · design preview</p>' +
+          '<p class="hhx-kicker"><span class="pulse"></span> Network board (preview)</p>' +
           '<h2 class="hhx-title">Train. Certify. Place. Heal.</h2>' +
-          '<p class="hhx-lede">Healing Hearts is the therapy-dog <strong>network</strong>: shelter dogs become certified partners for hospitals, schools, hospice, community programs — and feed <a href="silver-paws.html" style="color:#f4a8ba;text-decoration:underline;text-underline-offset:3px">Silver Paws</a> for senior visits. This board is illustrative until funding and partners are live.</p>' +
+          '<p class="hhx-lede">Healing Hearts is the therapy-dog <strong>network</strong>. Shelter dogs become certified partners for hospitals, schools, hospice, and community programs, and they feed <a href="silver-paws.html" style="color:#f4a8ba;text-decoration:underline;text-underline-offset:3px">Silver Paws</a> for senior visits. This board is a demo until funding and partners are real.</p>' +
           meters +
           '<div class="hhx-grid">' +
             '<div class="hhx-visits" id="hhx-lanes">' + visits + '</div>' +
             '<div class="hhx-side">' +
-              '<h3>♥ Desk chatter</h3>' +
+              '<h3>♥ Desk notes</h3>' +
               '<div class="hhx-chat" id="hhx-chat" aria-live="polite"></div>' +
               '<div class="hhx-cta-row">' +
                 '<button type="button" class="hhx-cta hhx-cta-main" data-hhx-go="pipeline">Open pipeline</button>' +
                 '<button type="button" class="hhx-cta hhx-cta-ghost" data-hhx-go="settings">See settings</button>' +
               '</div>' +
-              '<p class="hhx-honest">Illustrative lanes. No live GPS. No fake partner contracts. Click a chapter to open it.</p>' +
+              '<p class="hhx-honest">Demo lanes. No live GPS. No fake partner contracts. Click a section to open it.</p>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -311,11 +311,11 @@
 
   function seeMoreGridHtml() {
     var cards = [
-      { go: 'pipeline', k: '01 · Engine', title: 'Pipeline', p: 'Recruit → train → certify → place → support. The network assembly line.', cta: 'See more' },
-      { go: 'settings', k: '02 · Where', title: 'Settings', p: 'Hospitals, schools, hospice, veterans, community — seniors via Silver Paws.', cta: 'See more' },
-      { go: 'stars', k: '03 · Roster', title: 'Star Souls', p: 'Public face of the network: certified dogs, design gigs, not a separate program.', cta: 'See more' },
-      { go: 'network', k: '04 · Who runs it', title: 'Network', p: 'Handlers, chapters, and partner seats (design).', cta: 'See more' },
-      { go: 'more', k: '05 · Clarity', title: 'HH · SP · Stars', p: 'Sharp split: two programs, one roster face, truth labels.', cta: 'See more' }
+      { go: 'pipeline', k: '01 Engine', title: 'Pipeline', p: 'Recruit, train, certify, place, support. How a shelter dog becomes a partner.', cta: 'See more' },
+      { go: 'settings', k: '02 Where', title: 'Settings', p: 'Hospitals, schools, hospice, veterans, community. Seniors go through Silver Paws.', cta: 'See more' },
+      { go: 'stars', k: '03 Roster', title: 'Star Souls', p: 'The dogs on the board. Design gigs. Not its own program.', cta: 'See more' },
+      { go: 'network', k: '04 Who runs it', title: 'Network', p: 'Handlers, chapters, and partner seats. Design only for now.', cta: 'See more' },
+      { go: 'more', k: '05 Clarity', title: 'HH, SP, Stars', p: 'Two programs. One roster name. Honest labels.', cta: 'See more' }
     ];
     return (
       '<div class="hhx-more-grid" id="hhx-more-grid" aria-label="Open a section">' +
@@ -351,7 +351,7 @@
 
   function pipelinePanelHtml() {
     return (
-      '<div class="hhx-section-head"><h2>The pipeline</h2><p>How a shelter dog becomes a certified healing partner. Stages are the model — live ops only when funded.</p></div>' +
+      '<div class="hhx-section-head"><h2>The pipeline</h2><p>How a shelter dog becomes a certified healing partner. These stages are the plan. Live ops only when funded.</p></div>' +
       '<div class="hhx-pipe-wrap">' +
         '<div class="hhx-pipe-beam" aria-hidden="true"></div>' +
         '<div class="hhx-pipe-grid">' +
@@ -372,7 +372,7 @@
 
   function settingsPanelHtml() {
     return (
-      '<div class="hhx-section-head"><h2>Placement settings</h2><p>Multi-setting network. Seniors are not orphaned here — they graduate into the Silver Paws product.</p></div>' +
+      '<div class="hhx-section-head"><h2>Placement settings</h2><p>Many kinds of rooms. Seniors are not left out. They move into the Silver Paws product.</p></div>' +
       '<div class="hhx-set-grid">' +
         SETTINGS.map(function (s) {
           var link = s.id === 'senior-sp'
@@ -396,31 +396,31 @@
   function starsPanelHtml() {
     /* Star Souls = public roster face of HH (not a 31st program) */
     var stars = [
-      { name: 'Willow', tag: 'Hospital · low stim', body: 'Soft eyes, slow approach. Quiet wards and long sits beside a bed.', icon: '🐕', track: 'HH' },
-      { name: 'Bear', tag: 'Veterans · steady', body: 'Solid presence without pushiness. Groups and hallway routes.', icon: '🐻', track: 'HH' },
-      { name: 'Nori', tag: 'Schools · reading buddy', body: 'Curious but polite. Classroom energy without chaos.', icon: '🐾', track: 'HH' },
-      { name: 'Atlas', tag: 'Hospice · soft', body: 'Ultra-quiet. When the room needs stillness more than tricks.', icon: '✨', track: 'HH' },
-      { name: 'Mabel', tag: 'Seniors · Silver Paws', body: 'Senior-home ready. Routes into SP packages + photographer.', icon: '🤍', track: 'SP' },
-      { name: 'Theo', tag: 'Intake · design', body: 'New shelter pull. Screening first, training second.', icon: '🌱', track: 'HH' }
+      { name: 'Willow', tag: 'Hospital, low stim', body: 'Soft eyes, slow approach. Quiet wards and long sits beside a bed.', icon: '🐕', track: 'HH' },
+      { name: 'Bear', tag: 'Veterans, steady', body: 'Solid presence without pushiness. Good in groups and hallways.', icon: '🐻', track: 'HH' },
+      { name: 'Nori', tag: 'Schools, reading buddy', body: 'Curious but polite. Classroom energy without chaos.', icon: '🐾', track: 'HH' },
+      { name: 'Atlas', tag: 'Hospice, soft', body: 'Very quiet. When the room needs stillness more than tricks.', icon: '✨', track: 'HH' },
+      { name: 'Mabel', tag: 'Seniors, Silver Paws', body: 'Senior-home ready. Goes into SP packages and the photographer.', icon: '🤍', track: 'SP' },
+      { name: 'Theo', tag: 'Intake, design', body: 'New shelter pull. Screening first, training second.', icon: '🌱', track: 'HH' }
     ];
     var gigs = [
-      { when: 'Design · week 1', who: 'Willow', where: 'Pediatric wing (preview)', kind: 'Hospital' },
-      { when: 'Design · week 1', who: 'Nori', where: 'Elementary reading hour (preview)', kind: 'School' },
-      { when: 'Design · week 2', who: 'Mabel', where: 'Silver Paws senior visit (preview)', kind: 'Seniors' },
-      { when: 'Design · week 2', who: 'Bear', where: 'VA community hall (preview)', kind: 'Veterans' },
-      { when: 'Design · week 3', who: 'Atlas', where: 'Hospice soft visit (preview)', kind: 'Hospice' }
+      { when: 'Design week 1', who: 'Willow', where: 'Pediatric wing (preview)', kind: 'Hospital' },
+      { when: 'Design week 1', who: 'Nori', where: 'Elementary reading hour (preview)', kind: 'School' },
+      { when: 'Design week 2', who: 'Mabel', where: 'Silver Paws senior visit (preview)', kind: 'Seniors' },
+      { when: 'Design week 2', who: 'Bear', where: 'VA community hall (preview)', kind: 'Veterans' },
+      { when: 'Design week 3', who: 'Atlas', where: 'Hospice soft visit (preview)', kind: 'Hospice' }
     ];
     return (
       '<div class="hhx-section-head">' +
-        '<h2>★ Star Souls · roster</h2>' +
-        '<p><strong>Not a separate program.</strong> Star Souls is the public face of Healing Hearts: who is certified, where they may serve, and design gig lanes until partners are live. Seniors still run through <a href="silver-paws.html" style="color:#f4a8ba;text-decoration:underline">Silver Paws</a>.</p>' +
+        '<h2>★ Star Souls roster</h2>' +
+        '<p><strong>Not a separate program.</strong> Star Souls is the name for the dogs on this board: who is certified, where they might serve, and sample gig lanes until partners are live. Seniors still go through <a href="silver-paws.html" style="color:#f4a8ba;text-decoration:underline">Silver Paws</a>.</p>' +
       '</div>' +
       '<div class="hhx-dog-grid" id="hhx-stars-grid">' +
         stars.map(function (d) {
           return (
             '<button type="button" class="hhx-dog" data-dog="' + d.name + '">' +
               '<div class="avatar" aria-hidden="true">' + d.icon + '</div>' +
-              '<p class="tag">' + d.tag + ' · ' + d.track + '</p>' +
+              '<p class="tag">' + d.tag + ' / ' + d.track + '</p>' +
               '<h4>' + d.name + '</h4>' +
               '<p>' + d.body + '</p>' +
             '</button>'
@@ -429,34 +429,34 @@
       '</div>' +
       '<div class="hhx-section-head" style="padding-top:.25rem">' +
         '<h2>Design gigs</h2>' +
-        '<p>Illustrative calendar only. No live bookings. Real gigs appear when chapters, handlers, and facilities agree.</p>' +
+        '<p>Sample calendar only. No live bookings. Real gigs show up when chapters, handlers, and facilities agree.</p>' +
       '</div>' +
       '<div class="hhx-net-list" id="hhx-gig-list">' +
         gigs.map(function (g) {
           return (
             '<div class="hhx-net-row">' +
-              '<div><strong>' + g.who + ' · ' + g.kind + '</strong><br><span>' + g.where + '</span></div>' +
+              '<div><strong>' + g.who + ' / ' + g.kind + '</strong><br><span>' + g.where + '</span></div>' +
               '<span class="badge">' + g.when + '</span>' +
             '</div>'
           );
         }).join('') +
       '</div>' +
-      '<p class="hhx-mtruth" style="padding-bottom:1.5rem">Star Souls brand lives here under Healing Hearts. The old standalone page redirects into this roster.</p>'
+      '<p class="hhx-mtruth" style="padding-bottom:1.5rem">Star Souls sits under Healing Hearts. The old standalone page sends you here.</p>'
     );
   }
 
   function networkPanelHtml() {
     var rows = [
-      { who: 'Chapter · Coast Care', what: 'Pacific corridor · hospital + school seats', badge: 'Design' },
-      { who: 'Chapter · Midwest Mercy', what: 'VA halls + community clinics', badge: 'Design' },
-      { who: 'Chapter · Quiet Light', what: 'Hospice and palliative partners', badge: 'Design' },
-      { who: 'Handler pool', what: 'Screened volunteers + pro handlers (when funded)', badge: 'Model' },
-      { who: '★ Star Souls roster', what: 'Public face of HH dogs + design gigs (not a program)', badge: 'HH surface' },
+      { who: 'Chapter: Coast Care', what: 'Pacific corridor, hospital and school seats', badge: 'Design' },
+      { who: 'Chapter: Midwest Mercy', what: 'VA halls and community clinics', badge: 'Design' },
+      { who: 'Chapter: Quiet Light', what: 'Hospice and palliative partners', badge: 'Design' },
+      { who: 'Handler pool', what: 'Screened volunteers and pro handlers (when funded)', badge: 'Model' },
+      { who: '★ Star Souls roster', what: 'HH dogs and design gigs (not its own program)', badge: 'HH surface' },
       { who: 'Silver Paws product', what: 'Senior visit ops, packages, photographer', badge: 'Live page' },
-      { who: 'K9 Lifeline', what: 'Disaster SAR — different mission, shared brand mercy', badge: 'Sibling' }
+      { who: 'K9 Lifeline', what: 'Disaster SAR. Different mission, same mercy brand.', badge: 'Sibling' }
     ];
     return (
-      '<div class="hhx-section-head"><h2>Network map</h2><p>Chapters and partners are seats on the model until agreements exist. No invented contracts.</p></div>' +
+      '<div class="hhx-section-head"><h2>Network map</h2><p>Chapters and partners are planned seats until real agreements exist. We do not invent contracts.</p></div>' +
       '<div class="hhx-net-list">' +
         rows.map(function (r) {
           return (
@@ -472,36 +472,35 @@
 
   function morePanelHtml() {
     return (
-      '<div class="hhx-section-head"><h2>Clear split · Circles · Truth</h2><p>Two programs. One roster face. Zero confusion.</p></div>' +
+      '<div class="hhx-section-head"><h2>Who does what, and the truth</h2><p>Two programs. One roster name. Easy to keep straight.</p></div>' +
       '<div class="hhx-split">' +
         '<div class="hhx-split-card">' +
           '<h3>♥ Healing Hearts</h3>' +
           '<ul>' +
-            '<li>Network &amp; pipeline engine (the program)</li>' +
-            '<li>Train · certify · place</li>' +
-            '<li>Multi-setting: hospital, school, hospice, community, veterans</li>' +
-            '<li><strong>★ Star Souls</strong> = public roster &amp; design gigs (not a separate program)</li>' +
-            '<li>Feeds certified dogs into Silver Paws for seniors</li>' +
+            '<li>The network program: train, certify, place</li>' +
+            '<li>Hospitals, schools, hospice, community, veterans</li>' +
+            '<li><strong>★ Star Souls</strong> is the roster name and design gigs (not a separate program)</li>' +
+            '<li>Sends certified dogs into Silver Paws for seniors</li>' +
           '</ul>' +
         '</div>' +
         '<div class="hhx-split-card sp">' +
           '<h3>🐾 Silver Paws</h3>' +
           '<ul>' +
-            '<li>Senior visit product (the other program)</li>' +
-            '<li>Homes directory · visit packages</li>' +
-            '<li>Bingo, lunch, stories + photographer every visit</li>' +
-            '<li>Soul-friend portraits seniors can keep</li>' +
+            '<li>The senior visit product</li>' +
+            '<li>Homes directory and visit packages</li>' +
+            '<li>Bingo, lunch, stories, photographer every visit</li>' +
+            '<li>Photos seniors can keep</li>' +
             '<li><a href="silver-paws.html" style="color:#c5ccd6">Open Silver Paws →</a></li>' +
           '</ul>' +
         '</div>' +
       '</div>' +
-      '<div class="hhx-section-head" style="padding-top:0"><h2>Circles of Mercy</h2><p>How $NIBBLES holdings fund the network when rails are live. Design levels — not issued credits yet.</p></div>' +
+      '<div class="hhx-section-head" style="padding-top:0"><h2>Circles of Mercy</h2><p>How $NIBBLES holdings can fund the network when rails are live. These are design levels, not credits issued yet.</p></div>' +
       '<div class="hhx-set-grid">' +
-        '<div class="hhx-set-card"><h3>Mercy · 25k+</h3><p>Fund training hours, vests, and first placements for one dog on the pipeline.</p></div>' +
-        '<div class="hhx-set-card"><h3>Guardian · 100k+</h3><p>Sponsor multiple dogs and receive honest stage updates as placements open.</p></div>' +
-        '<div class="hhx-set-card"><h3>Eternal · 250k+</h3><p>Legacy support across settings with soulbound recognition when the system is live.</p></div>' +
+        '<div class="hhx-set-card"><h3>Mercy, 25k+</h3><p>Fund training hours, vests, and first placements for one dog on the pipeline.</p></div>' +
+        '<div class="hhx-set-card"><h3>Guardian, 100k+</h3><p>Sponsor more than one dog and get honest stage updates as placements open.</p></div>' +
+        '<div class="hhx-set-card"><h3>Eternal, 250k+</h3><p>Long-term support across settings, with soulbound recognition when the system is live.</p></div>' +
       '</div>' +
-      '<div class="hhx-section-head"><h2>Truth</h2><p>No live placements, no fake partner logos, no treasury credit from this page yet. Preview model so donors and partners can see the machine before we scale it.</p></div>' +
+      '<div class="hhx-section-head"><h2>Truth</h2><p>No live placements, no fake partner logos, no treasury credit from this page yet. We show the plan so donors and partners can see the machine before we scale it.</p></div>' +
       '<div class="hhx-cta-row" style="max-width:72rem;margin:0 auto;padding:0 .85rem 2.75rem">' +
         '<a class="hhx-cta hhx-cta-main" href="all-programs.html">Support via programs</a>' +
         '<a class="hhx-cta hhx-cta-ghost" href="silver-paws.html">Silver Paws product</a>' +
@@ -596,7 +595,7 @@
 
     var truth = document.createElement('p');
     truth.className = 'hhx-mtruth';
-    truth.textContent = 'Demo lanes and chapters. Open a section with See more. Real partners replace demos when agreements are live.';
+    truth.textContent = 'Demo lanes and chapters. Open a section with See more. Real partners take over when agreements are live.';
 
     var heartNodes = [hero, quick, board, moreGrid, truth].filter(Boolean);
     [hero, board].forEach(function (n) {
@@ -633,13 +632,13 @@
     var chat = document.getElementById('hhx-chat');
     if (!chat) return;
     var lines = [
-      ['@desk', 'Willow on hospital track. Vest kit design only.'],
-      ['@train', 'Nori reading-buddy protocol draft ready.'],
-      ['@place', 'Atlas hospice soft · consent checklist.'],
-      ['@sp', 'Mabel feeds Silver Paws senior product.'],
+      ['@desk', 'Willow on hospital track. Vest kit is design only.'],
+      ['@train', 'Nori reading-buddy plan drafted.'],
+      ['@place', 'Atlas hospice soft. Consent checklist first.'],
+      ['@sp', 'Mabel routes into Silver Paws for seniors.'],
       ['@truth', 'Preview board. Real partners when agreements land.'],
-      ['@net', 'Chapters are seats — not live contracts.'],
-      ['@heart', 'Two hearts. One pipeline. Zero theater.']
+      ['@net', 'Chapters are planned seats, not live contracts.'],
+      ['@heart', 'Two hearts. One pipeline. No fake wins.']
     ];
     var i = 0;
     function tick() {
@@ -669,7 +668,7 @@
 
     countUpMeters();
 
-    /* Soft highlight rotation — no width thrash while scrolling */
+    /* Soft highlight rotation; no width thrash while scrolling */
     if (!reducedMotion() && !isMobile()) {
       var hot = 0;
       setInterval(function () {
@@ -697,7 +696,7 @@
   function forgeDust() {
     if (reducedMotion() || isMobile()) return;
     if (document.getElementById('hhx-dust')) return;
-    /* Cap particles hard — each is a continuous compositor layer cost */
+    /* Cap particles hard; each is a continuous compositor layer cost */
     var n = 10;
     var box = document.createElement('div');
     box.className = 'hhx-dust';

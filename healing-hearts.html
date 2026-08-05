@@ -13,10 +13,10 @@
 
  <title>Healing Hearts • Therapy Dog Network • Train · Certify · Place</title>
 
- <meta name="description" content="Healing Hearts is the therapy-dog network: recruit shelter dogs, train and certify them, then place into hospitals, schools, hospice, community programs — and feed Silver Paws for senior visits. Powered by $NIBBLES when funded.">
+ <meta name="description" content="Healing Hearts trains and certifies shelter dogs, then places them in hospitals, schools, hospice, and community programs. Seniors go through Silver Paws. Powered by $NIBBLES when funded.">
 
  <meta property="og:title" content="Healing Hearts • Therapy Dog Network on Shibarium">
- <meta property="og:description" content="Train. Certify. Place. Multi-setting therapy dogs from shelter to hospital, school, hospice — and Silver Paws for seniors.">
+ <meta property="og:description" content="Train. Certify. Place. Shelter dogs for hospitals, schools, hospice, and more. Seniors through Silver Paws.">
  <meta property="og:image" content="https://shibahumanityhub.com/assets/images/healingheartstherapydognetworkphoto.jpg">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://shibahumanityhub.com/healing-hearts.html">
@@ -201,7 +201,7 @@
   stroke-dasharray: 420;
   stroke-dashoffset: 420;
   animation: hh-ecg-draw 2.8s ease-in-out infinite;
-  /* no filter — keeps lifeline motion cheap while scrolling */
+  /* no filter: keeps lifeline motion cheap while scrolling */
  }
  @keyframes hh-ecg-draw {
   0% { stroke-dashoffset: 420; opacity: 0.35; }
@@ -308,7 +308,7 @@
   display: block;
   width: 100%;
   height: auto;
-  /* Own compositor layer — stops video decode thrashing layout paint */
+  /* Own compositor layer so video decode does not thrash layout paint */
   transform: translateZ(0);
   backface-visibility: hidden;
   pointer-events: none;
@@ -348,7 +348,7 @@
   background-image:
     url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22320%22 height=%22320%22><text x=%2210%22 y=%2240%22 font-size=%2226%22 fill=%22%23f4a8ba%22 opacity=%220.45%22>♥</text><text x=%22170%22 y=%22190%22 font-size=%2222%22 fill=%22%236ee7b7%22 opacity=%220.28%22>🐾</text><text x=%22230%22 y=%2290%22 font-size=%2218%22 fill=%22%23f5d0a9%22 opacity=%220.3%22>✦</text></svg>');
   background-size: 300px 300px;
-  /* static — animated bg-position forces full-viewport repaints on scroll */
+  /* static: animated bg-position forces full-viewport repaints on scroll */
  }
  .hh-aurora {
   position: fixed; inset: 0; pointer-events: none; z-index: -1;
@@ -393,7 +393,7 @@
  }
  </style>
  <script>
- /* Early scroll freeze — before experience JS loads */
+ /* Early scroll freeze before experience JS loads */
  (function () {
   var t, b = document.documentElement;
   window.addEventListener('scroll', function () {
@@ -413,7 +413,7 @@
 <!-- AUTHENTICITY NOTE -->
 <div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
  <div class="hh-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-rose-100/90">
- <strong class="text-rose-300">Authenticity:</strong> Pipeline lanes, chapters, and dog tracks are design demos. No live placements or partner contracts are issued from this page yet.
+ <strong class="text-rose-300">Authenticity:</strong> Pipeline lanes, chapters, and dog tracks here are demos. No live placements or partner contracts from this page yet.
  <button type="button" class="ml-2 underline text-rose-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
  </div>
 </div>
@@ -510,7 +510,7 @@
  <div class="hh-ingot-ring" aria-hidden="true"></div>
  <div class="max-w-5xl mx-auto px-6 relative z-[2] pt-6">
  <div class="hh-sig mb-6">
- <b></b> $NIBBLES · network forge · preview
+ <b></b> $NIBBLES network preview
  </div>
 
  <div class="hh-rect inline-block px-6 sm:px-10 py-4 mb-3 rounded-3xl">
@@ -533,27 +533,27 @@
  </svg>
 
  <p class="hh-subline mt-4">Train. Certify. Place. Heal.</p>
- <p class="hh-stamp mt-2">Built for dignity · designed for proof · ready when funded</p>
+ <p class="hh-stamp mt-2">Dignity first. Proof when funded. No empty claims.</p>
 
  <p class="mt-7 max-w-2xl mx-auto text-lg sm:text-xl text-rose-100/85 leading-relaxed">
- Shelter dogs become certified healing partners for hospitals, schools, hospice, veterans halls, and community rooms. <strong>★ Star Souls</strong> is the public roster face of this network (not a separate program). Seniors run through <a href="silver-paws.html" class="underline decoration-rose-300/50 underline-offset-4 text-rose-100 hover:text-white">Silver Paws</a>.
+ Shelter dogs become certified partners for hospitals, schools, hospice, veterans halls, and community rooms. <strong>★ Star Souls</strong> is just the roster name for those dogs (not its own program). Seniors go through <a href="silver-paws.html" class="underline decoration-rose-300/50 underline-offset-4 text-rose-100 hover:text-white">Silver Paws</a>.
  </p>
 
  <div class="mt-8 flex flex-wrap justify-center gap-2.5">
- <div class="hh-pill"><i class="fa-solid fa-dog"></i> Shelter → certified</div>
- <div class="hh-pill"><i class="fa-solid fa-hospital"></i> Multi-setting</div>
+ <div class="hh-pill"><i class="fa-solid fa-dog"></i> Shelter to certified</div>
+ <div class="hh-pill"><i class="fa-solid fa-hospital"></i> Many kinds of rooms</div>
  <div class="hh-pill"><span aria-hidden="true">★</span> Star Souls roster</div>
  </div>
 
  <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
  <a href="#hhx-board" class="hh-cta-main">
- Open network command <i class="fa-solid fa-display"></i>
+ Open the board <i class="fa-solid fa-display"></i>
  </a>
  <a href="silver-paws.html" class="hh-cta-ghost">
- Silver Paws product <i class="fa-solid fa-arrow-right"></i>
+ Silver Paws for seniors <i class="fa-solid fa-arrow-right"></i>
  </a>
  </div>
- <p class="mt-4 text-[11px] tracking-wide text-rose-200/40">High-tech pipeline board · settings · dogs · network. Demo until partners and rails are live.</p>
+ <p class="mt-4 text-[11px] tracking-wide text-rose-200/40">Pipeline, settings, dogs, network. Demo until partners and rails are real.</p>
 
  <div class="mt-12 hh-media" id="hh-media">
   <div class="hh-media-inner">
@@ -570,7 +570,7 @@
     disableRemotePlayback
     aria-label="Animated preview of Healing Hearts therapy dog network"
    ></video>
-   <p class="text-[10px] tracking-[0.14em] uppercase text-rose-200/45 py-2.5 px-3 text-center border-t border-white/5">Preview motion · not a live placement feed</p>
+   <p class="text-[10px] tracking-[0.14em] uppercase text-rose-200/45 py-2.5 px-3 text-center border-t border-white/5">Preview clip. Not a live placement feed.</p>
   </div>
  </div>
  </div>
@@ -580,8 +580,8 @@
 
 <footer class="py-14 text-center text-xs">
  <p class="text-rose-100/85 text-sm mb-2 font-medium">People helping people. Helping people.</p>
- <p class="mb-1 tracking-wide">Healing Hearts · Network forge · $NIBBLES when funded</p>
- <p class="mb-4 opacity-70">© Shibahumanityhub · Truth first · Design model until partners + rails are live</p>
+ <p class="mb-1 tracking-wide">Healing Hearts. Therapy dog network. $NIBBLES when funded.</p>
+ <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until partners and rails are live.</p>
  <div class="flex flex-wrap justify-center gap-4 text-sm">
  <a href="silver-paws.html" class="underline text-rose-200/80 hover:text-white">Silver Paws</a>
  <a href="k9-lifeline.html" class="underline text-rose-200/80 hover:text-white">K9 Lifeline</a>
