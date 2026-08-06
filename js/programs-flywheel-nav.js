@@ -34,6 +34,15 @@
  ' overscroll-behavior: contain;',
  ' padding-bottom: 8px;',
  '}',
+ '#cmd-panel-fw-mount .prog-fw-pair {',
+ ' padding: 4px 0 8px;',
+ '}',
+ '#cmd-panel-fw-mount .prog-fw-viewport {',
+ ' height: ' + (ITEM_H * 6) + 'px;',
+ '}',
+ '@media (min-width: 900px) {',
+ ' #cmd-panel-fw-mount .prog-fw-viewport { height: ' + (ITEM_H * 7) + 'px; }',
+ '}',
  '.prog-fw-head {',
  ' display: flex; align-items: center; justify-content: space-between; gap: 8px;',
  ' padding: 6px 16px 8px; border-bottom: 1px solid rgba(255,255,255,0.08);',
@@ -749,7 +758,16 @@
  // Expose for re-init after toggle if programs load late
  window.SHHProgFlywheelNav = {
  init: init,
- openProgram: openProgram
+ openProgram: openProgram,
+ /** Build dual wheels into any mount element (command panel, mobile drawer, etc.) */
+ buildInto: function (mount) {
+ if (!mount) return false;
+ injectStyles();
+ mount.removeAttribute('data-built');
+ mount.innerHTML = '';
+ buildMount(mount);
+ return !!mount.querySelector('.prog-fw-pair');
+ }
  };
 
  if (document.readyState === 'loading') {
