@@ -46,114 +46,126 @@
     }
   ];
 
-  /* Catalog: partner shops preferred (give-back). Future SHH shop only if 100% of margin to program + public receipts. */
+  /* Candidate give-back shortlist (design only, not signed contracts yet) */
+  var PARTNERS = [
+    { id: 'chewy', name: 'Chewy', focus: 'Food, beds, bowls, toys', give: 'Corporate giving and partner campaigns', url: 'https://www.chewy.com', note: 'Shortlist candidate' },
+    { id: 'petco', name: 'Petco / Petco Love', focus: 'Everyday gear, food, waste bags', give: 'Petco Love foundation model', url: 'https://www.petco.com', note: 'Shortlist candidate' },
+    { id: 'petsmart', name: 'PetSmart / PetSmart Charities', focus: 'Adoption support and store gear', give: 'Charity arm + store programs', url: 'https://www.petsmart.com', note: 'Shortlist candidate' },
+    { id: 'ruffwear', name: 'Ruffwear', focus: 'Harnesses, leashes, outdoor kits', give: 'Cause campaigns when contracted', url: 'https://ruffwear.com', note: 'Shortlist candidate' },
+    { id: 'local', name: 'Local indie shops', focus: 'Training, specialty, city kits', give: 'City-by-city donate-back deals', url: '', note: 'Live list when partners sign' }
+  ];
+
+  /* Catalog: sizes S/M/L filter what shows. est = design estimate USD for receipt mock only. */
   var CATALOG = {
     bed: {
       label: 'Bed',
       emoji: '🛏️',
       options: [
-        { id: 'bed-soft', name: 'Cloud nest bed', note: 'Machine-washable, soft for first nights', partner: 'Give-back partner (design)' },
-        { id: 'bed-ortho', name: 'Ortho bolster bed', note: 'Joints and deep sleepers', partner: 'Give-back partner (design)' },
-        { id: 'bed-travel', name: 'Travel crate mat', note: 'Rides + crate calm', partner: 'Give-back partner (design)' }
+        { id: 'bed-soft', name: 'Cloud nest bed', note: 'Machine-washable, soft for first nights', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M', 'L'], est: 38 },
+        { id: 'bed-ortho', name: 'Ortho bolster bed', note: 'Joints and deep sleepers', partner: 'petco', partnerLabel: 'Petco (candidate)', sizes: ['M', 'L'], est: 62 },
+        { id: 'bed-travel', name: 'Travel crate mat', note: 'Rides + crate calm', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M', 'L'], est: 24 }
       ]
     },
     leash: {
       label: 'Leash',
       emoji: '🦮',
       options: [
-        { id: 'leash-standard', name: '6 ft everyday leash', note: 'Solid first walks', partner: 'Give-back partner (design)' },
-        { id: 'leash-handsfree', name: 'Hands-free walk belt', note: 'Hands free for treats and keys', partner: 'Give-back partner (design)' },
-        { id: 'leash-traffic', name: 'Short traffic lead', note: 'City doors and cars', partner: 'Give-back partner (design)' }
+        { id: 'leash-standard', name: '6 ft everyday leash', note: 'Solid first walks', partner: 'ruffwear', partnerLabel: 'Ruffwear (candidate)', sizes: ['S', 'M', 'L'], est: 22 },
+        { id: 'leash-handsfree', name: 'Hands-free walk belt', note: 'Hands free for treats and keys', partner: 'ruffwear', partnerLabel: 'Ruffwear (candidate)', sizes: ['M', 'L'], est: 48 },
+        { id: 'leash-traffic', name: 'Short traffic lead', note: 'City doors and cars', partner: 'petsmart', partnerLabel: 'PetSmart (candidate)', sizes: ['S', 'M', 'L'], est: 16 }
       ]
     },
     collar: {
-      label: 'Collar',
+      label: 'Collar / harness',
       emoji: '✨',
       options: [
-        { id: 'col-id', name: 'ID collar + tags blank', note: 'Ready for name and number', partner: 'Give-back partner (design)' },
-        { id: 'col-break', name: 'Breakaway safety collar', note: 'Safer for some home setups', partner: 'Give-back partner (design)' },
-        { id: 'col-harness', name: 'Step-in harness', note: 'No neck pressure for nervous dogs', partner: 'Give-back partner (design)' }
+        { id: 'col-id', name: 'ID collar + tags blank', note: 'Ready for name and number', partner: 'petco', partnerLabel: 'Petco (candidate)', sizes: ['S', 'M', 'L'], est: 18 },
+        { id: 'col-break', name: 'Breakaway safety collar', note: 'Safer for some home setups', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M'], est: 14 },
+        { id: 'col-harness', name: 'Step-in harness', note: 'No neck pressure for nervous dogs', partner: 'ruffwear', partnerLabel: 'Ruffwear (candidate)', sizes: ['S', 'M', 'L'], est: 42 }
       ]
     },
     food: {
       label: 'Food start',
       emoji: '🥣',
       options: [
-        { id: 'food-gentle', name: 'Gentle transition kibble', note: 'First two weeks stomach soft', partner: 'Give-back partner (design)' },
-        { id: 'food-pup', name: 'Puppy growth bag', note: 'For young forever kids', partner: 'Give-back partner (design)' },
-        { id: 'food-senior', name: 'Senior joint formula', note: 'Older greys starting over', partner: 'Give-back partner (design)' }
+        { id: 'food-gentle', name: 'Gentle transition kibble', note: 'First two weeks stomach soft', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M', 'L'], est: 36 },
+        { id: 'food-pup', name: 'Puppy growth bag', note: 'For young forever kids', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M'], est: 40 },
+        { id: 'food-senior', name: 'Senior joint formula', note: 'Older greys starting over', partner: 'petco', partnerLabel: 'Petco (candidate)', sizes: ['M', 'L'], est: 44 }
       ]
     },
     toys: {
       label: 'Toys',
       emoji: '🧸',
       options: [
-        { id: 'toy-kong', name: 'Stuffable rubber toy', note: 'Busy brain, less stress', partner: 'Give-back partner (design)' },
-        { id: 'toy-rope', name: 'Rope tug', note: 'Bond games with people', partner: 'Give-back partner (design)' },
-        { id: 'toy-puzzle', name: 'Slow puzzle feeder', note: 'Calm meals', partner: 'Give-back partner (design)' },
-        { id: 'toy-plush', name: 'Soft comfort plush', note: 'Quiet cuddle option', partner: 'Give-back partner (design)' },
-        { id: 'toy-ball', name: 'Chase ball set', note: 'Yard and hallway energy', partner: 'Give-back partner (design)' }
+        { id: 'toy-kong', name: 'Stuffable rubber toy', note: 'Busy brain, less stress', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M', 'L'], est: 14 },
+        { id: 'toy-rope', name: 'Rope tug', note: 'Bond games with people', partner: 'petsmart', partnerLabel: 'PetSmart (candidate)', sizes: ['S', 'M', 'L'], est: 10 },
+        { id: 'toy-puzzle', name: 'Slow puzzle feeder', note: 'Calm meals', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M', 'L'], est: 18 },
+        { id: 'toy-plush', name: 'Soft comfort plush', note: 'Quiet cuddle option', partner: 'petco', partnerLabel: 'Petco (candidate)', sizes: ['S', 'M'], est: 12 },
+        { id: 'toy-ball', name: 'Chase ball set', note: 'Yard and hallway energy', partner: 'petsmart', partnerLabel: 'PetSmart (candidate)', sizes: ['M', 'L'], est: 11 }
       ]
     },
     crate: {
       label: 'Crate / den',
       emoji: '🏠',
       options: [
-        { id: 'crate-wire', name: 'Fold wire crate', note: 'Classic den with cover', partner: 'Give-back partner (design)' },
-        { id: 'crate-soft', name: 'Soft-sided travel den', note: 'Light homes and trips', partner: 'Give-back partner (design)' },
-        { id: 'crate-furniture', name: 'Furniture-style den', note: 'Looks like home, feels safe', partner: 'Give-back partner (design)' }
+        { id: 'crate-wire', name: 'Fold wire crate', note: 'Classic den with cover', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M', 'L'], est: 68 },
+        { id: 'crate-soft', name: 'Soft-sided travel den', note: 'Light homes and trips', partner: 'petco', partnerLabel: 'Petco (candidate)', sizes: ['S', 'M'], est: 55 },
+        { id: 'crate-furniture', name: 'Furniture-style den', note: 'Looks like home, feels safe', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['M', 'L'], est: 120 }
       ]
     },
     training: {
       label: 'Training',
       emoji: '🎓',
       options: [
-        { id: 'train-basic', name: '6-week group basics voucher', note: 'Sit, come, calm leash', partner: 'Local trainer partner (design)' },
-        { id: 'train-private', name: '3 private settle sessions', note: 'Fearful or big energy dogs', partner: 'Local trainer partner (design)' },
-        { id: 'train-online', name: 'Online settle course pack', note: 'Family learns at home pace', partner: 'Give-back education partner (design)' }
+        { id: 'train-basic', name: '6-week group basics voucher', note: 'Sit, come, calm leash', partner: 'local', partnerLabel: 'Local trainer (candidate)', sizes: ['S', 'M', 'L'], est: 150 },
+        { id: 'train-private', name: '3 private settle sessions', note: 'Fearful or big energy dogs', partner: 'local', partnerLabel: 'Local trainer (candidate)', sizes: ['S', 'M', 'L'], est: 210 },
+        { id: 'train-online', name: 'Online settle course pack', note: 'Family learns at home pace', partner: 'local', partnerLabel: 'Education partner (candidate)', sizes: ['S', 'M', 'L'], est: 79 }
       ]
     },
     insurance: {
       label: 'Insurance buffer',
       emoji: '🛡️',
       options: [
-        { id: 'ins-60', name: '60-day accident buffer', note: 'Settle-in peace of mind', partner: 'Insurance partner (design)' },
-        { id: 'ins-well', name: 'Wellness starter month', note: 'First exam window help', partner: 'Insurance partner (design)' }
+        { id: 'ins-60', name: '60-day accident buffer', note: 'Settle-in peace of mind', partner: 'program', partnerLabel: 'Program buffer (design)', sizes: ['S', 'M', 'L'], est: 95 },
+        { id: 'ins-well', name: 'Wellness starter month', note: 'First exam window help', partner: 'program', partnerLabel: 'Program buffer (design)', sizes: ['S', 'M', 'L'], est: 70 }
       ]
     },
     camera: {
       label: 'Check-in camera',
       emoji: '📷',
       options: [
-        { id: 'cam-plug', name: 'Plug-in room cam', note: 'Optional family check-ins', partner: 'Give-back tech partner (design)' },
-        { id: 'cam-none', name: 'Skip camera, boost vet buffer', note: 'Privacy first families', partner: 'Program buffer (design)' }
+        { id: 'cam-plug', name: 'Plug-in room cam', note: 'Optional family check-ins', partner: 'chewy', partnerLabel: 'Tech partner (candidate)', sizes: ['S', 'M', 'L'], est: 45 },
+        { id: 'cam-none', name: 'Skip camera, boost vet buffer', note: 'Privacy first families', partner: 'program', partnerLabel: 'Program buffer (design)', sizes: ['S', 'M', 'L'], est: 45 }
       ]
     },
     vet: {
       label: 'Emergency vet buffer',
       emoji: '🏥',
       options: [
-        { id: 'vet-standard', name: 'Standard emergency buffer', note: 'Unexpected first-month care', partner: 'Program held (design)' },
-        { id: 'vet-boost', name: 'Boosted emergency buffer', note: 'Higher needs adoptees', partner: 'Program held (design)' }
+        { id: 'vet-standard', name: 'Standard emergency buffer', note: 'Unexpected first-month care', partner: 'program', partnerLabel: 'Program held (design)', sizes: ['S', 'M', 'L'], est: 200 },
+        { id: 'vet-boost', name: 'Boosted emergency buffer', note: 'Higher needs adoptees', partner: 'program', partnerLabel: 'Program held (design)', sizes: ['S', 'M', 'L'], est: 350 }
       ]
     },
     extras: {
       label: 'Extras',
       emoji: '🎁',
       options: [
-        { id: 'ex-bowls', name: 'Steel bowl set', note: 'Water + food', partner: 'Give-back partner (design)' },
-        { id: 'ex-waste', name: 'Waste bag starter', note: 'Walks from day one', partner: 'Give-back partner (design)' },
-        { id: 'ex-treats', name: 'Training treat pouch', note: 'Reward good choices', partner: 'Give-back partner (design)' },
-        { id: 'ex-blanket', name: 'Soft home blanket', note: 'Shelter scent swap helper', partner: 'Give-back partner (design)' },
-        { id: 'ex-book', name: 'First-week family guide', note: 'What to expect nights 1-7', partner: 'Program print (design)' }
+        { id: 'ex-bowls', name: 'Steel bowl set', note: 'Water + food', partner: 'petsmart', partnerLabel: 'PetSmart (candidate)', sizes: ['S', 'M', 'L'], est: 16 },
+        { id: 'ex-waste', name: 'Waste bag starter', note: 'Walks from day one', partner: 'petco', partnerLabel: 'Petco (candidate)', sizes: ['S', 'M', 'L'], est: 8 },
+        { id: 'ex-treats', name: 'Training treat pouch', note: 'Reward good choices', partner: 'chewy', partnerLabel: 'Chewy (candidate)', sizes: ['S', 'M', 'L'], est: 15 },
+        { id: 'ex-blanket', name: 'Soft home blanket', note: 'Shelter scent swap helper', partner: 'petsmart', partnerLabel: 'PetSmart (candidate)', sizes: ['S', 'M', 'L'], est: 19 },
+        { id: 'ex-book', name: 'First-week family guide', note: 'What to expect nights 1-7', partner: 'program', partnerLabel: 'Program print (design)', sizes: ['S', 'M', 'L'], est: 6 }
       ]
     }
   };
 
   var CATEGORY_ORDER = ['bed', 'leash', 'collar', 'food', 'toys', 'crate', 'training', 'insurance', 'camera', 'vet', 'extras'];
+  var SIZES = ['S', 'M', 'L'];
+  var SIZE_LABEL = { S: 'Small', M: 'Medium', L: 'Large' };
 
   var state = {
     packId: 'settle',
+    dogSize: 'M',
     picks: {}, /* cat -> array of option ids */
     dogName: '',
     donorName: '',
@@ -230,6 +242,37 @@
       '.nbx-opt strong{display:block;font-size:.88rem;color:#f0f9ff;margin-bottom:.15rem}',
       '.nbx-opt span{display:block;font-size:.72rem;line-height:1.35;color:rgba(186,230,253,.7)}',
       '.nbx-opt .partner{font-size:.62rem;color:rgba(253,230,138,.65);margin-top:.25rem}',
+      '.nbx-opt .est{font-size:.62rem;color:rgba(110,231,183,.75);margin-top:.15rem}',
+      /* Size filter */
+      '.nbx-size-row{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin:0 0 1rem;padding:.75rem .85rem;border-radius:1rem;border:1px solid rgba(125,211,252,.28);background:rgba(0,0,0,.28)}',
+      '.nbx-size-row .lbl{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(125,211,252,.7);margin-right:.25rem}',
+      '.nbx-size{min-width:3.2rem;min-height:40px;padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(125,211,252,.3);background:rgba(0,0,0,.35);color:rgba(186,230,253,.75);font:inherit;font-size:.78rem;font-weight:700;cursor:pointer;transition:border-color .15s,background .15s,color .15s}',
+      '.nbx-size.is-on{border-color:rgba(110,231,183,.55);background:linear-gradient(145deg,rgba(110,231,183,.18),rgba(125,211,252,.1));color:#ecfeff}',
+      '.nbx-size-hint{flex:1 1 100%;font-size:.72rem;color:rgba(186,230,253,.55);margin:0;line-height:1.35}',
+      /* Partner cards */
+      '.nbx-partners{display:grid;gap:.55rem;margin:1rem 0 0}',
+      '@media(min-width:640px){.nbx-partners{grid-template-columns:1fr 1fr}}',
+      '@media(min-width:1000px){.nbx-partners{grid-template-columns:repeat(3,1fr)}}',
+      '.nbx-partner{border-radius:1.05rem;border:1px solid rgba(125,211,252,.28);background:linear-gradient(155deg,rgba(125,211,252,.08),rgba(4,12,18,.96));padding:.9rem .85rem}',
+      '.nbx-partner h4{font-family:"Space Grotesk",sans-serif;margin:0 0 .25rem;color:#e0f2fe;font-size:.98rem}',
+      '.nbx-partner .focus{font-size:.78rem;color:rgba(186,230,253,.78);margin:0 0 .3rem;line-height:1.4}',
+      '.nbx-partner .give{font-size:.72rem;color:rgba(110,231,183,.8);margin:0 0 .35rem;line-height:1.35}',
+      '.nbx-partner .badge{display:inline-block;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,230,138,.75);border:1px solid rgba(253,230,138,.35);padding:.2rem .45rem;border-radius:999px;margin-bottom:.4rem}',
+      '.nbx-partner a{font-size:.72rem;color:#7dd3fc;text-decoration:none}',
+      '.nbx-partner a:hover{text-decoration:underline}',
+      /* Receipt mock */
+      '.nbx-receipt{margin-top:.85rem;border-radius:1.05rem;border:1px solid rgba(110,231,183,.3);background:rgba(0,0,0,.35);padding:.85rem .8rem}',
+      '.nbx-receipt h4{font-family:"Space Grotesk",sans-serif;margin:0 0 .2rem;font-size:.95rem;color:#a7f3d0}',
+      '.nbx-receipt .rc-sub{font-size:.68rem;color:rgba(186,230,253,.55);margin:0 0 .55rem;line-height:1.35}',
+      '.nbx-receipt table{width:100%;border-collapse:collapse;font-size:.72rem}',
+      '.nbx-receipt th{text-align:left;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(125,211,252,.55);padding:.25rem 0;border-bottom:1px solid rgba(125,211,252,.15)}',
+      '.nbx-receipt td{padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(224,242,254,.88);vertical-align:top}',
+      '.nbx-receipt td.amt{text-align:right;white-space:nowrap;color:#6ee7b7;font-variant-numeric:tabular-nums}',
+      '.nbx-receipt .meta{font-size:.62rem;color:rgba(186,230,253,.5);display:block;margin-top:.1rem}',
+      '.nbx-receipt .total-row td{border-bottom:0;padding-top:.55rem;font-weight:700;color:#fde68a}',
+      '.nbx-receipt .total-row td.amt{color:#fde68a;font-size:.85rem}',
+      '.nbx-receipt .rc-empty{font-size:.75rem;color:rgba(186,230,253,.45);text-align:center;padding:.6rem 0}',
+      '.nbx-receipt .rc-truth{font-size:.6rem;line-height:1.35;color:rgba(148,180,200,.5);margin:.55rem 0 0}',
       /* Preview box */
       '.nbx-preview{position:sticky;top:3.5rem;border-radius:1.4rem;border:1px solid rgba(253,230,138,.35);background:linear-gradient(165deg,rgba(253,230,138,.12),rgba(6,16,24,.98));padding:1.15rem 1.05rem;box-shadow:0 24px 60px -24px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.08)}',
       '.nbx-preview h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .35rem;color:#fde68a;font-size:1.15rem}',
@@ -317,6 +360,49 @@
     return null;
   }
 
+  function optionFitsSize(o) {
+    if (!o || !o.sizes || !o.sizes.length) return true;
+    return o.sizes.indexOf(state.dogSize) >= 0;
+  }
+
+  function optionsForSize(cat) {
+    var list = (CATALOG[cat] && CATALOG[cat].options) || [];
+    return list.filter(optionFitsSize);
+  }
+
+  /* Drop picks that no longer fit the selected dog size */
+  function prunePicksForSize() {
+    Object.keys(state.picks).forEach(function (cat) {
+      state.picks[cat] = (state.picks[cat] || []).filter(function (id) {
+        var o = findOpt(cat, id);
+        return o && optionFitsSize(o);
+      });
+    });
+  }
+
+  function lineItems() {
+    var rows = [];
+    Object.keys(state.picks).forEach(function (cat) {
+      (state.picks[cat] || []).forEach(function (id) {
+        var o = findOpt(cat, id);
+        if (!o) return;
+        rows.push({
+          cat: cat,
+          catLabel: (CATALOG[cat] && CATALOG[cat].label) || cat,
+          emoji: (CATALOG[cat] && CATALOG[cat].emoji) || '',
+          name: o.name,
+          partnerLabel: o.partnerLabel || o.partner || '',
+          est: typeof o.est === 'number' ? o.est : 0
+        });
+      });
+    });
+    return rows;
+  }
+
+  function estTotal() {
+    return lineItems().reduce(function (sum, r) { return sum + (r.est || 0); }, 0);
+  }
+
   function fillCount() {
     var p = pack();
     var filled = 0;
@@ -370,6 +456,66 @@
     });
   }
 
+  function renderSizeRow() {
+    var host = document.getElementById('nbx-size-row');
+    if (!host) return;
+    host.innerHTML =
+      '<span class="lbl">Dog size</span>' +
+      SIZES.map(function (sz) {
+        return (
+          '<button type="button" class="nbx-size' + (sz === state.dogSize ? ' is-on' : '') + '" data-size="' + sz + '" aria-pressed="' + (sz === state.dogSize ? 'true' : 'false') + '">' +
+            sz + ' · ' + SIZE_LABEL[sz] +
+          '</button>'
+        );
+      }).join('') +
+      '<p class="nbx-size-hint">Catalog filters to ' + SIZE_LABEL[state.dogSize].toLowerCase() + ' dogs. Switch size anytime; unfit picks drop off.</p>';
+    host.querySelectorAll('[data-size]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var next = btn.getAttribute('data-size');
+        if (!next || next === state.dogSize) return;
+        state.dogSize = next;
+        prunePicksForSize();
+        renderSizeRow();
+        renderBuilder();
+      });
+    });
+  }
+
+  function renderReceipt() {
+    var host = document.getElementById('nbx-receipt');
+    if (!host) return;
+    var rows = lineItems();
+    var total = estTotal();
+    var sizeLabel = SIZE_LABEL[state.dogSize] || state.dogSize;
+    var body;
+    if (!rows.length) {
+      body = '<p class="rc-empty">Fill slots to see a sample receipt. Design estimates only.</p>';
+    } else {
+      body =
+        '<table>' +
+          '<thead><tr><th>Item</th><th style="text-align:right">Est.</th></tr></thead>' +
+          '<tbody>' +
+            rows.map(function (r) {
+              return (
+                '<tr>' +
+                  '<td>' + r.emoji + ' ' + r.name +
+                    '<span class="meta">' + r.catLabel + (r.partnerLabel ? ' · ' + r.partnerLabel : '') + '</span>' +
+                  '</td>' +
+                  '<td class="amt">$' + r.est + '</td>' +
+                '</tr>'
+              );
+            }).join('') +
+            '<tr class="total-row"><td>Sample pack total (' + sizeLabel + ')</td><td class="amt">$' + total + '</td></tr>' +
+          '</tbody>' +
+        '</table>';
+    }
+    host.innerHTML =
+      '<h4>Sample receipt preview</h4>' +
+      '<p class="rc-sub">' + pack().name + ' · size ' + sizeLabel + ' · mock USD for design only</p>' +
+      body +
+      '<p class="rc-truth">Not a charge. Not a quote. Live prices come from partner shops when rails open. Receipts will be public then.</p>';
+  }
+
   function renderBuilder() {
     var p = pack();
     var catsHost = document.getElementById('nbx-cats');
@@ -380,12 +526,15 @@
     var previewSub = document.getElementById('nbx-preview-sub');
     if (!catsHost) return;
 
+    renderSizeRow();
+
     var html = '';
     CATEGORY_ORDER.forEach(function (cat) {
       if (!p.slots[cat] || !CATALOG[cat]) return;
       var meta = CATALOG[cat];
       var max = p.slots[cat];
       var selected = state.picks[cat] || [];
+      var opts = optionsForSize(cat);
       html +=
         '<div class="nbx-cat" data-cat="' + cat + '">' +
           '<div class="nbx-cat-head">' +
@@ -393,15 +542,17 @@
             '<span class="slot">' + selected.length + ' / ' + max + ' pick' + (max > 1 ? 's' : '') + '</span>' +
           '</div>' +
           '<div class="nbx-opts">' +
-            meta.options.map(function (o) {
+            (opts.length ? opts.map(function (o) {
               var on = selected.indexOf(o.id) >= 0;
               return (
                 '<button type="button" class="nbx-opt' + (on ? ' is-on' : '') + '" data-cat="' + cat + '" data-opt="' + o.id + '">' +
                   '<span class="em" aria-hidden="true">' + meta.emoji + '</span>' +
-                  '<span><strong>' + o.name + '</strong><span>' + o.note + '</span><span class="partner">' + o.partner + '</span></span>' +
+                  '<span><strong>' + o.name + '</strong><span>' + o.note + '</span>' +
+                  '<span class="partner">' + (o.partnerLabel || o.partner) + '</span>' +
+                  '<span class="est">Design est. $' + o.est + '</span></span>' +
                 '</button>'
               );
-            }).join('') +
+            }).join('') : '<p class="nbx-truth" style="margin:0">No options for size ' + state.dogSize + ' in this slot yet.</p>') +
           '</div>' +
         '</div>';
     });
@@ -422,16 +573,22 @@
     if (box) {
       box.innerHTML = chips.length ? chips.join('') : '<div class="empty">Your open pack is empty. Tap items to fill the slots. Make it fun. Make it theirs.</div>';
       if (chips.length) box.classList.remove('empty');
+      else box.classList.add('empty');
     }
     var f = fillCount();
     if (meter) meter.style.width = f.pct + '%';
-    if (meterLabel) meterLabel.textContent = f.filled + ' of ' + f.total + ' slots filled · ' + p.name + ' (' + p.days + ')';
+    if (meterLabel) {
+      meterLabel.textContent = f.filled + ' of ' + f.total + ' slots filled · ' + p.name + ' · ' +
+        (SIZE_LABEL[state.dogSize] || state.dogSize) + ' · design est. $' + estTotal();
+    }
     if (includes) {
       includes.innerHTML = p.includes.map(function (x) { return '<li>' + x + '</li>'; }).join('');
     }
     if (previewSub) {
-      previewSub.textContent = p.circle + ' circle design · pick every slot, then save your pack intent';
+      previewSub.textContent = p.circle + ' circle design · size ' +
+        (SIZE_LABEL[state.dogSize] || state.dogSize) + ' · pick every slot, then save your pack intent';
     }
+    renderReceipt();
   }
 
   function studioHtml() {
@@ -439,9 +596,10 @@
       '<div class="nbx-section">' +
         '<div class="nbx-head">' +
           '<h2>Build their first home kit</h2>' +
-          '<p>Pick a pack size, then choose every toy, bed, leash, and care add-on. You are not dumping cash into a black box. You are packing a real first month for one dog.</p>' +
+          '<p>Pick a pack size, pick dog size (S / M / L), then choose every toy, bed, leash, and care add-on. You are not dumping cash into a black box. You are packing a real first month for one dog.</p>' +
         '</div>' +
         '<div class="nbx-packs" id="nbx-packs"></div>' +
+        '<div class="nbx-size-row" id="nbx-size-row" role="group" aria-label="Dog size"></div>' +
         '<div class="nbx-build">' +
           '<div class="nbx-cats" id="nbx-cats"></div>' +
           '<div class="nbx-preview" id="nbx-preview">' +
@@ -451,7 +609,8 @@
             '<div class="nbx-meter"><i id="nbx-meter-fill"></i></div>' +
             '<p class="nbx-meter-label" id="nbx-meter-label"></p>' +
             '<ul class="nbx-includes" id="nbx-includes"></ul>' +
-            '<form class="nbx-form" id="nbx-form">' +
+            '<div class="nbx-receipt" id="nbx-receipt" aria-live="polite"></div>' +
+            '<form class="nbx-form" id="nbx-form" style="margin-top:.85rem">' +
               '<label for="nbx-dog">Dog name or shelter ID (optional)</label>' +
               '<input id="nbx-dog" placeholder="e.g. Mochi, or kennel #12">' +
               '<label for="nbx-donor">Your name or handle</label>' +
@@ -469,6 +628,20 @@
   }
 
   function shopHtml() {
+    var partnerCards = PARTNERS.map(function (p) {
+      var link = p.url
+        ? '<a href="' + p.url + '" target="_blank" rel="noopener noreferrer">Visit site ↗</a>'
+        : '<span style="font-size:.72rem;color:rgba(186,230,253,.5)">List when signed</span>';
+      return (
+        '<article class="nbx-partner">' +
+          '<span class="badge">' + p.note + '</span>' +
+          '<h4>' + p.name + '</h4>' +
+          '<p class="focus">' + p.focus + '</p>' +
+          '<p class="give">Give-back path: ' + p.give + '</p>' +
+          link +
+        '</article>'
+      );
+    }).join('');
     return (
       '<div class="nbx-section">' +
         '<div class="nbx-head">' +
@@ -483,6 +656,8 @@
             '<li>Published % or $ that returns to rescue / this program</li>' +
             '<li>No fake "100% of your dollars" claims unless the books prove it</li>' +
           '</ul>' +
+          '<div class="nbx-partners">' + partnerCards + '</div>' +
+          '<p class="nbx-truth" style="margin-top:.75rem">Shortlist only. Not signed contracts. Names stay on this page as candidates until a real MOU or receipt pipeline exists.</p>' +
         '</div>' +
         '<div class="nbx-shop" style="margin-top:.75rem;border-color:rgba(253,230,138,.3)">' +
           '<h3>Optional later: ShibaHumanityHub shop</h3>' +
@@ -528,16 +703,21 @@
         if (status) status.textContent = 'Fill every slot first (' + f.filled + ' of ' + f.total + '). A half-packed first week is how returns happen.';
         return;
       }
+      var items = lineItems();
       var payload = {
         program: 'new-beginnings',
         packId: state.packId,
         packName: pack().name,
+        dogSize: state.dogSize,
+        dogSizeLabel: SIZE_LABEL[state.dogSize] || state.dogSize,
         picks: JSON.parse(JSON.stringify(state.picks)),
+        lineItems: items,
+        estTotalUsd: estTotal(),
         dogName: (document.getElementById('nbx-dog') || {}).value || '',
         donorName: (document.getElementById('nbx-donor') || {}).value || '',
         note: (document.getElementById('nbx-note') || {}).value || '',
         at: new Date().toISOString(),
-        truth: 'design-intent-only'
+        truth: 'design-intent-only-est-not-a-charge'
       };
       try {
         var key = 'shh_new_beginnings_packs';
@@ -549,7 +729,8 @@
       } catch (e2) { /* private mode */ }
       if (status) {
         status.textContent = 'Pack intent saved on this device for ' + pack().name +
-          '. Design only. No charge yet. When live, we buy from give-back partners and publish receipts.';
+          ' (' + (SIZE_LABEL[state.dogSize] || state.dogSize) + ', design est. $' + estTotal() +
+          '). Design only. No charge yet. When live, we buy from give-back partners and publish receipts.';
       }
     });
   }
