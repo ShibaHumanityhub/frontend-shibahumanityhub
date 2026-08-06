@@ -13,36 +13,36 @@
       name: 'Starter Pack',
       circle: 'Mercy',
       days: 'First 30 days',
-      blurb: 'The must-haves so adoption week does not break the bank.',
+      blurb: 'The sacred must-haves. Week one is when a scared soul learns this house is safe. You cover the basics so love is not rationed.',
       color: '#34d399',
       slots: {
         bed: 1, leash: 1, collar: 1, food: 1, toys: 2, crate: 1, extras: 1
       },
-      includes: ['Microchip registration support (when live)', 'Welcome care card for the family']
+      includes: ['Microchip registration support (when live)', 'Welcome care card signed with your care', 'A first-night calm the family can feel']
     },
     {
       id: 'settle',
       name: 'Settle-In Pack',
       circle: 'Guardian',
       days: 'First 60 days',
-      blurb: 'Everything in Starter, plus training and insurance breathing room.',
+      blurb: 'Everything in Starter, plus training and breathing room. The bridge from "new" to "this is my person."',
       color: '#38bdf8',
       slots: {
         bed: 1, leash: 1, collar: 1, food: 1, toys: 3, crate: 1, training: 1, insurance: 1, extras: 2
       },
-      includes: ['6 weeks training voucher (design)', '60 days pet insurance buffer (design)', 'Microchip support']
+      includes: ['6 weeks training voucher (design)', '60 days pet insurance buffer (design)', 'Microchip support', 'Room for the bond to root deep']
     },
     {
       id: 'launch',
       name: 'Full Launch Pack',
       circle: 'Eternal',
       days: 'First 90 days',
-      blurb: 'The big send-off. Soft landing + safety net for the whole first season.',
+      blurb: 'The big send-off. Soft landing plus a safety net for a whole first season of shared life. This is how forever starts loud.',
       color: '#fbbf24',
       slots: {
         bed: 1, leash: 1, collar: 1, food: 1, toys: 4, crate: 1, training: 1, insurance: 1, camera: 1, vet: 1, extras: 3
       },
-      includes: ['90-day check-in webcam option (design)', 'Emergency vet buffer (design)', 'Full settle support']
+      includes: ['90-day check-in option (design)', 'Emergency vet buffer (design)', 'Full settle support', 'You put a whole season of chance behind one soul']
     }
   ];
 
@@ -215,7 +215,19 @@
       '@media(min-width:768px){.nbx-section{padding:1.6rem 1.5rem 2.5rem}}',
       '@media(min-width:1600px){.nbx-section{max-width:82rem}}',
       '.nbx-head h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.35rem,3.2vw,1.95rem);letter-spacing:-.03em;margin:0 0 .4rem;background:linear-gradient(135deg,#fff,#7dd3fc 40%,#6ee7b7 75%,#fde68a);-webkit-background-clip:text;background-clip:text;color:transparent}',
-      '.nbx-head p{margin:0;font-size:.9rem;line-height:1.5;color:rgba(186,230,253,.78);max-width:42rem}',
+      '.nbx-head p{margin:0;font-size:.9rem;line-height:1.55;color:rgba(186,230,253,.82);max-width:44rem}',
+      /* Soul welcome strip */
+      '.nbx-soul{position:relative;margin:0 0 1.15rem;padding:1rem 1.05rem 1.05rem;border-radius:1.25rem;border:1px solid rgba(253,230,138,.4);background:linear-gradient(145deg,rgba(253,230,138,.14),rgba(110,231,183,.1) 45%,rgba(125,211,252,.08));box-shadow:0 0 50px -18px rgba(253,230,138,.55),inset 0 1px 0 rgba(255,255,255,.1);overflow:hidden}',
+      '.nbx-soul::before{content:"";position:absolute;inset:-40% -20% auto;height:80%;background:radial-gradient(ellipse,rgba(253,230,138,.18),transparent 65%);pointer-events:none}',
+      '.nbx-soul .tag{position:relative;display:inline-block;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,230,138,.9);margin:0 0 .4rem}',
+      '.nbx-soul h3{position:relative;font-family:"Space Grotesk",sans-serif;margin:0 0 .4rem;font-size:clamp(1.05rem,2.4vw,1.35rem);color:#fef3c7;letter-spacing:-.02em;line-height:1.25}',
+      '.nbx-soul p{position:relative;margin:0;font-size:.86rem;line-height:1.55;color:rgba(224,242,254,.9)}',
+      '.nbx-soul strong{color:#a7f3d0}',
+      '.nbx-cherish{display:grid;gap:.5rem;margin:0 0 1.1rem}',
+      '@media(min-width:700px){.nbx-cherish{grid-template-columns:repeat(3,1fr)}}',
+      '.nbx-cherish-card{border-radius:1rem;border:1px solid rgba(125,211,252,.28);background:linear-gradient(160deg,rgba(125,211,252,.1),rgba(0,0,0,.35));padding:.85rem .8rem}',
+      '.nbx-cherish-card .k{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(253,230,138,.8);margin:0 0 .3rem}',
+      '.nbx-cherish-card p{margin:0;font-size:.8rem;line-height:1.45;color:rgba(224,242,254,.88)}',
       /* Pack pick */
       '.nbx-packs{display:grid;gap:.65rem;grid-template-columns:1fr;margin:1.1rem 0 1.25rem}',
       '@media(min-width:700px){.nbx-packs{grid-template-columns:repeat(3,1fr)}}',
@@ -277,9 +289,14 @@
       '.nbx-preview{position:sticky;top:3.5rem;border-radius:1.4rem;border:1px solid rgba(253,230,138,.35);background:linear-gradient(165deg,rgba(253,230,138,.12),rgba(6,16,24,.98));padding:1.15rem 1.05rem;box-shadow:0 24px 60px -24px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.08)}',
       '.nbx-preview h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .35rem;color:#fde68a;font-size:1.15rem}',
       '.nbx-preview .sub{font-size:.78rem;color:rgba(186,230,253,.7);margin:0 0 .85rem;line-height:1.4}',
-      '.nbx-box{border-radius:1.1rem;border:2px dashed rgba(125,211,252,.35);background:rgba(0,0,0,.25);padding:.85rem;min-height:180px;margin-bottom:.85rem}',
-      '.nbx-box.empty{display:flex;align-items:center;justify-content:center;color:rgba(186,230,253,.45);font-size:.82rem;text-align:center;padding:1.5rem}',
+      '.nbx-box{border-radius:1.1rem;border:2px dashed rgba(125,211,252,.35);background:rgba(0,0,0,.25);padding:.85rem;min-height:180px;margin-bottom:.85rem;transition:border-color .25s,box-shadow .25s}',
+      '.nbx-box.is-filling{border-style:solid;border-color:rgba(110,231,183,.45);box-shadow:0 0 36px -14px rgba(110,231,183,.5)}',
+      '.nbx-box.empty{display:flex;align-items:center;justify-content:center;color:rgba(186,230,253,.55);font-size:.84rem;line-height:1.45;text-align:center;padding:1.5rem}',
       '.nbx-chip{display:inline-flex;align-items:center;gap:.3rem;margin:.2rem;padding:.35rem .55rem;border-radius:999px;background:linear-gradient(135deg,rgba(110,231,183,.2),rgba(125,211,252,.15));border:1px solid rgba(110,231,183,.35);font-size:.72rem;color:#ecfeff}',
+      '.nbx-cta{position:relative;overflow:hidden}',
+      '.nbx-cta::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);transform:translateX(-120%);animation:nbx-shine 3.2s ease-in-out infinite}',
+      '@keyframes nbx-shine{0%,60%,100%{transform:translateX(-120%)}80%{transform:translateX(120%)}}',
+      '@media(prefers-reduced-motion:reduce){.nbx-cta::after{animation:none!important}}',
       '.nbx-meter{height:8px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin:.5rem 0 .35rem}',
       '.nbx-meter > i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#6ee7b7,#7dd3fc,#fde68a);transition:width .35s ease}',
       '.nbx-meter-label{font-size:.68rem;color:rgba(253,230,138,.75);margin:0 0 .75rem}',
@@ -571,22 +588,34 @@
       });
     });
     if (box) {
-      box.innerHTML = chips.length ? chips.join('') : '<div class="empty">Your open pack is empty. Tap items to fill the slots. Make it fun. Make it theirs.</div>';
-      if (chips.length) box.classList.remove('empty');
-      else box.classList.add('empty');
+      if (chips.length) {
+        box.classList.remove('empty');
+        box.classList.add('is-filling');
+        box.innerHTML = chips.join('');
+      } else {
+        box.classList.add('empty');
+        box.classList.remove('is-filling');
+        box.innerHTML = 'This pack is waiting for a soul. Tap items with care. Every pick is a piece of their first real home.';
+      }
     }
     var f = fillCount();
     if (meter) meter.style.width = f.pct + '%';
     if (meterLabel) {
-      meterLabel.textContent = f.filled + ' of ' + f.total + ' slots filled · ' + p.name + ' · ' +
+      var loveLine = f.pct >= 100
+        ? 'Pack full. A whole soft landing, ready for one life.'
+        : f.pct >= 50
+          ? 'Halfway home. Keep going. They are counting on this soft start.'
+          : 'Love is stacking. ' + f.filled + ' of ' + f.total + ' slots for one soul.';
+      meterLabel.textContent = loveLine + ' · ' + p.name + ' · ' +
         (SIZE_LABEL[state.dogSize] || state.dogSize) + ' · design est. $' + estTotal();
     }
     if (includes) {
       includes.innerHTML = p.includes.map(function (x) { return '<li>' + x + '</li>'; }).join('');
     }
     if (previewSub) {
-      previewSub.textContent = p.circle + ' circle design · size ' +
-        (SIZE_LABEL[state.dogSize] || state.dogSize) + ' · pick every slot, then save your pack intent';
+      previewSub.textContent = p.circle + ' circle · size ' +
+        (SIZE_LABEL[state.dogSize] || state.dogSize) +
+        ' · you are packing a chance at forever, not a shopping cart';
     }
     renderReceipt();
   }
@@ -595,15 +624,25 @@
     return (
       '<div class="nbx-section">' +
         '<div class="nbx-head">' +
-          '<h2>Build their first home kit</h2>' +
-          '<p>Pick a pack size, pick dog size (S / M / L), then choose every toy, bed, leash, and care add-on. You are not dumping cash into a black box. You are packing a real first month for one dog.</p>' +
+          '<h2>Build the first home they will ever trust</h2>' +
+          '<p>You are not dumping cash into a black box. You are packing a soft landing for one soul who finally gets to be someone\'s morning, someone\'s walk, someone\'s quiet company for a whole life. Pick the pack. Pick their size. Choose every bed, leash, toy, and care piece like they are already yours.</p>' +
+        '</div>' +
+        '<div class="nbx-soul">' +
+          '<p class="tag">You are wanted here</p>' +
+          '<h3>This is the biggest thing you can do with a cart full of kindness.</h3>' +
+          '<p>Every filled slot is a fear that does not have to win. Every item is a vote that this dog gets a loving companion and a family that can afford to keep them. <strong>You are part of that vote.</strong> Leave this page knowing you showed up for a life, not a logo.</p>' +
+        '</div>' +
+        '<div class="nbx-cherish" aria-label="How this treats you">' +
+          '<div class="nbx-cherish-card"><p class="k">Cherished</p><p>We do not use you for a click. Your name, your note, your pack stay sacred on this device until rails are real.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Welcomed</p><p>You walked into the flywheel. People helping people. Helping dogs. Helping the next forever start soft.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">One soul</p><p>Not a statistic. A companion waiting for the human who will share a life with them. You help that meeting stick.</p></div>' +
         '</div>' +
         '<div class="nbx-packs" id="nbx-packs"></div>' +
         '<div class="nbx-size-row" id="nbx-size-row" role="group" aria-label="Dog size"></div>' +
         '<div class="nbx-build">' +
           '<div class="nbx-cats" id="nbx-cats"></div>' +
           '<div class="nbx-preview" id="nbx-preview">' +
-            '<h3>🎁 Open pack preview</h3>' +
+            '<h3>💛 Their open pack</h3>' +
             '<p class="sub" id="nbx-preview-sub"></p>' +
             '<div class="nbx-box" id="nbx-box"></div>' +
             '<div class="nbx-meter"><i id="nbx-meter-fill"></i></div>' +
@@ -611,15 +650,15 @@
             '<ul class="nbx-includes" id="nbx-includes"></ul>' +
             '<div class="nbx-receipt" id="nbx-receipt" aria-live="polite"></div>' +
             '<form class="nbx-form" id="nbx-form" style="margin-top:.85rem">' +
-              '<label for="nbx-dog">Dog name or shelter ID (optional)</label>' +
-              '<input id="nbx-dog" placeholder="e.g. Mochi, or kennel #12">' +
-              '<label for="nbx-donor">Your name or handle</label>' +
-              '<input id="nbx-donor" required placeholder="So we can thank you when rails are live">' +
-              '<label for="nbx-note">Note for the family (optional)</label>' +
-              '<textarea id="nbx-note" placeholder="Welcome home. You are safe now."></textarea>' +
-              '<button type="submit" class="nbx-cta" id="nbx-submit">Save pack intent</button>' +
+              '<label for="nbx-dog">Who is this for? (name or shelter ID, optional)</label>' +
+              '<input id="nbx-dog" placeholder="e.g. Mochi, or kennel #12 · a soul with a face">' +
+              '<label for="nbx-donor">Your name · so we can hold you close when this goes live</label>' +
+              '<input id="nbx-donor" required placeholder="The human who packed this chance">' +
+              '<label for="nbx-note">A note the family can read on night one (optional)</label>' +
+              '<textarea id="nbx-note" placeholder="Welcome home. You are safe now. Someone out here believes in your forever."></textarea>' +
+              '<button type="submit" class="nbx-cta" id="nbx-submit">Save this soul\'s pack intent</button>' +
               '<div class="nbx-status" id="nbx-status" role="status"></div>' +
-              '<p class="nbx-truth">Design studio only. Saved on this device. No live checkout yet. When funded, purchases go through give-back partners with receipts, not mystery markups.</p>' +
+              '<p class="nbx-truth">Design studio only. Saved on this device. No live checkout yet. When funded, purchases go through give-back partners with receipts. Your care is already real.</p>' +
             '</form>' +
           '</div>' +
         '</div>' +
@@ -645,12 +684,12 @@
     return (
       '<div class="nbx-section">' +
         '<div class="nbx-head">' +
-          '<h2>Where the stuff comes from</h2>' +
-          '<p>You asked for options. Here is the clean way to do it without looking like the program is skimming the gift.</p>' +
+          '<h2>How love gets funded without skimming your heart</h2>' +
+          '<p>You trusted us with something sacred: a chance for a dog and a human to share a life. Here is the clean way to buy the gear without looking like the program is skimming the gift.</p>' +
         '</div>' +
         '<div class="nbx-shop">' +
           '<h3>Preferred: give-back partner shops</h3>' +
-          '<p>Buy from businesses that already donate a cut of every purchase to animal welfare (or that will contract to do so for New Beginnings). We pick decent prices, publish the partner list, and show receipts when live.</p>' +
+          '<p>Buy from businesses that already donate a cut of every purchase to animal welfare (or that will contract to do so for New Beginnings). We pick decent prices, publish the partner list, and show receipts when live so you never wonder where the soft landing went.</p>' +
           '<ul>' +
             '<li>Transparent partner brands and product links</li>' +
             '<li>Published % or $ that returns to rescue / this program</li>' +
@@ -661,14 +700,14 @@
         '</div>' +
         '<div class="nbx-shop" style="margin-top:.75rem;border-color:rgba(253,230,138,.3)">' +
           '<h3>Optional later: ShibaHumanityHub shop</h3>' +
-          '<p>A first-party shop only makes sense if <strong>every dollar of product margin after cost goes back into New Beginnings</strong> (or the wider flywheel), with public books. If that ever looks like a side hustle, we skip it and stay with give-back partners.</p>' +
+          '<p>A first-party shop only makes sense if <strong>every dollar of product margin after cost goes back into New Beginnings</strong> (or the wider flywheel), with public books. If that ever looks like a side hustle, we skip it and stay with give-back partners. Your trust is the asset. We protect it.</p>' +
           '<ul>' +
             '<li>Yes: white-label pack fulfillment + open ledgers</li>' +
             '<li>No: quiet markup that stays in a private pocket</li>' +
-            '<li>Until then: this builder is the design. Intent only.</li>' +
+            '<li>Until then: this builder is the design. Intent only. Still holy work.</li>' +
           '</ul>' +
         '</div>' +
-        '<p class="nbx-truth">This page does not sell products yet. It designs the pack so donors feel the fun of choosing, and so ops knows what to buy when rails open.</p>' +
+        '<p class="nbx-truth">This page does not sell products yet. It designs the pack so you feel the joy of choosing for a soul, and so ops knows what to buy when rails open.</p>' +
       '</div>'
     );
   }
@@ -678,15 +717,25 @@
       '<div class="nbx-section">' +
         '<div class="nbx-head">' +
           '<h2>Why this pack exists</h2>' +
-          '<p>The first weeks after adoption are when love is high and budgets get real. Too many good dogs bounce back because the house was not ready. This pack is the soft landing.</p>' +
+          '<p>The first weeks after adoption are when love is high and budgets get real. Too many good dogs bounce back because the house was not ready. A return is not a failure of love. It is often a failure of stuff, money, and calm on day three. This pack is the soft landing so a soul gets to stay.</p>' +
+        '</div>' +
+        '<div class="nbx-soul" style="margin-bottom:1.15rem">' +
+          '<p class="tag">The heart of it</p>' +
+          '<h3>You are helping a soul find a loving companion to share a life with.</h3>' +
+          '<p>Not a weekend hobby. A person who will learn their eyes, their fear of thunder, their joy at the door. <strong>You pack the start. They live the forever.</strong> That is the biggest thing. You are already part of it the second you care enough to choose a bed for a stranger dog.</p>' +
+        '</div>' +
+        '<div class="nbx-cherish" style="margin-bottom:1.25rem">' +
+          '<div class="nbx-cherish-card"><p class="k">Welcomed</p><p>Walk in cold. Leave warmer. This flywheel was built so helpers feel held, not harvested.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Biggest thing</p><p>Thirty programs. One mercy machine. Your pack is a door in the wall between lonely and loved.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Shared life</p><p>Mornings. Storms. Quiet TV nights. That is what you are funding the chance of.</p></div>' +
         '</div>' +
         '<div class="nbx-more">' +
-          '<a class="nbx-link" href="pay-it-forward.html"><h3>Pay It Forward</h3><p>Adoption chains that keep mercy moving after the first home.</p></a>' +
-          '<a class="nbx-link" href="golden-paws.html"><h3>Golden Paws</h3><p>When seniors need forever homes, not just starter kits.</p></a>' +
+          '<a class="nbx-link" href="pay-it-forward.html"><h3>Pay It Forward</h3><p>Adoption chains that keep mercy moving after the first home sticks.</p></a>' +
+          '<a class="nbx-link" href="golden-paws.html"><h3>Golden Paws</h3><p>When senior souls need forever homes, not just starter kits.</p></a>' +
           '<a class="nbx-link" href="healing-hearts.html"><h3>Healing Hearts</h3><p>Therapy network for dogs who grow into service of another kind.</p></a>' +
+          '<a class="nbx-link" href="shelters.html"><h3>Beautiful Souls</h3><p>Meet faces still waiting for their first real home and their person.</p></a>' +
+          '<a class="nbx-link" href="all-programs.html"><h3>All 30 programs</h3><p>The full constellation. Step into the biggest mercy map when you are ready.</p></a>' +
           '<a class="nbx-link" href="programs/new-beginnings-home-start-packs.html"><h3>Classic program card</h3><p>Circles copy and video on the standard program page.</p></a>' +
-          '<a class="nbx-link" href="all-programs.html"><h3>All 30 programs</h3><p>Support the full constellation when you are ready.</p></a>' +
-          '<a class="nbx-link" href="shelters.html"><h3>Beautiful Souls</h3><p>Meet more dogs waiting for their first real home.</p></a>' +
         '</div>' +
       '</div>'
     );
@@ -700,7 +749,11 @@
       var f = fillCount();
       var status = document.getElementById('nbx-status');
       if (f.filled < f.total) {
-        if (status) status.textContent = 'Fill every slot first (' + f.filled + ' of ' + f.total + '). A half-packed first week is how returns happen.';
+        if (status) {
+          status.textContent = 'This soul still needs ' + (f.total - f.filled) + ' more piece' +
+            (f.total - f.filled === 1 ? '' : 's') + ' (' + f.filled + ' of ' + f.total +
+            '). A half-packed first week is how good dogs bounce back. Finish the soft landing.';
+        }
         return;
       }
       var items = lineItems();
@@ -728,9 +781,11 @@
         localStorage.setItem(key, JSON.stringify(prev.slice(-40)));
       } catch (e2) { /* private mode */ }
       if (status) {
-        status.textContent = 'Pack intent saved on this device for ' + pack().name +
+        var who = (payload.dogName || '').trim();
+        status.textContent = 'Thank you. Truly. Your ' + pack().name + ' for ' +
+          (who || 'a soul still waiting for a name') +
           ' (' + (SIZE_LABEL[state.dogSize] || state.dogSize) + ', design est. $' + estTotal() +
-          '). Design only. No charge yet. When live, we buy from give-back partners and publish receipts.';
+          ') is held on this device. You just stood for someone\'s forever. Design only, no charge yet. When live, we buy from give-back partners and publish receipts. You are part of the biggest mercy we know how to build.';
       }
     });
   }
@@ -756,9 +811,9 @@
     var quick = document.createElement('div');
     quick.className = 'nbx-quick';
     quick.innerHTML =
-      '<button type="button" class="pri" data-nbx-go="build">Build pack</button>' +
-      '<button type="button" data-nbx-go="shop">Where we buy</button>' +
-      '<button type="button" data-nbx-go="more">Why it matters</button>';
+      '<button type="button" class="pri" data-nbx-go="build">Welcome a soul home</button>' +
+      '<button type="button" data-nbx-go="shop">How love is funded</button>' +
+      '<button type="button" data-nbx-go="more">Why you matter</button>';
 
     var heartNodes = [hero, quick].filter(Boolean);
     if (hero && hero.parentNode) hero.parentNode.removeChild(hero);
@@ -796,12 +851,12 @@
     if (isMobile() && !document.querySelector('.nbx-mtop')) {
       var m = document.createElement('div');
       m.innerHTML =
-        '<div class="nbx-mtop"><a href="index.html"><img src="assets/logos/shibahumanityhublogo3d-new.jpg" width="30" height="30" alt=""><span>NEW BEGINNINGS</span></a><span style="font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fde68a;border:1px solid rgba(253,230,138,.4);padding:.25rem .5rem;border-radius:999px">Preview</span></div>' +
+        '<div class="nbx-mtop"><a href="index.html"><img src="assets/logos/shibahumanityhublogo3d-new.jpg" width="30" height="30" alt=""><span>NEW BEGINNINGS</span></a><span style="font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fde68a;border:1px solid rgba(253,230,138,.4);padding:.25rem .5rem;border-radius:999px">You belong</span></div>' +
         '<nav class="nbx-mtabs" aria-label="New Beginnings mobile">' +
           '<button type="button" class="nbx-mtab is-on" data-tab="heart"><span class="ic">♥</span>Heart</button>' +
-          '<button type="button" class="nbx-mtab" data-tab="build"><span class="ic">🎁</span>Build</button>' +
-          '<button type="button" class="nbx-mtab" data-tab="shop"><span class="ic">🏪</span>Shop</button>' +
-          '<button type="button" class="nbx-mtab" data-tab="more"><span class="ic">◆</span>More</button>' +
+          '<button type="button" class="nbx-mtab" data-tab="build"><span class="ic">💛</span>Pack</button>' +
+          '<button type="button" class="nbx-mtab" data-tab="shop"><span class="ic">🤝</span>Fund</button>' +
+          '<button type="button" class="nbx-mtab" data-tab="more"><span class="ic">✨</span>Why</button>' +
         '</nav>';
       while (m.firstChild) document.body.insertBefore(m.firstChild, document.body.firstChild);
     }
@@ -811,10 +866,10 @@
       rail.className = 'nbx-rail';
       rail.id = 'nbx-rail';
       rail.innerHTML =
-        '<button type="button" class="is-on" data-nbx-go="heart">Heart</button>' +
-        '<button type="button" data-nbx-go="build">Build pack</button>' +
-        '<button type="button" data-nbx-go="shop">Where we buy</button>' +
-        '<button type="button" data-nbx-go="more">Why it matters</button>';
+        '<button type="button" class="is-on" data-nbx-go="heart">You belong</button>' +
+        '<button type="button" data-nbx-go="build">Pack a soul home</button>' +
+        '<button type="button" data-nbx-go="shop">How love is funded</button>' +
+        '<button type="button" data-nbx-go="more">Why you matter</button>';
       var nav = document.querySelector('body > nav');
       if (nav && nav.nextSibling) document.body.insertBefore(rail, nav.nextSibling);
       else document.body.insertBefore(rail, document.body.firstChild);

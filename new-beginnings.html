@@ -11,18 +11,18 @@
  <meta name="author" content="Shibahumanityhub">
  <meta name="keywords" content="new beginnings, home start packs, adoption starter kit, dog bed leash toys, first 30 days adoption, NIBBLES, shelter dog welcome pack">
 
- <title>New Beginnings • Build Their First Home Pack</title>
- <meta name="description" content="Build a Home Start Pack for a newly adopted dog. Pick pack size, then choose bed, leash, toys, food, crate, and more. Give-back partners when live. Proof over promises.">
+ <title>New Beginnings • Pack a Soul Into Their First Home</title>
+ <meta name="description" content="You are not shopping. You are giving one dog a real shot at a loving home. Build their first pack. Pick bed, leash, toys, food, and care. Join the biggest mercy flywheel we know how to build. Proof over promises.">
 
- <meta property="og:title" content="New Beginnings Home Start Packs • Pack Studio">
- <meta property="og:description" content="Fun pack builder for the first 30 to 90 days home. Donors choose every toy and tool. Families keep the love.">
+ <meta property="og:title" content="New Beginnings • Welcome Home Pack Studio">
+ <meta property="og:description" content="Every item you choose is a soft landing for a soul who finally gets to be someone's forever. Pack with love. Leave cherished.">
  <meta property="og:image" content="https://shibahumanityhub.com/assets/images/newbeginningshomestartpacks.jpg">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://shibahumanityhub.com/new-beginnings.html">
 
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="New Beginnings • Pack Studio">
- <meta name="twitter:description" content="Pick the pack. Fill every slot. Welcome them home right.">
+ <meta name="twitter:title" content="New Beginnings • Pack a Soul Home">
+ <meta name="twitter:description" content="You belong here. Help one dog find the human who will share a whole life with them.">
  <meta name="twitter:image" content="https://shibahumanityhub.com/assets/images/newbeginningshomestartpacks.jpg">
 
  <link rel="canonical" href="https://shibahumanityhub.com/new-beginnings.html">
@@ -136,11 +136,33 @@
   margin-bottom: 1.25rem;
  }
  .nb-lede {
-  max-width: 36rem; margin: 0 auto 1.25rem;
-  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
-  line-height: 1.55;
-  color: rgba(186, 230, 253, 0.88);
+  max-width: 38rem; margin: 0 auto 1rem;
+  font-size: clamp(0.98rem, 2.3vw, 1.18rem);
+  line-height: 1.58;
+  color: rgba(224, 242, 254, 0.92);
  }
+ .nb-soul-line {
+  max-width: 36rem; margin: 0 auto 1.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.95rem, 2.1vw, 1.12rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+  color: #fde68a;
+  text-shadow: 0 0 40px rgba(253, 230, 138, 0.25);
+ }
+ .nb-welcome {
+  max-width: 34rem; margin: 0 auto 1.15rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(110, 231, 183, 0.35);
+  background: linear-gradient(145deg, rgba(110, 231, 183, 0.12), rgba(125, 211, 252, 0.08));
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(224, 242, 254, 0.92);
+  box-shadow: 0 0 48px -16px rgba(110, 231, 183, 0.45);
+ }
+ .nb-welcome strong { color: #a7f3d0; font-weight: 700; }
  .nb-pill-row {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 0.45rem;
   margin-bottom: 1.35rem;
@@ -159,10 +181,18 @@
   font-weight: 700; font-size: 1rem; text-decoration: none;
   color: #042f2e;
   background: linear-gradient(135deg, #fde68a, #6ee7b7 55%, #7dd3fc);
-  box-shadow: 0 14px 36px -12px rgba(110, 231, 183, 0.55);
+  box-shadow: 0 14px 36px -12px rgba(110, 231, 183, 0.55), 0 0 0 0 rgba(253, 230, 138, 0.4);
   transition: transform .15s ease;
+  animation: nb-cta-pulse 2.8s ease-in-out infinite;
  }
  .nb-cta:hover { transform: translateY(-2px); }
+ @keyframes nb-cta-pulse {
+  0%, 100% { box-shadow: 0 14px 36px -12px rgba(110, 231, 183, 0.55), 0 0 0 0 rgba(253, 230, 138, 0.35); }
+  50% { box-shadow: 0 16px 42px -10px rgba(110, 231, 183, 0.7), 0 0 28px 2px rgba(253, 230, 138, 0.22); }
+ }
+ @media (prefers-reduced-motion: reduce) {
+  .nb-cta { animation: none !important; }
+ }
  .nb-ghost {
   display: inline-flex; align-items: center; gap: 0.45rem;
   padding: 0.95rem 1.25rem; border-radius: 999px;
@@ -258,7 +288,7 @@
  <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
  </div>
  <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1" aria-label="Menu"><i id="mobile-menu-icon" class="fa-solid fa-bars"></i></button>
- <a href="#nbx-build" class="nb-cta !py-2.5 !px-4 !text-sm">Build a pack</a>
+ <a href="#nbx-build" class="nb-cta !py-2.5 !px-4 !text-sm">Welcome a soul home</a>
  </div>
 </nav>
 
@@ -281,27 +311,35 @@
  <span class="nb-float f4" aria-hidden="true">🥣</span>
 
  <div class="relative z-[2] max-w-4xl mx-auto px-1">
- <div class="nb-sig"><b></b> $NIBBLES welcome pack studio</div>
+ <div class="nb-sig"><b></b> You found the welcome door</div>
  <h1 class="nb-mega">New Beginnings</h1>
- <p class="nb-sub">Build their first home pack.</p>
- <p class="nb-stamp">Fun to build. Serious about forever.</p>
+ <p class="nb-sub">Pack a soul into their first real home.</p>
+ <p class="nb-stamp">You are not a transaction. You are family walking in.</p>
+
+ <p class="nb-welcome">
+  <strong>Hey. You belong here.</strong> Every person who packs a kit is part of the biggest mercy machine we know how to build: people helping people, helping dogs, helping the next soul get a shot at love that lasts a whole life.
+ </p>
 
  <p class="nb-lede nbx-hide-m">
- The first weeks after adoption are when love is huge and the cart total is scary. This studio lets you pick a pack size, then choose every bed, leash, toy, and care add-on. Families keep the joy. Dogs keep the home.
+ Somewhere a dog is about to step out of a kennel into a living room that still smells like possibility. That first week decides everything. Love is huge. The cart total is scary. You? You fill the gap so a family can keep the joy and a soul can keep the home.
+ </p>
+
+ <p class="nb-soul-line nbx-hide-m">
+ This is not charity cosplay. This is one life getting a chance at a loving companion to share mornings, storms, and quiet nights with.
  </p>
 
  <div class="nb-pill-row nbx-hide-m">
- <div class="nb-pill">🎁 Pick every item</div>
- <div class="nb-pill">📦 3 pack sizes</div>
- <div class="nb-pill">🤝 Give-back partners</div>
- <div class="nb-pill">🧾 Receipts when live</div>
+ <div class="nb-pill">💛 One soul, one pack</div>
+ <div class="nb-pill">🏠 Soft landing for forever</div>
+ <div class="nb-pill">🤝 You are part of this</div>
+ <div class="nb-pill">✨ Cherished, not used</div>
  </div>
 
  <div class="nb-cta-row">
- <a href="#nbx-build" class="nb-cta">Start packing <i class="fa-solid fa-gift"></i></a>
- <a href="#nbx-shop" class="nb-ghost">Where we buy →</a>
+ <a href="#nbx-build" class="nb-cta">Welcome them home <i class="fa-solid fa-heart"></i></a>
+ <a href="#nbx-shop" class="nb-ghost">How love gets funded →</a>
  </div>
- <p class="text-[11px] tracking-wide text-sky-200/45">Design studio. No live checkout yet. When funded, purchases go through give-back partners with public receipts.</p>
+ <p class="text-[11px] tracking-wide text-sky-200/45">Design studio. No live checkout yet. When funded, purchases go through give-back partners with public receipts. Your intent still matters now.</p>
 
  <div class="nb-media">
   <div class="nb-media-inner">
@@ -319,9 +357,9 @@
 </header>
 
 <footer class="py-14 text-center text-xs">
- <p class="text-sky-100/85 text-sm mb-2 font-medium">People helping people. Helping people.</p>
- <p class="mb-1 tracking-wide">New Beginnings Home Start Packs. $NIBBLES when funded.</p>
- <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until partners and funding are real.</p>
+ <p class="text-sky-100/90 text-sm mb-2 font-medium">People helping people. Helping dogs. Helping souls find their forever person.</p>
+ <p class="mb-1 tracking-wide text-amber-100/80">You showed up. That already counts. New Beginnings · Home Start Packs · $NIBBLES when funded.</p>
+ <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until partners and funding are real. Leave cherished.</p>
  <div class="flex flex-wrap justify-center gap-4 text-sm">
  <a href="pay-it-forward.html" class="underline text-sky-200/80 hover:text-white">Pay It Forward</a>
  <a href="all-programs.html" class="underline text-sky-200/80 hover:text-white">All 30 programs</a>
