@@ -230,13 +230,14 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/globaldisasterk9responseunitsphoto.jpg",
- shortDesc: "Elite search-and-rescue K9 teams deploy anywhere on Earth within 48 hours to save lives when disaster strikes.",
+ shortDesc: "Handler and K9 fuse lives into one unit. Best friends who run toward collapse so other souls get another morning. Standby readiness. Deploy with proof.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Disaster Response</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Global Disaster K9 Response Units</h2>
- <p class="text-amber-200 text-xl mb-6">When disaster hits, every single minute matters. I keep thinking about the little girl they pulled from the rubble or the elderly couple found alive after everyone else had stopped looking.</p>
- <p class="text-zinc-300 mb-8">Those moments when a dog crawls through places no human can reach and changes everything.</p>
- <p class="text-zinc-300 mb-8">We maintain a small number of elite teams in a permanent state of readiness. The handlers receive steady living support. The dogs receive full professional care and daily training. When a disaster hits, the teams are activated with additional funding for deployment costs and field bonuses.</p>
- <p class="text-zinc-300 mb-8">Every time a disaster strikes, $NIBBLES holders know their everyday transactions helped keep these teams ready, and then helped send them into action. This is mercy in motion. Second chances saving lives when it matters most.</p>
+ <p class="text-amber-200 text-xl mb-6">Two lives. One light. A handler and a K9 as best friends who become search infrastructure when the world breaks.</p>
+ <p class="text-zinc-300 mb-8">This is not a mascot program. It is a life partnership: train, travel, risk, and recover as one unit so strangers under rubble get another morning.</p>
+ <p class="text-zinc-300 mb-8">We design for a small number of elite bonded teams in permanent readiness. Handlers receive steady living support by design. Dogs receive full professional care and daily training. When disaster hits, activation capital covers deploy costs and field support. Design until partners and proofs are real.</p>
+ <p class="text-zinc-300 mb-8">Every day $NIBBLES holders help keep readiness alive is a day the call does not start from zero. Mercy at speed. Bond first. Proof after the field.</p>
+ <a href="k9-lifeline.html" class="block text-center mb-6 text-sm text-cyan-300 hover:text-cyan-200 underline">Open the full Global K9 bond experience →</a>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -252,12 +253,12 @@ const programs = [ {
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Watch the powerful bond between a child and their K9 Lifeline hero • disaster response dogs bringing hope when it matters most.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Preview of the bond and the mission. Not a live deployment feed.</p>
  </div>
 
  <div class="mb-10">
  <h4 class="text-xl font-semibold text-amber-200 mb-6">How the Funding Actually Works</h4>
- <p class="text-sm text-zinc-300 mb-6">The K9 Lifeline teams exist in two clear states. Everything is powered by $NIBBLES holders. There is no “hope someone donates when disaster strikes.”</p>
+ <p class="text-sm text-zinc-300 mb-6">K9 Lifeline units exist in two clear states. Powered by $NIBBLES holders by design. There is no "hope someone donates when disaster strikes."</p>
  
  <div class="space-y-6">
  <div class="bg-amber-900/30 p-6 rounded-3xl">
@@ -280,17 +281,18 @@ const programs = [ {
  </div>
  </div>
 
- <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, the next disaster will not leave us feeling helpless. $NIBBLES holders will click and get a real rescue team moving before the first official meeting even ends. More lives saved. More shelter dogs turned into heroes. This is how we turn pain into hope, one loving paw at a time.</p>
+ <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and partners are real, the next disaster does not start at zero. Ready pairs. Public proofs. Shelter dogs who became someone's whole world, then a light for others.</p>
 
  <div class="mt-8">
  <div class="text-sm font-semibold text-emerald-300 mb-3">Questions That Matter</div>
  <div class="space-y-3 text-xs text-zinc-400">
- <div><strong class="text-emerald-200">Are handlers paid on standby plus deployment bonuses?</strong> Standby readiness (support + dog care) is continuous via Mercy Circle. Active deployments release extra for costs and bonuses.</div>
- <div><strong class="text-emerald-200">How do we verify they actually went?</strong> Reports, partner attestations, and media become permanent records.</div>
- <div><strong class="text-emerald-200">What about the dogs after retirement?</strong> Full lifetime care. Eternal level specifically protects this.</div>
+ <div><strong class="text-emerald-200">Are handlers paid on standby plus deployment bonuses?</strong> Standby readiness (support + dog care) is continuous via Mercy Circle by design. Active deployments release extra for costs and bonuses.</div>
+ <div><strong class="text-emerald-200">How do we verify they actually went?</strong> Reports, partner attestations, and ethical media become permanent records when live.</div>
+ <div><strong class="text-emerald-200">What about the dogs after retirement?</strong> Lifetime care design. Eternal level specifically protects this.</div>
  </div>
  </div>
 
+ <a href="k9-lifeline.html" class="block text-center mt-6 text-sm text-cyan-300 hover:text-cyan-200 underline">Open full bond experience (searchlight studio) →</a>
  <button onclick="sponsorProgram('global-disaster-k9')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch Global Disaster K9 Response Units</button>`
  },
  {
