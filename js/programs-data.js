@@ -91,12 +91,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/payitforward.jpg",
- shortDesc: "Every single $NIBBLES transaction creates a golden chain of mercy that pays love forward to the next dog in need.",
+ shortDesc: "The $NIBBLES funding model for endless mercy links. Opens into the Pay It Forward Adoption Chain: sponsor one dog + guardian so the next heart joins.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Pay It Forward</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Pay It Forward Mercy Chain</h2>
  <p class="text-amber-200 text-xl mb-6">Every transaction quietly starts a golden chain of mercy that keeps paying love forward to the next dog who needs it most.</p>
- <p class="text-zinc-300 mb-8">One rescue leads to another. One act of kindness creates the next. This is the living chain reaction we are building with every single $NIBBLES holder.</p>
- <p class="text-zinc-300 mb-8">The Pay It Forward Mercy Chain ensures that no matter how many dogs we help today, the momentum never stops. Every transaction adds another link in the chain, reaching more senior dogs, more therapy dogs, more shelters, more forever homes, forever.</p>
+ <p class="text-zinc-300 mb-6">One rescue leads to another. One act of kindness creates the next. This is the living chain reaction we are building with every single $NIBBLES holder.</p>
+ <p class="text-zinc-300 mb-6">The Mercy Chain is the funding rail. The <a href="pay-it-forward.html" class="text-rose-300 underline font-semibold">Adoption Chain experience</a> is where you see the product: one dog, one guardian, direct sponsorship, stories that pull the next link.</p>
+ <p class="text-zinc-300 mb-8">No matter how many dogs we help today, the momentum never stops. Every transaction adds another link, reaching more seniors, therapy dogs, shelters, and forever homes.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -126,11 +127,14 @@ const programs = [ {
 
  <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">Every $NIBBLES transaction quietly adds another glowing link. One dog saved today becomes the reason the next dog is saved tomorrow. This is how we turn every single holder into a living part of an unbreakable golden chain of mercy that will keep growing forever.</p>
 
- <button onclick="sponsorProgram('pay-it-forward')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Strengthen the Pay It Forward Mercy Chain</button>
+ <a href="pay-it-forward.html" class="block text-center mb-4 text-sm text-rose-300 hover:text-rose-200 underline font-semibold">Open the Pay It Forward Adoption Chain experience →</a>
+ <button onclick="sponsorProgram('pay-it-forward')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-2">Help Strengthen the Pay It Forward Mercy Chain</button>
 
- <!-- Navigational bridge to the direct Adoption Chain - feels connected and rewarding -->
- <div class="mt-4 text-center">
- <a href="all-programs.html" class="text-sm text-emerald-300 hover:text-emerald-200 underline">Or dive straight into the Pay It Forward Adoption Chain (direct sponsorship) →</a>
+ <!-- Same program family: Mercy Chain funding model + Adoption Chain product experience -->
+ <div class="mt-6 p-5 rounded-2xl border border-rose-400/30 bg-rose-950/20 text-left">
+ <div class="text-rose-200 text-sm font-semibold mb-2">Same mission. Two doors.</div>
+ <p class="text-zinc-300 text-sm mb-3">This card is the <strong class="text-white">Mercy Chain</strong> funding model ($NIBBLES circles). The live product page is the <strong class="text-white">Adoption Chain</strong>: sponsor one dog + guardian, stories that grow the next link.</p>
+ <a href="pay-it-forward.html" class="text-sm text-rose-300 hover:text-rose-200 underline">Enter the Adoption Chain experience →</a>
  </div>`
  },
  {
