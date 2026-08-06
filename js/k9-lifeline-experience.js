@@ -12,11 +12,15 @@
       id: 'K9-01',
       dog: 'Atlas',
       handler: 'Maya Chen',
+      callsign: 'STONE LIGHT',
       base: 'Pacific Northwest',
       specialty: 'Rubble / urban collapse',
       years: 6,
+      sync: 97,
+      origin: 'Shelter high-drive rescue',
       line: 'She reads his ears. He reads her breath. Under concrete, that is language.',
       bond: 'They live on the same schedule. Same truck. Same long silence after hard finds.',
+      moment: 'In the dust, he freezes. She drops to a knee. No words. One paw scrape. One human still breathing under the slab.',
       status: 'Standby design',
       emoji: '🏔️'
     },
@@ -24,11 +28,15 @@
       id: 'K9-02',
       dog: 'Nova',
       handler: 'James Okonkwo',
+      callsign: 'TIDE MARK',
       base: 'Gulf Coast',
       specialty: 'Flood / water edge',
       years: 4,
+      sync: 94,
+      origin: 'Working line lab mix',
       line: 'Best friends who train in rain so strangers get pulled from water.',
       bond: 'He talks to her like a partner, not a tool. She works like she agrees.',
+      moment: 'Current pulls. She locks on a scent line along black water. He trusts her more than the map in his hand.',
       status: 'Standby design',
       emoji: '🌊'
     },
@@ -36,11 +44,15 @@
       id: 'K9-03',
       dog: 'Ridge',
       handler: 'Elena Varga',
+      callsign: 'HIGH LINE',
       base: 'Mountain West',
       specialty: 'Wilderness / wide area',
       years: 8,
+      sync: 99,
+      origin: 'SAR pipeline from day one',
       line: 'Two heartbeats on a ridgeline. One mission: find the living.',
       bond: 'Retirement is planned together. The bond does not end when the badge does.',
+      moment: 'Wind cuts the ridge. He looks back once. She nods. They take the hard trail, not the easy one.',
       status: 'Standby design',
       emoji: '⛰️'
     },
@@ -48,11 +60,15 @@
       id: 'K9-04',
       dog: 'Cipher',
       handler: 'Omar Hassan',
+      callsign: 'NIGHT GRID',
       base: 'Northeast corridor',
       specialty: 'Night search / dense urban',
       years: 5,
+      sync: 96,
+      origin: 'Malinois drive, soft off-duty',
       line: 'When the lights die, the bond becomes the map.',
       bond: 'They recover as a pair: sleep, food, quiet, then readiness again.',
+      moment: 'City blackout. Alley maze. Cipher marks left. Omar clears right. A child answers from a stairwell.',
       status: 'Standby design',
       emoji: '🌃'
     },
@@ -60,11 +76,15 @@
       id: 'K9-05',
       dog: 'Solace',
       handler: 'Priya Nair',
+      callsign: 'SECOND SUN',
       base: 'Southwest',
       specialty: 'Heat / desert debris',
       years: 3,
+      sync: 91,
+      origin: 'Written-off shelter dog',
       line: 'A shelter dog who became someone\'s whole world, then became a light for others.',
       bond: 'Second chance dog. First-rate partner. That is the flywheel at work.',
+      moment: 'Heat shimmer. She almost quits. Priya kneels, water, hand on neck. Solace stands. Finds the gap in the wreck.',
       status: 'Train-up design',
       emoji: '☀️'
     },
@@ -72,14 +92,27 @@
       id: 'K9-06',
       dog: 'Beacon',
       handler: 'Chris Alvarez',
+      callsign: 'ICE VOW',
       base: 'Great Lakes',
       specialty: 'Cold weather / ice edge',
       years: 7,
+      sync: 98,
+      origin: 'Cold-climate working pair',
       line: 'They share one life so other lives get returned to the people who love them.',
       bond: 'Handler funds readiness of the soul. Dog funds courage of the body. Together: unit.',
+      moment: 'Ice edge groans. Beacon holds. Chris counts breaths. Then a signal from the dark water line. Move.',
       status: 'Standby design',
       emoji: '❄️'
     }
+  ];
+
+  var SHARED = [
+    { k: 'Sleep', d: 'Same rest cycle after hard days. Recovery is a paired system.' },
+    { k: 'Truck', d: 'One cab. One kit. One route into the zone.' },
+    { k: 'Risk', d: 'They enter the break together. No remote control friendship.' },
+    { k: 'Silence', d: 'After a find, or after nothing: the quiet is shared too.' },
+    { k: 'Trust', d: 'Handler reads dog. Dog reads handler. Under stress, that is the OS.' },
+    { k: 'Home', d: 'Off duty they are still partners. The bond does not clock out.' }
   ];
 
   var PROTOCOL = [
@@ -120,7 +153,7 @@
     { t: 'Recover', d: 'Dog and handler restored. Then readiness again. The light stays on.' }
   ];
 
-  var state = { teamId: TEAMS[0].id, filter: 'all' };
+  var state = { teamId: TEAMS[0].id, deployStep: 0 };
 
   function isMobile() {
     try {
@@ -157,6 +190,46 @@
       '@media(min-width:1600px){.k9x-section{max-width:82rem}}',
       '.k9x-head h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.35rem,3.2vw,1.95rem);letter-spacing:-.03em;margin:0 0 .4rem;background:linear-gradient(135deg,#fff,#fef3c7 35%,#fbbf24 60%,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}',
       '.k9x-head p{margin:0;font-size:.9rem;line-height:1.55;color:rgba(186,230,253,.82);max-width:46rem}',
+      /* Command board */
+      '.k9x-board{position:relative;margin:0 0 1.2rem;border-radius:1.35rem;border:1px solid rgba(251,191,36,.4);background:linear-gradient(145deg,rgba(251,191,36,.12),rgba(8,14,32,.98) 42%,rgba(5,8,20,.99));box-shadow:0 32px 80px -28px rgba(0,0,0,.9),0 0 50px -16px rgba(103,232,249,.25),inset 0 1px 0 rgba(255,255,255,.1);padding:1.1rem 1rem 1.15rem;overflow:hidden}',
+      '@media(min-width:768px){.k9x-board{padding:1.45rem 1.4rem}}',
+      '.k9x-board::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 20% 0%,rgba(251,191,36,.18),transparent 55%),radial-gradient(ellipse 50% 45% at 100% 80%,rgba(103,232,249,.1),transparent 50%);pointer-events:none}',
+      '.k9x-board::after{content:"";position:absolute;left:10%;right:10%;top:14%;height:1px;background:linear-gradient(90deg,transparent,rgba(254,243,199,.45),transparent);animation:k9x-scan 3.6s ease-in-out infinite;pointer-events:none;opacity:.5}',
+      '@keyframes k9x-scan{0%,100%{top:12%;opacity:.25}50%{top:78%;opacity:.55}}',
+      'body.is-scrolling .k9x-board::after,.k9x-heart,.k9x-pulse{animation-play-state:paused!important}',
+      '.k9x-board > *{position:relative;z-index:1}',
+      '.k9x-br{position:absolute;width:14px;height:14px;border-color:rgba(251,191,36,.55);border-style:solid;pointer-events:none;z-index:2}',
+      '.k9x-br.tl{top:10px;left:10px;border-width:2px 0 0 2px}',
+      '.k9x-br.tr{top:10px;right:10px;border-width:2px 2px 0 0}',
+      '.k9x-br.bl{bottom:10px;left:10px;border-width:0 0 2px 2px}',
+      '.k9x-br.br{bottom:10px;right:10px;border-width:0 2px 2px 0}',
+      '.k9x-kicker{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(251,191,36,.9);margin:0 0 .35rem;display:flex;align-items:center;gap:.4rem}',
+      '.k9x-pulse{width:7px;height:7px;border-radius:50%;background:#67e8f9;box-shadow:0 0 12px #67e8f9;animation:k9x-p 1.3s ease infinite}',
+      '@keyframes k9x-p{0%,100%{opacity:1}50%{opacity:.25}}',
+      '.k9x-board h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .35rem;font-size:clamp(1.2rem,2.8vw,1.55rem);color:#fef3c7;letter-spacing:-.03em}',
+      '.k9x-board .lede{font-size:.86rem;line-height:1.5;color:rgba(224,242,254,.88);margin:0 0 .9rem;max-width:40rem}',
+      '.k9x-dual{display:grid;gap:.55rem;grid-template-columns:1fr 1fr;margin:0 0 .85rem}',
+      '.k9x-heart-card{border-radius:1rem;border:1px solid rgba(103,232,249,.28);background:rgba(0,0,0,.35);padding:.75rem .7rem;text-align:center}',
+      '.k9x-heart-card.human{border-color:rgba(251,113,133,.35)}',
+      '.k9x-heart-card.dog{border-color:rgba(251,191,36,.4)}',
+      '.k9x-heart{display:inline-block;font-size:1.35rem;animation:k9x-beat 1.1s ease-in-out infinite}',
+      '.k9x-heart-card.dog .k9x-heart{animation-duration:.85s;animation-delay:.15s}',
+      '@keyframes k9x-beat{0%,100%{transform:scale(1)}40%{transform:scale(1.18)}60%{transform:scale(1.05)}}',
+      '@media(prefers-reduced-motion:reduce){.k9x-heart,.k9x-board::after,.k9x-pulse{animation:none!important}}',
+      '.k9x-heart-card .who{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(186,230,253,.6);margin:.2rem 0 .15rem}',
+      '.k9x-heart-card .nm{font-family:"Space Grotesk",sans-serif;font-size:.95rem;color:#f0f9ff;margin:0}',
+      '.k9x-heart-card .role{font-size:.68rem;color:rgba(186,230,253,.65);margin:.15rem 0 0}',
+      '.k9x-sync{margin:0 0 .75rem;padding:.55rem .7rem;border-radius:.85rem;border:1px solid rgba(251,191,36,.3);background:rgba(0,0,0,.28);display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap}',
+      '.k9x-sync b{font-family:"Space Grotesk",sans-serif;color:#fde68a;font-size:.95rem}',
+      '.k9x-sync span{font-size:.7rem;color:rgba(186,230,253,.65)}',
+      '.k9x-sync .bar{flex:1 1 100%;height:5px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:.2rem}',
+      '.k9x-sync .bar i{display:block;height:100%;background:linear-gradient(90deg,#fb7185,#fbbf24,#67e8f9);border-radius:999px;transition:width .5s ease}',
+      '.k9x-shared{display:grid;gap:.4rem;grid-template-columns:1fr 1fr;margin:0}',
+      '@media(min-width:700px){.k9x-shared{grid-template-columns:repeat(3,1fr)}}',
+      '@media(min-width:1100px){.k9x-shared{grid-template-columns:repeat(6,1fr)}}',
+      '.k9x-shared div{border-radius:.85rem;border:1px solid rgba(103,232,249,.22);background:rgba(0,0,0,.28);padding:.55rem .5rem}',
+      '.k9x-shared .k{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fbbf24;margin:0 0 .2rem}',
+      '.k9x-shared p{margin:0;font-size:.68rem;line-height:1.35;color:rgba(186,230,253,.72)}',
       /* Thesis */
       '.k9x-thesis{position:relative;margin:0 0 1.15rem;padding:1.05rem 1.1rem;border-radius:1.25rem;border:1px solid rgba(251,191,36,.4);background:linear-gradient(145deg,rgba(251,191,36,.12),rgba(103,232,249,.07) 50%,rgba(5,8,20,.96));box-shadow:0 0 50px -18px rgba(251,191,36,.5),inset 0 1px 0 rgba(255,255,255,.08);overflow:hidden}',
       '.k9x-thesis .tag{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,191,36,.9);margin:0 0 .4rem}',
@@ -173,20 +246,35 @@
       '@media(min-width:640px){.k9x-teams{grid-template-columns:1fr 1fr}}',
       '@media(min-width:1000px){.k9x-teams{grid-template-columns:repeat(3,1fr)}}',
       '.k9x-team{text-align:left;border-radius:1.2rem;border:1px solid rgba(103,232,249,.28);background:linear-gradient(160deg,rgba(103,232,249,.08),rgba(5,8,20,.96));padding:1rem .95rem;cursor:pointer;font:inherit;color:inherit;transition:border-color .15s,transform .15s,box-shadow .15s;width:100%}',
-      '.k9x-team.is-on{border-color:rgba(251,191,36,.55);box-shadow:0 0 40px -14px rgba(251,191,36,.4);transform:translateY(-2px)}',
+      '.k9x-team.is-on{border-color:rgba(251,191,36,.55);box-shadow:0 0 40px -14px rgba(251,191,36,.45),0 0 28px -10px rgba(103,232,249,.3);transform:translateY(-2px)}',
       '.k9x-team .top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.45rem}',
       '.k9x-team .em{font-size:1.5rem;line-height:1}',
       '.k9x-team .st{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:#67e8f9;border:1px solid rgba(103,232,249,.35);padding:.2rem .45rem;border-radius:999px}',
       '.k9x-team h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .15rem;font-size:1.15rem;color:#fef3c7}',
+      '.k9x-team .cs{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,191,36,.75);margin:0 0 .3rem}',
       '.k9x-team .pair{font-size:.78rem;color:#67e8f9;margin:0 0 .35rem}',
       '.k9x-team .meta{font-size:.7rem;color:rgba(186,230,253,.6);margin:0 0 .45rem}',
       '.k9x-team .line{font-size:.8rem;line-height:1.4;color:rgba(224,242,254,.88);font-style:italic;margin:0}',
-      /* Focus */
-      '.k9x-focus{margin-top:1rem;border-radius:1.3rem;border:1px solid rgba(251,191,36,.4);background:linear-gradient(165deg,rgba(251,191,36,.12),rgba(5,8,20,.98));padding:1.15rem 1.05rem;box-shadow:0 24px 60px -24px rgba(0,0,0,.75)}',
-      '.k9x-focus h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .35rem;color:#fde68a;font-size:1.2rem}',
+      /* Focus dossier */
+      '.k9x-focus{margin-top:1rem;border-radius:1.35rem;border:1px solid rgba(251,191,36,.45);background:linear-gradient(165deg,rgba(251,191,36,.14),rgba(103,232,249,.06) 40%,rgba(5,8,20,.98));padding:1.2rem 1.1rem;box-shadow:0 28px 70px -24px rgba(0,0,0,.8),0 0 40px -14px rgba(251,191,36,.3);position:relative;overflow:hidden}',
+      '.k9x-focus::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#fbbf24,#67e8f9,transparent)}',
+      '.k9x-focus h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .2rem;color:#fde68a;font-size:1.25rem;letter-spacing:-.02em}',
+      '.k9x-focus .cs{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#67e8f9;margin:0 0 .45rem}',
       '.k9x-focus .sub{font-size:.8rem;color:rgba(186,230,253,.7);margin:0 0 .75rem;line-height:1.4}',
-      '.k9x-focus .bond{font-size:.88rem;line-height:1.5;color:rgba(224,242,254,.92);margin:0 0 .75rem}',
+      '.k9x-focus .duo{display:grid;gap:.5rem;grid-template-columns:1fr 1fr;margin:0 0 .85rem}',
+      '.k9x-focus .side{border-radius:.95rem;border:1px solid rgba(103,232,249,.25);background:rgba(0,0,0,.3);padding:.7rem .65rem}',
+      '.k9x-focus .side .lbl{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,191,36,.8);margin:0 0 .2rem}',
+      '.k9x-focus .side strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:1rem;color:#f0f9ff;margin:0 0 .15rem}',
+      '.k9x-focus .side span{font-size:.72rem;color:rgba(186,230,253,.7);line-height:1.35}',
+      '.k9x-focus .moment{border-left:3px solid #fbbf24;padding:.55rem .75rem;margin:0 0 .75rem;background:rgba(0,0,0,.25);border-radius:0 .75rem .75rem 0}',
+      '.k9x-focus .moment .lbl{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#67e8f9;margin:0 0 .25rem}',
+      '.k9x-focus .moment p{margin:0;font-size:.84rem;line-height:1.5;color:rgba(254,243,199,.92)}',
+      '.k9x-focus .bond{font-size:.88rem;line-height:1.5;color:rgba(224,242,254,.92);margin:0 0 .55rem}',
+      '.k9x-focus .quote{font-size:.9rem;line-height:1.45;color:#fde68a;font-style:italic;margin:0 0 .75rem}',
       '.k9x-focus .truth{font-size:.65rem;color:rgba(148,180,200,.55);margin:0}',
+      '.k9x-focus .go-row{display:flex;flex-wrap:wrap;gap:.45rem;margin:.85rem 0 0}',
+      '.k9x-focus .go-row button{min-height:42px;padding:.5rem .9rem;border-radius:999px;border:1px solid rgba(103,232,249,.35);background:rgba(0,0,0,.35);color:#e0f2fe;font:inherit;font-size:.75rem;font-weight:700;cursor:pointer}',
+      '.k9x-focus .go-row button.pri{border:0;background:linear-gradient(135deg,#fef3c7,#fbbf24);color:#0a1024}',
       /* Protocol */
       '.k9x-steps{display:grid;gap:.5rem;margin:1rem 0}',
       '@media(min-width:700px){.k9x-steps{grid-template-columns:1fr 1fr}}',
@@ -198,9 +286,13 @@
       /* Mission flow */
       '.k9x-flow{display:grid;gap:.4rem;margin:1rem 0}',
       '@media(min-width:800px){.k9x-flow{grid-template-columns:repeat(5,1fr)}}',
-      '.k9x-flow-step{border-radius:.95rem;border:1px solid rgba(251,191,36,.28);background:linear-gradient(160deg,rgba(251,191,36,.08),rgba(0,0,0,.35));padding:.75rem .65rem;text-align:center}',
+      '.k9x-flow-step{border-radius:.95rem;border:1px solid rgba(251,191,36,.28);background:linear-gradient(160deg,rgba(251,191,36,.08),rgba(0,0,0,.35));padding:.75rem .65rem;text-align:center;cursor:pointer;font:inherit;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}',
+      '.k9x-flow-step.is-on{border-color:rgba(103,232,249,.55);box-shadow:0 0 28px -10px rgba(103,232,249,.45);transform:translateY(-2px)}',
       '.k9x-flow-step h4{font-family:"Space Grotesk",sans-serif;margin:0 0 .25rem;font-size:.88rem;color:#fde68a}',
       '.k9x-flow-step p{margin:0;font-size:.7rem;line-height:1.4;color:rgba(186,230,253,.7)}',
+      '.k9x-deploy-detail{margin:0 0 1rem;padding:1rem;border-radius:1.15rem;border:1px solid rgba(103,232,249,.3);background:rgba(0,0,0,.32)}',
+      '.k9x-deploy-detail h4{font-family:"Space Grotesk",sans-serif;margin:0 0 .35rem;color:#67e8f9;font-size:1.05rem}',
+      '.k9x-deploy-detail p{margin:0;font-size:.86rem;line-height:1.5;color:rgba(224,242,254,.9)}',
       /* Rails */
       '.k9x-rails{display:grid;gap:.65rem;margin:1rem 0}',
       '@media(min-width:800px){.k9x-rails{grid-template-columns:repeat(3,1fr)}}',
@@ -276,6 +368,27 @@
     });
   }
 
+  function renderBoard() {
+    var host = document.getElementById('k9x-board');
+    if (!host) return;
+    var t = team();
+    host.innerHTML =
+      '<span class="k9x-br tl"></span><span class="k9x-br tr"></span><span class="k9x-br bl"></span><span class="k9x-br br"></span>' +
+      '<p class="k9x-kicker"><span class="k9x-pulse"></span> Active bond preview · unit ' + t.id + '</p>' +
+      '<h3>Two heartbeats. One operating system.</h3>' +
+      '<p class="lede">Watch the pair. Human pulse and K9 pulse do not match by accident. Years of shared life make them one searchlight. Design board only.</p>' +
+      '<div class="k9x-dual">' +
+        '<div class="k9x-heart-card human"><span class="k9x-heart" aria-hidden="true">❤️</span><p class="who">Handler</p><p class="nm">' + t.handler + '</p><p class="role">Reads the dog. Calls the grid. Carries the weight.</p></div>' +
+        '<div class="k9x-heart-card dog"><span class="k9x-heart" aria-hidden="true">💛</span><p class="who">K9</p><p class="nm">' + t.dog + '</p><p class="role">Finds the living. Marks. Trusts completely.</p></div>' +
+      '</div>' +
+      '<div class="k9x-sync"><b>Bond sync · ' + t.sync + '%</b><span>' + t.years + ' yrs · ' + t.callsign + ' · design metric</span><div class="bar"><i style="width:' + t.sync + '%"></i></div></div>' +
+      '<div class="k9x-shared">' +
+        SHARED.map(function (s) {
+          return '<div><p class="k">' + s.k + '</p><p>' + s.d + '</p></div>';
+        }).join('') +
+      '</div>';
+  }
+
   function renderTeams() {
     var host = document.getElementById('k9x-teams');
     var focus = document.getElementById('k9x-focus');
@@ -285,7 +398,8 @@
         '<button type="button" class="k9x-team' + (t.id === state.teamId ? ' is-on' : '') + '" data-team="' + t.id + '">' +
           '<div class="top"><span class="em" aria-hidden="true">' + t.emoji + '</span><span class="st">' + t.status + '</span></div>' +
           '<h3>' + t.dog + ' + ' + t.handler.split(' ')[0] + '</h3>' +
-          '<p class="pair">' + t.handler + ' · ' + t.years + ' yrs bonded</p>' +
+          '<p class="cs">' + t.callsign + '</p>' +
+          '<p class="pair">' + t.handler + ' · ' + t.years + ' yrs · sync ' + t.sync + '%</p>' +
           '<p class="meta">' + t.base + ' · ' + t.specialty + '</p>' +
           '<p class="line">"' + t.line + '"</p>' +
         '</button>'
@@ -295,16 +409,59 @@
       btn.addEventListener('click', function () {
         state.teamId = btn.getAttribute('data-team');
         renderTeams();
+        renderBoard();
+        renderDeploy();
+        var sel = document.getElementById('k9x-unit');
+        if (sel) sel.value = state.teamId;
       });
     });
     var t = team();
     if (focus) {
       focus.innerHTML =
-        '<h3>' + t.emoji + ' Unit ' + t.id + ' · ' + t.dog + ' & ' + t.handler + '</h3>' +
-        '<p class="sub">' + t.base + ' · ' + t.specialty + ' · ' + t.years + ' years as a life partnership (design roster)</p>' +
-        '<p class="bond"><strong>The bond:</strong> ' + t.bond + '</p>' +
-        '<p class="bond" style="font-style:italic;color:#fde68a">"' + t.line + '"</p>' +
-        '<p class="truth">Design profile only. Real faces and partners publish with consent and proof when funded.</p>';
+        '<h3>' + t.emoji + ' Unit dossier · ' + t.dog + ' & ' + t.handler + '</h3>' +
+        '<p class="cs">Callsign ' + t.callsign + ' · ' + t.id + '</p>' +
+        '<p class="sub">' + t.base + ' · ' + t.specialty + ' · ' + t.years + ' years bonded · origin: ' + t.origin + '</p>' +
+        '<div class="duo">' +
+          '<div class="side"><p class="lbl">Human</p><strong>' + t.handler + '</strong><span>Judgment under dust. Protector of the pair. Best friend first.</span></div>' +
+          '<div class="side"><p class="lbl">K9</p><strong>' + t.dog + '</strong><span>Nose into the dark. Courage on command. Best friend always.</span></div>' +
+        '</div>' +
+        '<div class="moment"><p class="lbl">Field moment · design</p><p>' + t.moment + '</p></div>' +
+        '<p class="bond"><strong>Shared life:</strong> ' + t.bond + '</p>' +
+        '<p class="quote">"' + t.line + '"</p>' +
+        '<div class="k9x-sync" style="margin:0 0 .75rem"><b>Bond sync · ' + t.sync + '%</b><span>Design score · not a live biometric</span><div class="bar"><i style="width:' + t.sync + '%"></i></div></div>' +
+        '<div class="go-row">' +
+          '<button type="button" class="pri" data-k9x-go="rails">Fund this kind of unit</button>' +
+          '<button type="button" data-k9x-go="deploy">See deploy flow</button>' +
+        '</div>' +
+        '<p class="truth" style="margin-top:.75rem">Design dossier only. Real faces and partners publish with consent and proof when funded.</p>';
+      bindGo(focus);
+    }
+  }
+
+  function renderDeploy() {
+    var host = document.getElementById('k9x-flow');
+    var detail = document.getElementById('k9x-deploy-detail');
+    if (!host) return;
+    host.innerHTML = MISSION_STEPS.map(function (s, i) {
+      return (
+        '<button type="button" class="k9x-flow-step' + (i === state.deployStep ? ' is-on' : '') + '" data-step="' + i + '">' +
+          '<h4>0' + (i + 1) + ' · ' + s.t + '</h4>' +
+          '<p>' + s.d + '</p>' +
+        '</button>'
+      );
+    }).join('');
+    host.querySelectorAll('[data-step]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state.deployStep = parseInt(btn.getAttribute('data-step'), 10) || 0;
+        renderDeploy();
+      });
+    });
+    var s = MISSION_STEPS[state.deployStep] || MISSION_STEPS[0];
+    var t = team();
+    if (detail) {
+      detail.innerHTML =
+        '<h4>' + s.t + ' · with ' + t.dog + ' & ' + t.handler.split(' ')[0] + '</h4>' +
+        '<p>' + s.d + ' In the design model, unit <strong>' + t.callsign + '</strong> moves as one. The dog does not go alone. The human does not command a stranger. That is why souls get found.</p>';
     }
   }
 
@@ -315,6 +472,7 @@
           '<h2>The product is the bond</h2>' +
           '<p>Gear matters. Training matters. Capital matters. None of it works if the human and the dog are not one unit. This program starts where real SAR starts: two lives woven so tight that rubble cannot split them.</p>' +
         '</div>' +
+        '<div class="k9x-board" id="k9x-board"></div>' +
         '<div class="k9x-thesis">' +
           '<p class="tag">Thesis · non-negotiable</p>' +
           '<h3>Best friends who run toward collapse so other souls get another morning.</h3>' +
@@ -347,24 +505,23 @@
     return (
       '<div class="k9x-section">' +
         '<div class="k9x-head">' +
-          '<h2>Bonded units (design roster)</h2>' +
-          '<p>Illustrative pairs so you can feel the model. Not live deployment cards. When partners sign, real names and proofs replace this roster with consent.</p>' +
+          '<h2>Open a unit dossier</h2>' +
+          '<p>Tap a pair. Feel the bond: dual heartbeats, callsign, field moment, sync. Illustrative roster only. Real partners replace this with consent and proof.</p>' +
         '</div>' +
         '<div class="k9x-teams" id="k9x-teams"></div>' +
         '<div class="k9x-focus" id="k9x-focus"></div>' +
         '<form class="k9x-form" id="k9x-form" style="margin-top:1.25rem;max-width:32rem">' +
-          '<div class="k9x-head" style="margin-bottom:.75rem"><h2 style="font-size:1.25rem">Stand with a unit</h2><p>Save a design intent on this device. Signal for when rails and partners are real.</p></div>' +
+          '<div class="k9x-head" style="margin-bottom:.75rem"><h2 style="font-size:1.25rem">Stand with this light</h2><p>Commit a design intent on this device. Signal for when rails and partners are real.</p></div>' +
           '<label for="k9x-name">Your name or handle</label>' +
           '<input id="k9x-name" required placeholder="The human standing with the light">' +
-          '<label for="k9x-unit">Preferred unit (optional)</label>' +
+          '<label for="k9x-unit">Preferred unit</label>' +
           '<select id="k9x-unit">' +
-            '<option value="">Any bonded pair</option>' +
             TEAMS.map(function (t) {
-              return '<option value="' + t.id + '">' + t.dog + ' & ' + t.handler + '</option>';
+              return '<option value="' + t.id + '">' + t.callsign + ' · ' + t.dog + ' & ' + t.handler + '</option>';
             }).join('') +
           '</select>' +
-          '<label for="k9x-note">Why this mission hits you (optional)</label>' +
-          '<textarea id="k9x-note" placeholder="Because someone out there still needs a second morning."></textarea>' +
+          '<label for="k9x-note">Why this bond hits you (optional)</label>' +
+          '<textarea id="k9x-note" placeholder="Because two lives fused can still find one more soul in the dark."></textarea>' +
           '<button type="submit" class="k9x-cta">Commit readiness intent</button>' +
           '<div class="k9x-status" id="k9x-status" role="status"></div>' +
           '<p class="k9x-truth">Design only. Local storage. No charge. Live path: partner contracts + public mission proofs.</p>' +
@@ -405,17 +562,14 @@
       '<div class="k9x-section">' +
         '<div class="k9x-head">' +
           '<h2>When the call hits</h2>' +
-          '<p>Design flow from signal to recovery. Live ops publish real partners, real zones, and real attestations. Until then, this is the mechanism, not a live map.</p>' +
+          '<p>Tap each stage. Watch how the bonded unit moves as one from signal to recovery. Mechanism design, not a live map.</p>' +
         '</div>' +
-        '<div class="k9x-flow">' +
-          MISSION_STEPS.map(function (s) {
-            return '<div class="k9x-flow-step"><h4>' + s.t + '</h4><p>' + s.d + '</p></div>';
-          }).join('') +
-        '</div>' +
-        '<div class="k9x-grid3" style="margin-top:1.15rem">' +
+        '<div class="k9x-flow" id="k9x-flow"></div>' +
+        '<div class="k9x-deploy-detail" id="k9x-deploy-detail"></div>' +
+        '<div class="k9x-grid3">' +
           '<div class="k9x-card"><p class="k">What the dog does</p><p>Find the living. Mark. Work past fear. Trust the handler completely.</p></div>' +
           '<div class="k9x-card"><p class="k">What the human does</p><p>Read the dog. Call the grid. Protect the pair. Carry the weight of every empty hole.</p></div>' +
-          '<div class="k9x-card"><p class="k">What we fund</p><p>The chance they both get there whole, work at peak, and come home to recover.</p></div>' +
+          '<div class="k9x-card"><p class="k">What we fund</p><p>The chance they both get there whole, work at peak, and come home to recover as friends still.</p></div>' +
         '</div>' +
         '<p class="k9x-truth">No fake GPS tracks. No invented body counts. When live: reports, partner letters, and ethical media become permanent records.</p>' +
       '</div>'
@@ -501,9 +655,12 @@
       } catch (e2) { /* private mode */ }
       var status = document.getElementById('k9x-status');
       if (status) {
-        status.textContent = 'COMMITTED: readiness intent held on this device for ' +
-          (unit || 'any bonded unit') +
-          '. Design only. No charge. When live: partner rails + public proofs. You stood with the light.';
+        var unitLabel = unit;
+        for (var i = 0; i < TEAMS.length; i++) {
+          if (TEAMS[i].id === unit) unitLabel = TEAMS[i].callsign + ' · ' + TEAMS[i].dog + ' & ' + TEAMS[i].handler;
+        }
+        status.textContent = 'COMMITTED: you stand with ' + unitLabel +
+          '. Intent held on this device. Design only. No charge. When live: partner rails + public proofs. Two lives. Your signal. The light stays on.';
       }
     });
   }
@@ -611,8 +768,22 @@
       t.addEventListener('click', function () { goTab(t.getAttribute('data-tab')); });
     });
     bindGo(document);
+    renderBoard();
     renderTeams();
+    renderDeploy();
     wireForm();
+    var unitSel = document.getElementById('k9x-unit');
+    if (unitSel) {
+      unitSel.value = state.teamId;
+      unitSel.addEventListener('change', function () {
+        if (unitSel.value) {
+          state.teamId = unitSel.value;
+          renderTeams();
+          renderBoard();
+          renderDeploy();
+        }
+      });
+    }
     document.body.classList.add('k9x-ready');
 
     document.querySelectorAll('a[href="#k9x-bond"], a[href="#k9x-rails"], a[href="#k9x-teams"]').forEach(function (a) {
