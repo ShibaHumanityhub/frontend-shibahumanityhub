@@ -11,18 +11,18 @@
  <meta name="author" content="Shibahumanityhub">
  <meta name="keywords" content="new beginnings, home start packs, adoption starter kit, dog bed leash toys, first 30 days adoption, NIBBLES, shelter dog welcome pack">
 
- <title>New Beginnings • Home Start Pack Protocol</title>
- <meta name="description" content="First principles: failed adoptions are often a week-one logistics problem, not a love problem. Design a full Home Start Pack. Transparent partners. Public receipts when live. Proof over promises.">
+ <title>New Beginnings • Permanent Home Infrastructure</title>
+ <meta name="description" content="Failed adoptions are a week-one systems failure. New Beginnings is permanent-home infrastructure: full 30/60/90 day stack, transparent partners, public receipts. Spec first. Proof over promises.">
 
- <meta property="og:title" content="New Beginnings • Home Start Pack Protocol">
- <meta property="og:description" content="Engineer the first 30 to 90 days so a dog and a human can actually keep each other. Pack studio. Mechanism first.">
+ <meta property="og:title" content="New Beginnings • Permanent Home Infrastructure">
+ <meta property="og:description" content="Make forever rational. Fund the stack that keeps the bond. First principles. Mechanism design. System scale.">
  <meta property="og:image" content="https://shibahumanityhub.com/assets/images/newbeginningshomestartpacks.jpg">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://shibahumanityhub.com/new-beginnings.html">
 
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="New Beginnings • Pack Protocol">
- <meta name="twitter:description" content="Reduce failed adoptions at the root. Build the kit. Fund the soft landing. Scale the flywheel.">
+ <meta name="twitter:title" content="New Beginnings • Permanent Home Infrastructure">
+ <meta name="twitter:description" content="Dogs do not fail adoptions. Unready homes do. Spec the pack. Fund the rails. Break the return loop.">
  <meta name="twitter:image" content="https://shibahumanityhub.com/assets/images/newbeginningshomestartpacks.jpg">
 
  <link rel="canonical" href="https://shibahumanityhub.com/new-beginnings.html">
@@ -73,11 +73,23 @@
   overflow: hidden;
   border-bottom: 1px solid var(--nb-line);
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(125, 211, 252, 0.18), transparent 55%),
-    radial-gradient(ellipse 40% 35% at 80% 60%, rgba(110, 231, 183, 0.1), transparent 50%),
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(125, 211, 252, 0.22), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 85% 55%, rgba(110, 231, 183, 0.12), transparent 50%),
+    radial-gradient(ellipse 35% 30% at 10% 70%, rgba(253, 230, 138, 0.08), transparent 48%),
     linear-gradient(180deg, #0c1c28 0%, #08141c 55%, #061018 100%);
   text-align: center;
   padding: 7rem 1rem 3.5rem;
+ }
+ .nb-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(125, 211, 252, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%);
+  pointer-events: none;
+  opacity: 0.9;
  }
 
  .nb-float {
@@ -113,56 +125,115 @@
  .nb-mega {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: 0.92;
-  font-size: clamp(2.6rem, 10vw, 5.4rem);
-  background: linear-gradient(135deg, #fff 0%, #e0f2fe 25%, #7dd3fc 48%, #6ee7b7 72%, #fde68a 100%);
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+  font-size: clamp(2.75rem, 11vw, 5.8rem);
+  background: linear-gradient(135deg, #fff 0%, #e0f2fe 22%, #7dd3fc 45%, #6ee7b7 70%, #fde68a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.55rem;
+  filter: drop-shadow(0 0 40px rgba(125, 211, 252, 0.15));
  }
  .nb-sub {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
-  font-size: clamp(1.1rem, 3vw, 1.7rem);
-  letter-spacing: -0.02em;
-  color: rgba(224, 242, 254, 0.92);
-  margin: 0 0 0.35rem;
+  font-size: clamp(1.15rem, 3.2vw, 1.85rem);
+  letter-spacing: -0.025em;
+  color: rgba(240, 249, 255, 0.95);
+  margin: 0 0 0.4rem;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
  }
  .nb-stamp {
-  font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(253, 230, 138, 0.65);
-  margin-bottom: 1.25rem;
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(253, 230, 138, 0.75);
+  margin-bottom: 1.35rem;
  }
  .nb-lede {
-  max-width: 38rem; margin: 0 auto 1rem;
+  max-width: 40rem; margin: 0 auto 1rem;
   font-size: clamp(0.98rem, 2.3vw, 1.18rem);
-  line-height: 1.58;
+  line-height: 1.6;
   color: rgba(224, 242, 254, 0.92);
  }
  .nb-soul-line {
-  max-width: 36rem; margin: 0 auto 1.25rem;
+  max-width: 38rem; margin: 0 auto 1.35rem;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(0.95rem, 2.1vw, 1.12rem);
+  font-size: clamp(0.98rem, 2.2vw, 1.18rem);
   font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.45;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
   color: #fde68a;
-  text-shadow: 0 0 40px rgba(253, 230, 138, 0.25);
+  text-shadow: 0 0 40px rgba(253, 230, 138, 0.28);
  }
  .nb-welcome {
-  max-width: 34rem; margin: 0 auto 1.15rem;
-  padding: 0.75rem 1rem;
-  border-radius: 1.1rem;
-  border: 1px solid rgba(110, 231, 183, 0.35);
-  background: linear-gradient(145deg, rgba(110, 231, 183, 0.12), rgba(125, 211, 252, 0.08));
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: rgba(224, 242, 254, 0.92);
-  box-shadow: 0 0 48px -16px rgba(110, 231, 183, 0.45);
+  max-width: 38rem; margin: 0 auto 1.2rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 1.15rem;
+  border: 1px solid rgba(110, 231, 183, 0.4);
+  background: linear-gradient(145deg, rgba(110, 231, 183, 0.14), rgba(125, 211, 252, 0.08));
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(224, 242, 254, 0.94);
+  box-shadow: 0 0 56px -14px rgba(110, 231, 183, 0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+  text-align: left;
  }
  .nb-welcome strong { color: #a7f3d0; font-weight: 700; }
+ .nb-eq {
+  max-width: 40rem; margin: 0 auto 1.35rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0.35rem;
+  align-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.68rem, 1.6vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(186, 230, 253, 0.85);
+ }
+ .nb-eq span {
+  padding: 0.55rem 0.4rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  background: rgba(0, 0, 0, 0.35);
+ }
+ .nb-eq .op { border: 0; background: transparent; color: #6ee7b7; padding: 0; font-size: 1rem; }
+ .nb-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-width: 36rem;
+  margin: 0 auto 1.4rem;
+ }
+ .nb-metric {
+  border-radius: 1rem;
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  background: linear-gradient(165deg, rgba(125, 211, 252, 0.1), rgba(0, 0, 0, 0.4));
+  padding: 0.7rem 0.5rem;
+ }
+ .nb-metric b {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  color: #f0f9ff;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.15rem;
+ }
+ .nb-metric span {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(186, 230, 253, 0.6);
+  line-height: 1.3;
+ }
+ @media (max-width: 480px) {
+  .nb-eq { grid-template-columns: 1fr; }
+  .nb-eq .op { display: none; }
+  .nb-metrics { grid-template-columns: 1fr; }
+ }
  .nb-pill-row {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 0.45rem;
   margin-bottom: 1.35rem;
@@ -288,7 +359,7 @@
  <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
  </div>
  <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1" aria-label="Menu"><i id="mobile-menu-icon" class="fa-solid fa-bars"></i></button>
- <a href="#nbx-build" class="nb-cta !py-2.5 !px-4 !text-sm">Build the pack</a>
+ <a href="#nbx-build" class="nb-cta !py-2.5 !px-4 !text-sm">Open the protocol</a>
  </div>
 </nav>
 
@@ -311,35 +382,49 @@
  <span class="nb-float f4" aria-hidden="true">🥣</span>
 
  <div class="relative z-[2] max-w-4xl mx-auto px-1">
- <div class="nb-sig"><b></b> Protocol · Home Start Packs · $NIBBLES</div>
+ <div class="nb-sig"><b></b> Permanent-home infrastructure · $NIBBLES</div>
  <h1 class="nb-mega">New Beginnings</h1>
- <p class="nb-sub">Engineer the first 90 days so forever actually sticks.</p>
- <p class="nb-stamp">First principles. Open books. No charity theater.</p>
+ <p class="nb-sub">Make forever rational. Fund the stack that keeps the bond.</p>
+ <p class="nb-stamp">First principles · Mechanism design · Public proof · System scale</p>
 
  <p class="nb-welcome">
-  <strong>The problem is not love.</strong> Most failed adoptions are a logistics failure in week one: no bed, no food buffer, no training path, budget shock. Fix the stack. The bond holds. Scale that, and you change the shelter system at the root.
+  <strong>Dogs do not fail adoptions. Unready homes do.</strong> Week one is a systems test: gear, food, training path, cash buffer. Fail that test and love gets returned to the shelter. Pass it and you get a permanent companion bond that compounds for a decade. We build the protocol that makes pass the default.
  </p>
 
+ <div class="nb-eq nbx-hide-m" aria-label="Impact equation">
+  <span>Ready house</span>
+  <span class="op">×</span>
+  <span>Real love</span>
+  <span class="op">=</span>
+  <span>Permanent home</span>
+ </div>
+
  <p class="nb-lede nbx-hide-m">
- This studio is the design layer for that stack. Pick pack depth (30 / 60 / 90 days). Pick dog size. Fill every slot: bed, leash, food, crate, training, buffers. You are not dumping cash into a black box. You are specifying a permanent home under real constraints.
+ This is not a donation page with a cart. It is the design layer for permanent-home infrastructure. Specify 30 / 60 / 90 day depth. Size the dog. Fill every slot. When capital and partners land, the spec becomes procurement with public receipts. Ambition without a receipt is noise. We refuse the noise.
  </p>
 
  <p class="nb-soul-line nbx-hide-m">
- One dog. One human. A full life together. That is the unit of impact. Everything else is mechanism.
+ Unit of impact: one dog + one human + a funded soft landing. Stack units. Break the return loop at civilization scale.
  </p>
 
+ <div class="nb-metrics nbx-hide-m">
+  <div class="nb-metric"><b>30·60·90</b><span>Day stack depths</span></div>
+  <div class="nb-metric"><b>0%</b><span>Opaque skim by design</span></div>
+  <div class="nb-metric"><b>30</b><span>Programs in the flywheel</span></div>
+ </div>
+
  <div class="nb-pill-row nbx-hide-m">
- <div class="nb-pill">01 · First principles</div>
- <div class="nb-pill">02 · Full stack pack</div>
- <div class="nb-pill">03 · Give-back rails</div>
- <div class="nb-pill">04 · Public receipts</div>
+ <div class="nb-pill">01 · Diagnose the loop</div>
+ <div class="nb-pill">02 · Spec the pack</div>
+ <div class="nb-pill">03 · Fund transparent rails</div>
+ <div class="nb-pill">04 · Compound permanence</div>
  </div>
 
  <div class="nb-cta-row">
- <a href="#nbx-build" class="nb-cta">Build the protocol <i class="fa-solid fa-rocket"></i></a>
- <a href="#nbx-shop" class="nb-ghost">Procurement model →</a>
+ <a href="#nbx-build" class="nb-cta">Open the protocol <i class="fa-solid fa-rocket"></i></a>
+ <a href="#nbx-shop" class="nb-ghost">Procurement rails →</a>
  </div>
- <p class="text-[11px] tracking-wide text-sky-200/45">Design studio. No live checkout. Live rails = partner shops + public receipts. Intent is the signal until funding is real.</p>
+ <p class="text-[11px] tracking-wide text-sky-200/45">Design studio. No live checkout. Live rails = partner shops + public receipts. Intent is the control signal until capital is real.</p>
 
  <div class="nb-media">
   <div class="nb-media-inner">
@@ -357,9 +442,9 @@
 </header>
 
 <footer class="py-14 text-center text-xs">
- <p class="text-sky-100/90 text-sm mb-2 font-medium">People helping people. Helping dogs. Permanent homes. Full stack.</p>
- <p class="mb-1 tracking-wide text-amber-100/80">New Beginnings · Home Start Pack Protocol · $NIBBLES when funded.</p>
- <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until partners and funding are real.</p>
+ <p class="text-sky-100/90 text-sm mb-2 font-medium">People helping people. Helping dogs. Permanent homes. Full stack. No theater.</p>
+ <p class="mb-1 tracking-wide text-amber-100/80">New Beginnings · Permanent-home infrastructure · $NIBBLES when funded.</p>
+ <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until partners and funding are real. Ambition with receipts.</p>
  <div class="flex flex-wrap justify-center gap-4 text-sm">
  <a href="pay-it-forward.html" class="underline text-sky-200/80 hover:text-white">Pay It Forward</a>
  <a href="all-programs.html" class="underline text-sky-200/80 hover:text-white">All 30 programs</a>

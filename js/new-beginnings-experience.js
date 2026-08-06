@@ -13,36 +13,39 @@
       name: 'Starter Pack',
       circle: 'Mercy',
       days: 'First 30 days',
-      blurb: 'Minimum viable home. Cover week one so budget shock does not end the adoption.',
+      tier: 'MVP',
+      blurb: 'Minimum viable home. Kill week-one budget shock before it kills the adoption.',
       color: '#34d399',
       slots: {
         bed: 1, leash: 1, collar: 1, food: 1, toys: 2, crate: 1, extras: 1
       },
-      includes: ['Microchip registration support (when live)', 'Family care card', 'Core gear for night one through day 30']
+      includes: ['Microchip registration support (when live)', 'Family care card', 'Core gear: night one → day 30']
     },
     {
       id: 'settle',
       name: 'Settle-In Pack',
       circle: 'Guardian',
       days: 'First 60 days',
-      blurb: 'Starter plus training and insurance buffer. Bridge from chaos to stable bond.',
+      tier: 'DEFAULT',
+      blurb: 'MVP + training + insurance buffer. Convert chaos into a stable bond under stress.',
       color: '#38bdf8',
       slots: {
         bed: 1, leash: 1, collar: 1, food: 1, toys: 3, crate: 1, training: 1, insurance: 1, extras: 2
       },
-      includes: ['6 weeks training voucher (design)', '60 days pet insurance buffer (design)', 'Microchip support', 'Higher stick rate target']
+      includes: ['6 weeks training voucher (design)', '60 days pet insurance buffer (design)', 'Microchip support', 'Higher stick-rate target']
     },
     {
       id: 'launch',
       name: 'Full Launch Pack',
       circle: 'Eternal',
       days: 'First 90 days',
-      blurb: 'Full stack. Soft landing plus season-long safety net. Maximum chance the home holds.',
+      tier: 'MAX',
+      blurb: 'Full stack + season safety net. Maximize P(permanent home). This is how you win the decade.',
       color: '#fbbf24',
       slots: {
         bed: 1, leash: 1, collar: 1, food: 1, toys: 4, crate: 1, training: 1, insurance: 1, camera: 1, vet: 1, extras: 3
       },
-      includes: ['90-day check-in option (design)', 'Emergency vet buffer (design)', 'Full settle support', 'Highest permanence design']
+      includes: ['90-day check-in option (design)', 'Emergency vet buffer (design)', 'Full settle support', 'Maximum permanence design']
     }
   ];
 
@@ -234,10 +237,20 @@
       '.nbx-pack{text-align:left;border-radius:1.25rem;border:1px solid rgba(125,211,252,.28);background:linear-gradient(160deg,rgba(125,211,252,.1),rgba(6,16,24,.95));padding:1.1rem 1rem;cursor:pointer;font:inherit;color:inherit;transition:transform .18s,border-color .18s,box-shadow .18s;position:relative;overflow:hidden}',
       '.nbx-pack::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--pack-c,#7dd3fc);opacity:.85}',
       '.nbx-pack.is-on{border-color:rgba(253,230,138,.55);box-shadow:0 0 40px -12px rgba(125,211,252,.45);transform:translateY(-2px)}',
-      '.nbx-pack .circle{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,230,138,.8);margin:0 0 .25rem}',
+      '.nbx-pack .circle{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,230,138,.8);margin:0 0 .25rem;display:flex;justify-content:space-between;align-items:center;gap:.4rem}',
+      '.nbx-pack .tier{font-size:.5rem;letter-spacing:.12em;padding:.18rem .4rem;border-radius:999px;border:1px solid rgba(110,231,183,.4);color:#6ee7b7}',
       '.nbx-pack h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .2rem;font-size:1.2rem;color:#f0f9ff}',
       '.nbx-pack .days{font-size:.72rem;color:#6ee7b7;margin:0 0 .4rem}',
       '.nbx-pack p{margin:0;font-size:.8rem;line-height:1.4;color:rgba(186,230,253,.75)}',
+      '.nbx-flight{display:grid;gap:.4rem;grid-template-columns:1fr;margin:0 0 1.15rem}',
+      '@media(min-width:720px){.nbx-flight{grid-template-columns:repeat(4,1fr)}}',
+      '.nbx-flight-step{border-radius:.95rem;border:1px solid rgba(125,211,252,.25);background:rgba(0,0,0,.3);padding:.75rem .7rem;text-align:left}',
+      '.nbx-flight-step .n{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(125,211,252,.7);margin:0 0 .25rem}',
+      '.nbx-flight-step h4{font-family:"Space Grotesk",sans-serif;margin:0 0 .25rem;font-size:.92rem;color:#e0f2fe;letter-spacing:-.02em}',
+      '.nbx-flight-step p{margin:0;font-size:.72rem;line-height:1.4;color:rgba(186,230,253,.7)}',
+      '.nbx-anti{margin:0 0 1.15rem;padding:.9rem 1rem;border-radius:1.1rem;border:1px solid rgba(251,113,133,.35);background:linear-gradient(160deg,rgba(251,113,133,.08),rgba(0,0,0,.35))}',
+      '.nbx-anti h4{font-family:"Space Grotesk",sans-serif;margin:0 0 .4rem;font-size:.95rem;color:#fda4af}',
+      '.nbx-anti ul{margin:0;padding-left:1.05rem;font-size:.8rem;line-height:1.5;color:rgba(254,205,211,.85)}',
       /* Builder layout */
       '.nbx-build{display:grid;gap:1rem}',
       '@media(min-width:960px){.nbx-build{grid-template-columns:1.15fr .85fr;align-items:start}}',
@@ -450,11 +463,13 @@
     var host = document.getElementById('nbx-packs');
     if (!host) return;
     host.innerHTML = PACKS.map(function (p) {
+      var slotN = 0;
+      Object.keys(p.slots).forEach(function (k) { slotN += p.slots[k]; });
       return (
         '<button type="button" class="nbx-pack' + (p.id === state.packId ? ' is-on' : '') + '" data-pack="' + p.id + '" style="--pack-c:' + p.color + '">' +
-          '<p class="circle">' + p.circle + ' circle</p>' +
+          '<p class="circle"><span>' + p.circle + ' circle</span><span class="tier">' + (p.tier || '') + '</span></p>' +
           '<h3>' + p.name + '</h3>' +
-          '<p class="days">' + p.days + '</p>' +
+          '<p class="days">' + p.days + ' · ' + slotN + ' slots</p>' +
           '<p>' + p.blurb + '</p>' +
         '</button>'
       );
@@ -523,10 +538,10 @@
         '</table>';
     }
     host.innerHTML =
-      '<h4>Sample receipt preview</h4>' +
-      '<p class="rc-sub">' + pack().name + ' · size ' + sizeLabel + ' · mock USD for design only</p>' +
+      '<h4>Receipt mock · design ledger</h4>' +
+      '<p class="rc-sub">' + pack().name + ' · size ' + sizeLabel + ' · mock USD · not a charge</p>' +
       body +
-      '<p class="rc-truth">Not a charge. Not a quote. Live prices come from partner shops when rails open. Receipts will be public then.</p>';
+      '<p class="rc-truth">Design estimates only. Live prices from partner shops when rails open. Receipts public or the rail is not live.</p>';
   }
 
   function renderBuilder() {
@@ -591,17 +606,17 @@
       } else {
         box.classList.add('empty');
         box.classList.remove('is-filling');
-        box.innerHTML = 'Empty stack. Specify every slot. Incomplete packs are how returns start.';
+        box.innerHTML = 'Empty stack. Specify every slot. Incomplete stacks are how permanent homes die.';
       }
     }
     var f = fillCount();
     if (meter) meter.style.width = f.pct + '%';
     if (meterLabel) {
       var loveLine = f.pct >= 100
-        ? 'Stack complete. Ready for one permanent home.'
+        ? 'Stack complete. Spec ready for one permanent home.'
         : f.pct >= 50
-          ? 'Past halfway. Finish the protocol.'
-          : f.filled + ' / ' + f.total + ' slots specified.';
+          ? 'Past halfway. Finish the protocol. No half-measures.'
+          : 'Spec progress: ' + f.filled + ' / ' + f.total + ' slots.';
       meterLabel.textContent = loveLine + ' · ' + p.name + ' · ' +
         (SIZE_LABEL[state.dogSize] || state.dogSize) + ' · design est. $' + estTotal();
     }
@@ -609,9 +624,9 @@
       includes.innerHTML = p.includes.map(function (x) { return '<li>' + x + '</li>'; }).join('');
     }
     if (previewSub) {
-      previewSub.textContent = p.circle + ' circle · size ' +
+      previewSub.textContent = (p.tier || p.circle) + ' · size ' +
         (SIZE_LABEL[state.dogSize] || state.dogSize) +
-        ' · design intent, not checkout';
+        ' · design intent · not checkout';
     }
     renderReceipt();
   }
@@ -621,24 +636,39 @@
       '<div class="nbx-section">' +
         '<div class="nbx-head">' +
           '<h2>Specify the full stack</h2>' +
-          '<p>Pick pack depth. Pick dog size. Fill every slot. You are designing a permanent home under real budget constraints, not writing a donation tweet. When rails go live, this spec becomes procurement.</p>' +
+          '<p>You are not writing a donation tweet. You are authoring the bill of materials for a permanent home under real constraints. When capital and partners land, this spec becomes procurement. Incomplete stacks are how forever dies in week one.</p>' +
         '</div>' +
         '<div class="nbx-soul">' +
-          '<p class="tag">Thesis</p>' +
-          '<h3>Failed adoptions are a systems problem. Solve the stack.</h3>' +
-          '<p>Love is high on day one. Friction is high on day three. Bed, food, crate, training, insurance, vet buffer. <strong>If the house is ready, the bond can compound.</strong> That is the product. Scale it across the flywheel and you permanently reduce returns to shelter.</p>' +
+          '<p class="tag">Thesis · non-negotiable</p>' +
+          '<h3>Failed adoptions are a systems problem. Solve the stack or accept the churn.</h3>' +
+          '<p>Day one: love peaks. Day three: friction peaks. Bed, food, crate, training, insurance, vet buffer. <strong>Ready house × real love = permanent home.</strong> That is the product. Scale it and you permanently reduce returns to shelter. That is civilization-grade leverage, not charity cosplay.</p>' +
+        '</div>' +
+        '<div class="nbx-flight" aria-label="Protocol flight plan">' +
+          '<div class="nbx-flight-step"><p class="n">01 · Diagnose</p><h4>Break the loop</h4><p>Shelter → home → fail → shelter. Attack day three, not the eulogy.</p></div>' +
+          '<div class="nbx-flight-step"><p class="n">02 · Spec</p><h4>Full stack pack</h4><p>30 / 60 / 90 day depth. Every slot filled. No half-measures.</p></div>' +
+          '<div class="nbx-flight-step"><p class="n">03 · Rails</p><h4>Transparent buy</h4><p>Give-back partners. Published cut. Public receipt. Or it does not ship.</p></div>' +
+          '<div class="nbx-flight-step"><p class="n">04 · Compound</p><h4>Permanent home</h4><p>Bond holds. Flywheel turns. Next unit funds the next forever.</p></div>' +
         '</div>' +
         '<div class="nbx-cherish" aria-label="Design principles">' +
-          '<div class="nbx-cherish-card"><p class="k">First principles</p><p>Strip the narrative. What does a dog need to stay in a home for 30, 60, 90 days? Build that. Nothing else.</p></div>' +
-          '<div class="nbx-cherish-card"><p class="k">Mechanism</p><p>Give-back partners. Public receipts. No opaque skim. Trust is an engineering constraint, not a slogan.</p></div>' +
-          '<div class="nbx-cherish-card"><p class="k">Unit of impact</p><p>One dog + one human + gear that makes forever affordable. That is the atom. Stack atoms. Change the system.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">First principles</p><p>Strip narrative. What does a dog need to stay home 30, 60, 90 days? Build only that. Kill the rest.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Mechanism</p><p>Trust is an engineering constraint. Partners. Receipts. Zero opaque skim. If you cannot show the books, you do not own the story.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Unit of impact</p><p>One dog + one human + gear that makes forever affordable. Atom of the system. Stack atoms. Change the curve.</p></div>' +
+        '</div>' +
+        '<div class="nbx-anti">' +
+          '<h4>Anti-goals · we will not ship these</h4>' +
+          '<ul>' +
+            '<li>Feel-good pages that never fund a bed</li>' +
+            '<li>Mystery markups with no public ledger</li>' +
+            '<li>"100% of dollars" claims without books</li>' +
+            '<li>Half packs that pretend week one is optional</li>' +
+          '</ul>' +
         '</div>' +
         '<div class="nbx-packs" id="nbx-packs"></div>' +
         '<div class="nbx-size-row" id="nbx-size-row" role="group" aria-label="Dog size"></div>' +
         '<div class="nbx-build">' +
           '<div class="nbx-cats" id="nbx-cats"></div>' +
           '<div class="nbx-preview" id="nbx-preview">' +
-            '<h3>Pack spec</h3>' +
+            '<h3>Live pack spec</h3>' +
             '<p class="sub" id="nbx-preview-sub"></p>' +
             '<div class="nbx-box" id="nbx-box"></div>' +
             '<div class="nbx-meter"><i id="nbx-meter-fill"></i></div>' +
@@ -649,12 +679,12 @@
               '<label for="nbx-dog">Dog name or shelter ID (optional)</label>' +
               '<input id="nbx-dog" placeholder="e.g. Mochi, or kennel #12">' +
               '<label for="nbx-donor">Your name or handle</label>' +
-              '<input id="nbx-donor" required placeholder="Signal when rails go live">' +
+              '<input id="nbx-donor" required placeholder="Control signal when rails go live">' +
               '<label for="nbx-note">Note for the family (optional)</label>' +
-              '<textarea id="nbx-note" placeholder="House is ready. Bond is the mission."></textarea>' +
-              '<button type="submit" class="nbx-cta" id="nbx-submit">Save pack intent</button>' +
+              '<textarea id="nbx-note" placeholder="House ready. Mission: permanent bond."></textarea>' +
+              '<button type="submit" class="nbx-cta" id="nbx-submit">Commit pack intent</button>' +
               '<div class="nbx-status" id="nbx-status" role="status"></div>' +
-              '<p class="nbx-truth">Design studio only. Saved on this device. No live checkout. Live path: give-back partners + public receipts.</p>' +
+              '<p class="nbx-truth">Design studio only. Local device. No charge. Live path: give-back partners + public receipts. Ambition with proof.</p>' +
             '</form>' +
           '</div>' +
         '</div>' +
@@ -680,12 +710,17 @@
     return (
       '<div class="nbx-section">' +
         '<div class="nbx-head">' +
-          '<h2>Procurement model</h2>' +
-          '<p>Capital allocation with transparent rails. Prefer partners that already return value to animal welfare. Publish the list. Publish the cut. Publish the receipt.</p>' +
+          '<h2>Procurement rails</h2>' +
+          '<p>Capital allocation under hard constraints. Prefer markets that already return value to animal welfare. Publish the partner. Publish the cut. Publish the receipt. If any of those three is missing, the rail is not live.</p>' +
+        '</div>' +
+        '<div class="nbx-soul" style="margin-bottom:1rem">' +
+          '<p class="tag">Mechanism design</p>' +
+          '<h3>Price discovery on the market. Trust discovery on the ledger.</h3>' +
+          '<p>We do not invent a private storefront to capture margin by default. We route through give-back partners when possible, keep books public when live, and treat donor trust as non-fungible capital. <strong>Lose the books, lose the right to the mission.</strong></p>' +
         '</div>' +
         '<div class="nbx-shop">' +
-          '<h3>Default: give-back partner shops</h3>' +
-          '<p>Buy from businesses that already donate a cut to animal welfare, or that will contract to do so for New Beginnings. Price discovery stays market-side. Program trust stays public.</p>' +
+          '<h3>Default rail: give-back partner shops</h3>' +
+          '<p>Buy from businesses that already donate a cut to animal welfare, or that will contract to do so for New Beginnings. Market prices. Program transparency.</p>' +
           '<ul>' +
             '<li>Named partners and product links</li>' +
             '<li>Published % or $ returned to rescue / this program</li>' +
@@ -696,14 +731,14 @@
         '</div>' +
         '<div class="nbx-shop" style="margin-top:.75rem;border-color:rgba(253,230,138,.3)">' +
           '<h3>Optional later: first-party SHH shop</h3>' +
-          '<p>Only if <strong>every dollar of product margin after cost routes back into New Beginnings</strong> (or the wider flywheel) with public ledgers. If it looks like a side hustle, kill it. Stay with partners.</p>' +
+          '<p>Only if <strong>every dollar of product margin after cost routes back into New Beginnings</strong> (or the wider flywheel) with public ledgers. Looks like a side hustle? Kill it. Stay with partners.</p>' +
           '<ul>' +
             '<li>Yes: fulfillment + open books</li>' +
             '<li>No: private markup</li>' +
             '<li>Now: design studio. Intent only.</li>' +
           '</ul>' +
         '</div>' +
-        '<p class="nbx-truth">No products sold on this page. Spec first. Buy when rails open.</p>' +
+        '<p class="nbx-truth">No products sold on this page. Spec first. Buy when rails open. That discipline is the product.</p>' +
       '</div>'
     );
   }
@@ -712,25 +747,34 @@
     return (
       '<div class="nbx-section">' +
         '<div class="nbx-head">' +
-          '<h2>Why this exists</h2>' +
-          '<p>Week one is where love peaks and friction peaks. Returns often track missing gear, missing cash buffer, and missing training path, not missing affection. This pack is the soft landing that makes permanence rational for a real household.</p>' +
+          '<h2>Why this must exist</h2>' +
+          '<p>Week one is where love peaks and friction peaks. Returns track missing gear, missing cash buffer, and missing training path far more often than missing affection. This protocol makes permanence rational for a real household with a real budget.</p>' +
         '</div>' +
         '<div class="nbx-soul" style="margin-bottom:1.15rem">' +
-          '<p class="tag">Mission</p>' +
-          '<h3>Give one dog and one human the infrastructure for a shared life.</h3>' +
-          '<p>Not a weekend vibe. A permanent companion bond. <strong>You fund the start conditions. They live the compounding.</strong> That is high-leverage good. It is also one node in a 30-program flywheel. People helping people. Helping dogs. At system scale.</p>' +
+          '<p class="tag">Mission · high leverage good</p>' +
+          '<h3>Infrastructure for a shared life between one dog and one human.</h3>' +
+          '<p>Not a weekend vibe. A permanent companion bond. <strong>You fund start conditions. They live the compounding for years.</strong> That is high-leverage good. It is also one node in a 30-program flywheel. People helping people. Helping dogs. At system scale. That is the biggest thing we know how to build without lying about the rails.</p>' +
         '</div>' +
         '<div class="nbx-cherish" style="margin-bottom:1.25rem">' +
-          '<div class="nbx-cherish-card"><p class="k">Problem</p><p>Shelter in, home out, home fails, shelter again. Break the loop at day three, not at the eulogy.</p></div>' +
-          '<div class="nbx-cherish-card"><p class="k">Scale</p><p>Thirty programs. One flywheel. Each permanent home is a unit that compounds mercy instead of churning it.</p></div>' +
-          '<div class="nbx-cherish-card"><p class="k">Truth</p><p>Design until funded. Receipts when live. Ambition without proof is noise. We refuse the noise.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Problem</p><p>Shelter in → home out → home fails → shelter again. Break the loop at day three. Everything else is coping.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Scale</p><p>Thirty programs. One flywheel. Each permanent home is a unit that compounds mercy instead of churning inventory.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Truth</p><p>Design until funded. Receipts when live. Ambition without proof is noise. We refuse the noise. Full stop.</p></div>' +
+        '</div>' +
+        '<div class="nbx-anti" style="margin-bottom:1.25rem">' +
+          '<h4>North star (honest)</h4>' +
+          '<ul>' +
+            '<li>Every adopted dog leaves with a funded soft-landing protocol when rails are live</li>' +
+            '<li>Zero preventable returns from a missing week-one stack</li>' +
+            '<li>Every dollar path inspectable by a stranger on the internet</li>' +
+            '<li>Stack units until the return loop is an edge case, not the culture</li>' +
+          '</ul>' +
         '</div>' +
         '<div class="nbx-more">' +
           '<a class="nbx-link" href="pay-it-forward.html"><h3>Pay It Forward</h3><p>Adoption chains that keep the flywheel turning after home one sticks.</p></a>' +
-          '<a class="nbx-link" href="golden-paws.html"><h3>Golden Paws</h3><p>Senior placement protocol. Forever homes, not starter kits only.</p></a>' +
+          '<a class="nbx-link" href="golden-paws.html"><h3>Golden Paws</h3><p>Senior placement protocol. Forever homes under harder constraints.</p></a>' +
           '<a class="nbx-link" href="healing-hearts.html"><h3>Healing Hearts</h3><p>Therapy network when the bond becomes service of another kind.</p></a>' +
           '<a class="nbx-link" href="shelters.html"><h3>Beautiful Souls</h3><p>Roster of dogs still waiting for a permanent human.</p></a>' +
-          '<a class="nbx-link" href="all-programs.html"><h3>All 30 programs</h3><p>Full system map. The rest of the flywheel.</p></a>' +
+          '<a class="nbx-link" href="all-programs.html"><h3>All 30 programs</h3><p>Full system map. The rest of the flywheel architecture.</p></a>' +
           '<a class="nbx-link" href="programs/new-beginnings-home-start-packs.html"><h3>Classic program card</h3><p>Circles copy and video on the standard program page.</p></a>' +
         '</div>' +
       '</div>'
@@ -746,8 +790,8 @@
       var status = document.getElementById('nbx-status');
       if (f.filled < f.total) {
         if (status) {
-          status.textContent = 'Incomplete stack: ' + f.filled + ' of ' + f.total +
-            '. Half-packed week one is how returns start. Finish every slot.';
+          status.textContent = 'REJECT: incomplete stack ' + f.filled + '/' + f.total +
+            '. Half packs are how permanent homes die. Finish every slot.';
         }
         return;
       }
@@ -777,10 +821,11 @@
       } catch (e2) { /* private mode */ }
       if (status) {
         var who = (payload.dogName || '').trim();
-        status.textContent = 'Intent saved: ' + pack().name + ' for ' +
+        status.textContent = 'COMMITTED: ' + pack().name + ' · ' +
           (who || 'unnamed dog') +
-          ' (' + (SIZE_LABEL[state.dogSize] || state.dogSize) + ', design est. $' + estTotal() +
-          '). Local only. No charge. When funded: partner buy + public receipts. Spec is the first step of a permanent home.';
+          ' · ' + (SIZE_LABEL[state.dogSize] || state.dogSize) +
+          ' · design est. $' + estTotal() +
+          '. Local only. No charge. Live path: partner buy + public receipts. You just authored the first step of a permanent home.';
       }
     });
   }
@@ -806,9 +851,9 @@
     var quick = document.createElement('div');
     quick.className = 'nbx-quick';
     quick.innerHTML =
-      '<button type="button" class="pri" data-nbx-go="build">Build the pack</button>' +
-      '<button type="button" data-nbx-go="shop">Procurement</button>' +
-      '<button type="button" data-nbx-go="more">Why it exists</button>';
+      '<button type="button" class="pri" data-nbx-go="build">Open protocol</button>' +
+      '<button type="button" data-nbx-go="shop">Rails</button>' +
+      '<button type="button" data-nbx-go="more">Mission</button>';
 
     var heartNodes = [hero, quick].filter(Boolean);
     if (hero && hero.parentNode) hero.parentNode.removeChild(hero);
@@ -846,12 +891,12 @@
     if (isMobile() && !document.querySelector('.nbx-mtop')) {
       var m = document.createElement('div');
       m.innerHTML =
-        '<div class="nbx-mtop"><a href="index.html"><img src="assets/logos/shibahumanityhublogo3d-new.jpg" width="30" height="30" alt=""><span>NEW BEGINNINGS</span></a><span style="font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fde68a;border:1px solid rgba(253,230,138,.4);padding:.25rem .5rem;border-radius:999px">Protocol</span></div>' +
+        '<div class="nbx-mtop"><a href="index.html"><img src="assets/logos/shibahumanityhublogo3d-new.jpg" width="30" height="30" alt=""><span>NEW BEGINNINGS</span></a><span style="font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fde68a;border:1px solid rgba(253,230,138,.4);padding:.25rem .5rem;border-radius:999px">Infra</span></div>' +
         '<nav class="nbx-mtabs" aria-label="New Beginnings mobile">' +
           '<button type="button" class="nbx-mtab is-on" data-tab="heart"><span class="ic">◆</span>Thesis</button>' +
-          '<button type="button" class="nbx-mtab" data-tab="build"><span class="ic">⚙</span>Build</button>' +
+          '<button type="button" class="nbx-mtab" data-tab="build"><span class="ic">⚙</span>Spec</button>' +
           '<button type="button" class="nbx-mtab" data-tab="shop"><span class="ic">$</span>Rails</button>' +
-          '<button type="button" class="nbx-mtab" data-tab="more"><span class="ic">→</span>Why</button>' +
+          '<button type="button" class="nbx-mtab" data-tab="more"><span class="ic">→</span>Mission</button>' +
         '</nav>';
       while (m.firstChild) document.body.insertBefore(m.firstChild, document.body.firstChild);
     }
@@ -862,9 +907,9 @@
       rail.id = 'nbx-rail';
       rail.innerHTML =
         '<button type="button" class="is-on" data-nbx-go="heart">Thesis</button>' +
-        '<button type="button" data-nbx-go="build">Build pack</button>' +
-        '<button type="button" data-nbx-go="shop">Procurement</button>' +
-        '<button type="button" data-nbx-go="more">Why it exists</button>';
+        '<button type="button" data-nbx-go="build">Spec the pack</button>' +
+        '<button type="button" data-nbx-go="shop">Procurement rails</button>' +
+        '<button type="button" data-nbx-go="more">Mission</button>';
       var nav = document.querySelector('body > nav');
       if (nav && nav.nextSibling) document.body.insertBefore(rail, nav.nextSibling);
       else document.body.insertBefore(rail, document.body.firstChild);
