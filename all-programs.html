@@ -218,11 +218,76 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
  }
  @media (max-width: 480px) {
  .program-card img { height: 165px; }
- #programs-menu { min-width: 220px; }
  }
- /* Premium navbar feel + everything fits perfectly to size */
- nav a { transition: color 0.15s ease, letter-spacing 0.2s ease; }
- nav a:hover { letter-spacing: 0.02em; }
+ /* Premium navbar · dual flywheels need room (do not clamp #programs-menu to 220px) */
+ nav.shh-nav a { transition: color 0.15s ease, letter-spacing 0.2s ease; }
+ nav.shh-nav a:hover { letter-spacing: 0.02em; }
+ nav.shh-nav {
+  background: linear-gradient(180deg, rgba(10,15,28,0.98) 0%, rgba(5,7,15,0.96) 100%);
+  border-bottom: 1px solid rgba(251,191,36,0.22);
+  box-shadow: 0 4px 28px -12px rgba(0,0,0,0.75), 0 0 0 1px rgba(251,191,36,0.06) inset;
+ }
+ #programs-menu.prog-fw-ready {
+  min-width: min(540px, calc(100vw - 20px)) !important;
+  max-width: min(560px, calc(100vw - 16px)) !important;
+ }
+ .nav-link {
+  color: rgba(244,244,245,0.88);
+  font-weight: 500;
+ }
+ .nav-link:hover { color: #fcd34d; }
+ .nav-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.55rem 1rem; border-radius: 999px;
+  font-size: 0.8rem; font-weight: 700;
+  background: linear-gradient(135deg, #fcd34d, #f59e0b);
+  color: #0a0f1c; text-decoration: none;
+  box-shadow: 0 8px 24px -10px rgba(251,191,36,0.55);
+ }
+ .nav-cta:hover { filter: brightness(1.05); color: #0a0f1c; }
+ /* Compact dual-token pulse chips in bar */
+ .nav-token-chips {
+  display: none; align-items: center; gap: 0.35rem;
+ }
+ @media (min-width: 1100px) {
+  .nav-token-chips { display: inline-flex; }
+ }
+ .nav-token-chip {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.28rem 0.55rem; border-radius: 999px;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em;
+  text-decoration: none; border: 1px solid transparent;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+ }
+ .nav-token-chip.n {
+  color: #fcd34d; border-color: rgba(251,191,36,0.35);
+  background: rgba(251,191,36,0.1);
+ }
+ .nav-token-chip.h {
+  color: #6ee7b7; border-color: rgba(52,211,153,0.35);
+  background: rgba(52,211,153,0.1);
+ }
+ .nav-token-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px -6px currentColor;
+ }
+ .nav-token-chip .spin {
+  display: inline-block; width: 0.85rem; height: 0.85rem; border-radius: 50%;
+  animation: nav-chip-spin 6s linear infinite;
+ }
+ .nav-token-chip.n .spin {
+  background: conic-gradient(from 0deg, #fbbf24, #78350f, #fde68a, #fbbf24);
+  box-shadow: 0 0 0 1px rgba(251,191,36,0.4);
+ }
+ .nav-token-chip.h .spin {
+  background: conic-gradient(from 0deg, #34d399, #064e3b, #a7f3d0, #34d399);
+  box-shadow: 0 0 0 1px rgba(52,211,153,0.4);
+  animation-direction: reverse;
+ }
+ @keyframes nav-chip-spin { to { transform: rotate(360deg); } }
+ @media (prefers-reduced-motion: reduce) {
+  .nav-token-chip .spin { animation: none !important; }
+ }
 
  :root {
  --ease-mercy: cubic-bezier(0.4, 0, 0.2, 1);
@@ -501,60 +566,69 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 
 <body>
 
-<nav class="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-amber-500/20">
- <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
- <a href="index.html" class="flex items-center gap-3">
- <div class="logo-3d-wrapper w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-amber-400/70 shadow-2xl transition-transform group-hover:scale-105">
- <video 
- src="assets/videos/shibahumanityhub-logo-animated.mp4" 
- autoplay 
- loop 
- muted 
- playsinline 
- preload="metadata"
- poster="assets/logos/shibahumanityhublogo3d-new.jpg"
- width="96" height="96"
- aria-hidden="true"
- class="w-full h-full object-cover">
- </video>
-</div>
- <span class="hidden sm:block text-2xl font-bold tracking-[-1px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
- </a>
- <div class="relative hidden md:block" id="programs-dropdown">
- <a href="all-programs.html" 
- onclick="toggleProgramsDropdown(event)" 
- class="hover:text-amber-400 transition-colors flex items-center gap-1 px-3 py-1 group/nav">
- <span class="relative">
- Programs
- <span class="absolute -bottom-px left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-emerald-400 group-hover/nav:w-full transition-all"></span>
- </span>
- <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
- </a>
- <div id="programs-menu" 
- class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 z-[9999] shadow-2xl overflow-hidden"
- style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
- <!-- Built by js/programs-flywheel-nav.js: dual scrollable program wheels -->
- <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
- <div data-prog-fw-mount></div>
+<nav class="shh-nav bg-black/95 backdrop-blur-lg fixed w-full z-50">
+ <div class="max-w-7xl mx-auto px-3 sm:px-5 py-3 flex justify-between items-center gap-3">
+ <a href="index.html" class="flex items-center gap-2.5 min-w-0 group">
+ <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-amber-400/60 shadow-xl shrink-0">
+ <video
+  src="assets/videos/shibahumanityhub-logo-animated.mp4"
+  autoplay loop muted playsinline preload="metadata"
+  poster="assets/logos/shibahumanityhublogo3d-new.jpg"
+  width="56" height="56" aria-hidden="true"
+  class="w-full h-full object-cover"></video>
  </div>
+ <span class="hidden sm:block text-base md:text-lg font-bold tracking-tight bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent truncate">SHIBAHUMANITYHUB</span>
+ </a>
+
+ <div class="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-medium">
+ <a href="index.html" class="nav-link">Flywheel</a>
+
+ <div class="nav-token-chips" aria-label="Token flywheels">
+  <a href="#nibbles" onclick="if(typeof filterPrograms==='function')filterPrograms('$NIBBLES');" class="nav-token-chip n" title="16 dog programs">
+   <span class="spin" aria-hidden="true"></span> $NIBBLES
+  </a>
+  <a href="#hopeseed" onclick="if(typeof filterPrograms==='function')filterPrograms('$hopeseed');" class="nav-token-chip h" title="14 hope programs">
+   <span class="spin" aria-hidden="true"></span> $hopeseed
+  </a>
  </div>
 
- <a href="pay-it-forward.html" class="pay-forward-nav hidden md:flex items-center gap-1.5 hover:text-rose-400 transition-all font-medium group/pi" title="Helping another soul melts your heart. Be part of the solution.">
- <span>Pay It Forward</span>
- <span class="chain-heart text-lg leading-none">🔗❤️</span>
- </a>
+ <div class="relative" id="programs-dropdown">
+  <button type="button"
+   onclick="toggleProgramsDropdown(event)"
+   class="nav-link flex items-center gap-1.5 group/nav bg-transparent border-0 cursor-pointer font-inherit text-sm font-medium p-0"
+   aria-haspopup="true" aria-expanded="false" id="programs-dropdown-btn">
+   <span class="relative">
+    Programs
+    <span class="absolute -bottom-px left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-emerald-400 group-hover/nav:w-full transition-all"></span>
+   </span>
+   <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
+   <span class="ml-0.5 text-[9px] opacity-40 group-hover/nav:opacity-70">✧</span>
+  </button>
+  <div id="programs-menu"
+   class="absolute hidden right-0 mt-3 bg-zinc-900/97 backdrop-blur-xl border border-white/15 rounded-3xl py-3 z-[9999] shadow-2xl overflow-hidden"
+   style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.08) inset;"
+   role="menu" aria-label="Dual flywheel program wheels">
+   <!-- Filled by js/programs-flywheel-nav.js: dual rotating $NIBBLES + $hopeseed indexes -->
+   <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
+   <div data-prog-fw-mount></div>
+  </div>
+ </div>
 
- <!-- Mobile hamburger -->
- <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu">
- <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
- </button>
+ <a href="pay-it-forward.html" class="pay-forward-nav nav-link flex items-center gap-1.5 group/pi" title="Adoption chain · one soul multiplies">
+  <span>Pay It Forward</span>
+  <span class="chain-heart text-base leading-none">🔗❤️</span>
+ </a>
+ <a href="shelters.html" class="nav-link">Beautiful Souls</a>
+ </div>
 
- <a href="index.html" class="bg-white/10 hover:bg-white/15 text-white px-5 py-3 rounded-3xl text-sm flex items-center gap-2 transition">
- ← Home
- </a>
- <a href="shelters.html" class="bg-red-500/90 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-3xl text-sm flex items-center gap-2 transition">
- Beautiful Souls <span class="text-xs opacity-75">→ dedicated page</span>
- </a>
+ <div class="flex items-center gap-2 shrink-0">
+  <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-xl px-2.5 py-1.5 text-white" aria-label="Open menu" aria-expanded="false" id="mobile-menu-btn">
+   <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+  </button>
+  <a href="#all-programs-grid" class="nav-cta hidden sm:inline-flex">
+   All 30 <i class="fa-solid fa-paw text-sm"></i>
+  </a>
+ </div>
  </div>
 </nav>
 
@@ -649,82 +723,68 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 </style>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 100px;">
- <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
- <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center justify-between gap-2 border-b border-white/10 mb-1">
- <span>2 FLYWHEELS · 1 MISSION</span>
- <span class="text-[9px] tracking-normal text-zinc-500">30</span>
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 overflow-y-auto max-h-[min(82vh,720px)]" style="top: 72px;">
+ <div class="max-w-7xl mx-auto px-4 py-5 text-sm flex flex-col gap-0.5">
+ <div class="px-3 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/80 font-medium flex items-center justify-between gap-2 border-b border-white/10 mb-2">
+  <span>2 FLYWHEELS · 1 MISSION</span>
+  <span class="text-[9px] tracking-normal text-zinc-500">scroll each wheel</span>
  </div>
- <div class="flywheel-pair px-3">
- <a href="#nibbles" onclick="filterPrograms('$NIBBLES'); toggleMobileMenu();" class="flywheel-tile nibbles">
- <div class="flywheel-rotor amber" aria-hidden="true"><span class="flywheel-core">🐾</span></div>
- <span class="fw-name">$NIBBLES</span>
- <span class="fw-meta">16 dog programs</span>
- </a>
- <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); toggleMobileMenu();" class="flywheel-tile hopeseed">
- <div class="flywheel-rotor emerald" aria-hidden="true"><span class="flywheel-core">🌱</span></div>
- <span class="fw-name">$hopeseed</span>
- <span class="fw-meta">14 hope programs</span>
- </a>
+
+ <!-- Dual rotating program indexes (same as desktop Programs dropdown) -->
+ <div id="mobile-prog-fw-mount" class="px-1 mb-2"></div>
+
+ <div class="flywheel-pair px-2 mb-1">
+  <a href="#nibbles" onclick="filterPrograms('$NIBBLES'); toggleMobileMenu();" class="flywheel-tile nibbles">
+   <div class="flywheel-rotor amber" aria-hidden="true"><span class="flywheel-core">🐾</span></div>
+   <span class="fw-name">$NIBBLES</span>
+   <span class="fw-meta">16 dog programs · jump</span>
+  </a>
+  <a href="#hopeseed" onclick="filterPrograms('$hopeseed'); toggleMobileMenu();" class="flywheel-tile hopeseed">
+   <div class="flywheel-rotor emerald" aria-hidden="true"><span class="flywheel-core">🌱</span></div>
+   <span class="fw-name">$hopeseed</span>
+   <span class="fw-meta">14 hope programs · jump</span>
+  </a>
  </div>
  <p class="fw-mission"><strong>2 flywheels</strong>, one mission</p>
- 
- <a href="#all-programs-grid" onclick="filterPrograms('all'); toggleMobileMenu();" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
- <span>All 30 Programs</span>
+
+ <a href="#all-programs-grid" onclick="filterPrograms('all'); toggleMobileMenu();" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-amber-400/80">◉</span><span>All 30 programs on this page</span>
  </a>
- <a href="healing-hearts.html#hhx-stars" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
- <span>HH � Star Souls</span>
- </a>
- <a href="healing-hearts.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-rose-300/90 group-hover/item:text-rose-200">♥</span> 
- <span>Healing Hearts</span>
- </a>
- <a href="new-beginnings.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-sky-300/90 group-hover/item:text-sky-200">🎁</span> 
- <span>New Beginnings</span>
- </a>
- <a href="golden-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-300/90 group-hover/item:text-amber-200">★</span> 
- <span>Golden Paws</span>
- </a>
- <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🐾</span> 
- <span>Silver Paws</span>
- </a>
- <a href="shiba-barn-table.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-orange-300/90">🍽️</span> 
- <span>Shiba Barn Table BBQ</span>
- </a>
- <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
- <span>K9 Lifeline</span>
- </a>
- 
+
  <div class="my-1 border-t border-white/10"></div>
- 
- <a href="#" onclick="if(window.SHHGlossary) { window.SHHGlossary.showExplain('mercy flywheel'); } return false;" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
- <span>Plain Terms Glossary ⓘ</span>
+ <p class="px-4 pt-1 pb-1 text-[10px] tracking-[0.14em] uppercase text-zinc-500">Featured experiences</p>
+
+ <a href="pay-it-forward.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl text-rose-200">
+  <span>🔗❤️</span><span>Pay It Forward Adoption Chain</span>
  </a>
- <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80 group-hover/item:text-emerald-400">↻</span> 
- <span>Pay It Forward Adoption Chain</span>
+ <a href="k9-lifeline.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-cyan-300/90">◆</span><span>Global Disaster K9</span>
  </a>
- <a href="#" onclick="if(window.SHHGlossary) { window.SHHGlossary.showExplain('mercy flywheel'); } return false;" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
- <span>Plain Terms Glossary ⓘ</span>
+ <a href="healing-hearts.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-rose-300">♥</span><span>Healing Hearts</span>
  </a>
- 
- <div class="h-px bg-white/10 my-1"></div>
- <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80">◉</span> 
- <span>← Home / Flywheel</span>
+ <a href="new-beginnings.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-sky-300">🎁</span><span>New Beginnings</span>
  </a>
- <a href="shelters.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-red-400/80">❤️</span> 
- <span>Beautiful Souls</span>
+ <a href="golden-paws.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-amber-300">★</span><span>Golden Paws</span>
+ </a>
+ <a href="silver-paws.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-emerald-400/80">🐾</span><span>Silver Paws</span>
+ </a>
+ <a href="shiba-barn-table.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-orange-300">🍽️</span><span>Shiba Barn Table</span>
+ </a>
+
+ <div class="my-1 border-t border-white/10"></div>
+ <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-amber-400/80">◉</span><span>Home / Flywheel</span>
+ </a>
+ <a href="shelters.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-red-400/80">❤️</span><span>Beautiful Souls</span>
+ </a>
+ <a href="#" onclick="if(window.SHHGlossary){window.SHHGlossary.showExplain('mercy flywheel');} return false;" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">
+  <span class="text-amber-400/80">?</span><span>Plain Terms Glossary</span>
  </a>
  </div>
 </div>
@@ -1602,16 +1662,29 @@ if (window.initMercyWheel) window.initMercyWheel();
 function toggleMobileMenu() {
  const menu = document.getElementById('mobile-menu');
  const icon = document.getElementById('mobile-menu-icon');
+ const btn = document.getElementById('mobile-menu-btn');
  if (!menu || !icon) return;
  if (menu.classList.contains('hidden')) {
  positionMobileMenu();
  menu.classList.remove('hidden');
  icon.classList.remove('fa-bars');
- icon.classList.add('fa-times');
+ icon.classList.add('fa-xmark');
+ if (btn) btn.setAttribute('aria-expanded', 'true');
+ // Ensure dual rotating wheels mount when drawer opens
+ if (window.SHHProgFlywheelNav && window.SHHProgFlywheelNav.init) {
+  var mm = document.getElementById('mobile-prog-fw-mount');
+  if (mm && !mm.querySelector('.prog-fw-pair')) {
+   mm.removeAttribute('data-built');
+   mm.innerHTML = '';
+  }
+  window.SHHProgFlywheelNav.init();
+ }
  } else {
  menu.classList.add('hidden');
+ icon.classList.remove('fa-xmark');
  icon.classList.remove('fa-times');
  icon.classList.add('fa-bars');
+ if (btn) btn.setAttribute('aria-expanded', 'false');
  }
 }
 
@@ -1628,17 +1701,25 @@ window.addEventListener('resize', positionMobileMenu);
 document.addEventListener('DOMContentLoaded', positionMobileMenu);
 
 function toggleProgramsDropdown(e) {
- e.preventDefault();
+ if (e) e.preventDefault();
  const menu = document.getElementById('programs-menu');
  const chevron = document.getElementById('programs-chevron');
+ const btn = document.getElementById('programs-dropdown-btn');
  if (!menu) return;
  const isHidden = menu.classList.contains('hidden');
  menu.classList.toggle('hidden');
  if (chevron) chevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+ if (btn) btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
  if (!menu.classList.contains('hidden')) {
  menu.style.zIndex = '9999';
+ // Force dual-wheel rebuild if programs landed late or mount is empty
  if (window.SHHProgFlywheelNav && window.SHHProgFlywheelNav.init) {
- window.SHHProgFlywheelNav.init();
+  var mount = menu.querySelector('[data-prog-fw-mount]');
+  if (mount && (!mount.getAttribute('data-built') || !mount.querySelector('.prog-fw-pair'))) {
+   menu.removeAttribute('data-fw-init');
+   if (mount) mount.removeAttribute('data-built');
+  }
+  window.SHHProgFlywheelNav.init();
  }
  }
  if (window._shhProgMenuCloser) {
@@ -1646,11 +1727,12 @@ function toggleProgramsDropdown(e) {
  window._shhProgMenuCloser = null;
  }
  if (isHidden) {
- setTimeout(() => {
+ setTimeout(function () {
  window._shhProgMenuCloser = function (ev) {
  if (!menu.contains(ev.target) && !ev.target.closest('#programs-dropdown')) {
  menu.classList.add('hidden');
  if (chevron) chevron.style.transform = 'rotate(0deg)';
+ if (btn) btn.setAttribute('aria-expanded', 'false');
  document.removeEventListener('click', window._shhProgMenuCloser);
  window._shhProgMenuCloser = null;
  }

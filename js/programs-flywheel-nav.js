@@ -637,26 +637,54 @@
  injectStyles();
  menu.classList.add('prog-fw-ready');
 
- // Rebuild body once: head + mount + foot
+ var allList = getPrograms();
+ // Wait for programs-data if not ready yet
+ if (!allList.length) {
+ if (!menu.getAttribute('data-fw-wait')) {
+ menu.setAttribute('data-fw-wait', '1');
+ var tries = 0;
+ var wait = setInterval(function () {
+ tries += 1;
+ if (getPrograms().length || tries > 40) {
+ clearInterval(wait);
+ menu.removeAttribute('data-fw-wait');
+ menu.removeAttribute('data-fw-init');
+ var m = menu.querySelector('[data-prog-fw-mount]');
+ if (m) m.removeAttribute('data-built');
+ fillMenu(menu);
+ }
+ }, 50);
+ }
+ return;
+ }
+
+ // Already built with live wheels: refresh mount only if empty
  if (menu.getAttribute('data-fw-init') === '1') {
  var existing = menu.querySelector('[data-prog-fw-mount]');
- if (existing) buildMount(existing);
+ if (existing && existing.querySelector('.prog-fw-pair')) return;
+ if (existing) {
+ existing.removeAttribute('data-built');
+ existing.innerHTML = '';
+ buildMount(existing);
+ }
  return;
  }
  menu.setAttribute('data-fw-init', '1');
 
- var allList = getPrograms();
  var totalN = allList.length || 30;
- var footLinks = [
- { href: 'all-programs.html', icon: '◉', text: 'All ' + totalN + ' Programs' },
- { href: 'spin-the-wheel.html', icon: '🎡', text: 'Spin the Mercy Wheel · Live' },
- { href: 'all-programs.html#nibbles', icon: '🐾', text: 'All $NIBBLES' },
- { href: 'all-programs.html#hopeseed', icon: '🌱', text: 'All $hopeseed' }
- ];
- // Keep page-local featured if on index
+ var isAllPrograms = /all-programs\.html$/i.test(location.pathname);
  var isIndex = /index\.html$/i.test(location.pathname) || location.pathname === '/' || location.pathname.endsWith('/');
+ var footLinks = [
+ { href: isAllPrograms ? '#all-programs-grid' : 'all-programs.html', icon: '◉', text: 'All ' + totalN + ' Programs' },
+ { href: 'spin-the-wheel.html', icon: '🎡', text: 'Spin the Mercy Wheel · Live' },
+ { href: isAllPrograms ? '#nibbles' : 'all-programs.html#nibbles', icon: '🐾', text: 'All $NIBBLES · 16' },
+ { href: isAllPrograms ? '#hopeseed' : 'all-programs.html#hopeseed', icon: '🌱', text: 'All $hopeseed · 14' }
+ ];
  if (isIndex) {
  footLinks.splice(1, 0, { href: '#programs', icon: '✦', text: 'Featured on this page' });
+ }
+ if (isAllPrograms) {
+ footLinks.splice(1, 0, { href: 'index.html', icon: '↻', text: 'Mercy Flywheel home' });
  }
 
  menu.innerHTML =
@@ -669,6 +697,24 @@
  var a = document.createElement('a');
  a.href = l.href;
  a.innerHTML = '<span>' + l.icon + '</span><span>' + l.text + '</span>';
+ // On all-programs page, hash filter links should also run filterPrograms
+ if (isAllPrograms && (l.href === '#nibbles' || l.href === '#hopeseed' || l.href === '#all-programs-grid')) {
+ a.addEventListener('click', function () {
+ var menuEl = document.getElementById('programs-menu');
+ if (menuEl) menuEl.classList.add('hidden');
+ var ch = document.getElementById('programs-chevron');
+ if (ch) ch.style.transform = 'rotate(0deg)';
+ var b = document.getElementById('programs-dropdown-btn');
+ if (b) b.setAttribute('aria-expanded', 'false');
+ setTimeout(function () {
+ if (typeof window.filterPrograms === 'function') {
+ if (l.href === '#nibbles') window.filterPrograms('$NIBBLES');
+ else if (l.href === '#hopeseed') window.filterPrograms('$hopeseed');
+ else window.filterPrograms('all');
+ }
+ }, 0);
+ });
+ }
  foot.appendChild(a);
  });
  var gloss = document.createElement('a');
@@ -689,11 +735,14 @@
  var menu = document.getElementById('programs-menu');
  if (menu) fillMenu(menu);
 
- // Mobile hamburger: same dual wheels (separate mount; do not steal menu rebuild)
+ // Mobile hamburger: same dual wheels
  var mobileMount = document.getElementById('mobile-prog-fw-mount');
- if (mobileMount && mobileMount.getAttribute('data-built') !== '1') {
+ if (mobileMount) {
  injectStyles();
+ if (!mobileMount.querySelector('.prog-fw-pair')) {
+ mobileMount.removeAttribute('data-built');
  buildMount(mobileMount);
+ }
  }
  }
 
