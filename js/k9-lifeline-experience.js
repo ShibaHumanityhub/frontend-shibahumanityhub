@@ -153,7 +153,27 @@
     { t: 'Recover', d: 'Dog and handler restored. Then readiness again. The light stays on.' }
   ];
 
-  var state = { teamId: TEAMS[0].id, deployStep: 0 };
+  var state = { teamId: TEAMS[0].id, deployStep: 0, tab: 'bond' };
+
+  /* Ordered journey for clear prev / next / path navigation */
+  var NAV = [
+    { id: 'bond', n: '01', label: 'Bond', full: 'The bond', hint: 'Why two lives become one light' },
+    { id: 'teams', n: '02', label: 'Pairs', full: 'Bonded pairs', hint: 'Open a unit dossier' },
+    { id: 'ready', n: '03', label: 'Ready', full: 'Readiness', hint: 'Protocol before the siren' },
+    { id: 'deploy', n: '04', label: 'Deploy', full: 'Deploy flow', hint: 'When the call hits' },
+    { id: 'rails', n: '05', label: 'Rails', full: 'Funding rails', hint: 'How readiness is paid' },
+    { id: 'more', n: '06', label: 'Why', full: 'Why it matters', hint: 'Place in the flywheel' }
+  ];
+
+  function navIndex(id) {
+    for (var i = 0; i < NAV.length; i++) if (NAV[i].id === id) return i;
+    return -1;
+  }
+
+  function navItem(id) {
+    var i = navIndex(id);
+    return NAV[i >= 0 ? i : 0];
+  }
 
   function isMobile() {
     try {
@@ -178,13 +198,43 @@
       'body.k9x-panels .k9x-panel{display:none;padding-bottom:2rem}',
       'body.k9x-panels .k9x-panel.is-on{display:block;animation:k9x-in .2s ease}',
       '@keyframes k9x-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}',
-      '.k9x-rail{position:sticky;top:0;z-index:55;display:flex;gap:.3rem;padding:.5rem max(.7rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;background:rgba(5,8,20,.97);border-bottom:1px solid var(--k9-line);justify-content:flex-start}',
+      '.k9x-rail{position:sticky;top:0;z-index:55;display:flex;gap:.35rem;padding:.55rem max(.7rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;background:rgba(5,8,20,.98);border-bottom:1px solid var(--k9-line);justify-content:flex-start;align-items:center}',
       '.k9x-rail::-webkit-scrollbar{display:none}',
       '@media(min-width:900px){.k9x-rail{justify-content:center;flex-wrap:wrap}}',
-      '.k9x-rail button{flex:0 0 auto;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(103,232,249,.5);padding:.42rem .7rem;border-radius:999px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:inherit;font-weight:700;min-height:40px}',
+      '.k9x-rail .k9x-rail-label{flex:0 0 auto;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,191,36,.65);padding-right:.35rem;margin-right:.15rem;border-right:1px solid rgba(103,232,249,.2)}',
+      '@media(max-width:520px){.k9x-rail .k9x-rail-label{display:none}}',
+      '.k9x-rail button{flex:0 0 auto;display:inline-flex;align-items:center;gap:.35rem;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(103,232,249,.55);padding:.48rem .75rem;border-radius:999px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:inherit;font-weight:700;min-height:44px}',
+      '.k9x-rail button .num{font-size:.55rem;opacity:.7;font-variant-numeric:tabular-nums}',
       '.k9x-rail button.is-on,.k9x-rail button:hover{color:#fef3c7;border-color:rgba(251,191,36,.5);background:linear-gradient(145deg,rgba(251,191,36,.14),rgba(103,232,249,.08))}',
+      '.k9x-rail button.is-on .num{color:#fbbf24;opacity:1}',
       'body.k9x-panels:not(.k9x-mobile) header.k9-hero{padding-top:5.4rem!important;padding-bottom:1.4rem!important}',
       'body.k9x-panels:not(.k9x-mobile) .k9x-quick{display:none}',
+      /* Path breadcrumb + step footer */
+      '.k9x-path{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;margin:0 0 1rem;padding:.55rem .6rem;border-radius:1rem;border:1px solid rgba(103,232,249,.22);background:rgba(0,0,0,.28)}',
+      '.k9x-path button{display:inline-flex;align-items:center;gap:.28rem;min-height:36px;padding:.3rem .55rem;border-radius:999px;border:1px solid transparent;background:transparent;color:rgba(186,230,253,.55);font:inherit;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}',
+      '.k9x-path button .n{color:rgba(251,191,36,.55);font-variant-numeric:tabular-nums}',
+      '.k9x-path button.is-on{color:#0a1024;background:linear-gradient(135deg,#fef3c7,#fbbf24);border-color:transparent}',
+      '.k9x-path button.is-on .n{color:#0a1024}',
+      '.k9x-path button:hover:not(.is-on){color:#e0f2fe;border-color:rgba(103,232,249,.35)}',
+      '.k9x-path .sep{color:rgba(103,232,249,.3);font-size:.7rem;user-select:none}',
+      '@media(max-width:520px){.k9x-path .sep{display:none}.k9x-path{gap:.25rem}}',
+      '.k9x-stepper{display:flex;flex-wrap:wrap;gap:.5rem;align-items:stretch;margin:1.35rem 0 0;padding-top:1rem;border-top:1px solid rgba(103,232,249,.18)}',
+      '.k9x-stepper button{flex:1 1 140px;min-height:52px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.15rem;padding:.65rem .85rem;border-radius:1rem;border:1px solid rgba(103,232,249,.3);background:rgba(0,0,0,.32);color:#e0f2fe;font:inherit;cursor:pointer;text-align:left;transition:border-color .15s,background .15s}',
+      '.k9x-stepper button:hover{border-color:rgba(251,191,36,.5);background:rgba(251,191,36,.08)}',
+      '.k9x-stepper button.pri{border:0;background:linear-gradient(135deg,#fef3c7,#fbbf24 55%,#67e8f9);color:#0a1024}',
+      '.k9x-stepper button.pri:hover{filter:brightness(1.05)}',
+      '.k9x-stepper .dir{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}',
+      '.k9x-stepper .ttl{font-family:"Space Grotesk",sans-serif;font-size:.92rem;font-weight:700}',
+      '.k9x-stepper .hint{font-size:.68rem;opacity:.75;line-height:1.3}',
+      '.k9x-stepper button.ghost{opacity:.45;pointer-events:none}',
+      '.k9x-jump{display:grid;gap:.45rem;grid-template-columns:1fr 1fr;margin:0 0 1.15rem}',
+      '@media(min-width:700px){.k9x-jump{grid-template-columns:repeat(3,1fr)}}',
+      '@media(min-width:1100px){.k9x-jump{grid-template-columns:repeat(6,1fr)}}',
+      '.k9x-jump button{text-align:left;border-radius:1rem;border:1px solid rgba(103,232,249,.28);background:linear-gradient(160deg,rgba(103,232,249,.08),rgba(0,0,0,.35));padding:.75rem .7rem;cursor:pointer;font:inherit;color:inherit;min-height:88px;transition:border-color .15s,transform .15s}',
+      '.k9x-jump button:hover{border-color:rgba(251,191,36,.5);transform:translateY(-2px)}',
+      '.k9x-jump .n{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:#fbbf24;margin:0 0 .25rem}',
+      '.k9x-jump h4{font-family:"Space Grotesk",sans-serif;margin:0 0 .2rem;font-size:.95rem;color:#fef3c7}',
+      '.k9x-jump p{margin:0;font-size:.68rem;line-height:1.35;color:rgba(186,230,253,.65)}',
       '.k9x-section{max-width:min(72rem,100%);margin:0 auto;padding:1.15rem max(.75rem,env(safe-area-inset-left)) 2rem}',
       '@media(min-width:768px){.k9x-section{padding:1.6rem 1.5rem 2.5rem}}',
       '@media(min-width:1600px){.k9x-section{max-width:82rem}}',
@@ -327,34 +377,57 @@
       '.k9x-mtop a{display:flex;align-items:center;gap:.4rem;text-decoration:none;color:inherit}',
       '.k9x-mtop img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid rgba(251,191,36,.45)}',
       '.k9x-mtop span{font-size:.62rem;font-weight:700;letter-spacing:.04em;color:#e0f2fe}',
-      '.k9x-mtabs{display:none;position:fixed;left:0;right:0;bottom:0;z-index:75;grid-template-columns:repeat(5,1fr);padding:.28rem .1rem calc(.28rem + env(safe-area-inset-bottom));background:rgba(4,8,18,.98);border-top:1px solid var(--k9-line)}',
+      '.k9x-mtabs{display:none;position:fixed;left:0;right:0;bottom:0;z-index:75;grid-template-columns:repeat(6,1fr);padding:.28rem .05rem calc(.28rem + env(safe-area-inset-bottom));background:rgba(4,8,18,.98);border-top:1px solid var(--k9-line)}',
       'body.k9x-mobile .k9x-mtabs{display:grid}',
-      '.k9x-mtab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;border:0;background:transparent;color:rgba(103,232,249,.4);font-size:.42rem;letter-spacing:.02em;text-transform:uppercase;font-weight:700;font-family:inherit;min-height:52px;cursor:pointer}',
-      '.k9x-mtab .ic{font-size:1rem}',
-      '.k9x-mtab.is-on{color:#fef3c7;background:linear-gradient(180deg,rgba(251,191,36,.14),transparent)}',
+      '.k9x-mtab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.08rem;border:0;background:transparent;color:rgba(103,232,249,.4);font-size:.4rem;letter-spacing:.02em;text-transform:uppercase;font-weight:700;font-family:inherit;min-height:54px;cursor:pointer;padding:.15rem 0}',
+      '.k9x-mtab .ic{font-size:.95rem}',
+      '.k9x-mtab .n{font-size:.38rem;color:rgba(251,191,36,.55);letter-spacing:.08em}',
+      '.k9x-mtab.is-on{color:#fef3c7;background:linear-gradient(180deg,rgba(251,191,36,.16),transparent)}',
+      '.k9x-mtab.is-on .n{color:#fbbf24}',
       'body.k9x-mobile header.k9-hero{padding:3.3rem .7rem .75rem!important}',
       'body.k9x-mobile .k9x-hide-m{display:none!important}',
+      'body.k9x-mobile .k9x-section{padding-bottom:calc(1.5rem + 4.2rem + env(safe-area-inset-bottom))}',
+      'body.k9x-mobile .k9x-stepper{position:sticky;bottom:calc(3.6rem + env(safe-area-inset-bottom));z-index:40;background:linear-gradient(180deg,transparent,rgba(5,8,20,.96) 18%,rgba(5,8,20,.98));padding:.5rem 0 .35rem;margin-bottom:0}',
       '.k9x-quick{display:flex;flex-wrap:wrap;gap:.35rem;padding:.65rem max(.65rem,env(safe-area-inset-left)) 0;max-width:min(72rem,100%);margin:0 auto}',
       '.k9x-quick button{flex:1 1 42%;min-height:46px;border-radius:999px;border:1px solid rgba(103,232,249,.35);background:rgba(0,0,0,.35);color:#e0f2fe;font-size:.72rem;font-weight:700;font-family:inherit;cursor:pointer}',
       '.k9x-quick button.pri{background:linear-gradient(135deg,#fef3c7,#fbbf24);color:#0a1024;border:0}',
-      '.k9x-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:80;background:linear-gradient(90deg,#fbbf24,#67e8f9,#fef3c7,#fb7185)}'
+      '.k9x-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:80;background:linear-gradient(90deg,#fbbf24,#67e8f9,#fef3c7,#fb7185)}',
+      '.k9x-youare{font-size:.68rem;color:rgba(186,230,253,.55);margin:0 0 .75rem}',
+      '.k9x-youare b{color:#fde68a}'
     ].join('');
     document.head.appendChild(s);
   }
 
   function goTab(id) {
     if (!id) return;
+    if (navIndex(id) < 0) id = 'bond';
+    state.tab = id;
     document.querySelectorAll('.k9x-panel').forEach(function (p) {
       p.classList.toggle('is-on', p.getAttribute('data-k9x-panel') === id);
     });
-    document.querySelectorAll('.k9x-mtab, #k9x-rail [data-k9x-go]').forEach(function (t) {
+    document.querySelectorAll('.k9x-mtab, #k9x-rail [data-k9x-go], .k9x-path [data-k9x-go]').forEach(function (t) {
       var key = t.getAttribute('data-tab') || t.getAttribute('data-k9x-go');
       t.classList.toggle('is-on', key === id);
     });
+    var stepBadge = document.getElementById('k9x-mtop-step');
+    if (stepBadge) {
+      var cur = navItem(id);
+      stepBadge.textContent = cur.n + ' ' + cur.label;
+    }
+    /* Keep active rail chip in view on small screens */
+    try {
+      var active = document.querySelector('#k9x-rail [data-k9x-go].is-on');
+      if (active && active.scrollIntoView) {
+        active.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+      }
+    } catch (e1) { /* ignore */ }
     try {
       if (history.replaceState) history.replaceState(null, '', '#k9x-' + id);
     } catch (e) { /* ignore */ }
     window.scrollTo(0, 0);
+    if (id === 'bond') renderBoard();
+    if (id === 'teams') renderTeams();
+    if (id === 'deploy') renderDeploy();
   }
 
   function bindGo(root) {
@@ -366,6 +439,64 @@
         goTab(btn.getAttribute('data-k9x-go'));
       });
     });
+  }
+
+  function pathHtml(activeId) {
+    var parts = [];
+    NAV.forEach(function (item, i) {
+      if (i > 0) parts.push('<span class="sep" aria-hidden="true">→</span>');
+      parts.push(
+        '<button type="button" data-k9x-go="' + item.id + '"' +
+          (item.id === activeId ? ' class="is-on" aria-current="page"' : '') +
+          ' title="' + item.hint + '">' +
+          '<span class="n">' + item.n + '</span> ' + item.label +
+        '</button>'
+      );
+    });
+    var cur = navItem(activeId);
+    return (
+      '<p class="k9x-youare">You are here: <b>' + cur.n + ' · ' + cur.full + '</b> · jump anytime</p>' +
+      '<nav class="k9x-path" aria-label="Section path">' + parts.join('') + '</nav>'
+    );
+  }
+
+  function stepperHtml(activeId) {
+    var ix = navIndex(activeId);
+    var prev = ix > 0 ? NAV[ix - 1] : null;
+    var next = ix < NAV.length - 1 ? NAV[ix + 1] : null;
+    var prevBtn = prev
+      ? '<button type="button" data-k9x-go="' + prev.id + '"><span class="dir">← Back</span><span class="ttl">' + prev.n + ' · ' + prev.full + '</span><span class="hint">' + prev.hint + '</span></button>'
+      : '<button type="button" class="ghost" disabled aria-hidden="true"><span class="dir">Start</span><span class="ttl">You are at the beginning</span><span class="hint">Follow Next through the light</span></button>';
+    var nextBtn = next
+      ? '<button type="button" class="pri" data-k9x-go="' + next.id + '"><span class="dir">Next →</span><span class="ttl">' + next.n + ' · ' + next.full + '</span><span class="hint">' + next.hint + '</span></button>'
+      : '<button type="button" class="pri" data-k9x-go="bond"><span class="dir">Loop →</span><span class="ttl">Back to the bond</span><span class="hint">Start the path again</span></button>';
+    return '<div class="k9x-stepper" role="navigation" aria-label="Previous and next section">' + prevBtn + nextBtn + '</div>';
+  }
+
+  function jumpMapHtml() {
+    return (
+      '<div class="k9x-jump" aria-label="Full path map">' +
+        NAV.map(function (item) {
+          return (
+            '<button type="button" data-k9x-go="' + item.id + '">' +
+              '<p class="n">Step ' + item.n + '</p>' +
+              '<h4>' + item.full + '</h4>' +
+              '<p>' + item.hint + '</p>' +
+            '</button>'
+          );
+        }).join('') +
+      '</div>'
+    );
+  }
+
+  function wrapSection(activeId, inner) {
+    return (
+      '<div class="k9x-section">' +
+        pathHtml(activeId) +
+        inner +
+        stepperHtml(activeId) +
+      '</div>'
+    );
   }
 
   function renderBoard() {
@@ -466,165 +597,155 @@
   }
 
   function bondHtml() {
-    return (
-      '<div class="k9x-section">' +
-        '<div class="k9x-head">' +
-          '<h2>The product is the bond</h2>' +
-          '<p>Gear matters. Training matters. Capital matters. None of it works if the human and the dog are not one unit. This program starts where real SAR starts: two lives woven so tight that rubble cannot split them.</p>' +
-        '</div>' +
-        '<div class="k9x-board" id="k9x-board"></div>' +
-        '<div class="k9x-thesis">' +
-          '<p class="tag">Thesis · non-negotiable</p>' +
-          '<h3>Best friends who run toward collapse so other souls get another morning.</h3>' +
-          '<p>A K9 is not equipment. A handler is not a remote pilot. <strong>They fuse schedules, trust, risk, and recovery into a single searchlight.</strong> When the world breaks, that light crawls into places no meeting, no machine, and no unfunded hope can reach.</p>' +
-        '</div>' +
-        '<div class="k9x-grid3" aria-label="Bond principles">' +
-          '<div class="k9x-card"><p class="k">Life partnership</p><p>Same truck. Same grit. Same quiet after a hard find. The bond is the operating system.</p></div>' +
-          '<div class="k9x-card"><p class="k">Soul-finding tech</p><p>Nose + instinct + handler judgment. Biological search infrastructure with a heartbeat.</p></div>' +
-          '<div class="k9x-card"><p class="k">Mercy at speed</p><p>Readiness funded before the siren. Deploy capital when the call hits. Proof after the field.</p></div>' +
-        '</div>' +
-        '<div class="k9x-anti">' +
-          '<h4>Anti-goals · we will not ship these</h4>' +
-          '<ul>' +
-            '<li>Mascot dogs with no real readiness stack</li>' +
-            '<li>Handlers treated as unpaid heroes forever</li>' +
-            '<li>"Live ops" claims without partner attestations</li>' +
-            '<li>Deploy without a recovery plan for the pair</li>' +
-          '</ul>' +
-        '</div>' +
-        '<div class="k9x-thesis" style="border-color:rgba(103,232,249,.35)">' +
-          '<p class="tag">Unit of impact</p>' +
-          '<h3>One bonded pair · many lives touched</h3>' +
-          '<p>Stack pairs. Fund standby. Publish missions. That is how Global Disaster K9 becomes permanent infrastructure instead of a one-time fundraiser. People helping people. Helping dogs. Helping the next stranger still breathing under the dark.</p>' +
-        '</div>' +
+    return wrapSection('bond',
+      '<div class="k9x-head">' +
+        '<h2>The product is the bond</h2>' +
+        '<p>Gear matters. Training matters. Capital matters. None of it works if the human and the dog are not one unit. This program starts where real SAR starts: two lives woven so tight that rubble cannot split them.</p>' +
+      '</div>' +
+      '<p class="k9x-youare" style="margin-bottom:.45rem">Full path · 6 steps. Tap any card to jump.</p>' +
+      jumpMapHtml() +
+      '<div class="k9x-board" id="k9x-board"></div>' +
+      '<div class="k9x-thesis">' +
+        '<p class="tag">Thesis · non-negotiable</p>' +
+        '<h3>Best friends who run toward collapse so other souls get another morning.</h3>' +
+        '<p>A K9 is not equipment. A handler is not a remote pilot. <strong>They fuse schedules, trust, risk, and recovery into a single searchlight.</strong> When the world breaks, that light crawls into places no meeting, no machine, and no unfunded hope can reach.</p>' +
+      '</div>' +
+      '<div class="k9x-grid3" aria-label="Bond principles">' +
+        '<div class="k9x-card"><p class="k">Life partnership</p><p>Same truck. Same grit. Same quiet after a hard find. The bond is the operating system.</p></div>' +
+        '<div class="k9x-card"><p class="k">Soul-finding tech</p><p>Nose + instinct + handler judgment. Biological search infrastructure with a heartbeat.</p></div>' +
+        '<div class="k9x-card"><p class="k">Mercy at speed</p><p>Readiness funded before the siren. Deploy capital when the call hits. Proof after the field.</p></div>' +
+      '</div>' +
+      '<div class="k9x-anti">' +
+        '<h4>Anti-goals · we will not ship these</h4>' +
+        '<ul>' +
+          '<li>Mascot dogs with no real readiness stack</li>' +
+          '<li>Handlers treated as unpaid heroes forever</li>' +
+          '<li>"Live ops" claims without partner attestations</li>' +
+          '<li>Deploy without a recovery plan for the pair</li>' +
+        '</ul>' +
+      '</div>' +
+      '<div class="k9x-thesis" style="border-color:rgba(103,232,249,.35)">' +
+        '<p class="tag">Unit of impact</p>' +
+        '<h3>One bonded pair · many lives touched</h3>' +
+        '<p>Stack pairs. Fund standby. Publish missions. That is how Global Disaster K9 becomes permanent infrastructure instead of a one-time fundraiser. People helping people. Helping dogs. Helping the next stranger still breathing under the dark.</p>' +
       '</div>'
     );
   }
 
   function teamsHtml() {
-    return (
-      '<div class="k9x-section">' +
-        '<div class="k9x-head">' +
-          '<h2>Open a unit dossier</h2>' +
-          '<p>Tap a pair. Feel the bond: dual heartbeats, callsign, field moment, sync. Illustrative roster only. Real partners replace this with consent and proof.</p>' +
-        '</div>' +
-        '<div class="k9x-teams" id="k9x-teams"></div>' +
-        '<div class="k9x-focus" id="k9x-focus"></div>' +
-        '<form class="k9x-form" id="k9x-form" style="margin-top:1.25rem;max-width:32rem">' +
-          '<div class="k9x-head" style="margin-bottom:.75rem"><h2 style="font-size:1.25rem">Stand with this light</h2><p>Commit a design intent on this device. Signal for when rails and partners are real.</p></div>' +
-          '<label for="k9x-name">Your name or handle</label>' +
-          '<input id="k9x-name" required placeholder="The human standing with the light">' +
-          '<label for="k9x-unit">Preferred unit</label>' +
-          '<select id="k9x-unit">' +
-            TEAMS.map(function (t) {
-              return '<option value="' + t.id + '">' + t.callsign + ' · ' + t.dog + ' & ' + t.handler + '</option>';
-            }).join('') +
-          '</select>' +
-          '<label for="k9x-note">Why this bond hits you (optional)</label>' +
-          '<textarea id="k9x-note" placeholder="Because two lives fused can still find one more soul in the dark."></textarea>' +
-          '<button type="submit" class="k9x-cta">Commit readiness intent</button>' +
-          '<div class="k9x-status" id="k9x-status" role="status"></div>' +
-          '<p class="k9x-truth">Design only. Local storage. No charge. Live path: partner contracts + public mission proofs.</p>' +
-        '</form>' +
-      '</div>'
+    return wrapSection('teams',
+      '<div class="k9x-head">' +
+        '<h2>Open a unit dossier</h2>' +
+        '<p>Tap a pair. Feel the bond: dual heartbeats, callsign, field moment, sync. Illustrative roster only. Real partners replace this with consent and proof.</p>' +
+      '</div>' +
+      '<div class="k9x-teams" id="k9x-teams"></div>' +
+      '<div class="k9x-focus" id="k9x-focus"></div>' +
+      '<form class="k9x-form" id="k9x-form" style="margin-top:1.25rem;max-width:32rem">' +
+        '<div class="k9x-head" style="margin-bottom:.75rem"><h2 style="font-size:1.25rem">Stand with this light</h2><p>Commit a design intent on this device. Signal for when rails and partners are real.</p></div>' +
+        '<label for="k9x-name">Your name or handle</label>' +
+        '<input id="k9x-name" required placeholder="The human standing with the light">' +
+        '<label for="k9x-unit">Preferred unit</label>' +
+        '<select id="k9x-unit">' +
+          TEAMS.map(function (t) {
+            return '<option value="' + t.id + '">' + t.callsign + ' · ' + t.dog + ' & ' + t.handler + '</option>';
+          }).join('') +
+        '</select>' +
+        '<label for="k9x-note">Why this bond hits you (optional)</label>' +
+        '<textarea id="k9x-note" placeholder="Because two lives fused can still find one more soul in the dark."></textarea>' +
+        '<button type="submit" class="k9x-cta">Commit readiness intent</button>' +
+        '<div class="k9x-status" id="k9x-status" role="status"></div>' +
+        '<p class="k9x-truth">Design only. Local storage. No charge. Live path: partner contracts + public mission proofs.</p>' +
+      '</form>'
     );
   }
 
   function readyHtml() {
-    return (
-      '<div class="k9x-section">' +
-        '<div class="k9x-head">' +
-          '<h2>Readiness protocol</h2>' +
-          '<p>Disasters do not wait for a fundraiser to trend. The product is a bonded unit already paid, trained, and restable. 48-hour wheels-up is the design target. Proof is the launch condition.</p>' +
-        '</div>' +
-        '<div class="k9x-steps">' +
-          PROTOCOL.map(function (s) {
-            return (
-              '<div class="k9x-step">' +
-                '<p class="n">' + s.n + '</p>' +
-                '<h4>' + s.t + '</h4>' +
-                '<p>' + s.d + '</p>' +
-              '</div>'
-            );
-          }).join('') +
-        '</div>' +
-        '<div class="k9x-thesis" style="margin-top:1rem">' +
-          '<p class="tag">First principles</p>' +
-          '<h3>If readiness is not funded, the bond is just a beautiful story.</h3>' +
-          '<p>Stories do not dig. <strong>Standby capital digs.</strong> That is why Mercy funds always-on readiness and Guardian funds the moment of activation. Eternal funds the decade, not the headline.</p>' +
-        '</div>' +
+    return wrapSection('ready',
+      '<div class="k9x-head">' +
+        '<h2>Readiness protocol</h2>' +
+        '<p>Disasters do not wait for a fundraiser to trend. The product is a bonded unit already paid, trained, and restable. 48-hour wheels-up is the design target. Proof is the launch condition.</p>' +
+      '</div>' +
+      '<div class="k9x-steps">' +
+        PROTOCOL.map(function (s) {
+          return (
+            '<div class="k9x-step">' +
+              '<p class="n">' + s.n + '</p>' +
+              '<h4>' + s.t + '</h4>' +
+              '<p>' + s.d + '</p>' +
+            '</div>'
+          );
+        }).join('') +
+      '</div>' +
+      '<div class="k9x-thesis" style="margin-top:1rem">' +
+        '<p class="tag">First principles</p>' +
+        '<h3>If readiness is not funded, the bond is just a beautiful story.</h3>' +
+        '<p>Stories do not dig. <strong>Standby capital digs.</strong> That is why Mercy funds always-on readiness and Guardian funds the moment of activation. Eternal funds the decade, not the headline.</p>' +
       '</div>'
     );
   }
 
   function deployHtml() {
-    return (
-      '<div class="k9x-section">' +
-        '<div class="k9x-head">' +
-          '<h2>When the call hits</h2>' +
-          '<p>Tap each stage. Watch how the bonded unit moves as one from signal to recovery. Mechanism design, not a live map.</p>' +
-        '</div>' +
-        '<div class="k9x-flow" id="k9x-flow"></div>' +
-        '<div class="k9x-deploy-detail" id="k9x-deploy-detail"></div>' +
-        '<div class="k9x-grid3">' +
-          '<div class="k9x-card"><p class="k">What the dog does</p><p>Find the living. Mark. Work past fear. Trust the handler completely.</p></div>' +
-          '<div class="k9x-card"><p class="k">What the human does</p><p>Read the dog. Call the grid. Protect the pair. Carry the weight of every empty hole.</p></div>' +
-          '<div class="k9x-card"><p class="k">What we fund</p><p>The chance they both get there whole, work at peak, and come home to recover as friends still.</p></div>' +
-        '</div>' +
-        '<p class="k9x-truth">No fake GPS tracks. No invented body counts. When live: reports, partner letters, and ethical media become permanent records.</p>' +
-      '</div>'
+    return wrapSection('deploy',
+      '<div class="k9x-head">' +
+        '<h2>When the call hits</h2>' +
+        '<p>Tap each stage. Watch how the bonded unit moves as one from signal to recovery. Mechanism design, not a live map.</p>' +
+      '</div>' +
+      '<div class="k9x-flow" id="k9x-flow"></div>' +
+      '<div class="k9x-deploy-detail" id="k9x-deploy-detail"></div>' +
+      '<div class="k9x-grid3">' +
+        '<div class="k9x-card"><p class="k">What the dog does</p><p>Find the living. Mark. Work past fear. Trust the handler completely.</p></div>' +
+        '<div class="k9x-card"><p class="k">What the human does</p><p>Read the dog. Call the grid. Protect the pair. Carry the weight of every empty hole.</p></div>' +
+        '<div class="k9x-card"><p class="k">What we fund</p><p>The chance they both get there whole, work at peak, and come home to recover as friends still.</p></div>' +
+      '</div>' +
+      '<p class="k9x-truth">No fake GPS tracks. No invented body counts. When live: reports, partner letters, and ethical media become permanent records.</p>'
     );
   }
 
   function railsHtml() {
-    return (
-      '<div class="k9x-section">' +
-        '<div class="k9x-head">' +
-          '<h2>Funding rails · $NIBBLES circles</h2>' +
-          '<p>Two states. Always-on readiness. Activation capital. Legacy lifecycle. No "hope someone donates when the building falls."</p>' +
-        '</div>' +
-        '<div class="k9x-rails">' +
-          RAILS.map(function (r, i) {
-            return (
-              '<div class="k9x-rail-card' + (i === 1 ? ' hi' : '') + '">' +
-                '<p class="mode">' + r.mode + '</p>' +
-                '<h3>' + r.circle + ' circle</h3>' +
-                '<p class="hold">' + r.hold + '</p>' +
-                '<p>' + r.cover + '</p>' +
-              '</div>'
-            );
-          }).join('') +
-        '</div>' +
-        '<div class="k9x-thesis" style="margin-top:1rem">' +
-          '<p class="tag">Mechanism design</p>' +
-          '<h3>Price the readiness. Prove the deploy. Protect the bond.</h3>' +
-          '<p>If we cannot show the books and the mission proof when live, we do not get to tell the heroic story. <strong>Trust is an engineering constraint.</strong></p>' +
-        '</div>' +
-        '<p class="k9x-truth">Hold thresholds and circle names are program design. Live rails require charity structure, partner contracts, and public accounting.</p>' +
-      '</div>'
+    return wrapSection('rails',
+      '<div class="k9x-head">' +
+        '<h2>Funding rails · $NIBBLES circles</h2>' +
+        '<p>Two states. Always-on readiness. Activation capital. Legacy lifecycle. No "hope someone donates when the building falls."</p>' +
+      '</div>' +
+      '<div class="k9x-rails">' +
+        RAILS.map(function (r, i) {
+          return (
+            '<div class="k9x-rail-card' + (i === 1 ? ' hi' : '') + '">' +
+              '<p class="mode">' + r.mode + '</p>' +
+              '<h3>' + r.circle + ' circle</h3>' +
+              '<p class="hold">' + r.hold + '</p>' +
+              '<p>' + r.cover + '</p>' +
+            '</div>'
+          );
+        }).join('') +
+      '</div>' +
+      '<div class="k9x-thesis" style="margin-top:1rem">' +
+        '<p class="tag">Mechanism design</p>' +
+        '<h3>Price the readiness. Prove the deploy. Protect the bond.</h3>' +
+        '<p>If we cannot show the books and the mission proof when live, we do not get to tell the heroic story. <strong>Trust is an engineering constraint.</strong></p>' +
+      '</div>' +
+      '<p class="k9x-truth">Hold thresholds and circle names are program design. Live rails require charity structure, partner contracts, and public accounting.</p>'
     );
   }
 
   function moreHtml() {
-    return (
-      '<div class="k9x-section">' +
-        '<div class="k9x-head">' +
-          '<h2>Why this light is different</h2>' +
-          '<p>Healing Hearts places therapy presence. New Beginnings soft-lands adoptions. Golden Paws retires heroes. Global Disaster K9 is the pair that runs into the break so strangers get pulled back into life.</p>' +
-        '</div>' +
-        '<div class="k9x-thesis" style="margin-bottom:1.15rem">' +
-          '<p class="tag">Mission</p>' +
-          '<h3>Combine two lives so many more can continue.</h3>' +
-          '<p>Handler and dog as best friends is not marketing. It is the only way high-stakes search works. <strong>You fund the partnership. They fund the miracle of another morning for someone still buried in the dark.</strong></p>' +
-        '</div>' +
-        '<div class="k9x-more">' +
-          '<a class="k9x-link" href="healing-hearts.html"><h3>Healing Hearts</h3><p>Therapy network. Soft presence after hard news. Not SAR.</p></a>' +
-          '<a class="k9x-link" href="new-beginnings.html"><h3>New Beginnings</h3><p>Home start packs so first forever homes stick.</p></a>' +
-          '<a class="k9x-link" href="golden-paws.html"><h3>Golden Paws</h3><p>Senior heroes into certified forever homes.</p></a>' +
-          '<a class="k9x-link" href="programs/second-chance-k9-prison-program.html"><h3>Second Chance K9</h3><p>Another K9 path: dogs and people redeeming each other.</p></a>' +
-          '<a class="k9x-link" href="programs/global-disaster-k9-response-units.html"><h3>Classic program card</h3><p>Circles copy on the standard program page.</p></a>' +
-          '<a class="k9x-link" href="all-programs.html"><h3>All 30 programs</h3><p>Full flywheel map.</p></a>' +
-        '</div>' +
+    return wrapSection('more',
+      '<div class="k9x-head">' +
+        '<h2>Why this light is different</h2>' +
+        '<p>Healing Hearts places therapy presence. New Beginnings soft-lands adoptions. Golden Paws retires heroes. Global Disaster K9 is the pair that runs into the break so strangers get pulled back into life.</p>' +
+      '</div>' +
+      '<div class="k9x-thesis" style="margin-bottom:1.15rem">' +
+        '<p class="tag">Mission</p>' +
+        '<h3>Combine two lives so many more can continue.</h3>' +
+        '<p>Handler and dog as best friends is not marketing. It is the only way high-stakes search works. <strong>You fund the partnership. They fund the miracle of another morning for someone still buried in the dark.</strong></p>' +
+      '</div>' +
+      '<div class="k9x-more">' +
+        '<a class="k9x-link" href="healing-hearts.html"><h3>Healing Hearts</h3><p>Therapy network. Soft presence after hard news. Not SAR.</p></a>' +
+        '<a class="k9x-link" href="new-beginnings.html"><h3>New Beginnings</h3><p>Home start packs so first forever homes stick.</p></a>' +
+        '<a class="k9x-link" href="golden-paws.html"><h3>Golden Paws</h3><p>Senior heroes into certified forever homes.</p></a>' +
+        '<a class="k9x-link" href="programs/second-chance-k9-prison-program.html"><h3>Second Chance K9</h3><p>Another K9 path: dogs and people redeeming each other.</p></a>' +
+        '<a class="k9x-link" href="programs/global-disaster-k9-response-units.html"><h3>Classic program card</h3><p>Circles copy on the standard program page.</p></a>' +
+        '<a class="k9x-link" href="all-programs.html"><h3>All 30 programs</h3><p>Full flywheel map.</p></a>' +
       '</div>'
     );
   }
@@ -686,12 +807,18 @@
     var quick = document.createElement('div');
     quick.className = 'k9x-quick';
     quick.innerHTML =
-      '<button type="button" class="pri" data-k9x-go="teams">Meet the pairs</button>' +
-      '<button type="button" data-k9x-go="ready">Readiness</button>' +
-      '<button type="button" data-k9x-go="deploy">Deploy flow</button>' +
-      '<button type="button" data-k9x-go="rails">Rails</button>';
+      '<button type="button" class="pri" data-k9x-go="teams">02 · Meet the pairs</button>' +
+      '<button type="button" data-k9x-go="ready">03 · Readiness</button>' +
+      '<button type="button" data-k9x-go="deploy">04 · Deploy</button>' +
+      '<button type="button" data-k9x-go="rails">05 · Rails</button>' +
+      '<button type="button" data-k9x-go="more">06 · Why</button>';
 
-    var bondNodes = [hero, quick].filter(Boolean);
+    /* Bond panel: hero + quick on mobile; section body with path/jump lives in bondHtml */
+    var bondWrap = document.createElement('div');
+    bondWrap.innerHTML = bondHtml();
+    var bondSection = bondWrap.firstChild;
+
+    var bondNodes = [hero, quick, bondSection].filter(Boolean);
     if (hero && hero.parentNode) hero.parentNode.removeChild(hero);
 
     host.appendChild(panel('bond', null, bondNodes));
@@ -728,13 +855,14 @@
     if (isMobile() && !document.querySelector('.k9x-mtop')) {
       var m = document.createElement('div');
       m.innerHTML =
-        '<div class="k9x-mtop"><a href="index.html"><img src="assets/logos/shibahumanityhublogo3d-new.jpg" width="30" height="30" alt=""><span>GLOBAL K9</span></a><span style="font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fbbf24;border:1px solid rgba(251,191,36,.4);padding:.25rem .5rem;border-radius:999px">Bond</span></div>' +
-        '<nav class="k9x-mtabs" aria-label="K9 mobile">' +
-          '<button type="button" class="k9x-mtab is-on" data-tab="bond"><span class="ic">💛</span>Bond</button>' +
-          '<button type="button" class="k9x-mtab" data-tab="teams"><span class="ic">🐕</span>Pairs</button>' +
-          '<button type="button" class="k9x-mtab" data-tab="ready"><span class="ic">⚙</span>Ready</button>' +
-          '<button type="button" class="k9x-mtab" data-tab="deploy"><span class="ic">🔦</span>Deploy</button>' +
-          '<button type="button" class="k9x-mtab" data-tab="rails"><span class="ic">$</span>Rails</button>' +
+        '<div class="k9x-mtop"><a href="index.html"><img src="assets/logos/shibahumanityhublogo3d-new.jpg" width="30" height="30" alt=""><span>GLOBAL K9</span></a><span id="k9x-mtop-step" style="font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fbbf24;border:1px solid rgba(251,191,36,.4);padding:.25rem .5rem;border-radius:999px">01 Bond</span></div>' +
+        '<nav class="k9x-mtabs" aria-label="K9 mobile path">' +
+          '<button type="button" class="k9x-mtab is-on" data-tab="bond"><span class="n">01</span><span class="ic">💛</span>Bond</button>' +
+          '<button type="button" class="k9x-mtab" data-tab="teams"><span class="n">02</span><span class="ic">🐕</span>Pairs</button>' +
+          '<button type="button" class="k9x-mtab" data-tab="ready"><span class="n">03</span><span class="ic">⚙</span>Ready</button>' +
+          '<button type="button" class="k9x-mtab" data-tab="deploy"><span class="n">04</span><span class="ic">🔦</span>Deploy</button>' +
+          '<button type="button" class="k9x-mtab" data-tab="rails"><span class="n">05</span><span class="ic">$</span>Rails</button>' +
+          '<button type="button" class="k9x-mtab" data-tab="more"><span class="n">06</span><span class="ic">→</span>Why</button>' +
         '</nav>';
       while (m.firstChild) document.body.insertBefore(m.firstChild, document.body.firstChild);
     }
@@ -743,13 +871,16 @@
       var rail = document.createElement('nav');
       rail.className = 'k9x-rail';
       rail.id = 'k9x-rail';
+      rail.setAttribute('aria-label', 'Global K9 section path');
       rail.innerHTML =
-        '<button type="button" class="is-on" data-k9x-go="bond">The bond</button>' +
-        '<button type="button" data-k9x-go="teams">Bonded pairs</button>' +
-        '<button type="button" data-k9x-go="ready">Readiness</button>' +
-        '<button type="button" data-k9x-go="deploy">Deploy</button>' +
-        '<button type="button" data-k9x-go="rails">Rails</button>' +
-        '<button type="button" data-k9x-go="more">Why</button>';
+        '<span class="k9x-rail-label">Path</span>' +
+        NAV.map(function (item, i) {
+          return (
+            '<button type="button"' + (i === 0 ? ' class="is-on"' : '') + ' data-k9x-go="' + item.id + '">' +
+              '<span class="num">' + item.n + '</span> ' + item.label +
+            '</button>'
+          );
+        }).join('');
       var nav = document.querySelector('body > nav');
       if (nav && nav.nextSibling) document.body.insertBefore(rail, nav.nextSibling);
       else document.body.insertBefore(rail, document.body.firstChild);
@@ -786,19 +917,24 @@
     }
     document.body.classList.add('k9x-ready');
 
-    document.querySelectorAll('a[href="#k9x-bond"], a[href="#k9x-rails"], a[href="#k9x-teams"]').forEach(function (a) {
+    document.querySelectorAll('a[href^="#k9x-"], a[href="#k9x-bond"], a[href="#k9x-rails"], a[href="#k9x-teams"]').forEach(function (a) {
       a.addEventListener('click', function (ev) {
         ev.preventDefault();
-        var h = (a.getAttribute('href') || '').replace('#k9x-', '');
+        var h = (a.getAttribute('href') || '').replace(/^#k9x-/, '').replace(/^#/, '');
         goTab(h || 'bond');
       });
+    });
+
+    window.addEventListener('hashchange', function () {
+      var h = (location.hash || '').replace(/^#/, '');
+      if (h.indexOf('k9x-') === 0) goTab(h.replace('k9x-', ''));
     });
 
     var hash = (location.hash || '').replace(/^#/, '');
     if (hash.indexOf('k9x-') === 0) goTab(hash.replace('k9x-', ''));
     else if (hash === 'teams' || hash === 'pairs') goTab('teams');
     else if (hash === 'rails' || hash === 'fund') goTab('rails');
-    else if (hash === 'ready' || hash === 'deploy') goTab(hash);
+    else if (hash === 'ready' || hash === 'deploy' || hash === 'more' || hash === 'bond') goTab(hash);
     else goTab('bond');
   }
 
