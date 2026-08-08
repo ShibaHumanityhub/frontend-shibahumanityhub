@@ -75,11 +75,12 @@
  '@media(min-width:1600px){:root{--gpx-max:min(82rem,100%)}}',
  '@media(min-width:1920px){:root{--gpx-max:min(90rem,100%)}}',
  'body.gpx-panels{scroll-behavior:auto}',
- 'body.gpx-panels .gpx-panel{display:none;padding-bottom:2rem}',
- 'body.gpx-panels .gpx-panel.is-on{display:block;animation:gpx-fade .2s ease}',
- '@keyframes gpx-fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}',
- 'body.is-scrolling .gpx-scan,body.is-scrolling .gpx-kicker .pulse,body.is-scrolling .gpx-bar > i{animation-play-state:paused!important}',
- '.gpx-rail{position:sticky;top:0;z-index:55;display:flex;gap:.3rem;padding:.45rem max(.65rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:rgba(7,6,10,.98);border-bottom:1px solid var(--gp-line);justify-content:flex-start;box-shadow:0 1px 0 rgba(255,255,255,.04)}',
+ 'body.gpx-panels .gpx-panel{display:none;padding-bottom:2.5rem}',
+ 'body.gpx-panels .gpx-panel.is-on{display:block;animation:gpx-fade .38s cubic-bezier(.22,1,.36,1)}',
+ '@keyframes gpx-fade{from{opacity:0;transform:translateY(14px) scale(.99)}to{opacity:1;transform:none}}',
+ '@keyframes gpx-scan{0%{top:8%;opacity:0}10%{opacity:.55}90%{opacity:.55}100%{top:78%;opacity:0}}',
+ '@keyframes gpx-bar-glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)}}',
+ '.gpx-rail{position:sticky;top:0;z-index:55;display:flex;gap:.35rem;padding:.55rem max(.65rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:linear-gradient(180deg,rgba(7,6,10,.99),rgba(7,6,10,.94));border-bottom:1px solid var(--gp-line);justify-content:flex-start;box-shadow:0 8px 28px -12px rgba(0,0,0,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}',
  '.gpx-rail::-webkit-scrollbar{display:none}',
  '@media(min-width:900px){.gpx-rail{justify-content:center;flex-wrap:wrap;padding:.5rem 1rem}}',
  '.gpx-rail button{flex:0 0 auto;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(252,211,77,.5);padding:.42rem .7rem;border-radius:999px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:inherit;font-weight:700;transition:all .18s;min-height:40px}',
@@ -111,9 +112,11 @@
  '.gpx-meters{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin-bottom:1rem}',
  '@media(min-width:480px){.gpx-meters{grid-template-columns:repeat(4,1fr);gap:.5rem}}',
  '@media(min-width:1600px){.gpx-meters{grid-template-columns:repeat(6,1fr)}}',
- '.gpx-meter{padding:.7rem .55rem;border-radius:.95rem;border:1px solid rgba(252,211,77,.22);background:linear-gradient(160deg,rgba(252,211,77,.1),rgba(0,0,0,.4));box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}',
- '.gpx-meter b{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(1.05rem,2.5vw,1.35rem);color:#fff8e7;letter-spacing:-.02em}',
- '.gpx-meter span{font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(252,211,77,.55)}',
+ '.gpx-meter{padding:.85rem .6rem;border-radius:1.05rem;border:1px solid rgba(252,211,77,.28);background:linear-gradient(160deg,rgba(252,211,77,.14),rgba(0,0,0,.45));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 24px -16px rgba(0,0,0,.7);position:relative;overflow:hidden;transition:border-color .2s,transform .2s}',
+ '.gpx-meter::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#f59e0b,#fcd34d,#fde68a)}',
+ '.gpx-meter:hover{border-color:rgba(253,230,138,.5);transform:translateY(-2px)}',
+ '.gpx-meter b{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(1.15rem,2.6vw,1.5rem);color:#fff8e7;letter-spacing:-.02em;text-shadow:0 0 20px rgba(252,211,77,.25)}',
+ '.gpx-meter span{font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(252,211,77,.62);font-weight:600}',
  '@media(min-width:640px){.gpx-meter span{font-size:.55rem;letter-spacing:.1em}}',
  '.gpx-hide-sm{display:none}',
  '@media(min-width:1600px){.gpx-hide-sm{display:block}}',
@@ -126,16 +129,17 @@
  '.gpx-chain b{color:#fff8e7;font-weight:700}',
  '@media(max-width:479px){.gpx-chain{font-size:.62rem;gap:.25rem}}',
  '.gpx-lanes{display:grid;gap:.45rem;max-height:280px;overflow:auto;-webkit-overflow-scrolling:touch}',
- '.gpx-lane{border-radius:.95rem;border:1px solid rgba(252,211,77,.2);background:linear-gradient(155deg,rgba(252,211,77,.07),rgba(0,0,0,.42));padding:.75rem .8rem;transition:border-color .25s,box-shadow .25s}',
- '.gpx-lane.is-hot{border-color:rgba(253,230,138,.55);box-shadow:0 0 28px -8px rgba(245,158,11,.45)}',
+ '.gpx-lane{border-radius:1.05rem;border:1px solid rgba(252,211,77,.24);background:linear-gradient(155deg,rgba(252,211,77,.1),rgba(0,0,0,.45));padding:.85rem .9rem;transition:border-color .25s,box-shadow .25s,transform .2s}',
+ '.gpx-lane:hover{transform:translateX(2px);border-color:rgba(252,211,77,.4)}',
+ '.gpx-lane.is-hot{border-color:rgba(253,230,138,.65);box-shadow:0 0 36px -8px rgba(245,158,11,.55),inset 0 0 20px rgba(252,211,77,.06)}',
  '.gpx-lane-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.2rem}',
  '.gpx-id{font-family:ui-monospace,monospace;font-size:.68rem;color:#fcd34d}',
  '.gpx-status{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(252,211,77,.4);color:#fde68a;padding:.18rem .45rem;border-radius:999px}',
  '.gpx-route{font-size:.88rem;font-weight:600;color:#fff8e7;margin:0 0 .15rem}',
  '.gpx-note{font-size:.72rem;color:rgba(253,230,138,.7);margin:0}',
- '.gpx-bar{height:4px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin:.45rem 0 .1rem}',
- '.gpx-bar > i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#f59e0b,#fcd34d,#fde68a);transition:width .7s ease}',
- '.gpx-side{border-radius:1.1rem;border:1px solid rgba(252,211,77,.22);background:linear-gradient(165deg,rgba(252,211,77,.07),rgba(0,0,0,.4));padding:.95rem}',
+ '.gpx-bar{height:5px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin:.5rem 0 .1rem}',
+ '.gpx-bar > i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#f59e0b,#fcd34d,#fde68a);transition:width .7s ease;box-shadow:0 0 12px rgba(252,211,77,.5);animation:gpx-bar-glow 2.4s ease infinite}',
+ '.gpx-side{border-radius:1.2rem;border:1px solid rgba(252,211,77,.28);background:linear-gradient(165deg,rgba(252,211,77,.1),rgba(0,0,0,.45));padding:1.05rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}',
  '.gpx-side h3{font-family:"Space Grotesk",sans-serif;font-size:1.02rem;color:#fde68a;margin:0 0 .5rem}',
  '.gpx-chat{min-height:120px;max-height:160px;overflow:auto;font-size:.72rem;line-height:1.35;color:rgba(255,244,214,.8)}',
  '.gpx-chat .line{margin-bottom:.35rem;padding:.3rem .4rem;border-radius:.45rem;background:rgba(0,0,0,.25);border-left:2px solid rgba(252,211,77,.4)}',
@@ -145,7 +149,8 @@
  '.gpx-cta{display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1.2rem;border-radius:999px;font-weight:700;font-size:.88rem;text-decoration:none;min-height:48px;border:0;cursor:pointer;font-family:inherit;color:#1a1200;background:linear-gradient(135deg,#fff4d6,#fde68a 40%,#fcd34d 75%,#f59e0b);box-shadow:0 0 32px -8px rgba(245,158,11,.7),0 12px 28px -12px rgba(0,0,0,.55);transition:transform .15s,box-shadow .2s}',
  '.gpx-cta:hover{transform:translateY(-1px);box-shadow:0 0 40px -6px rgba(245,158,11,.9)}',
  '.gpx-cta-ghost{color:#fde68a;border:1px solid rgba(252,211,77,.45);background:rgba(0,0,0,.35);box-shadow:none}',
- '.gpx-scan{position:absolute;left:8%;right:8%;top:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,244,214,.45),transparent);pointer-events:none;opacity:.45}',
+ '.gpx-scan{position:absolute;left:6%;right:6%;top:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,244,214,.55),transparent);pointer-events:none;opacity:.5;animation:gpx-scan 5.5s ease-in-out infinite}',
+ '@media(prefers-reduced-motion:reduce){.gpx-scan,.gpx-bar > i,.gpx-panel.is-on{animation:none!important}}',
  /* See more */
  '.gpx-more-grid{display:grid;grid-template-columns:1fr;gap:.55rem;max-width:var(--gpx-max);margin:0 auto;padding:1rem max(.75rem,env(safe-area-inset-left)) 1.5rem}',
  '@media(min-width:480px){.gpx-more-grid{grid-template-columns:1fr 1fr}}',
@@ -232,8 +237,10 @@
  '.gpx-out div{padding:.8rem .6rem;border-radius:1rem;background:rgba(0,0,0,.45);border:1px solid rgba(252,211,77,.22);text-align:center}',
  '.gpx-out b{display:block;font-size:clamp(1.15rem,2.6vw,1.5rem);color:#fde68a;font-family:Space Grotesk,sans-serif}',
  '.gpx-out span{font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(253,230,138,.48);font-weight:600}',
- '.gpx-out .hero{border-color:rgba(252,211,77,.5)}.gpx-out .hero b{color:#fff}',
- '.gpx-band{margin-top:.85rem;font-size:.9rem;color:#fde68a;font-weight:600;line-height:1.5}',
+ '.gpx-out .hero{border-color:rgba(252,211,77,.55);background:linear-gradient(160deg,rgba(40,28,8,.7),rgba(0,0,0,.5));box-shadow:0 0 28px -10px rgba(245,158,11,.45)}.gpx-out .hero b{color:#fff;text-shadow:0 0 18px rgba(252,211,77,.35)}',
+ '.gpx-band{margin-top:.85rem;font-size:.92rem;color:#fde68a;font-weight:600;line-height:1.55}',
+ '.gpx-out b.gpx-pop{animation:gpx-pop .4s ease}',
+ '@keyframes gpx-pop{0%{transform:scale(1)}40%{transform:scale(1.08);color:#fff}100%{transform:scale(1)}}',
  '.gpx-link-grid{display:grid;gap:.6rem}',
  '@media(min-width:640px){.gpx-link-grid{grid-template-columns:1fr 1fr}}',
  '.gpx-link-card{border-radius:1.15rem;border:1px solid rgba(252,211,77,.28);padding:1.1rem;background:linear-gradient(155deg,rgba(252,211,77,.08),rgba(10,8,6,.96));text-decoration:none;color:inherit;display:block;transition:border-color .2s,transform .2s}',
@@ -268,7 +275,7 @@
  '.gpx-quick{display:flex;flex-wrap:wrap;gap:.35rem;padding:.65rem max(.65rem,env(safe-area-inset-left)) 0;max-width:var(--gpx-max);margin:0 auto}',
  '.gpx-quick button{flex:1 1 42%;min-height:46px;border-radius:999px;border:1px solid rgba(252,211,77,.35);background:rgba(0,0,0,.35);color:#fde68a;font-size:.72rem;font-weight:700;font-family:inherit;cursor:pointer}',
  '.gpx-quick button.pri{background:linear-gradient(135deg,#fde68a,#fcd34d);color:#1a1200;border:0}',
- '.gpx-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:80;background:linear-gradient(90deg,#f59e0b,#fcd34d,#fde68a);transform:translateZ(0)}',
+ '.gpx-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,#f59e0b,#fcd34d,#fde68a,#fff);transform:translateZ(0);box-shadow:0 0 12px rgba(252,211,77,.65)}',
  /* Slim connect form */
  '@media(max-width:479px){.gpx-connect{gap:.75rem}.gpx-box{padding:1rem .85rem}.gpx-cta{width:100%}}',
  /* Landscape mobile */
@@ -335,9 +342,9 @@
  '<div class="gpx-hud">' +
  '<span class="gpx-br tl"></span><span class="gpx-br tr"></span><span class="gpx-br bl"></span><span class="gpx-br br"></span>' +
  '<div class="gpx-scan" aria-hidden="true"></div>' +
- '<p class="gpx-kicker"><span class="pulse"></span> Placement board (preview)</p>' +
+ '<p class="gpx-kicker"><span class="pulse"></span> Live board · design mode</p>' +
  '<h2 class="gpx-title">They earned the sofa. We build the path.</h2>' +
- '<p class="gpx-lede">Service retirees and shelter seniors. Hard screening. Funded care. Forever homes. One dog at a time. When partners and funding go live, this is the process. Until then: honest design. No fake wins.</p>' +
+ '<p class="gpx-lede">This is the ops surface: find heroes, run hard screening, place forever homes, fund care, check in, next dog. When partners and funding go live, this is the process people run. Until then: honest design. No fake wins.</p>' +
  '<p class="gpx-chain" aria-hidden="true"><b>Find</b><i>→</i><b>Screen</b><i>→</i><b>Place</b><i>→</i><b>Fund</b><i>→</i><b>Check-in</b><i>→</i><b>Next dog</b></p>' +
  meters +
  '<div class="gpx-grid2">' +
@@ -430,7 +437,7 @@
  var el = document.getElementById('gpx-pick');
  var sel = document.getElementById('gpx-form-dog');
  if (sel) {
- sel.innerHTML = '<option value="">Select a hero…</option>' +
+ sel.innerHTML = '<option value="">Select a hero...</option>' +
  HEROES.map(function (h) {
  return '<option value="' + h.id + '"' + (state.selected && state.selected.id === h.id ? ' selected' : '') + '>' +
  h.name + ' · ' + (h.kind === 'service' ? 'Service' : 'Shelter') + ' · ' + h.city +
@@ -457,14 +464,14 @@
  '<div class="gpx-section">' +
  '<div class="gpx-head">' +
  '<h2>Heroes still waiting</h2>' +
- '<p>Retired service dogs who finished their duty. Senior shelter dogs the world walked past. Each card is a real kind of dog we mean to place. Click once to open the forever-home gate. Design roster now. Real faces with partner consent when funded.</p>' +
+ '<p>Retired service dogs. Senior shelter dogs. Click a card. Open the forever-home gate. Design roster now. Real faces with partner consent when funded.</p>' +
  '</div>' +
  '<div class="gpx-filters" id="gpx-filters">' +
  '<button type="button" class="is-on" data-filter="all">All heroes</button>' +
  '<button type="button" data-filter="service">Service retirees</button>' +
  '<button type="button" data-filter="shelter">Senior shelter</button>' +
  '</div>' +
- '<input class="gpx-search" id="gpx-search" type="search" placeholder="Search name, city, story…" autocomplete="off">' +
+ '<input class="gpx-search" id="gpx-search" type="search" placeholder="Search name, city, story..." autocomplete="off">' +
  '<div class="gpx-grid" id="gpx-grid"></div>' +
  '<p class="gpx-truth">Demo profiles. Click any card to open the certified forever-home gate. No live adoption ledger yet.</p>' +
  '</div>'
@@ -505,14 +512,14 @@
  '<input id="gpx-city" required placeholder="City, province or state">' +
  '<label for="gpx-home">Home type</label>' +
  '<select id="gpx-home" required>' +
- '<option value="">Select…</option>' +
+ '<option value="">Select...</option>' +
  '<option>House with yard</option>' +
  '<option>Quiet apartment / condo</option>' +
  '<option>Rural property</option>' +
  '<option>Other (tell us below)</option>' +
  '</select>' +
  '<label for="gpx-why">Why this hero · your forever vow</label>' +
- '<textarea id="gpx-why" required placeholder="Experience with seniors, schedule, other pets, why you will keep them for life…"></textarea>' +
+ '<textarea id="gpx-why" required placeholder="Experience with seniors, schedule, other pets, why you will keep them for life..."></textarea>' +
  '<label style="display:flex;align-items:flex-start;gap:.5rem;text-transform:none;letter-spacing:0;font-size:.8rem;color:rgba(253,230,138,.82);margin-bottom:.9rem">' +
  '<input type="checkbox" id="gpx-cert" required style="width:auto;margin:.15rem 0 0">' +
  '<span>I understand screening is non-negotiable, and program funds (when live) cover listed care - not a free pet without accountability.</span>' +
@@ -598,10 +605,17 @@
    var hh = document.getElementById('gpx-o-h');
    var mm = document.getElementById('gpx-o-mo');
    var band = document.getElementById('gpx-o-band');
-   if (t) t.textContent = '$' + r.total.toLocaleString();
-   if (p) p.textContent = '$' + r.perHero.toLocaleString();
-   if (hh) hh.textContent = String(r.heroes);
-   if (mm) mm.textContent = String(r.months);
+   function setPop(el, text) {
+    if (!el) return;
+    el.textContent = text;
+    el.classList.remove('gpx-pop');
+    void el.offsetWidth;
+    el.classList.add('gpx-pop');
+   }
+   setPop(t, '$' + r.total.toLocaleString());
+   setPop(p, '$' + r.perHero.toLocaleString());
+   setPop(hh, String(r.heroes));
+   setPop(mm, String(r.months));
    if (band) {
     band.textContent =
      r.heroes +

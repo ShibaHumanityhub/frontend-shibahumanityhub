@@ -329,14 +329,17 @@
 
  .gp-media {
  position: relative;
- max-width: min(420px, 92vw); margin: 0 auto;
- border-radius: 1.45rem; padding: 2px;
- background: linear-gradient(135deg, rgba(255,244,214,0.7), rgba(252,211,77,0.55), rgba(245,158,11,0.4), rgba(252,211,77,0.35));
- box-shadow: 0 32px 80px -24px rgba(0,0,0,0.9), 0 0 60px -14px rgba(252, 211, 77, 0.45);
+ max-width: min(520px, 94vw); margin: 0 auto;
+ border-radius: 1.5rem; padding: 2px;
+ background: linear-gradient(135deg, rgba(255,244,214,0.85), rgba(252,211,77,0.65), rgba(245,158,11,0.45), rgba(252,211,77,0.4));
+ box-shadow: 0 36px 90px -22px rgba(0,0,0,0.92), 0 0 70px -12px rgba(252, 211, 77, 0.55);
  contain: layout paint;
  }
+ @media (min-width: 768px) {
+ .gp-media { max-width: min(560px, 70vw); }
+ }
  @media (min-width: 1600px) {
- .gp-media { max-width: min(460px, 30vw); }
+ .gp-media { max-width: min(600px, 42vw); }
  }
  .gp-media-inner {
  border-radius: calc(1.45rem - 1px); overflow: hidden; background: #0a0806;
@@ -556,14 +559,20 @@
  poster="assets/images/goldenpawsretirementprogram.jpg"
  aria-label="Golden Paws retirement preview"
  ></video>
- <p class="gp-media-cap">Motion vision keeps playing as you scroll</p>
+ <p class="gp-media-cap">Motion stays live while you scroll · design preview</p>
  </div>
  </div>
  </div>
 </header>
 
+<section class="px-6 py-10 text-center max-w-2xl mx-auto">
+ <p class="text-lg sm:text-xl font-medium leading-relaxed text-amber-50/95" style="font-family:Space Grotesk,Inter,sans-serif;letter-spacing:-0.02em">
+ Somewhere a grey face is still watching a door. Golden Paws is how that door opens for good.
+ </p>
+</section>
+
 <footer class="py-14 text-center text-xs">
- <p class="text-amber-100/85 text-sm mb-2 font-medium">People helping people. Helping people.</p>
+ <p class="text-amber-100/90 text-sm mb-2 font-medium">People helping people. Helping dogs. Helping people.</p>
  <p class="mb-1 tracking-wide">Golden Paws. One dog at a time. $NIBBLES when funded.</p>
  <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until partners and funding are real.</p>
  <div class="flex flex-wrap justify-center gap-4 text-sm">
