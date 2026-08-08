@@ -96,8 +96,9 @@ const programs = [ {
  <h2 class="text-4xl font-bold mb-3">Pay It Forward Mercy Chain</h2>
  <p class="text-amber-200 text-xl mb-6">Every transaction quietly starts a golden chain of mercy that keeps paying love forward to the next dog who needs it most.</p>
  <p class="text-zinc-300 mb-6">One rescue leads to another. One act of kindness creates the next. This is the living chain reaction we are building with every single $NIBBLES holder.</p>
- <p class="text-zinc-300 mb-6">The Mercy Chain is the funding rail. The <a href="pay-it-forward.html" class="text-rose-300 underline font-semibold">Adoption Chain experience</a> is where you see the product: one dog, one guardian, direct sponsorship, stories that pull the next link.</p>
- <p class="text-zinc-300 mb-8">No matter how many dogs we help today, the momentum never stops. Every transaction adds another link, reaching more seniors, therapy dogs, shelters, and forever homes.</p>
+ <p class="text-zinc-300 mb-6">The Mercy Chain is the funding rail. The <a href="pay-it-forward.html" class="text-rose-300 underline font-semibold">Adoption Chain experience</a> is where you meet the product: one dog, one guardian, sponsorship that is meant to keep a home standing.</p>
+ <p class="text-zinc-300 mb-6">Holders keep $NIBBLES to stand with the chain. When rails are live, the care that fills bowls and pays vets is meant to land in steady dollars so love is not gambling on a chart. Belonging in the token. Living costs in certainty. <a href="whitepaper.html#treasury-path" class="text-amber-300 underline">How hold becomes help</a>.</p>
+ <p class="text-zinc-300 mb-8">No matter how many dogs we help today, the momentum does not have to stop. Every honest link can reach the next senior, therapy dog, shelter, and forever home.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -133,8 +134,8 @@ const programs = [ {
  <!-- Same program family: Mercy Chain funding model + Adoption Chain product experience -->
  <div class="mt-6 p-5 rounded-2xl border border-rose-400/30 bg-rose-950/20 text-left">
  <div class="text-rose-200 text-sm font-semibold mb-2">Same mission. Two doors.</div>
- <p class="text-zinc-300 text-sm mb-3">This card is the <strong class="text-white">Mercy Chain</strong> funding model ($NIBBLES circles). The live product page is the <strong class="text-white">Adoption Chain</strong>: sponsor one dog + guardian, stories that grow the next link.</p>
- <a href="pay-it-forward.html" class="text-sm text-rose-300 hover:text-rose-200 underline">Enter the Adoption Chain experience →</a>
+ <p class="text-zinc-300 text-sm mb-3">This card is the <strong class="text-white">Mercy Chain</strong> funding model (circles and holding). The product page is the <strong class="text-white">Adoption Chain</strong>: one dog, one guardian, care that is meant to stay steady when rails are live.</p>
+ <a href="pay-it-forward.html" class="text-sm text-rose-300 hover:text-rose-200 underline">Enter the Adoption Chain →</a>
  </div>`
  },
  {
