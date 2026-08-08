@@ -499,7 +499,7 @@
  '<h3>What love should not have to buy alone</h3>' +
  '<ul>' + covered + '</ul>' +
  '<p class="gpx-truth" style="margin-top:.7rem">Mercy / Guardian / Eternal circles on the program card. Nothing listed is billed to the family when funding and delivery are live.</p>' +
- '<h3 style="margin-top:1.15rem">Forever-home intent</h3>' +
+ '<h3 style="margin-top:1.15rem">Your forever intent</h3>' +
  '<div class="gpx-pick" id="gpx-pick"></div>' +
  '<form class="gpx-form" id="gpx-form">' +
  '<label for="gpx-form-dog">Hero</label>' +
