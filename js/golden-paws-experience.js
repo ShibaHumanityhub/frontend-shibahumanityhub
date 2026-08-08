@@ -614,16 +614,17 @@
      ' design care. Family brings love. Program covers listed costs when funded.';
    }
   }
-  ['input', 'change', 'keyup', 'paste', 'blur'].forEach(function (ev) {
+  if (h.getAttribute('data-gpx-eng') !== '1') {
    [h, m, mo].forEach(function (inp) {
-    if (inp.getAttribute('data-gpx-eng') === '1' && ev !== 'input') return;
     inp.setAttribute('data-gpx-eng', '1');
-    inp.addEventListener(ev, function () {
-     if (ev === 'paste') setTimeout(run, 0);
-     else run();
+    ['input', 'change', 'keyup', 'paste', 'blur'].forEach(function (ev) {
+     inp.addEventListener(ev, function () {
+      if (ev === 'paste') setTimeout(run, 0);
+      else run();
+     });
     });
    });
-  });
+  }
   run();
  }
 
