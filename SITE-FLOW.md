@@ -2,6 +2,8 @@
 
 **Purpose:** One place to see how the website fits together. Update this when you add a page, change a path, or ship a new experience.
 
+**How to work on the site:** `SOP.md` (standard operating procedure)
+
 **Last updated:** 2026-08-08  
 **Deploy:** `git push origin main` → Netlify → shibahumanityhub.com  
 **Stack:** Static HTML + local Tailwind + vanilla JS (no React)
