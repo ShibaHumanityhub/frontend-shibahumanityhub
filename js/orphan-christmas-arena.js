@@ -6,34 +6,35 @@
 (function () {
  'use strict';
 
+ /* Root-absolute paths so video works under /programs/ and trailing-slash URLs */
  var CAMS = [
  {
  id: 'wrap',
  label: 'CAM 01 · WRAP LINE',
  sub: 'Elves folding paper · gold light',
- src: '../assets/videos/orphanchristmas-animated.mp4',
- poster: '../assets/images/orphanxmasphoto.jpg'
+ src: '/assets/videos/orphanchristmas-animated.mp4',
+ poster: '/assets/images/orphanxmasphoto.jpg'
  },
  {
  id: 'load',
  label: 'CAM 02 · LOAD DOCK',
  sub: 'Pallets sealing · trucks waiting',
- src: '../assets/videos/santasworkshoplive-animated.mp4',
- poster: '../assets/images/santasworkshoplivephoto.jpg'
+ src: '/assets/videos/santasworkshoplive-animated.mp4',
+ poster: '/assets/images/santasworkshoplivephoto.jpg'
  },
  {
  id: 'floor',
  label: 'CAM 03 · MAIN FLOOR',
  sub: 'Full warehouse · Christmas shift',
- src: '../assets/videos/orphanchristmas-animated.mp4',
- poster: '../assets/images/orphanxmasphoto.jpg'
+ src: '/assets/videos/orphanchristmas-animated.mp4',
+ poster: '/assets/images/orphanxmasphoto.jpg'
  },
  {
  id: 'desk',
  label: 'CAM 04 · WISH DESK',
  sub: 'Verified lists · quiet hands',
- src: '../assets/videos/santasworkshoplive-animated.mp4',
- poster: '../assets/images/santasworkshoplivephoto.jpg'
+ src: '/assets/videos/santasworkshoplive-animated.mp4',
+ poster: '/assets/images/santasworkshoplivephoto.jpg'
  }
  ];
 
@@ -69,7 +70,17 @@
  '.oca-hero{position:relative;min-height:auto;padding:5.5rem .9rem 2rem;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;z-index:2}',
  '@media(min-width:768px){.oca-hero{min-height:100vh;padding:7rem 1.5rem 3rem;justify-content:center}}',
  '.oca-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 50% -5%,rgba(196,30,58,.55),transparent 55%),radial-gradient(ellipse 60% 40% at 100% 90%,rgba(13,61,44,.55),transparent 50%),radial-gradient(ellipse 45% 35% at 0% 70%,rgba(232,197,71,.14),transparent 45%),linear-gradient(180deg,#1a080c 0%,#0a0608 55%,#0a0f0c 100%)}',
- '.oca-hero-bg::after{content:"";position:absolute;inset:0;background:url(../assets/images/orphanxmasphoto.jpg) center/cover;opacity:.16;mix-blend-mode:luminosity}',
+ '.oca-hero-bg::after{content:"";position:absolute;inset:0;background:url(/assets/images/orphanxmasphoto.jpg) center/cover;opacity:.16;mix-blend-mode:luminosity}',
+ /* Forced desktop (?desktop=1) on a phone: keep layout usable */
+ 'body.oc-force-desktop{overflow-x:hidden}',
+ 'body.oc-force-desktop .oca{max-width:100vw}',
+ 'body.oc-force-desktop .oca-hero{padding-top:4.5rem;min-height:auto}',
+ 'body.oc-force-desktop .oca-main-feed{max-height:min(42vh,280px)}',
+ 'body.oc-force-desktop .oca-mobile-bar{display:flex}',
+ 'body.oc-force-desktop #christmas-ops,.oca #christmas-ops{max-width:100%;overflow-x:auto}',
+ 'body.oc-force-desktop .xops-grid,body.oc-force-desktop .xops-row{min-width:0}',
+ '.oca-force-banner{position:sticky;top:0;z-index:55;display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.55rem .75rem;background:rgba(10,6,8,.96);border-bottom:1px solid rgba(232,197,71,.35);font-size:.72rem;color:rgba(255,244,224,.85)}',
+ '.oca-force-banner a{color:#fde68a;font-weight:700;text-decoration:underline;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}',
  '.oca-hero-inner{position:relative;z-index:2;max-width:72rem;margin:0 auto;width:100%}',
  '.oca-live-pill{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .8rem;border-radius:999px;border:1px solid rgba(239,68,68,.55);background:rgba(127,29,29,.55);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#fecaca;margin-bottom:1rem;box-shadow:0 0 28px rgba(239,68,68,.35);max-width:100%}',
  '.oca-live-pill .dot{width:8px;height:8px;border-radius:50%;background:#ef4444;box-shadow:0 0 14px #ef4444;animation:oca-blink 1.1s ease infinite;flex-shrink:0}',
@@ -206,6 +217,36 @@ function snow(n) {
  }
  }
 
+ function isForcedDesktop() {
+ try {
+ return /[?&]desktop=1/i.test(location.search || '');
+ } catch (eFd) {
+ return false;
+ }
+ }
+
+ function mobileShellUrl() {
+ try {
+ if (window.SHHOrphanChristmasMobile && window.SHHOrphanChristmasMobile.mobileLayoutUrl) {
+ return window.SHHOrphanChristmasMobile.mobileLayoutUrl();
+ }
+ } catch (eUrl) { /* fall through */ }
+ var path = location.pathname || 'orphan-christmas.html';
+ path = path.replace(/[?&](desktop|mobile)=1/gi, '').replace(/\?&/, '?').replace(/[?&]$/, '');
+ return path + (path.indexOf('?') >= 0 ? '&' : '?') + 'mobile=1';
+ }
+
+ function kickVideo(vid) {
+ if (!vid) return;
+ try {
+ vid.muted = true;
+ vid.setAttribute('playsinline', '');
+ vid.setAttribute('webkit-playsinline', '');
+ var p = vid.play();
+ if (p && typeof p.catch === 'function') p.catch(function () {});
+ } catch (ePlay) { /* ignore */ }
+ }
+
  function build() {
  /* Dedicated mobile app-shell when it wins UX (phone / coarse pointer). Desktop keeps full scroll. */
  try {
@@ -221,6 +262,8 @@ function snow(n) {
 
  styles();
  document.body.classList.add('oc-arena-on');
+ var forceDesktop = isForcedDesktop();
+ if (forceDesktop) document.body.classList.add('oc-force-desktop');
  var climax = isClimax();
  if (climax) document.body.classList.add('oc-climax-eve');
 
@@ -229,8 +272,16 @@ function snow(n) {
 
  var viewers = climax ? 2800 + Math.floor(Math.random() * 1200) : 1200 + Math.floor(Math.random() * 800);
 
+ var forceBanner = forceDesktop
+  ? '<div class="oca-force-banner" role="status">' +
+    '<span>Full desktop layout on a small screen. Scroll slowly. Ops tables may need a sideways swipe.</span>' +
+    '<a href="' + mobileShellUrl() + '">← Mobile layout</a>' +
+    '</div>'
+  : '';
+
  root.innerHTML =
  '<div class="oca' + (climax ? ' oca-climax' : '') + '" id="oca-root">' +
+ forceBanner +
  // hero
  '<section class="oca-hero">' +
  '<div class="oca-hero-bg" aria-hidden="true"></div>' +
@@ -399,14 +450,17 @@ function snow(n) {
  if (mainVid.getAttribute('src') !== c.src) {
  mainVid.setAttribute('src', c.src);
  mainVid.setAttribute('poster', c.poster);
- mainVid.play().catch(function () {});
+ mainVid.load();
  }
+ kickVideo(mainVid);
  if (camLabel) camLabel.textContent = c.label;
  if (camSub) camSub.textContent = c.sub;
  thumbs.forEach(function (t, idx) {
  t.classList.toggle('is-live', idx === i);
  });
  }
+ kickVideo(mainVid);
+ setTimeout(function () { kickVideo(mainVid); }, 400);
 
  thumbs.forEach(function (t) {
  t.addEventListener('click', function () {

@@ -90,7 +90,7 @@ const programs = [ {
  title: "Pay It Forward Mercy Chain",
  category: "$NIBBLES",
  badgeColor: "emerald",
- image: "assets/images/imagine-pif-chain-hero.jpg",
+ image: "assets/images/payitforward.jpg",
  shortDesc: "The $NIBBLES funding model for endless mercy links. Opens into the Pay It Forward Adoption Chain: sponsor one dog + guardian so the next heart joins.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Pay It Forward</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Pay It Forward Mercy Chain</h2>
@@ -143,7 +143,7 @@ const programs = [ {
  title: "New Beginnings Home Start Packs",
  category: "$NIBBLES",
  badgeColor: "emerald",
- image: "assets/images/imagine-nb-pack-hero.jpg",
+ image: "assets/images/newbeginningshomestartpacks.jpg",
  shortDesc: "Build a first-home pack for a new adoptee. Pick pack size, then choose bed, leash, toys, food, crate, and more. Give-back partners when live.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">First Days</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">New Beginnings Home Start Packs</h2>
@@ -188,7 +188,7 @@ const programs = [ {
  title: "Healing Hearts Therapy Dog Network",
  category: "$NIBBLES",
  badgeColor: "emerald",
- image: "assets/images/imagine-hh-therapy-hero.jpg",
+ image: "assets/images/healingheartstherapydognetworkphoto.jpg",
  shortDesc: "Train, certify, place. Star Souls is the dog roster (not its own program). Seniors go through Silver Paws.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Healing Hearts</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Healing Hearts Therapy Dog Network</h2>
@@ -234,7 +234,7 @@ const programs = [ {
  title: "Global Disaster K9 Response Units",
  category: "$NIBBLES",
  badgeColor: "emerald",
- image: "assets/images/imagine-k9-searchlight-hero.jpg",
+ image: "assets/images/globaldisasterk9responseunitsphoto.jpg",
  shortDesc: "Handler and K9 fuse lives into one unit. Best friends who run toward collapse so other souls get another morning. Standby readiness. Deploy with proof.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Disaster Response</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Global Disaster K9 Response Units</h2>

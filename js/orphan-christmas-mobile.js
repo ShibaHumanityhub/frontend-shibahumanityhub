@@ -7,47 +7,86 @@
 (function () {
  'use strict';
 
+ /* Root-absolute paths so video works under /programs/ and trailing-slash URLs */
  var CAMS = [
  {
  id: 'wrap',
  label: 'CAM 01',
  sub: 'Wrap line',
- src: '../assets/videos/orphanchristmas-animated.mp4',
- poster: '../assets/images/orphanxmasphoto.jpg'
+ src: '/assets/videos/orphanchristmas-animated.mp4',
+ poster: '/assets/images/orphanxmasphoto.jpg'
  },
  {
  id: 'load',
  label: 'CAM 02',
  sub: 'Load dock',
- src: '../assets/videos/santasworkshoplive-animated.mp4',
- poster: '../assets/images/santasworkshoplivephoto.jpg'
+ src: '/assets/videos/santasworkshoplive-animated.mp4',
+ poster: '/assets/images/santasworkshoplivephoto.jpg'
  },
  {
  id: 'floor',
  label: 'CAM 03',
  sub: 'Main floor',
- src: '../assets/videos/orphanchristmas-animated.mp4',
- poster: '../assets/images/orphanxmasphoto.jpg'
+ src: '/assets/videos/orphanchristmas-animated.mp4',
+ poster: '/assets/images/orphanxmasphoto.jpg'
  },
  {
  id: 'desk',
  label: 'CAM 04',
  sub: 'Wish desk',
- src: '../assets/videos/santasworkshoplive-animated.mp4',
- poster: '../assets/images/santasworkshoplivephoto.jpg'
+ src: '/assets/videos/santasworkshoplive-animated.mp4',
+ poster: '/assets/images/santasworkshoplivephoto.jpg'
  }
  ];
 
+ function wantsDesktopLayout() {
+ try {
+ return /[?&]desktop=1/i.test(location.search || '');
+ } catch (e) {
+ return false;
+ }
+ }
+
+ function wantsMobileLayout() {
+ try {
+ return /[?&]mobile=1/i.test(location.search || '');
+ } catch (e2) {
+ return false;
+ }
+ }
+
  function shouldUseMobile() {
  try {
- var q = location.search || '';
- if (/[?&]desktop=1/i.test(q)) return false;
- if (/[?&]mobile=1/i.test(q)) return true;
+ if (wantsDesktopLayout()) return false;
+ if (wantsMobileLayout()) return true;
  if (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) return true;
  /* touch + narrow */
  if (window.matchMedia && window.matchMedia('(max-width: 900px) and (pointer: coarse)').matches) return true;
  } catch (e) { /* ignore */ }
  return false;
+ }
+
+ function desktopLayoutUrl() {
+ var path = location.pathname || 'orphan-christmas.html';
+ return path + (path.indexOf('?') >= 0 ? '&' : '?') + 'desktop=1';
+ }
+
+ function mobileLayoutUrl() {
+ var path = location.pathname || 'orphan-christmas.html';
+ /* strip force flags so phone gets the app shell again */
+ path = path.replace(/[?&](desktop|mobile)=1/gi, '').replace(/\?&/, '?').replace(/[?&]$/, '');
+ return path + (path.indexOf('?') >= 0 ? '&' : '?') + 'mobile=1';
+ }
+
+ function kickVideo(vid) {
+ if (!vid) return;
+ try {
+ vid.muted = true;
+ vid.setAttribute('playsinline', '');
+ vid.setAttribute('webkit-playsinline', '');
+ var p = vid.play();
+ if (p && typeof p.catch === 'function') p.catch(function () {});
+ } catch (ePlay) { /* ignore */ }
  }
 
  function isClimax() {
@@ -211,7 +250,7 @@
  '<button type="button" class="ocm-btn ocm-btn-ghost" data-go="give">Build a gift</button>' +
  '</div>' +
  '<p class="ocm-honest">Mobile layout built for thumbs. Desktop full scroll still lives at wider screens. Preview until rails are live.</p>' +
- '<p class="ocm-honest"><a href="?desktop=1" style="color:rgba(253,230,138,.7)">Prefer full desktop layout →</a></p>' +
+ '<p class="ocm-honest"><a href="' + desktopLayoutUrl() + '" id="ocm-desktop-link" style="color:rgba(253,230,138,.85);text-decoration:underline">Prefer full desktop layout →</a></p>' +
  '</section>' +
 
  /* LIVE */
@@ -344,13 +383,17 @@
  if (mainVid.getAttribute('src') !== c.src) {
  mainVid.setAttribute('src', c.src);
  mainVid.setAttribute('poster', c.poster);
- mainVid.play().catch(function () {});
+ mainVid.load();
  }
+ kickVideo(mainVid);
  if (camLabel) camLabel.textContent = c.label + ' · ' + c.sub;
  thumbs.forEach(function (t, idx) {
  t.classList.toggle('is-live', idx === i);
  });
  }
+ /* first paint + retry play (iOS often needs a second kick) */
+ kickVideo(mainVid);
+ setTimeout(function () { kickVideo(mainVid); }, 400);
 
  thumbs.forEach(function (t) {
  t.addEventListener('click', function () {
@@ -488,6 +531,9 @@
 
  window.SHHOrphanChristmasMobile = {
  shouldUse: shouldUseMobile,
+ desktopLayoutUrl: desktopLayoutUrl,
+ mobileLayoutUrl: mobileLayoutUrl,
+ wantsDesktop: wantsDesktopLayout,
  render: render
  };
 })();
