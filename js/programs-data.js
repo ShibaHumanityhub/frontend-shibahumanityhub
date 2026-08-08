@@ -4,12 +4,14 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/barnsponsorshippodpic.jpg",
- shortDesc: "Good companies becoming real heroes by giving senior shelter dogs the loving golden years they deserve.",
- fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Corporate Impact</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+ shortDesc: "Identical Pod Houses on every Shiba Barn land. Companies fund warm last chapters for senior shelter dogs: cleanliness, safety, space, atmosphere, and law-first open checklists.",
+ fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Corporate Infrastructure</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Corporate Barn Pod Sponsorship</h2>
- <p class="text-amber-200 text-xl mb-6">Right now, too many beautiful senior dogs sit in shelters, quietly watching the world pass them by. They have given their whole lives to people, and in their final years they deserve warm beds, good food, and real love - not a cold kennel.</p>
- <p class="text-zinc-300 mb-8">Through the Corporate Barn Pod Sponsorship, companies have the chance to step into their highest purpose. A single pod of five to ten senior dogs will live out their golden years in our Shiba Barns - fully cared for, with daily enrichment, expert veterinary care, and the peaceful retirement every loyal heart has earned.</p>
- <p class="text-zinc-300 mb-8">This is more than a donation. It is a living partnership. Your company’s name will be on the barn, on the dogs’ vests, and in every story we share with the world. Your team will get to meet their pod through livestreams and volunteer days. Real impact. Real stories. Real lives forever changed.</p>
+ <p class="text-amber-200 text-xl mb-6">Same house. Every land. Warm last chapters for seniors the world walked past.</p>
+ <p class="text-zinc-300 mb-6">This is not a corporate paint day. It is infrastructure. A company funds a standardized <strong>Pod House</strong> kit and the monthly care of five to ten senior shelter dogs who live out their years with heat, dual outdoor runs, daily human contact, and rules that outrank the logo.</p>
+ <p class="text-zinc-300 mb-6">Whether a Shiba Barn land already has buildings or needs a new pad, the living unit is the <strong>identical SHH-POD-HOUSE-v1 kit</strong>: washable floors with real drains, climate control designed above cold-lab minimums, isolation bay, cameras with privacy rules, and a home-like lounge so the atmosphere heals instead of warehouse-stresses.</p>
+ <p class="text-zinc-300 mb-6"><strong>Open gate rule:</strong> no dog moves in until zoning, building permits, animal-establishment licences where required, insurance, vet agreement, staff SOP training, and a systems test pass. Alberta Animal Protection duties, ASV-grade care standards, and AWA-style climate floors inform the design. Local inspectors still win. Not legal advice. Receipts when rails are live.</p>
+ <p class="text-zinc-300 mb-8"><a href="barn-pods.html" class="text-amber-300 underline font-semibold">Open the full Pod path</a> for blueprint, identical-kit checklist, cleanliness and safety SOPs, law stack, land rules, and corporate tiers. Circles of Mercy and $NIBBLES belonging stay here. The house is the product.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -25,21 +27,28 @@ const programs = [ {
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Watch the exact peaceful golden life that senior dogs will finally get in our Shiba Barns - warm, safe, and full of love.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Preview of the peaceful senior life the Pod House is designed to deliver when funded.</p>
  </div>
 
  <div class="mb-10">
- <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Real (when funded)</h4>
+ <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy · Corporate pod tiers (design targets, when funded)</h4>
  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
- <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Pod</strong><br>5 senior dogs • $1,250 per month. Your company helps five dogs finally feel loved again</div>
- <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Bronze / Silver Pod</strong><br>10 senior dogs • $2,500 to $5,000 per month. Your name lives on the barn and in their daily lives</div>
- <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Gold Pod</strong><br>10 or more senior dogs • $10,000+ per month. Naming rights, livestream access, and a forever place in their story</div>
+ <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Pod · 5 seniors</strong><br>~$1,250/mo care design + kit capital. Name plate. Soft stories with consent.</div>
+ <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Standard / Guardian · 8–10 seniors</strong><br>~$2,800–$5,000/mo design. Dual runs. Livestream windows. Team volunteer path.</div>
+ <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Eternal Pod · 10 seniors</strong><br>~$10,000+/mo design + multi-year reserve path. Legacy wall. Public proof stack when live.</div>
  </div>
  </div>
 
- <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, companies that say yes will become real heroes in this story. Senior dogs who thought their best days were behind them will finally know they are deeply loved and never forgotten. This is not just charity. This is the beginning of a new model where the most powerful companies on Earth use blockchain to create permanent, transparent mercy at scale. It all starts with one leader deciding their company will stand for something greater than profit. It will stand for mercy, for love, and for a legacy that lasts long after we are gone.</p>
+ <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and permits are real, a company does not buy a hashtag. It buys a house that looks the same on every Shiba Barn land, cleaned to a binder, heated to a standard, and filled with seniors who finally stop waiting for someone to come back.</p>
 
- <button onclick="sponsorProgram('corporate-barn-pod')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Become One of the First Corporate Heroes</button>`
+ <a href="barn-pods.html" class="block text-center mb-4 text-sm text-amber-300 hover:text-amber-200 underline font-semibold">Open the full Pod House experience →</a>
+ <button onclick="sponsorProgram('corporate-barn-pod')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-2">Become One of the First Corporate Pod Sponsors</button>
+
+ <div class="mt-6 p-5 rounded-2xl border border-amber-400/30 bg-amber-950/20 text-left">
+ <div class="text-amber-200 text-sm font-semibold mb-2">Same mission. Two doors.</div>
+ <p class="text-zinc-300 text-sm mb-3">This card is the <strong class="text-white">funding model</strong> and Circles of Mercy. The product page is the <strong class="text-white">Pod House path</strong>: identical kit, rules, law stack, land, sponsor tiers.</p>
+ <a href="barn-pods.html" class="text-sm text-amber-300 hover:text-amber-200 underline">Enter Barn Pods →</a>
+ </div>`
  },
  {
  id: 1,
