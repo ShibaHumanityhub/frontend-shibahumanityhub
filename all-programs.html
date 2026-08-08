@@ -63,7 +63,70 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
  * { box-sizing: border-box; }
  body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
 
- .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #1a2338 100%); }
+ .hero-bg {
+  background: linear-gradient(180deg, #0a0f1c 0%, #1a2338 100%);
+  position: relative;
+  overflow: hidden;
+ }
+ /* Dual-flywheel cinematic wash (same family as homepage) */
+ .ap-flywheel-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+   radial-gradient(ellipse 80% 50% at 50% 0%, rgba(251,191,36,0.12), transparent 55%),
+   radial-gradient(ellipse 70% 45% at 50% 100%, rgba(16,185,129,0.10), transparent 50%),
+   url('assets/images/imagine-dual-flywheel-hero.jpg') center 28% / cover no-repeat;
+  opacity: 0.22;
+  filter: saturate(1.15) contrast(1.05);
+  animation: ap-fw-ken 32s ease-in-out infinite alternate;
+ }
+ .ap-flywheel-wash::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,15,28,0.55) 0%, rgba(10,15,28,0.35) 45%, rgba(10,15,28,0.88) 100%);
+ }
+ @keyframes ap-fw-ken {
+  from { transform: scale(1.04) translate3d(0,0,0); }
+  to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+ }
+ body.ap-page {
+  background:
+   radial-gradient(ellipse 90% 40% at 50% -5%, rgba(251,191,36,0.06), transparent 50%),
+   radial-gradient(ellipse 70% 35% at 100% 40%, rgba(16,185,129,0.05), transparent 45%),
+   #0a0f1c;
+ }
+ body.ap-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: url('assets/images/imagine-dual-flywheel-hero.jpg') center 20% / cover no-repeat;
+  opacity: 0.045;
+  filter: saturate(1.05);
+ }
+ body.ap-page > *:not(script) { position: relative; z-index: 1; }
+ .ap-section-glow {
+  position: relative;
+  overflow: hidden;
+ }
+ .ap-section-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+   radial-gradient(ellipse 60% 50% at 20% 0%, rgba(251,191,36,0.07), transparent 55%),
+   radial-gradient(ellipse 50% 40% at 90% 100%, rgba(52,211,153,0.06), transparent 50%);
+ }
+ .ap-section-glow > * { position: relative; z-index: 1; }
+ @media (prefers-reduced-motion: reduce) {
+  .ap-flywheel-wash { animation: none !important; opacity: 0.16 !important; }
+ }
 
  .hero-title {
  font-family: 'Space Grotesk', sans-serif;
@@ -565,7 +628,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 <script src="js/glossary.js" defer></script>
 </head>
 
-<body data-page="all-programs">
+<body data-page="all-programs" class="ap-page">
 
 <nav class="shh-nav bg-black/95 backdrop-blur-lg fixed w-full z-50">
  <div class="max-w-7xl mx-auto px-3 sm:px-5 py-3 flex justify-between items-center gap-3">
@@ -790,8 +853,9 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
  </div>
 </div>
 
-<header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen">
- <div class="max-w-5xl mx-auto px-6">
+<header class="hero-bg pt-24 pb-20 text-center flex items-center min-h-screen relative">
+ <div class="ap-flywheel-wash" aria-hidden="true"></div>
+ <div class="max-w-5xl mx-auto px-6 relative z-10">
  <div class="hero-title-wrapper mx-auto">
  <h1 class="hero-title">ALL PROGRAMS</h1>
  </div>
@@ -807,7 +871,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 </header>
 
 <!-- CONTRACTS -->
-<section class="py-24 bg-zinc-900">
+<section class="py-24 bg-zinc-900/92 ap-section-glow">
  <div class="max-w-6xl mx-auto px-6 text-center">
  <h2 class="text-5xl font-bold mb-16">Tokens on Shibarium</h2>
  <p class="text-sm text-zinc-400 max-w-2xl mx-auto mb-12 -mt-8">Contracts are on Shibarium mainnet. Full program delivery when funding and charity rails are live. No inflated delivery claims.</p>
@@ -875,7 +939,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
  </div>
 </section>
 <!-- ALL PROGRAMS GRID + TABS + EPIC DIVIDER -->
-<section class="py-24 bg-zinc-950">
+<section class="py-24 bg-zinc-950/90 ap-section-glow">
  <div class="max-w-7xl mx-auto px-6">
  <div class="text-center mb-12">
  <p class="text-[10px] tracking-[3px] uppercase text-zinc-500 mb-3">2 flywheels · 1 mission</p>

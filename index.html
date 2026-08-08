@@ -1707,7 +1707,7 @@
 <header id="hero" data-chapter-section="hero" class="hero-bg shh-hero pt-24 pb-20 text-center flex items-center min-h-screen relative overflow-hidden">
  <div class="absolute inset-0 bg-[radial-gradient(at_center,#10b98120_0%,transparent_70%)]"></div>
  <div class="absolute inset-0 pointer-events-none opacity-40" style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(251,191,36,0.08), transparent 60%);"></div>
-
+ <div class="absolute inset-0 pointer-events-none opacity-[0.12] md:opacity-[0.16]" style="background: url('assets/images/imagine-dual-flywheel-hero.jpg') center 30% / cover no-repeat; filter: saturate(1.1);" aria-hidden="true"></div>
  
  <div class="max-w-5xl mx-auto px-6 relative z-10 w-full">
  <p class="shh-hero-eyebrow shh-reveal hidden md:block">Two flywheels · one heart · Shibarium · Since 2025</p>
@@ -1923,8 +1923,13 @@
 
 <!-- HOLD HEART · PAY LIFE -->
 <section id="hold-heart" data-chapter-section="hold-heart" class="py-14 md:py-16 bg-black border-t border-b border-amber-400/15 relative overflow-hidden">
- <div class="absolute inset-0 pointer-events-none opacity-45" style="background: radial-gradient(ellipse 70% 80% at 20% 50%, rgba(251,191,36,0.07), transparent 55%), radial-gradient(ellipse 60% 70% at 80% 40%, rgba(52,211,153,0.06), transparent 50%);" aria-hidden="true"></div>
+ <div class="absolute inset-0 pointer-events-none opacity-40" style="background: radial-gradient(ellipse 70% 80% at 20% 50%, rgba(251,191,36,0.08), transparent 55%), radial-gradient(ellipse 60% 70% at 80% 40%, rgba(52,211,153,0.07), transparent 50%);" aria-hidden="true"></div>
+ <div class="absolute inset-0 pointer-events-none opacity-[0.18] home-flywheel-still" aria-hidden="true" style="background: url('assets/images/imagine-dual-flywheel-hero.jpg') center / cover no-repeat; animation: home-fw-ken 28s ease-in-out infinite alternate;"></div>
  <style>
+  @keyframes home-fw-ken { from { transform: scale(1.05); } to { transform: scale(1.15); } }
+  @media (prefers-reduced-motion: reduce) {
+   .home-flywheel-still { animation: none !important; opacity: 0.12 !important; }
+  }
   /* Readability-first type for the honesty block (keeps visual glow, lifts contrast) */
   #hold-heart .hh-kicker {
    font-size: 0.8125rem;
