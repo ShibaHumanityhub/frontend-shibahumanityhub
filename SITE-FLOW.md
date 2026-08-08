@@ -2,7 +2,8 @@
 
 **Purpose:** One place to see how the website fits together. Update this when you add a page, change a path, or ship a new experience.
 
-**How to work on the site:** `SOP.md` (standard operating procedure)
+**How to work on the site:** `SOP.md` (standard operating procedure)  
+**Imagine visuals:** `SOP.md` §13 · files under `assets/images/imagine-*-hero.jpg`
 
 **Last updated:** 2026-08-08  
 **Deploy:** `git push origin main` → Netlify → shibahumanityhub.com  

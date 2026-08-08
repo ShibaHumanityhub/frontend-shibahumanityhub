@@ -296,4 +296,62 @@ Tell the agent:
 
 ---
 
+## 13. Imagine visual pipeline (stills + motion)
+
+**Goal:** Premium stills with Grok Imagine; motion when video tools are available; always ship a still path so the site never depends on video gen.
+
+### Folders
+
+| Path | Use |
+|------|-----|
+| `assets/imagine/stills/` | Source stills + named masters |
+| `assets/images/imagine-*-hero.jpg` | Public web heroes / posters / OG |
+| `assets/imagine/videos/` | Future Imagine video loops (when ZDR/upload allows) |
+| `assets/videos/*-animated.mp4` | Existing program loops (keep as primary if present) |
+
+### Current flagship stills (2026-08-08)
+
+| Public file | Theme | Wired into |
+|-------------|--------|------------|
+| `imagine-k9-searchlight-hero.jpg` | Handler + K9 searchlight bond | K9 page, programs-data id 5 |
+| `imagine-nb-pack-hero.jpg` | Welcome pack on floor | New Beginnings, programs-data id 3 |
+| `imagine-pif-chain-hero.jpg` | Heart chain dog ↔ hand | Pay It Forward, programs-data id 2 |
+| `imagine-hh-therapy-hero.jpg` | Therapy dog resting | programs-data Healing Hearts |
+| `imagine-dual-flywheel-hero.jpg` | Amber + emerald dual gears | Homepage hero wash + `#hold-heart` |
+
+### How to make a new still
+
+1. Prompt Imagine: subject → mood → lighting → palette → **no text, no logos**  
+2. Save to `assets/imagine/stills/<name>-still.jpg`  
+3. Copy to `assets/images/imagine-<name>-hero.jpg`  
+4. Wire poster / og:image / card image / Ken Burns fallback  
+5. Prefer CSS Ken Burns (`animation` scale) under video so scroll-pause still looks alive  
+
+### How to make video (when tool works)
+
+1. Start from the **still** as frame 1  
+2. `image_to_video` 6s, simple motion (dust, breath, slow push-in)  
+3. Save to `assets/imagine/videos/` then copy/rename into `assets/videos/` if replacing a loop  
+4. Keep still as `poster` always  
+5. If video API fails (ZDR needs `upload_url`, rate limits): **ship stills + Ken Burns** and note in commit  
+
+### Prompt palette cheat sheet
+
+| Brand zone | Palette |
+|------------|---------|
+| $NIBBLES / dogs | amber gold, warm wood, soft night navy |
+| $hopeseed / humans | emerald, soft teal, daylight hope |
+| K9 | navy void, searchlight gold, cyan rim |
+| PIF | rose, pink gold, charcoal |
+| Dual flywheel | amber gear + emerald seed on deep space |
+
+### Quality bar
+
+- No garble text in frame (no titles baked into image)  
+- No real-person likeness without reference  
+- Reduced-motion: pause Ken Burns  
+- Scroll freeze: pause video + Ken Burns where site already freezes media  
+
+---
+
 *Follow the SOP. Update the flow map. Ship truth. The rest is just work.*

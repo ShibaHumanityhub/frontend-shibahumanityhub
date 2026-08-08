@@ -294,7 +294,22 @@
  }
  body.is-scrolling .nb-media video { visibility: hidden; }
  body.is-scrolling .nb-media-inner {
-  background: #061018 url('assets/images/newbeginningshomestartpacks.jpg') center / cover no-repeat;
+  background: #061018 url('assets/images/imagine-nb-pack-hero.jpg') center / cover no-repeat;
+ }
+ .nb-media { position: relative; }
+ .nb-media .nb-kenburns {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  z-index: 0; pointer-events: none;
+  animation: nb-ken 20s ease-in-out infinite alternate;
+ }
+ .nb-media video { position: relative; z-index: 1; }
+ @keyframes nb-ken {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.1) translate3d(1%, 0, 0); }
+ }
+ body.is-scrolling .nb-media .nb-kenburns { animation-play-state: paused; }
+ @media (prefers-reduced-motion: reduce) {
+  .nb-media .nb-kenburns { animation: none !important; }
  }
 
  .nb-auth {
@@ -432,10 +447,11 @@
     id="nb-hero-video"
     src="assets/videos/newbeginningshomestartpacks-animated.mp4"
     muted loop playsinline preload="metadata"
-    poster="assets/images/newbeginningshomestartpacks.jpg"
+    poster="assets/images/imagine-nb-pack-hero.jpg"
     aria-label="New Beginnings pack preview"
    ></video>
-   <p class="text-[10px] tracking-[0.12em] uppercase text-sky-200/45 py-2 text-center border-t border-white/5">Preview clip. Not a live order feed.</p>
+   <img class="nb-kenburns" src="assets/images/imagine-nb-pack-hero.jpg" alt="" width="640" height="360" decoding="async" aria-hidden="true">
+   <p class="text-[10px] tracking-[0.12em] uppercase text-sky-200/45 py-2 text-center border-t border-white/5">Imagine welcome-pack still · motion when video loads. Not a live order feed.</p>
   </div>
  </div>
  </div>
