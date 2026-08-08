@@ -169,7 +169,7 @@ Update this table when you ship or rename an experience.
 | `new-beginnings.html` | New Beginnings packs (id 3) | Pack studio · S/M/L · partners · receipt mock |
 | `healing-hearts.html` | Healing Hearts (id 4) | Network model · Star Souls under HH |
 | `k9-lifeline.html` | Global Disaster K9 (id 5) | Searchlight bond · not live ops |
-| `barn-pods.html` | Corporate Barn Pods (id 0) | Identical Pod House kit · SOP · law stack · corporate tiers |
+| `barn-pods.html` | Corporate Barn Pods / Shiba Barn Campus (id 0) | Campus phases · acreage density · expandable barn · treasury vs pods · SOP · law |
 | `golden-paws.html` | Golden Paws (id 8) | Senior forever homes · dogs |
 | `silver-paws.html` | Silver Paws (id 14) | Senior **human** visits |
 | `golden-years.html` | Golden Years (id 15) | Companion matching (humans) |
@@ -192,7 +192,7 @@ Thin page = `programs/<slug>.html`.
 
 | ID | Title | Thin page | Experience if any |
 |----|--------|-----------|-------------------|
-| 0 | Corporate Barn Pod Sponsorship | `programs/corporate-barn-pod-sponsorship.html` | `barn-pods.html` (Pod House path · identical kit · SOP · law · sponsor) |
+| 0 | Corporate Barn Pod Sponsorship | `programs/corporate-barn-pod-sponsorship.html` | `barn-pods.html` (Campus · acreage · phases · treasury · pods 5–10 · expand) |
 | 1 | Rescue Passport Soulbound NFTs | `programs/rescue-passport-soulbound-nfts.html` | — |
 | 2 | Pay It Forward Mercy Chain | `programs/pay-it-forward-mercy-chain.html` | **`pay-it-forward.html`** |
 | 3 | New Beginnings Home Start Packs | `programs/new-beginnings-home-start-packs.html` | **`new-beginnings.html`** |

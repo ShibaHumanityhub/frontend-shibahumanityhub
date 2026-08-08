@@ -1,24 +1,134 @@
 /**
- * Corporate Barn Pod Sponsorship · flagship experience
- * Standardized Pod Houses on every Shiba Barn land.
- * First principles · identical kit · law floors · SOP · corporate rails.
- * Design only until funding, land partners, permits, and receipts are real.
+ * Shiba Barn Campus · Corporate Pod Sponsorship (flagship)
+ * Massive vision. Modular cells. No overpack.
+ * Land → house → barn shell → pods → phases → expand the building.
+ * First principles · density law · treasury rails · corporate pods.
+ * Design only until funding, land, permits, staffing, and receipts are real.
  */
 (function () {
  'use strict';
 
  var INTENT_KEY = 'shh_barn_pod_intents';
 
- /* ── Research-informed design floors (sanctuary > lab minimums) ──
-  * Baselines studied (not claimed as legal advice):
-  * - USDA AWA / 9 CFR Part 3: space formula, 45–85°F windows, ventilation, drainage
-  * - ASV Guidelines for Standards of Care in Animal Shelters (2nd ed.): stand/lie/turn/walk, cohousing 2–4, double-compartment ideal
-  * - UW Shelter Medicine housing guidance: ~4' min width medium/large, dual compartment preferred
-  * - Alberta Animal Protection Act: food, water, care when ill, heat/cold protection, shelter, ventilation, space
-  * - Canadian shelter standards (SPCA-forward ASV): sanitation, noise, surfaces
-  * - Senior sanctuary models (home-like lounges + outdoor runs + treatment + laundry)
-  * Our Pod House is designed ABOVE these floors so every jurisdiction has headroom.
+ /* ── Density & campus design floors (sanctuary, not warehouse) ──
+  * Research baselines inform floors; we design ABOVE them.
+  * USDA AWA / 9 CFR Part 3 · ASV shelter guidelines · shelter medicine
+  * Alberta APA duty of care · senior sanctuary home-like models
+  * Hard rule: open only what staff + reserve can love every day.
   */
+
+ var POD = {
+  code: 'SHH-POD-HOUSE-v1',
+  minDogs: 5,
+  maxDogs: 10,
+  designDogs: 8,
+  footprintM: '9.0 m × 6.0 m',
+  indoorSqM: 54,
+  runSqM: 72,
+  isolationBays: 1,
+  cameras: 6
+ };
+
+ /** Living dogs per acre — outdoor/yard pressure + septic/noise buffer (design).
+  *  Not legal advice. Municipal zoning can be stricter.
+  *  Indoor pod capacity is separate; acres protect outdoor life + setbacks.
+  */
+ var DENSITY = {
+  /* acresPerLivingDog outdoor+buffer design range */
+  minAcresPerDog: 0.12,
+  comfortAcresPerDog: 0.2,
+  premiumAcresPerDog: 0.35,
+  /* absolute site floors */
+  absoluteMinAcres: 2,
+  flagshipStartAcres: 5,
+  regionalCampusAcres: 10,
+  megaCampusAcres: 20,
+  /* built density inside barn: pods only, never free-for-all floor */
+  maxPodsPhase1: 2,
+  maxPodsPhase2: 4,
+  maxPodsPhase3: 6,
+  maxPodsPhase4: 8,
+  dogsPerPodCap: 10,
+  /* staff design: rough FTE share per open pod (day coverage + enrichment) */
+  staffFtePerPod: 0.75,
+  overnightShare: 'shared night protocol + on-call'
+ };
+
+ var CAMPUS_PHASES = [
+  {
+   id: 'p0',
+   name: 'Phase 0 · Land + law',
+   dogs: 0,
+   pods: 0,
+   acresHint: '2–5+ ac secure under LOI/lease/own',
+   build: 'Survey, zoning path, soil/septic, access road, neighbour plan',
+   who: 'Treasury + counsel',
+   open: 'No dogs. Paper and dirt first.'
+  },
+  {
+   id: 'p1',
+   name: 'Phase 1 · Flagship open',
+   dogs: '10–20',
+   pods: 2,
+   acresHint: '≥ 5 ac design target (comfort band)',
+   build: 'Caretaker house · barn shell bay A · 2 identical pods · isolation · yard rotation',
+   who: 'Treasury shell + 2 corporate pods',
+   open: 'Only after open-gate checklist. Massive heart. Small doors.'
+  },
+  {
+   id: 'p2',
+   name: 'Phase 2 · Grow the barn',
+   dogs: '20–40',
+   pods: 4,
+   acresHint: '≥ 5–8 ac (or add land)',
+   build: 'Extend barn shell bay B · 2 more pods · med soft room · laundry scale-up',
+   who: 'Treasury expansion + new sponsors',
+   open: 'Staff FTE must rise with pods. No empty wings of chaos.'
+  },
+  {
+   id: 'p3',
+   name: 'Phase 3 · Regional campus',
+   dogs: '40–60',
+   pods: 6,
+   acresHint: '≥ 8–12 ac comfort',
+   build: 'Bay C · quiet service-retiree wing option · training/enrichment hall',
+   who: 'Multi-sponsor + medical reserve',
+   open: 'Specialized tracks. Still modular. Still SOP-bound.'
+  },
+  {
+   id: 'p4',
+   name: 'Phase 4 · Full modular mass',
+   dogs: '60–80',
+   pods: 8,
+   acresHint: '≥ 12–20 ac premium band',
+   build: 'Full barn length · optional second shell · backup power · public proof hub',
+   who: 'Treasury backbone + full corporate constellation',
+   open: 'Only if audits stay green for 12+ months at prior phase.'
+  }
+ ];
+
+ var ACREAGE_TABLE = [
+  { acres: 2, comfortDogs: 10, maxHard: 16, pods: '1–2', note: 'Micro site. Phase 1 only unless land expands.' },
+  { acres: 5, comfortDogs: 25, maxHard: 40, pods: '2–4', note: 'Flagship start. Room for yards + setbacks + septic.' },
+  { acres: 8, comfortDogs: 40, maxHard: 55, pods: '4–5', note: 'Phase 2–3 growth without stacking stress.' },
+  { acres: 10, comfortDogs: 50, maxHard: 65, pods: '5–6', note: 'Regional campus design target.' },
+  { acres: 15, comfortDogs: 65, maxHard: 85, pods: '6–8', note: 'Premium outdoor life + multi-yard rotation.' },
+  { acres: 20, comfortDogs: 80, maxHard: 100, pods: '8', note: 'Mega campus ceiling before second site preferred.' }
+ ];
+
+ var TRACKS = [
+  { id: 'senior', title: 'Senior retirement', body: 'Shelter seniors and soft medical. Quiet pods. High bedding + heat dignity.' },
+  { id: 'service', title: 'Service retirees', body: 'Worked a life. Earn calm wing. Lower stimulation. Handler-aware handoffs.' },
+  { id: 'deathrow', title: 'Death-row pull (time-boxed)', body: 'Emergency intake with isolation first. Not forever warehouse. Triage to pod, foster, or forever home path.' },
+  { id: 'medical', title: 'Medical soft', body: 'Post-op and chronic seniors with staff capacity. Never exceed isolation + med room design.' }
+ ];
+
+ var MONEY_SPLIT = [
+  { who: 'Treasury / mission capital', pays: 'Land (own or long lease), caretaker house, barn shell, utilities backbone, isolation, medical reserve, phase expansions' },
+  { who: 'Corporate pod sponsors', pays: 'Pod fit-out kit, monthly care for 5–10 named dogs, enrichment share, name plate, story rights with consent' },
+  { who: '$NIBBLES holders', pays: 'Belonging, circles, mission seat — not the dog’s dinner when markets dump' },
+  { who: 'Stable care rails (when live)', pays: 'Food, vet, heat, staff wages in steady currency so charts never empty bowls' }
+ ];
 
  var POD_TIERS = [
   {
@@ -29,7 +139,7 @@
    capitalUsd: 42000,
    circle: 'Mercy',
    tag: 'First corporate yes',
-   blurb: 'Five seniors. One identical Pod House kit. Your company name on the house plate and soft stories when consent allows.'
+   blurb: 'Five seniors. One identical pod cell inside the campus barn. Name plate. Soft stories with consent.'
   },
   {
    id: 'standard',
@@ -39,7 +149,7 @@
    capitalUsd: 58000,
    circle: 'Guardian',
    tag: 'Most companies land here',
-   blurb: 'Eight seniors. Full house + dual outdoor runs. Quarterly team livestream. Vest embroidery optional.'
+   blurb: 'Eight dogs. Full pod kit + dual runs. Quarterly livestream. The backbone of campus revenue.'
   },
   {
    id: 'guardian',
@@ -48,8 +158,8 @@
    monthlyUsd: 5000,
    capitalUsd: 72000,
    circle: 'Guardian+',
-   tag: 'Named barn wing',
-   blurb: 'Ten seniors. Naming rights on the pod cluster. Volunteer day slots when funded. Priority enrichment budget.'
+   tag: 'Named wing energy',
+   blurb: 'Ten dogs at pod cap. Priority enrichment. Volunteer day path when funded and staffed.'
   },
   {
    id: 'eternal',
@@ -58,27 +168,35 @@
    monthlyUsd: 10000,
    capitalUsd: 95000,
    circle: 'Eternal Guardian',
-   tag: 'Legacy infrastructure',
-   blurb: 'Gold tier. Multi-year care reserve design. Soulbound corporate attestation when rails live. Legacy wall + public proof stack.'
+   tag: 'Legacy cell',
+   blurb: 'Multi-year care reserve design. Public proof stack. Soulbound corporate attestation when rails live.'
+  },
+  {
+   id: 'campus',
+   name: 'Campus Founder',
+   dogs: 0,
+   monthlyUsd: 0,
+   capitalUsd: 250000,
+   circle: 'Treasury partner',
+   tag: 'Land · shell · house',
+   blurb: 'Not a dog count. Funds land path, barn shell bay, or caretaker house. The massive layer. Naming on campus, not overcrowding rights.'
   }
  ];
 
  var HOUSE_SPEC = {
-  code: 'SHH-POD-HOUSE-v1',
-  footprintM: '9.0 m × 6.0 m',
+  code: POD.code,
+  footprintM: POD.footprintM,
   footprintFt: '29.5 ft × 19.7 ft',
-  indoorSqM: 54,
+  indoorSqM: POD.indoorSqM,
   indoorSqFt: 581,
-  runSqM: 72,
+  runSqM: POD.runSqM,
   runSqFt: 775,
   heightM: 3.0,
-  maxDogs: 10,
-  minDogs: 5,
+  maxDogs: POD.maxDogs,
+  minDogs: POD.minDogs,
   bedsPerDog: 1,
-  humanDoor: 2,
-  dogDoors: 4,
-  isolationBays: 1,
-  cameras: 6,
+  isolationBays: POD.isolationBays,
+  cameras: POD.cameras,
   climate: 'Heat + cool + humidity control',
   floor: 'Sealed non-porous, 1–2% slope to trench drains',
   walls: 'Washable, impact-resistant, no exposed insulation',
@@ -92,38 +210,38 @@
  var LAW_STACK = [
   {
    layer: '01 · First principles',
-   title: 'Dignity before decoration',
-   body: 'A senior dog is not inventory. The product is a warm, clean, spacious life with daily human contact and a real outdoor path. If a metric does not protect that, it is vanity.'
+   title: 'Massive campus. Small cells. Dignity first.',
+   body: 'Scale is acres, bays, and phases — not stuffing more dogs into the same air. A senior is not inventory. If growth outruns staff or reserve, growth stops.'
   },
   {
-   layer: '02 · National / federal floors',
-   title: 'AWA-grade climate & space (design floor)',
-   body: 'USDA AWA / 9 CFR Part 3 is a floor for regulated facilities in the U.S.: indoor ambient must not sit below ~45°F / 7°C or above ~85°F / 29.5°C for more than four consecutive hours; cold-sensitive, aged, or infirm dogs get a warmer floor (~50°F / 10°C) unless the vet says otherwise; ventilation must cut odor, drafts, ammonia, and moisture. Space formulas exist. We design larger than formula minimums because sanctuary is not a shipping crate.'
+   layer: '02 · Federal / AWA-grade floors',
+   title: 'Climate & space floors (design above)',
+   body: 'USDA AWA / 9 CFR style windows for temperature and ventilation inform the kit. Aged and infirm dogs get warmer floors. We design larger than crate math because sanctuary is not a lab shipping box.'
   },
   {
-   layer: '03 · Professional care standards',
-   title: 'ASV + shelter medicine',
-   body: 'Association of Shelter Veterinarians guidelines: primary enclosure must let a dog stand, lie comfortably, turn, walk several steps, and hold the tail erect. Double-compartment (indoor/outdoor) is ideal. Cohousing carefully limited (typically 2–4 compatible dogs). Surfaces drain. Noise and sanitation are first-class design constraints, not afterthoughts.'
+   layer: '03 · ASV + shelter medicine',
+   title: 'Double-compartment · drain · careful cohousing',
+   body: 'Stand, lie, turn, walk. Dual indoor/outdoor. Cohousing by temperament, typically small groups. Noise and sanitation are design constraints.'
   },
   {
    layer: '04 · Canadian / Alberta duty of care',
    title: 'Animal Protection Act (and peers)',
-   body: 'In Alberta and similar Canadian frameworks, a person in charge of an animal must provide adequate food and water, care when wounded or ill, reasonable protection from injurious heat or cold, and adequate shelter, ventilation, and space. Municipal pet-establishment and kennel licences, inspections, and bylaws still apply. We design to pass them. We do not claim a permit until the jurisdiction issues one.'
+   body: 'Adequate food, water, care when ill, heat/cold protection, shelter, ventilation, space. Municipal kennel/shelter licences and inspections still apply. Design to pass. Do not claim a permit until issued.'
   },
   {
-   layer: '05 · Local land law',
-   title: 'Zoning · building · fire · waste',
-   body: 'Every Pod House sits only where zoning allows animal housing or agricultural/accessory use that the municipality accepts. Building permit, electrical, plumbing, fire egress, setbacks, and waste (septic or sewer) must clear before dogs move in. Identical kit. Local stamp. No freelancing the rules because a sponsor is eager.'
+   layer: '05 · Land law',
+   title: 'Zoning · building · fire · waste · expand permits',
+   body: 'Each barn bay extension is a new permit event. Identical pod kit. Local stamp. Setbacks and septic capacity gate living dog counts as hard as pod count.'
   },
   {
-   layer: '06 · Insurance & liability',
-   title: 'Coverage before open house',
-   body: 'Property, liability, care-and-custody, volunteer accident, and vehicle coverage design. Corporate sponsors get naming and story rights, not ownership of dogs or land unless a separate legal instrument says so.'
+   layer: '06 · Density constitution',
+   title: 'Acreage + pods + staff = legal open number',
+   body: 'Living dogs opened ≤ min(pod seats, acreage comfort band, staff capacity, medical reserve). That formula is the product. Vanity max is not.'
   },
   {
-   layer: '07 · Proof stack',
+   layer: '07 · Proof',
    title: 'Receipts or it did not happen',
-   body: 'When rails are live: invoices, vet records (privacy-safe), occupancy logs, sanitation checklists, climate logs, and public monthly reports. $NIBBLES belonging is separate from USD stable care rails so a chart crash does not empty a food bin.'
+   body: 'Occupancy, sanitation audits, climate logs, spend, phase gates. Public when rails live. Privacy for dogs and people always.'
   }
  ];
 
@@ -132,74 +250,68 @@
    id: 'clean',
    title: 'Cleanliness (daily non-negotiable)',
    points: [
-    'Morning full clean of indoor floors, runs, and food zones before enrichment block',
-    'Spot-clean waste within 30 minutes during staffed hours; overnight check schedule posted',
-    'Disinfect high-touch surfaces on a written chemical rotation (contact time honored)',
-    'Laundry: bedding washed on schedule; soiled soft goods never left overnight unbagged',
-    'Ammonia / odor: if staff smell it at dog nose height, ventilation and clean protocol re-run same day',
-    'Food prep zone separate from waste path; bowls washed after every meal'
+    'Morning full clean of each open pod before enrichment',
+    'Spot-clean waste within 30 minutes staffed hours',
+    'Chemical rotation with real contact time',
+    'If staff smell ammonia at dog nose height, re-run clean + vent same day',
+    'Food prep separated from waste path'
    ]
   },
   {
    id: 'safety',
    title: 'Safety (dogs + humans)',
    points: [
-    'Double-gate entry on outdoor runs; self-closing latches; no climbable perimeter gaps',
-    'Fencing height and bury/kick-board by region and dig risk',
-    'No toxic plants in landscaped buffer; no exposed wires, sharp edges, or chewable foam',
-    'Isolation bay ready for contagious or recovering dogs; PPE kit stocked',
-    'Fire extinguisher, smoke/CO detection, posted evacuation map, drill log',
-    'Staff never alone for high-risk moves; two-person rule for aggression flags',
-    'Meds locked; controlled substances log if applicable; only trained handlers dose'
+    'Double-gate runs; self-closing latches',
+    'Isolation ready before any death-row or medical intake',
+    'Fire/evac map per barn bay; drill log',
+    'Two-person rule for high-risk moves',
+    'Meds locked; trained handlers only'
    ]
   },
   {
    id: 'space',
-   title: 'Spacious living (sanctuary geometry)',
+   title: 'Spacious living (anti-overpack)',
    points: [
-    'Indoor rest zone sized so every dog has a dedicated bed + body clearance (no stacked crate culture)',
-    'Outdoor run access daily weather-permitting; shade + wind break mandatory',
-    'Cohousing only after temperament match; max group size by behavior, never by spreadsheet greed',
-    'Quiet corner for anxious seniors; soft lighting option at night',
-    'Wheelchair / cart access path for mobility dogs',
-    'Human path width so staff can clean without forcing dogs into stress corners'
+    'Pod cap 10 living dogs — never “just one more”',
+    'New pod only when prior pods pass audit green',
+    'Outdoor yard rotation; not one mud pit for the whole campus',
+    'Quiet corners for anxious seniors',
+    'Mobility path for carts and stiff hips'
    ]
   },
   {
    id: 'atmosphere',
    title: 'Atmosphere (the part that heals)',
    points: [
-    'Home-like furniture grade: low couches, rugs that wash, not sterile prison vibes',
-    'Sound: acoustic panels or baffles where bark echo would spike stress',
-    'Smell: fresh air exchange; no heavy perfume; enzyme cleaners over cover-up scents',
-    'Light: natural light by day; warm dimmable LEDs by night; no all-night blast white',
-    'Touch: daily human contact minimum (pets, brushes, calm talk) logged per dog',
-    'Enrichment: scent work, gentle walks, puzzle feeders, sun naps — scheduled, not optional'
+    'Home-like lounge, not prison rack',
+    'Acoustic control so bark echo does not own the bay',
+    'Natural light by day; warm dim nights',
+    'Daily human contact logged per dog',
+    'Enrichment scheduled — not optional'
    ]
   },
   {
    id: 'location',
-   title: 'Land & location rules (every Shiba Barn)',
+   title: 'Land rules (every Shiba Barn campus)',
    points: [
-    'Pod House sits on drained, non-flooding pad above seasonal water table',
-    'Quiet buffer from highway and industrial noise when site allows',
-    'Emergency vehicle access within design response time of local services',
-    'Secure perimeter of the greater barn property; pod is a home, not a free-roam farm',
-    'Identical orientation logic: sun for winter warmth, shade for summer runs (region-tuned without changing kit)',
-    'Neighbor and municipal relationship plan before occupancy'
+    'Drained pad above seasonal water table',
+    'Emergency vehicle access',
+    'Noise buffer from highway when possible',
+    'Secure perimeter of the whole campus',
+    'Acreage band respected before phase-up'
    ]
   }
  ];
 
  var STANDARD_PACK = [
-  { part: 'Structure kit', note: 'Same SIP / modular shell, openings, and load tables. Region only changes foundation and snow/wind stamps.' },
-  { part: 'Interior package', note: 'Same bed count rails, wall protection, drains, isolation bay, meds cabinet, laundry hookups.' },
-  { part: 'Outdoor runs', note: 'Same dual-run geometry and gates. Fence material may swap for local code (wood, mesh, composite) without changing layout.' },
-  { part: 'Climate plant', note: 'Same target setpoints. Equipment brand may change; performance envelope does not.' },
-  { part: 'Camera & network', note: 'Same six-camera plan + privacy policy. Stream public only when consent and security allow.' },
-  { part: 'Signage & naming', note: 'Same plate size and placement. Corporate name goes here — not sprayed on dogs.' },
-  { part: 'SOP binder', note: 'Same cleanliness, safety, enrichment, intake, and euthanasia ethics binder. Local phone numbers fill blanks.' },
-  { part: 'Open checklist', note: 'No dog moves in until permit, insurance, staffing, and 14-day systems test pass.' }
+  { part: 'Barn shell bays', note: 'Expandable structure. Bay A first. Bay B/C bolt-on same engineering language.' },
+  { part: 'Pod cell kit', note: 'Identical SHH-POD-HOUSE-v1 every time. Region only changes foundation and load stamps.' },
+  { part: 'Outdoor runs', note: 'Same dual-run geometry. Fence material may swap for code.' },
+  { part: 'Climate plant', note: 'Same setpoints. Equipment brand flexible.' },
+  { part: 'Camera + network', note: 'Per-pod camera plan + campus privacy policy.' },
+  { part: 'SOP binder', note: 'One constitution. Local phones fill blanks.' },
+  { part: 'Phase gate', note: 'No next bay until staff, reserve, and audit pass.' },
+  { part: 'Open checklist', note: 'Permits, insurance, vet, 14-day systems test — no dogs early.' }
  ];
 
  function $(sel, root) {
@@ -211,7 +323,7 @@
 
  function saveIntent(kind, detail) {
   var entry = {
-   kind: kind || 'barn-pod',
+   kind: kind || 'barn-campus',
    detail: detail || {},
    at: new Date().toISOString(),
    path: location.pathname || ''
@@ -223,9 +335,9 @@
    localStorage.setItem(INTENT_KEY, JSON.stringify(list.slice(-50)));
   } catch (e) { /* private mode */ }
   if (typeof window.sponsorProgram === 'function') {
-   window.sponsorProgram('corporate-barn-pod-' + (detail && detail.tier ? detail.tier : kind));
+   window.sponsorProgram('barn-campus-' + (detail && detail.tier ? detail.tier : kind));
   } else {
-   toast('Intent saved on this device. When rails are live, this becomes real sponsorship with receipts.');
+   toast('Intent saved on this device. When rails are live, this becomes real capital with receipts.');
   }
   return entry;
  }
@@ -242,8 +354,49 @@
   setTimeout(function () {
    el.style.opacity = '0';
    el.style.transition = 'opacity .35s';
-   setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 400);
+   setTimeout(function () {
+    if (el.parentNode) el.parentNode.removeChild(el);
+   }, 400);
   }, 4200);
+ }
+
+ /** Density calculator */
+ function calcDensity(acres, pods, dogsPerPod) {
+  acres = Math.max(0, Number(acres) || 0);
+  pods = Math.max(0, Math.min(12, Number(pods) || 0));
+  dogsPerPod = Math.max(POD.minDogs, Math.min(POD.maxDogs, Number(dogsPerPod) || POD.designDogs));
+  var seatDogs = pods * dogsPerPod;
+  var comfortCap = acres <= 0 ? 0 : Math.floor(acres / DENSITY.comfortAcresPerDog);
+  var hardCap = acres <= 0 ? 0 : Math.floor(acres / DENSITY.minAcresPerDog);
+  var openDogs = Math.min(seatDogs, comfortCap);
+  var hardDogs = Math.min(seatDogs, hardCap);
+  var staffFte = Math.round(pods * DENSITY.staffFtePerPod * 10) / 10;
+  var band =
+   acres < DENSITY.absoluteMinAcres
+    ? 'below absolute min — do not open living dogs'
+    : openDogs < seatDogs
+      ? 'acreage limits open dogs below pod seats — buy land or open fewer pods'
+      : 'comfort band OK for seated pods';
+  var phaseHint = 'Phase 0';
+  if (pods >= 8) phaseHint = 'Phase 4 energy';
+  else if (pods >= 6) phaseHint = 'Phase 3';
+  else if (pods >= 4) phaseHint = 'Phase 2';
+  else if (pods >= 2) phaseHint = 'Phase 1';
+  else if (pods >= 1) phaseHint = 'Phase 1 light';
+  return {
+   acres: acres,
+   pods: pods,
+   dogsPerPod: dogsPerPod,
+   seatDogs: seatDogs,
+   comfortCap: comfortCap,
+   hardCap: hardCap,
+   openDogs: openDogs,
+   hardDogs: hardDogs,
+   staffFte: staffFte,
+   band: band,
+   phaseHint: phaseHint,
+   acresPerOpen: openDogs > 0 ? Math.round((acres / openDogs) * 100) / 100 : 0
+  };
  }
 
  function styles() {
@@ -251,17 +404,17 @@
   var s = document.createElement('style');
   s.id = 'bp-css';
   s.textContent = [
-   '.bp-board{--bp-gold:#fcd34d;--bp-amber:#f59e0b;--bp-em:#34d399;--bp-ink:#0c0a06;--bp-cream:#fff8e7;--bp-muted:#c9b896;max-width:72rem;margin:0 auto;padding:0 1rem 6rem}',
+   '.bp-board{--bp-gold:#fcd34d;--bp-amber:#f59e0b;--bp-em:#34d399;--bp-ink:#0c0a06;--bp-cream:#fff8e7;max-width:72rem;margin:0 auto;padding:0 1rem 6rem}',
    '.bp-tabs{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.35rem 0 1rem;position:sticky;top:4.75rem;z-index:30;background:linear-gradient(180deg,rgba(12,10,6,.97),rgba(12,10,6,.92));backdrop-filter:blur(12px);border-bottom:1px solid rgba(252,211,77,.2)}',
    '.bp-tabs::-webkit-scrollbar{display:none}',
-   '.bp-tab{flex:0 0 auto;padding:.65rem .95rem;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);color:rgba(255,248,231,.75);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:44px;white-space:nowrap}',
+   '.bp-tab{flex:0 0 auto;padding:.65rem .9rem;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);color:rgba(255,248,231,.75);font-size:.74rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:44px;white-space:nowrap}',
    '.bp-tab.is-on{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#1a1200;border-color:transparent}',
    '.bp-panel{display:none;animation:bp-in .25s ease}',
    '.bp-panel.is-on{display:block}',
    '@keyframes bp-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}',
    '.bp-kicker{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(252,211,77,.85);margin:0 0 .4rem;font-weight:700}',
    '.bp-h2{font-family:Space Grotesk,Inter,sans-serif;font-size:clamp(1.55rem,4vw,2.35rem);line-height:1.12;margin:0 0 .75rem;color:#fff;font-weight:700;letter-spacing:-.02em}',
-   '.bp-lede{font-size:1.05rem;line-height:1.65;color:#e8e0d0;margin:0 0 1.25rem;max-width:42rem;font-weight:500}',
+   '.bp-lede{font-size:1.05rem;line-height:1.65;color:#e8e0d0;margin:0 0 1.25rem;max-width:44rem;font-weight:500}',
    '.bp-grid{display:grid;gap:.85rem}',
    '@media(min-width:720px){.bp-grid.g2{grid-template-columns:1fr 1fr}.bp-grid.g3{grid-template-columns:1fr 1fr 1fr}}',
    '.bp-card{border-radius:1.15rem;border:1px solid rgba(252,211,77,.28);background:rgba(20,16,8,.88);padding:1.15rem 1.2rem}',
@@ -280,7 +433,7 @@
    '.bp-btn-gold{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#1a1200}',
    '.bp-btn-ghost{background:rgba(0,0,0,.35);color:#fde68a;border:1px solid rgba(252,211,77,.4)}',
    '.bp-row{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0}',
-   '.bp-truth{font-size:.78rem;line-height:1.5;color:rgba(255,248,231,.5);margin:1rem 0 0;max-width:40rem}',
+   '.bp-truth{font-size:.78rem;line-height:1.5;color:rgba(255,248,231,.5);margin:1rem 0 0;max-width:42rem}',
    '.bp-law{border-left:3px solid var(--bp-gold);padding:.75rem 1rem;margin:0 0 .75rem;background:linear-gradient(90deg,rgba(245,158,11,.12),transparent)}',
    '.bp-law b{display:block;color:#fde68a;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.25rem}',
    '.bp-law strong{color:#fff;font-size:1rem}',
@@ -288,9 +441,20 @@
    '.bp-tier{cursor:pointer;transition:border-color .15s,transform .15s}',
    '.bp-tier:hover,.bp-tier.is-on{border-color:rgba(252,211,77,.7);transform:translateY(-2px)}',
    '.bp-tier .price{font-size:1.25rem;color:#fcd34d;font-weight:700;margin:.35rem 0}',
-   '.bp-blueprint{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.55;color:#c9f0dd;background:rgba(0,20,16,.55);border:1px solid rgba(52,211,153,.25);border-radius:.9rem;padding:1rem;overflow-x:auto;white-space:pre}',
-   '.bp-sticky{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;gap:.4rem;padding:.55rem .75rem calc(.55rem + env(safe-area-inset-bottom));background:linear-gradient(180deg,transparent,rgba(12,10,6,.97) 28%);border-top:1px solid rgba(252,211,77,.2)}',
-   '.bp-sticky a,.bp-sticky button{flex:1;text-align:center;font-size:.72rem;font-weight:700;padding:.7rem .3rem;border-radius:999px;min-height:44px;border:0;cursor:pointer;font-family:inherit}',
+   '.bp-blueprint{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;line-height:1.5;color:#c9f0dd;background:rgba(0,20,16,.55);border:1px solid rgba(52,211,153,.25);border-radius:.9rem;padding:1rem;overflow-x:auto;white-space:pre}',
+   '.bp-calc{display:grid;gap:.75rem;padding:1rem;border-radius:1.15rem;border:1px solid rgba(52,211,153,.35);background:rgba(4,20,16,.55)}',
+   '@media(min-width:640px){.bp-calc-controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}}',
+   '.bp-calc label{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#6ee7b7;font-weight:700;margin-bottom:.35rem}',
+   '.bp-calc input{width:100%;padding:.7rem .8rem;border-radius:.75rem;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.45);color:#fff;font-size:1rem;font-weight:600}',
+   '.bp-calc-out{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}',
+   '@media(min-width:640px){.bp-calc-out{grid-template-columns:repeat(4,1fr)}}',
+   '.bp-calc-out div{padding:.7rem;border-radius:.75rem;background:rgba(0,0,0,.4);border:1px solid rgba(252,211,77,.2);text-align:center}',
+   '.bp-calc-out b{display:block;font-size:1.2rem;color:#fde68a}',
+   '.bp-calc-out span{font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,248,231,.5)}',
+   '.bp-band{margin-top:.65rem;font-size:.9rem;line-height:1.5;color:#a7f3d0;font-weight:600}',
+   '.bp-phase{position:relative;padding-left:1rem;border-left:2px solid rgba(252,211,77,.4);margin:0 0 1rem}',
+   '.bp-sticky{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;gap:.35rem;padding:.55rem .65rem calc(.55rem + env(safe-area-inset-bottom));background:linear-gradient(180deg,transparent,rgba(12,10,6,.97) 28%);border-top:1px solid rgba(252,211,77,.2)}',
+   '.bp-sticky a,.bp-sticky button{flex:1;text-align:center;font-size:.68rem;font-weight:700;padding:.65rem .25rem;border-radius:999px;min-height:44px;border:0;cursor:pointer;font-family:inherit}',
    '.bp-sticky .pri{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#1a1200}',
    '.bp-sticky .sec{background:rgba(0,0,0,.4);color:#fde68a;border:1px solid rgba(252,211,77,.35);text-decoration:none;display:flex;align-items:center;justify-content:center}',
    '@media(min-width:900px){.bp-sticky{display:none}}',
@@ -302,25 +466,200 @@
  function panelWhy() {
   return (
    '<section class="bp-panel is-on" data-bp="why">' +
-   '<p class="bp-kicker">01 · First principles</p>' +
-   '<h2 class="bp-h2">Senior dogs do not need a press release. They need a house.</h2>' +
-   '<p class="bp-lede">Most corporate “animal impact” is theater: a one-day paint day, a photo, a number that cannot be audited. We reject that. Corporate Barn Pod Sponsorship is infrastructure. A company funds a standardized Pod House and the monthly care of a small pack of senior shelter dogs who will live out their years with heat, space, cleanliness, and human hands.</p>' +
+   '<p class="bp-kicker">01 · Campus first principles</p>' +
+   '<h2 class="bp-h2">Massive mercy. Modular cells. Never a warehouse of souls.</h2>' +
+   '<p class="bp-lede">We are building a <strong style="color:#fde68a">Shiba Barn Campus</strong>: treasury land, a real house for humans who care, a huge heated barn shell that can grow bay by bay, and inside it — identical <strong style="color:#fde68a">pods of 5–10 dogs</strong>. That number is the healthy cell, not the mission ceiling. Fill the campus with pods. Do not overpack a pod.</p>' +
    '<div class="bp-grid g3" style="margin-bottom:1rem">' +
-   '<div class="bp-metric"><b>5–10</b><span>Seniors per pod</span></div>' +
-   '<div class="bp-metric"><b>1 kit</b><span>Identical on every land</span></div>' +
-   '<div class="bp-metric"><b>Law first</b><span>Permits before paws</span></div>' +
+   '<div class="bp-metric"><b>5–10</b><span>Dogs per pod cell</span></div>' +
+   '<div class="bp-metric"><b>2→8</b><span>Pods by phase</span></div>' +
+   '<div class="bp-metric"><b>20–80</b><span>Design living dogs at full modular mass</span></div>' +
    '</div>' +
    '<div class="bp-grid g2">' +
-   '<div class="bp-card"><h3>The problem (Bilyeu-clear)</h3><p>Seniors fill shelters because “nobody wants the old ones.” Cold runs. Stress. Medical costs that scare adopters. Companies want purpose. Dogs want a couch and a warm floor. We connect those truths with a product you can inspect.</p></div>' +
-   '<div class="bp-card"><h3>The mechanism (Vitalik-honest)</h3><p>Standardized house. Public SOP. Local compliance. Corporate capital for build + monthly care. $NIBBLES for belonging and story rights. Stable rails for food and vet when live. No fake on-chain dog GPS. Receipts or silence.</p></div>' +
-   '<div class="bp-card"><h3>The scale (Elon-systems)</h3><p>One design. Many lands. Same Pod House on Barn A in Alberta and Barn B wherever zoning clears. Ops manuals copy-paste. Quality does not depend on who the sponsor is. Only the name plate changes.</p></div>' +
-   '<div class="bp-card"><h3>The heart</h3><p>A dog who gave ten years to a family and got left at a gate still gets a last chapter that feels like home. That is not soft. That is the entire point of building anything here.</p></div>' +
+   '<div class="bp-card"><h3>Bilyeu-clear problem</h3><p>Seniors, death-row dogs, and retired service dogs lose because capacity and money are not engineered. A paint day does not fix that. A campus with funded cells does.</p></div>' +
+   '<div class="bp-card"><h3>Elon-systems scale</h3><p>Identical pods. Expandable barn. Phase gates. Copy-paste excellence. Growth is adding a bay and a staff line — not inventing a new chaos barn every year.</p></div>' +
+   '<div class="bp-card"><h3>Vitalik-honest money</h3><p>Treasury builds land and shell. Corporates fund pods. Stable rails feed mouths. Tokens are belonging. Charts never decide who eats.</p></div>' +
+   '<div class="bp-card"><h3>Stewardship heart</h3><p>Overpacking is not love. Presence is love. We go massive by repeating dignity, not by stacking fear.</p></div>' +
    '</div>' +
    '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="house">See the Pod House blueprint →</button>' +
-   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="sponsor">Corporate tiers</button>' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="campus">See the campus model →</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="acres">Acreage calculator</button>' +
    '</div>' +
-   '<p class="bp-truth">Design studio language only until land, permits, staffing, charity rails, and funding are real. No live pods claimed today.</p>' +
+   '<p class="bp-truth">Design studio. No live campus or dog counts claimed until land, permits, staff, and funding are real.</p>' +
+   '</section>'
+  );
+ }
+
+ function panelCampus() {
+  var blueprint =
+   'SHIBA BARN CAMPUS  ·  expandable shell  ·  modular pods\n' +
+   '┌─────────────────────────────────────────────────────┐\n' +
+   '│  CARETAKER HOUSE          │  OPS · laundry · meds   │\n' +
+   '│  (humans who stay)        │  isolation + intake     │\n' +
+   '├────────── BAY A ──────────┼──────── BAY B (grow) ───┤\n' +
+   '│  POD 1 (5–10)  POD 2      │  POD 3        POD 4     │\n' +
+   '│  dual runs     dual runs  │  dual runs    dual runs  │\n' +
+   '├────────── BAY C (later) ──┴─────────────────────────┤\n' +
+   '│  POD 5–6 · quiet / service-retiree option           │\n' +
+   '├────────── BAY D (full mass) ─────────────────────────┤\n' +
+   '│  POD 7–8 · only after audits green 12+ months       │\n' +
+   '└─────────────────────────────────────────────────────┘\n' +
+   'YARDS: rotated grass/runs · not one mud pit for 80 dogs\n' +
+   'RULE: openDogs = min(pod seats, acreage comfort, staff, reserve)';
+
+  var phases = CAMPUS_PHASES.map(function (p) {
+   return (
+    '<div class="bp-phase bp-card" style="margin:0 0 .75rem">' +
+    '<h3>' +
+    p.name +
+    '</h3>' +
+    '<p><strong style="color:#fde68a">Dogs:</strong> ' +
+    p.dogs +
+    ' · <strong style="color:#fde68a">Pods:</strong> ' +
+    p.pods +
+    ' · <strong style="color:#fde68a">Land:</strong> ' +
+    p.acresHint +
+    '</p>' +
+    '<p style="margin-top:.4rem">' +
+    p.build +
+    '</p>' +
+    '<p style="margin-top:.4rem;color:#a7f3d0">' +
+    p.who +
+    ' — ' +
+    p.open +
+    '</p>' +
+    '</div>'
+   );
+  }).join('');
+
+  var tracks = TRACKS.map(function (t) {
+   return '<div class="bp-card"><h3>' + t.title + '</h3><p>' + t.body + '</p></div>';
+  }).join('');
+
+  return (
+   '<section class="bp-panel" data-bp="campus">' +
+   '<p class="bp-kicker">02 · Campus architecture</p>' +
+   '<h2 class="bp-h2">Huge barn. Small homes inside it. Build on as we grow.</h2>' +
+   '<p class="bp-lede">The barn shell is allowed to be massive. The <em>living unit</em> stays a pod. When Phase 1 works, we bolt on Bay B — same engineering, same SOP — not a freestyle second universe.</p>' +
+   '<div class="bp-blueprint" aria-label="Campus schematic">' +
+   blueprint +
+   '</div>' +
+   '<div class="bp-grid g2" style="margin-top:1rem">' +
+   '<div class="bp-card"><h3>What treasury builds</h3><ul>' +
+   '<li>Land (own or long lease)</li>' +
+   '<li>Caretaker / ops house</li>' +
+   '<li>Heated barn shell + utilities</li>' +
+   '<li>Isolation + medical backbone</li>' +
+   '<li>Phase expansions of the building</li>' +
+   '<li>Multi-year medical reserve</li>' +
+   '</ul></div>' +
+   '<div class="bp-card"><h3>What corporations fund</h3><ul>' +
+   '<li>Each pod fit-out (identical kit)</li>' +
+   '<li>Monthly care for 5–10 dogs</li>' +
+   '<li>Name plate on that cell only</li>' +
+   '<li>Enrichment + story rights with consent</li>' +
+   '<li>Not the right to overfill or skip law</li>' +
+   '</ul></div>' +
+   '</div>' +
+   '<h3 class="bp-h2" style="font-size:1.35rem;margin:1.5rem 0 .75rem">Growth phases</h3>' +
+   phases +
+   '<h3 class="bp-h2" style="font-size:1.35rem;margin:1.25rem 0 .75rem">Life tracks on campus</h3>' +
+   '<div class="bp-grid g2">' +
+   tracks +
+   '</div>' +
+   '<div class="bp-row">' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="acres">Acreage vs animals →</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="house">Pod cell blueprint</button>' +
+   '</div>' +
+   '</section>'
+  );
+ }
+
+ function panelAcres() {
+  var rows = ACREAGE_TABLE.map(function (r) {
+   return (
+    '<tr><td><strong>' +
+    r.acres +
+    ' ac</strong></td><td>' +
+    r.comfortDogs +
+    '</td><td>' +
+    r.maxHard +
+    '</td><td>' +
+    r.pods +
+    '</td><td>' +
+    r.note +
+    '</td></tr>'
+   );
+  }).join('');
+
+  return (
+   '<section class="bp-panel" data-bp="acres">' +
+   '<p class="bp-kicker">03 · Acreage · density · no overpack</p>' +
+   '<h2 class="bp-h2">How much land for how many souls?</h2>' +
+   '<p class="bp-lede">Indoor pods set <strong style="color:#fde68a">seats</strong>. Acres set <strong style="color:#fde68a">outdoor life, septic, noise, and setbacks</strong>. Staff and medical reserve set whether those seats may open. We publish comfort bands so ambition never becomes cruelty.</p>' +
+   '<div class="bp-calc" id="bp-calc">' +
+   '<div class="bp-calc-controls">' +
+   '<div><label for="bp-acres">Acres</label><input id="bp-acres" type="number" min="0" max="80" step="0.5" value="5"></div>' +
+   '<div><label for="bp-pods">Open pods</label><input id="bp-pods" type="number" min="0" max="8" step="1" value="2"></div>' +
+   '<div><label for="bp-dp">Dogs per pod</label><input id="bp-dp" type="number" min="5" max="10" step="1" value="8"></div>' +
+   '</div>' +
+   '<div class="bp-calc-out">' +
+   '<div><b id="bp-o-seats">16</b><span>Pod seats</span></div>' +
+   '<div><b id="bp-o-open">16</b><span>Comfort open dogs</span></div>' +
+   '<div><b id="bp-o-hard">41</b><span>Hard acre ceiling*</span></div>' +
+   '<div><b id="bp-o-staff">1.5</b><span>Design staff FTE</span></div>' +
+   '</div>' +
+   '<p class="bp-band" id="bp-o-band">comfort band OK for seated pods</p>' +
+   '<p class="bp-truth" id="bp-o-phase">Phase hint: Phase 1 · ~0.2 ac/dog comfort · *hard ceiling is not a target</p>' +
+   '</div>' +
+   '<div class="bp-card" style="margin-top:1rem">' +
+   '<h3>Design bands (not legal advice)</h3>' +
+   '<table class="bp-table"><thead><tr><th>Acres</th><th>Comfort dogs</th><th>Hard max*</th><th>Pods</th><th>Note</th></tr></thead><tbody>' +
+   rows +
+   '</tbody></table>' +
+   '<p style="margin-top:.75rem;font-size:.85rem;color:#a89b7e">*Hard max uses ~0.12 ac/living dog as a stress floor for outdoor/buffer math. Comfort uses ~0.2 ac/dog. Premium campuses aim ~0.35. Zoning, septic, and species mix can force lower. Second site preferred over crushing one parcel past 20 acres of pressure.</p>' +
+   '</div>' +
+   '<div class="bp-grid g2" style="margin-top:1rem">' +
+   '<div class="bp-card"><h3>Formula we live by</h3><p><strong style="color:#fde68a">openDogs = min(pod seats, acreage comfort cap, staff capacity, medical reserve)</strong></p><p style="margin-top:.5rem">If any term is small, open dogs stay small. Growth means improving the small term — more land, more staff, more pods, more reserve — not ignoring it.</p></div>' +
+   '<div class="bp-card"><h3>Why not one open floor of 80?</h3><p>Disease, fights, noise, and burnout. Massive scale is many calm homes under one roof, with yards that rotate and isolation that works. That is how you stay massive for decades.</p></div>' +
+   '</div>' +
+   '<div class="bp-row">' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="money">Treasury vs corporate →</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="campus">Back to campus</button>' +
+   '</div>' +
+   '</section>'
+  );
+ }
+
+ function panelMoney() {
+  var rows = MONEY_SPLIT.map(function (m) {
+   return '<tr><th style="width:32%">' + m.who + '</th><td>' + m.pays + '</td></tr>';
+  }).join('');
+  return (
+   '<section class="bp-panel" data-bp="money">' +
+   '<p class="bp-kicker">04 · Capital architecture</p>' +
+   '<h2 class="bp-h2">Treasury builds the mountain. Pods fund the homes on it.</h2>' +
+   '<p class="bp-lede">Your instinct to have the treasury fund land, house, and a huge barn is strong — as the <strong style="color:#fde68a">backbone</strong>. Corporate pods then productize recurring care. That split keeps the campus alive when any single sponsor pauses.</p>' +
+   '<div class="bp-card"><table class="bp-table"><tbody>' +
+   rows +
+   '</tbody></table></div>' +
+   '<div class="bp-grid g2" style="margin-top:1rem">' +
+   '<div class="bp-card"><h3>Why this beats “only a mega barn gift”</h3><ul>' +
+   '<li>Shell without ops dies in year two</li>' +
+   '<li>Pods create named accountability</li>' +
+   '<li>Phase gates stop romantic overfill</li>' +
+   '<li>Medical reserve is non-optional for seniors</li>' +
+   '</ul></div>' +
+   '<div class="bp-card"><h3>Why this beats “only foster forever”</h3><ul>' +
+   '<li>Some dogs will never pass a home check</li>' +
+   '<li>Death-row needs a real heated bed tonight</li>' +
+   '<li>Campus is the permanent floor under the flywheel</li>' +
+   '<li>Still send adoptable dogs out via Golden Paws paths</li>' +
+   '</ul></div>' +
+   '</div>' +
+   '<div class="bp-row">' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="sponsor">Sponsor a cell →</button>' +
+   '<a class="bp-btn bp-btn-ghost" href="whitepaper.html#treasury-path">Treasury path</a>' +
+   '</div>' +
    '</section>'
   );
  }
@@ -328,56 +667,81 @@
  function panelHouse() {
   var h = HOUSE_SPEC;
   var blueprint =
-   'SHH-POD-HOUSE-v1  ·  identical kit every Shiba Barn land\n' +
-   '┌──────────────────────────────────────────┐\n' +
-   '│  ENTRY + BOOT ZONE     │  MEDS / LAUNDRY │\n' +
-   '│  (double door airlock) │  (locked cabinet)│\n' +
-   '├────────────┬───────────┴─────────────────┤\n' +
-   '│ LOUNGE     │  REST BAYS (beds 1–10)       │\n' +
-   '│ home-like  │  low sofas · washable rugs   │\n' +
-   '│ acoustic   │  soft night lighting         │\n' +
-   '├────────────┼─────────────────────────────┤\n' +
-   '│ ISOLATION  │  DOG DOORS → RUN A / RUN B   │\n' +
-   '│ 1 bay      │  dual compartment outdoor    │\n' +
-   '└────────────┴─────────────────────────────┘\n' +
-   'Outdoor: dual runs, shade + wind, double gates, drain slope\n' +
-   'Cameras: 6 fixed (privacy policy · no exploitation of distress)';
+   'POD CELL  ' +
+   h.code +
+   '  ·  identical on every campus\n' +
+   '┌──────────────────────────────────────┐\n' +
+   '│ ENTRY AIRLOCK     │ MEDS / LAUNDRY   │\n' +
+   '├─────────┬─────────┴──────────────────┤\n' +
+   '│ LOUNGE  │ REST BAYS (beds 1–10)      │\n' +
+   '│ home    │ soft light · real beds     │\n' +
+   '├─────────┼────────────────────────────┤\n' +
+   '│ ISOLATE │ DOG DOORS → RUN A / RUN B  │\n' +
+   '└─────────┴────────────────────────────┘';
 
   return (
    '<section class="bp-panel" data-bp="house">' +
-   '<p class="bp-kicker">02 · Pod House · ' + h.code + '</p>' +
-   '<h2 class="bp-h2">The house is the product. Same house. Every land.</h2>' +
-   '<p class="bp-lede">Whether the acre already has a barn or we place a new pad, the living unit for sponsored seniors is the <strong style="color:#fde68a">identical Pod House kit</strong>. Local foundations and permits adapt. Geometry, capacity, drains, climate targets, and SOP do not freestyle.</p>' +
-   '<div class="bp-blueprint" aria-label="Pod House schematic">' + blueprint + '</div>' +
+   '<p class="bp-kicker">05 · Pod cell · ' +
+   h.code +
+   '</p>' +
+   '<h2 class="bp-h2">The cell stays 5–10. The campus gets huge.</h2>' +
+   '<p class="bp-lede">Every corporate sponsor buys a cell, not a right to densify the barn. Same kit whether we are on Bay A of a 5-acre flagship or Bay D of a 20-acre regional campus.</p>' +
+   '<div class="bp-blueprint">' +
+   blueprint +
+   '</div>' +
    '<div class="bp-grid g2" style="margin-top:1rem">' +
    '<div class="bp-card"><h3>Hard dimensions</h3>' +
    '<table class="bp-table"><tbody>' +
-   '<tr><th>Code</th><td>' + h.code + '</td></tr>' +
-   '<tr><th>Footprint</th><td>' + h.footprintM + ' (' + h.footprintFt + ')</td></tr>' +
-   '<tr><th>Indoor living</th><td>~' + h.indoorSqM + ' m² / ~' + h.indoorSqFt + ' ft²</td></tr>' +
-   '<tr><th>Outdoor runs</th><td>~' + h.runSqM + ' m² / ~' + h.runSqFt + ' ft² combined design</td></tr>' +
-   '<tr><th>Ceiling</th><td>~' + h.heightM + ' m clear staff height</td></tr>' +
-   '<tr><th>Capacity</th><td>' + h.minDogs + '–' + h.maxDogs + ' senior dogs (behavior-capped)</td></tr>' +
-   '<tr><th>Isolation</th><td>' + h.isolationBays + ' dedicated bay</td></tr>' +
-   '<tr><th>Cameras</th><td>' + h.cameras + ' fixed positions</td></tr>' +
+   '<tr><th>Footprint</th><td>' +
+   h.footprintM +
+   ' (' +
+   h.footprintFt +
+   ')</td></tr>' +
+   '<tr><th>Indoor</th><td>~' +
+   h.indoorSqM +
+   ' m²</td></tr>' +
+   '<tr><th>Runs</th><td>~' +
+   h.runSqM +
+   ' m² design</td></tr>' +
+   '<tr><th>Capacity</th><td>' +
+   h.minDogs +
+   '–' +
+   h.maxDogs +
+   ' (behavior-capped)</td></tr>' +
+   '<tr><th>Isolation</th><td>' +
+   h.isolationBays +
+   ' bay</td></tr>' +
+   '<tr><th>Cameras</th><td>' +
+   h.cameras +
+   '</td></tr>' +
    '</tbody></table></div>' +
-   '<div class="bp-card"><h3>Why these numbers</h3><p>AWA-style formulas are a legal floor for some regulated settings. ASV and shelter-medicine guidance push double-compartment housing, room to walk, and careful cohousing. Senior sanctuaries that work feel like homes: lounges, outdoor paths, treatment, laundry. We encode that as a kit so quality is not personality-dependent.</p>' +
-   '<p style="margin-top:.75rem">Per-dog indoor rest is designed for real beds and body clearance — not stacked crates. Outdoor runs beat “minimum crate math” so seniors can stretch, sun, and choose distance from housemates.</p></div>' +
-   '</div>' +
-   '<div class="bp-card" style="margin-top:.85rem"><h3>Materials & systems (non-negotiable package)</h3>' +
-   '<ul>' +
-   '<li><strong style="color:#fde68a">Floor:</strong> ' + h.floor + '</li>' +
-   '<li><strong style="color:#fde68a">Walls:</strong> ' + h.walls + '</li>' +
-   '<li><strong style="color:#fde68a">Climate:</strong> ' + h.climate + ' — design targets stay inside AWA-grade windows with extra margin for aged dogs</li>' +
-   '<li><strong style="color:#fde68a">Roof / structure:</strong> ' + h.roof + '</li>' +
-   '<li><strong style="color:#fde68a">Power / water / waste:</strong> ' + h.power + ' · ' + h.water + ' · ' + h.waste + '</li>' +
-   '<li><strong style="color:#fde68a">Windows:</strong> ' + h.windows + '</li>' +
+   '<div class="bp-card"><h3>Materials package</h3><ul>' +
+   '<li>' +
+   h.floor +
+   '</li>' +
+   '<li>' +
+   h.walls +
+   '</li>' +
+   '<li>' +
+   h.climate +
+   '</li>' +
+   '<li>' +
+   h.roof +
+   '</li>' +
+   '<li>' +
+   h.power +
+   '</li>' +
+   '<li>' +
+   h.water +
+   ' · ' +
+   h.waste +
+   '</li>' +
    '</ul></div>' +
-   '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="standard">Identical kit checklist →</button>' +
-   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="rules">Rules &amp; SOPs</button>' +
    '</div>' +
-   '<p class="bp-truth">Dimensions are design targets for SHH-POD-HOUSE-v1. Final engineered drawings get PE / local stamp per site. We do not occupy without permits.</p>' +
+   '<div class="bp-row">' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="standard">Identical kit →</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="rules">Rules</button>' +
+   '</div>' +
    '</section>'
   );
  }
@@ -388,30 +752,14 @@
   }).join('');
   return (
    '<section class="bp-panel" data-bp="standard">' +
-   '<p class="bp-kicker">03 · Standardization</p>' +
-   '<h2 class="bp-h2">Copy-paste excellence. Zero freestyle barns.</h2>' +
-   '<p class="bp-lede">If Barn North and Barn South look like different planets, dogs pay the price. Standardization is mercy at scale: training, inspections, sponsor reports, and spare parts all speak one language.</p>' +
-   '<div class="bp-card"><table class="bp-table"><thead><tr><th>Package</th><th>What stays identical</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
-   '<div class="bp-grid g2" style="margin-top:1rem">' +
-   '<div class="bp-card"><h3>What may change by region</h3><ul>' +
-   '<li>Foundation depth and frost line</li>' +
-   '<li>Snow / wind / seismic load tables</li>' +
-   '<li>HVAC brand and fuel type</li>' +
-   '<li>Fence material if code demands it</li>' +
-   '<li>Utility hookups and septic vs sewer</li>' +
-   '</ul></div>' +
-   '<div class="bp-card"><h3>What never changes</h3><ul>' +
-   '<li>Indoor / outdoor dual-compartment logic</li>' +
-   '<li>Max capacity and isolation bay</li>' +
-   '<li>Drain slope and washable surfaces</li>' +
-   '<li>Cleanliness + safety SOP binder</li>' +
-   '<li>Open checklist before first dog</li>' +
-   '<li>Truth: no public claim without proof</li>' +
-   '</ul></div>' +
-   '</div>' +
+   '<p class="bp-kicker">06 · Standardization + expand</p>' +
+   '<h2 class="bp-h2">Bolt-on bays. Same language. Zero freestyle.</h2>' +
+   '<p class="bp-lede">When we get bigger, we extend the building. We do not invent a new animal physics. Spare parts, training, and audits stay one system.</p>' +
+   '<div class="bp-card"><table class="bp-table"><thead><tr><th>Package</th><th>Rule</th></tr></thead><tbody>' +
+   rows +
+   '</tbody></table></div>' +
    '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="rules">Living rules →</button>' +
-   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="law">Law stack</button>' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="rules">Ops constitution →</button>' +
    '</div>' +
    '</section>'
   );
@@ -419,20 +767,25 @@
 
  function panelRules() {
   var blocks = SOP_RULES.map(function (r) {
-   var lis = r.points.map(function (p) { return '<li>' + p + '</li>'; }).join('');
-   return '<div class="bp-card" id="bp-rule-' + r.id + '"><h3>' + r.title + '</h3><ul>' + lis + '</ul></div>';
+   var lis = r.points
+    .map(function (p) {
+     return '<li>' + p + '</li>';
+    })
+    .join('');
+   return '<div class="bp-card"><h3>' + r.title + '</h3><ul>' + lis + '</ul></div>';
   }).join('');
   return (
    '<section class="bp-panel" data-bp="rules">' +
-   '<p class="bp-kicker">04 · Rules &amp; regulations (ops constitution)</p>' +
-   '<h2 class="bp-h2">Clean. Safe. Spacious. Calm. Located for real life.</h2>' +
-   '<p class="bp-lede">These rules bind every Pod House on every Shiba Barn land. Staff sign them. Sponsors can request the checklist summary. Dogs live them.</p>' +
-   '<div class="bp-grid g2">' + blocks + '</div>' +
-   '<div class="bp-card" style="margin-top:1rem"><h3>Staffing model (design)</h3><p>Pods are not “drop food and leave.” Design assumes trained daily coverage, overnight check protocol, on-call vet relationship, and enrichment blocks on the board. Exact FTEs scale with site density and local labor law.</p></div>' +
-   '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="law">Pass the law stack →</button>' +
+   '<p class="bp-kicker">07 · Rules (ops constitution)</p>' +
+   '<h2 class="bp-h2">Clean. Safe. Spacious. Calm. Land-honest.</h2>' +
+   '<p class="bp-lede">These bind every pod on every bay. The logo never outranks the binder.</p>' +
+   '<div class="bp-grid g2">' +
+   blocks +
    '</div>' +
-   '<p class="bp-truth">Internal constitution + professional guidelines. Not a substitute for licensed counsel, municipal inspectors, or attending veterinarians.</p>' +
+   '<div class="bp-row">' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="law">Law stack →</button>' +
+   '</div>' +
+   '<p class="bp-truth">Internal constitution + professional guidelines. Not a substitute for counsel, inspectors, or vets.</p>' +
    '</section>'
   );
  }
@@ -440,95 +793,97 @@
  function panelLaw() {
   var blocks = LAW_STACK.map(function (L) {
    return (
-    '<div class="bp-law"><b>' + L.layer + '</b><strong>' + L.title + '</strong><p>' + L.body + '</p></div>'
+    '<div class="bp-law"><b>' +
+    L.layer +
+    '</b><strong>' +
+    L.title +
+    '</strong><p>' +
+    L.body +
+    '</p></div>'
    );
   }).join('');
   return (
    '<section class="bp-panel" data-bp="law">' +
-   '<p class="bp-kicker">05 · Law &amp; compliance path</p>' +
+   '<p class="bp-kicker">08 · Law &amp; density constitution</p>' +
    '<h2 class="bp-h2">If it cannot pass inspection, it does not open.</h2>' +
-   '<p class="bp-lede">We design the Pod House and ops to clear animal-protection duties, shelter-care standards, and local building rules. This is a compliance path, not a claim that every jurisdiction has already approved us.</p>' +
+   '<p class="bp-lede">Campus ambition still kneels to zoning, building code, animal protection duty, and the open-gate checklist.</p>' +
    blocks +
-   '<div class="bp-card"><h3>Open-gate checklist (before any senior moves in)</h3><ul>' +
-   '<li>Zoning confirmation in writing</li>' +
-   '<li>Building / electrical / plumbing permits closed or signed off</li>' +
-   '<li>Animal establishment / kennel / shelter licence if required locally</li>' +
-   '<li>Insurance binders active</li>' +
+   '<div class="bp-card"><h3>Open-gate checklist</h3><ul>' +
+   '<li>Zoning + building/electrical/plumbing sign-off for this bay</li>' +
+   '<li>Animal establishment licence if required</li>' +
+   '<li>Insurance binders</li>' +
    '<li>Attending vet agreement</li>' +
-   '<li>Staff trained on SOP binder + emergency drill logged</li>' +
-   '<li>14-day empty-house systems test (climate, drains, cameras, water)</li>' +
-   '<li>Public-facing truth page updated: this pod is real, here is proof</li>' +
+   '<li>Staff for open pods only</li>' +
+   '<li>Acreage comfort formula green</li>' +
+   '<li>14-day empty systems test</li>' +
+   '<li>Public truth page updated when live</li>' +
    '</ul></div>' +
    '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="sponsor">Corporate sponsorship →</button>' +
-   '<a class="bp-btn bp-btn-ghost" href="whitepaper.html#treasury-path">Treasury path</a>' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="sponsor">Sponsor →</button>' +
    '</div>' +
-   '<p class="bp-truth">Not legal advice. Laws change. Each site hires local counsel and follows the inspector in the room.</p>' +
+   '<p class="bp-truth">Not legal advice. Each site hires local counsel.</p>' +
    '</section>'
   );
  }
 
  function panelSponsor() {
   var cards = POD_TIERS.map(function (t, i) {
+   var price =
+    t.monthlyUsd > 0
+     ? '$' +
+       t.monthlyUsd.toLocaleString() +
+       '<span style="font-size:.85rem;color:#a89b7e"> / mo care design</span>'
+     : '<span style="font-size:.95rem;color:#a7f3d0">Capital / multi-year design</span>';
+   var dogsLine =
+    t.dogs > 0
+     ? t.dogs + ' seniors · kit ~$' + t.capitalUsd.toLocaleString()
+     : 'Campus layer · from ~$' + t.capitalUsd.toLocaleString() + ' design';
    return (
-    '<div class="bp-card bp-tier' + (i === 1 ? ' is-on' : '') + '" data-tier="' + t.id + '">' +
-    '<div class="bp-kicker" style="margin:0">' + t.circle + ' · ' + t.tag + '</div>' +
-    '<h3 style="margin-top:.35rem">' + t.name + '</h3>' +
-    '<div class="price">$' + t.monthlyUsd.toLocaleString() + '<span style="font-size:.85rem;color:#a89b7e"> / mo care design</span></div>' +
-    '<p style="margin:0 0 .35rem;color:#fde68a;font-weight:600">' + t.dogs + ' seniors · build kit ~$' + t.capitalUsd.toLocaleString() + ' design</p>' +
-    '<p>' + t.blurb + '</p>' +
-    '<button type="button" class="bp-btn bp-btn-gold" style="margin-top:.85rem;width:100%" data-sponsor="' + t.id + '">Stand as ' + t.name + '</button>' +
+    '<div class="bp-card bp-tier' +
+    (i === 1 ? ' is-on' : '') +
+    '" data-tier="' +
+    t.id +
+    '">' +
+    '<div class="bp-kicker" style="margin:0">' +
+    t.circle +
+    ' · ' +
+    t.tag +
+    '</div>' +
+    '<h3 style="margin-top:.35rem">' +
+    t.name +
+    '</h3>' +
+    '<div class="price">' +
+    price +
+    '</div>' +
+    '<p style="margin:0 0 .35rem;color:#fde68a;font-weight:600">' +
+    dogsLine +
+    '</p>' +
+    '<p>' +
+    t.blurb +
+    '</p>' +
+    '<button type="button" class="bp-btn bp-btn-gold" style="margin-top:.85rem;width:100%" data-sponsor="' +
+    t.id +
+    '">Stand as ' +
+    t.name +
+    '</button>' +
     '</div>'
    );
   }).join('');
   return (
    '<section class="bp-panel" data-bp="sponsor">' +
-   '<p class="bp-kicker">06 · Corporate sponsorship</p>' +
-   '<h2 class="bp-h2">Your company becomes a permanent warm chapter.</h2>' +
-   '<p class="bp-lede">Capital builds the identical Pod House. Monthly support funds food, meds, staffing share, enrichment, and repairs. Naming rights are earned by care, not by a one-time check that evaporates.</p>' +
-   '<div class="bp-grid g2">' + cards + '</div>' +
-   '<div class="bp-card" style="margin-top:1rem"><h3>What sponsors receive (when funded &amp; live)</h3><ul>' +
-   '<li>Name plate on the standardized house (agreed branding guidelines)</li>' +
-   '<li>Quarterly impact packet: occupancy, health summary (privacy-safe), sanitation audit pass/fail</li>' +
-   '<li>Optional livestream windows and scheduled team volunteer days</li>' +
-   '<li>Story rights with consent — never exploit a dog’s worst day for clout</li>' +
-   '<li>$NIBBLES circle recognition path for holders who amplify the pod mission</li>' +
-   '</ul></div>' +
-   '<div class="bp-card" style="margin-top:.85rem"><h3>What sponsors do not buy</h3><p>They do not buy the right to skip law, shrink space, cut cleaning, or treat seniors as mascots. The SOP outranks the logo. That is the product companies should want to be associated with.</p></div>' +
-   '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-sponsor="general">Save corporate interest</button>' +
-   '<a class="bp-btn bp-btn-ghost" href="programs/corporate-barn-pod-sponsorship.html">Classic program card</a>' +
-   '<a class="bp-btn bp-btn-ghost" href="programs/shiba-barn-sanctuary-network.html">Shiba Barn Network</a>' +
-   '</div>' +
-   '<p class="bp-truth">USD figures are design targets for planning, not live invoices. Final contracts, charity receipts, and multi-year reserves publish when rails and counsel clear them.</p>' +
-   '</section>'
-  );
- }
-
- function panelLand() {
-  return (
-   '<section class="bp-panel" data-bp="land">' +
-   '<p class="bp-kicker">07 · Land · barns · houses</p>' +
-   '<h2 class="bp-h2">House on the land. Same house. Real living conditions.</h2>' +
-   '<p class="bp-lede">Shiba Barn lands may already hold structures or start as raw pad. Either way, sponsored seniors live in the Pod House — climate-controlled, dual-run, SOP-bound — not in an improvised shed that “sort of works.”</p>' +
+   '<p class="bp-kicker">09 · Corporate + campus founders</p>' +
+   '<h2 class="bp-h2">Fund a cell. Or fund the mountain under every cell.</h2>' +
+   '<p class="bp-lede">Pod sponsors make the homes real month after month. Campus founders help treasury place land, house, and barn shell so the mission can go massive without begging for a roof every winter.</p>' +
    '<div class="bp-grid g2">' +
-   '<div class="bp-card"><h3>Existing structure path</h3><ul>' +
-   '<li>Survey: can the identical kit integrate or sit adjacent?</li>' +
-   '<li>If retrofit cannot meet drains, climate, isolation, and space — we place a new kit, not a compromise</li>' +
-   '<li>Old building may become storage or staff support if safe</li>' +
-   '</ul></div>' +
-   '<div class="bp-card"><h3>Greenfield path</h3><ul>' +
-   '<li>Site pick using location rules (drainage, noise, access, setbacks)</li>' +
-   '<li>Pad + utilities + identical Pod House assembly</li>' +
-   '<li>Perimeter, cameras, signage, open checklist</li>' +
-   '</ul></div>' +
-   '<div class="bp-card"><h3>Atmosphere test</h3><p>Before occupancy: staff sleep-in or overnight observation, sound check, odor check, dog-door function, emergency light test. If it feels like a warehouse, it fails. If it feels like a home that can be cleaned hard, it passes.</p></div>' +
-   '<div class="bp-card"><h3>Linked programs</h3><p>Barn Pods sit inside the wider <a href="programs/shiba-barn-sanctuary-network.html" style="color:#6ee7b7">Shiba Barn Sanctuary Network</a>. Seniors may also touch <a href="golden-paws.html" style="color:#fcd34d">Golden Paws</a> (forever homes) or hospice paths when that is the kinder truth. Pods are living retirement infrastructure, not a marketing warehouse.</p></div>' +
+   cards +
    '</div>' +
    '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="sponsor">Fund a pod</button>' +
-   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="why">Back to why</button>' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-sponsor="general">Save interest</button>' +
+   '<a class="bp-btn bp-btn-ghost" href="programs/corporate-barn-pod-sponsorship.html">Classic card</a>' +
+   '<a class="bp-btn bp-btn-ghost" href="programs/shiba-barn-sanctuary-network.html">Barn Network</a>' +
+   '<a class="bp-btn bp-btn-ghost" href="golden-paws.html">Golden Paws</a>' +
    '</div>' +
+   '<p class="bp-truth">USD figures are design targets for planning, not live invoices.</p>' +
    '</section>'
   );
  }
@@ -537,33 +892,36 @@
   styles();
   host.innerHTML =
    '<div class="bp-board" id="bp-board">' +
-   '<nav class="bp-tabs" role="tablist" aria-label="Barn Pod sections">' +
+   '<nav class="bp-tabs" role="tablist" aria-label="Barn Campus sections">' +
    '<button type="button" class="bp-tab is-on" data-bp-tab="why" role="tab">Why</button>' +
-   '<button type="button" class="bp-tab" data-bp-tab="house" role="tab">Pod House</button>' +
-   '<button type="button" class="bp-tab" data-bp-tab="standard" role="tab">Identical kit</button>' +
+   '<button type="button" class="bp-tab" data-bp-tab="campus" role="tab">Campus</button>' +
+   '<button type="button" class="bp-tab" data-bp-tab="acres" role="tab">Acreage</button>' +
+   '<button type="button" class="bp-tab" data-bp-tab="money" role="tab">Treasury</button>' +
+   '<button type="button" class="bp-tab" data-bp-tab="house" role="tab">Pod cell</button>' +
+   '<button type="button" class="bp-tab" data-bp-tab="standard" role="tab">Expand</button>' +
    '<button type="button" class="bp-tab" data-bp-tab="rules" role="tab">Rules</button>' +
    '<button type="button" class="bp-tab" data-bp-tab="law" role="tab">Law</button>' +
    '<button type="button" class="bp-tab" data-bp-tab="sponsor" role="tab">Sponsor</button>' +
-   '<button type="button" class="bp-tab" data-bp-tab="land" role="tab">Land</button>' +
    '</nav>' +
    '<div class="bp-panels">' +
    panelWhy() +
+   panelCampus() +
+   panelAcres() +
+   panelMoney() +
    panelHouse() +
    panelStandard() +
    panelRules() +
    panelLaw() +
    panelSponsor() +
-   panelLand() +
-   '</div>' +
-   '</div>' +
+   '</div></div>' +
    '<div class="bp-sticky" aria-label="Quick actions">' +
    '<button type="button" class="pri" data-bp-go="sponsor">Sponsor</button>' +
-   '<button type="button" class="sec" data-bp-go="house">House</button>' +
-   '<button type="button" class="sec" data-bp-go="law">Law</button>' +
+   '<button type="button" class="sec" data-bp-go="campus">Campus</button>' +
+   '<button type="button" class="sec" data-bp-go="acres">Acres</button>' +
    '<a class="sec" href="all-programs.html">All 30</a>' +
    '</div>';
-
   wire(host);
+  wireCalc();
  }
 
  function showPanel(id) {
@@ -577,6 +935,7 @@
    var board = $('#bp-board');
    if (board) board.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (e) { /* ignore */ }
+  if (id === 'acres') wireCalc();
  }
 
  function wire(host) {
@@ -597,17 +956,45 @@
   });
   $$('[data-sponsor]', host).forEach(function (btn) {
    btn.addEventListener('click', function () {
-    var tier = btn.getAttribute('data-sponsor');
-    saveIntent('sponsor', { tier: tier });
+    saveIntent('sponsor', { tier: btn.getAttribute('data-sponsor') });
    });
   });
   $$('.bp-tier', host).forEach(function (card) {
    card.addEventListener('click', function (e) {
     if (e.target && e.target.getAttribute && e.target.getAttribute('data-sponsor')) return;
-    $$('.bp-tier', host).forEach(function (c) { c.classList.remove('is-on'); });
+    $$('.bp-tier', host).forEach(function (c) {
+     c.classList.remove('is-on');
+    });
     card.classList.add('is-on');
    });
   });
+ }
+
+ function wireCalc() {
+  var a = document.getElementById('bp-acres');
+  var p = document.getElementById('bp-pods');
+  var d = document.getElementById('bp-dp');
+  if (!a || !p || !d) return;
+  function run() {
+   var r = calcDensity(a.value, p.value, d.value);
+   var el = function (id) {
+    return document.getElementById(id);
+   };
+   if (el('bp-o-seats')) el('bp-o-seats').textContent = String(r.seatDogs);
+   if (el('bp-o-open')) el('bp-o-open').textContent = String(r.openDogs);
+   if (el('bp-o-hard')) el('bp-o-hard').textContent = String(r.hardCap);
+   if (el('bp-o-staff')) el('bp-o-staff').textContent = String(r.staffFte);
+   if (el('bp-o-band')) el('bp-o-band').textContent = r.band;
+   if (el('bp-o-phase')) {
+    el('bp-o-phase').textContent =
+     r.phaseHint +
+     ' · ~' +
+     r.acresPerOpen +
+     ' ac per comfort-open dog · hard ceiling is not a target';
+   }
+  }
+  a.oninput = p.oninput = d.oninput = run;
+  run();
  }
 
  function boot() {
@@ -619,8 +1006,12 @@
  window.SHHBarnPods = {
   boot: boot,
   showPanel: showPanel,
+  calcDensity: calcDensity,
   HOUSE_SPEC: HOUSE_SPEC,
-  POD_TIERS: POD_TIERS
+  POD_TIERS: POD_TIERS,
+  CAMPUS_PHASES: CAMPUS_PHASES,
+  ACREAGE_TABLE: ACREAGE_TABLE,
+  DENSITY: DENSITY
  };
 
  if (document.readyState === 'loading') {
