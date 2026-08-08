@@ -101,14 +101,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/payitforward.jpg",
- shortDesc: "The $NIBBLES funding model for endless mercy links. Opens into the Pay It Forward Adoption Chain: sponsor one dog + guardian so the next heart joins.",
- fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Pay It Forward</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+ shortDesc: "Funding model for endless mercy links. Opens into the Adoption Chain product: sponsor one dog + guardian so the next heart can join. Hold for belonging. Pay care steady when rails are live.",
+ fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-rose-500 text-white text-sm font-semibold rounded-2xl">Pay It Forward</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Pay It Forward Mercy Chain</h2>
- <p class="text-amber-200 text-xl mb-6">Every transaction quietly starts a golden chain of mercy that keeps paying love forward to the next dog who needs it most.</p>
- <p class="text-zinc-300 mb-6">One rescue leads to another. One act of kindness creates the next. This is the living chain reaction we are building with every single $NIBBLES holder.</p>
- <p class="text-zinc-300 mb-6">The Mercy Chain is the funding rail. The <a href="pay-it-forward.html" class="text-rose-300 underline font-semibold">Adoption Chain experience</a> is where you meet the product: one dog, one guardian, sponsorship that is meant to keep a home standing.</p>
- <p class="text-zinc-300 mb-6">Holders keep $NIBBLES to stand with the chain. When rails are live, the care that fills bowls and pays vets is meant to land in steady dollars so love is not gambling on a chart. Belonging in the token. Living costs in certainty. <a href="whitepaper.html#treasury-path" class="text-amber-300 underline">How hold becomes help</a>.</p>
- <p class="text-zinc-300 mb-8">No matter how many dogs we help today, the momentum does not have to stop. Every honest link can reach the next senior, therapy dog, shelter, and forever home.</p>
+ <p class="text-amber-200 text-xl mb-6">Every honest link is meant to keep a home standing so the next heart has somewhere real to land.</p>
+ <p class="text-zinc-300 mb-6">This card is the <strong>funding model</strong>: Circles of Mercy, $NIBBLES belonging, hold-heart design. The product experience is the <a href="pay-it-forward.html" class="text-rose-300 underline font-semibold">Adoption Chain</a>: one dog, one guardian, live chain engine, steady care path.</p>
+ <p class="text-zinc-300 mb-6">Holders keep $NIBBLES to stand with the mission. When rails are live, care that fills bowls and pays vets is meant to land in steady dollars so love is not gambling on a chart. Belonging in the token. Living costs in certainty. <a href="whitepaper.html#treasury-path" class="text-amber-300 underline">How hold becomes help</a>.</p>
+ <p class="text-zinc-300 mb-8">One bond kept standing beats a thousand empty likes. Scale is more well-funded links, not more noise.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">

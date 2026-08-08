@@ -165,7 +165,7 @@ Update this table when you ship or rename an experience.
 
 | Experience URL | Program family | Notes |
 |----------------|----------------|-------|
-| `pay-it-forward.html` | Pay It Forward · Mercy Chain (id 2) | Product = Adoption Chain. Card = funding model. |
+| `pay-it-forward.html` | Pay It Forward · Mercy Chain (id 2) | Flagship Adoption Chain · live chain engine · dual door to card |
 | `new-beginnings.html` | New Beginnings packs (id 3) | Pack studio · S/M/L · partners · receipt mock |
 | `healing-hearts.html` | Healing Hearts (id 4) | Network model · Star Souls under HH |
 | `k9-lifeline.html` | Global Disaster K9 (id 5) | Searchlight bond · not live ops |
