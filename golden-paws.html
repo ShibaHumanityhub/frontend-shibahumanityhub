@@ -36,6 +36,7 @@
 
  <script src="js/shared-animations.js" defer></script>
  <script src="js/glossary.js" defer></script>
+ <script src="js/program-actions.js" defer></script>
  <script src="js/golden-paws-experience.js" defer></script>
 
  <style>
@@ -82,18 +83,40 @@
 
  .hero-bg {
  background:
- radial-gradient(ellipse 90% 55% at 50% 0%, rgba(252, 211, 77, 0.18), transparent 56%),
- radial-gradient(ellipse 40% 35% at 15% 70%, rgba(245, 158, 11, 0.08), transparent 50%),
+ radial-gradient(ellipse 90% 55% at 50% 0%, rgba(252, 211, 77, 0.2), transparent 56%),
+ radial-gradient(ellipse 40% 35% at 15% 70%, rgba(245, 158, 11, 0.1), transparent 50%),
  linear-gradient(180deg, #141008 0%, #0c0a08 55%, #07060a 100%);
  border-bottom: 1px solid var(--gp-line);
  position: relative;
  overflow: hidden;
+ min-height: min(92vh, 880px);
+ display: flex;
+ align-items: center;
+ justify-content: center;
  }
  .hero-bg::before {
  content: '';
  position: absolute; inset: 0; pointer-events: none;
- background: linear-gradient(105deg, transparent 0%, rgba(255, 244, 214, 0.04) 45%, transparent 58%);
- opacity: 0.6;
+ background:
+  url('assets/images/goldenpawsretirementprogram.jpg') center 30% / cover no-repeat;
+ opacity: 0.14;
+ filter: saturate(1.1);
+ transform: scale(1.06);
+ animation: gp-hero-ken 28s ease-in-out infinite alternate;
+ }
+ .hero-bg::after {
+ content: '';
+ position: absolute; inset: 0; pointer-events: none;
+ background:
+  linear-gradient(180deg, rgba(7,6,10,0.72) 0%, rgba(7,6,10,0.42) 40%, rgba(7,6,10,0.92) 88%, #07060a 100%),
+  radial-gradient(ellipse 70% 50% at 50% 40%, rgba(245,158,11,0.12), transparent 60%);
+ }
+ @keyframes gp-hero-ken {
+  from { transform: scale(1.04); }
+  to { transform: scale(1.12) translate3d(-1%, -1%, 0); }
+ }
+ @media (prefers-reduced-motion: reduce) {
+  .hero-bg::before { animation: none !important; opacity: 0.1; transform: none; }
  }
 
  .gp-ingot-ring {
@@ -461,12 +484,12 @@
 
 <header class="hero-bg pt-28 pb-16 sm:pb-20 text-center">
  <div class="gp-ingot-ring" aria-hidden="true"></div>
- <div class="gp-shell relative z-[2] pt-4">
- <div class="gp-sig mb-4 sm:mb-5"><b></b> Preview. Built for real ops when partners land</div>
+ <div class="gp-shell relative z-[2] pt-4" style="position:relative;z-index:2">
+ <div class="gp-sig mb-4 sm:mb-5"><b></b> Senior heroes · forever homes · $NIBBLES</div>
 
  <div class="gp-rect inline-block px-5 sm:px-10 py-3.5 sm:py-4 mb-3 rounded-3xl">
  <h1 class="gp-mega flex items-center justify-center gap-2 sm:gap-3">
- <span style="font-size:clamp(1.75rem,7vw,3.8rem);-webkit-text-fill-color:#fcd34d;text-shadow:0 0 20px rgba(252,211,77,.4)" aria-hidden="true">★</span>
+ <span style="font-size:clamp(1.75rem,7vw,3.8rem);-webkit-text-fill-color:#fcd34d;text-shadow:0 0 28px rgba(252,211,77,.55)" aria-hidden="true">★</span>
  Golden Paws
  </h1>
  </div>
@@ -474,8 +497,8 @@
  <p class="gp-sub mt-3">They earned the sofa.<br class="sm:hidden"> We build the path home.</p>
  <p class="gp-stamp mt-2">Screen hard. Fund the rest. One dog at a time.</p>
 
- <p class="gpx-hide-m mt-6 sm:mt-7 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-amber-100/85 leading-relaxed px-1">
- I keep thinking about the dog who worked every shift, who waited in a kennel past his prime, who still looks at the door like someone might choose him. Golden Paws is the <strong>mercy flywheel</strong> for those heroes: find them, screen forever homes hard, place them, fund their care, check in, then the next soul. Proof when funding lands. Love that compounds.
+ <p class="gpx-hide-m mt-6 sm:mt-7 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-amber-100/90 leading-relaxed px-1 font-medium">
+ The dog who worked every shift. The senior still watching the gate. Golden Paws is how they get a forever home: find them, screen hard, place them, fund care, check in, next soul. Proof when funding lands. Love that compounds.
  </p>
 
  <div class="gp-flywheel gpx-hide-m" aria-label="Mercy flywheel stages">
@@ -509,7 +532,7 @@
  <video
  id="gp-hero-video"
  src="assets/videos/goldenpawsretirementprogram-animated.mp4"
- muted loop playsinline preload="metadata"
+ muted loop playsinline preload="auto"
  poster="assets/images/goldenpawsretirementprogram.jpg"
  aria-label="Golden Paws retirement preview"
  ></video>

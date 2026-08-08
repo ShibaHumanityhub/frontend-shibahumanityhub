@@ -213,6 +213,25 @@
  '.gpx-fund .amt{font-family:"Space Grotesk",sans-serif;font-size:1.25rem;font-weight:700;color:#fff;margin:.3rem 0}',
  '.gpx-fund p{margin:0;font-size:.8rem;line-height:1.45;color:rgba(253,230,138,.75)}',
  '.gpx-truth{font-size:.68rem;color:rgba(200,170,100,.5);margin-top:.8rem;line-height:1.45}',
+ '.gpx-engine{position:relative;padding:1.2rem;border-radius:1.35rem;border:1px solid rgba(252,211,77,.42);background:linear-gradient(155deg,rgba(40,28,8,.92),rgba(8,6,4,.96));overflow:hidden;box-shadow:0 0 48px -18px rgba(245,158,11,.4),0 24px 50px -28px rgba(0,0,0,.9);margin-bottom:.25rem}',
+ '.gpx-engine-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem;align-items:flex-end;margin-bottom:1rem}',
+ '.gpx-engine-head h3{margin:0;color:#fff;font-size:1.12rem;font-family:Space Grotesk,sans-serif}',
+ '.gpx-engine-head p{margin:.25rem 0 0;font-size:.8rem;color:rgba(253,230,138,.5)}',
+ '.gpx-live{display:inline-flex;align-items:center;gap:.4rem;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#fde68a;font-weight:700;padding:.35rem .7rem;border-radius:999px;border:1px solid rgba(252,211,77,.4);background:rgba(0,0,0,.35)}',
+ '.gpx-live i{width:7px;height:7px;border-radius:50%;background:#fcd34d;box-shadow:0 0 10px #fcd34d;animation:gpx-pulse 1.5s ease infinite}',
+ '.gpx-fields{display:grid;gap:.8rem}',
+ '@media(min-width:700px){.gpx-fields{grid-template-columns:1fr 1fr 1fr}}',
+ '.gpx-field label{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#fcd34d;font-weight:700;margin-bottom:.3rem}',
+ '.gpx-field input{width:100%;padding:.8rem .95rem;border-radius:.9rem;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.5);color:#fff;font-size:1.1rem;font-weight:700;font-family:Space Grotesk,Inter,sans-serif;outline:none}',
+ '.gpx-field input:focus{border-color:rgba(252,211,77,.65);box-shadow:0 0 0 3px rgba(252,211,77,.12)}',
+ '.gpx-field .hint{font-size:.65rem;color:rgba(253,230,138,.4);margin-top:.28rem}',
+ '.gpx-out{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1rem}',
+ '@media(min-width:700px){.gpx-out{grid-template-columns:repeat(4,1fr)}}',
+ '.gpx-out div{padding:.8rem .6rem;border-radius:1rem;background:rgba(0,0,0,.45);border:1px solid rgba(252,211,77,.22);text-align:center}',
+ '.gpx-out b{display:block;font-size:clamp(1.15rem,2.6vw,1.5rem);color:#fde68a;font-family:Space Grotesk,sans-serif}',
+ '.gpx-out span{font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(253,230,138,.48);font-weight:600}',
+ '.gpx-out .hero{border-color:rgba(252,211,77,.5)}.gpx-out .hero b{color:#fff}',
+ '.gpx-band{margin-top:.85rem;font-size:.9rem;color:#fde68a;font-weight:600;line-height:1.5}',
  '.gpx-link-grid{display:grid;gap:.6rem}',
  '@media(min-width:640px){.gpx-link-grid{grid-template-columns:1fr 1fr}}',
  '.gpx-link-card{border-radius:1.15rem;border:1px solid rgba(252,211,77,.28);padding:1.1rem;background:linear-gradient(155deg,rgba(252,211,77,.08),rgba(10,8,6,.96));text-decoration:none;color:inherit;display:block;transition:border-color .2s,transform .2s}',
@@ -275,6 +294,7 @@
  if (history.replaceState) history.replaceState(null, '', '#gpx-' + id);
  } catch (e) { /* ignore */ }
  window.scrollTo(0, 0);
+ setTimeout(function () { wireCareEngine(); }, 40);
  }
 
  function bindGo(root) {
@@ -314,8 +334,8 @@
  '<span class="gpx-br tl"></span><span class="gpx-br tr"></span><span class="gpx-br bl"></span><span class="gpx-br br"></span>' +
  '<div class="gpx-scan" aria-hidden="true"></div>' +
  '<p class="gpx-kicker"><span class="pulse"></span> Placement board (preview)</p>' +
- '<h2 class="gpx-title">Find. Screen. Place. Fund. Grow.</h2>' +
- '<p class="gpx-lede">This is not a cute listing page. It is how senior heroes get home: service retirees and shelter seniors, one dog at a time. Hard screening. Funded care. Forever homes. When partners and funding go live, this is the process people will run. Until then: honest design. No fake wins.</p>' +
+ '<h2 class="gpx-title">They earned the sofa. We build the path.</h2>' +
+ '<p class="gpx-lede">Service retirees and shelter seniors. Hard screening. Funded care. Forever homes. One dog at a time. When partners and funding go live, this is the process. Until then: honest design. No fake wins.</p>' +
  '<p class="gpx-chain" aria-hidden="true"><b>Find</b><i>→</i><b>Screen</b><i>→</i><b>Place</b><i>→</i><b>Fund</b><i>→</i><b>Check-in</b><i>→</i><b>Next dog</b></p>' +
  meters +
  '<div class="gpx-grid2">' +
@@ -505,14 +525,42 @@
  );
  }
 
+ function calcCare(heroes, monthly, months) {
+  heroes = Math.max(1, Math.min(50, parseInt(heroes, 10) || 1));
+  monthly = Math.max(100, Math.min(5000, parseFloat(monthly) || 350));
+  months = Math.max(1, Math.min(60, parseInt(months, 10) || 12));
+  return {
+   heroes: heroes,
+   monthly: monthly,
+   months: months,
+   total: Math.round(heroes * monthly * months),
+   perHero: Math.round(monthly * months)
+  };
+ }
+
  function fundingPanelHtml() {
  return (
  '<div class="gpx-section">' +
  '<div class="gpx-head">' +
  '<h2>What care costs (and how it multiplies)</h2>' +
- '<p>Same circles as the program card. Holders fund care. Families pass the gate. One funded home becomes proof. Proof draws the next home. That is the flywheel. No one does this alone.</p>' +
+ '<p>Holders fund care. Families pass the gate. One funded home becomes proof. Proof draws the next home. That is the flywheel.</p>' +
  '</div>' +
- '<div class="gpx-funds">' +
+ '<div class="gpx-engine" id="gpx-engine">' +
+ '<div class="gpx-engine-head"><div><h3>Care engine</h3><p>Type heroes, monthly design, months. Totals update live.</p></div><div class="gpx-live"><i></i> Live</div></div>' +
+ '<div class="gpx-fields">' +
+ '<div class="gpx-field"><label for="gpx-h">Heroes placed</label><input id="gpx-h" type="number" inputmode="numeric" min="1" max="50" step="1" value="1" autocomplete="off"><div class="hint">How many sofas</div></div>' +
+ '<div class="gpx-field"><label for="gpx-m">USD / hero / month</label><input id="gpx-m" type="number" inputmode="decimal" min="100" max="5000" step="25" value="350" autocomplete="off"><div class="hint">Mercy ~250 · Guardian ~350-450</div></div>' +
+ '<div class="gpx-field"><label for="gpx-mo">Months of care</label><input id="gpx-mo" type="number" inputmode="numeric" min="1" max="60" step="1" value="12" autocomplete="off"><div class="hint">1 to 60</div></div>' +
+ '</div>' +
+ '<div class="gpx-out">' +
+ '<div class="hero"><b id="gpx-o-total">$4,200</b><span>Total care design</span></div>' +
+ '<div><b id="gpx-o-per">$4,200</b><span>Per hero path</span></div>' +
+ '<div><b id="gpx-o-h">1</b><span>Heroes</span></div>' +
+ '<div><b id="gpx-o-mo">12</b><span>Months</span></div>' +
+ '</div>' +
+ '<p class="gpx-band" id="gpx-o-band">1 hero · $350/mo · 12 months. Design only until rails live.</p>' +
+ '</div>' +
+ '<div class="gpx-funds" style="margin-top:1.15rem">' +
  FUNDS.map(function (f) {
  return (
  '<div class="gpx-fund">' +
@@ -526,6 +574,57 @@
  '<p class="gpx-truth">Design levels. Not issued credits. No live treasury debit from this page.</p>' +
  '</div>'
  );
+ }
+
+ function readNum(el, fb) {
+  if (!el) return fb;
+  var raw = String(el.value || '').trim().replace(/,/g, '');
+  if (raw === '' || raw === '-' || raw === '.') return fb;
+  var n = parseFloat(raw);
+  return isFinite(n) ? n : fb;
+ }
+
+ function wireCareEngine() {
+  var h = document.getElementById('gpx-h');
+  var m = document.getElementById('gpx-m');
+  var mo = document.getElementById('gpx-mo');
+  if (!h || !m || !mo) return;
+  function run() {
+   var r = calcCare(readNum(h, 1), readNum(m, 350), readNum(mo, 12));
+   var t = document.getElementById('gpx-o-total');
+   var p = document.getElementById('gpx-o-per');
+   var hh = document.getElementById('gpx-o-h');
+   var mm = document.getElementById('gpx-o-mo');
+   var band = document.getElementById('gpx-o-band');
+   if (t) t.textContent = '$' + r.total.toLocaleString();
+   if (p) p.textContent = '$' + r.perHero.toLocaleString();
+   if (hh) hh.textContent = String(r.heroes);
+   if (mm) mm.textContent = String(r.months);
+   if (band) {
+    band.textContent =
+     r.heroes +
+     ' hero' +
+     (r.heroes === 1 ? '' : 'es') +
+     ' · $' +
+     r.monthly.toLocaleString() +
+     '/mo · ' +
+     r.months +
+     ' months = $' +
+     r.total.toLocaleString() +
+     ' design care. Family brings love. Program covers listed costs when funded.';
+   }
+  }
+  ['input', 'change', 'keyup', 'paste', 'blur'].forEach(function (ev) {
+   [h, m, mo].forEach(function (inp) {
+    if (inp.getAttribute('data-gpx-eng') === '1' && ev !== 'input') return;
+    inp.setAttribute('data-gpx-eng', '1');
+    inp.addEventListener(ev, function () {
+     if (ev === 'paste') setTimeout(run, 0);
+     else run();
+    });
+   });
+  });
+  run();
  }
 
  function morePanelHtml() {
@@ -814,6 +913,7 @@
  renderConnectPick();
  wireForm();
  wireBoard();
+ wireCareEngine();
  document.body.classList.add('gpx-ready');
 
  document.querySelectorAll('a[href="#gpx-board"], a[href="#gpx-heroes"], a[href="#heroes"], a[href="#gpx-connect"], a[href="#connect"]').forEach(function (a) {
