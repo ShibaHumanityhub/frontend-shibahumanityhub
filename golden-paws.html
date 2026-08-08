@@ -11,11 +11,11 @@
  <meta name="author" content="Shibahumanityhub">
  <meta name="keywords" content="golden paws, senior service dogs retirement, senior shelter dogs forever home, certified forever home, forever homes, NIBBLES, dog retirement">
 
- <title>Golden Paws • Senior Heroes, Forever Homes</title>
- <meta name="description" content="Golden Paws matches retiring service dogs and senior shelter dogs to carefully screened forever homes. Program funds cover listed care when funded. Proof over promises.">
+ <title>Golden Paws · They Earned the Sofa</title>
+ <meta name="description" content="Service retirees and senior shelter dogs into certified forever homes. Hard screening. Funded care when live. Heroes roster, placement board, live care engine. Proof over promises.">
 
- <meta property="og:title" content="Golden Paws • They Earned the Sofa">
- <meta property="og:description" content="Heroes who gave everything. Forever homes that pass hard screening. Care funded by the flywheel when funding and delivery are live.">
+ <meta property="og:title" content="Golden Paws · They Earned the Sofa">
+ <meta property="og:description" content="Find. Screen. Place. Fund. Grow. Senior heroes into forever homes. Care engine. Truth first.">
  <meta property="og:image" content="https://shibahumanityhub.com/assets/images/goldenpawsretirementprogram.jpg">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://shibahumanityhub.com/golden-paws.html">
@@ -60,25 +60,26 @@
  html { scroll-behavior: auto; }
  body {
  margin: 0; padding: 0; overflow-x: hidden;
- background:
- radial-gradient(ellipse 110% 60% at 50% -12%, rgba(252, 211, 77, 0.14), transparent 52%),
- radial-gradient(ellipse 50% 40% at 100% 30%, rgba(245, 158, 11, 0.07), transparent 50%),
- radial-gradient(ellipse 40% 30% at 0% 80%, rgba(253, 230, 138, 0.04), transparent 45%),
- linear-gradient(180deg, #07060a 0%, #100e08 40%, #07060a 100%);
+ background: #07060a;
  color: var(--gp-text);
  font-family: 'Inter', system-ui, sans-serif;
  }
- body.is-scrolling .gp-ingot-ring,
- body.is-scrolling .gp-aurora {
- animation-play-state: paused !important;
+ body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+   radial-gradient(ellipse 100% 55% at 50% -10%, rgba(252, 211, 77, 0.16), transparent 52%),
+   radial-gradient(ellipse 50% 40% at 100% 30%, rgba(245, 158, 11, 0.08), transparent 50%),
+   radial-gradient(ellipse 40% 35% at 0% 75%, rgba(253, 230, 138, 0.05), transparent 45%);
  }
- body.is-scrolling .gp-aurora { visibility: hidden; }
- body.is-scrolling .gp-ingot-ring { filter: none !important; }
+ body > * { position: relative; z-index: 1; }
 
  nav.bg-black\/95, nav[class*="bg-black"] {
- background: rgba(7, 6, 10, 0.96) !important;
+ background: rgba(7, 6, 10, 0.94) !important;
  border-bottom-color: var(--gp-line) !important;
  box-shadow: 0 1px 0 rgba(255,255,255,0.04);
+ backdrop-filter: blur(16px);
+ -webkit-backdrop-filter: blur(16px);
  }
 
  .hero-bg {
@@ -116,7 +117,8 @@
   to { transform: scale(1.12) translate3d(-1%, -1%, 0); }
  }
  @media (prefers-reduced-motion: reduce) {
-  .hero-bg::before { animation: none !important; opacity: 0.1; transform: none; }
+  .hero-bg::before, .gp-mega, .gp-sig b, .gp-ingot-ring { animation: none !important; }
+  .hero-bg::before { opacity: 0.1; transform: none; }
  }
 
  .gp-ingot-ring {
@@ -157,18 +159,23 @@
  letter-spacing: -0.055em;
  line-height: 0.88;
  font-size: clamp(3rem, 11vw, 6.2rem);
- background: linear-gradient(135deg, #fff 0%, #fff4d6 18%, #fde68a 38%, #fcd34d 58%, #f59e0b 82%, #fff 100%);
+ background: linear-gradient(110deg, #fff 0%, #fff4d6 18%, #fde68a 38%, #fcd34d 55%, #f59e0b 72%, #fde68a 88%, #fff 100%);
+ background-size: 220% auto;
  -webkit-background-clip: text;
  background-clip: text;
  color: transparent;
+ animation: gp-mega-shimmer 9s linear infinite;
+ text-shadow: none;
+ filter: drop-shadow(0 0 28px rgba(252, 211, 77, 0.25));
  }
+ @keyframes gp-mega-shimmer { to { background-position: 220% center; } }
  .gp-sub {
  font-family: 'Space Grotesk', sans-serif;
  font-weight: 600;
  letter-spacing: -0.03em;
- font-size: clamp(1.15rem, 3.2vw, 1.85rem);
- color: rgba(255, 244, 214, 0.9);
- text-shadow: 0 0 40px rgba(252, 211, 77, 0.2);
+ font-size: clamp(1.2rem, 3.2vw, 1.95rem);
+ color: rgba(255, 244, 214, 0.95);
+ text-shadow: 0 0 40px rgba(252, 211, 77, 0.28);
  }
  .gp-stamp {
  font-family: 'Space Grotesk', sans-serif;
@@ -200,16 +207,16 @@
 
  .gp-cta {
  display: inline-flex; align-items: center; gap: 0.55rem;
- padding: 1rem 1.55rem; border-radius: 1.1rem;
+ padding: 1.05rem 1.65rem; border-radius: 999px;
  font-weight: 700; font-size: 1.05rem; text-decoration: none;
  color: #1a1200;
  background: linear-gradient(135deg, #fff4d6 0%, #fde68a 30%, #fcd34d 60%, #f59e0b 100%);
- box-shadow: 0 14px 40px -12px rgba(245, 158, 11, 0.6), inset 0 1px 0 rgba(255,255,255,0.65);
+ box-shadow: 0 0 40px -8px rgba(245, 158, 11, 0.75), 0 14px 40px -12px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.65);
  transition: transform .15s ease, box-shadow .15s ease;
  }
  .gp-cta:hover {
  transform: translateY(-2px);
- box-shadow: 0 18px 48px -12px rgba(245, 158, 11, 0.7);
+ box-shadow: 0 0 52px -6px rgba(245, 158, 11, 0.95), 0 18px 48px -12px rgba(0,0,0,0.6);
  }
  .gp-ghost {
  display: inline-flex; align-items: center; gap: 0.5rem;
@@ -274,11 +281,17 @@
  }
  .gp-fw-step {
  position: relative;
- border-radius: 1rem;
- border: 1px solid rgba(252, 211, 77, 0.28);
- background: linear-gradient(160deg, rgba(252, 211, 77, 0.1), rgba(0, 0, 0, 0.4));
- padding: 0.75rem 0.7rem;
- box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+ border-radius: 1.1rem;
+ border: 1px solid rgba(252, 211, 77, 0.32);
+ background: linear-gradient(160deg, rgba(252, 211, 77, 0.14), rgba(0, 0, 0, 0.45));
+ padding: 0.85rem 0.75rem;
+ box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 12px 28px -18px rgba(0,0,0,0.6);
+ transition: transform .2s, border-color .2s, box-shadow .2s;
+ }
+ .gp-fw-step:hover {
+ transform: translateY(-3px);
+ border-color: rgba(253, 230, 138, 0.55);
+ box-shadow: 0 0 32px -10px rgba(245, 158, 11, 0.45);
  }
  .gp-fw-step .n {
  font-family: 'Space Grotesk', sans-serif;
@@ -316,23 +329,34 @@
 
  .gp-media {
  position: relative;
- max-width: min(340px, 88vw); margin: 0 auto;
- border-radius: 1.4rem; padding: 2px;
- background: linear-gradient(135deg, rgba(255,244,214,0.55), rgba(252,211,77,0.4), rgba(245,158,11,0.35));
- box-shadow: 0 28px 70px -24px rgba(0,0,0,0.85), 0 0 50px -16px rgba(252, 211, 77, 0.28);
+ max-width: min(420px, 92vw); margin: 0 auto;
+ border-radius: 1.45rem; padding: 2px;
+ background: linear-gradient(135deg, rgba(255,244,214,0.7), rgba(252,211,77,0.55), rgba(245,158,11,0.4), rgba(252,211,77,0.35));
+ box-shadow: 0 32px 80px -24px rgba(0,0,0,0.9), 0 0 60px -14px rgba(252, 211, 77, 0.45);
  contain: layout paint;
  }
  @media (min-width: 1600px) {
- .gp-media { max-width: min(380px, 28vw); }
+ .gp-media { max-width: min(460px, 30vw); }
  }
  .gp-media-inner {
- border-radius: calc(1.4rem - 1px); overflow: hidden; background: #0a0806;
+ border-radius: calc(1.45rem - 1px); overflow: hidden; background: #0a0806;
  transform: translateZ(0);
  }
  .gp-media video {
  display: block; width: 100%;
  transform: translateZ(0);
  pointer-events: none;
+ }
+ .gp-media-cap {
+  margin: 0;
+  padding: .7rem 1rem;
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(253, 230, 138, 0.55);
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.06);
+  background: rgba(0,0,0,.45);
  }
 
  .gp-aurora {
@@ -481,11 +505,11 @@
 <header class="hero-bg pt-28 pb-16 sm:pb-20 text-center">
  <div class="gp-ingot-ring" aria-hidden="true"></div>
  <div class="gp-shell relative z-[2] pt-4" style="position:relative;z-index:2">
- <div class="gp-sig mb-4 sm:mb-5"><b></b> Senior heroes · forever homes · $NIBBLES</div>
+ <div class="gp-sig mb-4 sm:mb-5"><b></b> Forever homes for senior heroes · $NIBBLES</div>
 
  <div class="gp-rect inline-block px-5 sm:px-10 py-3.5 sm:py-4 mb-3 rounded-3xl">
  <h1 class="gp-mega flex items-center justify-center gap-2 sm:gap-3">
- <span style="font-size:clamp(1.75rem,7vw,3.8rem);-webkit-text-fill-color:#fcd34d;text-shadow:0 0 28px rgba(252,211,77,.55)" aria-hidden="true">★</span>
+ <span style="font-size:clamp(1.75rem,7vw,3.8rem);-webkit-text-fill-color:#fcd34d;filter:drop-shadow(0 0 18px rgba(252,211,77,.7))" aria-hidden="true">★</span>
  Golden Paws
  </h1>
  </div>
@@ -493,8 +517,8 @@
  <p class="gp-sub mt-3">They earned the sofa.<br class="sm:hidden"> We build the path home.</p>
  <p class="gp-stamp mt-2">Screen hard. Fund the rest. One dog at a time.</p>
 
- <p class="gpx-hide-m mt-6 sm:mt-7 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-amber-100/90 leading-relaxed px-1 font-medium">
- The dog who worked every shift. The senior still watching the gate. Golden Paws is how they get a forever home: find them, screen hard, place them, fund care, check in, next soul. Proof when funding lands. Love that compounds.
+ <p class="gpx-hide-m mt-6 sm:mt-7 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-amber-50 leading-relaxed px-1 font-medium">
+ Service retirees. Shelter seniors. The ones the world walked past. Golden Paws finds them, screens forever homes hard, places them, funds care, checks in, then the next soul. Proof when funding lands. Love that compounds.
  </p>
 
  <div class="gp-flywheel gpx-hide-m" aria-label="Mercy flywheel stages">
@@ -506,33 +530,33 @@
  </div>
 
  <div class="gp-snowball gpx-hide-m">
- <strong>Flywheel:</strong> One hero home, then proof, then more homes, then more holders, then more care, then the next grey face at the gate. One dog at a time until none are left behind.
+ <strong>Flywheel:</strong> One hero home. Proof. More homes. More holders. More care. The next grey face at the gate. Until none are left behind.
  </div>
 
  <div class="mt-7 sm:mt-8 flex flex-wrap justify-center gap-2 sm:gap-2.5">
  <div class="gp-pill"><i class="fa-solid fa-shield-dog text-amber-300"></i> Service retirees</div>
  <div class="gp-pill"><i class="fa-solid fa-house-chimney-heart text-amber-300"></i> Shelter seniors</div>
  <div class="gp-pill"><i class="fa-solid fa-clipboard-check text-amber-300"></i> Certified homes</div>
- <div class="gp-pill"><i class="fa-solid fa-rotate text-amber-300"></i> Care that compounds</div>
+ <div class="gp-pill"><i class="fa-solid fa-calculator text-amber-300"></i> Live care engine</div>
  </div>
 
  <div class="mt-8 sm:mt-10 flex flex-col xs:flex-row flex-wrap justify-center gap-2.5 sm:gap-3 max-w-md sm:max-w-none mx-auto">
  <a href="#gpx-board" class="gp-cta">Open the board <i class="fa-solid fa-display"></i></a>
- <a href="#gpx-heroes" class="gp-ghost">Meet the heroes →</a>
+ <a href="#gpx-heroes" class="gp-ghost" data-gpx-go="heroes">Meet the heroes →</a>
  </div>
- <p class="mt-3 sm:mt-4 text-[10px] sm:text-[11px] tracking-wide text-amber-200/40 px-2">Board, roster, gate, funding. Demo until partners and funding are real.</p>
- <p class="mt-2 text-[11px] sm:text-xs text-amber-200/50 px-2">Not <a href="golden-years.html" class="underline text-amber-200/80 hover:text-white">Golden Years</a> (people with companion dogs). This retires <em>dogs</em> into forever homes.</p>
+ <p class="mt-3 sm:mt-4 text-[10px] sm:text-[11px] tracking-wide text-amber-200/50 px-2">Board · roster · gate · care engine · map. Demo until partners and funding are real.</p>
+ <p class="mt-2 text-[11px] sm:text-xs text-amber-200/55 px-2">Not <a href="golden-years.html" class="underline text-amber-200/90 hover:text-white">Golden Years</a> (people with companion dogs). This retires <em>dogs</em> into forever homes.</p>
 
  <div class="mt-8 sm:mt-12 gp-media">
  <div class="gp-media-inner">
  <video
  id="gp-hero-video"
  src="assets/videos/goldenpawsretirementprogram-animated.mp4"
- muted loop playsinline preload="auto"
+ muted loop playsinline webkit-playsinline preload="auto"
  poster="assets/images/goldenpawsretirementprogram.jpg"
  aria-label="Golden Paws retirement preview"
  ></video>
- <p class="text-[10px] tracking-[0.14em] uppercase text-amber-200/45 py-2.5 text-center border-t border-white/5">Preview motion · not a live placement feed</p>
+ <p class="gp-media-cap">Motion vision keeps playing as you scroll</p>
  </div>
  </div>
  </div>
