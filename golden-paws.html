@@ -334,10 +334,6 @@
  transform: translateZ(0);
  pointer-events: none;
  }
- body.is-scrolling .gp-media video { visibility: hidden; }
- body.is-scrolling .gp-media-inner {
- background: #0a0806 url('assets/images/goldenpawsretirementprogram.jpg') center / cover no-repeat;
- }
 
  .gp-aurora {
  position: fixed; inset: 0; pointer-events: none; z-index: -1;
@@ -577,26 +573,42 @@
  var vid = document.getElementById('gp-hero-video');
  if (!vid) return;
  vid.muted = true;
+ vid.setAttribute('playsinline', '');
+ vid.setAttribute('webkit-playsinline', '');
+ function kick() {
+  try {
+   vid.muted = true;
+   var p = vid.play();
+   if (p && p.catch) p.catch(function () {});
+  } catch (e) { /* ignore */ }
+ }
  function sync() {
- var heart = document.querySelector('.gpx-panel[data-gpx-panel="heart"]');
- var on = !heart || heart.classList.contains('is-on');
- var play = on && !document.hidden && !document.body.classList.contains('is-scrolling') && vid.__in !== false;
- if (play && vid.paused) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
- else if (!play && !vid.paused) try { vid.pause(); } catch (e) {}
+  /* Keep motion playing while the hero video is in view. Do not pause on page scroll. */
+  var heart = document.querySelector('.gpx-panel[data-gpx-panel="heart"]');
+  var onHeart = !heart || heart.classList.contains('is-on');
+  var inView = vid.__in !== false;
+  var play = onHeart && !document.hidden && inView;
+  if (play) kick();
+  else if (!vid.paused) {
+   try { vid.pause(); } catch (e2) { /* ignore */ }
+  }
  }
  if (window.IntersectionObserver) {
- new IntersectionObserver(function (ents) {
- vid.__in = !!(ents[0] && ents[0].isIntersecting);
- sync();
- }, { threshold: 0.2 }).observe(vid);
+  new IntersectionObserver(function (ents) {
+   vid.__in = !!(ents[0] && ents[0].isIntersecting);
+   sync();
+  }, { threshold: 0.05, rootMargin: '40px 0px' }).observe(vid);
+ } else {
+  vid.__in = true;
  }
  document.addEventListener('visibilitychange', sync);
- window.addEventListener('scroll', function () {
- if (!vid.paused) try { vid.pause(); } catch (e) {}
- setTimeout(sync, 160);
- }, { passive: true });
- setTimeout(sync, 400);
- new MutationObserver(sync).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+ /* Re-kick if a panel switch remounts state; never pause purely because the user scrolls */
+ new MutationObserver(function () {
+  setTimeout(sync, 50);
+ }).observe(document.body, { attributes: true, attributeFilter: ['class'], subtree: false });
+ kick();
+ setTimeout(kick, 200);
+ setTimeout(kick, 800);
  })();
 </script>
 </body>
