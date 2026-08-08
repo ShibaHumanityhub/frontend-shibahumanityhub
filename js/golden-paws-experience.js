@@ -9,47 +9,47 @@
  'use strict';
 
  var HEROES = [
- { id: 'GP-S01', name: 'Captain', kind: 'service', age: 10, breed: 'Lab mix', city: 'Toronto, ON', note: 'Years of mobility work. Now he only wants a quiet couch and a hand that stays.', needs: 'standard', photo: '🎖️', line: 'He held people up. Someone will hold him.' },
- { id: 'GP-S02', name: 'Scout', kind: 'service', age: 9, breed: 'German Shepherd', city: 'Austin, TX', note: 'Detection partner retired. Routine walks. Calm adults. No chaos.', needs: 'standard', photo: '🛡️', line: 'His shift is over. His story is not.' },
- { id: 'GP-S03', name: 'Mercy', kind: 'service', age: 11, breed: 'Golden Retriever', city: 'Vancouver, BC', note: 'Therapy-service retiree. Soft joints. Softer heart. Quiet homes only.', needs: 'higher', photo: '💛', line: 'She spent years giving comfort. Time she received it.' },
- { id: 'GP-S04', name: 'Valor', kind: 'service', age: 8, breed: 'Belgian Malinois mix', city: 'Phoenix, AZ', note: 'High drive downshifted. Needs experienced, patient forever people.', needs: 'higher', photo: '⚔️', line: 'Power without purpose is lonely. Give him peace.' },
- { id: 'GP-H01', name: 'Maple', kind: 'shelter', age: 12, breed: 'Beagle mix', city: 'Halifax, NS', note: 'Kennel senior. Still wags for breakfast. Sofa-ready tonight.', needs: 'standard', photo: '🍁', line: 'Grey face. Bright eyes. Still waiting by the gate.' },
- { id: 'GP-H02', name: 'Pearl', kind: 'shelter', age: 11, breed: 'Poodle mix', city: 'Chicago, IL', note: 'Lost her person. Soft eyes. Needs one steady guardian forever.', needs: 'standard', photo: '🤍', line: 'Grief made her quiet. Love will make her home.' },
- { id: 'GP-H03', name: 'Bruno', kind: 'shelter', age: 13, breed: 'Boxer mix', city: 'Denver, CO', note: 'Grey muzzle, big heart. Joint meds covered by program when funded.', needs: 'higher', photo: '🤎', line: 'Almost written off. Still has years of loyalty left.' },
- { id: 'GP-H04', name: 'Daisy', kind: 'shelter', age: 10, breed: 'Shepherd mix', city: 'Seattle, WA', note: 'Quiet girl. Sun patches. Best as only dog in the house.', needs: 'standard', photo: '🌼', line: 'She does not need a crowd. She needs a someone.' },
- { id: 'GP-H05', name: 'Duke', kind: 'shelter', age: 14, breed: 'Hound mix', city: 'Nashville, TN', note: 'Passed over for puppies. Dignity intact. Love still available.', needs: 'higher', photo: '👑', line: 'The oldest ones love the deepest. Choose him.' },
- { id: 'GP-S05', name: 'Halo', kind: 'service', age: 10, breed: 'Collie mix', city: 'Calgary, AB', note: 'Medical-alert retiree. Soft structure. Calm household thrives with him.', needs: 'standard', photo: '😇', line: 'He watched over humans. Now humans watch over him.' }
+ { id: 'GP-S01', name: 'Captain', kind: 'service', age: 10, breed: 'Lab mix', city: 'Toronto, ON', note: 'He learned every curb and elevator for someone who could not walk alone. His vest is hung up. His body is tired. His heart is not. He needs a quiet couch and a human who does not leave when the cute wears off.', needs: 'standard', photo: '🎖️', line: 'He held people up. Now someone has to hold him.' },
+ { id: 'GP-S02', name: 'Scout', kind: 'service', age: 9, breed: 'German Shepherd', city: 'Austin, TX', note: 'Years of detection work. Nose still sharp. Nerves still wired for duty. He needs calm adults, a routine walk, and a house that does not feel like a fire drill.', needs: 'standard', photo: '🛡️', line: 'His shift ended. His need for a home did not.' },
+ { id: 'GP-S03', name: 'Mercy', kind: 'service', age: 11, breed: 'Golden Retriever', city: 'Vancouver, BC', note: 'She sat with strangers through panic and grief. Soft joints now. Softer eyes still. Quiet homes only. She has given enough comfort. Time she received it back.', needs: 'higher', photo: '💛', line: 'She spent years giving comfort. She is due.' },
+ { id: 'GP-S04', name: 'Valor', kind: 'service', age: 8, breed: 'Belgian Malinois mix', city: 'Phoenix, AZ', note: 'Drive like a storm that finally learned to rest. Needs patient people who understand power and peace can live in the same body.', needs: 'higher', photo: '⚔️', line: 'Power without purpose is lonely. Give him peace.' },
+ { id: 'GP-H01', name: 'Maple', kind: 'shelter', age: 12, breed: 'Beagle mix', city: 'Halifax, NS', note: 'Kennel mornings. Still wags for breakfast like it might be the day someone stops. Sofa-ready tonight if a real hand reaches for her.', needs: 'standard', photo: '🍁', line: 'Grey face. Bright eyes. Still waiting by the gate.' },
+ { id: 'GP-H02', name: 'Pearl', kind: 'shelter', age: 11, breed: 'Poodle mix', city: 'Chicago, IL', note: 'Lost the only person she knew how to love. Soft eyes. Soft grief. She needs one steady guardian who treats forever like a vow, not a mood.', needs: 'standard', photo: '🤍', line: 'Grief made her quiet. Love can make her home.' },
+ { id: 'GP-H03', name: 'Bruno', kind: 'shelter', age: 13, breed: 'Boxer mix', city: 'Denver, CO', note: 'Grey muzzle. Big heart. Joints that need help. The spreadsheet almost wrote him off. He still has loyalty left for someone who stays.', needs: 'higher', photo: '🤎', line: 'Almost written off. Still has years of loyalty left.' },
+ { id: 'GP-H04', name: 'Daisy', kind: 'shelter', age: 10, breed: 'Shepherd mix', city: 'Seattle, WA', note: 'Quiet girl. Loves sun patches on the floor. Best as the only dog. She does not need a party. She needs a someone.', needs: 'standard', photo: '🌼', line: 'She does not need a crowd. She needs a someone.' },
+ { id: 'GP-H05', name: 'Duke', kind: 'shelter', age: 14, breed: 'Hound mix', city: 'Nashville, TN', note: 'Passed over for puppies every weekend. Dignity intact. Head still rises when a kind voice walks by. The oldest ones often love the deepest.', needs: 'higher', photo: '👑', line: 'The oldest ones love the deepest. Choose him.' },
+ { id: 'GP-S05', name: 'Halo', kind: 'service', age: 10, breed: 'Collie mix', city: 'Calgary, AB', note: 'Medical-alert retiree. He watched over humans when their bodies failed them. A calm house thrives with him. Now it is our turn to watch over him.', needs: 'standard', photo: '😇', line: 'He watched over humans. Now humans watch over him.' }
  ];
 
  var LANES = [
- { id: 'ML-01', hero: 'Captain', stage: 'Home screen pending', note: 'Toronto · standard lane', progress: 28 },
- { id: 'ML-02', hero: 'Pearl', stage: 'Intent received (demo)', note: 'Chicago · quiet home fit', progress: 52 },
- { id: 'ML-03', hero: 'Bruno', stage: 'Higher-care review', note: 'Denver · Guardian circle design', progress: 41 },
- { id: 'ML-04', hero: 'Halo', stage: 'Vet plan draft', note: 'Calgary · service retiree', progress: 63 },
- { id: 'ML-05', hero: 'Duke', stage: 'Awaiting guardian', note: 'Nashville · priority senior', progress: 18 }
+ { id: 'ML-01', hero: 'Captain', stage: 'Waiting on a quiet home', note: 'Toronto · soft structure', progress: 28 },
+ { id: 'ML-02', hero: 'Pearl', stage: 'Someone wrote her name (demo)', note: 'Chicago · one-person heart', progress: 52 },
+ { id: 'ML-03', hero: 'Bruno', stage: 'Higher-care review', note: 'Denver · joints + love', progress: 41 },
+ { id: 'ML-04', hero: 'Halo', stage: 'Vet plan drafted', note: 'Calgary · service retiree', progress: 63 },
+ { id: 'ML-05', hero: 'Duke', stage: 'Still waiting', note: 'Nashville · oldest first', progress: 18 }
  ];
 
  var SCREEN = [
- { t: '01 · Identity & background', d: 'Every adult in the home. No shortcuts. Trust is the first medicine.' },
- { t: '02 · Home environment', d: 'Space, stairs, fencing, other pets, noise, safety. Truth on camera or in person.' },
- { t: '03 · Lifestyle fit', d: 'Schedule, travel, energy match, honest senior-care capacity. Not vibes. Fit.' },
- { t: '04 · Vet & care plan', d: 'Named vet path. Who handles meds and mobility. Who shows up at 2 a.m.' },
- { t: '05 · Forever commitment', d: 'Written intent. No silent rehome. Lifetime of this one soul.' },
- { t: '06 · Wellness check-ins', d: 'Photos, short video, or visits. Funding continues when the dog is truly safe.' }
+ { t: '01 · Who lives there', d: 'Every adult in the home. Full truth. Trust is the first medicine for a senior dog.' },
+ { t: '02 · The house itself', d: 'Stairs, floors, fence, other pets, noise. We need the real picture, not the listing fantasy.' },
+ { t: '03 · Daily life fit', d: 'Schedule, travel, energy. Can you love a slower body without resenting it?' },
+ { t: '04 · Care when it hurts', d: 'Named vet path. Who handles meds. Who shows up at 2 a.m. when joints fail.' },
+ { t: '05 · Forever on paper', d: 'Written vow. No silent rehome. This one soul for life.' },
+ { t: '06 · We keep checking', d: 'Photos, short video, or visits. Care funding stays tied to the dog actually being safe.' }
  ];
 
  var FUNDS = [
- { circle: 'Mercy', amount: '$250 / mo', cover: 'Starter retirement home', items: 'One senior hero. Premium food, supplies, routine care buffer. Design level until rails live.' },
- { circle: 'Guardian', amount: '$350 - $450 / mo', cover: 'Full golden care', items: 'Higher needs: meds support, mobility, extra vet buffer. The hard cases that still deserve a sofa.' },
- { circle: 'Eternal', amount: '$700+ / mo', cover: 'Legacy family pod', items: 'Two heroes under one roof. Recognition tied to their stories when the system is live.' }
+ { circle: 'Mercy', amount: '$250 / mo', cover: 'One senior on a real sofa', items: 'Food, supplies, routine care buffer for one hero. Design level until rails live.' },
+ { circle: 'Guardian', amount: '$350 - $450 / mo', cover: 'The hard medical chapter', items: 'Meds, mobility, extra vet buffer. The grey faces that still deserve soft mornings.' },
+ { circle: 'Eternal', amount: '$700+ / mo', cover: 'Two heroes under one roof', items: 'A full household of retirement. Stories shared when the system is live and consent is real.' }
  ];
 
  var COVERED = [
  'Food and daily supplies for the life of the dog (when funded)',
  'Routine and emergency vet buffer by circle level',
- 'Adoption fees waived. Zero cost forever-home model',
- 'Soft goods starter kit: bed, bowls, leash on match day',
- 'Program check-ins so no hero is abandoned mid-story'
+ 'Adoption fees waived. Love is not a bill for the family',
+ 'Starter kit on match day: bed, bowls, leash',
+ 'Check-ins so no hero disappears mid-story'
  ];
 
  function isMobile() {
@@ -188,12 +188,12 @@
  '.gpx-card .id{font-family:ui-monospace,monospace;font-size:.68rem;color:#fcd34d}',
  '.gpx-card .badge{font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(252,211,77,.4);padding:.22rem .5rem;border-radius:999px;color:#fde68a}',
  '.gpx-card .badge.service{border-color:rgba(110,231,183,.45);color:#6ee7b7}',
- '.gpx-card .emoji{font-size:1.75rem;margin-bottom:.35rem;filter:drop-shadow(0 0 8px rgba(252,211,77,.25))}',
- '.gpx-card h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .15rem;font-size:1.2rem;color:#fff8e7}',
- '.gpx-card .soul{font-size:.78rem;font-style:italic;color:rgba(253,230,138,.85);margin:0 0 .4rem;line-height:1.35}',
- '.gpx-card .meta{font-size:.7rem;color:rgba(253,230,138,.55);margin:0 0 .4rem}',
- '.gpx-card p{margin:0;font-size:.8rem;line-height:1.45;color:rgba(253,230,138,.78)}',
- '.gpx-card .go{display:inline-flex;margin-top:.75rem;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#1a1200;background:linear-gradient(135deg,#fde68a,#fcd34d);padding:.42rem .8rem;border-radius:999px}',
+ '.gpx-card .emoji{font-size:1.9rem;margin-bottom:.4rem;filter:drop-shadow(0 0 10px rgba(252,211,77,.35));line-height:1}',
+ '.gpx-card h3{font-family:"Space Grotesk",sans-serif;margin:0 0 .2rem;font-size:1.28rem;color:#fff8e7}',
+ '.gpx-card .soul{font-size:.86rem;font-style:italic;font-family:Georgia,"Times New Roman",serif;color:rgba(255,244,214,.92);margin:0 0 .5rem;line-height:1.4;border-left:2px solid rgba(252,211,77,.45);padding-left:.65rem}',
+ '.gpx-card .meta{font-size:.7rem;color:rgba(253,230,138,.58);margin:0 0 .45rem;letter-spacing:.02em}',
+ '.gpx-card p{margin:0;font-size:.84rem;line-height:1.5;color:rgba(255,244,214,.82)}',
+ '.gpx-card .go{display:inline-flex;margin-top:.85rem;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1a1200;background:linear-gradient(135deg,#fde68a,#fcd34d);padding:.45rem .9rem;border-radius:999px;box-shadow:0 0 20px -6px rgba(245,158,11,.5)}',
  '.gpx-empty{padding:2rem;text-align:center;color:rgba(253,230,138,.5)}',
  /* Connect */
  '.gpx-connect{display:grid;gap:1rem}',
@@ -342,15 +342,15 @@
  '<div class="gpx-hud">' +
  '<span class="gpx-br tl"></span><span class="gpx-br tr"></span><span class="gpx-br bl"></span><span class="gpx-br br"></span>' +
  '<div class="gpx-scan" aria-hidden="true"></div>' +
- '<p class="gpx-kicker"><span class="pulse"></span> Live board · design mode</p>' +
- '<h2 class="gpx-title">They earned the sofa. We build the path.</h2>' +
- '<p class="gpx-lede">This is the ops surface: find heroes, run hard screening, place forever homes, fund care, check in, next dog. When partners and funding go live, this is the process people run. Until then: honest design. No fake wins.</p>' +
- '<p class="gpx-chain" aria-hidden="true"><b>Find</b><i>→</i><b>Screen</b><i>→</i><b>Place</b><i>→</i><b>Fund</b><i>→</i><b>Check-in</b><i>→</i><b>Next dog</b></p>' +
+ '<p class="gpx-kicker"><span class="pulse"></span> Where a life turns</p>' +
+ '<h2 class="gpx-title">A grey face is still waiting on a decision.</h2>' +
+ '<p class="gpx-lede">Not a cute listing wall. This is the path home: find the senior who still hopes, screen the forever people hard, place them on a real sofa, fund the care so love is not a debt, check in, then the next soul. Design until partners and funding are live. No fake wins.</p>' +
+ '<p class="gpx-chain" aria-hidden="true"><b>Find</b><i>→</i><b>Screen</b><i>→</i><b>Place</b><i>→</i><b>Fund</b><i>→</i><b>Stay</b><i>→</i><b>Next</b></p>' +
  meters +
  '<div class="gpx-grid2">' +
  '<div class="gpx-lanes" id="gpx-lanes">' + lanes + '</div>' +
  '<div class="gpx-side">' +
- '<h3>★ Desk</h3>' +
+ '<h3>★ Soft desk</h3>' +
  '<div class="gpx-chat" id="gpx-chat" aria-live="polite"></div>' +
  '<div class="gpx-cta-row">' +
  '<button type="button" class="gpx-cta" data-gpx-go="heroes">Meet the heroes</button>' +
@@ -463,8 +463,8 @@
  return (
  '<div class="gpx-section">' +
  '<div class="gpx-head">' +
- '<h2>Heroes still waiting</h2>' +
- '<p>Retired service dogs. Senior shelter dogs. Click a card. Open the forever-home gate. Design roster now. Real faces with partner consent when funded.</p>' +
+ '<h2>These ones still hope</h2>' +
+ '<p>Service dogs who finished their duty. Shelter seniors the weekend crowds walked past. Click a name. Open the gate. Design roster now. Real faces when partners and consent are live.</p>' +
  '</div>' +
  '<div class="gpx-filters" id="gpx-filters">' +
  '<button type="button" class="is-on" data-filter="all">All heroes</button>' +
@@ -486,17 +486,17 @@
  return (
  '<div class="gpx-section">' +
  '<div class="gpx-head">' +
- '<h2>The gate · certified forever home</h2>' +
- '<p><strong>Certified</strong> is not marketing. Six hard screens. Written forever. Program-funded care when the flywheel is live. You bring the love. The program covers listed costs. Same gate when partners land. That is the deal.</p>' +
+ '<h2>The gate · forever is not a mood</h2>' +
+ '<p><strong>Certified</strong> means we protect the dog from impulse. Six hard screens. Written forever. When the flywheel is live, the program covers listed care so a family is not forced to choose between rent and medicine. You bring the love. We hold the floor under it.</p>' +
  '</div>' +
  '<div class="gpx-connect">' +
  '<div class="gpx-box">' +
- '<h3>Screening · hard on purpose</h3>' +
+ '<h3>Hard on purpose · soft for the dog</h3>' +
  '<div class="gpx-screen">' + screen + '</div>' +
  '<p class="gpx-truth">Model checklist. Live verification partners replace demos when agreements exist.</p>' +
  '</div>' +
  '<div class="gpx-box">' +
- '<h3>What the program funds</h3>' +
+ '<h3>What love should not have to buy alone</h3>' +
  '<ul>' + covered + '</ul>' +
  '<p class="gpx-truth" style="margin-top:.7rem">Mercy / Guardian / Eternal circles on the program card. Nothing listed is billed to the family when funding and delivery are live.</p>' +
  '<h3 style="margin-top:1.15rem">Forever-home intent</h3>' +
@@ -551,23 +551,23 @@
  return (
  '<div class="gpx-section">' +
  '<div class="gpx-head">' +
- '<h2>What care costs (and how it multiplies)</h2>' +
- '<p>Holders fund care. Families pass the gate. One funded home becomes proof. Proof draws the next home. That is the flywheel.</p>' +
+ '<h2>What it costs to keep a last chapter soft</h2>' +
+ '<p>Holders fund care. Families pass the gate. One funded home becomes proof. Proof draws the next home. Type the numbers. Feel the weight. Then decide if you want to carry it.</p>' +
  '</div>' +
  '<div class="gpx-engine" id="gpx-engine">' +
- '<div class="gpx-engine-head"><div><h3>Care engine</h3><p>Type heroes, monthly design, months. Totals update live.</p></div><div class="gpx-live"><i></i> Live</div></div>' +
+ '<div class="gpx-engine-head"><div><h3>How much soft costs</h3><p>Heroes × monthly care × months. Totals move as you type. Design only.</p></div><div class="gpx-live"><i></i> Live</div></div>' +
  '<div class="gpx-fields">' +
- '<div class="gpx-field"><label for="gpx-h">Heroes placed</label><input id="gpx-h" type="number" inputmode="numeric" min="1" max="50" step="1" value="1" autocomplete="off"><div class="hint">How many sofas</div></div>' +
+ '<div class="gpx-field"><label for="gpx-h">Sofas filled</label><input id="gpx-h" type="number" inputmode="numeric" min="1" max="50" step="1" value="1" autocomplete="off"><div class="hint">How many seniors home</div></div>' +
  '<div class="gpx-field"><label for="gpx-m">USD / hero / month</label><input id="gpx-m" type="number" inputmode="decimal" min="100" max="5000" step="25" value="350" autocomplete="off"><div class="hint">Mercy ~250 · Guardian ~350-450</div></div>' +
- '<div class="gpx-field"><label for="gpx-mo">Months of care</label><input id="gpx-mo" type="number" inputmode="numeric" min="1" max="60" step="1" value="12" autocomplete="off"><div class="hint">1 to 60</div></div>' +
+ '<div class="gpx-field"><label for="gpx-mo">Months of care</label><input id="gpx-mo" type="number" inputmode="numeric" min="1" max="60" step="1" value="12" autocomplete="off"><div class="hint">A real last chapter is not a weekend</div></div>' +
  '</div>' +
  '<div class="gpx-out">' +
  '<div class="hero"><b id="gpx-o-total">$4,200</b><span>Total care design</span></div>' +
- '<div><b id="gpx-o-per">$4,200</b><span>Per hero path</span></div>' +
- '<div><b id="gpx-o-h">1</b><span>Heroes</span></div>' +
+ '<div><b id="gpx-o-per">$4,200</b><span>One life path</span></div>' +
+ '<div><b id="gpx-o-h">1</b><span>Sofas</span></div>' +
  '<div><b id="gpx-o-mo">12</b><span>Months</span></div>' +
  '</div>' +
- '<p class="gpx-band" id="gpx-o-band">1 hero · $350/mo · 12 months. Design only until rails live.</p>' +
+ '<p class="gpx-band" id="gpx-o-band">1 sofa · $350/mo · 12 months. Family brings love. Program holds the floor when funded.</p>' +
  '</div>' +
  '<div class="gpx-funds" style="margin-top:1.15rem">' +
  FUNDS.map(function (f) {
@@ -627,7 +627,7 @@
      r.months +
      ' months = $' +
      r.total.toLocaleString() +
-     ' design care. Family brings love. Program covers listed costs when funded.';
+     ' design care. Family brings love. Program holds the floor when funded.';
    }
   }
   if (h.getAttribute('data-gpx-eng') !== '1') {
@@ -647,19 +647,19 @@
  function morePanelHtml() {
  return (
  '<div class="gpx-section">' +
- '<div class="gpx-head"><h2>How it multiplies, and the truth</h2><p>One dog home. Proof. More homes. More fuel. The next grey face at the gate. That is the flywheel. Two gold brands. Different jobs. Both mercy.</p></div>' +
+ '<div class="gpx-head"><h2>How one sofa becomes many</h2><p>One dog home. Living proof. The next guardian finds courage. The next holder finds a reason. The next grey face gets chosen. Two gold names. Different jobs. Same heart.</p></div>' +
  '<div class="gpx-box" style="margin-bottom:1rem">' +
- '<h3>How mercy multiplies</h3>' +
+ '<h3>The quiet math of mercy</h3>' +
  '<ul>' +
- '<li><strong>Dog 1:</strong> screened home and funded care become living proof</li>' +
- '<li><strong>Proof</strong> draws the next guardian and the next holder</li>' +
- '<li><strong>Dog 2 and beyond:</strong> same gate, same dignity, no shortcuts</li>' +
- '<li><strong>Process:</strong> find, screen, place, fund, check-in, next</li>' +
+ '<li><strong>First dog:</strong> a screened home and funded care become a story people can trust</li>' +
+ '<li><strong>That story</strong> draws the next guardian and the next holder</li>' +
+ '<li><strong>Next dogs:</strong> same hard gate, same dignity, no shortcuts for speed</li>' +
+ '<li><strong>Rhythm:</strong> find, screen, place, fund, stay close, next</li>' +
  '</ul>' +
  '<p class="gpx-truth">Built for real placement work. Live list when partners and funding are real. Until then: honest design. No fake saves.</p>' +
  '</div>' +
  '<div class="gpx-link-grid">' +
- '<div class="gpx-box"><h3>★ Golden Paws</h3><ul><li>Retiring <strong>dogs</strong> into forever homes</li><li>Service retirees + senior shelter heroes</li><li>Certified screening + funded care</li><li>This page</li></ul></div>' +
+ '<div class="gpx-box"><h3>★ Golden Paws</h3><ul><li>Retiring <strong>dogs</strong> onto forever sofas</li><li>Service retirees + shelter seniors</li><li>Hard gate + funded care</li><li>You are here</li></ul></div>' +
  '<div class="gpx-box"><h3>❤️ Golden Years</h3><ul><li>Matching <strong>senior people</strong> with companion dogs</li><li>Different product, same heart</li><li><a href="golden-years.html" style="color:#fcd34d">Open Golden Years →</a></li></ul></div>' +
  '</div>' +
  (isMobile() ? fundingPanelHtml() : '') +
@@ -835,7 +835,7 @@
  if (isMobile() && hero && !hero.querySelector('.gpx-mlede')) {
  mlede = document.createElement('p');
  mlede.className = 'gpx-mlede';
- mlede.innerHTML = 'Senior heroes. <strong>Find, screen, place, fund, next dog.</strong> Demo until partners and funding are real.';
+ mlede.innerHTML = 'A grey face is still waiting. <strong>Find them. Screen hard. Fund the sofa.</strong> Demo until partners and funding are real.';
  mchain = document.createElement('div');
  mchain.className = 'gpx-mchain';
  mchain.innerHTML = '<b>Find</b><i>→</i><b>Screen</b><i>→</i><b>Place</b><i>→</i><b>Fund</b><i>→</i><b>Grow</b>';
