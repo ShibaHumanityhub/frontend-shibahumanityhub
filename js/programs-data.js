@@ -4,13 +4,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/barnsponsorshippodpic.jpg",
- shortDesc: "Shiba Barn Campus: treasury land + house + expandable heated barn. Corporate pods of 5–10 dogs. Acreage density rules so we go massive without overpacking. Seniors, service retirees, death-row pulls.",
+ shortDesc: "Shiba Barn Campus: treasury land + house + expandable heated barn. Corporate pods of 5-10 dogs. Acreage density rules so we go massive without overpacking. Seniors, service retirees, death-row pulls.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Campus Infrastructure</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Corporate Barn Pod Sponsorship</h2>
  <p class="text-amber-200 text-xl mb-6">Massive shell. Modular homes. Never overpack.</p>
- <p class="text-zinc-300 mb-6">This is not a paint day and it is not “only 5–10 dogs forever.” <strong>5–10 is one pod cell</strong> — the healthy room size. The <strong>Shiba Barn Campus</strong> stacks those cells inside an expandable heated barn on real acreage: Phase 1 about 10–20 living dogs, growing toward 60–80 at full modular mass when land, staff, and audits allow.</p>
- <p class="text-zinc-300 mb-6"><strong>Treasury</strong> is designed to fund land (own or long lease), caretaker house, barn shell, isolation, and medical reserve. <strong>Corporations</strong> fund identical pod kits and monthly care for named groups of 5–10. <strong>Density rule:</strong> open dogs = min(pod seats, acreage comfort band, staff, reserve). We publish acreage bands so ambition cannot become a warehouse of fear.</p>
- <p class="text-zinc-300 mb-6">Tracks: seniors, service retirees, time-boxed death-row pull with isolation first, medical soft. Build Bay B and C onto the barn when Phase gates pass — same kit, same SOP, bigger campus.</p>
+ <p class="text-zinc-300 mb-6">This is not a paint day and it is not “only 5-10 dogs forever.” <strong>5-10 is one pod cell</strong>  - the healthy room size. The <strong>Shiba Barn Campus</strong> stacks those cells inside an expandable heated barn on real acreage: Phase 1 about 10-20 living dogs, growing toward 60-80 at full modular mass when land, staff, and audits allow.</p>
+ <p class="text-zinc-300 mb-6"><strong>Treasury</strong> is designed to fund land (own or long lease), caretaker house, barn shell, isolation, and medical reserve. <strong>Corporations</strong> fund identical pod kits and monthly care for named groups of 5-10. <strong>Density rule:</strong> open dogs = min(pod seats, acreage comfort band, staff, reserve). We publish acreage bands so ambition cannot become a warehouse of fear.</p>
+ <p class="text-zinc-300 mb-6">Tracks: seniors, service retirees, time-boxed death-row pull with isolation first, medical soft. Build Bay B and C onto the barn when Phase gates pass  - same kit, same SOP, bigger campus.</p>
  <p class="text-zinc-300 mb-6"><strong>Open gate:</strong> zoning, permits, licences, insurance, vet, staff, acreage formula green, 14-day systems test. Not legal advice. Receipts when rails are live.</p>
  <p class="text-zinc-300 mb-8"><a href="barn-pods.html" class="text-amber-300 underline font-semibold">Open the full Campus path</a> for phases, acreage calculator, treasury split, pod blueprint, rules, and law stack.</p>
 
@@ -35,12 +35,12 @@ const programs = [ {
  <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy · Pod cells + campus founders (design targets, when funded)</h4>
  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>Starter Pod · 5 dogs</strong><br>~$1,250/mo care design + kit. One cell on the campus.</div>
- <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Standard / Guardian · 8–10 dogs</strong><br>~$2,800–$5,000/mo design. Backbone of multi-pod bays.</div>
+ <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Standard / Guardian · 8-10 dogs</strong><br>~$2,800-$5,000/mo design. Backbone of multi-pod bays.</div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal / Campus</div><strong>Eternal pod or campus founder</strong><br>Multi-year care reserve or land/shell capital path. Legacy without overpack rights.</div>
  </div>
  </div>
 
- <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and permits are real, we do not buy a hashtag. We place land, raise a heated shell, and fill it with small warm homes that can grow bay by bay — until the campus is massive and every dog still has a name, a bed, and a yard that is not a war zone.</p>
+ <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and permits are real, we do not buy a hashtag. We place land, raise a heated shell, and fill it with small warm homes that can grow bay by bay  - until the campus is massive and every dog still has a name, a bed, and a yard that is not a war zone.</p>
 
  <a href="barn-pods.html" class="block text-center mb-4 text-sm text-amber-300 hover:text-amber-200 underline font-semibold">Open the full Shiba Barn Campus experience →</a>
  <button onclick="sponsorProgram('corporate-barn-pod')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-2">Become a Pod or Campus Founder</button>

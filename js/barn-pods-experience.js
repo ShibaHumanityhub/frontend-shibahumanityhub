@@ -257,9 +257,9 @@
    '<h2 class="bp-h2">Build the biggest warm place that never turns into a warehouse.</h2>' +
    '<p class="bp-lede">A dog on death row does not need your brand. They need heat, space, a clean floor, and a human who shows up tomorrow. We engineered a campus for that: treasury land, a real house for caretakers, a barn that grows bay by bay, and small cells of 5 to 10 so every soul still has a name.</p>' +
    '<div class="bp-grid g4" style="margin-bottom:1.1rem">' +
-   '<div class="bp-metric"><b>5–10</b><span>Dogs per cell</span></div>' +
+   '<div class="bp-metric"><b>5-10</b><span>Dogs per cell</span></div>' +
    '<div class="bp-metric"><b>2→8</b><span>Cells by phase</span></div>' +
-   '<div class="bp-metric"><b>20–80</b><span>Campus design load</span></div>' +
+   '<div class="bp-metric"><b>20-80</b><span>Campus design load</span></div>' +
    '<div class="bp-metric"><b>0 pack</b><span>Hard anti-crush rule</span></div>' +
    '</div>' +
    '<div class="bp-bento">' +
@@ -287,7 +287,7 @@
    '│ cell 1   cell 2        │ cell 3   cell 4                │\n' +
    '│ dual runs dual runs    │ same kit. same SOP.            │\n' +
    '├──── BAY C / D later ──┴────────────────────────────────┤\n' +
-   '│ cells 5–8 only after audits stay green                  │\n' +
+   '│ cells 5-8 only after audits stay green                  │\n' +
    '└────────────────────────────────────────────────────────┘\n' +
    'YARDS ROTATE.  openDogs = min(seats, acres, staff, reserve)';
 
@@ -299,9 +299,9 @@
    '<div class="bp-blueprint">' + map + '</div>' +
    '<div class="bp-grid g2" style="margin-top:1rem">' +
    '<div class="bp-phase"><h3>Phase 0 · Dirt and law</h3><p>Secure land. Zoning path. Septic. Access. Neighbours. Zero dogs.</p></div>' +
-   '<div class="bp-phase"><h3>Phase 1 · Flagship open</h3><p>House + Bay A + 2 cells. About 10–20 living dogs. Proof before ego.</p></div>' +
-   '<div class="bp-phase"><h3>Phase 2 · Grow the barn</h3><p>Bay B. 4 cells. 20–40 dogs. Staff line rises with the walls.</p></div>' +
-   '<div class="bp-phase"><h3>Phase 3–4 · Regional mass</h3><p>6–8 cells. 40–80 dogs design. Second site beats crushing one parcel past honesty.</p></div>' +
+   '<div class="bp-phase"><h3>Phase 1 · Flagship open</h3><p>House + Bay A + 2 cells. About 10-20 living dogs. Proof before ego.</p></div>' +
+   '<div class="bp-phase"><h3>Phase 2 · Grow the barn</h3><p>Bay B. 4 cells. 20-40 dogs. Staff line rises with the walls.</p></div>' +
+   '<div class="bp-phase"><h3>Phase 3-4 · Regional mass</h3><p>6-8 cells. 40-80 dogs design. Second site beats crushing one parcel past honesty.</p></div>' +
    '</div>' +
    '<div class="bp-grid g2" style="margin-top:.5rem">' +
    '<div class="bp-card"><h3>Who lives here</h3><ul>' +
@@ -351,9 +351,9 @@
    '<div class="bp-card" style="margin-top:1.1rem">' +
    '<h3>Land table (design)</h3>' +
    '<table class="bp-table"><thead><tr><th>Acres</th><th>Comfort</th><th>Hard max</th><th>Cells</th><th>Read</th></tr></thead><tbody>' +
-   '<tr><td>2</td><td>10</td><td>16</td><td>1–2</td><td>Micro only</td></tr>' +
-   '<tr><td>5</td><td>25</td><td>40</td><td>2–4</td><td>Flagship start</td></tr>' +
-   '<tr><td>10</td><td>50</td><td>65</td><td>5–6</td><td>Regional</td></tr>' +
+   '<tr><td>2</td><td>10</td><td>16</td><td>1-2</td><td>Micro only</td></tr>' +
+   '<tr><td>5</td><td>25</td><td>40</td><td>2-4</td><td>Flagship start</td></tr>' +
+   '<tr><td>10</td><td>50</td><td>65</td><td>5-6</td><td>Regional</td></tr>' +
    '<tr><td>20</td><td>80</td><td>100</td><td>8</td><td>Mega; then second site</td></tr>' +
    '</tbody></table></div>' +
    '<div class="bp-row">' +
@@ -376,7 +376,7 @@
    '<li>Land own or long lease</li><li>Caretaker house</li><li>Barn shell and bay extensions</li><li>Isolation and utilities backbone</li><li>Multi-year medical reserve</li>' +
    '</ul></div>' +
    '<div class="bp-card"><h3>Corporate cell sponsors</h3><ul>' +
-   '<li>Pod kit fit-out</li><li>Monthly care for 5–10 dogs</li><li>Name plate on that cell only</li><li>Story rights with consent</li><li>No right to overfill or skip law</li>' +
+   '<li>Pod kit fit-out</li><li>Monthly care for 5-10 dogs</li><li>Name plate on that cell only</li><li>Story rights with consent</li><li>No right to overfill or skip law</li>' +
    '</ul></div>' +
    '<div class="bp-card"><h3>$NIBBLES</h3><p>Belonging. Circles. A seat at the mission. Not the dog’s dinner when markets dump.</p></div>' +
    '<div class="bp-card"><h3>Stable care rails</h3><p>When live: food, vet, heat, wages in steady currency. Proof over promises.</p></div>' +
@@ -397,9 +397,9 @@
    '<p class="bp-lede">~9×6 m living wing. Dual outdoor runs. Isolation bay. Washable floors with real drains. Heat and cool with margin for seniors. Six cameras. Privacy rules. Home lounge, not a rack of cages.</p>' +
    '<div class="bp-blueprint">' +
    'ENTRY AIRLOCK · MEDS / LAUNDRY\n' +
-   'LOUNGE (home) · REST BAYS beds 1–10\n' +
+   'LOUNGE (home) · REST BAYS beds 1-10\n' +
    'ISOLATION · DOG DOORS → RUN A / RUN B\n' +
-   'Cap 5–10. Behavior can force lower. Never higher.' +
+   'Cap 5-10. Behavior can force lower. Never higher.' +
    '</div>' +
    '<div class="bp-grid g3" style="margin-top:1rem">' +
    '<div class="bp-metric"><b>581</b><span>ft² indoor design</span></div>' +
