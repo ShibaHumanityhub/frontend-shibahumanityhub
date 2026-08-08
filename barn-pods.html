@@ -4,25 +4,25 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <style id="critical-shell">
- html { background-color: #0c0a06; color-scheme: dark; }
+ html { background-color: #060402; color-scheme: dark; }
  </style>
  <link rel="stylesheet" href="assets/css/tailwind.css">
  <meta name="robots" content="index, follow">
  <meta name="author" content="Shibahumanityhub">
- <meta name="keywords" content="corporate barn pod sponsorship, senior dog sanctuary house, standardized pod house, shiba barn, NIBBLES corporate sponsorship, animal shelter housing standards, senior dog retirement barn">
+ <meta name="keywords" content="shiba barn campus, corporate barn pod, senior dog sanctuary, modular dog sanctuary, NIBBLES, treasury land barn">
 
- <title>Shiba Barn Campus • Massive Shell. Modular Pods. No Overpack.</title>
- <meta name="description" content="Shiba Barn Campus: treasury land, caretaker house, expandable heated barn, identical 5–10 dog pods. Acreage density rules, phase gates, corporate cells, death-row and senior tracks. Massive scale without warehouse cruelty. Design until funding and permits are real.">
+ <title>Shiba Barn Campus · Massive. Modular. Never a warehouse.</title>
+ <meta name="description" content="The first modular mercy campus: treasury land, caretaker house, expandable heated barn, cells of 5 to 10 dogs, live acreage engine. Scale without crushing souls. Design until funding and permits are real.">
 
- <meta property="og:title" content="Shiba Barn Campus • Massive. Modular. Anti-overpack.">
- <meta property="og:description" content="Land + house + expandable barn shell. Pods of 5–10. Acreage calculator. Treasury backbone. Corporate cells. Build on as we grow.">
+ <meta property="og:title" content="Shiba Barn Campus · Massive shell. Small homes. Live density.">
+ <meta property="og:description" content="Land + house + expandable barn. Corporate cells. Acreage that auto-calculates honesty. First of its kind when real.">
  <meta property="og:image" content="https://shibahumanityhub.com/assets/images/barnsponsorshippodpic.jpg">
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://shibahumanityhub.com/barn-pods.html">
 
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="Shiba Barn Campus • Massive modular sanctuary">
- <meta name="twitter:description" content="Huge barn. Small homes inside. Acreage rules. Phase growth. Corporate pods. Treasury land.">
+ <meta name="twitter:title" content="Shiba Barn Campus">
+ <meta name="twitter:description" content="Massive. Modular. Anti-overpack. Live density engine.">
  <meta name="twitter:image" content="https://shibahumanityhub.com/assets/images/barnsponsorshippodpic.jpg">
 
  <link rel="canonical" href="https://shibahumanityhub.com/barn-pods.html">
@@ -41,138 +41,242 @@
 
  <style>
  :root {
-  --bp-ink: #0c0a06;
+  --bp-ink: #060402;
   --bp-gold: #fcd34d;
   --bp-amber: #f59e0b;
-  --bp-line: rgba(252, 211, 77, 0.32);
+  --bp-em: #34d399;
+  --bp-line: rgba(252, 211, 77, 0.28);
   --bp-cream: #fff8e7;
  }
  * { box-sizing: border-box; }
  html { scroll-behavior: auto; }
  body {
   margin: 0; padding: 0; overflow-x: hidden;
-  background:
-   radial-gradient(ellipse 110% 55% at 50% -10%, rgba(252, 211, 77, 0.14), transparent 52%),
-   radial-gradient(ellipse 50% 40% at 100% 20%, rgba(16, 185, 129, 0.06), transparent 50%),
-   radial-gradient(ellipse 40% 35% at 0% 70%, rgba(245, 158, 11, 0.05), transparent 45%),
-   linear-gradient(180deg, #0c0a06 0%, #141008 45%, #0c0a06 100%);
+  background: #060402;
   color: var(--bp-cream);
   font-family: Inter, system-ui, sans-serif;
  }
- nav.bp-nav {
-  background: rgba(12, 10, 6, 0.96) !important;
-  border-bottom: 1px solid var(--bp-line) !important;
+ body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+   radial-gradient(ellipse 90% 50% at 50% -8%, rgba(252, 211, 77, 0.16), transparent 55%),
+   radial-gradient(ellipse 50% 40% at 100% 30%, rgba(16, 185, 129, 0.07), transparent 50%),
+   radial-gradient(ellipse 40% 35% at 0% 80%, rgba(245, 158, 11, 0.06), transparent 45%);
  }
+ body > * { position: relative; z-index: 1; }
+
+ nav.bp-nav {
+  background: rgba(6, 4, 2, 0.92) !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+ }
+
  .bp-hero {
   position: relative;
-  padding: 7.5rem 1rem 2.5rem;
+  min-height: min(100vh, 920px);
+  padding: 7.25rem 1.1rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   overflow: hidden;
  }
  .bp-hero-wash {
   position: absolute; inset: 0; pointer-events: none;
   background:
-   radial-gradient(ellipse 80% 50% at 50% 0%, rgba(251,191,36,0.12), transparent 55%),
-   url('assets/images/barnsponsorshippodpic.jpg') center 40% / cover no-repeat;
-  opacity: 0.18;
-  filter: saturate(1.05);
+   url('assets/images/barnsponsorshippodpic.jpg') center 38% / cover no-repeat;
+  opacity: 0.22;
+  filter: saturate(1.15) contrast(1.05);
+  transform: scale(1.06);
+  animation: bp-hero-ken 28s ease-in-out infinite alternate;
  }
  .bp-hero-wash::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(12,10,6,0.55) 0%, rgba(12,10,6,0.4) 40%, rgba(12,10,6,0.95) 100%);
+  background:
+   linear-gradient(180deg, rgba(6,4,2,0.72) 0%, rgba(6,4,2,0.45) 35%, rgba(6,4,2,0.88) 78%, #060402 100%),
+   radial-gradient(ellipse 70% 50% at 50% 40%, rgba(245,158,11,0.12), transparent 60%);
  }
- .bp-hero-inner { position: relative; z-index: 2; max-width: 48rem; margin: 0 auto; }
+ @keyframes bp-hero-ken {
+  from { transform: scale(1.04) translate3d(0,0,0); }
+  to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+ }
+ .bp-hero-grid {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.07;
+  background-image:
+   linear-gradient(rgba(252,211,77,0.35) 1px, transparent 1px),
+   linear-gradient(90deg, rgba(252,211,77,0.35) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+ }
+ .bp-hero-inner { position: relative; z-index: 2; max-width: 46rem; margin: 0 auto; width: 100%; }
+
  .bp-sig {
-  display: inline-flex; align-items: center; gap: .45rem;
-  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(252,211,77,.9); font-weight: 700; margin-bottom: .85rem;
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(252,211,77,.92); font-weight: 700; margin-bottom: 1rem;
+  padding: .4rem .85rem; border-radius: 999px;
+  border: 1px solid rgba(252,211,77,.35);
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(10px);
  }
  .bp-sig b {
   width: 8px; height: 8px; border-radius: 50%;
-  background: #f59e0b; box-shadow: 0 0 12px #f59e0b;
+  background: #34d399; box-shadow: 0 0 14px #34d399;
+  animation: bp-dot 1.6s ease infinite;
  }
+ @keyframes bp-dot { 0%,100%{opacity:1} 50%{opacity:.3} }
+
  .bp-mega {
   font-family: 'Space Grotesk', Inter, sans-serif;
-  font-size: clamp(2rem, 7vw, 3.6rem);
+  font-size: clamp(2.15rem, 7.5vw, 4rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin: 0 0 .9rem;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin: 0 0 1rem;
   color: #fff;
   text-wrap: balance;
+  text-shadow: 0 2px 40px rgba(0,0,0,.55);
  }
  .bp-mega em {
   font-style: normal;
-  background: linear-gradient(92deg, #fef3c7, #fcd34d, #34d399);
+  background: linear-gradient(100deg, #fef3c7 0%, #fcd34d 35%, #34d399 78%, #fde68a 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: bp-grad 10s linear infinite;
  }
+ @keyframes bp-grad { to { background-position: 200% center; } }
+
  .bp-sub {
-  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-  font-weight: 500;
-  line-height: 1.45;
+  font-size: clamp(1.12rem, 2.6vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.4;
   color: #fde68a;
   margin: 0 0 1rem;
+  text-wrap: balance;
  }
  .bp-hero-lede {
-  font-size: 1.05rem;
+  font-size: clamp(1.02rem, 2.1vw, 1.12rem);
   line-height: 1.65;
-  color: #e4d9c6;
+  color: #e8dfd0;
   font-weight: 500;
-  max-width: 38rem;
-  margin: 0 auto 1.25rem;
+  max-width: 36rem;
+  margin: 0 auto 1.4rem;
  }
- .bp-eq {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem .55rem;
-  margin: 0 auto 1.35rem; max-width: 36rem;
+
+ .bp-stat-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .55rem;
+  max-width: 28rem;
+  margin: 0 auto 1.4rem;
  }
- .bp-eq span {
-  padding: .4rem .7rem; border-radius: 999px;
-  border: 1px solid rgba(252,211,77,.3);
-  background: rgba(0,0,0,.35);
-  font-size: .78rem; font-weight: 700; color: #fef3c7;
+ @media (min-width: 520px) {
+  .bp-stat-row { grid-template-columns: repeat(4, 1fr); max-width: 36rem; }
  }
- .bp-eq .op { border: 0; background: transparent; color: #a89b7e; padding: .4rem .15rem; }
+ .bp-stat {
+  padding: .75rem .5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(252,211,77,.25);
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(8px);
+ }
+ .bp-stat b {
+  display: block;
+  font-family: Space Grotesk, sans-serif;
+  font-size: 1.25rem;
+  color: #fde68a;
+  letter-spacing: -0.02em;
+ }
+ .bp-stat span {
+  font-size: .58rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,248,231,.5);
+  font-weight: 600;
+ }
+
  .bp-cta-row {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem; margin-bottom: 1rem;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem; margin-bottom: .85rem;
  }
  .bp-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
-  padding: .9rem 1.35rem; border-radius: 999px; font-weight: 700; font-size: .95rem;
-  background: linear-gradient(135deg, #fde68a, #f59e0b); color: #1a1200;
-  text-decoration: none; min-height: 48px; border: 0; cursor: pointer; font-family: inherit;
+  padding: .95rem 1.45rem; border-radius: 999px; font-weight: 700; font-size: .95rem;
+  background: linear-gradient(135deg, #fef3c7, #fcd34d 40%, #f59e0b);
+  color: #140e00;
+  text-decoration: none; min-height: 50px; border: 0; cursor: pointer; font-family: inherit;
+  box-shadow: 0 0 40px -8px rgba(245,158,11,.75), 0 12px 32px -12px rgba(0,0,0,.7);
+  transition: transform .15s, box-shadow .2s;
  }
+ .bp-cta:hover { box-shadow: 0 0 50px -6px rgba(245,158,11,.95); transform: translateY(-1px); }
  .bp-ghost {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: .9rem 1.2rem; border-radius: 999px; font-weight: 700; font-size: .9rem;
-  background: rgba(0,0,0,.35); color: #fde68a; border: 1px solid rgba(252,211,77,.4);
-  text-decoration: none; min-height: 48px;
+  padding: .95rem 1.25rem; border-radius: 999px; font-weight: 700; font-size: .9rem;
+  background: rgba(0,0,0,.4); color: #fde68a; border: 1px solid rgba(252,211,77,.45);
+  text-decoration: none; min-height: 50px; backdrop-filter: blur(8px);
  }
+ .bp-path-note {
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: rgba(253,230,138,.45);
+  margin: 0 0 1.25rem;
+ }
+
  .bp-media {
-  max-width: 320px; margin: 1.5rem auto 0;
+  max-width: min(380px, 92vw); margin: 0 auto;
+  border-radius: 1.35rem;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(252,211,77,.55), rgba(52,211,153,.25), rgba(252,211,77,.2));
+  box-shadow: 0 28px 70px -28px rgba(0,0,0,.9), 0 0 50px -18px rgba(245,158,11,.4);
  }
  .bp-media-inner {
-  border-radius: 1.25rem; overflow: hidden;
-  border: 1px solid rgba(252,211,77,.35);
+  border-radius: calc(1.35rem - 2px); overflow: hidden;
   background: #0a0804;
-  box-shadow: 0 20px 50px -20px rgba(0,0,0,.8);
  }
  .bp-media video { display: block; width: 100%; }
- .bp-auth {
-  border: 1px solid rgba(252,211,77,.35);
-  background: linear-gradient(160deg, rgba(30, 22, 8, 0.96), rgba(10, 8, 4, 0.97));
+ .bp-media p {
+  margin: 0; padding: .65rem;
+  font-size: .62rem; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(253,230,138,.5); text-align: center;
+  border-top: 1px solid rgba(255,255,255,.06);
  }
+
+ .bp-auth {
+  border: 1px solid rgba(252,211,77,.4);
+  background: linear-gradient(160deg, rgba(24, 18, 8, 0.96), rgba(8, 6, 4, 0.98));
+  box-shadow: 0 12px 40px rgba(0,0,0,.45);
+ }
+
  #mobile-menu { display: none; }
  #mobile-menu:not(.hidden) { display: block; }
- footer {
-  background: #080604 !important;
-  border-top: 1px solid var(--bp-line) !important;
-  color: rgba(201, 184, 150, 0.7) !important;
+
+ .bp-soul-strip {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+  text-align: center;
  }
+ .bp-soul-strip p {
+  font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+  line-height: 1.55;
+  color: #fef3c7;
+  font-weight: 500;
+  margin: 0;
+ }
+
+ footer {
+  background: #040302 !important;
+  border-top: 1px solid var(--bp-line) !important;
+  color: rgba(201, 184, 150, 0.65) !important;
+ }
+
  @media (prefers-reduced-motion: reduce) {
-  .bp-hero-wash { opacity: 0.12; }
+  .bp-hero-wash, .bp-mega em, .bp-sig b { animation: none !important; }
+  .bp-hero-wash { opacity: 0.14; transform: none; }
  }
  </style>
 </head>
@@ -180,19 +284,19 @@
 
 <div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
  <div class="bp-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-amber-50/90">
- <strong class="text-amber-300">Authenticity:</strong> Campus phases, acreage bands, and tiers are design. No live campus, dog counts, or permits claimed until funding, partners, and inspectors say so.
+ <strong class="text-amber-300">Truth:</strong> Campus, density engine, and tiers are design. No live land, dogs, or permits claimed until funding and inspectors say so.
  <button type="button" class="ml-2 underline text-amber-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
  </div>
 </div>
 
-<nav class="bp-nav backdrop-blur-lg fixed w-full z-50">
- <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+<nav class="bp-nav fixed w-full z-50">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
  <a href="index.html" class="flex items-center gap-3 group">
- <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-amber-400/50 shadow-xl">
+ <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-amber-400/50 shadow-xl">
  <video src="assets/videos/shibahumanityhub-logo-animated.mp4" autoplay loop muted playsinline preload="metadata"
-  poster="assets/logos/shibahumanityhublogo3d-new.jpg" width="64" height="64" aria-hidden="true" class="w-full h-full object-cover"></video>
+  poster="assets/logos/shibahumanityhublogo3d-new.jpg" width="56" height="56" aria-hidden="true" class="w-full h-full object-cover"></video>
  </div>
- <span class="hidden sm:block text-lg font-bold tracking-tight bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+ <span class="hidden sm:block text-base font-bold tracking-tight bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
  </a>
  <div class="hidden md:flex items-center gap-6 text-sm font-medium">
  <a href="index.html" class="hover:text-amber-300 transition-colors">Flywheel</a>
@@ -201,86 +305,76 @@
  <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
  </div>
  <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1" aria-label="Menu"><i id="mobile-menu-icon" class="fa-solid fa-bars"></i></button>
- <a href="#bp-experience" class="bp-cta !py-2.5 !px-4 !text-sm hidden sm:inline-flex">Open Campus path</a>
+ <a href="#bp-experience" class="bp-cta !py-2.5 !px-4 !text-sm hidden sm:inline-flex">Enter campus</a>
  </div>
 </nav>
 
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 88px;">
- <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 72px;">
+ <div class="max-w-7xl mx-auto px-6 py-5 text-sm flex flex-col gap-1">
  <a href="all-programs.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 Programs</a>
- <a href="barn-pods.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-amber-200">Corporate Barn Pods</a>
+ <a href="barn-pods.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-amber-200">Shiba Barn Campus</a>
  <a href="golden-paws.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Golden Paws</a>
  <a href="k9-lifeline.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Global Disaster K9</a>
- <a href="healing-hearts.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Healing Hearts</a>
- <a href="new-beginnings.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">New Beginnings</a>
- <a href="shelters.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Beautiful Souls</a>
  <a href="index.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Home</a>
  </div>
 </div>
 
 <header class="bp-hero">
  <div class="bp-hero-wash" aria-hidden="true"></div>
+ <div class="bp-hero-grid" aria-hidden="true"></div>
  <div class="bp-hero-inner">
- <div class="bp-sig"><b></b> Shiba Barn Campus · treasury land · expandable barn · $NIBBLES</div>
- <h1 class="bp-mega">Massive shell.<br>Modular homes.<br><em>Never overpack.</em></h1>
- <p class="bp-sub">Treasury lands the campus. Corporations fund 5–10 dog pods. We grow bay by bay — not by stacking souls.</p>
+ <div class="bp-sig"><b></b> First of its kind · modular campus mercy</div>
+ <h1 class="bp-mega">Massive shell.<br>Small homes.<br><em>Zero warehouse.</em></h1>
+ <p class="bp-sub">Treasury lands the campus. Companies fund warm cells. Density tells the truth as you type.</p>
  <p class="bp-hero-lede">
- A huge heated barn is the right ambition. A free-for-all of eighty stressed dogs is not. We build <strong style="color:#fde68a">caretaker house + expandable barn shell + identical pods</strong>, with <strong style="color:#fde68a">acreage density rules</strong> and phase gates so scale stays merciful. Seniors. Service retirees. Death-row pulls with isolation first. Build on when audits stay green.
+ A huge heated barn is the right ambition. Eighty stressed dogs in one open floor is not. We stack <strong style="color:#fde68a">identical cells of 5 to 10</strong> inside an expandable shell on real acreage, and we refuse to open what we cannot staff, clean, and love every day.
  </p>
 
- <div class="bp-eq" aria-label="Campus equation">
-  <span>Land + house</span>
-  <span class="op">×</span>
-  <span>Barn bays</span>
-  <span class="op">×</span>
-  <span>Pods 5–10</span>
-  <span class="op">=</span>
-  <span>Massive · safe · funded</span>
+ <div class="bp-stat-row" aria-label="Campus design targets">
+  <div class="bp-stat"><b>5–10</b><span>Per cell</span></div>
+  <div class="bp-stat"><b>2→8</b><span>Cells / phase</span></div>
+  <div class="bp-stat"><b>20–80</b><span>Campus load</span></div>
+  <div class="bp-stat"><b>Live</b><span>Density math</span></div>
  </div>
 
  <div class="bp-cta-row">
- <a href="#bp-experience" class="bp-cta">Enter the Campus path <i class="fa-solid fa-paw"></i></a>
- <a href="#bp-experience" class="bp-ghost" onclick="if(window.SHHBarnPods){setTimeout(function(){window.SHHBarnPods.showPanel('acres')},80)}">Acreage calculator →</a>
+ <a href="#bp-experience" class="bp-cta">Walk the campus <i class="fa-solid fa-arrow-right"></i></a>
+ <a href="#bp-experience" class="bp-ghost" onclick="if(window.SHHBarnPods){setTimeout(function(){window.SHHBarnPods.showPanel('acres')},60)}">Open density engine</a>
  </div>
- <p class="text-[11px] tracking-wide text-amber-200/50">Path: Why → Campus → Acreage → Treasury → Pod cell → Expand → Rules → Law → Sponsor.</p>
- <p class="text-[11px] tracking-wide text-amber-100/40 mt-1">Design studio. No live campus or headcount claimed. Truth first.</p>
+ <p class="bp-path-note">Why · Campus · Density · Money · Cell · Rules · Law · Stand</p>
 
  <div class="bp-media">
   <div class="bp-media-inner">
    <video
     id="bp-hero-video"
     src="assets/videos/corporatebarnpodsponsorship-animated.mp4"
-    muted loop playsinline preload="metadata"
+    muted loop playsinline preload="auto"
     poster="assets/images/barnsponsorshippodpic.jpg"
-    aria-label="Corporate Barn Pod preview"
+    aria-label="Barn campus preview"
    ></video>
-   <p class="text-[10px] tracking-[0.12em] uppercase text-amber-200/45 py-2 text-center border-t border-white/5">Preview clip. Not a live barn feed.</p>
+   <p>Motion vision · not a live barn feed</p>
   </div>
  </div>
  </div>
 </header>
 
-<main id="bp-experience" class="pb-8" style="scroll-margin-top:5rem">
- <!-- filled by barn-pods-experience.js -->
- <div class="max-w-xl mx-auto px-6 py-16 text-center text-amber-100/40 text-sm">Loading Pod House experience…</div>
+<main id="bp-experience" style="scroll-margin-top:5rem">
+ <div class="max-w-xl mx-auto px-6 py-20 text-center text-amber-100/35 text-sm">Loading campus…</div>
 </main>
 
-<section class="max-w-3xl mx-auto px-6 pb-16 text-center">
- <p class="text-lg text-amber-50/90 leading-relaxed font-medium">
- A senior who watched the world walk past a kennel gate still gets a floor that is warm, a run that is real, and a name on a house that means someone paid for their last good years on purpose.
- </p>
- <p class="mt-4 text-sm text-amber-200/50">People helping people. Helping dogs. Helping people.</p>
+<section class="bp-soul-strip">
+ <p>Somewhere a senior is still waiting for a floor that is warm and a human who stays. This campus is how we stop looking away at scale without becoming the thing we hate.</p>
 </section>
 
 <footer class="py-14 text-center text-xs">
- <p class="text-amber-100/90 text-sm mb-2 font-medium">Massive campus. Modular pods. Acreage honesty. Corporate courage.</p>
- <p class="mb-1 tracking-wide text-amber-100/75">Shiba Barn Campus · Corporate Pod cells · $NIBBLES when funded.</p>
+ <p class="text-amber-100/90 text-sm mb-2 font-medium">People helping people. Helping dogs. Helping people.</p>
+ <p class="mb-1 tracking-wide text-amber-100/70">Shiba Barn Campus · modular cells · $NIBBLES when funded</p>
  <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until land, permits, partners, and rails are real. Not legal advice.</p>
  <div class="flex flex-wrap justify-center gap-4 text-sm">
- <a href="programs/corporate-barn-pod-sponsorship.html" class="underline text-amber-200/80 hover:text-white">Classic program card</a>
- <a href="programs/shiba-barn-sanctuary-network.html" class="underline text-amber-200/80 hover:text-white">Shiba Barn Network</a>
+ <a href="programs/corporate-barn-pod-sponsorship.html" class="underline text-amber-200/80 hover:text-white">Classic card</a>
+ <a href="programs/shiba-barn-sanctuary-network.html" class="underline text-amber-200/80 hover:text-white">Barn Network</a>
  <a href="golden-paws.html" class="underline text-amber-200/80 hover:text-white">Golden Paws</a>
- <a href="all-programs.html" class="underline text-amber-200/80 hover:text-white">All 30 programs</a>
+ <a href="all-programs.html" class="underline text-amber-200/80 hover:text-white">All 30</a>
  <a href="index.html" class="underline text-amber-200/80 hover:text-white">Home</a>
  </div>
 </footer>
