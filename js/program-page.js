@@ -210,6 +210,20 @@
 
  var story = fixAssetPaths(program.fullHTML || '');
 
+ /* Motion cinema hero: upgrade static still into full program video stage */
+ var cinemaHtml = '';
+ var PV = window.SHHProgramVideo;
+ if (PV && typeof PV.extractFirstVideo === 'function' && typeof PV.buildCinema === 'function') {
+  var clip = PV.extractFirstVideo(program.fullHTML || '');
+  if (clip && clip.src) {
+   var cSrc = clip.src;
+   var cPoster = clip.poster || program.image || '';
+   if (cSrc.indexOf('assets/') === 0) cSrc = '../' + cSrc;
+   if (cPoster && cPoster.indexOf('assets/') === 0) cPoster = '../' + cPoster;
+   cinemaHtml = PV.buildCinema(cSrc, cPoster, program.title);
+  }
+ }
+
  root.innerHTML =
  '<header class="relative pt-28 pb-16 overflow-hidden">' +
  '<div class="absolute inset-0 bg-gradient-to-b ' + theme.glow + ' via-transparent to-transparent pointer-events-none"></div>' +
@@ -222,15 +236,17 @@
  '<div class="flex flex-wrap gap-2 mb-4">' +
  '<span class="text-xs px-3 py-1 rounded-full ' + theme.chip + ' text-white">' + escapeHtml(program.category) + '</span>' +
  '<span class="text-xs px-3 py-1 rounded-full border border-white/15 text-zinc-300">Program #' + program.id + '</span>' +
- '<span class="text-xs px-3 py-1 rounded-full border border-white/15 text-zinc-400">Dedicated page</span>' +
+ '<span class="text-xs px-3 py-1 rounded-full border border-amber-400/30 text-amber-200/90">Motion page</span>' +
  '</div>' +
  '<h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">' + escapeHtml(program.title) + '</h1>' +
  '<p class="text-lg md:text-xl text-zinc-300 max-w-3xl leading-relaxed">' + escapeHtml(program.shortDesc || '') + '</p>' +
- (img
- ? '<div class="mt-10 rounded-3xl overflow-hidden border ' + theme.border + ' bg-zinc-900/40">' +
- '<img src="' + img + '" alt="' + escapeHtml(program.title) + '" class="w-full max-h-[420px] object-cover" loading="eager">' +
- '</div>'
- : '') +
+ (cinemaHtml
+  ? cinemaHtml
+  : img
+   ? '<div class="mt-10 rounded-3xl overflow-hidden border ' + theme.border + ' bg-zinc-900/40">' +
+     '<img src="' + img + '" alt="' + escapeHtml(program.title) + '" class="w-full max-h-[420px] object-cover" loading="eager">' +
+     '</div>'
+   : '') +
  '</div>' +
  '</header>' +
  '<main class="pb-8">' +
@@ -242,6 +258,13 @@
  '</main>';
 
  root.setAttribute('data-rendered-slug', slug);
+
+ /* Top-quality autoplay + larger story stages */
+ if (PV && typeof PV.amplifyAll === 'function') {
+  try {
+   PV.amplifyAll(root, { force: true });
+  } catch (eAmp) { /* non-fatal */ }
+ }
 
  // Christmas logistics layer (Orphan Christmas + Santa's Workshop)
  if (window.SHHChristmasMercyOps && typeof window.SHHChristmasMercyOps.mount === 'function') {

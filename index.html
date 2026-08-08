@@ -1233,6 +1233,8 @@
  </style>
 <script src="js/programs-data.js" defer></script>
 <script src="js/program-pages-map.js" defer></script>
+<script src="js/program-actions.js" defer></script>
+<script src="js/program-video-amplify.js" defer></script>
 <script src="js/programs-flywheel-nav.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
 <script src="js/scroll-experience.js" defer></script>
@@ -2640,28 +2642,20 @@ function showProgramModal(id) {
  modal._focusManager.activate();
  }
 
- // Fix for program videos not playing: explicitly start the injected preview video(s)
- // after DOM insertion. Respect reduced motion. Force preload and play for reliability.
- const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const videos = content.querySelectorAll('video');
- videos.forEach(video => {
- video.muted = true;
- video.playsInline = true;
- if (prefersReduced) {
- video.pause();
- video.removeAttribute('autoplay');
+ // Top-quality motion amplify (preload, stage, autoplay retries)
+ if (window.SHHProgramVideo && typeof window.SHHProgramVideo.amplifyAll === 'function') {
+  window.SHHProgramVideo.amplifyAll(content, { force: true });
  } else {
- if (video.preload === 'none' || !video.preload) {
- video.preload = 'auto';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  content.querySelectorAll('video').forEach(video => {
+   video.muted = true;
+   video.playsInline = true;
+   if (!prefersReduced) {
+    video.preload = 'auto';
+    setTimeout(() => { video.play().catch(() => {}); }, 50);
+   }
+  });
  }
- // Some browsers need a tiny delay after innerHTML for autoplay policies
- setTimeout(() => {
- video.play().catch(err => {
- console.warn('Program preview video autoplay note (common browser policy even when muted):', err);
- });
- }, 50);
- }
- });
 }
 
 function saveLife(dog, shelter) {

@@ -79,6 +79,8 @@ function pageHtml(program) {
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
  <script src="../js/programs-data.js" defer></script>
  <script src="../js/program-pages-map.js" defer></script>
+ <script src="../js/program-actions.js" defer></script>
+ <script src="../js/program-video-amplify.js" defer></script>
  <script src="../js/christmas-mercy-ops.js" defer></script>
  <script src="../js/program-page.js" defer></script>
  <script src="../js/shared-animations.js" defer></script>

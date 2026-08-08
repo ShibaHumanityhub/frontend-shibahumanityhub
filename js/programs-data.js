@@ -22,7 +22,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -73,7 +73,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -118,7 +118,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -170,7 +170,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -215,7 +215,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -262,7 +262,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -331,7 +331,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -374,7 +374,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -418,7 +418,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -462,7 +462,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -505,7 +505,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -557,7 +557,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -609,7 +609,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -661,7 +661,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -713,7 +713,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -763,7 +763,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -887,7 +887,7 @@ const programs = [ {
  <video
  src="assets/videos/orphanchristmas-animated.mp4"
  poster="assets/images/orphanxmasphoto.jpg"
- autoplay loop muted playsinline preload="none"
+ autoplay loop muted playsinline preload="auto"
  aria-label="Christmas TV on a desk: warm tree light, holly, and a quiet night of hope.">
  </video>
  </div>
@@ -962,7 +962,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1012,7 +1012,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1063,7 +1063,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1113,7 +1113,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1163,7 +1163,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1213,7 +1213,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1265,7 +1265,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1315,7 +1315,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1365,7 +1365,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1416,7 +1416,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1468,7 +1468,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
  class="w-full rounded-2xl">
  </video>
@@ -1565,7 +1565,7 @@ const programs = [ {
  loop 
  muted 
  playsinline 
- preload="none"
+ preload="auto"
  poster="assets/images/siblingkeepersprogramphoto.jpg"
  aria-label="Brothers and sisters staying close. Same room. Same love."
  class="w-full rounded-2xl">
