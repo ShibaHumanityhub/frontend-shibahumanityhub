@@ -228,8 +228,8 @@
    '<div class="pifx-grid g2">' +
    '<div class="pifx-card"><h3>The wound</h3><p>A good home fails because money ran out in week three. A guardian chooses between rent and medicine. The dog goes back. Everyone loses.</p></div>' +
    '<div class="pifx-card"><h3>The mechanism</h3><p>You fund the bond. The guardian keeps the dog. Stories (with consent) pull the next sponsor. Hold $NIBBLES for belonging. Pay living costs in steady dollars when rails are live.</p></div>' +
-   '<div class="pifx-card"><h3>Bilyeu-clear</h3><p>What is the product? One standing home. What is the outcome? Fewer returns. More mornings that start with a wag, not a surrender form.</p></div>' +
-   '<div class="pifx-card"><h3>Vitalik-honest</h3><p>No fake on-chain dog GPS. Intent, then receipts. Circles of Mercy are seats at the table. Care is not a chart cosplay.</p></div>' +
+   '<div class="pifx-card"><h3>The product</h3><p>One standing home. Fewer returns. More mornings that start with a wag, not a surrender form.</p></div>' +
+   '<div class="pifx-card"><h3>The honesty rule</h3><p>No fake on-chain dog GPS. Intent, then receipts. Circles of Mercy are seats at the table. Care is not a chart cosplay.</p></div>' +
    '</div>' +
    '<div class="pifx-row">' +
    '<button type="button" class="pifx-btn pifx-btn-rose" data-pif-go="engine">Run the chain engine →</button>' +
@@ -264,7 +264,7 @@
    '<section class="pifx-panel" data-pif="how">' +
    '<p class="pifx-kicker">02 · Mechanics</p>' +
    '<h2 class="pifx-h2">Simple enough to explain. Strong enough to last winter.</h2>' +
-   '<p class="pifx-lede">Elon-style: strip the fluff. The unit is a bond that does not collapse. Scale is more bonds funded well, not more noise.</p>' +
+   '<p class="pifx-lede">Strip the fluff. The unit is a bond that does not collapse. Scale is more bonds funded well, not more noise.</p>' +
    html +
    '<div class="pifx-card" style="margin-top:.5rem"><h3>Two doors, one mission</h3><p><strong style="color:#fda4af">This page</strong> is the Adoption Chain product. <strong style="color:#fde68a">The Mercy Chain program card</strong> is the $NIBBLES circles and holding model. Same heart. Different door.</p>' +
    '<p style="margin-top:.5rem"><a href="programs/pay-it-forward-mercy-chain.html" style="color:#fda4af;font-weight:600">Open Mercy Chain card →</a> · <a href="whitepaper.html#treasury-path" style="color:#fde68a;font-weight:600">Hold heart, pay life →</a></p></div>' +
