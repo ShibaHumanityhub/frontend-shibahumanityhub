@@ -59,9 +59,8 @@
  try {
  if (wantsDesktopLayout()) return false;
  if (wantsMobileLayout()) return true;
+ /* True phones only. Desktop / laptop / tablet landscape keep full arena so layout sits properly. */
  if (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) return true;
- /* touch + narrow */
- if (window.matchMedia && window.matchMedia('(max-width: 900px) and (pointer: coarse)').matches) return true;
  } catch (e) { /* ignore */ }
  return false;
  }
@@ -127,8 +126,9 @@
  '.ocm-panel.is-on{display:block}',
  '@keyframes ocm-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}',
  '.ocm-kicker{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,197,71,.85);margin:0 0 .35rem}',
- '.ocm-h1{font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;line-height:1.12;margin:0 0 .55rem;color:#fff;font-weight:700}',
+ '.ocm-h1{font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;line-height:1.12;margin:0 0 .45rem;color:#fff;font-weight:700}',
  '.ocm-h1 em{font-style:normal;background:linear-gradient(90deg,#fde68a,#e8c547,#fca5a5);-webkit-background-clip:text;background-clip:text;color:transparent}',
+ '.ocm-soul{font-family:Georgia,serif;font-size:.95rem;line-height:1.4;color:#fde68a;margin:0 0 .7rem}',
  '.ocm-lede{font-size:.92rem;line-height:1.5;color:rgba(255,244,224,.88);margin:0 0 .85rem}',
  '.ocm-lede strong{color:#fde68a}',
  '.ocm-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.85rem}',
@@ -214,9 +214,12 @@
  var title = climax
  ? 'The last quiet miles before a child wakes to <em>something warm.</em>'
  : 'Some kids wake up on Christmas with <em>nothing but quiet.</em>';
+ var soul = climax
+ ? 'Christmas was never about the noise. It was love landing in a room that needed it.'
+ : 'The gift of love. Helping other souls. Christmas as it was meant to be.';
  var lede = climax
  ? 'Holy Night mode. Final freights. Final carols. Named hearts. No spam. <strong>Jesus is the reason. These kids are the why.</strong>'
- : 'Orphans. Foster kids. Youth shelters. Verified only. Warehouse. Trucks. Turkey dinners. <strong>Jesus is the reason. These kids are the why.</strong>';
+ : 'Orphans. Foster kids. Youth shelters. Verified only. Warm packs. Turkey dinners. <strong>Jesus is the reason. These kids are the why.</strong>';
 
  return (
  '<div class="ocm" id="ocm-root">' +
@@ -231,8 +234,9 @@
  '<div class="ocm-panels">' +
  /* HEART */
  '<section class="ocm-panel is-on" id="ocm-panel-heart" data-panel="heart" role="tabpanel">' +
- '<p class="ocm-kicker">$hopeseed · mobile</p>' +
+ '<p class="ocm-kicker">$hopeseed · gift of love</p>' +
  '<h1 class="ocm-h1">' + title + '</h1>' +
+ '<p class="ocm-soul">' + soul + '</p>' +
  '<p class="ocm-lede">' + lede + '</p>' +
  '<div class="ocm-stats">' +
  '<div class="ocm-stat"><b id="ocm-viewers">' + viewers.toLocaleString() + '</b><span>Watching (sim)</span></div>' +
