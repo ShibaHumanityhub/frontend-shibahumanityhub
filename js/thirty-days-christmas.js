@@ -1,8 +1,8 @@
 /**
- * 30 Days of Christmas · Orphan Christmas campaign layer
- * Scroll journey · freight trackers · donor hearts · AMA stage · holiday cheer
+ * 30 Days of Christmas · Path of Light
+ * Unique advent journey (not a generic grid): three acts, doorboard, cinematic day focus.
+ * Inspired by high-end campaign craft: restraint, scrollytelling, proof over theater, soul over noise.
  * Design / preview until rails, partners, and real streams are live. Truth labeled.
- * Tone: human. Quiet. High-end. No theater about delivery that has not happened yet.
  */
 (function () {
  'use strict';
@@ -11,37 +11,45 @@
  var SEASON_START = { m: 10, d: 25 }; /* month 0-index: Nov 25 */
  var SEASON_END = { m: 11, d: 24 };
 
+ /* Three acts: prepare the light → move the light → protect the morning */
+ var ACTS = [
+  { id: 'prepare', label: 'Act I · Prepare', range: [1, 10], line: 'Open the books. Warm the hands. Build the list nobody can scam.' },
+  { id: 'deliver', label: 'Act II · Deliver', range: [11, 22], line: 'Trucks. Tables. Carols. Named love on the road.' },
+  { id: 'protect', label: 'Act III · Protect', range: [23, 30], line: 'Holy nights. Quiet mornings. Dignity over spectacle.' }
+ ];
+
+ /* day, title, focus, vibe, act, ritual (micro practice), action (what a heart can do) */
  var DAY_THEMES = [
- { day: 1, title: 'The Quiet List', focus: 'Verified kids only. Partner codes. No DMs.', vibe: 'Open the books. Name no child in public.' },
- { day: 2, title: 'Warm First', focus: 'Coats · socks · gloves before toys', vibe: 'Cold hands cannot open gifts with joy.' },
- { day: 3, title: 'Sibling Keepers Night', focus: 'Crates for brothers and sisters together', vibe: 'Nobody should lose their sibling at Christmas too.' },
- { day: 4, title: 'Stocking Run', focus: 'Small packs · big heart', vibe: 'One child. One stocking. One morning that feels seen.' },
- { day: 5, title: 'Shelter Floor Sweep', focus: 'Whole wing pallets', vibe: 'Every bed on the floor gets a morning.' },
- { day: 6, title: 'Carol Night Live', focus: 'Vessymink + friends · carols for the room', vibe: 'Music that softens the warehouse and the chat.' },
- { day: 7, title: 'Turkey Tables Open', focus: 'Dinner vouchers · full turkey packs', vibe: 'A table with food is still a kind of home.' },
- { day: 8, title: 'Wish Desk Deep Dive', focus: 'Age · size · real lists', vibe: 'Elves match paper to a real human age.' },
- { day: 9, title: 'Freight Friday', focus: 'Trucks leave hubs · trackers light up', vibe: 'Watch the route. Cheer the dock.' },
- { day: 10, title: 'AMA Prize One', focus: 'Daily prize for the live room', vibe: 'Show up. Stay kind. Somebody goes home warmer.' },
- { day: 11, title: 'Corporate Hearts', focus: 'Named sponsors on the wall', vibe: 'From the hearts of companies who still feel.' },
- { day: 12, title: 'Foster Family Drop', focus: 'Kinship and foster homes', vibe: 'Quiet doors. Soft knocks. Real packs.' },
- { day: 13, title: 'Midway Mercy Check', focus: 'Half the season · double the pace', vibe: 'We do not coast. We go harder.' },
- { day: 14, title: 'Santa at the Shelter', focus: 'Live video · consent first', vibe: 'Santa for kids who thought he forgot.' },
- { day: 15, title: 'Grocery Dignity Day', focus: 'Store vouchers so families choose', vibe: 'Dignity is letting them pick the turkey.' },
- { day: 16, title: 'Wrap Masterclass', focus: 'Gold · holy · kid chaos paper', vibe: 'The paper is part of the joy.' },
- { day: 17, title: 'Night Shift Elves', focus: 'Live floor till late', vibe: 'Hands moving while the world sleeps.' },
- { day: 18, title: 'Carol Convoy', focus: 'Music on the road · drivers + chat', vibe: 'Sing while the freight rolls.' },
- { day: 19, title: 'AMA Prize Two', focus: 'Donor shoutouts + room prizes', vibe: 'Named love. Anonymous love. Both count.' },
- { day: 20, title: 'Teen Holy Night', focus: 'Youth shelters · ages that still need wonder', vibe: 'Sixteen still deserves Christmas.' },
- { day: 21, title: 'Mountain + Coast Push', focus: 'Hard routes get priority', vibe: 'Distance is not a reason to skip a child.' },
- { day: 22, title: 'Last Mile Saturday', focus: 'Local pickups · rooms filled', vibe: 'Call the shelter. Confirm the count.' },
- { day: 23, title: 'Eve Eve Buildup', focus: 'Chat peaks · freights final', vibe: 'The room gets loud with hope.' },
- { day: 24, title: 'Christmas Eve', focus: 'Final drops · carols · Santa soft close', vibe: 'Holy night. Quiet trucks. Full stockings.' },
- { day: 25, title: 'Christmas Morning', focus: 'Stories only · no harvest of tears', vibe: 'We do not film pain for clout. We protect the morning.' },
- { day: 26, title: 'Thank the Hands', focus: 'Elves · drivers · partners', vibe: 'The people who carried the boxes.' },
- { day: 27, title: 'Receipt Sunday', focus: 'Proof board · when rails live', vibe: 'Show the ledger. Keep the privacy.' },
- { day: 28, title: 'Leftover Love', focus: 'Missed doors · second pass', vibe: 'Nobody on the verified list gets skipped if we can help it.' },
- { day: 29, title: 'New Year Seed', focus: 'What next · hopeseed year-round', vibe: 'Christmas ends. Mercy does not.' },
- { day: 30, title: 'We Remember', focus: 'Names we never publish · hearts we keep', vibe: 'You are 1. We are all 1.' }
+ { day: 1, act: 'prepare', title: 'The Quiet List', focus: 'Verified kids only. Partner codes. No DMs.', vibe: 'Open the books. Name no child in public.', ritual: 'Whisper one name you will never post. Carry it in private.', action: 'Review the verification rule. Share why we refuse scam wish lists.' },
+ { day: 2, act: 'prepare', title: 'Warm First', focus: 'Coats · socks · gloves before toys', vibe: 'Cold hands cannot open gifts with joy.', ritual: 'Think of a child whose hands are cold tonight.', action: 'Pledge a warmth pack size in the ops builder.' },
+ { day: 3, act: 'prepare', title: 'Sibling Keepers Night', focus: 'Crates for brothers and sisters together', vibe: 'Nobody should lose their sibling at Christmas too.', ritual: 'If you have a sibling, text them something kind.', action: 'Sponsor a sibling crate intent when rails open.' },
+ { day: 4, act: 'prepare', title: 'Stocking Run', focus: 'Small packs · big heart', vibe: 'One child. One stocking. One morning that feels seen.', ritual: 'Hang an empty stocking as a promise until the season ships.', action: 'Pick Stocking Pack in ops.' },
+ { day: 5, act: 'prepare', title: 'Shelter Floor Sweep', focus: 'Whole wing pallets', vibe: 'Every bed on the floor gets a morning.', ritual: 'Imagine a whole hallway waking up less alone.', action: 'Look at Shelter Floor Pallet in ops.' },
+ { day: 6, act: 'prepare', title: 'Carol Night Live', focus: 'Vessymink + friends · carols for the room', vibe: 'Music that softens the warehouse and the chat.', ritual: 'Play one carol without shopping ads attached.', action: 'Join Live Nights. Soft room. Open heart.' },
+ { day: 7, act: 'prepare', title: 'Turkey Tables Open', focus: 'Dinner vouchers · full turkey packs', vibe: 'A table with food is still a kind of home.', ritual: 'Set an extra plate in your mind for someone you will never meet.', action: 'Choose a dinner sponsor in ops.' },
+ { day: 8, act: 'prepare', title: 'Wish Desk Deep Dive', focus: 'Age · size · real lists', vibe: 'Elves match paper to a real human age.', ritual: 'Remember a gift that fit you perfectly as a kid.', action: 'Read who we serve: verified only.' },
+ { day: 9, act: 'prepare', title: 'Freight Friday', focus: 'Trucks leave hubs · trackers light up', vibe: 'Watch the route. Cheer the dock.', ritual: 'Pray or hope for safe roads for people you will never see.', action: 'Open Freight Command. Pick a freighter to watch.' },
+ { day: 10, act: 'prepare', title: 'AMA Prize One', focus: 'Daily prize for the live room', vibe: 'Show up. Stay kind. Somebody goes home warmer.', ritual: 'Say one kind thing in a public room today.', action: 'Show up for the next live AMA night.' },
+ { day: 11, act: 'deliver', title: 'Corporate Hearts', focus: 'Named sponsors on the wall', vibe: 'From the hearts of companies who still feel.', ritual: 'If you lead people, ask who you can warm this season.', action: 'Hold a named-heart intent on a freighter.' },
+ { day: 12, act: 'deliver', title: 'Foster Family Drop', focus: 'Kinship and foster homes', vibe: 'Quiet doors. Soft knocks. Real packs.', ritual: 'Honor a foster parent you know, even silently.', action: 'Build a Child Mercy Bag for a foster door.' },
+ { day: 13, act: 'deliver', title: 'Midway Mercy Check', focus: 'Half the season · double the pace', vibe: 'We do not coast. We go harder.', ritual: 'Check your own pace. Who still needs you?', action: 'Share the season path with one friend who has a soft heart.' },
+ { day: 14, act: 'deliver', title: 'Santa at the Shelter', focus: 'Live video · consent first', vibe: 'Santa for kids who thought he forgot.', ritual: 'Refuse any content that turns a child into a prop.', action: 'Read our consent rule. Share it.' },
+ { day: 15, act: 'deliver', title: 'Grocery Dignity Day', focus: 'Store vouchers so families choose', vibe: 'Dignity is letting them pick the turkey.', ritual: 'Let someone choose for themselves today.', action: 'Pick a grocery dinner voucher in ops.' },
+ { day: 16, act: 'deliver', title: 'Wrap Masterclass', focus: 'Gold · holy · kid chaos paper', vibe: 'The paper is part of the joy.', ritual: 'Wrap one small thing carefully, slowly.', action: 'Open wrap studio. Choose paper with care.' },
+ { day: 17, act: 'deliver', title: 'Night Shift Elves', focus: 'Live floor till late', vibe: 'Hands moving while the world sleeps.', ritual: 'Thank someone who works when others rest.', action: 'Watch the warehouse floor cams.' },
+ { day: 18, act: 'deliver', title: 'Carol Convoy', focus: 'Music on the road · drivers + chat', vibe: 'Sing while the freight rolls.', ritual: 'Hum one song while you move through your day.', action: 'Cheer a freighter. Share its route.' },
+ { day: 19, act: 'deliver', title: 'AMA Prize Two', focus: 'Donor shoutouts + room prizes', vibe: 'Named love. Anonymous love. Both count.', ritual: 'Decide: name or quiet. Both are holy.', action: 'Name a gift or stay anonymous on purpose.' },
+ { day: 20, act: 'deliver', title: 'Teen Holy Night', focus: 'Youth shelters · ages that still need wonder', vibe: 'Sixteen still deserves Christmas.', ritual: 'Respect a teenager as fully human today.', action: 'Build a pack sized for a teen, not a toddler.' },
+ { day: 21, act: 'deliver', title: 'Mountain + Coast Push', focus: 'Hard routes get priority', vibe: 'Distance is not a reason to skip a child.', ritual: 'Stretch your circle one mile farther than comfort.', action: 'Watch a hard-route freighter on the board.' },
+ { day: 22, act: 'deliver', title: 'Last Mile Saturday', focus: 'Local pickups · rooms filled', vibe: 'Call the shelter. Confirm the count.', ritual: 'Confirm one commitment you made. Keep it.', action: 'Enter ops. Finish a full gift intent.' },
+ { day: 23, act: 'protect', title: 'Eve Eve Buildup', focus: 'Chat peaks · freights final', vibe: 'The room gets loud with hope.', ritual: 'Turn noise into hope. Refuse spam energy.', action: 'Join the live stage. Stay soft and loud with love.' },
+ { day: 24, act: 'protect', title: 'Christmas Eve', focus: 'Final drops · carols · Santa soft close', vibe: 'Holy night. Quiet trucks. Full stockings.', ritual: 'Sit in the quiet for one minute. Let it be holy.', action: 'Hold the holy night board. Pray or hope for every last mile.' },
+ { day: 25, act: 'protect', title: 'Christmas Morning', focus: 'Stories only · no harvest of tears', vibe: 'We do not film pain for clout. We protect the morning.', ritual: 'Protect someone else\'s privacy today.', action: 'Refuse clout. Celebrate quietly if a morning was fixed.' },
+ { day: 26, act: 'protect', title: 'Thank the Hands', focus: 'Elves · drivers · partners', vibe: 'The people who carried the boxes.', ritual: 'Thank three people who carry unseen weight.', action: 'Share gratitude for drivers, elves, partners.' },
+ { day: 27, act: 'protect', title: 'Receipt Sunday', focus: 'Proof board · when rails live', vibe: 'Show the ledger. Keep the privacy.', ritual: 'Choose honesty over a pretty story.', action: 'Read the authenticity labels on this page.' },
+ { day: 28, act: 'protect', title: 'Leftover Love', focus: 'Missed doors · second pass', vibe: 'Nobody on the verified list gets skipped if we can help it.', ritual: 'Go back for someone you almost forgot.', action: 'Second-pass intent: one more pack if you can.' },
+ { day: 29, act: 'protect', title: 'New Year Seed', focus: 'What next · hopeseed year-round', vibe: 'Christmas ends. Mercy does not.', ritual: 'Plant one mercy habit for January.', action: 'Explore year-round programs on All Programs.' },
+ { day: 30, act: 'protect', title: 'We Remember', focus: 'Names we never publish · hearts we keep', vibe: 'You are 1. We are all 1.', ritual: 'Remember without exposing. Love without a stage.', action: 'Share the season once, then rest in the quiet.' }
  ];
 
  var FREIGHTS = [
@@ -308,7 +316,79 @@
  '.tdx-detail{margin-top:1rem;padding:1.1rem;border-radius:1.1rem;border:1px solid rgba(232,197,71,.35);background:rgba(107,15,26,.25);display:none}',
  '.tdx-detail.is-on{display:block}',
  '.tdx-detail h3{font-family:Georgia,serif;color:#fff;margin:0 0 .4rem}',
- '@media(prefers-reduced-motion:reduce){.tdx-day.is-today .tdx-day-dot,.tdx-bar > i{animation:none!important;transition:none!important}}'
+ /* Path of Light · unique advent experience */
+ '.tdx{--serif:"Playfair Display",Georgia,"Times New Roman",serif}',
+ '.tdx-h2,.tdx-day-title,.tdx-card h3,.tdx-featured h3,.tdx-donor .who,.tdx-night-body h4,.tdx-cd b,.tdx-impact .cell b{font-family:var(--serif)}',
+ '.tdx-acts{display:grid;grid-template-columns:1fr;gap:.65rem;margin:1.15rem 0 1.35rem}',
+ '@media(min-width:900px){.tdx-acts{grid-template-columns:repeat(3,1fr);gap:.85rem}}',
+ '.tdx-act{position:relative;padding:1rem 1.05rem 1.1rem;border-radius:1.15rem;border:1px solid rgba(232,197,71,.22);background:linear-gradient(165deg,rgba(196,30,58,.14),rgba(10,6,8,.72));overflow:hidden;cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s}',
+ '.tdx-act:hover,.tdx-act.is-on{border-color:rgba(232,197,71,.55);transform:translateY(-2px);box-shadow:0 16px 40px -18px rgba(196,30,58,.45)}',
+ '.tdx-act::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:3px;border-radius:0 3px 3px 0;background:linear-gradient(180deg,#e8c547,#c41e3a)}',
+ '.tdx-act .n{font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,197,71,.8);margin:0 0 .3rem}',
+ '.tdx-act h3{font-family:var(--serif);font-size:1.12rem;color:#fff;margin:0 0 .35rem;line-height:1.2}',
+ '.tdx-act p{margin:0;font-size:.8rem;line-height:1.45;color:rgba(255,244,224,.72)}',
+ '.tdx-act .rng{display:inline-block;margin-top:.55rem;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#fca5a5}',
+ /* Light progress ring */
+ '.tdx-lightbar{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;margin:1.15rem 0 1.35rem;padding:1rem 1.1rem;border-radius:1.25rem;border:1px solid rgba(232,197,71,.28);background:rgba(0,0,0,.38)}',
+ '@media(max-width:560px){.tdx-lightbar{grid-template-columns:1fr;justify-items:center;text-align:center}}',
+ '.tdx-ring{--p:0;width:88px;height:88px;border-radius:50%;background:conic-gradient(#e8c547 calc(var(--p)*1%),rgba(255,255,255,.08) 0);display:grid;place-items:center;position:relative;flex-shrink:0}',
+ '.tdx-ring::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#0a0608;border:1px solid rgba(232,197,71,.2)}',
+ '.tdx-ring span{position:relative;z-index:1;font-family:var(--serif);font-size:1.15rem;color:#fde68a;line-height:1}',
+ '.tdx-ring small{position:relative;z-index:1;display:block;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,244,224,.5);margin-top:.15rem}',
+ '.tdx-light-copy h3{font-family:var(--serif);font-size:1.15rem;color:#fff;margin:0 0 .3rem}',
+ '.tdx-light-copy p{margin:0;font-size:.85rem;line-height:1.5;color:rgba(255,244,224,.75)}',
+ /* Cinematic today door */
+ '.tdx-today{position:relative;overflow:hidden;border-radius:1.4rem;border:1px solid rgba(232,197,71,.42);padding:1.35rem 1.2rem 1.45rem;margin:0 0 1.25rem;background:radial-gradient(ellipse 90% 80% at 8% 0%,rgba(196,30,58,.5),transparent 55%),radial-gradient(ellipse 70% 55% at 100% 100%,rgba(13,61,44,.4),transparent 52%),rgba(8,4,6,.94);box-shadow:0 28px 70px -24px rgba(0,0,0,.85),0 0 48px -14px rgba(196,30,58,.4)}',
+ '.tdx-today::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 50%,rgba(232,197,71,.05));pointer-events:none}',
+ '.tdx-today > *{position:relative;z-index:1}',
+ '.tdx-today .eyebrow{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(253,230,138,.9);margin:0 0 .45rem}',
+ '.tdx-today h3{font-family:var(--serif);font-size:clamp(1.4rem,3.5vw,1.95rem);color:#fff;margin:0 0 .4rem;line-height:1.12}',
+ '.tdx-today .vibe{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:#fde68a;margin:0 0 .75rem;line-height:1.4}',
+ '.tdx-today .body{font-size:.92rem;line-height:1.6;color:rgba(255,244,224,.88);margin:0 0 .85rem}',
+ '.tdx-today-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin:.85rem 0 1rem}',
+ '@media(min-width:700px){.tdx-today-grid{grid-template-columns:1fr 1fr}}',
+ '.tdx-today-cell{padding:.85rem .9rem;border-radius:.9rem;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.35)}',
+ '.tdx-today-cell b{display:block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,197,71,.8);margin-bottom:.3rem}',
+ '.tdx-today-cell p{margin:0;font-size:.84rem;line-height:1.45;color:rgba(255,244,224,.82)}',
+ /* Doorboard · unique advent grid */
+ '.tdx-doors-wrap{display:grid;grid-template-columns:1fr;gap:1rem;align-items:start}',
+ '@media(min-width:1024px){.tdx-doors-wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:1.35rem}}',
+ '.tdx-doorboard{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem}',
+ '@media(min-width:480px){.tdx-doorboard{grid-template-columns:repeat(6,1fr);gap:.45rem}}',
+ '@media(min-width:900px){.tdx-doorboard{grid-template-columns:repeat(6,1fr);gap:.5rem}}',
+ '.tdx-door{position:relative;aspect-ratio:1;border-radius:.75rem;border:1px solid rgba(255,255,255,.1);background:linear-gradient(160deg,rgba(20,10,12,.95),rgba(8,4,6,.98));color:rgba(255,244,224,.55);cursor:pointer;font:inherit;padding:.35rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;transition:transform .18s ease,border-color .18s,box-shadow .18s,background .18s;min-height:0;touch-action:manipulation}',
+ '@media(min-width:640px){.tdx-door{border-radius:.9rem;padding:.45rem}}',
+ '.tdx-door:hover{transform:translateY(-2px) scale(1.02);border-color:rgba(232,197,71,.45);z-index:2}',
+ '.tdx-door .num{font-family:var(--serif);font-size:clamp(.95rem,2.2vw,1.15rem);line-height:1;color:inherit}',
+ '.tdx-door .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.15)}',
+ '.tdx-door.is-open{border-color:rgba(232,197,71,.4);color:#fde68a;background:linear-gradient(160deg,rgba(107,15,26,.45),rgba(10,6,8,.92))}',
+ '.tdx-door.is-open .dot{background:#e8c547;box-shadow:0 0 10px rgba(232,197,71,.7)}',
+ '.tdx-door.is-today{border-color:rgba(252,165,165,.75);color:#fff;background:linear-gradient(145deg,rgba(196,30,58,.55),rgba(10,6,8,.9));box-shadow:0 0 28px -6px rgba(196,30,58,.65);animation:tdx-door-glow 2.4s ease-in-out infinite}',
+ '.tdx-door.is-today .dot{background:#fecaca;box-shadow:0 0 12px #ef4444}',
+ '.tdx-door.is-on{outline:2px solid rgba(232,197,71,.75);outline-offset:2px;z-index:3}',
+ '.tdx-door.is-locked{opacity:.48}',
+ '.tdx-door.is-locked .num{color:rgba(255,244,224,.4)}',
+ '@keyframes tdx-door-glow{0%,100%{box-shadow:0 0 20px -8px rgba(196,30,58,.5)}50%{box-shadow:0 0 36px -4px rgba(232,197,71,.45)}}',
+ '.tdx-door-legend{display:flex;flex-wrap:wrap;gap:.55rem;margin:.65rem 0 0;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,244,224,.5)}',
+ '.tdx-door-legend span{display:inline-flex;align-items:center;gap:.3rem}',
+ '.tdx-door-legend i{width:8px;height:8px;border-radius:2px;display:inline-block}',
+ '.tdx-door-legend .l-open{background:#e8c547}',
+ '.tdx-door-legend .l-today{background:#c41e3a}',
+ '.tdx-door-legend .l-lock{background:#3f3f46}',
+ /* Focus panel next to doorboard */
+ '.tdx-focus-panel{border-radius:1.25rem;border:1px solid rgba(232,197,71,.32);background:linear-gradient(165deg,rgba(196,30,58,.16),rgba(10,6,8,.88));padding:1.15rem 1.15rem 1.25rem;min-height:220px}',
+ '@media(min-width:1024px){.tdx-focus-panel{min-height:280px;position:sticky;top:5.5rem}}',
+ '.tdx-focus-panel .k{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,197,71,.85);margin:0 0 .4rem}',
+ '.tdx-focus-panel h3{font-family:var(--serif);font-size:clamp(1.25rem,2.5vw,1.55rem);color:#fff;margin:0 0 .45rem;line-height:1.15}',
+ '.tdx-focus-panel .act-tag{display:inline-block;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#fecaca;border:1px solid rgba(252,165,165,.35);padding:.25rem .55rem;border-radius:999px;margin:0 0 .65rem}',
+ '.tdx-focus-panel .focus{font-size:.9rem;line-height:1.55;color:rgba(255,244,224,.88);margin:0 0 .55rem}',
+ '.tdx-focus-panel .vibe{font-family:var(--serif);font-style:italic;font-size:.95rem;color:#fde68a;margin:0 0 .85rem;line-height:1.4}',
+ '.tdx-focus-panel .ritual,.tdx-focus-panel .do{padding:.7rem .8rem;border-radius:.75rem;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.3);margin:0 0 .5rem}',
+ '.tdx-focus-panel .ritual b,.tdx-focus-panel .do b{display:block;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,197,71,.8);margin-bottom:.25rem}',
+ '.tdx-focus-panel .ritual p,.tdx-focus-panel .do p{margin:0;font-size:.82rem;line-height:1.45;color:rgba(255,244,224,.8)}',
+ '.tdx-soul-quote{margin:1.25rem 0 0;padding:1.1rem 1.2rem;border-radius:1.1rem;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(196,30,58,.18),transparent);font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.45;color:#fde68a}',
+ '.tdx-soul-quote cite{display:block;margin-top:.4rem;font-family:Inter,sans-serif;font-style:normal;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,197,71,.65)}',
+ '@media(prefers-reduced-motion:reduce){.tdx-day.is-today .tdx-day-dot,.tdx-bar > i,.tdx-door.is-today{animation:none!important;transition:none!important}}'
  ].join('\n');
  document.head.appendChild(s);
  }
@@ -329,16 +409,99 @@
  return false;
  }
 
- function buildDayChips(today) {
- return DAY_THEMES.map(function (d) {
- var open = today === 0 || d.day <= today;
- var isToday = (today > 0 && d.day === today) || (today === 0 && d.day === 1);
- var cls = 'tdx-chip' + (open ? ' is-open' : '') + (isToday ? ' is-today' : '');
- return '<button type="button" class="' + cls + '" data-chip="' + d.day + '" title="Day ' + d.day + ': ' + esc(d.title) + '" aria-label="Day ' + d.day + '">' + d.day + '</button>';
+ function actForDay(day) {
+ for (var i = 0; i < ACTS.length; i++) {
+ if (day >= ACTS[i].range[0] && day <= ACTS[i].range[1]) return ACTS[i];
+ }
+ return ACTS[0];
+ }
+
+ function buildActsHtml(activeDay) {
+ var act = actForDay(activeDay > 0 ? activeDay : 1);
+ return ACTS.map(function (a) {
+ var on = a.id === act.id;
+ return (
+ '<button type="button" class="tdx-act' + (on ? ' is-on' : '') + '" data-act="' + a.id + '" data-act-start="' + a.range[0] + '">' +
+ '<div class="n">' + esc(a.label) + '</div>' +
+ '<h3>' + (a.id === 'prepare' ? 'Prepare the light' : a.id === 'deliver' ? 'Move the light' : 'Protect the morning') + '</h3>' +
+ '<p>' + esc(a.line) + '</p>' +
+ '<span class="rng">Days ' + a.range[0] + '-' + a.range[1] + '</span>' +
+ '</button>'
+ );
  }).join('');
  }
 
+ function buildDoorboard(today) {
+ return DAY_THEMES.map(function (d) {
+ var open = today === 0 || d.day <= today;
+ var isToday = (today > 0 && d.day === today) || (today === 0 && d.day === 1);
+ var cls = 'tdx-door' + (open ? ' is-open' : ' is-locked') + (isToday ? ' is-today' : '');
+ return (
+ '<button type="button" class="' + cls + '" data-chip="' + d.day + '" data-door="' + d.day + '" id="tdx-day-' + d.day + '" title="Day ' + d.day + ': ' + esc(d.title) + '" aria-label="Day ' + d.day + ' · ' + esc(d.title) + '">' +
+ '<span class="num">' + d.day + '</span>' +
+ '<span class="dot" aria-hidden="true"></span>' +
+ '</button>'
+ );
+ }).join('');
+ }
+
+ function buildTodayDoorHtml(today) {
+ var n = today > 0 ? today : 1;
+ var d = DAY_THEMES[n - 1] || DAY_THEMES[0];
+ var act = actForDay(d.day);
+ var eye = today === 0
+  ? 'Season opens Nov 25 · rehearse the path'
+  : today >= 30
+  ? 'Season complete · mercy continues'
+  : 'Today\'s door · Day ' + d.day + ' of 30';
+ return (
+ '<div class="tdx-today" id="tdx-today-door">' +
+ '<p class="eyebrow">' + esc(eye) + ' · ' + esc(act.label) + '</p>' +
+ '<h3>' + esc(d.title) + '</h3>' +
+ '<p class="vibe">“' + esc(d.vibe) + '”</p>' +
+ '<p class="body">' + esc(d.focus) + '</p>' +
+ '<div class="tdx-today-grid">' +
+  '<div class="tdx-today-cell"><b>Ritual</b><p>' + esc(d.ritual || '') + '</p></div>' +
+  '<div class="tdx-today-cell"><b>What a heart can do</b><p>' + esc(d.action || '') + '</p></div>' +
+ '</div>' +
+ '<div class="tdx-cta-row" style="margin-top:0">' +
+  '<button type="button" class="tdx-cta tdx-cta-gold" data-open-door="' + d.day + '">Open this door fully</button>' +
+  '<a class="tdx-cta tdx-cta-ghost" href="#christmas-ops">Build a gift of love</a>' +
+  '<button type="button" class="tdx-cta tdx-cta-ghost" data-share-day-hero="' + d.day + '">Share Day ' + d.day + '</button>' +
+ '</div>' +
+ '</div>'
+ );
+ }
+
+ function lightProgress(today) {
+ if (today <= 0) return 0;
+ if (today >= 30) return 100;
+ return Math.round((today / 30) * 100);
+ }
+
+ function buildLightbar(today) {
+ var p = lightProgress(today);
+ var label = today <= 0 ? 'Pre-season' : today >= 30 ? 'Complete' : 'Day ' + today;
+ var copy = today <= 0
+  ? 'Thirty doors. Three acts. One path of light toward mornings that do not feel empty.'
+  : today >= 30
+  ? 'The path is walked. The vow remains: Christmas ends. Mercy does not.'
+  : 'You are on Day ' + today + '. Not a cute calendar. A season of hard distribution with a soft heart.';
+ return (
+ '<div class="tdx-lightbar" id="tdx-lightbar">' +
+  '<div class="tdx-ring" style="--p:' + p + '" aria-hidden="true"><div style="text-align:center;position:relative;z-index:1"><span>' + p + '%</span><small>' + esc(label) + '</small></div></div>' +
+  '<div class="tdx-light-copy"><h3>Path of Light</h3><p>' + esc(copy) + '</p></div>' +
+ '</div>'
+ );
+ }
+
+ function buildDayChips(today) {
+ /* Kept for mobile splitters that still query chips; doorboard uses same data-chip */
+ return buildDoorboard(today);
+ }
+
  function buildDaysHtml(today) {
+ /* Legacy timeline kept compact as secondary list under doorboard */
  return DAY_THEMES.map(function (d) {
  var open = d.day <= today;
  var isToday = d.day === today || (today === 0 && d.day === 1);
@@ -346,10 +509,10 @@
  var cls = 'tdx-day' + (open || today === 0 ? ' is-open' : ' is-locked') + (isToday && today > 0 ? ' is-today' : '') + (focus ? ' is-focus' : '');
  if (today === 0 && d.day === 1) cls = 'tdx-day is-open is-today is-focus';
  return (
- '<div class="' + cls + '" id="tdx-day-' + d.day + '" data-day="' + d.day + '">' +
+ '<div class="' + cls + '" data-day="' + d.day + '">' +
  '<span class="tdx-day-dot" aria-hidden="true"></span>' +
  '<button type="button" class="tdx-day-card" data-day-btn="' + d.day + '" aria-expanded="false">' +
- '<div class="tdx-day-num">Day ' + d.day + ' of 30' + (isToday && today > 0 ? ' · Today' : '') + (today === 0 && d.day === 1 ? ' · Season opens' : '') + '</div>' +
+ '<div class="tdx-day-num">Day ' + d.day + ' of 30' + (isToday && today > 0 ? ' · Today' : '') + '</div>' +
  '<div class="tdx-day-title">' + esc(d.title) + '</div>' +
  '<p class="tdx-day-focus">' + esc(d.focus) + '</p>' +
  '<p class="tdx-day-vibe">' + esc(d.vibe) + '</p>' +
@@ -515,7 +678,7 @@
  '<nav class="tdx-rail" aria-label="30 Days chapters">' +
  '<a href="#tdx-heart">Heart</a>' +
  (climax ? '<a href="#tdx-climax">Holy Night</a>' : '') +
- '<a href="#tdx-days">30 Days</a>' +
+ '<a href="#tdx-days">Doorboard</a>' +
  '<a href="#tdx-freight">Freight</a>' +
  '<a href="#tdx-stage">Live nights</a>' +
  '<a href="#tdx-givers">Givers</a>' +
@@ -526,23 +689,27 @@
 
  /* HEART */
  '<section class="tdx-sec" id="tdx-heart">' +
- '<p class="tdx-kicker">30 Days of Christmas · $hopeseed</p>' +
- '<h2 class="tdx-h2">Thirty days of going <em>hard for the ones who wake up alone.</em></h2>' +
+ '<p class="tdx-kicker">30 Days of Christmas · Path of Light · $hopeseed</p>' +
+ '<h2 class="tdx-h2">Thirty doors. Three acts. <em>One path of light for souls who wake up alone.</em></h2>' +
  '<p class="tdx-lede">' +
- 'Not a cute calendar. A season of distribution. ' +
- 'Every day has a job. Every freight has a face behind a partner code. ' +
- 'Every non-anonymous gift can carry a line the world can see: ' +
- '<strong>This donation sponsored from the hearts of ________.</strong>' +
+ 'Not a cute calendar. A season of distribution with a soul. ' +
+ 'Every door has a job, a ritual, and a way for a heart to move. ' +
+ 'Every freighter can carry a line the world can see: ' +
+ '<strong>This donation sponsored from the hearts of ________.</strong> ' +
+ 'Christmas was always about the gift of love. Helping other souls. We built a path that acts like it.' +
  '</p>' +
+ buildLightbar(today) +
+ '<div class="tdx-acts" id="tdx-acts">' + buildActsHtml(today) + '</div>' +
  '<div class="tdx-hero-band">' +
  '<p style="margin:0 0 .5rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(253,230,138,.8)">The promise</p>' +
  '<p style="margin:0;font-family:Georgia,serif;font-size:clamp(1.05rem,3.5vw,1.35rem);line-height:1.45;color:#fff">' +
  'We pack. We track. We sing. We show up live. ' +
- 'When rails and partners are real, the trucks move for verified orphans, foster kids, youth shelters, and families who can prove the cupboard is empty.' +
+ 'When rails and partners are real, the trucks move for verified orphans, foster kids, youth shelters, and families who can prove the cupboard is empty. ' +
+ 'Proof over theater. Dignity over clout. Love with a receipt path.' +
  '</p>' +
  '<div class="tdx-day-meter">' +
  '<div class="tdx-meter-pill"><b id="tdx-meter-day">' + esc(meterLabel) + '</b><span id="tdx-meter-sub">' + esc(meterSub) + '</span></div>' +
- '<div class="tdx-meter-pill"><b>Nov 25 → Dec 24</b><span>30-day mercy window</span></div>' +
+ '<div class="tdx-meter-pill"><b>Nov 25 to Dec 24</b><span>30-day mercy window</span></div>' +
  '<div class="tdx-meter-pill"><b>Preview</b><span>Real freights when funded</span></div>' +
  '</div>' +
  '<div class="tdx-countdown" id="tdx-countdown" aria-label="Season countdown">' +
@@ -560,30 +727,42 @@
  '</div>' +
  '<p class="tdx-honest">Designed for peak season. Live cams, GPS, and prizes activate with partners, legal rules, and charity rails. Counters are design energy until rails go live.</p>' +
  '<div class="tdx-cta-row">' +
- '<a class="tdx-cta tdx-cta-gold" href="#tdx-days">Walk the 30 days</a>' +
+ '<a class="tdx-cta tdx-cta-gold" href="#tdx-days">Open the doorboard</a>' +
  '<a class="tdx-cta tdx-cta-ghost" href="#tdx-freight">Watch freights</a>' +
  '<a class="tdx-cta tdx-cta-ghost" href="#tdx-stage">Carols · AMA · Santa</a>' +
  '<button type="button" class="tdx-cta tdx-cta-ghost" id="tdx-share-season">Share the season</button>' +
  '</div>' +
  '</div>' +
+ '<blockquote class="tdx-soul-quote">"Christmas is the gift of love landing in a room that thought nobody was coming."<cite>Orphan Christmas · Path of Light</cite></blockquote>' +
  '</section>' +
 
- /* 30 DAYS PATH */
+ /* 30 DAYS PATH · doorboard experience */
  '<section class="tdx-sec" id="tdx-days">' +
- '<p class="tdx-kicker">Scroll the season</p>' +
- '<h2 class="tdx-h2">A path, not a grid. <em>One day. One job. One more morning fixed.</em></h2>' +
+ '<p class="tdx-kicker">The doorboard · unique season path</p>' +
+ '<h2 class="tdx-h2">Open a door. <em>Feel the job of that day.</em></h2>' +
  '<p class="tdx-lede">' +
- 'Like the best holiday campaigns, progress should feel like travel. ' +
- 'Jump any day on the chips. We keep the path compact around today so your thumb does not drown. Open full when you want the whole road.' +
+ 'High-end campaigns do not dump thirty cards on a page and call it a journey. ' +
+ 'They give you a path: three acts, a living progress light, and doors that open into meaning. ' +
+ 'Click any door. Today glows. Locked doors still teach, because love can rehearse before the trucks roll.' +
  '</p>' +
- '<div class="tdx-chips" id="tdx-chips" role="list">' + buildDayChips(today) + '</div>' +
- '<div class="tdx-path-tools">' +
- '<button type="button" class="tdx-cta tdx-cta-ghost" id="tdx-jump-today" style="min-height:40px;padding:.55rem 1rem;font-size:.8rem">Jump to today</button>' +
- '<button type="button" class="tdx-cta tdx-cta-ghost" id="tdx-toggle-path" style="min-height:40px;padding:.55rem 1rem;font-size:.8rem">Show all 30 days</button>' +
+ buildTodayDoorHtml(today) +
+ '<div class="tdx-doors-wrap">' +
+  '<div>' +
+   '<div class="tdx-doorboard" id="tdx-chips" role="list">' + buildDoorboard(today) + '</div>' +
+   '<div class="tdx-door-legend" aria-hidden="true">' +
+    '<span><i class="l-today"></i> Today</span>' +
+    '<span><i class="l-open"></i> Open</span>' +
+    '<span><i class="l-lock"></i> Ahead</span>' +
+   '</div>' +
+   '<div class="tdx-path-tools" style="margin-top:.85rem">' +
+    '<button type="button" class="tdx-cta tdx-cta-ghost" id="tdx-jump-today" style="min-height:40px;padding:.55rem 1rem;font-size:.8rem">Jump to today</button>' +
+    '<button type="button" class="tdx-cta tdx-cta-ghost" id="tdx-toggle-path" style="min-height:40px;padding:.55rem 1rem;font-size:.8rem">Show story path</button>' +
+   '</div>' +
+  '</div>' +
+  '<div class="tdx-focus-panel is-on" id="tdx-day-detail" role="region" aria-live="polite"></div>' +
  '</div>' +
- '<div class="tdx-detail" id="tdx-day-detail" role="region" aria-live="polite"></div>' +
- '<div class="tdx-path is-compact" id="tdx-path">' + buildDaysHtml(today) + '</div>' +
- '<p class="tdx-honest">Day states follow the calendar when the season is open. Off-season, Day 1 glows so you can rehearse the whole path.</p>' +
+ '<div class="tdx-path is-compact" id="tdx-path" style="margin-top:1.5rem;display:none">' + buildDaysHtml(today) + '</div>' +
+ '<p class="tdx-honest">Day states follow the calendar when the season is open. Off-season, Day 1 glows so you can rehearse the whole path. Design first. Real freights when funded.</p>' +
  '</section>' +
 
  /* FREIGHT */
@@ -808,61 +987,90 @@
  }
  setTimeout(easeMeters, 300);
 
- /* Day detail helper */
+ /* Day detail helper · cinematic focus panel */
  var detail = document.getElementById('tdx-day-detail');
  function openDay(n, scrollCard) {
  var d = DAY_THEMES[n - 1];
  if (!d || !detail) return;
+ var act = actForDay(d.day);
  detail.classList.add('is-on');
  detail.innerHTML =
- '<p class="tdx-kicker">Day ' + d.day + ' focus</p>' +
+ '<p class="k">Day ' + d.day + ' of 30 · door open</p>' +
+ '<span class="act-tag">' + esc(act.label) + '</span>' +
  '<h3>' + esc(d.title) + '</h3>' +
- '<p style="margin:0 0 .5rem;color:rgba(255,244,224,.85);line-height:1.55">' + esc(d.focus) + '</p>' +
- '<p style="margin:0;font-family:Georgia,serif;font-style:italic;color:#fde68a">' + esc(d.vibe) + '</p>' +
- '<p class="tdx-honest" style="margin-top:.75rem">On this day the room runs the theme hard: freight updates, AMA talk, donor shoutouts if any, and distribution that matches the job.</p>' +
- '<button type="button" class="tdx-share" data-share-day="' + d.day + '">Share Day ' + d.day + '</button>';
- root.querySelectorAll('.tdx-chip').forEach(function (c) {
- c.classList.toggle('is-on', parseInt(c.getAttribute('data-chip'), 10) === n);
+ '<p class="focus">' + esc(d.focus) + '</p>' +
+ '<p class="vibe">"' + esc(d.vibe) + '"</p>' +
+ '<div class="ritual"><b>Ritual</b><p>' + esc(d.ritual || 'Hold one quiet intention for a child you will never meet.') + '</p></div>' +
+ '<div class="do"><b>What a heart can do</b><p>' + esc(d.action || 'Walk the ops floor. Build a gift of love.') + '</p></div>' +
+ '<div class="tdx-cta-row" style="margin-top:.85rem">' +
+  '<a class="tdx-cta tdx-cta-gold" href="#christmas-ops" style="min-height:42px;padding:.65rem 1rem;font-size:.82rem">Build a gift</a>' +
+  '<button type="button" class="tdx-share" data-share-day="' + d.day + '">Share Day ' + d.day + '</button>' +
+ '</div>' +
+ '<p class="tdx-honest" style="margin-top:.75rem">On this day the room runs the theme hard: freights, live nights, named hearts if any, and distribution that matches the job. Design until funded.</p>';
+ root.querySelectorAll('.tdx-door,[data-chip]').forEach(function (c) {
+ var dn = parseInt(c.getAttribute('data-chip') || c.getAttribute('data-door'), 10);
+ c.classList.toggle('is-on', dn === n);
+ });
+ root.querySelectorAll('.tdx-act').forEach(function (a) {
+ a.classList.toggle('is-on', a.getAttribute('data-act') === act.id);
  });
  if (scrollCard) {
  var card = document.getElementById('tdx-day-' + n);
  if (card) {
- card.classList.add('is-focus');
  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
  }
- } else {
- detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
  }
  var shareBtn = detail.querySelector('[data-share-day]');
  if (shareBtn) {
  shareBtn.addEventListener('click', function () {
  shareText(
- 'Day ' + d.day + ' of 30 Days of Christmas: ' + d.title + '. ' + d.vibe + ' Orphan Christmas · Shibahumanityhub',
- 'https://shibahumanityhub.com/programs/orphan-christmas.html#tdx-day-' + d.day
+ 'Day ' + d.day + ' of 30 Days of Christmas: ' + d.title + '. ' + d.vibe + ' Orphan Christmas · Path of Light',
+ 'https://shibahumanityhub.com/programs/orphan-christmas.html#tdx-days'
  );
  });
  }
  }
 
- /* Day cards */
+ /* Day cards (story path secondary) */
  root.querySelectorAll('[data-day-btn]').forEach(function (btn) {
  btn.addEventListener('click', function () {
  openDay(parseInt(btn.getAttribute('data-day-btn'), 10) || 1, false);
  });
  });
 
- /* Day chips */
- root.querySelectorAll('[data-chip]').forEach(function (chip) {
+ /* Doorboard + chips */
+ root.querySelectorAll('[data-chip],[data-door]').forEach(function (chip) {
  chip.addEventListener('click', function () {
- var n = parseInt(chip.getAttribute('data-chip'), 10) || 1;
- var path = document.getElementById('tdx-path');
- var node = document.getElementById('tdx-day-' + n);
- if (path && path.classList.contains('is-compact') && node && !node.classList.contains('is-focus')) {
- path.classList.remove('is-compact');
- var tg = document.getElementById('tdx-toggle-path');
- if (tg) tg.textContent = 'Show compact path';
- }
+ var n = parseInt(chip.getAttribute('data-chip') || chip.getAttribute('data-door'), 10) || 1;
  openDay(n, true);
+ });
+ });
+
+ /* Act cards jump into that act's first door */
+ root.querySelectorAll('[data-act-start]').forEach(function (btn) {
+ btn.addEventListener('click', function () {
+ var n = parseInt(btn.getAttribute('data-act-start'), 10) || 1;
+ openDay(n, true);
+ var doors = document.getElementById('tdx-days');
+ if (doors) doors.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ });
+ });
+
+ /* Today door CTAs */
+ root.querySelectorAll('[data-open-door]').forEach(function (btn) {
+ btn.addEventListener('click', function () {
+ openDay(parseInt(btn.getAttribute('data-open-door'), 10) || 1, true);
+ });
+ });
+ root.querySelectorAll('[data-share-day-hero]').forEach(function (btn) {
+ btn.addEventListener('click', function () {
+ var n = parseInt(btn.getAttribute('data-share-day-hero'), 10) || 1;
+ var d = DAY_THEMES[n - 1];
+ if (!d) return;
+ shareText(
+ 'Day ' + d.day + ' of 30 Days of Christmas: ' + d.title + '. ' + d.vibe + ' Orphan Christmas · Path of Light',
+ 'https://shibahumanityhub.com/programs/orphan-christmas.html#tdx-days'
+ );
  });
  });
 
@@ -877,8 +1085,10 @@
  togglePath.addEventListener('click', function () {
  var path = document.getElementById('tdx-path');
  if (!path) return;
- var compact = path.classList.toggle('is-compact');
- togglePath.textContent = compact ? 'Show all 30 days' : 'Show compact path';
+ var show = path.style.display === 'none' || !path.style.display;
+ path.style.display = show ? 'block' : 'none';
+ if (show) path.classList.remove('is-compact');
+ togglePath.textContent = show ? 'Hide story path' : 'Show story path';
  });
  }
 
@@ -886,7 +1096,7 @@
  if (shareSeason) {
  shareSeason.addEventListener('click', function () {
  shareText(
- '30 Days of Christmas. Hard distribution for kids who wake up alone. Freights. Carols. Named hearts. Orphan Christmas · Shibahumanityhub',
+ '30 Days of Christmas · Path of Light. Thirty doors. Three acts. The gift of love for kids who wake up alone. Orphan Christmas · Shibahumanityhub',
  'https://shibahumanityhub.com/programs/orphan-christmas.html#tdx-heart'
  );
  });
