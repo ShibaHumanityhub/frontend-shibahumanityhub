@@ -334,6 +334,9 @@
  if (v.closest('.logo-3d-wrapper')) {
  return; // keep the always-visible nav logo video running (it's decorative)
  }
+ /* Flagship page heroes keep playing (never killed by modal/reduced-motion helpers while present) */
+ if (v.getAttribute('data-keep-playing') === '1') return;
+ if (v.id === 'nb-hero-video' || v.id === 'gp-hero-video' || v.id === 'hh-hero-video' || v.id === 'k9-hero-video') return;
  try { v.pause(); v.removeAttribute('autoplay'); } catch (e) {}
  });
  };
@@ -671,9 +674,26 @@
  const videos = document.querySelectorAll('video[autoplay]');
  if (!videos.length) return;
 
+ function keepPlaying(video) {
+  return video && (
+   video.getAttribute('data-keep-playing') === '1' ||
+   video.id === 'nb-hero-video' ||
+   video.id === 'gp-hero-video' ||
+   video.id === 'hh-hero-video' ||
+   video.id === 'k9-hero-video'
+  );
+ }
+
  const observer = new IntersectionObserver((entries) => {
  entries.forEach(entry => {
  const video = entry.target;
+ if (keepPlaying(video)) {
+  /* Flagship heroes: never pause on scroll / off-screen */
+  if (entry.isIntersecting && !prefersReduced) {
+   video.play().catch(() => {});
+  }
+  return;
+ }
  if (entry.isIntersecting) {
  if (!prefersReduced) {
  video.play().catch(() => {});
@@ -685,6 +705,13 @@
  }, { threshold: 0.1 });
 
  videos.forEach(v => {
+ if (keepPlaying(v)) {
+  /* Own page script owns play policy; do not observe for pause */
+  v.muted = true;
+  v.playsInline = true;
+  if (!prefersReduced) v.play().catch(() => {});
+  return;
+ }
  v.muted = true;
  v.playsInline = true;
  observer.observe(v);

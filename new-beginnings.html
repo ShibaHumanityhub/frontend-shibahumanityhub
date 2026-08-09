@@ -567,6 +567,7 @@
     id="nb-hero-video"
     src="assets/videos/newbeginningshomestartpacks-animated.mp4"
     muted loop playsinline webkit-playsinline preload="auto"
+    data-keep-playing="1"
     poster="assets/images/newbeginningshomestartpacks.jpg"
     aria-label="New Beginnings pack preview"
    ></video>
@@ -596,12 +597,14 @@
   if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
  }
  (function () {
-  /* Hero video: keep playing while in view. Never pause just because the user scrolls. */
+  /* Hero video: keep motion always. Never pause on scroll or off-screen. */
   var vid = document.getElementById('nb-hero-video');
   if (vid) {
    vid.muted = true;
    vid.setAttribute('playsinline', '');
    vid.setAttribute('webkit-playsinline', '');
+   vid.setAttribute('data-keep-playing', '1');
+   vid.removeAttribute('autoplay'); /* avoid shared lazy-video IO pause */
    function kick() {
     try {
      vid.muted = true;
@@ -609,30 +612,32 @@
      if (p && p.catch) p.catch(function () {});
     } catch (e) { /* ignore */ }
    }
-   function sync() {
+   function onHeartTab() {
     var heart = document.querySelector('.nbx-panel[data-nbx-panel="heart"]');
-    var onHeart = !heart || heart.classList.contains('is-on');
-    var inView = vid.__in !== false;
-    if (onHeart && !document.hidden && inView) kick();
-    else if (!vid.paused) {
-     try { vid.pause(); } catch (e2) { /* ignore */ }
-    }
+    return !heart || heart.classList.contains('is-on');
    }
-   if (window.IntersectionObserver) {
-    new IntersectionObserver(function (ents) {
-     vid.__in = !!(ents[0] && ents[0].isIntersecting);
-     sync();
-    }, { threshold: 0.05, rootMargin: '48px 0px' }).observe(vid);
-   } else {
-    vid.__in = true;
+   function sync() {
+    /* Only stop when the tab is hidden or user leaves Thesis. Scroll never pauses. */
+    if (document.hidden || !onHeartTab()) {
+     if (!vid.paused) {
+      try { vid.pause(); } catch (e2) { /* ignore */ }
+     }
+     return;
+    }
+    kick();
    }
    document.addEventListener('visibilitychange', sync);
    new MutationObserver(function () { setTimeout(sync, 40); }).observe(document.body, {
-    attributes: true, attributeFilter: ['class'], subtree: false
+    attributes: true, attributeFilter: ['class'], subtree: true
    });
+   /* Re-kick if anything else paused us; never tied to scroll position */
+   setInterval(function () {
+    if (!document.hidden && onHeartTab() && vid.paused) kick();
+   }, 900);
    kick();
    setTimeout(kick, 200);
    setTimeout(kick, 700);
+   setTimeout(kick, 1600);
   }
 
   /* Scroll-linked wave: one smooth ripple across the page */
