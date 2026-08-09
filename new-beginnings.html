@@ -53,44 +53,105 @@
  html { scroll-behavior: auto; }
  body {
   margin: 0; padding: 0; overflow-x: hidden;
-  background:
-    radial-gradient(ellipse 100% 55% at 50% -10%, rgba(125, 211, 252, 0.16), transparent 52%),
-    radial-gradient(ellipse 50% 40% at 100% 30%, rgba(110, 231, 183, 0.1), transparent 50%),
-    radial-gradient(ellipse 40% 35% at 0% 70%, rgba(253, 230, 138, 0.07), transparent 48%),
-    linear-gradient(180deg, #061018 0%, #0a1a24 40%, #061018 100%);
+  background: #061018;
   color: var(--nb-text);
   font-family: 'Inter', system-ui, sans-serif;
  }
- body.is-scrolling .nb-float { animation-play-state: paused !important; }
+ /* Fixed atmosphere: soft washes + page-wide welcome-box grid */
+ .nb-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+ }
+ .nb-fx-wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 55% at 50% -10%, rgba(125, 211, 252, 0.18), transparent 52%),
+    radial-gradient(ellipse 50% 40% at 100% 30%, rgba(110, 231, 183, 0.12), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 0% 70%, rgba(253, 230, 138, 0.08), transparent 48%),
+    linear-gradient(180deg, #061018 0%, #0a1a24 45%, #061018 100%);
+ }
+ .nb-fx-grid {
+  position: absolute;
+  inset: -10%;
+  opacity: 0.42;
+  background-image:
+    radial-gradient(rgba(125, 211, 252, 0.14) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(ellipse 95% 80% at 50% 35%, #000 15%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 80% at 50% 35%, #000 15%, transparent 78%);
+ }
+ .nb-fx-grid-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(125, 211, 252, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+ }
+ /* One big scroll-linked wave / ripple */
+ .nb-fx-wave {
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  top: 18%;
+  height: min(62vh, 520px);
+  will-change: transform;
+  transform: translate3d(0, 0, 0) scaleY(1);
+  opacity: 0.55;
+ }
+ .nb-fx-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+ }
+ .nb-fx-wave path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+ }
+ .nb-fx-wave .w1 {
+  stroke: rgba(125, 211, 252, 0.45);
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 12px rgba(125, 211, 252, 0.35));
+ }
+ .nb-fx-wave .w2 {
+  stroke: rgba(110, 231, 183, 0.32);
+  stroke-width: 1.6;
+  opacity: 0.85;
+ }
+ .nb-fx-wave .w3 {
+  stroke: rgba(253, 230, 138, 0.18);
+  stroke-width: 1.2;
+  opacity: 0.9;
+ }
+ .nb-fx-wave .fill {
+  fill: url(#nbWaveFill);
+  stroke: none;
+  opacity: 0.55;
+ }
+ body > *:not(.nb-fx) { position: relative; z-index: 1; }
 
  nav.bg-black\/95, nav[class*="bg-black"] {
-  background: rgba(6, 16, 24, 0.96) !important;
+  background: rgba(6, 16, 24, 0.92) !important;
   border-bottom-color: var(--nb-line) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
  }
 
  .nb-hero {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--nb-line);
-  background:
-    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(125, 211, 252, 0.22), transparent 55%),
-    radial-gradient(ellipse 45% 40% at 85% 55%, rgba(110, 231, 183, 0.12), transparent 50%),
-    radial-gradient(ellipse 35% 30% at 10% 70%, rgba(253, 230, 138, 0.08), transparent 48%),
-    linear-gradient(180deg, #0c1c28 0%, #08141c 55%, #061018 100%);
+  background: transparent;
   text-align: center;
   padding: 7rem 1rem 3.5rem;
  }
- .nb-hero::before {
-  content: "";
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(125, 211, 252, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%);
-  pointer-events: none;
-  opacity: 0.9;
- }
+ .nb-hero::before { display: none; }
 
  .nb-float {
   position: absolute;
@@ -354,10 +415,6 @@
   transform: translateZ(0);
   pointer-events: none;
  }
- body.is-scrolling .nb-media video { visibility: hidden; }
- body.is-scrolling .nb-media-inner {
-  background: #061018 url('assets/images/newbeginningshomestartpacks.jpg') center / cover no-repeat;
- }
 
  .nb-auth {
   border: 1px solid rgba(125, 211, 252, 0.35) !important;
@@ -366,9 +423,10 @@
  #mobile-menu { display: none; }
  #mobile-menu:not(.hidden) { display: block; }
  footer {
-  background: #030a10 !important;
+  background: rgba(3, 10, 16, 0.88) !important;
   border-top: 1px solid var(--nb-line) !important;
   color: rgba(148, 180, 200, 0.65) !important;
+  backdrop-filter: blur(8px);
  }
 
  @media (max-width: 390px) {
@@ -380,23 +438,37 @@
   .nb-float { display: none; }
   .nb-hero { padding: 5.5rem 0.75rem 1.5rem; }
   .nb-media { max-width: min(240px, 78vw); }
+  .nb-fx-wave { opacity: 0.4; height: min(48vh, 360px); }
  }
  @media (prefers-reduced-motion: reduce) {
   .nb-float { animation: none !important; }
+  .nb-fx-wave { transform: none !important; }
  }
  </style>
- <script>
- (function () {
-  var t;
-  window.addEventListener('scroll', function () {
-   document.body.classList.add('is-scrolling');
-   clearTimeout(t);
-   t = setTimeout(function () { document.body.classList.remove('is-scrolling'); }, 140);
-  }, { passive: true });
- })();
- </script>
 </head>
 <body>
+
+<!-- Page atmosphere: grid + scroll-linked wave -->
+<div class="nb-fx" aria-hidden="true">
+ <div class="nb-fx-wash"></div>
+ <div class="nb-fx-grid"></div>
+ <div class="nb-fx-grid-lines"></div>
+ <div class="nb-fx-wave" id="nb-wave">
+  <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+   <defs>
+    <linearGradient id="nbWaveFill" x1="0" y1="0" x2="0" y2="1">
+     <stop offset="0%" stop-color="rgba(125,211,252,0.14)"/>
+     <stop offset="55%" stop-color="rgba(110,231,183,0.07)"/>
+     <stop offset="100%" stop-color="rgba(6,16,24,0)"/>
+    </linearGradient>
+   </defs>
+   <path class="fill" d="M0,160 C240,100 360,220 720,160 C1080,100 1200,200 1440,140 L1440,320 L0,320 Z"/>
+   <path class="w3" d="M0,180 C280,120 420,230 720,175 C1020,120 1180,210 1440,160"/>
+   <path class="w2" d="M0,155 C260,95 400,215 720,150 C1040,85 1200,195 1440,130"/>
+   <path class="w1" d="M0,140 C220,80 380,200 720,130 C1060,60 1220,180 1440,110"/>
+  </svg>
+ </div>
+</div>
 
 <div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
  <div class="nb-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-sky-100/90">
@@ -494,11 +566,10 @@
    <video
     id="nb-hero-video"
     src="assets/videos/newbeginningshomestartpacks-animated.mp4"
-    muted loop playsinline preload="metadata"
+    muted loop playsinline webkit-playsinline preload="auto"
     poster="assets/images/newbeginningshomestartpacks.jpg"
     aria-label="New Beginnings pack preview"
    ></video>
-   <p class="text-[10px] tracking-[0.12em] uppercase text-sky-200/45 py-2 text-center border-t border-white/5">Preview clip. Not a live order feed.</p>
   </div>
  </div>
  </div>
@@ -525,29 +596,76 @@
   if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
  }
  (function () {
+  /* Hero video: keep playing while in view. Never pause just because the user scrolls. */
   var vid = document.getElementById('nb-hero-video');
-  if (!vid) return;
-  vid.muted = true;
-  function sync() {
-   var heart = document.querySelector('.nbx-panel[data-nbx-panel="heart"]');
-   var on = !heart || heart.classList.contains('is-on');
-   var play = on && !document.hidden && !document.body.classList.contains('is-scrolling');
-   if (play && vid.paused) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
-   else if (!play && !vid.paused) try { vid.pause(); } catch (e) {}
+  if (vid) {
+   vid.muted = true;
+   vid.setAttribute('playsinline', '');
+   vid.setAttribute('webkit-playsinline', '');
+   function kick() {
+    try {
+     vid.muted = true;
+     var p = vid.play();
+     if (p && p.catch) p.catch(function () {});
+    } catch (e) { /* ignore */ }
+   }
+   function sync() {
+    var heart = document.querySelector('.nbx-panel[data-nbx-panel="heart"]');
+    var onHeart = !heart || heart.classList.contains('is-on');
+    var inView = vid.__in !== false;
+    if (onHeart && !document.hidden && inView) kick();
+    else if (!vid.paused) {
+     try { vid.pause(); } catch (e2) { /* ignore */ }
+    }
+   }
+   if (window.IntersectionObserver) {
+    new IntersectionObserver(function (ents) {
+     vid.__in = !!(ents[0] && ents[0].isIntersecting);
+     sync();
+    }, { threshold: 0.05, rootMargin: '48px 0px' }).observe(vid);
+   } else {
+    vid.__in = true;
+   }
+   document.addEventListener('visibilitychange', sync);
+   new MutationObserver(function () { setTimeout(sync, 40); }).observe(document.body, {
+    attributes: true, attributeFilter: ['class'], subtree: false
+   });
+   kick();
+   setTimeout(kick, 200);
+   setTimeout(kick, 700);
   }
-  if (window.IntersectionObserver) {
-   new IntersectionObserver(function (ents) {
-    if (!ents[0] || !ents[0].isIntersecting) { try { vid.pause(); } catch (e) {} }
-    else sync();
-   }, { threshold: 0.2 }).observe(vid);
+
+  /* Scroll-linked wave: one smooth ripple across the page */
+  var wave = document.getElementById('nb-wave');
+  if (!wave) return;
+  var reduce = false;
+  try {
+   reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (e3) { /* ignore */ }
+  if (reduce) return;
+
+  var ticking = false;
+  function paintWave() {
+   ticking = false;
+   var y = window.scrollY || 0;
+   var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+   var p = Math.min(1, Math.max(0, y / max));
+   /* Parallax rise + gentle scale as you go deeper */
+   var ty = (p * 140) - 20 + Math.sin(p * Math.PI * 2) * 18;
+   var sc = 1 + p * 0.12;
+   var op = 0.42 + (1 - Math.abs(p - 0.45) * 1.2) * 0.2;
+   wave.style.transform = 'translate3d(0,' + ty.toFixed(2) + 'px,0) scaleY(' + sc.toFixed(4) + ')';
+   wave.style.opacity = String(Math.max(0.28, Math.min(0.7, op)));
   }
-  document.addEventListener('visibilitychange', sync);
-  window.addEventListener('scroll', function () {
-   if (!vid.paused) try { vid.pause(); } catch (e) {}
-   setTimeout(sync, 160);
-  }, { passive: true });
-  setTimeout(sync, 400);
-  new MutationObserver(sync).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  function onScroll() {
+   if (!ticking) {
+    ticking = true;
+    requestAnimationFrame(paintWave);
+   }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  paintWave();
  })();
 </script>
 </body>
