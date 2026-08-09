@@ -168,16 +168,78 @@
   text-shadow: 0 0 40px rgba(253, 230, 138, 0.28);
  }
  .nb-welcome {
-  max-width: 38rem; margin: 0 auto 1.2rem;
-  padding: 0.95rem 1.1rem;
-  border-radius: 1.15rem;
-  border: 1px solid rgba(110, 231, 183, 0.4);
-  background: linear-gradient(145deg, rgba(110, 231, 183, 0.14), rgba(125, 211, 252, 0.08));
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: rgba(224, 242, 254, 0.94);
-  box-shadow: 0 0 56px -14px rgba(110, 231, 183, 0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+  position: relative;
+  max-width: 38rem; margin: 0 auto 1.35rem;
+  padding: 1.15rem 1.2rem 1.2rem;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(110, 231, 183, 0.45);
+  overflow: hidden;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(224, 242, 254, 0.95);
   text-align: left;
+  isolation: isolate;
+  box-shadow:
+   0 0 0 1px rgba(125, 211, 252, 0.08),
+   0 0 64px -16px rgba(110, 231, 183, 0.55),
+   0 24px 50px -28px rgba(0, 0, 0, 0.75),
+   inset 0 1px 0 rgba(255,255,255,0.1);
+  background:
+   radial-gradient(ellipse 90% 70% at 0% 0%, rgba(125, 211, 252, 0.22), transparent 55%),
+   radial-gradient(ellipse 70% 60% at 100% 100%, rgba(110, 231, 183, 0.18), transparent 50%),
+   radial-gradient(ellipse 50% 40% at 80% 10%, rgba(253, 230, 138, 0.1), transparent 45%),
+   linear-gradient(155deg, rgba(8, 28, 36, 0.92) 0%, rgba(4, 16, 24, 0.96) 55%, rgba(6, 20, 28, 0.94) 100%);
+ }
+ .nb-welcome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image:
+   radial-gradient(rgba(125, 211, 252, 0.12) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 75%);
+ }
+ .nb-welcome::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 12%; bottom: 12%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #7dd3fc, #6ee7b7 50%, #fde68a);
+  box-shadow: 0 0 16px rgba(110, 231, 183, 0.55);
+  z-index: 1;
+ }
+ .nb-welcome > * { position: relative; z-index: 2; }
+ .nb-welcome-hook {
+  display: block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin: 0 0 0.7rem;
+  padding: 0.55rem 0.75rem 0.55rem 0.85rem;
+  border-radius: 0.85rem;
+  color: #ecfeff;
+  text-shadow: 0 0 28px rgba(125, 211, 252, 0.25);
+  background:
+   linear-gradient(105deg, rgba(125, 211, 252, 0.2), rgba(110, 231, 183, 0.14) 55%, rgba(253, 230, 138, 0.1));
+  border: 1px solid rgba(186, 230, 253, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+ }
+ .nb-welcome-hook em {
+  font-style: normal;
+  color: #a7f3d0;
+  text-shadow: 0 0 24px rgba(110, 231, 183, 0.45);
+ }
+ .nb-welcome-body {
+  margin: 0;
+  padding-left: 0.15rem;
+  color: rgba(224, 242, 254, 0.9);
  }
  .nb-welcome strong { color: #a7f3d0; font-weight: 700; }
  .nb-eq {
@@ -387,9 +449,10 @@
  <p class="nb-sub">Make forever rational. Fund the stack that keeps the bond.</p>
  <p class="nb-stamp">First principles · Mechanism design · Public proof · System scale</p>
 
- <p class="nb-welcome">
-  <strong>Dogs do not fail adoptions. Unready homes do.</strong> Week one is a systems test: gear, food, training path, cash buffer. Fail that test and love gets returned to the shelter. Pass it and you get a permanent companion bond that compounds for a decade. We build the protocol that makes pass the default.
- </p>
+ <div class="nb-welcome">
+  <p class="nb-welcome-hook">Dogs do not fail adoptions. <em>Unready homes do.</em></p>
+  <p class="nb-welcome-body">Week one is a systems test: gear, food, training path, cash buffer. Fail that test and love gets returned to the shelter. Pass it and you get a permanent companion bond that compounds for a decade. We build the protocol that makes pass the default.</p>
+ </div>
 
  <div class="nb-eq nbx-hide-m" aria-label="Impact equation">
   <span>Ready house</span>
