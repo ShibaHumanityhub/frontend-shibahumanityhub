@@ -1,6 +1,6 @@
 /**
- * Shiba Barn Campus · electrifying flagship experience
- * Dark luxury · live density engine · modular mercy at scale
+ * Shiba Barn Campus · modular mercy at scale
+ * Productized corporate cell sponsorship + live density + network flywheel
  * Human voice. No em dashes. Truth first until rails are live.
  */
 (function () {
@@ -8,6 +8,7 @@
 
  var INTENT_KEY = 'shh_barn_pod_intents';
  var calcBound = false;
+ var builderBound = false;
 
  var DENSITY = {
   minAcresPerDog: 0.12,
@@ -15,17 +16,50 @@
   premiumAcresPerDog: 0.35,
   absoluteMinAcres: 2,
   staffFtePerPod: 0.75,
+  careUsdPerDogMo: 350,
   podMin: 5,
   podMax: 10,
   podDesign: 8
  };
 
+ /* Care product (monthly) + kit capital (one-time) + rights without overfill power */
  var POD_TIERS = [
-  { id: 'starter', name: 'Starter cell', dogs: 5, monthlyUsd: 1250, capitalUsd: 42000, circle: 'Mercy', tag: 'First yes', blurb: 'Five seniors. One named cell. Your plate on the door. Their last years stop feeling like a waiting room.' },
-  { id: 'standard', name: 'Standard cell', dogs: 8, monthlyUsd: 2800, capitalUsd: 58000, circle: 'Guardian', tag: 'Most companies', blurb: 'Eight dogs. Dual runs. Quarterly window into real care. This is the backbone of a living campus.' },
-  { id: 'guardian', name: 'Guardian cell', dogs: 10, monthlyUsd: 5000, capitalUsd: 72000, circle: 'Guardian+', tag: 'Full cell', blurb: 'Ten at the hard cap. Priority enrichment. Volunteer path when staff is real. Still never overcrowded.' },
-  { id: 'eternal', name: 'Eternal cell', dogs: 10, monthlyUsd: 10000, capitalUsd: 95000, circle: 'Eternal', tag: 'Legacy care', blurb: 'Multi-year reserve design. Public proof when rails live. You fund permanence, not a press release.' },
-  { id: 'campus', name: 'Campus founder', dogs: 0, monthlyUsd: 0, capitalUsd: 250000, circle: 'Treasury partner', tag: 'Land + shell', blurb: 'Not a dog count. Land path, barn bay, or caretaker house. The mountain under every warm bed.' }
+  {
+   id: 'starter', name: 'Starter cell', dogs: 5, monthlyUsd: 1250, capitalUsd: 42000,
+   circle: 'Mercy', tag: 'First yes', yearsDefault: 1,
+   blurb: 'Five seniors. One named cell. Your plate on the door. Their last years stop feeling like a waiting room.',
+   gets: ['Name plate on that cell only', 'Quarterly care note when rails live', 'Story rights with consent', 'No right to overfill']
+  },
+  {
+   id: 'standard', name: 'Standard cell', dogs: 8, monthlyUsd: 2800, capitalUsd: 58000,
+   circle: 'Guardian', tag: 'Most companies', yearsDefault: 2,
+   blurb: 'Eight dogs. Dual runs. The backbone cell. Productized so finance can budget and ops can staff.',
+   gets: ['Name plate + guardian circle mark', 'Quarterly window into real care', 'Staff-led visit path when live', 'Public density honesty on the campus board']
+  },
+  {
+   id: 'guardian', name: 'Guardian cell', dogs: 10, monthlyUsd: 5000, capitalUsd: 72000,
+   circle: 'Guardian+', tag: 'Full cell', yearsDefault: 3,
+   blurb: 'Ten at the hard cap. Priority enrichment. Still never overcrowded. Capacity is a promise, not a suggestion.',
+   gets: ['Full-cell naming rights', 'Priority enrichment line item', 'Volunteer day path when staffed', 'Annual founder report design']
+  },
+  {
+   id: 'eternal', name: 'Eternal cell', dogs: 10, monthlyUsd: 10000, capitalUsd: 95000,
+   circle: 'Eternal', tag: 'Legacy care', yearsDefault: 5,
+   blurb: 'Multi-year reserve design. You fund permanence so one bad quarter does not empty bowls.',
+   gets: ['Multi-year care reserve design', 'Legacy mark on campus wall', 'Public proof path when rails live', 'Right to fund the next life in the same cell']
+  },
+  {
+   id: 'campus', name: 'Campus founder', dogs: 0, monthlyUsd: 0, capitalUsd: 250000,
+   circle: 'Treasury partner', tag: 'Land + shell', yearsDefault: 0,
+   blurb: 'Not a dog count. Land path, barn bay, or caretaker house. The mountain under every warm bed.',
+   gets: ['Founding credit on the shell', 'Seat in capital decisions design', 'No dog-count vanity rights', 'Second-site path when Phase gates pass']
+  }
+ ];
+
+ var NETWORK_SITES = [
+  { id: 'flagship', name: 'Flagship campus', role: 'Proof site · 2-8 cells', stage: 'Design first' },
+  { id: 'sister', name: 'Sister campus', role: 'Second region · same cell kit', stage: 'After audits stay green' },
+  { id: 'micro', name: 'Micro annex', role: '1-2 cells · hard land markets', stage: 'When parcel is honest' }
  ];
 
  function $(sel, root) {
@@ -78,6 +112,8 @@
   var hardCap = acres <= 0 ? 0 : Math.floor(acres / DENSITY.minAcresPerDog);
   var openDogs = Math.min(seatDogs, comfortCap);
   var staffFte = Math.round(pods * DENSITY.staffFtePerPod * 10) / 10;
+  var careMo = openDogs * DENSITY.careUsdPerDogMo;
+  var kitCap = pods * 58000; /* design mid-kit if standard-class cells */
   var band;
   if (acres < DENSITY.absoluteMinAcres) band = 'Below 2 acres design floor. Secure more land before living dogs.';
   else if (seatDogs === 0) band = 'No pods open yet. Shell can stand. Beds wait for funding and staff.';
@@ -97,10 +133,58 @@
    hardCap: hardCap,
    openDogs: openDogs,
    staffFte: staffFte,
+   careMo: careMo,
+   kitCap: kitCap,
    band: band,
    phase: phase,
    acresPerOpen: openDogs > 0 ? Math.round((acres / openDogs) * 100) / 100 : 0
   };
+ }
+
+ function findTier(id) {
+  for (var i = 0; i < POD_TIERS.length; i++) {
+   if (POD_TIERS[i].id === id) return POD_TIERS[i];
+  }
+  return POD_TIERS[1];
+ }
+
+ function calcSponsorBuild(tierId, years, cells) {
+  var t = findTier(tierId);
+  years = Math.max(0, Math.min(10, parseInt(years, 10) || 0));
+  cells = Math.max(1, Math.min(4, parseInt(cells, 10) || 1));
+  if (t.id === 'campus') {
+   return {
+    tier: t,
+    years: 0,
+    cells: 1,
+    capital: t.capitalUsd,
+    monthly: 0,
+    careYears: 0,
+    total: t.capitalUsd,
+    dogs: 0,
+    label: 'Campus capital design · land / bay / house path'
+   };
+  }
+  var capital = t.capitalUsd * cells;
+  var monthly = t.monthlyUsd * cells;
+  var careYears = monthly * 12 * years;
+  var total = capital + careYears;
+  return {
+   tier: t,
+   years: years,
+   cells: cells,
+   capital: capital,
+   monthly: monthly,
+   careYears: careYears,
+   total: total,
+   dogs: t.dogs * cells,
+   label: cells + ' × ' + t.name + (years ? ' · ' + years + ' yr care design' : ' · kit only design')
+  };
+ }
+
+ function money(n) {
+  if (!isFinite(n)) return 'n/a';
+  return '$' + Math.round(n).toLocaleString();
  }
 
  function animateNum(el, to) {
@@ -243,6 +327,48 @@
    '.bp-sticky .pri{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#140e00}',
    '.bp-sticky .sec{background:rgba(0,0,0,.45);color:#fde68a;border:1px solid rgba(252,211,77,.35);text-decoration:none;display:flex;align-items:center;justify-content:center}',
    '@media(min-width:920px){.bp-sticky{display:none}}',
+   /* Model + builder upgrades */
+   '.bp-stack{display:grid;gap:.55rem;margin:0 0 1.2rem}',
+   '@media(min-width:800px){.bp-stack{grid-template-columns:1.1fr 1fr 1fr}}',
+   '.bp-stack-card{position:relative;padding:1.15rem 1.1rem;border-radius:1.2rem;border:1px solid rgba(252,211,77,.28);background:linear-gradient(160deg,rgba(30,22,8,.95),rgba(8,6,4,.97));overflow:hidden}',
+   '.bp-stack-card .n{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(252,211,77,.85);margin:0 0 .35rem;font-weight:700}',
+   '.bp-stack-card h3{margin:0 0 .4rem;font-size:1.05rem;color:#fff;font-family:Space Grotesk,sans-serif}',
+   '.bp-stack-card p{margin:0;font-size:.88rem;line-height:1.5;color:#d9cebc}',
+   '.bp-stack-card.is-gold{border-color:rgba(252,211,77,.55);box-shadow:0 0 40px -16px rgba(245,158,11,.45)}',
+   '.bp-stack-card.is-em{border-color:rgba(52,211,153,.4)}',
+   '.bp-flow{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:1rem 0 1.25rem}',
+   '.bp-flow span{display:inline-flex;align-items:center;padding:.4rem .7rem;border-radius:999px;border:1px solid rgba(252,211,77,.3);background:rgba(0,0,0,.35);font-size:.72rem;font-weight:700;color:#fde68a;letter-spacing:.04em}',
+   '.bp-flow .arr{border:0;background:transparent;color:rgba(252,211,77,.5);padding:0 .1rem}',
+   '.bp-builder{position:relative;padding:1.25rem;border-radius:1.4rem;border:1px solid rgba(252,211,77,.4);',
+   'background:linear-gradient(155deg,rgba(36,26,8,.92),rgba(8,6,4,.96));overflow:hidden;margin:0 0 1.2rem;',
+   'box-shadow:0 24px 60px -28px rgba(0,0,0,.9),0 0 50px -18px rgba(245,158,11,.3)}',
+   '.bp-builder h3{margin:0 0 .35rem;font-size:1.15rem;color:#fef3c7;font-family:Space Grotesk,sans-serif}',
+   '.bp-builder .sub{margin:0 0 1rem;font-size:.85rem;color:rgba(255,248,231,.5)}',
+   '.bp-builder-grid{display:grid;gap:.85rem}',
+   '@media(min-width:720px){.bp-builder-grid{grid-template-columns:1fr 1fr 1fr}}',
+   '.bp-builder select{width:100%;padding:.85rem 1rem;border-radius:.9rem;border:1px solid rgba(255,255,255,.14);',
+   'background:rgba(0,0,0,.5);color:#fff;font-size:.95rem;font-weight:600;font-family:inherit;outline:none}',
+   '.bp-builder select:focus{border-color:rgba(252,211,77,.6)}',
+   '.bp-build-out{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:1rem}',
+   '@media(min-width:700px){.bp-build-out{grid-template-columns:repeat(4,1fr)}}',
+   '.bp-build-total{grid-column:1/-1;margin-top:.35rem;padding:1rem 1.1rem;border-radius:1.1rem;',
+   'border:1px solid rgba(52,211,153,.4);background:linear-gradient(135deg,rgba(6,40,32,.55),rgba(0,0,0,.4));',
+   'display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem}',
+   '.bp-build-total b{font-size:clamp(1.4rem,3vw,1.85rem);color:#6ee7b7;font-family:Space Grotesk,sans-serif}',
+   '.bp-build-total span{font-size:.8rem;color:rgba(255,248,231,.55);max-width:22rem;line-height:1.4}',
+   '.bp-gets{margin:.55rem 0 0;padding:0;list-style:none}',
+   '.bp-gets li{position:relative;padding:.25rem 0 .25rem 1.1rem;font-size:.82rem;line-height:1.4;color:#d9cebc}',
+   '.bp-gets li::before{content:"";position:absolute;left:0;top:.55rem;width:6px;height:6px;border-radius:50%;background:#fcd34d;box-shadow:0 0 8px rgba(252,211,77,.6)}',
+   '.bp-net{display:grid;gap:.55rem}',
+   '@media(min-width:700px){.bp-net{grid-template-columns:repeat(3,1fr)}}',
+   '.bp-net-card{padding:1rem;border-radius:1.1rem;border:1px dashed rgba(252,211,77,.35);background:rgba(0,0,0,.35)}',
+   '.bp-net-card h4{margin:0 0 .3rem;color:#fde68a;font-size:.95rem}',
+   '.bp-net-card p{margin:0;font-size:.8rem;line-height:1.45;color:#cfc3b0}',
+   '.bp-net-card .st{display:inline-block;margin-top:.5rem;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#6ee7b7}',
+   '.bp-snow{margin:1.1rem 0 0;padding:1.1rem 1.15rem;border-radius:1.2rem;border-left:3px solid #34d399;',
+   'background:linear-gradient(90deg,rgba(16,185,129,.12),transparent);}',
+   '.bp-snow h3{margin:0 0 .35rem;color:#a7f3d0;font-size:1.05rem}',
+   '.bp-snow p{margin:0;font-size:.92rem;line-height:1.55;color:#d9cebc}',
    '@media(prefers-reduced-motion:reduce){.bp-panel,.bp-tab,.bp-card,.bp-engine::after,.bp-engine-live,.bp-num-flash{animation:none!important;transition:none!important}}'
   ].join('');
   document.head.appendChild(s);
@@ -270,8 +396,9 @@
    '</div>' +
    '<p class="bp-soul">If we cannot staff it, we do not open it. If the land is too tight, we open fewer beds. Love that cannot pass an audit is not love. It is noise.</p>' +
    '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="acres">Run the density engine →</button>' +
-   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="campus">See the campus</button>' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="model">See the sponsorship model →</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="acres">Density engine</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="campus">Campus</button>' +
    '</div>' +
    '<p class="bp-truth">Design studio only. No live campus or dog counts claimed until land, permits, staff, and funding are real.</p>' +
    '</section>'
@@ -344,6 +471,8 @@
    '<div class="bp-out is-hero"><b id="bp-o-open">16</b><span>Comfort open dogs</span></div>' +
    '<div class="bp-out"><b id="bp-o-hard">41</b><span>Hard acre ceiling</span></div>' +
    '<div class="bp-out"><b id="bp-o-staff">1.5</b><span>Design staff FTE</span></div>' +
+   '<div class="bp-out"><b id="bp-o-care">$5.6k</b><span>Care / mo design</span></div>' +
+   '<div class="bp-out"><b id="bp-o-kit">$116k</b><span>Cell kits capital</span></div>' +
    '</div>' +
    '<p class="bp-band" id="bp-o-band">Comfort band holds. Seats, yards, and staff can align.</p>' +
    '<p class="bp-phase-line" id="bp-o-phase">Phase 1 · ~0.31 ac per comfort-open dog</p>' +
@@ -365,24 +494,84 @@
   );
  }
 
+ function panelModel() {
+  var net = NETWORK_SITES.map(function (s) {
+   return (
+    '<div class="bp-net-card">' +
+    '<h4>' + s.name + '</h4>' +
+    '<p>' + s.role + '</p>' +
+    '<span class="st">' + s.stage + '</span>' +
+    '</div>'
+   );
+  }).join('');
+  return (
+   '<section class="bp-panel" data-bp="model">' +
+   '<p class="bp-kicker">04 · Sponsorship model</p>' +
+   '<h2 class="bp-h2">The cell is the product. The campus is the machine. The network is the snowball.</h2>' +
+   '<p class="bp-lede">Most “sponsor a barn” asks are vague. We productize mercy the way a serious company products anything: a clear SKU, a capital line, a monthly line, rights without control to crush animals, and a path to grow without lying about density.</p>' +
+   '<div class="bp-flow" aria-hidden="true">' +
+   '<span>Treasury land</span><span class="arr">→</span>' +
+   '<span>Barn shell</span><span class="arr">→</span>' +
+   '<span>Named cell kit</span><span class="arr">→</span>' +
+   '<span>Monthly care</span><span class="arr">→</span>' +
+   '<span>Proof</span><span class="arr">→</span>' +
+   '<span>Next life / next cell</span>' +
+   '</div>' +
+   '<div class="bp-stack">' +
+   '<div class="bp-stack-card is-gold"><div class="n">Layer A · Infrastructure</div><h3>Treasury / campus capital</h3><p>Dirt, house, bay shell, isolation, heat plant, medical reserve. Permanence. Without this, cells float in imagination.</p></div>' +
+   '<div class="bp-stack-card is-em"><div class="n">Layer B · Product SKU</div><h3>Corporate cell sponsorship</h3><p>One kit + monthly care for 5-10 dogs. Named plate. Budgetable. Replicable. One sponsor leaving does not empty the whole barn.</p></div>' +
+   '<div class="bp-stack-card"><div class="n">Layer C · Belonging</div><h3>$NIBBLES + circles</h3><p>Holders sit with the mission. Tokens are not dog dinner when markets dump. Care rails aim for steady dollars when live.</p></div>' +
+   '</div>' +
+   '<div class="bp-card" style="margin-bottom:1rem">' +
+   '<h3>Why companies say yes</h3>' +
+   '<div class="bp-grid g2" style="margin-top:.65rem">' +
+   '<div><p><strong style="color:#fde68a">Clear unit economics.</strong> Not “help the dogs.” A cell with a dog count, kit, and monthly care line finance can model.</p></div>' +
+   '<div><p><strong style="color:#fde68a">Proof over theater.</strong> Density engine, audits, open gates. No right to overfill for a photo day.</p></div>' +
+   '<div><p><strong style="color:#fde68a">Name without narcissism.</strong> Plate on one cell. Story rights with consent. Dignity for the dog first.</p></div>' +
+   '<div><p><strong style="color:#fde68a">Snowball path.</strong> When a dog leaves or passes with love, the seat reopens. You can fund the next life in the same warm room.</p></div>' +
+   '</div></div>' +
+   '<h3 style="color:#fde68a;font-size:1.05rem;margin:0 0 .65rem">Network, not one crushed mega-yard</h3>' +
+   '<div class="bp-net">' + net + '</div>' +
+   '<div class="bp-snow">' +
+   '<h3>Everlasting snowball</h3>' +
+   '<p>Someone who was once forgotten gets a warm floor. When they are safe, the cell does not become a trophy. It becomes capacity for the next soul. Sponsors who stay multi-year turn one yes into a permanent mercy machine. That is pay it forward at industrial honesty.</p>' +
+   '</div>' +
+   '<div class="bp-row">' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="sponsor">Build a sponsorship →</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="money">Capital split</button>' +
+   '</div>' +
+   '<p class="bp-truth">Design studio. USD figures are planning targets, not live invoices. Real rails publish with receipts.</p>' +
+   '</section>'
+  );
+ }
+
  function panelMoney() {
   return (
    '<section class="bp-panel" data-bp="money">' +
-   '<p class="bp-kicker">04 · Capital</p>' +
+   '<p class="bp-kicker">05 · Capital ledger</p>' +
    '<h2 class="bp-h2">Treasury builds the mountain. Cells fund the homes on it.</h2>' +
-   '<p class="bp-lede">Your treasury idea is right when it buys permanence: dirt, roof, heat plant, medical reserve. Cells make the monthly mercy productized so one sponsor leaving does not empty the barn.</p>' +
+   '<p class="bp-lede">Charts that cannot pay heat are fiction. Split capital so the shell can stand without a single sponsor, and the cell can keep running without a treasury miracle every month.</p>' +
    '<div class="bp-grid g2">' +
    '<div class="bp-card"><h3>Treasury / mission capital</h3><ul>' +
    '<li>Land own or long lease</li><li>Caretaker house</li><li>Barn shell and bay extensions</li><li>Isolation and utilities backbone</li><li>Multi-year medical reserve</li>' +
-   '</ul></div>' +
+   '</ul><p style="margin-top:.65rem;color:#a7f3d0;font-size:.88rem">Campus founder tier feeds this layer.</p></div>' +
    '<div class="bp-card"><h3>Corporate cell sponsors</h3><ul>' +
-   '<li>Pod kit fit-out</li><li>Monthly care for 5-10 dogs</li><li>Name plate on that cell only</li><li>Story rights with consent</li><li>No right to overfill or skip law</li>' +
-   '</ul></div>' +
-   '<div class="bp-card"><h3>$NIBBLES</h3><p>Belonging. Circles. A seat at the mission. Not the dog’s dinner when markets dump.</p></div>' +
-   '<div class="bp-card"><h3>Stable care rails</h3><p>When live: food, vet, heat, wages in steady currency. Proof over promises.</p></div>' +
+   '<li>Pod kit fit-out (one-time design)</li><li>Monthly care for 5-10 dogs</li><li>Name plate on that cell only</li><li>Story rights with consent</li><li>No right to overfill or skip law</li>' +
+   '</ul><p style="margin-top:.65rem;color:#fde68a;font-size:.88rem">Starter → Eternal tiers productize this layer.</p></div>' +
+   '<div class="bp-card"><h3>$NIBBLES</h3><p>Belonging. Circles. A seat at the mission. Not the dog\'s dinner when markets dump.</p></div>' +
+   '<div class="bp-card"><h3>Stable care rails</h3><p>When live: food, vet, heat, wages in steady currency. Public proof over promises. Hold the heart. Pay the life.</p></div>' +
    '</div>' +
+   '<div class="bp-card" style="margin-top:1rem">' +
+   '<h3>Failure modes we design against</h3>' +
+   '<ul>' +
+   '<li><strong style="color:#fde68a">One sponsor leaves</strong> · other cells stay open; reserve covers soft landing</li>' +
+   '<li><strong style="color:#fde68a">Token price crashes</strong> · care is not paid in pure token vapor</li>' +
+   '<li><strong style="color:#fde68a">Vanity max dogs</strong> · density engine and audits block open gates</li>' +
+   '<li><strong style="color:#fde68a">Paint day theater</strong> · cell is multi-year care, not a weekend mural</li>' +
+   '</ul></div>' +
    '<div class="bp-row">' +
    '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="sponsor">Fund a cell or campus →</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="model">Back to model</button>' +
    '<a class="bp-btn bp-btn-ghost" href="whitepaper.html#treasury-path">Treasury path</a>' +
    '</div>' +
    '</section>'
@@ -392,7 +581,7 @@
  function panelHouse() {
   return (
    '<section class="bp-panel" data-bp="house">' +
-   '<p class="bp-kicker">05 · Cell kit · SHH-POD-HOUSE-v1</p>' +
+   '<p class="bp-kicker">06 · Cell kit · SHH-POD-HOUSE-v1</p>' +
    '<h2 class="bp-h2">Same cell on Bay A and Bay D. Zero freestyle.</h2>' +
    '<p class="bp-lede">~9×6 m living wing. Dual outdoor runs. Isolation bay. Washable floors with real drains. Heat and cool with margin for seniors. Six cameras. Privacy rules. Home lounge, not a rack of cages.</p>' +
    '<div class="bp-blueprint">' +
@@ -417,7 +606,7 @@
  function panelRules() {
   return (
    '<section class="bp-panel" data-bp="rules">' +
-   '<p class="bp-kicker">06 · Ops constitution</p>' +
+   '<p class="bp-kicker">07 · Ops constitution</p>' +
    '<h2 class="bp-h2">The binder outranks the logo.</h2>' +
    '<div class="bp-grid g2">' +
    '<div class="bp-card"><h3>Clean</h3><ul><li>Full morning clean before enrichment</li><li>Waste handled fast while staffed</li><li>Ammonia at nose height means re-run same day</li></ul></div>' +
@@ -434,7 +623,7 @@
  function panelLaw() {
   return (
    '<section class="bp-panel" data-bp="law">' +
-   '<p class="bp-kicker">07 · Compliance path</p>' +
+   '<p class="bp-kicker">08 · Compliance path</p>' +
    '<h2 class="bp-h2">If inspectors cannot pass it, dogs do not move in.</h2>' +
    '<div class="bp-law"><b>01</b><strong>Dignity before headcount</strong><p>Scale is bays and land. Not stacking fear into shared air.</p></div>' +
    '<div class="bp-law"><b>02</b><strong>Climate and space floors</strong><p>AWA-grade temperature and ventilation inform the kit. We design above lab minimums for seniors.</p></div>' +
@@ -462,6 +651,11 @@
     t.dogs > 0
      ? t.dogs + ' dogs · kit ~$' + t.capitalUsd.toLocaleString()
      : 'From ~$' + t.capitalUsd.toLocaleString() + ' design';
+   var gets = (t.gets || [])
+    .map(function (g) {
+     return '<li>' + g + '</li>';
+    })
+    .join('');
    return (
     '<div class="bp-card bp-tier' +
     (i === 1 ? ' is-on' : '') +
@@ -485,27 +679,74 @@
     '<p>' +
     t.blurb +
     '</p>' +
+    '<ul class="bp-gets">' +
+    gets +
+    '</ul>' +
     '<button type="button" class="bp-btn bp-btn-gold" style="margin-top:.9rem;width:100%" data-sponsor="' +
     t.id +
-    '">I want this</button>' +
+    '" data-tier-pick="' +
+    t.id +
+    '">Build with this tier</button>' +
     '</div>'
    );
   }).join('');
+
+  var tierOpts = POD_TIERS.map(function (t, i) {
+   return (
+    '<option value="' +
+    t.id +
+    '"' +
+    (i === 1 ? ' selected' : '') +
+    '>' +
+    t.name +
+    (t.dogs ? ' · ' + t.dogs + ' dogs' : ' · capital') +
+    '</option>'
+   );
+  }).join('');
+
   return (
    '<section class="bp-panel" data-bp="sponsor">' +
-   '<p class="bp-kicker">08 · Stand with them</p>' +
-   '<h2 class="bp-h2">Fund a cell. Or fund the ground under every cell.</h2>' +
-   '<p class="bp-lede">This is the first of its kind when it is real: modular campus mercy with public density honesty. Intent saves on this device until rails open.</p>' +
+   '<p class="bp-kicker">09 · Stand with them · live builder</p>' +
+   '<h2 class="bp-h2">Fund a cell. Stack years. Or fund the ground under every cell.</h2>' +
+   '<p class="bp-lede">Pick a tier, years of care, and how many cells. The builder rolls kit capital + care into a planning total. Intent saves on this device until rails open. No fake checkout.</p>' +
+   '<div class="bp-builder" id="bp-builder">' +
+   '<h3>Sponsorship builder</h3>' +
+   '<p class="sub">Design math only. When funded: real contracts, real receipts, real open gates.</p>' +
+   '<div class="bp-builder-grid">' +
+   '<div class="bp-field"><label for="bp-b-tier">Tier</label>' +
+   '<select id="bp-b-tier" name="tier">' +
+   tierOpts +
+   '</select></div>' +
+   '<div class="bp-field"><label for="bp-b-years">Care years</label>' +
+   '<input id="bp-b-years" name="years" type="number" inputmode="numeric" min="0" max="10" step="1" value="2" autocomplete="off">' +
+   '<div class="hint">0 = kit capital only · campus ignores years</div></div>' +
+   '<div class="bp-field"><label for="bp-b-cells">Cells</label>' +
+   '<input id="bp-b-cells" name="cells" type="number" inputmode="numeric" min="1" max="4" step="1" value="1" autocomplete="off">' +
+   '<div class="hint">Multi-cell for bigger teams</div></div>' +
+   '</div>' +
+   '<div class="bp-build-out">' +
+   '<div class="bp-out"><b id="bp-b-dogs">8</b><span>Dogs design</span></div>' +
+   '<div class="bp-out"><b id="bp-b-cap">$58k</b><span>Kit capital</span></div>' +
+   '<div class="bp-out"><b id="bp-b-mo">$2.8k</b><span>Care / month</span></div>' +
+   '<div class="bp-out is-hero"><b id="bp-b-care">$67k</b><span>Care over years</span></div>' +
+   '</div>' +
+   '<div class="bp-build-total">' +
+   '<div><b id="bp-b-total">$125,200</b><div style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,231,.45);margin-top:.25rem">Planning total</div></div>' +
+   '<span id="bp-b-label">1 × Standard cell · 2 yr care design</span>' +
+   '<button type="button" class="bp-btn bp-btn-gold" id="bp-b-save" data-sponsor="builder">Save this intent</button>' +
+   '</div>' +
+   '</div>' +
    '<div class="bp-grid g2">' +
    cards +
    '</div>' +
    '<div class="bp-row">' +
-   '<button type="button" class="bp-btn bp-btn-gold" data-sponsor="general">Save my interest</button>' +
+   '<button type="button" class="bp-btn bp-btn-gold" data-sponsor="general">Save general interest</button>' +
    '<a class="bp-btn bp-btn-ghost" href="programs/corporate-barn-pod-sponsorship.html">Classic card</a>' +
+   '<a class="bp-btn bp-btn-ghost" href="pay-it-forward.html">Pay It Forward snowball</a>' +
    '<a class="bp-btn bp-btn-ghost" href="golden-paws.html">Golden Paws</a>' +
    '<a class="bp-btn bp-btn-ghost" href="all-programs.html">All 30</a>' +
    '</div>' +
-   '<p class="bp-truth">USD figures are design targets for planning, not live invoices.</p>' +
+   '<p class="bp-truth">USD figures are design targets for planning, not live invoices. When rails are live: contracts, receipts, density board, and open-gate checklist go public.</p>' +
    '</section>'
   );
  }
@@ -518,6 +759,7 @@
    '<button type="button" class="bp-tab is-on" data-bp-tab="why" role="tab">Why</button>' +
    '<button type="button" class="bp-tab" data-bp-tab="campus" role="tab">Campus</button>' +
    '<button type="button" class="bp-tab" data-bp-tab="acres" role="tab">Density</button>' +
+   '<button type="button" class="bp-tab" data-bp-tab="model" role="tab">Model</button>' +
    '<button type="button" class="bp-tab" data-bp-tab="money" role="tab">Money</button>' +
    '<button type="button" class="bp-tab" data-bp-tab="house" role="tab">Cell</button>' +
    '<button type="button" class="bp-tab" data-bp-tab="rules" role="tab">Rules</button>' +
@@ -528,6 +770,7 @@
    panelWhy() +
    panelCampus() +
    panelAcres() +
+   panelModel() +
    panelMoney() +
    panelHouse() +
    panelRules() +
@@ -536,12 +779,13 @@
    '</div></div>' +
    '<div class="bp-sticky" aria-label="Quick">' +
    '<button type="button" class="pri" data-bp-go="sponsor">Stand</button>' +
+   '<button type="button" class="sec" data-bp-go="model">Model</button>' +
    '<button type="button" class="sec" data-bp-go="acres">Density</button>' +
-   '<button type="button" class="sec" data-bp-go="campus">Campus</button>' +
    '<a class="sec" href="all-programs.html">All 30</a>' +
    '</div>';
   wire(host);
   wireCalc(true);
+  wireBuilder(true);
  }
 
  function showPanel(id) {
@@ -558,6 +802,11 @@
   if (id === 'acres') {
    setTimeout(function () {
     wireCalc(true);
+   }, 30);
+  }
+  if (id === 'sponsor') {
+   setTimeout(function () {
+    wireBuilder(true);
    }, 30);
   }
  }
@@ -579,8 +828,40 @@
    });
   });
   $$('[data-sponsor]', host).forEach(function (btn) {
-   btn.addEventListener('click', function () {
-    saveIntent('sponsor', { tier: btn.getAttribute('data-sponsor') });
+   btn.addEventListener('click', function (ev) {
+    var tier = btn.getAttribute('data-sponsor');
+    var pick = btn.getAttribute('data-tier-pick');
+    if (pick) {
+     var sel = document.getElementById('bp-b-tier');
+     if (sel) {
+      sel.value = pick;
+      var t = findTier(pick);
+      var y = document.getElementById('bp-b-years');
+      if (y && t.yearsDefault != null) y.value = String(t.yearsDefault);
+      runBuilder();
+     }
+     $$('.bp-tier', host).forEach(function (c) {
+      c.classList.toggle('is-on', c.getAttribute('data-tier') === pick);
+     });
+    }
+    if (tier === 'builder') {
+     var b = calcSponsorBuild(
+      (document.getElementById('bp-b-tier') || {}).value || 'standard',
+      (document.getElementById('bp-b-years') || {}).value || 2,
+      (document.getElementById('bp-b-cells') || {}).value || 1
+     );
+     saveIntent('sponsor-builder', {
+      tier: b.tier.id,
+      years: b.years,
+      cells: b.cells,
+      total: b.total,
+      monthly: b.monthly,
+      capital: b.capital,
+      dogs: b.dogs
+     });
+     return;
+    }
+    saveIntent('sponsor', { tier: tier });
    });
   });
   $$('.bp-tier', host).forEach(function (card) {
@@ -590,6 +871,15 @@
      c.classList.remove('is-on');
     });
     card.classList.add('is-on');
+    var id = card.getAttribute('data-tier');
+    var sel = document.getElementById('bp-b-tier');
+    if (sel && id) {
+     sel.value = id;
+     var t = findTier(id);
+     var y = document.getElementById('bp-b-years');
+     if (y && t.yearsDefault != null) y.value = String(t.yearsDefault);
+     runBuilder();
+    }
    });
   });
  }
@@ -614,6 +904,10 @@
    animateNum(document.getElementById('bp-o-open'), r.openDogs);
    animateNum(document.getElementById('bp-o-hard'), r.hardCap);
    animateNum(document.getElementById('bp-o-staff'), r.staffFte);
+   var careEl = document.getElementById('bp-o-care');
+   var kitEl = document.getElementById('bp-o-kit');
+   if (careEl) careEl.textContent = r.careMo >= 1000 ? '$' + (Math.round(r.careMo / 100) / 10) + 'k' : money(r.careMo);
+   if (kitEl) kitEl.textContent = r.kitCap >= 1000 ? '$' + Math.round(r.kitCap / 1000) + 'k' : money(r.kitCap);
    var band = document.getElementById('bp-o-band');
    var phase = document.getElementById('bp-o-phase');
    if (band) band.textContent = r.band;
@@ -621,7 +915,7 @@
     phase.textContent =
      r.phase +
      (r.openDogs > 0 ? ' · ~' + r.acresPerOpen + ' ac per comfort-open dog' : ' · seats waiting on land and staff') +
-     ' · hard ceiling is not a target';
+     ' · care ~' + money(r.careMo) + '/mo design · hard ceiling is not a target';
    }
   }
 
@@ -640,6 +934,52 @@
   });
   run();
   calcBound = true;
+ }
+
+ function runBuilder() {
+  var tierEl = document.getElementById('bp-b-tier');
+  var yearsEl = document.getElementById('bp-b-years');
+  var cellsEl = document.getElementById('bp-b-cells');
+  if (!tierEl) return;
+  var b = calcSponsorBuild(tierEl.value, readNum(yearsEl, 2), readNum(cellsEl, 1));
+  var dogs = document.getElementById('bp-b-dogs');
+  var cap = document.getElementById('bp-b-cap');
+  var mo = document.getElementById('bp-b-mo');
+  var care = document.getElementById('bp-b-care');
+  var total = document.getElementById('bp-b-total');
+  var label = document.getElementById('bp-b-label');
+  if (dogs) dogs.textContent = String(b.dogs);
+  if (cap) cap.textContent = b.capital >= 1000 ? '$' + Math.round(b.capital / 1000) + 'k' : money(b.capital);
+  if (mo) mo.textContent = b.monthly >= 1000 ? '$' + (Math.round(b.monthly / 100) / 10) + 'k' : money(b.monthly);
+  if (care) care.textContent = b.careYears >= 1000 ? '$' + Math.round(b.careYears / 1000) + 'k' : money(b.careYears);
+  if (total) total.textContent = money(b.total);
+  if (label) label.textContent = b.label;
+  /* disable years for campus */
+  if (yearsEl) {
+   yearsEl.disabled = b.tier.id === 'campus';
+   if (b.tier.id === 'campus') yearsEl.value = '0';
+  }
+  if (cellsEl) {
+   cellsEl.disabled = b.tier.id === 'campus';
+   if (b.tier.id === 'campus') cellsEl.value = '1';
+  }
+ }
+
+ function wireBuilder(force) {
+  var tierEl = document.getElementById('bp-b-tier');
+  var yearsEl = document.getElementById('bp-b-years');
+  var cellsEl = document.getElementById('bp-b-cells');
+  if (!tierEl) return;
+  var inputs = [tierEl, yearsEl, cellsEl].filter(Boolean);
+  inputs.forEach(function (inp) {
+   if (inp.getAttribute('data-bp-bbound') === '1' && !force) return;
+   inp.setAttribute('data-bp-bbound', '1');
+   ['input', 'change', 'keyup'].forEach(function (ev) {
+    inp.addEventListener(ev, runBuilder);
+   });
+  });
+  runBuilder();
+  builderBound = true;
  }
 
  function boot() {
