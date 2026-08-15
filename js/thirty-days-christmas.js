@@ -490,7 +490,7 @@
  return (
  '<div class="tdx-lightbar" id="tdx-lightbar">' +
   '<div class="tdx-ring" style="--p:' + p + '" aria-hidden="true"><div style="text-align:center;position:relative;z-index:1"><span>' + p + '%</span><small>' + esc(label) + '</small></div></div>' +
-  '<div class="tdx-light-copy"><h3>Path of Light</h3><p>' + esc(copy) + '</p></div>' +
+  '<div class="tdx-light-copy"><h3>Path of Light<span class="info-icon" data-term="path of light" role="button" tabindex="0" aria-label="Plain language: path of light">ⓘ</span></h3><p>' + esc(copy) + '</p></div>' +
  '</div>'
  );
  }
@@ -689,12 +689,12 @@
 
  /* HEART */
  '<section class="tdx-sec" id="tdx-heart">' +
- '<p class="tdx-kicker">30 Days of Christmas · Path of Light · $hopeseed</p>' +
+ '<p class="tdx-kicker">30 Days of Christmas<span class="info-icon" data-term="30 days of christmas" role="button" tabindex="0" aria-label="Plain language: 30 days of christmas">ⓘ</span> · Path of Light · $hopeseed<span class="info-icon" data-term="hopeseed" role="button" tabindex="0" aria-label="Plain language: hopeseed">ⓘ</span></p>' +
  '<h2 class="tdx-h2">Thirty doors. Three acts. <em>One path of light for souls who wake up alone.</em></h2>' +
  '<p class="tdx-lede">' +
  'Not a cute calendar. A season of distribution with a soul. ' +
  'Every door has a job, a ritual, and a way for a heart to move. ' +
- 'Every freighter can carry a line the world can see: ' +
+ 'Every freighter<span class="info-icon" data-term="freight" role="button" tabindex="0" aria-label="Plain language: freight">ⓘ</span> can carry a line the world can see: ' +
  '<strong>This donation sponsored from the hearts of ________.</strong> ' +
  'Christmas was always about the gift of love. Helping other souls. We built a path that acts like it.' +
  '</p>' +
@@ -704,8 +704,8 @@
  '<p style="margin:0 0 .5rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(253,230,138,.8)">The promise</p>' +
  '<p style="margin:0;font-family:Georgia,serif;font-size:clamp(1.05rem,3.5vw,1.35rem);line-height:1.45;color:#fff">' +
  'We pack. We track. We sing. We show up live. ' +
- 'When rails and partners are real, the trucks move for verified orphans, foster kids, youth shelters, and families who can prove the cupboard is empty. ' +
- 'Proof over theater. Dignity over clout. Love with a receipt path.' +
+ 'When rails and partners are real, the trucks move for verified<span class="info-icon" data-term="verified" role="button" tabindex="0" aria-label="Plain language: verified">ⓘ</span> orphans, foster kids, youth shelters, and families who can prove the cupboard is empty. ' +
+ 'Proof over promises<span class="info-icon" data-term="proof over promises" role="button" tabindex="0" aria-label="Plain language: proof over promises">ⓘ</span>. Dignity over clout. Love with a receipt path<span class="info-icon" data-term="public receipts" role="button" tabindex="0" aria-label="Plain language: public receipts">ⓘ</span>.' +
  '</p>' +
  '<div class="tdx-day-meter">' +
  '<div class="tdx-meter-pill"><b id="tdx-meter-day">' + esc(meterLabel) + '</b><span id="tdx-meter-sub">' + esc(meterSub) + '</span></div>' +

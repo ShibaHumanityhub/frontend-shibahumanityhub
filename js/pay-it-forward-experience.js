@@ -219,7 +219,7 @@
    '<section class="pifx-panel is-on" data-pif="why">' +
    '<p class="pifx-kicker">01 · First principle</p>' +
    '<h2 class="pifx-h2">One bond kept standing is worth more than a thousand empty likes.</h2>' +
-   '<p class="pifx-lede">Pay It Forward is not a tip jar. You sponsor one dog and the guardian who already loves them. Food. Vet. Rent pressure off the home. Stories go out with consent. The next heart joins. That is a chain. Not a one-time post.</p>' +
+   '<p class="pifx-lede">Pay It Forward<span class="info-icon" data-term="pay it forward" role="button" tabindex="0" aria-label="Plain language: pay it forward">ⓘ</span> is not a tip jar. You sponsor one dog and the guardian who already loves them. Food. Vet. Rent pressure off the home. Stories go out with consent. The next heart joins. That is a chain<span class="info-icon" data-term="snowball" role="button" tabindex="0" aria-label="Plain language: snowball">ⓘ</span>. Not a one-time post.</p>' +
    '<div class="pifx-grid g3" style="margin-bottom:1rem">' +
    '<div class="pifx-metric"><b>1:1</b><span>Dog + guardian</span></div>' +
    '<div class="pifx-metric"><b>Steady</b><span>Care design target</span></div>' +
@@ -235,7 +235,7 @@
    '<button type="button" class="pifx-btn pifx-btn-rose" data-pif-go="engine">Run the chain engine →</button>' +
    '<button type="button" class="pifx-btn pifx-btn-ghost" data-pif-go="how">How it works</button>' +
    '</div>' +
-   '<p class="pifx-truth">Design studio. No live sponsorships claimed until charity rails and partners are real.</p>' +
+   '<p class="pifx-truth">Design studio<span class="info-icon" data-term="design only" role="button" tabindex="0" aria-label="Plain language: design only">ⓘ</span>. No live sponsorships claimed until charity rails<span class="info-icon" data-term="rails" role="button" tabindex="0" aria-label="Plain language: rails">ⓘ</span> and partners are real.</p>' +
    '</section>'
   );
  }

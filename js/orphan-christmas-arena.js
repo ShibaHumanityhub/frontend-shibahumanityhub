@@ -334,7 +334,7 @@ function snow(n) {
     '<div class="oca-stat"><b>Final</b><span>Mile freights</span></div>' +
     '<div class="oca-stat"><b>Truth</b><span>When funded</span></div>' +
     '</div>'
-  : '<div class="oca-heart-seal">♥ <b>The gift of love</b> · helping other souls</div>' +
+  : '<div class="oca-heart-seal">♥ <b>The gift of love</b> · helping other souls<span class="info-icon" data-term="orphan christmas" role="button" tabindex="0" aria-label="Plain language: orphan christmas">ⓘ</span></div>' +
     '<div class="oca-live-pill"><span class="dot"></span> Live warehouse broadcast · Preview feed</div>' +
     '<p class="oca-kicker">$hopeseed · Orphan Christmas</p>' +
     '<h1 class="oca-h1">Some kids wake up on Christmas<br>with <em>nothing but quiet.</em><br>We refuse to look away.</h1>' +
@@ -354,7 +354,7 @@ function snow(n) {
     '<div class="oca-stats">' +
     '<div class="oca-stat"><b>LOVE</b><span>The real gift</span></div>' +
     '<div class="oca-stat"><b id="oca-viewers">' + viewers.toLocaleString() + '</b><span>Watching (sim)</span></div>' +
-    '<div class="oca-stat"><b>Verified</b><span>Need only</span></div>' +
+    '<div class="oca-stat"><b>Verified<span class="info-icon" data-term="verified" role="button" tabindex="0" aria-label="Plain language: verified">ⓘ</span></b><span>Need only</span></div>' +
     '<div class="oca-stat"><b>When funded</b><span>Real trucks</span></div>' +
     '</div>';
 
@@ -419,7 +419,7 @@ function snow(n) {
  '</div>' +
  '</div>' +
  crawlHtml() +
- '<p class="oca-honest">Preview feeds until real cameras go live. Same truth rule: no fake GPS, no fake kids on stream. Design first. Real trucks when funded.</p>' +
+ '<p class="oca-honest">Preview feeds until real cameras go live. Same truth rule: no fake GPS, no fake kids on stream. Design first<span class="info-icon" data-term="design only" role="button" tabindex="0" aria-label="Plain language: design only">ⓘ</span>. Real trucks when funded<span class="info-icon" data-term="when funded" role="button" tabindex="0" aria-label="Plain language: when funded">ⓘ</span>.</p>' +
  '</div>' +
  '<div class="oca-side">' +
  '<div class="oca-thumbs" id="oca-thumbs">' +

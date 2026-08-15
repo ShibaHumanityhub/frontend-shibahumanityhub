@@ -514,7 +514,7 @@
       '<span class="k9x-br tl"></span><span class="k9x-br tr"></span><span class="k9x-br bl"></span><span class="k9x-br br"></span>' +
       '<p class="k9x-kicker"><span class="k9x-pulse"></span> Active bond preview · unit ' + t.id + '</p>' +
       '<h3>Two heartbeats. One operating system.</h3>' +
-      '<p class="lede">Watch the pair. Human pulse and K9 pulse do not match by accident. Years of shared life make them one searchlight. Design board only.</p>' +
+      '<p class="lede">Watch the pair<span class="info-icon" data-term="bonded pair" role="button" tabindex="0" aria-label="Plain language: bonded pair">ⓘ</span>. Human pulse and K9 pulse do not match by accident. Years of shared life make them one searchlight. Design board only<span class="info-icon" data-term="design only" role="button" tabindex="0" aria-label="Plain language: design only">ⓘ</span>.</p>' +
       '<div class="k9x-dual">' +
         '<div class="k9x-heart-card human"><span class="k9x-heart" aria-hidden="true">❤️</span><p class="who">Handler</p><p class="nm">' + t.handler + '</p><p class="role">Reads the dog. Calls the grid. Carries the weight.</p></div>' +
         '<div class="k9x-heart-card dog"><span class="k9x-heart" aria-hidden="true">💛</span><p class="who">K9</p><p class="nm">' + t.dog + '</p><p class="role">Finds the living. Marks. Trusts completely.</p></div>' +
@@ -661,7 +661,7 @@
         '<textarea id="k9x-note" placeholder="Because two lives fused can still find one more soul in the dark."></textarea>' +
         '<button type="submit" class="k9x-cta">Commit readiness intent</button>' +
         '<div class="k9x-status" id="k9x-status" role="status"></div>' +
-        '<p class="k9x-truth">Design only. Local storage. No charge. Live path: partner contracts + public mission proofs.</p>' +
+        '<p class="k9x-truth">Design only<span class="info-icon" data-term="design only" role="button" tabindex="0" aria-label="Plain language: design only">ⓘ</span>. Local storage. No charge. Live path: partner contracts + public mission proofs.</p>' +
       '</form>'
     );
   }

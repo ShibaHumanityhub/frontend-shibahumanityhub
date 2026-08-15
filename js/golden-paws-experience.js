@@ -487,7 +487,7 @@
  '<div class="gpx-section">' +
  '<div class="gpx-head">' +
  '<h2>The gate · forever is not a mood</h2>' +
- '<p><strong>Certified</strong> means we protect the dog from impulse. Six hard screens. Written forever. When the flywheel is live, the program covers listed care so a family is not forced to choose between rent and medicine. You bring the love. We hold the floor under it.</p>' +
+ '<p><strong>Certified</strong><span class="info-icon" data-term="certified forever home" role="button" tabindex="0" aria-label="Plain language: certified forever home">ⓘ</span> means we protect the dog from impulse. Six hard screens. Written forever. When the flywheel<span class="info-icon" data-term="mercy flywheel" role="button" tabindex="0" aria-label="Plain language: mercy flywheel">ⓘ</span> is live, the program covers listed care so a family is not forced to choose between rent and medicine. You bring the love. We hold the floor under it<span class="info-icon" data-term="when funded" role="button" tabindex="0" aria-label="Plain language: when funded">ⓘ</span>.</p>' +
  '</div>' +
  '<div class="gpx-connect">' +
  '<div class="gpx-box">' +

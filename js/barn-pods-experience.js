@@ -380,7 +380,7 @@
   return (
    '<section class="bp-panel is-on" data-bp="why">' +
    '<p class="bp-kicker">01 · First principle</p>' +
-   '<h2 class="bp-h2">Build the biggest warm place that never turns into a warehouse.</h2>' +
+   '<h2 class="bp-h2">Build the biggest warm place that never turns into a warehouse.<span class="info-icon" data-term="barn campus" role="button" tabindex="0" aria-label="Plain language: barn campus">ⓘ</span></h2>' +
    '<p class="bp-lede">A dog on death row does not need your brand. They need heat, space, a clean floor, and a human who shows up tomorrow. We engineered a campus for that: treasury land, a real house for caretakers, a barn that grows bay by bay, and small cells of 5 to 10 so every soul still has a name.</p>' +
    '<div class="bp-grid g4" style="margin-bottom:1.1rem">' +
    '<div class="bp-metric"><b>5-10</b><span>Dogs per cell</span></div>' +
@@ -400,7 +400,7 @@
    '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="acres">Density engine</button>' +
    '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="campus">Campus</button>' +
    '</div>' +
-   '<p class="bp-truth">Design studio only. No live campus or dog counts claimed until land, permits, staff, and funding are real.</p>' +
+   '<p class="bp-truth">Design studio only<span class="info-icon" data-term="design only" role="button" tabindex="0" aria-label="Plain language: design only">ⓘ</span>. No live campus or dog counts claimed until land, permits, staff, and funding are real.</p>' +
    '</section>'
   );
  }
@@ -447,7 +447,7 @@
  function panelAcres() {
   return (
    '<section class="bp-panel" data-bp="acres">' +
-   '<p class="bp-kicker">03 · Live density engine</p>' +
+   '<p class="bp-kicker">03 · Live density engine<span class="info-icon" data-term="density engine" role="button" tabindex="0" aria-label="Plain language: density engine">ⓘ</span></p>' +
    '<h2 class="bp-h2">Type a number. Watch capacity tell the truth.</h2>' +
    '<p class="bp-lede">Acres, cells, dogs per cell. The engine recalculates on every keystroke. Comfort band is about 0.2 acres per living dog. Hard stress floor is about 0.12. Hard is not a target.</p>' +
    '<div class="bp-engine" id="bp-calc">' +
@@ -506,7 +506,7 @@
   }).join('');
   return (
    '<section class="bp-panel" data-bp="model">' +
-   '<p class="bp-kicker">04 · Sponsorship model</p>' +
+   '<p class="bp-kicker">04 · Sponsorship model<span class="info-icon" data-term="pod cell" role="button" tabindex="0" aria-label="Plain language: pod cell">ⓘ</span></p>' +
    '<h2 class="bp-h2">The cell is the product. The campus is the machine. The network is the snowball.</h2>' +
    '<p class="bp-lede">Most “sponsor a barn” asks are vague. We productize mercy the way a serious company products anything: a clear SKU, a capital line, a monthly line, rights without control to crush animals, and a path to grow without lying about density.</p>' +
    '<div class="bp-flow" aria-hidden="true">' +
@@ -533,7 +533,7 @@
    '<h3 style="color:#fde68a;font-size:1.05rem;margin:0 0 .65rem">Network, not one crushed mega-yard</h3>' +
    '<div class="bp-net">' + net + '</div>' +
    '<div class="bp-snow">' +
-   '<h3>Everlasting snowball</h3>' +
+   '<h3>Everlasting snowball<span class="info-icon" data-term="snowball" role="button" tabindex="0" aria-label="Plain language: snowball">ⓘ</span></h3>' +
    '<p>Someone who was once forgotten gets a warm floor. When they are safe, the cell does not become a trophy. It becomes capacity for the next soul. Sponsors who stay multi-year turn one yes into a permanent mercy machine. That is pay it forward at industrial honesty.</p>' +
    '</div>' +
    '<div class="bp-row">' +
@@ -549,7 +549,7 @@
   return (
    '<section class="bp-panel" data-bp="money">' +
    '<p class="bp-kicker">05 · Capital ledger</p>' +
-   '<h2 class="bp-h2">Treasury builds the mountain. Cells fund the homes on it.</h2>' +
+   '<h2 class="bp-h2">Treasury<span class="info-icon" data-term="treasury" role="button" tabindex="0" aria-label="Plain language: treasury">ⓘ</span> builds the mountain. Cells fund the homes on it.</h2>' +
    '<p class="bp-lede">Charts that cannot pay heat are fiction. Split capital so the shell can stand without a single sponsor, and the cell can keep running without a treasury miracle every month.</p>' +
    '<div class="bp-grid g2">' +
    '<div class="bp-card"><h3>Treasury / mission capital</h3><ul>' +
@@ -558,8 +558,8 @@
    '<div class="bp-card"><h3>Corporate cell sponsors</h3><ul>' +
    '<li>Pod kit fit-out (one-time design)</li><li>Monthly care for 5-10 dogs</li><li>Name plate on that cell only</li><li>Story rights with consent</li><li>No right to overfill or skip law</li>' +
    '</ul><p style="margin-top:.65rem;color:#fde68a;font-size:.88rem">Starter → Eternal tiers productize this layer.</p></div>' +
-   '<div class="bp-card"><h3>$NIBBLES</h3><p>Belonging. Circles. A seat at the mission. Not the dog\'s dinner when markets dump.</p></div>' +
-   '<div class="bp-card"><h3>Stable care rails</h3><p>When live: food, vet, heat, wages in steady currency. Public proof over promises. Hold the heart. Pay the life.</p></div>' +
+   '<div class="bp-card"><h3>$NIBBLES<span class="info-icon" data-term="nibbles" role="button" tabindex="0" aria-label="Plain language: nibbles">ⓘ</span></h3><p>Belonging. Circles. A seat at the mission. Not the dog\'s dinner when markets dump.</p></div>' +
+   '<div class="bp-card"><h3>Stable care rails<span class="info-icon" data-term="stable care" role="button" tabindex="0" aria-label="Plain language: stable care">ⓘ</span></h3><p>When live: food, vet, heat, wages in steady currency. Public proof over promises. Hold the heart. Pay the life.</p></div>' +
    '</div>' +
    '<div class="bp-card" style="margin-top:1rem">' +
    '<h3>Failure modes we design against</h3>' +

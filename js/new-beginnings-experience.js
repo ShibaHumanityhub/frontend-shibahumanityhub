@@ -684,7 +684,7 @@
               '<textarea id="nbx-note" placeholder="House ready. Mission: permanent bond."></textarea>' +
               '<button type="submit" class="nbx-cta" id="nbx-submit">Commit pack intent</button>' +
               '<div class="nbx-status" id="nbx-status" role="status"></div>' +
-              '<p class="nbx-truth">Design studio only. Local device. No charge. Live path: give-back partners + public receipts. Ambition with proof.</p>' +
+              '<p class="nbx-truth">Design studio only<span class="info-icon" data-term="design only" role="button" tabindex="0" aria-label="Plain language: design only">ⓘ</span>. Local device. No charge. Live path: give-back partners + public receipts<span class="info-icon" data-term="public receipts" role="button" tabindex="0" aria-label="Plain language: public receipts">ⓘ</span>. Ambition with proof<span class="info-icon" data-term="proof over promises" role="button" tabindex="0" aria-label="Plain language: proof over promises">ⓘ</span>.</p>' +
             '</form>' +
           '</div>' +
         '</div>' +
@@ -758,7 +758,7 @@
         '<div class="nbx-cherish" style="margin-bottom:1.25rem">' +
           '<div class="nbx-cherish-card"><p class="k">Problem</p><p>Shelter in → home out → home fails → shelter again. Break the loop at day three. Everything else is coping.</p></div>' +
           '<div class="nbx-cherish-card"><p class="k">Scale</p><p>Thirty programs. One flywheel. Each permanent home is a unit that compounds mercy instead of churning inventory.</p></div>' +
-          '<div class="nbx-cherish-card"><p class="k">Truth</p><p>Design until funded. Receipts when live. Ambition without proof is noise. We refuse the noise. Full stop.</p></div>' +
+          '<div class="nbx-cherish-card"><p class="k">Truth</p><p>Design until funded<span class="info-icon" data-term="when funded" role="button" tabindex="0" aria-label="Plain language: when funded">ⓘ</span>. Receipts when live. Ambition without proof is noise. We refuse the noise. Full stop<span class="info-icon" data-term="new beginnings" role="button" tabindex="0" aria-label="Plain language: new beginnings">ⓘ</span>.</p></div>' +
         '</div>' +
         '<div class="nbx-anti" style="margin-bottom:1.25rem">' +
           '<h4>North star (honest)</h4>' +
