@@ -71,6 +71,7 @@
  nav.bg-black\/95, nav[class*="bg-black"] {
   background: rgba(5, 8, 20, 0.96) !important;
   border-bottom-color: var(--k9-line) !important;
+  z-index: 60;
  }
 
  .k9-hero {
@@ -82,7 +83,8 @@
     radial-gradient(ellipse 40% 40% at 80% 60%, rgba(103, 232, 249, 0.1), transparent 50%),
     linear-gradient(180deg, #0c1428 0%, #080e1c 55%, #050814 100%);
   text-align: center;
-  padding: 7rem 1rem 3.5rem;
+  /* Clear fixed site nav on first paint (panel JS then tunes spacing with path rail) */
+  padding: 7.25rem 1rem 3.5rem;
  }
  .k9-hero::before {
   content: "";

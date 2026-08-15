@@ -194,11 +194,16 @@
     s.id = 'k9x-css';
     s.textContent = [
       ':root{--k9-gold:#fbbf24;--k9-beam:#fef3c7;--k9-cyan:#67e8f9;--k9-ink:#050814;--k9-line:rgba(103,232,249,.28)}',
-      'body.k9x-panels{scroll-behavior:auto}',
+      'body.k9x-panels{scroll-behavior:auto;--k9-nav-h:5.75rem}',
+      '@media(min-width:768px){body.k9x-panels{--k9-nav-h:6rem}}',
       'body.k9x-panels .k9x-panel{display:none;padding-bottom:2rem}',
       'body.k9x-panels .k9x-panel.is-on{display:block;animation:k9x-in .2s ease}',
       '@keyframes k9x-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}',
+      /* Desktop: fixed site nav is out of flow — pad body + stick path rail under it so hero is never clipped */
+      'body.k9x-panels:not(.k9x-mobile){padding-top:var(--k9-nav-h)}',
+      'body.k9x-panels:not(.k9x-mobile) > nav{z-index:60}',
       '.k9x-rail{position:sticky;top:0;z-index:55;display:flex;gap:.35rem;padding:.55rem max(.7rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;background:rgba(5,8,20,.98);border-bottom:1px solid var(--k9-line);justify-content:flex-start;align-items:center}',
+      'body.k9x-panels:not(.k9x-mobile) .k9x-rail{top:var(--k9-nav-h);z-index:55;box-shadow:0 10px 28px -18px rgba(0,0,0,.85)}',
       '.k9x-rail::-webkit-scrollbar{display:none}',
       '@media(min-width:900px){.k9x-rail{justify-content:center;flex-wrap:wrap}}',
       '.k9x-rail .k9x-rail-label{flex:0 0 auto;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,191,36,.65);padding-right:.35rem;margin-right:.15rem;border-right:1px solid rgba(103,232,249,.2)}',
@@ -207,7 +212,9 @@
       '.k9x-rail button .num{font-size:.55rem;opacity:.7;font-variant-numeric:tabular-nums}',
       '.k9x-rail button.is-on,.k9x-rail button:hover{color:#fef3c7;border-color:rgba(251,191,36,.5);background:linear-gradient(145deg,rgba(251,191,36,.14),rgba(103,232,249,.08))}',
       '.k9x-rail button.is-on .num{color:#fbbf24;opacity:1}',
-      'body.k9x-panels:not(.k9x-mobile) header.k9-hero{padding-top:5.4rem!important;padding-bottom:1.4rem!important}',
+      /* Hero sits under nav + rail (both already cleared); keep modest internal padding only */
+      'body.k9x-panels:not(.k9x-mobile) header.k9-hero{padding-top:1.75rem!important;padding-bottom:1.6rem!important}',
+      'body.k9x-panels:not(.k9x-mobile) .k9x-panel.is-on > .k9x-section:first-child{padding-top:1.35rem}',
       'body.k9x-panels:not(.k9x-mobile) .k9x-quick{display:none}',
       /* Path breadcrumb + step footer */
       '.k9x-path{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;margin:0 0 1rem;padding:.55rem .6rem;border-radius:1rem;border:1px solid rgba(103,232,249,.22);background:rgba(0,0,0,.28)}',
