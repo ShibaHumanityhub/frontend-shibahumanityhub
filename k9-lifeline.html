@@ -319,10 +319,7 @@
   transform: translateZ(0);
   pointer-events: none;
  }
- body.is-scrolling .k9-media video { visibility: hidden; }
- body.is-scrolling .k9-media-inner {
-  background: #050814 url('assets/images/globaldisasterk9responseunitsphoto.jpg') center / cover no-repeat;
- }
+ /* Videos play through scroll — never freeze/hide the clip on is-scrolling */
 
  .k9-auth {
   border: 1px solid rgba(103, 232, 249, 0.3) !important;
@@ -460,6 +457,7 @@
     id="k9-hero-video"
     src="assets/videos/globaldisasterk9responseunits-animated.mp4"
     muted loop playsinline preload="metadata"
+    data-keep-playing="1"
     poster="assets/images/globaldisasterk9responseunitsphoto.jpg"
     aria-label="Global Disaster K9 preview"
    ></video>
@@ -492,27 +490,35 @@
  (function () {
   var vid = document.getElementById('k9-hero-video');
   if (!vid) return;
+  /* Play through scroll. Pause only when Bond panel is off or tab is hidden. */
   vid.muted = true;
+  vid.playsInline = true;
+  vid.setAttribute('data-keep-playing', '1');
+  vid.setAttribute('playsinline', '');
+  vid.setAttribute('loop', '');
+  function kick() {
+   try {
+    vid.muted = true;
+    var p = vid.play();
+    if (p && p.catch) p.catch(function () {});
+   } catch (e) { /* ignore */ }
+  }
   function sync() {
    var heart = document.querySelector('.k9x-panel[data-k9x-panel="bond"]');
    var on = !heart || heart.classList.contains('is-on');
-   var play = on && !document.hidden && !document.body.classList.contains('is-scrolling');
-   if (play && vid.paused) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
-   else if (!play && !vid.paused) try { vid.pause(); } catch (e) {}
-  }
-  if (window.IntersectionObserver) {
-   new IntersectionObserver(function (ents) {
-    if (!ents[0] || !ents[0].isIntersecting) { try { vid.pause(); } catch (e) {} }
-    else sync();
-   }, { threshold: 0.2 }).observe(vid);
+   var play = on && !document.hidden;
+   if (play) kick();
+   else if (!vid.paused) {
+    try { vid.pause(); } catch (e2) { /* ignore */ }
+   }
   }
   document.addEventListener('visibilitychange', sync);
-  window.addEventListener('scroll', function () {
-   if (!vid.paused) try { vid.pause(); } catch (e) {}
-   setTimeout(sync, 160);
-  }, { passive: true });
-  setTimeout(sync, 400);
-  new MutationObserver(sync).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  /* Panel switches only — never tied to scroll or viewport clip */
+  new MutationObserver(function () { setTimeout(sync, 40); })
+   .observe(document.body, { attributes: true, attributeFilter: ['class'], subtree: true });
+  kick();
+  setTimeout(kick, 200);
+  setTimeout(kick, 800);
  })();
 </script>
 </body>

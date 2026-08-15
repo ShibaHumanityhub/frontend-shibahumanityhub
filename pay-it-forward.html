@@ -373,18 +373,24 @@
  (function () {
   var vid = document.getElementById('pif-hero-video');
   if (!vid) return;
+  /* Play through scroll. Never pause for viewport or scroll. */
   vid.muted = true;
+  vid.playsInline = true;
+  vid.setAttribute('data-keep-playing', '1');
   function tryPlay() {
-   var p = vid.play();
-   if (p && p.catch) p.catch(function () {});
+   if (document.hidden) return;
+   try {
+    vid.muted = true;
+    var p = vid.play();
+    if (p && p.catch) p.catch(function () {});
+   } catch (e) { /* ignore */ }
   }
   tryPlay();
-  if (window.IntersectionObserver) {
-   new IntersectionObserver(function (ents) {
-    if (ents[0] && ents[0].isIntersecting) tryPlay();
-    else try { vid.pause(); } catch (e) {}
-   }, { threshold: 0.2 }).observe(vid);
-  }
+  document.addEventListener('visibilitychange', function () {
+   if (!document.hidden) tryPlay();
+  });
+  setTimeout(tryPlay, 200);
+  setTimeout(tryPlay, 800);
  })();
 </script>
 </body>

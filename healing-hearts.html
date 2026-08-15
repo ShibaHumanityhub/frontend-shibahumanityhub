@@ -316,16 +316,7 @@
  backface-visibility: hidden;
  pointer-events: none;
  }
- /* While scrolling: show poster freeze (JS also pauses decode) */
- body.is-scrolling .hh-media-inner video {
- visibility: hidden;
- }
- body.is-scrolling .hh-media-inner {
- background:
- #0a0810
- url('assets/images/healingheartstherapydognetworkphoto.jpg')
- center / cover no-repeat;
- }
+ /* Videos play through scroll — never freeze/hide the clip on is-scrolling */
  .hh-media-glow { display: none; }
 
  .hh-card {

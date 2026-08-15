@@ -763,14 +763,11 @@
  }
 
  function sync() {
- wantPlay =
- inView &&
- heartOn() &&
- !document.hidden &&
- !document.body.classList.contains('is-scrolling') &&
- !reducedMotion();
+ /* Play through scroll. Pause only when Heart panel is off, tab hidden, or reduced motion. */
+ wantPlay = heartOn() && !document.hidden && !reducedMotion();
 
  if (wantPlay) {
+ try { vid.setAttribute('data-keep-playing', '1'); } catch (e0) { /* ignore */ }
  if (vid.paused) {
  var p = vid.play();
  if (p && typeof p.catch === 'function') p.catch(function () { /* autoplay blocked */ });
@@ -780,38 +777,16 @@
  }
  }
 
- if (typeof IntersectionObserver !== 'undefined') {
- var io = new IntersectionObserver(function (entries) {
- inView = !!(entries[0] && entries[0].isIntersecting && entries[0].intersectionRatio > 0.15);
- sync();
- }, { threshold: [0, 0.15, 0.4], rootMargin: '40px 0px' });
- io.observe(vid);
- } else {
- inView = true;
- }
-
+ inView = true; /* viewport clip never gates play */
  document.addEventListener('visibilitychange', sync);
- /* React to panel switches + scroll freeze class */
- var mo = new MutationObserver(sync);
+ /* React to panel switches only — never scroll-pause */
+ var mo = new MutationObserver(function () { setTimeout(sync, 40); });
  mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
  var host = document.getElementById('hhx-panel-host');
  if (host) {
  mo.observe(host, { attributes: true, subtree: true, attributeFilter: ['class'] });
  }
 
- /* After scroll freeze ends, resume if still eligible */
- var lastScroll = 0;
- window.addEventListener('scroll', function () {
- lastScroll = Date.now();
- if (!vid.paused) {
- try { vid.pause(); } catch (e3) { /* ignore */ }
- }
- setTimeout(function () {
- if (Date.now() - lastScroll >= 120) sync();
- }, 160);
- }, { passive: true });
-
- /* Delay first play a tick so layout settles */
  setTimeout(sync, 200);
  setTimeout(sync, 800);
  }

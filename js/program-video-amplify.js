@@ -96,6 +96,8 @@
   video.setAttribute('playsinline', '');
   video.setAttribute('webkit-playsinline', '');
   video.setAttribute('autoplay', '');
+  /* Site policy: play through scroll for every amplified clip */
+  video.setAttribute('data-keep-playing', '1');
   video.removeAttribute('controls');
   /* Top playback quality path: fetch enough to start smooth */
   video.preload = 'auto';
@@ -149,23 +151,21 @@
  }
 
  function observe(video) {
-  if (!window.IntersectionObserver) {
-   kickPlay(video);
-   return;
-  }
+  /* Site policy: play through scroll. Never pause when leaving viewport.
+     IO only re-kicks play when the clip re-enters view (if something else paused it). */
+  try {
+   video.setAttribute('data-keep-playing', '1');
+  } catch (e0) { /* ignore */ }
+  kickPlay(video);
+  if (!window.IntersectionObserver) return;
   var io = new IntersectionObserver(
    function (ents) {
     ents.forEach(function (ent) {
-     if (ent.isIntersecting && ent.intersectionRatio >= 0.15) {
-      kickPlay(video);
-     } else if (!ent.isIntersecting) {
-      try {
-       video.pause();
-      } catch (e) { /* ignore */ }
-     }
+     if (ent.isIntersecting) kickPlay(video);
+     /* deliberately no pause on leave */
     });
    },
-   { threshold: [0, 0.15, 0.35] }
+   { threshold: [0, 0.05, 0.2] }
   );
   io.observe(video);
  }
@@ -274,13 +274,16 @@
   root = root || document;
   var list = root.querySelectorAll ? root.querySelectorAll('video') : [];
   Array.prototype.forEach.call(list, function (v) {
+   /* Site policy: play through scroll — never pause keep-playing clips */
+   if (v.getAttribute('data-keep-playing') === '1' && v.getAttribute('data-allow-pause') !== '1') return;
+   if (v.closest && v.closest('.logo-3d-wrapper')) return;
    try {
     v.pause();
    } catch (e) { /* ignore */ }
   });
  }
 
- /* Bridge legacy helper names */
+ /* Bridge legacy helper names (respect keep-playing) */
  window.pauseAllMercyVideos = function () {
   pauseAll(document);
  };
