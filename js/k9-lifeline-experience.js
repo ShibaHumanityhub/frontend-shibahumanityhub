@@ -194,19 +194,18 @@
     s.id = 'k9x-css';
     s.textContent = [
       ':root{--k9-gold:#fbbf24;--k9-beam:#fef3c7;--k9-cyan:#67e8f9;--k9-ink:#050814;--k9-line:rgba(103,232,249,.28)}',
-      'body.k9x-panels{scroll-behavior:auto;--k9-nav-h:5.5rem;--k9-rail-h:3.65rem}',
-      '@media(min-width:768px){body.k9x-panels{--k9-nav-h:5.75rem}}',
-      '@media(min-width:900px){body.k9x-panels{--k9-rail-h:4.1rem}}',
+      'body.k9x-panels{scroll-behavior:auto;--k9-chrome-h:9.2rem}',
       'body.k9x-panels .k9x-panel{display:none;padding-bottom:2rem}',
       'body.k9x-panels .k9x-panel.is-on{display:block;animation:k9x-in .2s ease}',
       '@keyframes k9x-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}',
-      /* Desktop chrome: fixed nav + fixed path rail (no sticky jump, no body pad black gap) */
+      /* Desktop: ONE fixed chrome stack (site nav + path rail). Never scrolls. No body pad black gap. */
       'body.k9x-panels:not(.k9x-mobile){padding-top:0!important;margin-top:0!important}',
-      'body.k9x-panels:not(.k9x-mobile) > nav{position:fixed;top:0;left:0;right:0;z-index:60}',
-      '.k9x-rail{position:relative;z-index:55;display:flex;gap:.35rem;padding:.5rem max(.7rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;background:rgba(5,8,20,.98);border-bottom:1px solid var(--k9-line);justify-content:flex-start;align-items:center}',
-      'body.k9x-panels:not(.k9x-mobile) .k9x-rail{position:fixed;top:var(--k9-nav-h);left:0;right:0;z-index:55;height:auto;min-height:var(--k9-rail-h);box-shadow:0 10px 28px -18px rgba(0,0,0,.85);background:rgba(5,8,20,.99);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}',
-      'body.k9x-panels:not(.k9x-mobile) #k9x-panel-host{padding-top:calc(var(--k9-nav-h) + var(--k9-rail-h));margin-top:0}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(5,8,20,.99);box-shadow:0 12px 32px -18px rgba(0,0,0,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome > nav{position:relative!important;top:auto!important;left:auto!important;right:auto!important;width:100%;z-index:1}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome .k9x-rail{position:relative!important;top:auto!important;left:auto!important;right:auto!important;z-index:1;box-shadow:none}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-panel-host{padding-top:var(--k9-chrome-h);margin-top:0}',
       'body.k9x-panels:not(.k9x-mobile) .fixed.bottom-3{z-index:50}',
+      '.k9x-rail{position:relative;z-index:55;display:flex;gap:.35rem;padding:.5rem max(.7rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;background:rgba(5,8,20,.98);border-bottom:1px solid var(--k9-line);justify-content:flex-start;align-items:center}',
       '.k9x-rail::-webkit-scrollbar{display:none}',
       '@media(min-width:900px){.k9x-rail{justify-content:center;flex-wrap:wrap;row-gap:.25rem}}',
       '.k9x-rail .k9x-rail-label{flex:0 0 auto;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,191,36,.65);padding-right:.35rem;margin-right:.15rem;border-right:1px solid rgba(103,232,249,.2)}',
@@ -215,8 +214,8 @@
       '.k9x-rail button .num{font-size:.55rem;opacity:.7;font-variant-numeric:tabular-nums}',
       '.k9x-rail button.is-on,.k9x-rail button:hover{color:#fef3c7;border-color:rgba(251,191,36,.5);background:linear-gradient(145deg,rgba(251,191,36,.14),rgba(103,232,249,.08))}',
       '.k9x-rail button.is-on .num{color:#fbbf24;opacity:1}',
-      /* Hero: no extra top pad (host already clears fixed chrome) */
-      'body.k9x-panels:not(.k9x-mobile) header.k9-hero{padding-top:1.5rem!important;padding-bottom:1.5rem!important;margin-top:0!important}',
+      /* Hero sits under chrome pad; keep modest own padding so no double black band */
+      'body.k9x-panels:not(.k9x-mobile) header.k9-hero{padding-top:1.25rem!important;padding-bottom:1.25rem!important;margin-top:0!important}',
       'body.k9x-panels:not(.k9x-mobile) .k9x-panel.is-on > .k9x-section:first-child{padding-top:1.15rem}',
       'body.k9x-panels:not(.k9x-mobile) .k9x-quick{display:none}',
       /* Path breadcrumb + step footer */
@@ -380,7 +379,7 @@
       '.k9x-link p{margin:0;font-size:.8rem;color:rgba(186,230,253,.72);line-height:1.4}',
       /* Mobile */
       'body.k9x-mobile{padding-bottom:calc(4.8rem + env(safe-area-inset-bottom))}',
-      'body.k9x-mobile .k9x-rail,body.k9x-mobile > nav,body.k9x-mobile #mobile-menu,body.k9x-mobile .fixed.bottom-3{display:none!important}',
+      'body.k9x-mobile .k9x-rail,body.k9x-mobile #k9x-chrome,body.k9x-mobile > nav,body.k9x-mobile #mobile-menu,body.k9x-mobile .fixed.bottom-3{display:none!important}',
       'body.k9x-mobile > footer{padding-bottom:calc(5.5rem + env(safe-area-inset-bottom))!important;font-size:11px!important}',
       '.k9x-mtop{display:none;position:sticky;top:0;z-index:70;align-items:center;justify-content:space-between;padding:.5rem .7rem;padding-top:max(.45rem,env(safe-area-inset-top));background:rgba(5,8,20,.98);border-bottom:1px solid var(--k9-line)}',
       'body.k9x-mobile .k9x-mtop{display:flex}',
@@ -891,23 +890,54 @@
             '</button>'
           );
         }).join('');
-      var nav = document.querySelector('body > nav');
-      if (nav && nav.nextSibling) document.body.insertBefore(rail, nav.nextSibling);
-      else document.body.insertBefore(rail, document.body.firstChild);
-      /* Measure real chrome heights so content never sits under fixed bars or leaves a black gap */
-      try {
-        var navEl = document.querySelector('body > nav');
-        var nh = navEl ? navEl.getBoundingClientRect().height : 0;
-        var rh = rail.getBoundingClientRect().height || 0;
-        if (nh > 40) document.body.style.setProperty('--k9-nav-h', Math.ceil(nh) + 'px');
-        if (rh > 30) document.body.style.setProperty('--k9-rail-h', Math.ceil(rh) + 'px');
-        window.addEventListener('resize', function () {
-          var n2 = document.querySelector('body > nav');
-          var r2 = document.getElementById('k9x-rail');
-          if (n2) document.body.style.setProperty('--k9-nav-h', Math.ceil(n2.getBoundingClientRect().height) + 'px');
-          if (r2) document.body.style.setProperty('--k9-rail-h', Math.ceil(r2.getBoundingClientRect().height) + 'px');
-        }, { passive: true });
-      } catch (eH) { /* ignore */ }
+
+      /* Desktop: wrap site nav + path rail in one fixed #k9x-chrome so the top never scrolls
+         and content padding matches a single measured height (kills black gap). */
+      if (!isMobile()) {
+        var chrome = document.getElementById('k9x-chrome');
+        if (!chrome) {
+          chrome = document.createElement('div');
+          chrome.id = 'k9x-chrome';
+          chrome.className = 'k9x-chrome';
+          chrome.setAttribute('role', 'presentation');
+          var siteNav = null;
+          var kids = document.body.children;
+          for (var ci = 0; ci < kids.length; ci++) {
+            var el = kids[ci];
+            if (el.tagName === 'NAV' && el.id !== 'k9x-rail' && !el.classList.contains('k9x-mtabs') && !el.classList.contains('k9x-rail')) {
+              siteNav = el;
+              break;
+            }
+          }
+          if (siteNav) {
+            siteNav.parentNode.insertBefore(chrome, siteNav);
+            chrome.appendChild(siteNav);
+          } else {
+            document.body.insertBefore(chrome, document.body.firstChild);
+          }
+        }
+        chrome.appendChild(rail);
+      } else {
+        var navM = document.querySelector('body > nav');
+        if (navM && navM.nextSibling) document.body.insertBefore(rail, navM.nextSibling);
+        else document.body.insertBefore(rail, document.body.firstChild);
+      }
+
+      function measureChrome() {
+        try {
+          if (document.body.classList.contains('k9x-mobile')) return;
+          var stack = document.getElementById('k9x-chrome');
+          if (!stack) return;
+          var h = Math.ceil(stack.getBoundingClientRect().height);
+          if (h > 60) document.body.style.setProperty('--k9-chrome-h', h + 'px');
+        } catch (eM) { /* ignore */ }
+      }
+      measureChrome();
+      requestAnimationFrame(function () {
+        measureChrome();
+        requestAnimationFrame(measureChrome);
+      });
+      window.addEventListener('resize', measureChrome, { passive: true });
     }
 
     if (!document.getElementById('k9x-panel-host')) {
