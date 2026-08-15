@@ -226,44 +226,63 @@
   var s = document.createElement('style');
   s.id = 'bp-css';
   s.textContent = [
-   '.bp-board{--g:#fcd34d;--a:#f59e0b;--e:#34d399;--c:#fff8e7;--m:#c4b5a0;max-width:74rem;margin:0 auto;padding:0 1rem 7rem;position:relative}',
-   '.bp-tabs{display:flex;gap:.35rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.5rem 0 1rem;position:sticky;top:4.6rem;z-index:35;',
-   'background:linear-gradient(180deg,rgba(6,4,2,.98) 0%,rgba(6,4,2,.92) 85%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}',
+   '.bp-board{--g:#fcd34d;--a:#f59e0b;--e:#34d399;--c:#fff8e7;--m:#c4b5a0;max-width:76rem;margin:0 auto;padding:0 1rem 7rem;position:relative}',
+   '.bp-tabs{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.65rem 0 1.1rem;position:sticky;top:4.6rem;z-index:35;',
+   'background:linear-gradient(180deg,rgba(6,4,2,.98) 0%,rgba(6,4,2,.94) 80%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}',
    '.bp-tabs::-webkit-scrollbar{display:none}',
-   '.bp-tab{flex:0 0 auto;padding:.7rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);',
+   '.bp-tab{flex:0 0 auto;padding:.72rem 1.05rem;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);',
    'color:rgba(255,248,231,.72);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:46px;white-space:nowrap;',
    'transition:border-color .2s,background .2s,color .2s,box-shadow .2s,transform .15s}',
-   '.bp-tab:hover{border-color:rgba(252,211,77,.45);color:#fff;transform:translateY(-1px)}',
+   '.bp-tab:hover{border-color:rgba(252,211,77,.5);color:#fff;transform:translateY(-1px)}',
    '.bp-tab.is-on{background:linear-gradient(135deg,#fde68a 0%,#f59e0b 55%,#d97706 100%);color:#140e00;border-color:transparent;',
-   'box-shadow:0 0 28px -6px rgba(245,158,11,.75),0 8px 24px -10px rgba(0,0,0,.6)}',
-   '.bp-panel{display:none;animation:bp-rise .38s cubic-bezier(.22,1,.36,1)}',
+   'box-shadow:0 0 32px -6px rgba(245,158,11,.8),0 8px 24px -10px rgba(0,0,0,.6)}',
+   '.bp-panel{display:none;animation:bp-rise .42s cubic-bezier(.22,1,.36,1)}',
    '.bp-panel.is-on{display:block}',
-   '@keyframes bp-rise{from{opacity:0;transform:translateY(14px) scale(.99)}to{opacity:1;transform:none}}',
+   '@keyframes bp-rise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}',
    '@keyframes bp-pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(52,211,153,.35)}50%{opacity:.85;box-shadow:0 0 24px 2px rgba(52,211,153,.2)}}',
    '@keyframes bp-shimmer{0%{background-position:0% 50%}100%{background-position:100% 50%}}',
    '@keyframes bp-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}',
    '@keyframes bp-numpop{0%{transform:scale(1)}40%{transform:scale(1.08);color:#fff}100%{transform:scale(1)}}',
    '.bp-num-flash{animation:bp-numpop .45s ease}',
-   '.bp-kicker{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(252,211,77,.88);margin:0 0 .5rem;font-weight:700}',
-   '.bp-h2{font-family:Space Grotesk,Inter,sans-serif;font-size:clamp(1.7rem,4.2vw,2.55rem);line-height:1.08;margin:0 0 .85rem;color:#fff;font-weight:700;letter-spacing:-.03em;text-wrap:balance}',
-   '.bp-lede{font-size:clamp(1.02rem,2.1vw,1.15rem);line-height:1.65;color:#e8dfd0;margin:0 0 1.35rem;max-width:40rem;font-weight:500}',
-   '.bp-grid{display:grid;gap:.9rem}',
+   '.bp-kicker{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(252,211,77,.9);margin:0 0 .55rem;font-weight:700}',
+   '.bp-h2{font-family:Space Grotesk,Inter,sans-serif;font-size:clamp(1.8rem,4.4vw,2.7rem);line-height:1.06;margin:0 0 .9rem;color:#fff;font-weight:700;letter-spacing:-.035em;text-wrap:balance;text-shadow:0 0 40px rgba(245,158,11,.12)}',
+   '.bp-lede{font-size:clamp(1.05rem,2.2vw,1.18rem);line-height:1.65;color:#ebe1d2;margin:0 0 1.4rem;max-width:42rem;font-weight:500}',
+   '.bp-grab{position:relative;margin:0 0 1.35rem;padding:1.15rem 1.2rem 1.2rem;border-radius:1.3rem;border:1px solid rgba(252,211,77,.4);',
+   'background:radial-gradient(ellipse 90% 70% at 0% 0%,rgba(252,211,77,.18),transparent 55%),linear-gradient(155deg,rgba(36,24,8,.95),rgba(8,6,4,.97));',
+   'box-shadow:0 0 50px -16px rgba(245,158,11,.45),0 24px 50px -28px rgba(0,0,0,.85);overflow:hidden}',
+   '.bp-grab::before{content:"";position:absolute;left:0;top:12%;bottom:12%;width:3px;border-radius:0 3px 3px 0;background:linear-gradient(180deg,#fcd34d,#34d399);box-shadow:0 0 14px rgba(252,211,77,.5)}',
+   '.bp-grab p{margin:0;font-size:clamp(1.02rem,2.2vw,1.15rem);line-height:1.55;color:#fef3c7;font-weight:500;max-width:40rem}',
+   '.bp-grab strong{color:#fde68a}',
+   '.bp-grid{display:grid;gap:.95rem}',
    '@media(min-width:720px){.bp-grid.g2{grid-template-columns:1fr 1fr}.bp-grid.g3{grid-template-columns:1fr 1fr 1fr}.bp-grid.g4{grid-template-columns:repeat(4,1fr)}}',
-   '.bp-card{border-radius:1.25rem;border:1px solid rgba(252,211,77,.22);background:linear-gradient(155deg,rgba(28,22,12,.92),rgba(10,8,5,.94));',
-   'padding:1.2rem 1.25rem;position:relative;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .25s}',
-   '.bp-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 50% at 0% 0%,rgba(252,211,77,.08),transparent 55%);opacity:.9}',
-   '.bp-card:hover{border-color:rgba(252,211,77,.48);transform:translateY(-2px);box-shadow:0 18px 40px -22px rgba(0,0,0,.85),0 0 40px -20px rgba(245,158,11,.35)}',
+   '.bp-card{border-radius:1.3rem;border:1px solid rgba(252,211,77,.24);background:linear-gradient(155deg,rgba(32,24,12,.94),rgba(10,8,5,.96));',
+   'padding:1.25rem 1.3rem;position:relative;overflow:hidden;transition:border-color .22s,transform .22s,box-shadow .28s}',
+   '.bp-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 50% at 0% 0%,rgba(252,211,77,.1),transparent 55%);opacity:.95}',
+   '.bp-card:hover{border-color:rgba(252,211,77,.55);transform:translateY(-3px);box-shadow:0 22px 48px -22px rgba(0,0,0,.88),0 0 48px -18px rgba(245,158,11,.4)}',
    '.bp-card > *{position:relative;z-index:1}',
-   '.bp-card h3{margin:0 0 .45rem;font-size:1.08rem;color:#fde68a;font-weight:700;letter-spacing:-.01em}',
-   '.bp-card p,.bp-card li{font-size:.97rem;line-height:1.62;color:#d9cebc;margin:0}',
+   '.bp-card h3{margin:0 0 .5rem;font-size:1.1rem;color:#fde68a;font-weight:700;letter-spacing:-.015em;font-family:Space Grotesk,sans-serif}',
+   '.bp-card p,.bp-card li{font-size:.98rem;line-height:1.62;color:#ddd2c0;margin:0}',
    '.bp-card ul{margin:.45rem 0 0;padding-left:1.1rem}',
    '.bp-card li{margin-bottom:.4rem}',
-   '.bp-bento{display:grid;gap:.75rem}',
+   '.bp-bento{display:grid;gap:.8rem}',
    '@media(min-width:800px){.bp-bento{grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:auto auto}.bp-bento .wide{grid-column:1/-1}.bp-bento .tall{grid-row:span 2}}',
-   '.bp-metric{text-align:center;padding:1.05rem .85rem;border-radius:1.1rem;border:1px solid rgba(252,211,77,.28);',
-   'background:linear-gradient(180deg,rgba(30,22,8,.9),rgba(8,6,4,.95));box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}',
-   '.bp-metric b{display:block;font-size:clamp(1.4rem,3vw,1.75rem);color:#fde68a;font-family:Space Grotesk,sans-serif;letter-spacing:-.02em;line-height:1.1}',
-   '.bp-metric span{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,248,231,.52);font-weight:600;margin-top:.35rem;display:block}',
+   '.bp-metric{text-align:center;padding:1.15rem .85rem;border-radius:1.15rem;border:1px solid rgba(252,211,77,.3);',
+   'background:linear-gradient(180deg,rgba(34,24,8,.92),rgba(8,6,4,.96));box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 0 30px -16px rgba(245,158,11,.25);transition:border-color .2s,transform .2s}',
+   '.bp-metric:hover{border-color:rgba(252,211,77,.55);transform:translateY(-2px)}',
+   '.bp-metric b{display:block;font-size:clamp(1.5rem,3.2vw,1.9rem);color:#fde68a;font-family:Space Grotesk,sans-serif;letter-spacing:-.02em;line-height:1.1}',
+   '.bp-metric span{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,248,231,.55);font-weight:600;margin-top:.4rem;display:block}',
+   /* Living campus bay map */
+   '.bp-bays{display:grid;gap:.55rem;margin:1rem 0}',
+   '@media(min-width:700px){.bp-bays{grid-template-columns:1.1fr 1.4fr}}',
+   '.bp-bay{padding:1rem;border-radius:1.15rem;border:1px solid rgba(252,211,77,.28);background:linear-gradient(160deg,rgba(20,14,6,.9),rgba(0,0,0,.55));position:relative;overflow:hidden}',
+   '.bp-bay.is-live{border-color:rgba(52,211,153,.45);box-shadow:0 0 36px -14px rgba(52,211,153,.4)}',
+   '.bp-bay.is-grow{border-style:dashed;opacity:.9}',
+   '.bp-bay .tag{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#6ee7b7;margin:0 0 .35rem;font-weight:700}',
+   '.bp-bay h4{margin:0 0 .45rem;font-family:Space Grotesk,sans-serif;color:#fef3c7;font-size:1.05rem}',
+   '.bp-bay p{margin:0;font-size:.82rem;line-height:1.45;color:#cfc3b0}',
+   '.bp-cells{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.65rem}',
+   '.bp-cell-chip{padding:.55rem .5rem;border-radius:.75rem;border:1px solid rgba(252,211,77,.25);background:rgba(0,0,0,.4);text-align:center;font-size:.72rem;color:#fde68a;font-weight:700}',
+   '.bp-cell-chip small{display:block;font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,248,231,.45);font-weight:600;margin-top:.15rem}',
    '.bp-table{width:100%;border-collapse:collapse;font-size:.88rem}',
    '.bp-table th,.bp-table td{text-align:left;padding:.6rem .5rem;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top}',
    '.bp-table th{color:#fde68a;font-weight:700;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase}',
@@ -379,22 +398,25 @@
  function panelWhy() {
   return (
    '<section class="bp-panel is-on" data-bp="why">' +
-   '<p class="bp-kicker">01 · First principle</p>' +
+   '<p class="bp-kicker">01 · First principle · face and heart</p>' +
    '<h2 class="bp-h2">Build the biggest warm place that never turns into a warehouse.<span class="info-icon" data-term="barn campus" role="button" tabindex="0" aria-label="Plain language: barn campus">ⓘ</span></h2>' +
-   '<p class="bp-lede">A dog on death row does not need your brand. They need heat, space, a clean floor, and a human who shows up tomorrow. We engineered a campus for that: treasury land, a real house for caretakers, a barn that grows bay by bay, and small cells of 5 to 10 so every soul still has a name.</p>' +
-   '<div class="bp-grid g4" style="margin-bottom:1.1rem">' +
+   '<div class="bp-grab">' +
+   '<p><strong>Look them in the eyes.</strong> A dog on death row does not need your brand. They need heat, space, a clean floor, and a human who shows up tomorrow. We engineered a campus for that face: treasury land, a real house for caretakers, a barn that grows bay by bay, and small cells of 5 to 10 so every soul still has a name.</p>' +
+   '</div>' +
+   '<p class="bp-lede">This is not a paint day. This is permanent infrastructure for the grey muzzles and hung-up vests the world walks past. Massive shell. Small homes. Density that refuses to lie.</p>' +
+   '<div class="bp-grid g4" style="margin-bottom:1.2rem">' +
    '<div class="bp-metric"><b>5-10</b><span>Dogs per cell</span></div>' +
    '<div class="bp-metric"><b>2→8</b><span>Cells by phase</span></div>' +
    '<div class="bp-metric"><b>20-80</b><span>Campus design load</span></div>' +
    '<div class="bp-metric"><b>0 pack</b><span>Hard anti-crush rule</span></div>' +
    '</div>' +
    '<div class="bp-bento">' +
-   '<div class="bp-card tall"><h3>The wound</h3><p>Seniors watch adopters walk past. Service dogs retire into nowhere. Death row is a clock. Corporate “impact days” paint a wall and leave. That is not infrastructure. That is theater.</p></div>' +
-   '<div class="bp-card"><h3>The unit</h3><p>One cell. Five to ten dogs. Identical kit. Cleanable. Heated. Named. A company can fund it without guessing.</p></div>' +
-   '<div class="bp-card"><h3>The scale</h3><p>Stack cells in a huge shell. Add Bay B when Phase 1 stays green. Massive campus. Small homes. Same physics every time.</p></div>' +
-   '<div class="bp-card wide"><h3>The money split (so charts never empty bowls)</h3><p>Treasury places land, house, barn shell, medical reserve. Corporations fund cells month after month. $NIBBLES is belonging. Care rails aim for steady dollars when live. Hold the heart. Pay the life.</p></div>' +
+   '<div class="bp-card tall"><h3>The wound</h3><p>Seniors watch adopters walk past. Service dogs retire into nowhere. Death row is a clock. Corporate “impact days” paint a wall and leave. That is not infrastructure. That is theater. And theater does not keep a body warm at 3 a.m.</p></div>' +
+   '<div class="bp-card"><h3>The unit</h3><p>One cell. Five to ten dogs. Identical kit. Cleanable. Heated. Named. A company can fund it without guessing. Finance can budget it. Ops can staff it.</p></div>' +
+   '<div class="bp-card"><h3>The scale</h3><p>Stack cells in a huge shell. Add Bay B when Phase 1 stays green. Massive campus. Small homes. Same physics every time. Never freestyle the crush.</p></div>' +
+   '<div class="bp-card wide"><h3>The money split (so charts never empty bowls)</h3><p>Treasury places land, house, barn shell, medical reserve. Corporations fund cells month after month. $NIBBLES is belonging. Care rails aim for steady dollars when live. Hold the heart. Pay the life. When a seat opens, the snowball continues.</p></div>' +
    '</div>' +
-   '<p class="bp-soul">If we cannot staff it, we do not open it. If the land is too tight, we open fewer beds. Love that cannot pass an audit is not love. It is noise.</p>' +
+   '<p class="bp-soul">If we cannot staff it, we do not open it. If the land is too tight, we open fewer beds. Love that cannot pass an audit is not love. It is noise. And these dogs have heard enough noise.</p>' +
    '<div class="bp-row">' +
    '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="model">See the sponsorship model →</button>' +
    '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="acres">Density engine</button>' +
@@ -420,24 +442,45 @@
 
   return (
    '<section class="bp-panel" data-bp="campus">' +
-   '<p class="bp-kicker">02 · Campus</p>' +
+   '<p class="bp-kicker">02 · Campus · living map</p>' +
    '<h2 class="bp-h2">One roof that can grow. Rooms that never crush.</h2>' +
-   '<p class="bp-lede">Think SpaceX factory logic on mercy: a shell you can extend, a cell you never freestyle, a checklist that beats excitement.</p>' +
+   '<p class="bp-lede">Factory logic on mercy: a shell you can extend, a cell you never freestyle, a checklist that beats excitement. Walk the bays. Feel the scale. Keep the rooms small enough to still know every name.</p>' +
+   '<div class="bp-bays">' +
+    '<div class="bp-bay is-live">' +
+     '<div class="tag">Live design · Bay A</div>' +
+     '<h4>House + flagship open</h4>' +
+     '<p>Caretakers who stay. Isolation before pack. Two cells. Dual runs. About 10-20 living dogs when Phase 1 is honest.</p>' +
+     '<div class="bp-cells">' +
+      '<div class="bp-cell-chip">Cell 1<small>5-10 dogs</small></div>' +
+      '<div class="bp-cell-chip">Cell 2<small>same kit</small></div>' +
+     '</div>' +
+    '</div>' +
+    '<div class="bp-bay is-grow">' +
+     '<div class="tag">Grow into · Bay B / C / D</div>' +
+     '<h4>Same kit. Bigger campus.</h4>' +
+     '<p>Cells 3-8 only after audits stay green. Staff line rises with the walls. Second site beats crushing one parcel past honesty.</p>' +
+     '<div class="bp-cells">' +
+      '<div class="bp-cell-chip">Bay B<small>cells 3-4</small></div>' +
+      '<div class="bp-cell-chip">Bay C/D<small>cells 5-8</small></div>' +
+     '</div>' +
+    '</div>' +
+   '</div>' +
    '<div class="bp-blueprint">' + map + '</div>' +
    '<div class="bp-grid g2" style="margin-top:1rem">' +
-   '<div class="bp-phase"><h3>Phase 0 · Dirt and law</h3><p>Secure land. Zoning path. Septic. Access. Neighbours. Zero dogs.</p></div>' +
-   '<div class="bp-phase"><h3>Phase 1 · Flagship open</h3><p>House + Bay A + 2 cells. About 10-20 living dogs. Proof before ego.</p></div>' +
-   '<div class="bp-phase"><h3>Phase 2 · Grow the barn</h3><p>Bay B. 4 cells. 20-40 dogs. Staff line rises with the walls.</p></div>' +
+   '<div class="bp-phase"><h3>Phase 0 · Dirt and law</h3><p>Secure land. Zoning path. Septic. Access. Neighbours. Zero dogs. Zero theater.</p></div>' +
+   '<div class="bp-phase"><h3>Phase 1 · Flagship open</h3><p>House + Bay A + 2 cells. About 10-20 living dogs. Proof before ego. Faces you can name.</p></div>' +
+   '<div class="bp-phase"><h3>Phase 2 · Grow the barn</h3><p>Bay B. 4 cells. 20-40 dogs. Staff line rises with the walls. Same SOP. Same dignity.</p></div>' +
    '<div class="bp-phase"><h3>Phase 3-4 · Regional mass</h3><p>6-8 cells. 40-80 dogs design. Second site beats crushing one parcel past honesty.</p></div>' +
    '</div>' +
    '<div class="bp-grid g2" style="margin-top:.5rem">' +
    '<div class="bp-card"><h3>Who lives here</h3><ul>' +
-   '<li>Shelter seniors</li><li>Retired service partners</li><li>Death-row pulls (isolation first, time boxed)</li><li>Medical soft cases with real capacity</li>' +
+   '<li>Shelter seniors with grey faces and soft eyes</li><li>Retired service partners whose vest is hung up</li><li>Death-row pulls (isolation first, time boxed)</li><li>Medical soft cases with real capacity</li>' +
    '</ul></div>' +
-   '<div class="bp-card"><h3>Who leaves when they can</h3><p>Adoptable dogs still move through Golden Paws and forever homes. The campus is the permanent floor for the ones the world forgot. Not a life sentence for every nose.</p></div>' +
+   '<div class="bp-card"><h3>Who leaves when they can</h3><p>Adoptable dogs still move through Golden Paws and forever homes. The campus is the permanent floor for the ones the world forgot. Not a life sentence for every nose. A home for the ones who need the floor that never folds.</p></div>' +
    '</div>' +
    '<div class="bp-row">' +
    '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="acres">Density engine →</button>' +
+   '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="model">Sponsorship model</button>' +
    '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="money">Treasury split</button>' +
    '</div>' +
    '</section>'

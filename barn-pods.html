@@ -11,8 +11,8 @@
  <meta name="author" content="Shibahumanityhub">
  <meta name="keywords" content="shiba barn campus, corporate barn pod, senior dog sanctuary, modular dog sanctuary, NIBBLES, treasury land barn">
 
- <title>Shiba Barn Campus · Massive. Modular. Never a warehouse.</title>
- <meta name="description" content="The first modular mercy campus: treasury land, caretaker house, expandable heated barn, cells of 5 to 10 dogs, live acreage engine. Scale without crushing souls. Design until funding and permits are real.">
+ <title>Shiba Barn Campus · Warm floors. Named cells. Zero warehouse.</title>
+ <meta name="description" content="Look them in the eyes. Modular mercy campus: treasury land, caretaker house, expandable heated barn, cells of 5 to 10, live density engine, productized sponsorship. Scale without crushing souls. Design until funding and permits are real.">
 
  <meta property="og:title" content="Shiba Barn Campus · Massive shell. Small homes. Live density.">
  <meta property="og:description" content="Land + house + expandable barn. Corporate cells. Acreage that auto-calculates honesty. First of its kind when real.">
@@ -56,71 +56,161 @@
   color: var(--bp-cream);
   font-family: Inter, system-ui, sans-serif;
  }
- body::before {
-  content: '';
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background:
-   radial-gradient(ellipse 90% 50% at 50% -8%, rgba(252, 211, 77, 0.16), transparent 55%),
-   radial-gradient(ellipse 50% 40% at 100% 30%, rgba(16, 185, 129, 0.07), transparent 50%),
-   radial-gradient(ellipse 40% 35% at 0% 80%, rgba(245, 158, 11, 0.06), transparent 45%);
+ /* Living night: hearth gold + yard emerald + dust */
+ .bp-fx {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
  }
- body > * { position: relative; z-index: 1; }
+ .bp-fx-wash {
+  position: absolute; inset: 0;
+  background:
+   radial-gradient(ellipse 110% 55% at 50% -12%, rgba(252, 211, 77, 0.22), transparent 52%),
+   radial-gradient(ellipse 55% 42% at 100% 28%, rgba(16, 185, 129, 0.1), transparent 50%),
+   radial-gradient(ellipse 42% 38% at 0% 75%, rgba(245, 158, 11, 0.08), transparent 48%),
+   radial-gradient(ellipse 60% 30% at 50% 100%, rgba(252, 211, 77, 0.06), transparent 60%),
+   linear-gradient(180deg, #080602 0%, #060402 45%, #040302 100%);
+ }
+ .bp-fx-hearth {
+  position: absolute; left: 50%; top: 18%; width: min(90vw, 720px); height: min(50vh, 420px);
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 50% 45% at 50% 50%,
+   rgba(254, 243, 199, 0.16) 0%,
+   rgba(252, 211, 77, 0.12) 28%,
+   rgba(245, 158, 11, 0.06) 48%,
+   transparent 70%);
+  filter: blur(2px);
+  animation: bp-hearth 6s ease-in-out infinite;
+ }
+ @keyframes bp-hearth {
+  0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.06); }
+ }
+ .bp-fx-dust {
+  position: absolute; inset: -5%;
+  opacity: 0.45;
+  background-image:
+   radial-gradient(rgba(252, 211, 77, 0.22) 1px, transparent 1px),
+   radial-gradient(rgba(254, 243, 199, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px, 51px 51px;
+  background-position: 0 0, 14px 22px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, #000 10%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, #000 10%, transparent 78%);
+  animation: bp-dust 40s linear infinite;
+ }
+ @keyframes bp-dust {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-28px, 18px, 0); }
+ }
+ .bp-fx-ridge {
+  position: absolute; left: -10%; right: -10%; bottom: -8%; height: 42%;
+  background:
+   linear-gradient(180deg, transparent 0%, rgba(6,4,2,0.2) 30%, rgba(6,4,2,0.85) 100%),
+   repeating-linear-gradient(90deg,
+    transparent 0 48px,
+    rgba(252,211,77,0.04) 48px 49px);
+  transform: perspective(800px) rotateX(58deg);
+  transform-origin: 50% 100%;
+  opacity: 0.55;
+ }
+ body > *:not(.bp-fx) { position: relative; z-index: 1; }
 
  nav.bp-nav {
-  background: rgba(6, 4, 2, 0.92) !important;
+  background: rgba(6, 4, 2, 0.94) !important;
   border-bottom: 1px solid var(--bp-line) !important;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  z-index: 60;
  }
 
  .bp-hero {
   position: relative;
-  min-height: min(100vh, 920px);
-  padding: 7.25rem 1.1rem 3rem;
+  min-height: min(100vh, 960px);
+  padding: 6.75rem 1.1rem 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
  }
+ @media (min-width: 1024px) {
+  .bp-hero { text-align: left; padding: 7.5rem 1.75rem 3.25rem; min-height: min(94vh, 900px); }
+ }
  .bp-hero-wash {
   position: absolute; inset: 0; pointer-events: none;
   background:
    url('assets/images/barnsponsorshippodpic.jpg') center 38% / cover no-repeat;
-  opacity: 0.22;
-  filter: saturate(1.15) contrast(1.05);
+  opacity: 0.28;
+  filter: saturate(1.2) contrast(1.08);
   transform: scale(1.06);
-  animation: bp-hero-ken 28s ease-in-out infinite alternate;
+  animation: bp-hero-ken 32s ease-in-out infinite alternate;
  }
  .bp-hero-wash::after {
   content: '';
   position: absolute; inset: 0;
   background:
-   linear-gradient(180deg, rgba(6,4,2,0.72) 0%, rgba(6,4,2,0.45) 35%, rgba(6,4,2,0.88) 78%, #060402 100%),
-   radial-gradient(ellipse 70% 50% at 50% 40%, rgba(245,158,11,0.12), transparent 60%);
+   linear-gradient(180deg, rgba(6,4,2,0.78) 0%, rgba(6,4,2,0.42) 32%, rgba(6,4,2,0.72) 68%, #060402 100%),
+   radial-gradient(ellipse 70% 50% at 50% 40%, rgba(245,158,11,0.16), transparent 60%),
+   linear-gradient(90deg, rgba(6,4,2,0.55) 0%, transparent 40%, transparent 60%, rgba(6,4,2,0.5) 100%);
  }
  @keyframes bp-hero-ken {
   from { transform: scale(1.04) translate3d(0,0,0); }
-  to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+  to { transform: scale(1.14) translate3d(-1.8%, -1.2%, 0); }
  }
  .bp-hero-grid {
-  position: absolute; inset: 0; pointer-events: none; opacity: 0.07;
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.1;
   background-image:
-   linear-gradient(rgba(252,211,77,0.35) 1px, transparent 1px),
+   linear-gradient(rgba(252,211,77,0.4) 1px, transparent 1px),
    linear-gradient(90deg, rgba(252,211,77,0.35) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 15%, transparent 78%);
  }
- .bp-hero-inner { position: relative; z-index: 2; max-width: 46rem; margin: 0 auto; width: 100%; }
+ .bp-hero-beam {
+  position: absolute; left: 50%; top: -8%; width: min(70vw, 480px); height: 70%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(254,243,199,0.2) 0%, rgba(252,211,77,0.08) 40%, transparent 78%);
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+  opacity: 0.75;
+  animation: bp-beam 5.5s ease-in-out infinite;
+ }
+ @keyframes bp-beam {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.9; }
+ }
+ .bp-hero-inner {
+  position: relative; z-index: 2; max-width: 46rem; margin: 0 auto; width: 100%;
+ }
+ @media (min-width: 1024px) {
+  .bp-hero-inner {
+   max-width: 76rem;
+   display: grid;
+   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+   gap: 2.75rem;
+   align-items: center;
+  }
+  .bp-hero-copy { max-width: none; }
+  .bp-stat-row, .bp-hero-lede, .bp-sub { margin-left: 0; }
+  .bp-cta-row { justify-content: flex-start; }
+  .bp-path-note { text-align: left; }
+ }
+ .bp-hero-cinema { display: none; min-width: 0; }
+ @media (min-width: 1024px) {
+  .bp-hero-cinema { display: block; position: relative; }
+ }
+ .bp-hero-cinema .glow {
+  position: absolute; inset: -14%; border-radius: 2rem;
+  background: radial-gradient(ellipse at 50% 50%, rgba(245,158,11,0.28), transparent 62%);
+  pointer-events: none; z-index: 0;
+ }
 
  .bp-sig {
   display: inline-flex; align-items: center; gap: .5rem;
   font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
   color: rgba(252,211,77,.92); font-weight: 700; margin-bottom: 1rem;
-  padding: .4rem .85rem; border-radius: 999px;
-  border: 1px solid rgba(252,211,77,.35);
-  background: rgba(0,0,0,.4);
+  padding: .45rem .9rem; border-radius: 999px;
+  border: 1px solid rgba(252,211,77,.4);
+  background: linear-gradient(135deg, rgba(245,158,11,.18), rgba(0,0,0,.45));
   backdrop-filter: blur(10px);
+  box-shadow: 0 0 28px -8px rgba(245,158,11,.45);
  }
  .bp-sig b {
   width: 8px; height: 8px; border-radius: 50%;
@@ -129,44 +219,85 @@
  }
  @keyframes bp-dot { 0%,100%{opacity:1} 50%{opacity:.3} }
 
+ .bp-heart-line {
+  font-family: 'Space Grotesk', Inter, sans-serif;
+  font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fef3c7;
+  margin: 0 0 1rem;
+  max-width: 34rem;
+  text-shadow: 0 0 40px rgba(252, 211, 77, 0.25);
+ }
+ @media (min-width: 1024px) { .bp-heart-line { margin-left: 0; } }
+
  .bp-mega {
   font-family: 'Space Grotesk', Inter, sans-serif;
-  font-size: clamp(2.15rem, 7.5vw, 4rem);
+  font-size: clamp(2.25rem, 7.2vw, 4.15rem);
   font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  margin: 0 0 1rem;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  margin: 0 0 .85rem;
   color: #fff;
   text-wrap: balance;
-  text-shadow: 0 2px 40px rgba(0,0,0,.55);
+  text-shadow: 0 2px 48px rgba(0,0,0,.6), 0 0 60px rgba(245,158,11,.12);
+  filter: drop-shadow(0 0 30px rgba(252,211,77,.08));
  }
  .bp-mega em {
   font-style: normal;
-  background: linear-gradient(100deg, #fef3c7 0%, #fcd34d 35%, #34d399 78%, #fde68a 100%);
+  background: linear-gradient(100deg, #fef3c7 0%, #fcd34d 30%, #34d399 70%, #fde68a 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: bp-grad 10s linear infinite;
+  animation: bp-grad 9s linear infinite;
  }
  @keyframes bp-grad { to { background-position: 200% center; } }
 
  .bp-sub {
-  font-size: clamp(1.12rem, 2.6vw, 1.4rem);
+  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
   font-weight: 600;
   line-height: 1.4;
   color: #fde68a;
   margin: 0 0 1rem;
   text-wrap: balance;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
  }
  .bp-hero-lede {
-  font-size: clamp(1.02rem, 2.1vw, 1.12rem);
+  font-size: clamp(1.02rem, 2.1vw, 1.14rem);
   line-height: 1.65;
   color: #e8dfd0;
   font-weight: 500;
   max-width: 36rem;
-  margin: 0 auto 1.4rem;
+  margin: 0 auto 1.35rem;
  }
+
+ .bp-pull {
+  position: relative;
+  max-width: 36rem;
+  margin: 0 auto 1.35rem;
+  padding: 1rem 1.1rem 1.05rem 1.15rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(252,211,77,.4);
+  text-align: left;
+  background:
+   radial-gradient(ellipse 80% 70% at 0% 0%, rgba(252,211,77,.16), transparent 55%),
+   radial-gradient(ellipse 60% 50% at 100% 100%, rgba(52,211,153,.1), transparent 50%),
+   linear-gradient(155deg, rgba(20,14,6,.92), rgba(6,4,2,.96));
+  box-shadow: 0 0 50px -16px rgba(245,158,11,.45), 0 20px 50px -28px rgba(0,0,0,.8);
+ }
+ .bp-pull::before {
+  content: '';
+  position: absolute; left: 0; top: 14%; bottom: 14%; width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #fcd34d, #34d399);
+  box-shadow: 0 0 16px rgba(252,211,77,.5);
+ }
+ .bp-pull p { margin: 0; font-size: .95rem; line-height: 1.55; color: rgba(255,248,231,.9); }
+ .bp-pull strong { color: #fde68a; }
+ @media (min-width: 1024px) { .bp-pull { margin-left: 0; } }
 
  .bp-stat-row {
   display: grid;
@@ -176,19 +307,26 @@
   margin: 0 auto 1.4rem;
  }
  @media (min-width: 520px) {
-  .bp-stat-row { grid-template-columns: repeat(4, 1fr); max-width: 36rem; }
+  .bp-stat-row { grid-template-columns: repeat(4, 1fr); max-width: 38rem; }
  }
  .bp-stat {
-  padding: .75rem .5rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(252,211,77,.25);
-  background: rgba(0,0,0,.45);
-  backdrop-filter: blur(8px);
+  padding: .8rem .5rem;
+  border-radius: 1.05rem;
+  border: 1px solid rgba(252,211,77,.28);
+  background: linear-gradient(165deg, rgba(30,22,8,.75), rgba(0,0,0,.5));
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+ }
+ .bp-stat:hover {
+  border-color: rgba(252,211,77,.55);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -16px rgba(245,158,11,.4);
  }
  .bp-stat b {
   display: block;
   font-family: Space Grotesk, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: #fde68a;
   letter-spacing: -0.02em;
  }
@@ -196,7 +334,7 @@
   font-size: .58rem;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: rgba(255,248,231,.5);
+  color: rgba(255,248,231,.52);
   font-weight: 600;
  }
 
@@ -211,39 +349,97 @@
   text-decoration: none; min-height: 50px; border: 0; cursor: pointer; font-family: inherit;
   box-shadow: 0 0 40px -8px rgba(245,158,11,.75), 0 12px 32px -12px rgba(0,0,0,.7);
   transition: transform .15s, box-shadow .2s;
+  animation: bp-cta-pulse 2.8s ease-in-out infinite;
  }
- .bp-cta:hover { box-shadow: 0 0 50px -6px rgba(245,158,11,.95); transform: translateY(-1px); }
+ .bp-cta:hover { box-shadow: 0 0 50px -6px rgba(245,158,11,.95); transform: translateY(-2px); }
+ @keyframes bp-cta-pulse {
+  0%, 100% { box-shadow: 0 0 36px -10px rgba(245,158,11,.65), 0 12px 32px -12px rgba(0,0,0,.7); }
+  50% { box-shadow: 0 0 48px -6px rgba(245,158,11,.9), 0 0 24px 2px rgba(253,230,138,.15); }
+ }
  .bp-ghost {
   display: inline-flex; align-items: center; justify-content: center;
   padding: .95rem 1.25rem; border-radius: 999px; font-weight: 700; font-size: .9rem;
   background: rgba(0,0,0,.4); color: #fde68a; border: 1px solid rgba(252,211,77,.45);
   text-decoration: none; min-height: 50px; backdrop-filter: blur(8px);
+  transition: border-color .15s, background .15s;
  }
+ .bp-ghost:hover { border-color: rgba(252,211,77,.75); background: rgba(245,158,11,.1); }
  .bp-path-note {
   font-size: .72rem;
   letter-spacing: .04em;
-  color: rgba(253,230,138,.45);
+  color: rgba(253,230,138,.5);
   margin: 0 0 1.25rem;
+  text-align: center;
  }
 
  .bp-media {
-  max-width: min(380px, 92vw); margin: 0 auto;
-  border-radius: 1.35rem;
+  max-width: min(400px, 92vw); margin: 0 auto;
+  border-radius: 1.4rem;
   padding: 2px;
-  background: linear-gradient(135deg, rgba(252,211,77,.55), rgba(52,211,153,.25), rgba(252,211,77,.2));
-  box-shadow: 0 28px 70px -28px rgba(0,0,0,.9), 0 0 50px -18px rgba(245,158,11,.4);
+  background: linear-gradient(135deg, rgba(252,211,77,.65), rgba(52,211,153,.35), rgba(252,211,77,.3));
+  box-shadow: 0 32px 80px -28px rgba(0,0,0,.92), 0 0 60px -16px rgba(245,158,11,.5);
+  position: relative; z-index: 1;
+ }
+ @media (min-width: 1024px) {
+  .bp-media { max-width: none; margin: 0; }
+  .bp-hero-cinema .bp-media { display: block; }
+  .bp-hero-copy .bp-media { display: none; }
  }
  .bp-media-inner {
-  border-radius: calc(1.35rem - 2px); overflow: hidden;
+  border-radius: calc(1.4rem - 2px); overflow: hidden;
   background: #0a0804;
+  aspect-ratio: 16/10;
  }
- .bp-media video { display: block; width: 100%; }
+ .bp-media video {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  transform: translateZ(0);
+ }
  .bp-media p {
-  margin: 0; padding: .65rem;
+  margin: 0; padding: .7rem;
   font-size: .62rem; letter-spacing: .1em; text-transform: uppercase;
-  color: rgba(253,230,138,.5); text-align: center;
+  color: rgba(253,230,138,.55); text-align: center;
   border-top: 1px solid rgba(255,255,255,.06);
+  background: rgba(0,0,0,.45);
  }
+
+ .bp-faces {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .65rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0 1.1rem 1.5rem;
+ }
+ @media (min-width: 800px) {
+  .bp-faces { grid-template-columns: repeat(3, 1fr); gap: .9rem; padding: 0 1.75rem 2rem; }
+ }
+ .bp-face {
+  position: relative;
+  padding: 1.15rem 1.15rem 1.2rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(252,211,77,.28);
+  background: linear-gradient(160deg, rgba(36,26,8,.88), rgba(8,6,4,.94));
+  overflow: hidden;
+  box-shadow: 0 20px 50px -28px rgba(0,0,0,.85);
+  transition: transform .2s, border-color .2s, box-shadow .25s;
+ }
+ .bp-face:hover {
+  transform: translateY(-3px);
+  border-color: rgba(252,211,77,.55);
+  box-shadow: 0 24px 50px -20px rgba(245,158,11,.35);
+ }
+ .bp-face::before {
+  content: '';
+  position: absolute; left: 0; top: 12%; bottom: 12%; width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #fcd34d, #34d399);
+ }
+ .bp-face .ic { font-size: 1.4rem; display: block; margin-bottom: .4rem; }
+ .bp-face h3 {
+  font-family: Space Grotesk, sans-serif;
+  margin: 0 0 .4rem; font-size: 1.12rem; color: #fff; letter-spacing: -.02em;
+ }
+ .bp-face p { margin: 0; font-size: .9rem; line-height: 1.55; color: #d9cebc; }
 
  .bp-auth {
   border: 1px solid rgba(252,211,77,.4);
@@ -255,17 +451,27 @@
  #mobile-menu:not(.hidden) { display: block; }
 
  .bp-soul-strip {
-  max-width: 40rem;
+  max-width: 44rem;
   margin: 0 auto;
-  padding: 0 1.25rem 3rem;
+  padding: 1rem 1.25rem 3.5rem;
   text-align: center;
+  position: relative;
+ }
+ .bp-soul-strip::before {
+  content: '';
+  display: block;
+  width: 4rem; height: 2px; margin: 0 auto 1.25rem;
+  background: linear-gradient(90deg, transparent, #fcd34d, #34d399, transparent);
+  box-shadow: 0 0 16px rgba(252,211,77,.45);
  }
  .bp-soul-strip p {
-  font-size: clamp(1.15rem, 2.4vw, 1.35rem);
-  line-height: 1.55;
+  font-family: Space Grotesk, Inter, sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+  line-height: 1.5;
   color: #fef3c7;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
+  text-shadow: 0 0 40px rgba(252,211,77,.2);
  }
 
  footer {
@@ -275,12 +481,19 @@
  }
 
  @media (prefers-reduced-motion: reduce) {
-  .bp-hero-wash, .bp-mega em, .bp-sig b { animation: none !important; }
-  .bp-hero-wash { opacity: 0.14; transform: none; }
+  .bp-hero-wash, .bp-mega em, .bp-sig b, .bp-fx-hearth, .bp-fx-dust, .bp-hero-beam, .bp-cta { animation: none !important; }
+  .bp-hero-wash { opacity: 0.16; transform: none; }
  }
  </style>
 </head>
 <body>
+
+<div class="bp-fx" aria-hidden="true">
+ <div class="bp-fx-wash"></div>
+ <div class="bp-fx-hearth"></div>
+ <div class="bp-fx-dust"></div>
+ <div class="bp-fx-ridge"></div>
+</div>
 
 <div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
  <div class="bp-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-amber-50/90">
@@ -321,42 +534,84 @@
 
 <header class="bp-hero">
  <div class="bp-hero-wash" aria-hidden="true"></div>
+ <div class="bp-hero-beam" aria-hidden="true"></div>
  <div class="bp-hero-grid" aria-hidden="true"></div>
  <div class="bp-hero-inner">
- <div class="bp-sig"><b></b> First of its kind · productized campus mercy<span class="info-icon" data-term="barn campus" role="button" tabindex="0" aria-label="Plain language: barn campus">ⓘ</span></div>
- <h1 class="bp-mega">Massive shell.<br>Small homes.<br><em>Zero warehouse.</em></h1>
- <p class="bp-sub">Treasury lands the campus. Companies buy warm cells<span class="info-icon" data-term="pod cell" role="button" tabindex="0" aria-label="Plain language: pod cell">ⓘ</span> like real products. Density<span class="info-icon" data-term="density engine" role="button" tabindex="0" aria-label="Plain language: density engine">ⓘ</span> tells the truth as you type.</p>
- <p class="bp-hero-lede">
- A huge heated barn is the right ambition. Eighty stressed dogs in one open floor is not. We stack <strong style="color:#fde68a">identical cells of 5 to 10</strong> inside an expandable shell, productize sponsorship so finance can budget, and refuse to open what we cannot staff, clean, and love every day.
- </p>
+  <div class="bp-hero-copy">
+   <div class="bp-sig"><b></b> First of its kind · productized campus mercy<span class="info-icon" data-term="barn campus" role="button" tabindex="0" aria-label="Plain language: barn campus">ⓘ</span></div>
+   <h1 class="bp-mega">Massive shell.<br>Small homes.<br><em>Zero warehouse.</em></h1>
+   <p class="bp-heart-line">Somewhere a senior still watches the door. This is how we answer at scale without becoming the thing we hate.</p>
+   <p class="bp-sub">Treasury lands the campus. Companies buy warm cells<span class="info-icon" data-term="pod cell" role="button" tabindex="0" aria-label="Plain language: pod cell">ⓘ</span> like real products. Density<span class="info-icon" data-term="density engine" role="button" tabindex="0" aria-label="Plain language: density engine">ⓘ</span> tells the truth as you type.</p>
 
- <div class="bp-stat-row" aria-label="Campus design targets">
-  <div class="bp-stat"><b>5-10</b><span>Per cell SKU</span></div>
-  <div class="bp-stat"><b>2→8</b><span>Cells / phase</span></div>
-  <div class="bp-stat"><b>Live</b><span>Density + cost</span></div>
-  <div class="bp-stat"><b>∞</b><span>Snowball seats</span></div>
- </div>
+   <div class="bp-pull">
+    <p><strong>They do not need your brand.</strong> They need heat. Space. A clean floor. A human who shows up tomorrow. We stack identical cells of 5 to 10 inside an expandable barn, refuse to open what we cannot staff, and productize sponsorship so love can be budgeted without crushing souls.</p>
+   </div>
 
- <div class="bp-cta-row">
- <a href="#bp-experience" class="bp-cta">Walk the campus <i class="fa-solid fa-arrow-right"></i></a>
- <a href="#bp-experience" class="bp-ghost" onclick="if(window.SHHBarnPods){setTimeout(function(){window.SHHBarnPods.showPanel('model')},60)}">Sponsorship model</a>
- </div>
- <p class="bp-path-note">Why · Campus · Density · Model · Money · Cell · Rules · Law · Stand</p>
+   <div class="bp-stat-row" aria-label="Campus design targets">
+    <div class="bp-stat"><b>5-10</b><span>Per cell SKU</span></div>
+    <div class="bp-stat"><b>2→8</b><span>Cells / phase</span></div>
+    <div class="bp-stat"><b>Live</b><span>Density + cost</span></div>
+    <div class="bp-stat"><b>∞</b><span>Snowball seats</span></div>
+   </div>
 
- <div class="bp-media">
-  <div class="bp-media-inner">
-   <video
-    id="bp-hero-video"
-    src="assets/videos/corporatebarnpodsponsorship-animated.mp4"
-    muted loop playsinline preload="auto"
-    poster="assets/images/barnsponsorshippodpic.jpg"
-    aria-label="Barn campus preview"
-   ></video>
-   <p>Motion vision · not a live barn feed</p>
+   <div class="bp-cta-row">
+    <a href="#bp-experience" class="bp-cta">Walk the campus <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#bp-experience" class="bp-ghost" onclick="if(window.SHHBarnPods){setTimeout(function(){window.SHHBarnPods.showPanel('model')},60)}">Sponsorship model</a>
+    <a href="#bp-experience" class="bp-ghost" onclick="if(window.SHHBarnPods){setTimeout(function(){window.SHHBarnPods.showPanel('acres')},60)}">Density engine</a>
+   </div>
+   <p class="bp-path-note">Why · Campus · Density · Model · Money · Cell · Rules · Law · Stand</p>
+
+   <div class="bp-media">
+    <div class="bp-media-inner">
+     <video
+      id="bp-hero-video"
+      src="assets/videos/corporatebarnpodsponsorship-animated.mp4"
+      muted loop playsinline preload="auto"
+      data-keep-playing="1"
+      poster="assets/images/barnsponsorshippodpic.jpg"
+      aria-label="Barn campus preview"
+     ></video>
+     <p>Motion vision · not a live barn feed</p>
+    </div>
+   </div>
+  </div>
+
+  <div class="bp-hero-cinema" aria-hidden="false">
+   <div class="glow"></div>
+   <div class="bp-media">
+    <div class="bp-media-inner">
+     <video
+      id="bp-hero-video-desk"
+      src="assets/videos/corporatebarnpodsponsorship-animated.mp4"
+      muted loop playsinline preload="auto"
+      data-keep-playing="1"
+      poster="assets/images/barnsponsorshippodpic.jpg"
+      aria-label="Barn campus cinema preview"
+     ></video>
+     <p>Warm floor · named cells · zero warehouse</p>
+    </div>
+   </div>
   </div>
  </div>
- </div>
 </header>
+
+<section class="bp-faces" aria-label="Why this campus hits the heart">
+ <article class="bp-face">
+  <span class="ic" aria-hidden="true">🩶</span>
+  <h3>The face that waits</h3>
+  <p>Grey muzzle at the back of the run. Service dog with a hung-up vest. Death-row clock. They do not need a paint day. They need a permanent warm floor and a human who does not leave.</p>
+ </article>
+ <article class="bp-face">
+  <span class="ic" aria-hidden="true">🏠</span>
+  <h3>The room that stays small</h3>
+  <p>Five to ten dogs. Same kit on Bay A and Bay D. Dual runs. Isolation first. Home light, not a rack of cages. Scale is more rooms, never more crush in one air.</p>
+ </article>
+ <article class="bp-face">
+  <span class="ic" aria-hidden="true">♾️</span>
+  <h3>The snowball seat</h3>
+  <p>When a soul leaves with love or rest, the seat reopens. Sponsors who stay multi-year turn one yes into permanent capacity. Helped once. Help forever.</p>
+ </article>
+</section>
 
 <main id="bp-experience" style="scroll-margin-top:5rem">
  <div class="max-w-xl mx-auto px-6 py-20 text-center text-amber-100/35 text-sm">Loading campus...</div>
@@ -388,20 +643,30 @@
   if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
  }
  (function () {
-  var vid = document.getElementById('bp-hero-video');
-  if (!vid) return;
-  vid.muted = true;
-  function tryPlay() {
-   var p = vid.play();
-   if (p && p.catch) p.catch(function () {});
+  function kick(vid) {
+   if (!vid) return;
+   try {
+    vid.muted = true;
+    vid.setAttribute('playsinline', '');
+    var p = vid.play();
+    if (p && p.catch) p.catch(function () {});
+   } catch (e) { /* ignore */ }
   }
-  tryPlay();
-  if (window.IntersectionObserver) {
-   new IntersectionObserver(function (ents) {
-    if (ents[0] && ents[0].isIntersecting) tryPlay();
-    else try { vid.pause(); } catch (e) {}
-   }, { threshold: 0.2 }).observe(vid);
-  }
+  var vids = [
+   document.getElementById('bp-hero-video'),
+   document.getElementById('bp-hero-video-desk')
+  ];
+  vids.forEach(function (vid) {
+   kick(vid);
+   setTimeout(function () { kick(vid); }, 400);
+   setTimeout(function () { kick(vid); }, 1200);
+  });
+  /* Keep motion on scroll; never pause for viewport clip */
+  setInterval(function () {
+   vids.forEach(function (vid) {
+    if (vid && vid.paused && !document.hidden) kick(vid);
+   });
+  }, 1200);
  })();
 </script>
 </body>
