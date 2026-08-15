@@ -335,6 +335,7 @@
   3: 'new-beginnings.html',
   4: 'healing-hearts.html',
   5: 'k9-lifeline.html',
+  7: 'sequoia-legacy.html',
   8: 'golden-paws.html',
   9: 'unified-rescue-registry.html',
   14: 'silver-paws.html',

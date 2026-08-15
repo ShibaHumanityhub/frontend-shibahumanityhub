@@ -354,6 +354,36 @@
    simple:
     'This mission is for every gender, age, color, culture, language, and background. You do not need wealth, crypto skill, or perfect English to understand the assignment: help dogs and people with proof, dignity, and no theater.',
    impact: 'If you can feel a lonely elder or a waiting dog, you already understand enough to begin.'
+  },
+  sequoia: {
+   title: 'Sequoia Living Legacy',
+   simple:
+    'The living sky layer across Shibahumanityhub. Every animal can sit on a forest registry. Funded life events can plant Giant Sequoia trees with real planting partners. Hospice care stays separate from empty symbolism: comfort first, then memory that grows.',
+   impact: 'Warm floors now. Living trees later. Names that do not vanish.'
+  },
+  'rainbow bridge': {
+   title: 'Rainbow Bridge Hospice',
+   simple:
+    'Soft end-of-life care for senior dogs: warmth, pain relief, love, bucket-list joy when funded. No dog is meant to cross cold or forgotten. Often paired with a sequoia planted in their name.',
+   impact: 'Dignity in the last chapter. A tree that keeps breathing after.'
+  },
+  'bridge tree': {
+   title: 'Rainbow Bridge Tree',
+   simple:
+    'A Giant Sequoia planted (when funded and partners confirm) in the name of a dog who has passed. Not a sticker. A living memorial in the ground.',
+   impact: 'Grief becomes something the earth can hold.'
+  },
+  'living registry': {
+   title: 'Sequoia Living Registry',
+   simple:
+    'A list and story seat for animals in SHH programs. Free as identity design. Trees still need funded seeds and real plant proofs. Everyone can belong. Not everyone gets a free tree on day one without funding.',
+   impact: 'No soul erased when a kennel page dies.'
+  },
+  'shiba sequoia forest': {
+   title: 'Shiba Sequoia Forest (@LADS_STFT)',
+   simple:
+    'Community planting friends who already plant sequoias and grow a reforestation mission with art and music. Design path: SHH funds plant seeds to them and other friends when rails are live, with public proofs.',
+   impact: 'Help them help us help the world.'
   }
  };
 

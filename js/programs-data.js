@@ -358,12 +358,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg",
- shortDesc: "No senior dog ever crosses the Rainbow Bridge cold or forgotten.",
+ shortDesc: "No soul crosses cold or forgotten. Hospice dignity plus a living sequoia registry across SHH programs. Plantings with Shiba Sequoia Forest and friends when funded.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Rainbow Bridge</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Rainbow Bridge Hospice & Sequoia Legacy Program</h2>
- <p class="text-amber-200 text-xl mb-6">Every senior dog that reaches twelve years or older with a serious diagnosis deserves to spend their final chapter living like royalty.</p>
- <p class="text-zinc-300 mb-8">They deserve warmth, freedom from pain, bucket list adventures, and the deep love they have given us their whole lives.</p>
- <p class="text-zinc-300 mb-8">Through this program, no senior dog will ever cross the Rainbow Bridge cold or forgotten. We will give them unlimited medical care, comfort, and every joy their heart can still hold. When the time comes and they peacefully pass, we will plant a giant Sequoia tree in their name. That tree becomes their living legacy, standing tall for thousands of years and quietly giving back to the earth long after they are gone.</p>
+ <p class="text-amber-200 text-xl mb-6">Warm care while they are here. Living trees when they are gone. A registry while they breathe.</p>
+ <p class="text-zinc-300 mb-6">No senior dog will ever cross the Rainbow Bridge cold or forgotten. Hospice, comfort, bucket-list joy. When the time comes, a Giant Sequoia in their name through planting partners. <strong class="text-emerald-200">Sequoia Living Legacy</strong> also seats animals from barn campus, Golden Paws, Healing Hearts, and more on one living forest ledger.</p>
+ <p class="text-zinc-300 mb-6">Primary planting friends design: <a href="https://x.com/LADS_STFT" class="text-emerald-300 underline" target="_blank" rel="noopener">Shiba Sequoia Forest (@LADS_STFT)</a> and more friends as capacity grows. Fund them to plant. Help them help us help the world.</p>
+ <p class="text-zinc-300 mb-8"><a href="sequoia-legacy.html" class="text-emerald-300 underline font-semibold">Open the full Sequoia Living Legacy experience</a> for registry, life-event trees, partner path, grove builder, and hospice.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -391,9 +392,10 @@ const programs = [ {
  </div>
  </div>
 
- <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, even in their final days every senior dog will be celebrated with dignity and love. No soul will leave this world without knowing they mattered. And every $NIBBLES transaction will plant a tree that will breathe and stand tall for thousands of years, carrying their memory forward forever.</p>
+ <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every senior dog will be celebrated with dignity. Trees plant with partner proofs, not slogans. No soul leaves without knowing they mattered.</p>
 
- <button onclick="sponsorProgram('rainbow-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch the Rainbow Bridge Hospice & Sequoia Legacy</button>`
+ <a href="sequoia-legacy.html" class="block text-center mb-4 text-sm text-emerald-300 hover:text-emerald-200 underline font-semibold">Enter Sequoia Living Legacy →</a>
+ <button onclick="sponsorProgram('rainbow-bridge')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-2">Help Launch the Rainbow Bridge Hospice & Sequoia Legacy</button>`
  },
  {
  id: 8,

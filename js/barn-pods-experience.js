@@ -414,11 +414,12 @@
    '<div class="bp-card tall"><h3>The wound</h3><p>Seniors watch adopters walk past. Service dogs retire into nowhere. Death row is a clock. Corporate “impact days” paint a wall and leave. That is not infrastructure. That is theater. And theater does not keep a body warm at 3 a.m.</p></div>' +
    '<div class="bp-card"><h3>The unit</h3><p>One cell. Five to ten dogs. Identical kit. Cleanable. Heated. Named. A company can fund it without guessing. Finance can budget it. Ops can staff it.</p></div>' +
    '<div class="bp-card"><h3>The scale</h3><p>Stack cells in a huge shell. Add Bay B when Phase 1 stays green. Massive campus. Small homes. Same physics every time. Never freestyle the crush.</p></div>' +
-   '<div class="bp-card wide"><h3>The money split (so charts never empty bowls)</h3><p>Treasury places land, house, barn shell, medical reserve. Corporations fund cells month after month. $NIBBLES is belonging. Care rails aim for steady dollars when live. Hold the heart. Pay the life. When a seat opens, the snowball continues.</p></div>' +
+   '<div class="bp-card wide"><h3>The money split (so charts never empty bowls)</h3><p>Treasury places land, house, barn shell, medical reserve. Corporations fund cells month after month. $NIBBLES is belonging. Care rails aim for steady dollars when live. Hold the heart. Pay the life. When a seat opens, the snowball continues. Every resident can also sit on the <a href="sequoia-legacy.html" style="color:#a7f3d0;font-weight:700">Sequoia Living Legacy</a> registry: warm floor now, living tree when love funds the ground.</p></div>' +
    '</div>' +
    '<p class="bp-soul">If we cannot staff it, we do not open it. If the land is too tight, we open fewer beds. Love that cannot pass an audit is not love. It is noise. And these dogs have heard enough noise.</p>' +
    '<div class="bp-row">' +
    '<button type="button" class="bp-btn bp-btn-gold" data-bp-go="model">See the sponsorship model →</button>' +
+   '<a class="bp-btn bp-btn-ghost" href="sequoia-legacy.html">Sequoia forest sky →</a>' +
    '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="acres">Density engine</button>' +
    '<button type="button" class="bp-btn bp-btn-ghost" data-bp-go="campus">Campus</button>' +
    '</div>' +

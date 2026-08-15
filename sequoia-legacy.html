@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style id="critical-shell">
+ html { background-color: #03140f; color-scheme: dark; }
+ </style>
+ <link rel="stylesheet" href="assets/css/tailwind.css">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Shibahumanityhub">
+ <meta name="keywords" content="sequoia living legacy, rainbow bridge hospice, shiba sequoia forest, LADS_STFT, giant sequoia dog memorial, NIBBLES">
+
+ <title>Sequoia Living Legacy · Warm care. Living trees. Forever names.</title>
+ <meta name="description" content="Every SHH animal can live on the Sequoia registry. Hospice dignity. Funded sequoia plantings with Shiba Sequoia Forest (@LADS_STFT) and friends. Help them help us help the world. Design until rails and proofs are real.">
+
+ <meta property="og:title" content="Sequoia Living Legacy · Rainbow Bridge + Living Forest">
+ <meta property="og:description" content="No soul vanishes into silence. Registry for every program animal. Trees on funded life events. Partners who already plant.">
+ <meta property="og:image" content="https://shibahumanityhub.com/assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://shibahumanityhub.com/sequoia-legacy.html">
+
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="Sequoia Living Legacy">
+ <meta name="twitter:description" content="Warm floors now. Giant sequoias later. A living sky for every soul we serve.">
+ <meta name="twitter:image" content="https://shibahumanityhub.com/assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg">
+
+ <link rel="canonical" href="https://shibahumanityhub.com/sequoia-legacy.html">
+ <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+ <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+ <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+ <script src="js/shared-animations.js" defer></script>
+ <script src="js/glossary.js" defer></script>
+ <script src="js/program-actions.js" defer></script>
+ <script src="js/sequoia-legacy-experience.js" defer></script>
+
+ <style>
+ :root {
+  --sq-ink: #03140f;
+  --sq-em: #34d399;
+  --sq-mist: #a7f3d0;
+  --sq-gold: #fcd34d;
+  --sq-line: rgba(52, 211, 153, 0.32);
+  --sq-cream: #ecfdf5;
+ }
+ * { box-sizing: border-box; }
+ html { scroll-behavior: auto; }
+ body {
+  margin: 0; padding: 0; overflow-x: hidden;
+  background: #03140f;
+  color: var(--sq-cream);
+  font-family: Inter, system-ui, sans-serif;
+ }
+
+ .sq-fx { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+ .sq-fx-wash {
+  position: absolute; inset: 0;
+  background:
+   radial-gradient(ellipse 110% 55% at 50% -10%, rgba(52, 211, 153, 0.2), transparent 52%),
+   radial-gradient(ellipse 50% 40% at 100% 30%, rgba(252, 211, 77, 0.08), transparent 50%),
+   radial-gradient(ellipse 40% 35% at 0% 70%, rgba(16, 185, 129, 0.1), transparent 48%),
+   linear-gradient(180deg, #04241c 0%, #03140f 45%, #020c09 100%);
+ }
+ .sq-fx-canopy {
+  position: absolute; left: -5%; right: -5%; top: -15%; height: 55%;
+  background:
+   radial-gradient(ellipse 40% 50% at 20% 40%, rgba(6, 78, 59, 0.45), transparent 60%),
+   radial-gradient(ellipse 45% 55% at 80% 30%, rgba(6, 95, 70, 0.4), transparent 58%),
+   radial-gradient(ellipse 50% 40% at 50% 20%, rgba(4, 120, 87, 0.25), transparent 55%);
+  filter: blur(8px);
+  opacity: 0.85;
+ }
+ .sq-fx-light {
+  position: absolute; left: 50%; top: 0; width: min(80vw, 560px); height: 65%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(254, 243, 199, 0.14) 0%, rgba(52, 211, 153, 0.08) 40%, transparent 75%);
+  clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
+  animation: sq-shaft 7s ease-in-out infinite;
+  opacity: 0.8;
+ }
+ @keyframes sq-shaft {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.95; }
+ }
+ .sq-fx-dust {
+  position: absolute; inset: -8%;
+  opacity: 0.4;
+  background-image:
+   radial-gradient(rgba(167, 243, 208, 0.2) 1px, transparent 1px),
+   radial-gradient(rgba(252, 211, 77, 0.1) 1px, transparent 1px);
+  background-size: 32px 32px, 54px 54px;
+  background-position: 0 0, 16px 24px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 12%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 12%, transparent 78%);
+  animation: sq-dust 45s linear infinite;
+ }
+ @keyframes sq-dust {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-24px, 20px, 0); }
+ }
+ .sq-fx-ground {
+  position: absolute; left: -10%; right: -10%; bottom: -12%; height: 38%;
+  background:
+   linear-gradient(180deg, transparent, rgba(2, 12, 9, 0.9) 70%),
+   repeating-linear-gradient(90deg, transparent 0 60px, rgba(52,211,153,0.04) 60px 61px);
+  transform: perspective(900px) rotateX(62deg);
+  transform-origin: 50% 100%;
+  opacity: 0.5;
+ }
+ body > *:not(.sq-fx) { position: relative; z-index: 1; }
+
+ nav.sq-nav {
+  background: rgba(3, 20, 15, 0.94) !important;
+  border-bottom: 1px solid var(--sq-line) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 60;
+ }
+
+ .sq-hero {
+  position: relative;
+  min-height: min(100vh, 960px);
+  padding: 6.75rem 1.1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+ }
+ @media (min-width: 1024px) {
+  .sq-hero { text-align: left; padding: 7.5rem 1.75rem 3rem; min-height: min(94vh, 900px); }
+ }
+ .sq-hero-wash {
+  position: absolute; inset: 0; pointer-events: none;
+  background: url('assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg') center 35% / cover no-repeat;
+  opacity: 0.26;
+  filter: saturate(1.15) contrast(1.05);
+  animation: sq-ken 34s ease-in-out infinite alternate;
+ }
+ .sq-hero-wash::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+   linear-gradient(180deg, rgba(3,20,15,0.82) 0%, rgba(3,20,15,0.4) 35%, rgba(3,20,15,0.75) 70%, #03140f 100%),
+   radial-gradient(ellipse 70% 50% at 50% 40%, rgba(52,211,153,0.14), transparent 60%),
+   linear-gradient(90deg, rgba(3,20,15,0.55) 0%, transparent 42%, transparent 58%, rgba(3,20,15,0.5) 100%);
+ }
+ @keyframes sq-ken {
+  from { transform: scale(1.04); }
+  to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+ }
+ .sq-hero-inner {
+  position: relative; z-index: 2; max-width: 46rem; margin: 0 auto; width: 100%;
+ }
+ @media (min-width: 1024px) {
+  .sq-hero-inner {
+   max-width: 76rem;
+   display: grid;
+   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+   gap: 2.75rem;
+   align-items: center;
+  }
+  .sq-cta-row { justify-content: flex-start; }
+  .sq-path-note, .sq-sub, .sq-heart { margin-left: 0; text-align: left; }
+  .sq-hero-copy .sq-media { display: none; }
+  .sq-hero-cinema { display: block; }
+ }
+ .sq-hero-cinema { display: none; position: relative; }
+ .sq-hero-cinema .glow {
+  position: absolute; inset: -14%; border-radius: 2rem;
+  background: radial-gradient(ellipse at 50% 50%, rgba(52,211,153,0.28), transparent 62%);
+  pointer-events: none;
+ }
+
+ .sq-sig {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(167,243,208,.95); font-weight: 700; margin-bottom: 1rem;
+  padding: .45rem .9rem; border-radius: 999px;
+  border: 1px solid rgba(52,211,153,.4);
+  background: linear-gradient(135deg, rgba(52,211,153,.16), rgba(0,0,0,.45));
+  box-shadow: 0 0 28px -8px rgba(52,211,153,.4);
+ }
+ .sq-sig b {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #fcd34d; box-shadow: 0 0 14px #fcd34d;
+  animation: sq-dot 1.6s ease infinite;
+ }
+ @keyframes sq-dot { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+ .sq-mega {
+  font-family: 'Space Grotesk', Inter, sans-serif;
+  font-size: clamp(2.2rem, 7vw, 4.1rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  margin: 0 0 .85rem;
+  color: #fff;
+  text-wrap: balance;
+  text-shadow: 0 2px 48px rgba(0,0,0,.55);
+ }
+ .sq-mega em {
+  font-style: normal;
+  background: linear-gradient(100deg, #ecfdf5 0%, #6ee7b7 30%, #fcd34d 70%, #a7f3d0 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sq-grad 10s linear infinite;
+ }
+ @keyframes sq-grad { to { background-position: 200% center; } }
+
+ .sq-heart {
+  font-family: Space Grotesk, Inter, sans-serif;
+  font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fef3c7;
+  margin: 0 auto 1rem;
+  max-width: 36rem;
+  text-shadow: 0 0 40px rgba(252,211,77,.2);
+ }
+ .sq-sub {
+  font-size: clamp(1.12rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #a7f3d0;
+  margin: 0 auto 1rem;
+  max-width: 36rem;
+ }
+ .sq-pull {
+  position: relative;
+  max-width: 36rem;
+  margin: 0 auto 1.35rem;
+  padding: 1rem 1.1rem 1.05rem 1.15rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(52,211,153,.4);
+  text-align: left;
+  background:
+   radial-gradient(ellipse 80% 70% at 0% 0%, rgba(52,211,153,.16), transparent 55%),
+   linear-gradient(155deg, rgba(6,40,32,.92), rgba(3,12,10,.96));
+  box-shadow: 0 0 50px -16px rgba(52,211,153,.4);
+ }
+ .sq-pull::before {
+  content: '';
+  position: absolute; left: 0; top: 14%; bottom: 14%; width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #34d399, #fcd34d);
+ }
+ .sq-pull p { margin: 0; font-size: .95rem; line-height: 1.55; color: rgba(236,253,245,.92); }
+ .sq-pull strong { color: #fde68a; }
+ @media (min-width: 1024px) {
+  .sq-pull, .sq-heart, .sq-sub { margin-left: 0; }
+ }
+
+ .sq-stat-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .55rem;
+  max-width: 28rem;
+  margin: 0 auto 1.4rem;
+ }
+ @media (min-width: 520px) {
+  .sq-stat-row { grid-template-columns: repeat(4, 1fr); max-width: 38rem; }
+ }
+ @media (min-width: 1024px) { .sq-stat-row { margin-left: 0; } }
+ .sq-stat {
+  padding: .8rem .5rem;
+  border-radius: 1.05rem;
+  border: 1px solid rgba(52,211,153,.28);
+  background: linear-gradient(165deg, rgba(8,40,30,.75), rgba(0,0,0,.5));
+ }
+ .sq-stat b {
+  display: block;
+  font-family: Space Grotesk, sans-serif;
+  font-size: 1.25rem;
+  color: #fde68a;
+ }
+ .sq-stat span {
+  font-size: .58rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(209,250,229,.5);
+  font-weight: 600;
+ }
+
+ .sq-cta-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem; margin-bottom: .85rem;
+ }
+ .sq-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  padding: .95rem 1.45rem; border-radius: 999px; font-weight: 700; font-size: .95rem;
+  background: linear-gradient(135deg, #ecfdf5, #6ee7b7 40%, #34d399);
+  color: #03140f;
+  text-decoration: none; min-height: 50px;
+  box-shadow: 0 0 40px -8px rgba(52,211,153,.7);
+  animation: sq-cta 2.8s ease-in-out infinite;
+ }
+ @keyframes sq-cta {
+  0%, 100% { box-shadow: 0 0 36px -10px rgba(52,211,153,.55); }
+  50% { box-shadow: 0 0 48px -6px rgba(52,211,153,.9), 0 0 20px 2px rgba(252,211,77,.12); }
+ }
+ .sq-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .95rem 1.25rem; border-radius: 999px; font-weight: 700; font-size: .9rem;
+  background: rgba(0,0,0,.4); color: #a7f3d0; border: 1px solid rgba(52,211,153,.45);
+  text-decoration: none; min-height: 50px;
+ }
+ .sq-path-note {
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: rgba(167,243,208,.5);
+  margin: 0 0 1.25rem;
+  text-align: center;
+ }
+
+ .sq-media {
+  max-width: min(400px, 92vw); margin: 0 auto;
+  border-radius: 1.4rem;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(52,211,153,.55), rgba(252,211,77,.3), rgba(52,211,153,.25));
+  box-shadow: 0 32px 80px -28px rgba(0,0,0,.92), 0 0 60px -16px rgba(52,211,153,.45);
+ }
+ @media (min-width: 1024px) {
+  .sq-hero-cinema .sq-media { max-width: none; margin: 0; }
+ }
+ .sq-media-inner {
+  border-radius: calc(1.4rem - 2px); overflow: hidden;
+  background: #020c09;
+  aspect-ratio: 16/10;
+ }
+ .sq-media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+ .sq-media p {
+  margin: 0; padding: .7rem;
+  font-size: .62rem; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(167,243,208,.55); text-align: center;
+  border-top: 1px solid rgba(255,255,255,.06);
+  background: rgba(0,0,0,.45);
+ }
+
+ .sq-faces {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .65rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0 1.1rem 1.5rem;
+ }
+ @media (min-width: 800px) {
+  .sq-faces { grid-template-columns: repeat(3, 1fr); gap: .9rem; padding: 0 1.75rem 2rem; }
+ }
+ .sq-face {
+  position: relative;
+  padding: 1.15rem 1.15rem 1.2rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(52,211,153,.28);
+  background: linear-gradient(160deg, rgba(8,40,30,.88), rgba(3,12,10,.94));
+  overflow: hidden;
+ }
+ .sq-face::before {
+  content: '';
+  position: absolute; left: 0; top: 12%; bottom: 12%; width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #34d399, #fcd34d);
+ }
+ .sq-face .ic { font-size: 1.4rem; display: block; margin-bottom: .4rem; }
+ .sq-face h3 {
+  font-family: Space Grotesk, sans-serif;
+  margin: 0 0 .4rem; font-size: 1.12rem; color: #fff;
+ }
+ .sq-face p { margin: 0; font-size: .9rem; line-height: 1.55; color: #c6e7d8; }
+
+ .sq-auth {
+  border: 1px solid rgba(52,211,153,.4);
+  background: linear-gradient(160deg, rgba(6, 32, 24, 0.96), rgba(2, 12, 9, 0.98));
+ }
+ #mobile-menu { display: none; }
+ #mobile-menu:not(.hidden) { display: block; }
+
+ .sq-soul-strip {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3.5rem;
+  text-align: center;
+ }
+ .sq-soul-strip::before {
+  content: '';
+  display: block;
+  width: 4rem; height: 2px; margin: 0 auto 1.25rem;
+  background: linear-gradient(90deg, transparent, #34d399, #fcd34d, transparent);
+ }
+ .sq-soul-strip p {
+  font-family: Space Grotesk, Inter, sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+  line-height: 1.5;
+  color: #fef3c7;
+  font-weight: 600;
+  margin: 0;
+ }
+
+ footer {
+  background: #020c09 !important;
+  border-top: 1px solid var(--sq-line) !important;
+  color: rgba(148, 200, 180, 0.65) !important;
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+  .sq-hero-wash, .sq-mega em, .sq-sig b, .sq-fx-light, .sq-fx-dust, .sq-cta { animation: none !important; }
+  .sq-hero-wash { opacity: 0.16; transform: none; }
+ }
+ </style>
+</head>
+<body>
+
+<div class="sq-fx" aria-hidden="true">
+ <div class="sq-fx-wash"></div>
+ <div class="sq-fx-canopy"></div>
+ <div class="sq-fx-light"></div>
+ <div class="sq-fx-dust"></div>
+ <div class="sq-fx-ground"></div>
+</div>
+
+<div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
+ <div class="sq-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-emerald-50/90">
+ <strong class="text-emerald-300">Truth:</strong> Registry, tree seeds, and partner plantings are design until funding and plant proofs are real. Partner tree counts are their public story until shared ledgers exist.
+ <button type="button" class="ml-2 underline text-emerald-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
+ </div>
+</div>
+
+<nav class="sq-nav fixed w-full z-50">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
+ <a href="index.html" class="flex items-center gap-3 group">
+ <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-emerald-400/50 shadow-xl">
+ <video src="assets/videos/shibahumanityhub-logo-animated.mp4" autoplay loop muted playsinline preload="metadata"
+  poster="assets/logos/shibahumanityhublogo3d-new.jpg" width="56" height="56" aria-hidden="true" class="w-full h-full object-cover"></video>
+ </div>
+ <span class="hidden sm:block text-base font-bold tracking-tight bg-gradient-to-r from-emerald-200 via-white to-amber-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+ </a>
+ <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+ <a href="index.html" class="hover:text-emerald-300 transition-colors">Flywheel</a>
+ <a href="all-programs.html" class="hover:text-emerald-300 transition-colors">Programs</a>
+ <a href="barn-pods.html" class="hover:text-amber-300 transition-colors">Barn Campus</a>
+ <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
+ </div>
+ <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1" aria-label="Menu"><i id="mobile-menu-icon" class="fa-solid fa-bars"></i></button>
+ <a href="#sqx-experience" class="sq-cta !py-2.5 !px-4 !text-sm hidden sm:inline-flex">Enter the forest</a>
+ </div>
+</nav>
+
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 72px;">
+ <div class="max-w-7xl mx-auto px-6 py-5 text-sm flex flex-col gap-1">
+ <a href="all-programs.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 Programs</a>
+ <a href="sequoia-legacy.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-emerald-200">Sequoia Living Legacy</a>
+ <a href="barn-pods.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Shiba Barn Campus</a>
+ <a href="golden-paws.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Golden Paws</a>
+ <a href="https://x.com/LADS_STFT" target="_blank" rel="noopener" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">@LADS_STFT</a>
+ <a href="index.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Home</a>
+ </div>
+</div>
+
+<header class="sq-hero">
+ <div class="sq-hero-wash" aria-hidden="true"></div>
+ <div class="sq-hero-inner">
+  <div class="sq-hero-copy">
+   <div class="sq-sig"><b></b> Sequoia Living Legacy · $NIBBLES<span class="info-icon" data-term="nibbles" role="button" tabindex="0" aria-label="Plain language: nibbles">ⓘ</span></div>
+   <h1 class="sq-mega">Warm care.<br>Living trees.<br><em>Forever names.</em></h1>
+   <p class="sq-heart">No soul in our programs is meant to vanish into silence. A registry while they breathe. A sequoia when love funds the ground.</p>
+   <p class="sq-sub">Help them help us help the world. Planting partners already put giants in the soil. We bring the animals, the sponsors, and the stories.</p>
+
+   <div class="sq-pull">
+    <p><strong>Every SHH animal can sit on the Sequoia registry.</strong> Trees fire on funded life events: welcome, milestone, Rainbow Bridge, cell grove. Hospice stays hospice. Forests stay forests. Together they become forever. Primary planting friends: <strong>Shiba Sequoia Forest (@LADS_STFT)</strong> and more when capacity grows.</p>
+   </div>
+
+   <div class="sq-stat-row" aria-label="Legacy design targets">
+    <div class="sq-stat"><b>All</b><span>Programs can join</span></div>
+    <div class="sq-stat"><b>4</b><span>Tree event types</span></div>
+    <div class="sq-stat"><b>Partner</b><span>@LADS_STFT path</span></div>
+    <div class="sq-stat"><b>∞</b><span>Legacy horizon</span></div>
+   </div>
+
+   <div class="sq-cta-row">
+    <a href="#sqx-experience" class="sq-cta">Walk the forest <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#sqx-experience" class="sq-ghost" onclick="if(window.SHHSequoiaLegacy){setTimeout(function(){window.SHHSequoiaLegacy.showPanel('partner')},60)}">Meet planters</a>
+    <a href="#sqx-experience" class="sq-ghost" onclick="if(window.SHHSequoiaLegacy){setTimeout(function(){window.SHHSequoiaLegacy.showPanel('builder')},60)}">Grove builder</a>
+   </div>
+   <p class="sq-path-note">Why · Registry · Events · Partners · Hospice · Programs · Builder · Stand</p>
+
+   <div class="sq-media">
+    <div class="sq-media-inner">
+     <video
+      id="sq-hero-video"
+      src="assets/videos/rainbowbridgehospice&sequoialegacy-animated.mp4"
+      muted loop playsinline preload="auto"
+      data-keep-playing="1"
+      poster="assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg"
+      aria-label="Sequoia legacy preview"
+     ></video>
+     <p>Motion vision · not a live plant feed</p>
+    </div>
+   </div>
+  </div>
+
+  <div class="sq-hero-cinema">
+   <div class="glow"></div>
+   <div class="sq-media">
+    <div class="sq-media-inner">
+     <video
+      id="sq-hero-video-desk"
+      src="assets/videos/rainbowbridgehospice&sequoialegacy-animated.mp4"
+      muted loop playsinline preload="auto"
+      data-keep-playing="1"
+      poster="assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg"
+      aria-label="Sequoia cinema preview"
+     ></video>
+     <p>Dignity here · giants later · proof when live</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</header>
+
+<section class="sq-faces" aria-label="Three pillars of Sequoia Living Legacy">
+ <article class="sq-face">
+  <span class="ic" aria-hidden="true">🌲</span>
+  <h3>The living registry</h3>
+  <p>Every animal across SHH programs can hold a seat in the forest story. Name. Program home. Life-event tree status. Not forgotten when a kennel page dies.</p>
+ </article>
+ <article class="sq-face">
+  <span class="ic" aria-hidden="true">💛</span>
+  <h3>The warm last chapter</h3>
+  <p>Rainbow Bridge hospice stays sacred. Soft beds. Pain relief. Soft hands. A tree without comfort is empty. Comfort without memory dies twice. We do both.</p>
+ </article>
+ <article class="sq-face">
+  <span class="ic" aria-hidden="true">🤝</span>
+  <h3>The planting friends</h3>
+  <p>Shiba Sequoia Forest (@LADS_STFT) already plants. We design funding to them and more friends. Help them help us help the world. Receipts when live.</p>
+ </article>
+</section>
+
+<main id="sqx-experience" style="scroll-margin-top:5rem">
+ <div class="max-w-xl mx-auto px-6 py-20 text-center text-emerald-100/35 text-sm">Loading the living forest...</div>
+</main>
+
+<section class="sq-soul-strip">
+ <p>Somewhere a grey face is still waiting for a floor that is warm. Somewhere a seedling is waiting for hands that plant. This is how those two prayers meet.</p>
+</section>
+
+<footer class="py-14 text-center text-xs">
+ <p class="text-emerald-100/90 text-sm mb-2 font-medium">People helping people. Helping dogs. Helping the earth breathe longer.</p>
+ <p class="mb-1 tracking-wide text-emerald-100/70">Sequoia Living Legacy · Rainbow Bridge · $NIBBLES when funded</p>
+ <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until funding, partners, and plant proofs are real. Partner public claims are theirs until shared ledgers exist.</p>
+ <div class="flex flex-wrap justify-center gap-4 text-sm">
+ <a href="programs/rainbow-bridge-hospice-and-sequoia-legacy-program.html" class="underline text-emerald-200/80 hover:text-white">Classic card</a>
+ <a href="barn-pods.html" class="underline text-emerald-200/80 hover:text-white">Barn Campus</a>
+ <a href="https://x.com/LADS_STFT" target="_blank" rel="noopener" class="underline text-emerald-200/80 hover:text-white">@LADS_STFT</a>
+ <a href="https://shibasequoiaforest.com/" target="_blank" rel="noopener" class="underline text-emerald-200/80 hover:text-white">Shiba Sequoia Forest</a>
+ <a href="all-programs.html" class="underline text-emerald-200/80 hover:text-white">All 30</a>
+ <a href="index.html" class="underline text-emerald-200/80 hover:text-white">Home</a>
+ </div>
+</footer>
+
+<script>
+ function toggleMobileMenu() {
+  var m = document.getElementById('mobile-menu');
+  var icon = document.getElementById('mobile-menu-icon');
+  if (!m) return;
+  m.classList.toggle('hidden');
+  if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
+ }
+ (function () {
+  function kick(vid) {
+   if (!vid) return;
+   try {
+    vid.muted = true;
+    vid.setAttribute('playsinline', '');
+    var p = vid.play();
+    if (p && p.catch) p.catch(function () {});
+   } catch (e) { /* ignore */ }
+  }
+  var vids = [
+   document.getElementById('sq-hero-video'),
+   document.getElementById('sq-hero-video-desk')
+  ];
+  vids.forEach(function (vid) {
+   kick(vid);
+   setTimeout(function () { kick(vid); }, 400);
+   setTimeout(function () { kick(vid); }, 1200);
+  });
+  setInterval(function () {
+   vids.forEach(function (vid) {
+    if (vid && vid.paused && !document.hidden) kick(vid);
+   });
+  }, 1200);
+ })();
+</script>
+</body>
+</html>

@@ -124,6 +124,22 @@
  <priority>0.92</priority>
  </url>
 
+ <!-- Sequoia Living Legacy · registry + rainbow bridge + partners -->
+ <url>
+ <loc>https://shibahumanityhub.com/sequoia-legacy.html</loc>
+ <lastmod>2026-08-15</lastmod>
+ <changefreq>weekly</changefreq>
+ <priority>0.93</priority>
+ </url>
+
+ <!-- Shiba Barn Campus -->
+ <url>
+ <loc>https://shibahumanityhub.com/barn-pods.html</loc>
+ <lastmod>2026-08-15</lastmod>
+ <changefreq>weekly</changefreq>
+ <priority>0.92</priority>
+ </url>
+
  <!-- Golden Years Companion Matching -->
  <url>
  <loc>https://shibahumanityhub.com/golden-years.html</loc>
