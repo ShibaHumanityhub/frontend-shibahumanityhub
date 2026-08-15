@@ -4,7 +4,9 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <style id="critical-shell">
- html { background-color: #050814; color-scheme: dark; }
+ html, body { background-color: #050814; color-scheme: dark; }
+ /* Pre-lock mission chrome height so first paint never flashes a black void under fixed bars */
+ body.k9x-panels:not(.k9x-mobile) { --k9-chrome-h: 8.5rem; }
  </style>
  <link rel="stylesheet" href="assets/css/tailwind.css">
  <meta name="robots" content="index, follow">
@@ -57,7 +59,8 @@
  html { scroll-behavior: auto; }
  body {
   margin: 0; padding: 0; overflow-x: hidden;
-  background:
+  background-color: #050814;
+  background-image:
     radial-gradient(ellipse 100% 55% at 50% -8%, rgba(251, 191, 36, 0.12), transparent 50%),
     radial-gradient(ellipse 55% 45% at 100% 20%, rgba(103, 232, 249, 0.08), transparent 48%),
     radial-gradient(ellipse 40% 35% at 0% 70%, rgba(251, 113, 133, 0.05), transparent 45%),
@@ -69,7 +72,7 @@
  body.is-scrolling .k9-float { animation-play-state: paused !important; }
 
  nav.bg-black\/95, nav[class*="bg-black"] {
-  background: rgba(5, 8, 20, 0.96) !important;
+  background: rgba(5, 8, 20, 0.98) !important;
   border-bottom-color: var(--k9-line) !important;
   z-index: 60;
  }
@@ -81,16 +84,17 @@
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%, rgba(251, 191, 36, 0.16), transparent 55%),
     radial-gradient(ellipse 40% 40% at 80% 60%, rgba(103, 232, 249, 0.1), transparent 50%),
-    linear-gradient(180deg, #0c1428 0%, #080e1c 55%, #050814 100%);
+    linear-gradient(180deg, #070b18 0%, #0a1024 48%, #050814 100%);
   text-align: center;
-  /* First paint before panels JS: clear fixed nav only. Panels mode pads #k9x-panel-host for #k9x-chrome. */
+  /* First paint before panels JS: clear fixed nav only */
   padding: 6.5rem 1rem 3rem;
  }
  body.k9x-panels:not(.k9x-mobile) .k9-hero {
-  /* Fixed #k9x-chrome clears itself; hero only needs modest pad (no black band) */
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  /* Flow spacer owns chrome height; hero continues the chrome navy (no black band) */
+  padding-top: 1.35rem;
+  padding-bottom: 1.4rem;
   margin-top: 0;
+  border-top: 0;
  }
  .k9-hero::before {
   content: "";

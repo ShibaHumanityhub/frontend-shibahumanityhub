@@ -194,30 +194,128 @@
     s.id = 'k9x-css';
     s.textContent = [
       ':root{--k9-gold:#fbbf24;--k9-beam:#fef3c7;--k9-cyan:#67e8f9;--k9-ink:#050814;--k9-line:rgba(103,232,249,.28)}',
-      'body.k9x-panels{scroll-behavior:auto;--k9-chrome-h:9.2rem}',
+      'body.k9x-panels{scroll-behavior:auto;--k9-chrome-h:8.5rem;--k9-ink:#050814}',
+      'html{background:var(--k9-ink,#050814)!important}',
       'body.k9x-panels .k9x-panel{display:none;padding-bottom:2rem}',
-      'body.k9x-panels .k9x-panel.is-on{display:block;animation:k9x-in .2s ease}',
-      '@keyframes k9x-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}',
-      /* Desktop: ONE fixed chrome stack (site nav + path rail). Never scrolls. No body pad black gap. */
-      'body.k9x-panels:not(.k9x-mobile){padding-top:0!important;margin-top:0!important}',
-      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(5,8,20,.99);box-shadow:0 12px 32px -18px rgba(0,0,0,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}',
-      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome > nav{position:relative!important;top:auto!important;left:auto!important;right:auto!important;width:100%;z-index:1}',
-      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome .k9x-rail{position:relative!important;top:auto!important;left:auto!important;right:auto!important;z-index:1;box-shadow:none}',
-      'body.k9x-panels:not(.k9x-mobile) #k9x-panel-host{padding-top:var(--k9-chrome-h);margin-top:0}',
-      'body.k9x-panels:not(.k9x-mobile) .fixed.bottom-3{z-index:50}',
-      '.k9x-rail{position:relative;z-index:55;display:flex;gap:.35rem;padding:.5rem max(.7rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;background:rgba(5,8,20,.98);border-bottom:1px solid var(--k9-line);justify-content:flex-start;align-items:center}',
+      'body.k9x-panels .k9x-panel.is-on{display:block;animation:k9x-in .22s cubic-bezier(.2,.8,.2,1)}',
+      '@keyframes k9x-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}',
+      /* ===== DESKTOP MISSION CHROME =====
+         One fixed shell. Never scrolls. Height locks content. Zero black gap. */
+      'body.k9x-panels:not(.k9x-mobile){padding-top:0!important;margin-top:0!important;background-color:#050814}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome{' +
+        'position:fixed;top:0;left:0;right:0;z-index:70;' +
+        'display:flex;flex-direction:column;' +
+        'background:linear-gradient(180deg,#070b18 0%,#050814 100%);' +
+        'border-bottom:1px solid rgba(103,232,249,.28);' +
+        'box-shadow:0 18px 48px -20px rgba(0,0,0,.92),0 1px 0 rgba(251,191,36,.12);' +
+        'isolation:isolate;transform:translateZ(0);will-change:transform' +
+      '}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome::after{' +
+        'content:"";position:absolute;left:8%;right:8%;bottom:0;height:1px;z-index:3;pointer-events:none;' +
+        'background:linear-gradient(90deg,transparent,rgba(251,191,36,.55),rgba(103,232,249,.45),transparent)' +
+      '}',
+      /* Kill Tailwind fixed on children once inside chrome */
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome > nav,' +
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome .k9x-rail{' +
+        'position:relative!important;top:auto!important;left:auto!important;right:auto!important;' +
+        'width:100%;max-width:none;z-index:1;float:none;transform:none!important' +
+      '}',
+      /* Compact site nav inside chrome so path + content breathe */
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome > nav{' +
+        'background:transparent!important;border-bottom:1px solid rgba(103,232,249,.14)!important;' +
+        'backdrop-filter:none!important;-webkit-backdrop-filter:none!important' +
+      '}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome > nav > div{' +
+        'padding-top:.55rem!important;padding-bottom:.55rem!important;max-width:80rem' +
+      '}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome > nav .w-14,' +
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome > nav .sm\\:w-16{' +
+        'width:2.55rem!important;height:2.55rem!important' +
+      '}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome > nav .text-lg{font-size:.95rem!important}',
+      /* Flow spacer mirrors chrome height so nothing sits under fixed shell */
+      'body.k9x-panels:not(.k9x-mobile) #k9x-chrome-spacer{' +
+        'display:block;height:var(--k9-chrome-h);width:100%;flex:none;' +
+        'pointer-events:none;visibility:hidden;margin:0;padding:0;border:0;overflow:hidden' +
+      '}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-panel-host{padding-top:0!important;margin-top:0!important}',
+      'body.k9x-panels:not(.k9x-mobile) .fixed.bottom-3{z-index:55}',
+      /* Progress lives on chrome edge, not floating over black void */
+      'body.k9x-panels:not(.k9x-mobile) .k9x-progress{' +
+        'position:absolute;top:auto;bottom:0;left:0;height:2px;z-index:4;' +
+        'background:linear-gradient(90deg,#fbbf24,#67e8f9,#fef3c7,#fb7185);' +
+        'box-shadow:0 0 12px rgba(103,232,249,.45)' +
+      '}',
+      /* Mission path rail */
+      '.k9x-rail{' +
+        'position:relative;z-index:55;display:flex;align-items:center;gap:.4rem;' +
+        'padding:.4rem max(.75rem,env(safe-area-inset-left));' +
+        'overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;' +
+        'background:linear-gradient(180deg,rgba(8,14,28,.98),rgba(5,8,20,.99));' +
+        'border-bottom:0;justify-content:flex-start' +
+      '}',
       '.k9x-rail::-webkit-scrollbar{display:none}',
-      '@media(min-width:900px){.k9x-rail{justify-content:center;flex-wrap:wrap;row-gap:.25rem}}',
-      '.k9x-rail .k9x-rail-label{flex:0 0 auto;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,191,36,.65);padding-right:.35rem;margin-right:.15rem;border-right:1px solid rgba(103,232,249,.2)}',
-      '@media(max-width:520px){.k9x-rail .k9x-rail-label{display:none}}',
-      '.k9x-rail button{flex:0 0 auto;display:inline-flex;align-items:center;gap:.35rem;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(103,232,249,.55);padding:.45rem .7rem;border-radius:999px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:inherit;font-weight:700;min-height:42px}',
-      '.k9x-rail button .num{font-size:.55rem;opacity:.7;font-variant-numeric:tabular-nums}',
-      '.k9x-rail button.is-on,.k9x-rail button:hover{color:#fef3c7;border-color:rgba(251,191,36,.5);background:linear-gradient(145deg,rgba(251,191,36,.14),rgba(103,232,249,.08))}',
-      '.k9x-rail button.is-on .num{color:#fbbf24;opacity:1}',
-      /* Hero sits under chrome pad; keep modest own padding so no double black band */
-      'body.k9x-panels:not(.k9x-mobile) header.k9-hero{padding-top:1.25rem!important;padding-bottom:1.25rem!important;margin-top:0!important}',
-      'body.k9x-panels:not(.k9x-mobile) .k9x-panel.is-on > .k9x-section:first-child{padding-top:1.15rem}',
+      'body.k9x-panels:not(.k9x-mobile) .k9x-rail{' +
+        'padding:.42rem 1rem .5rem;gap:.35rem;' +
+        'justify-content:center;flex-wrap:nowrap;overflow-x:auto' +
+      '}',
+      '@media(min-width:1100px){body.k9x-panels:not(.k9x-mobile) .k9x-rail{padding-left:1.5rem;padding-right:1.5rem}}',
+      '.k9x-rail .k9x-rail-brand{' +
+        'flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:.08rem;' +
+        'padding-right:.65rem;margin-right:.35rem;border-right:1px solid rgba(103,232,249,.22);min-width:4.6rem' +
+      '}',
+      '.k9x-rail .k9x-rail-brand .k9x-rail-label{' +
+        'font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,191,36,.72);font-weight:700;line-height:1' +
+      '}',
+      '.k9x-rail .k9x-rail-brand .k9x-rail-here{' +
+        'font-family:"Space Grotesk",sans-serif;font-size:.68rem;font-weight:700;color:#e0f2fe;letter-spacing:.02em;white-space:nowrap' +
+      '}',
+      '.k9x-rail .k9x-rail-brand .k9x-rail-here b{color:#fde68a}',
+      '@media(max-width:640px){.k9x-rail .k9x-rail-brand{display:none}}',
+      '.k9x-rail .k9x-rail-steps{display:flex;align-items:center;gap:.2rem;flex:0 1 auto;min-width:0}',
+      '.k9x-rail button{' +
+        'flex:0 0 auto;display:inline-flex;align-items:center;gap:.32rem;' +
+        'font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;' +
+        'color:rgba(103,232,249,.5);padding:.38rem .62rem;border-radius:999px;' +
+        'border:1px solid transparent;background:transparent;cursor:pointer;' +
+        'font-family:inherit;font-weight:700;min-height:38px;white-space:nowrap;' +
+        'transition:color .15s,border-color .15s,background .15s,box-shadow .15s,transform .15s' +
+      '}',
+      '.k9x-rail button .num{' +
+        'display:inline-flex;align-items:center;justify-content:center;' +
+        'width:1.15rem;height:1.15rem;border-radius:999px;font-size:.5rem;' +
+        'font-variant-numeric:tabular-nums;border:1px solid rgba(103,232,249,.28);' +
+        'color:rgba(103,232,249,.65);background:rgba(0,0,0,.25)' +
+      '}',
+      '.k9x-rail button:hover{' +
+        'color:#e0f2fe;border-color:rgba(103,232,249,.4);background:rgba(103,232,249,.08)' +
+      '}',
+      '.k9x-rail button.is-on{' +
+        'color:#0a1024;border-color:transparent;' +
+        'background:linear-gradient(135deg,#fef3c7,#fbbf24 55%,#67e8f9);' +
+        'box-shadow:0 0 28px -6px rgba(251,191,36,.65),0 0 18px -8px rgba(103,232,249,.5);' +
+        'transform:translateY(-1px)' +
+      '}',
+      '.k9x-rail button.is-on .num{' +
+        'border-color:rgba(10,16,36,.25);color:#0a1024;background:rgba(255,255,255,.45);opacity:1' +
+      '}',
+      '.k9x-rail button.is-done{color:rgba(254,243,199,.72)}',
+      '.k9x-rail button.is-done .num{border-color:rgba(251,191,36,.45);color:#fbbf24;background:rgba(251,191,36,.12)}',
+      '.k9x-rail .k9x-rail-dot{width:3px;height:3px;border-radius:50%;background:rgba(103,232,249,.28);flex:0 0 auto}',
+      '@media(max-width:700px){.k9x-rail .k9x-rail-dot{display:none}}',
+      /* Hero: continuous with chrome. No double pad. No black band. */
+      'body.k9x-panels:not(.k9x-mobile) header.k9-hero{' +
+        'padding-top:1.35rem!important;padding-bottom:1.4rem!important;margin-top:0!important;' +
+        'border-top:0;scroll-margin-top:0;' +
+        'background:' +
+          'radial-gradient(ellipse 80% 55% at 50% 0%,rgba(251,191,36,.14),transparent 55%),' +
+          'radial-gradient(ellipse 45% 40% at 85% 55%,rgba(103,232,249,.08),transparent 50%),' +
+          'linear-gradient(180deg,#070b18 0%,#0a1024 42%,#050814 100%)!important' +
+      '}',
+      'body.k9x-panels:not(.k9x-mobile) .k9x-panel[data-k9x-panel="bond"].is-on{padding-top:0}',
+      'body.k9x-panels:not(.k9x-mobile) .k9x-panel.is-on > .k9x-section:first-child{padding-top:1.2rem}',
       'body.k9x-panels:not(.k9x-mobile) .k9x-quick{display:none}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-panel-host > .k9x-panel:not([data-k9x-panel="bond"]).is-on{padding-top:.15rem}',
       /* Path breadcrumb + step footer */
       '.k9x-path{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;margin:0 0 1rem;padding:.55rem .6rem;border-radius:1rem;border:1px solid rgba(103,232,249,.22);background:rgba(0,0,0,.28)}',
       '.k9x-path button{display:inline-flex;align-items:center;gap:.28rem;min-height:36px;padding:.3rem .55rem;border-radius:999px;border:1px solid transparent;background:transparent;color:rgba(186,230,253,.55);font:inherit;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}',
@@ -402,9 +500,41 @@
       '.k9x-quick button.pri{background:linear-gradient(135deg,#fef3c7,#fbbf24);color:#0a1024;border:0}',
       '.k9x-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:80;background:linear-gradient(90deg,#fbbf24,#67e8f9,#fef3c7,#fb7185)}',
       '.k9x-youare{font-size:.68rem;color:rgba(186,230,253,.55);margin:0 0 .75rem}',
-      '.k9x-youare b{color:#fde68a}'
+      '.k9x-youare b{color:#fde68a}',
+      /* Desktop only spacer hidden on mobile */
+      'body.k9x-mobile #k9x-chrome-spacer{display:none!important}'
     ].join('');
     document.head.appendChild(s);
+  }
+
+  function syncRailState(id) {
+    var ix = navIndex(id);
+    var cur = navItem(id);
+    document.querySelectorAll('#k9x-rail [data-k9x-go]').forEach(function (btn) {
+      var key = btn.getAttribute('data-k9x-go');
+      var bix = navIndex(key);
+      btn.classList.toggle('is-on', key === id);
+      btn.classList.toggle('is-done', bix >= 0 && bix < ix);
+      btn.setAttribute('aria-current', key === id ? 'page' : 'false');
+    });
+    var here = document.getElementById('k9x-rail-here');
+    if (here) here.innerHTML = '<b>' + cur.n + '</b> · ' + cur.label;
+    var stepBadge = document.getElementById('k9x-mtop-step');
+    if (stepBadge) stepBadge.textContent = cur.n + ' ' + cur.label;
+  }
+
+  function measureChrome() {
+    try {
+      if (document.body.classList.contains('k9x-mobile')) return;
+      var stack = document.getElementById('k9x-chrome');
+      if (!stack) return;
+      var h = Math.ceil(stack.getBoundingClientRect().height);
+      if (h < 60) return;
+      document.body.style.setProperty('--k9-chrome-h', h + 'px');
+      var spacer = document.getElementById('k9x-chrome-spacer');
+      if (spacer) spacer.style.height = h + 'px';
+      document.documentElement.style.scrollPaddingTop = h + 'px';
+    } catch (eM) { /* ignore */ }
   }
 
   function goTab(id) {
@@ -414,15 +544,11 @@
     document.querySelectorAll('.k9x-panel').forEach(function (p) {
       p.classList.toggle('is-on', p.getAttribute('data-k9x-panel') === id);
     });
-    document.querySelectorAll('.k9x-mtab, #k9x-rail [data-k9x-go], .k9x-path [data-k9x-go]').forEach(function (t) {
+    document.querySelectorAll('.k9x-mtab, .k9x-path [data-k9x-go]').forEach(function (t) {
       var key = t.getAttribute('data-tab') || t.getAttribute('data-k9x-go');
       t.classList.toggle('is-on', key === id);
     });
-    var stepBadge = document.getElementById('k9x-mtop-step');
-    if (stepBadge) {
-      var cur = navItem(id);
-      stepBadge.textContent = cur.n + ' ' + cur.label;
-    }
+    syncRailState(id);
     /* Keep active rail chip in view on small screens */
     try {
       var active = document.querySelector('#k9x-rail [data-k9x-go].is-on');
@@ -434,6 +560,7 @@
       if (history.replaceState) history.replaceState(null, '', '#k9x-' + id);
     } catch (e) { /* ignore */ }
     window.scrollTo(0, 0);
+    measureChrome();
     if (id === 'bond') renderBoard();
     if (id === 'teams') renderTeams();
     if (id === 'deploy') renderDeploy();
@@ -843,24 +970,6 @@
     document.body.classList.add('k9x-panels');
     if (isMobile()) document.body.classList.add('k9x-mobile');
 
-    if (!document.querySelector('.k9x-progress')) {
-      var bar = document.createElement('div');
-      bar.className = 'k9x-progress';
-      document.body.appendChild(bar);
-      var tick = false;
-      window.addEventListener('scroll', function () {
-        if (!tick) {
-          tick = true;
-          requestAnimationFrame(function () {
-            tick = false;
-            var h = document.documentElement;
-            var max = h.scrollHeight - h.clientHeight;
-            bar.style.width = max > 0 ? ((h.scrollTop / max) * 100).toFixed(1) + '%' : '0%';
-          });
-        }
-      }, { passive: true });
-    }
-
     if (isMobile() && !document.querySelector('.k9x-mtop')) {
       var m = document.createElement('div');
       m.innerHTML =
@@ -880,31 +989,42 @@
       var rail = document.createElement('nav');
       rail.className = 'k9x-rail';
       rail.id = 'k9x-rail';
-      rail.setAttribute('aria-label', 'Global K9 section path');
+      rail.setAttribute('aria-label', 'Global K9 mission path');
+      var stepsHtml = NAV.map(function (item, i) {
+        var btn =
+          '<button type="button"' + (i === 0 ? ' class="is-on"' : '') +
+            ' data-k9x-go="' + item.id + '" title="' + item.hint + '" aria-label="Step ' + item.n + ' ' + item.full + '">' +
+            '<span class="num">' + item.n + '</span> ' + item.label +
+          '</button>';
+        return (i > 0 ? '<span class="k9x-rail-dot" aria-hidden="true"></span>' : '') + btn;
+      }).join('');
       rail.innerHTML =
-        '<span class="k9x-rail-label">Path</span>' +
-        NAV.map(function (item, i) {
-          return (
-            '<button type="button"' + (i === 0 ? ' class="is-on"' : '') + ' data-k9x-go="' + item.id + '">' +
-              '<span class="num">' + item.n + '</span> ' + item.label +
-            '</button>'
-          );
-        }).join('');
+        '<div class="k9x-rail-brand">' +
+          '<span class="k9x-rail-label">Mission path</span>' +
+          '<span class="k9x-rail-here" id="k9x-rail-here"><b>01</b> · Bond</span>' +
+        '</div>' +
+        '<div class="k9x-rail-steps">' + stepsHtml + '</div>';
 
-      /* Desktop: wrap site nav + path rail in one fixed #k9x-chrome so the top never scrolls
-         and content padding matches a single measured height (kills black gap). */
+      /* Desktop: site nav + path rail + progress = one fixed mission chrome.
+         Flow spacer locks exact height so content never leaves a black void. */
       if (!isMobile()) {
         var chrome = document.getElementById('k9x-chrome');
         if (!chrome) {
           chrome = document.createElement('div');
           chrome.id = 'k9x-chrome';
           chrome.className = 'k9x-chrome';
-          chrome.setAttribute('role', 'presentation');
+          chrome.setAttribute('role', 'banner');
+          chrome.setAttribute('aria-label', 'Site and mission navigation');
           var siteNav = null;
           var kids = document.body.children;
           for (var ci = 0; ci < kids.length; ci++) {
             var el = kids[ci];
-            if (el.tagName === 'NAV' && el.id !== 'k9x-rail' && !el.classList.contains('k9x-mtabs') && !el.classList.contains('k9x-rail')) {
+            if (
+              el.tagName === 'NAV' &&
+              el.id !== 'k9x-rail' &&
+              !el.classList.contains('k9x-mtabs') &&
+              !el.classList.contains('k9x-rail')
+            ) {
               siteNav = el;
               break;
             }
@@ -917,27 +1037,75 @@
           }
         }
         chrome.appendChild(rail);
+
+        var prog = document.querySelector('.k9x-progress');
+        if (!prog) {
+          prog = document.createElement('div');
+          prog.className = 'k9x-progress';
+          prog.setAttribute('aria-hidden', 'true');
+        }
+        chrome.appendChild(prog);
+
+        if (!document.getElementById('k9x-chrome-spacer')) {
+          var spacer = document.createElement('div');
+          spacer.id = 'k9x-chrome-spacer';
+          spacer.setAttribute('aria-hidden', 'true');
+          chrome.parentNode.insertBefore(spacer, chrome.nextSibling);
+        }
+
+        var tick = false;
+        window.addEventListener('scroll', function () {
+          if (!tick) {
+            tick = true;
+            requestAnimationFrame(function () {
+              tick = false;
+              var h = document.documentElement;
+              var max = h.scrollHeight - h.clientHeight;
+              prog.style.width = max > 0 ? ((h.scrollTop / max) * 100).toFixed(1) + '%' : '0%';
+            });
+          }
+        }, { passive: true });
+
+        measureChrome();
+        requestAnimationFrame(function () {
+          measureChrome();
+          requestAnimationFrame(measureChrome);
+        });
+        var resizeT = 0;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeT);
+          resizeT = setTimeout(measureChrome, 60);
+        }, { passive: true });
+        if (typeof ResizeObserver !== 'undefined') {
+          try {
+            new ResizeObserver(function () { measureChrome(); }).observe(chrome);
+          } catch (eRo) { /* ignore */ }
+        }
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(function () { measureChrome(); }).catch(function () {});
+        }
       } else {
         var navM = document.querySelector('body > nav');
         if (navM && navM.nextSibling) document.body.insertBefore(rail, navM.nextSibling);
         else document.body.insertBefore(rail, document.body.firstChild);
+        if (!document.querySelector('.k9x-progress')) {
+          var barM = document.createElement('div');
+          barM.className = 'k9x-progress';
+          document.body.appendChild(barM);
+          var tickM = false;
+          window.addEventListener('scroll', function () {
+            if (!tickM) {
+              tickM = true;
+              requestAnimationFrame(function () {
+                tickM = false;
+                var h = document.documentElement;
+                var max = h.scrollHeight - h.clientHeight;
+                barM.style.width = max > 0 ? ((h.scrollTop / max) * 100).toFixed(1) + '%' : '0%';
+              });
+            }
+          }, { passive: true });
+        }
       }
-
-      function measureChrome() {
-        try {
-          if (document.body.classList.contains('k9x-mobile')) return;
-          var stack = document.getElementById('k9x-chrome');
-          if (!stack) return;
-          var h = Math.ceil(stack.getBoundingClientRect().height);
-          if (h > 60) document.body.style.setProperty('--k9-chrome-h', h + 'px');
-        } catch (eM) { /* ignore */ }
-      }
-      measureChrome();
-      requestAnimationFrame(function () {
-        measureChrome();
-        requestAnimationFrame(measureChrome);
-      });
-      window.addEventListener('resize', measureChrome, { passive: true });
     }
 
     if (!document.getElementById('k9x-panel-host')) {
