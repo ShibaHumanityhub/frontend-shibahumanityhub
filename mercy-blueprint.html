@@ -26,6 +26,9 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<script src="js/programs-data.js" defer></script>
+<script src="js/program-pages-map.js" defer></script>
+<script src="js/programs-flywheel-nav.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
  <script src="js/glossary.js" defer></script>
 <style>
@@ -163,7 +166,16 @@
  <a href="shelters.html" class="hover:text-amber-300 hover:tracking-wider transition-all">The Souls</a>
  <a href="healing-hearts.html#hhx-stars" class="hover:text-emerald-300 hover:tracking-wider transition-all font-medium">Star Souls</a>
  <a href="k9-lifeline.html" class="hover:text-emerald-300 hover:tracking-wider transition-all">K9 Lifeline</a>
- <a href="all-programs.html" class="hover:text-amber-300 hover:tracking-wider transition-all hidden md:inline">Programs</a>
+  <div class="relative" id="programs-dropdown">
+ <a href="all-programs.html" onclick="toggleProgramsDropdown(event)" class="hover:text-amber-300 transition-colors flex items-center gap-1">
+ Programs <i class="fa-solid fa-chevron-down text-[10px]" id="programs-chevron"></i>
+ </a>
+ <div id="programs-menu" class="absolute hidden mt-2 right-0 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[280px] z-[60] shadow-2xl overflow-hidden">
+ <!-- Built by js/programs-flywheel-nav.js: dual $NIBBLES + $hopeseed wheels -->
+ <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
+ <div data-prog-fw-mount></div>
+ </div>
+ </div>
  <a href="silver-paws.html" class="hover:text-amber-300 hover:tracking-wider transition-all hidden md:inline">Silver Paws</a>
  <a href="golden-years.html" class="hover:text-amber-300 hover:tracking-wider transition-all hidden md:inline">Golden Years</a>
  <a href="whitepaper.html" class="hover:text-amber-300 hover:tracking-wider transition-all hidden md:inline">Whitepaper</a>
@@ -175,6 +187,9 @@
 <!-- Mobile Menu (same as desktop dropdown for consistency) -->
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 100px;">
  <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
+ <div class="px-1 pb-2" id="mobile-prog-fw-mount" data-prog-fw-mount></div>
+ <p class="px-4 pb-3 text-[10px] tracking-wide text-zinc-500">2 flywheels · scroll each wheel · find every program</p>
+ <div class="my-1 border-t border-white/10"></div>
  <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
  <span>THE CIRCLE OF MERCY</span>
  </div>

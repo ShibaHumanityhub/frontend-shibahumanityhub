@@ -34,7 +34,10 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
- <script src="js/shared-animations.js" defer></script>
+ <script src="js/programs-data.js" defer></script>
+<script src="js/program-pages-map.js" defer></script>
+<script src="js/programs-flywheel-nav.js" defer></script>
+<script src="js/shared-animations.js" defer></script>
  <script src="js/glossary.js" defer></script>
  <script src="js/program-actions.js" defer></script>
  <script src="js/pay-it-forward-experience.js" defer></script>
@@ -280,7 +283,16 @@
  </a>
  <div class="hidden md:flex items-center gap-6 text-sm font-medium">
  <a href="index.html" class="hover:text-rose-300 transition-colors">Flywheel</a>
- <a href="all-programs.html" class="hover:text-rose-300 transition-colors">Programs</a>
+  <div class="relative" id="programs-dropdown">
+ <a href="all-programs.html" onclick="toggleProgramsDropdown(event)" class="hover:text-amber-300 transition-colors flex items-center gap-1">
+ Programs <i class="fa-solid fa-chevron-down text-[10px]" id="programs-chevron"></i>
+ </a>
+ <div id="programs-menu" class="absolute hidden mt-2 right-0 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[280px] z-[60] shadow-2xl overflow-hidden">
+ <!-- Built by js/programs-flywheel-nav.js: dual $NIBBLES + $hopeseed wheels -->
+ <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
+ <div data-prog-fw-mount></div>
+ </div>
+ </div>
  <a href="barn-pods.html" class="hover:text-amber-300 transition-colors">Barn Campus</a>
  <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
  </div>
@@ -291,6 +303,9 @@
 
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 72px;">
  <div class="max-w-7xl mx-auto px-6 py-5 text-sm flex flex-col gap-1">
+ <div class="px-1 pb-2" id="mobile-prog-fw-mount" data-prog-fw-mount></div>
+ <p class="px-4 pb-3 text-[10px] tracking-wide text-zinc-500">2 flywheels · scroll each wheel · find every program</p>
+ <div class="my-1 border-t border-white/10"></div>
  <a href="all-programs.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 Programs</a>
  <a href="pay-it-forward.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-rose-300">Pay It Forward</a>
  <a href="barn-pods.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Barn Campus</a>
@@ -363,7 +378,31 @@
 </footer>
 
 <script>
- function toggleMobileMenu() {
+ 
+<script>
+function toggleProgramsDropdown(e) {
+ if (e) e.preventDefault();
+ var menu = document.getElementById('programs-menu');
+ var chev = document.getElementById('programs-chevron');
+ if (!menu) return;
+ menu.classList.toggle('hidden');
+ if (chev) chev.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+ if (window.SHHProgFlywheelNav && window.SHHProgFlywheelNav.init) {
+  try { window.SHHProgFlywheelNav.init(); } catch (err) {}
+ }
+}
+document.addEventListener('click', function (ev) {
+ var dd = document.getElementById('programs-dropdown');
+ var menu = document.getElementById('programs-menu');
+ if (dd && menu && !dd.contains(ev.target)) {
+  menu.classList.add('hidden');
+  var chev = document.getElementById('programs-chevron');
+  if (chev) chev.style.transform = 'rotate(0deg)';
+ }
+});
+</script>
+
+function toggleMobileMenu() {
   var m = document.getElementById('mobile-menu');
   var icon = document.getElementById('mobile-menu-icon');
   if (!m) return;

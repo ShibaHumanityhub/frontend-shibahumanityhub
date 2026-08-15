@@ -6,8 +6,8 @@
 (function () {
  'use strict';
 
- var ITEM_H = 40;
- var VISIBLE = 5;
+ var ITEM_H = 44;
+ var VISIBLE = 6;
  var stylesInjected = false;
 
  function getPrograms() {
@@ -26,13 +26,16 @@
  css.id = 'prog-flywheel-nav-css';
  css.textContent = [
  '#programs-menu.prog-fw-ready {',
- ' min-width: min(540px, calc(100vw - 20px)) !important;',
- ' max-width: min(560px, calc(100vw - 16px)) !important;',
- ' max-height: min(78vh, 680px);',
+ ' min-width: min(620px, calc(100vw - 16px)) !important;',
+ ' max-width: min(680px, calc(100vw - 12px)) !important;',
+ ' max-height: min(82vh, 760px);',
  ' overflow-x: hidden;',
  ' overflow-y: auto;',
  ' overscroll-behavior: contain;',
- ' padding-bottom: 8px;',
+ ' padding-bottom: 10px;',
+ ' background: linear-gradient(165deg, rgba(12,14,22,0.98), rgba(6,8,14,0.99)) !important;',
+ ' border-color: rgba(252,211,77,0.22) !important;',
+ ' box-shadow: 0 32px 80px -20px rgba(0,0,0,0.92), 0 0 60px -24px rgba(52,211,153,0.25), 0 0 0 1px rgba(255,255,255,0.06) inset !important;',
  '}',
  '#cmd-panel-fw-mount .prog-fw-pair {',
  ' padding: 4px 0 8px;',
@@ -50,34 +53,36 @@
  '}',
  '.prog-fw-head .count { font-size: 9px; letter-spacing: 0; color: #71717a; font-weight: 500; }',
  '.prog-fw-pair {',
- ' display: grid; grid-template-columns: 1fr 1fr; gap: 12px;',
- ' padding: 12px 12px 6px;',
+ ' display: grid; grid-template-columns: 1fr 1fr; gap: 14px;',
+ ' padding: 14px 14px 8px;',
  '}',
  '@media (max-width: 420px) {',
  ' .prog-fw-pair { grid-template-columns: 1fr; }',
  '}',
  '.prog-fw-col {',
  ' position: relative;',
- ' border-radius: 1.2rem; padding: 12px 8px 12px;',
+ ' border-radius: 1.35rem; padding: 14px 10px 14px;',
  ' border: 1px solid transparent;',
- ' background: linear-gradient(165deg, rgba(255,255,255,0.04), rgba(0,0,0,0.35));',
+ ' background:',
+ ' radial-gradient(ellipse 90% 55% at 50% 0%, var(--fw-glow-soft), transparent 60%),',
+ ' linear-gradient(165deg, rgba(255,255,255,0.06), rgba(0,0,0,0.42));',
  ' transition: border-color 0.25s ease, box-shadow 0.35s ease, transform 0.25s ease;',
  ' user-select: none;',
  ' overflow: hidden;',
  '}',
  '.prog-fw-col::before {',
  ' content: ""; position: absolute; inset: -40%;',
- ' background: radial-gradient(circle at 50% 20%, var(--fw-glow-soft), transparent 55%);',
- ' opacity: 0.35; pointer-events: none; transition: opacity 0.3s ease;',
+ ' background: radial-gradient(circle at 50% 18%, var(--fw-glow-soft), transparent 55%);',
+ ' opacity: 0.45; pointer-events: none; transition: opacity 0.3s ease;',
  '}',
  '.prog-fw-col.is-hover {',
- ' box-shadow: 0 0 36px -8px var(--fw-glow), 0 0 0 1px var(--fw-border) inset;',
+ ' box-shadow: 0 0 42px -6px var(--fw-glow), 0 0 0 1px var(--fw-border) inset;',
  ' border-color: var(--fw-border);',
- ' transform: translateY(-1px);',
+ ' transform: translateY(-2px);',
  '}',
- '.prog-fw-col.is-hover::before { opacity: 0.7; }',
+ '.prog-fw-col.is-hover::before { opacity: 0.85; }',
  '.prog-fw-col.is-spinning {',
- ' box-shadow: 0 0 48px -6px var(--fw-glow), 0 0 80px -20px var(--fw-glow), 0 0 0 1px var(--fw-border) inset;',
+ ' box-shadow: 0 0 56px -4px var(--fw-glow), 0 0 100px -18px var(--fw-glow), 0 0 0 1px var(--fw-border) inset;',
  '}',
  '.prog-fw-col.is-spinning::after {',
  ' content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;',
@@ -114,54 +119,58 @@
  ' display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 10px;',
  '}',
  '.prog-fw-dial {',
- ' width: 64px; height: 64px; border-radius: 50%; position: relative;',
+ ' width: 78px; height: 78px; border-radius: 50%; position: relative;',
  ' display: grid; place-items: center;',
- ' filter: drop-shadow(0 0 12px var(--fw-glow-soft));',
+ ' filter: drop-shadow(0 0 16px var(--fw-glow-soft));',
  ' transition: filter 0.25s ease, transform 0.25s ease;',
  '}',
  '.prog-fw-col.is-spinning .prog-fw-dial {',
- ' filter: drop-shadow(0 0 22px var(--fw-glow));',
- ' transform: scale(1.06);',
+ ' filter: drop-shadow(0 0 28px var(--fw-glow)) drop-shadow(0 0 40px var(--fw-glow-soft));',
+ ' transform: scale(1.08);',
  '}',
  '.prog-fw-dial-orbit {',
- ' position: absolute; inset: -6px; border-radius: 50%;',
- ' border: 1px dashed rgba(255,255,255,0.12);',
- ' animation: prog-fw-orbit 12s linear infinite;',
+ ' position: absolute; inset: -8px; border-radius: 50%;',
+ ' border: 1.5px dashed rgba(255,255,255,0.16);',
+ ' animation: prog-fw-orbit 10s linear infinite;',
  ' pointer-events: none;',
  '}',
+ '.prog-fw-col.is-hover .prog-fw-dial-orbit { animation-duration: 4.5s; border-color: var(--fw-border); }',
  '.prog-fw-col.is-spinning .prog-fw-dial-orbit {',
- ' animation-duration: 1.6s;',
- ' border-color: var(--fw-border);',
+ ' animation-duration: 0.9s;',
+ ' border-color: var(--fw-accent);',
+ ' box-shadow: 0 0 18px -4px var(--fw-glow);',
  '}',
  '@keyframes prog-fw-orbit { to { transform: rotate(360deg); } }',
  '.prog-fw-dial-ring {',
  ' position: absolute; inset: 0; border-radius: 50%;',
- ' transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);',
+ ' transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);',
  ' will-change: transform;',
  '}',
  '.prog-fw-col.is-spinning .prog-fw-dial-ring {',
- ' transition-duration: 0.22s;',
+ ' transition-duration: 0.18s;',
  '}',
  '.prog-fw-col.nibbles .prog-fw-dial-ring {',
- ' background: radial-gradient(circle at 50% 50%, rgba(251,191,36,0.22) 0 26%, transparent 27%),',
- ' conic-gradient(from 0deg, #fbbf24, #78350f, #fde68a, #b45309, #fbbf24);',
- ' box-shadow: 0 0 0 2px rgba(251,191,36,0.35), 0 0 22px -2px rgba(251,191,36,0.75);',
+ ' background:',
+ ' radial-gradient(circle at 50% 50%, rgba(10,12,20,0.95) 0 24%, transparent 25%),',
+ ' repeating-conic-gradient(from 0deg, #fbbf24 0deg 8deg, #78350f 8deg 16deg, #fde68a 16deg 20deg, #b45309 20deg 28deg);',
+ ' box-shadow: 0 0 0 3px rgba(251,191,36,0.4), 0 0 28px -2px rgba(251,191,36,0.85), inset 0 0 18px rgba(0,0,0,0.45);',
  '}',
  '.prog-fw-col.hopeseed .prog-fw-dial-ring {',
- ' background: radial-gradient(circle at 50% 50%, rgba(52,211,153,0.22) 0 26%, transparent 27%),',
- ' conic-gradient(from 0deg, #34d399, #064e3b, #a7f3d0, #059669, #34d399);',
- ' box-shadow: 0 0 0 2px rgba(52,211,153,0.35), 0 0 22px -2px rgba(52,211,153,0.75);',
+ ' background:',
+ ' radial-gradient(circle at 50% 50%, rgba(10,12,20,0.95) 0 24%, transparent 25%),',
+ ' repeating-conic-gradient(from 0deg, #34d399 0deg 8deg, #064e3b 8deg 16deg, #a7f3d0 16deg 20deg, #059669 20deg 28deg);',
+ ' box-shadow: 0 0 0 3px rgba(52,211,153,0.4), 0 0 28px -2px rgba(52,211,153,0.85), inset 0 0 18px rgba(0,0,0,0.45);',
  '}',
  '.prog-fw-dial-core {',
- ' position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 50%;',
- ' background: radial-gradient(circle at 40% 35%, #1a2338, #0a0f1c 70%);',
- ' border: 1px solid rgba(255,255,255,0.1);',
- ' display: grid; place-items: center; font-size: 1.05rem; line-height: 1;',
- ' box-shadow: 0 0 12px rgba(0,0,0,0.5) inset;',
+ ' position: relative; z-index: 1; width: 42px; height: 42px; border-radius: 50%;',
+ ' background: radial-gradient(circle at 40% 35%, #1f2a44, #0a0f1c 70%);',
+ ' border: 1px solid rgba(255,255,255,0.14);',
+ ' display: grid; place-items: center; font-size: 1.2rem; line-height: 1;',
+ ' box-shadow: 0 0 14px rgba(0,0,0,0.55) inset, 0 0 12px var(--fw-glow-soft);',
  ' transition: transform 0.25s ease;',
  '}',
  '.prog-fw-col.is-spinning .prog-fw-dial-core {',
- ' transform: scale(1.08);',
+ ' transform: scale(1.1);',
  ' animation: prog-fw-core-thump 0.35s ease;',
  '}',
  '@keyframes prog-fw-core-thump {',
@@ -182,22 +191,22 @@
  '}',
  '.prog-fw-viewport {',
  ' position: relative; z-index: 1; height: ' + (ITEM_H * VISIBLE) + 'px;',
- ' overflow: hidden; border-radius: 0.95rem;',
+ ' overflow: hidden; border-radius: 1.05rem;',
  ' background:',
- ' radial-gradient(ellipse 90% 50% at 50% 50%, var(--fw-glow-soft), transparent 70%),',
- ' linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.28) 50%, rgba(0,0,0,0.55));',
- ' border: 1px solid rgba(255,255,255,0.08);',
+ ' radial-gradient(ellipse 95% 55% at 50% 50%, var(--fw-glow-soft), transparent 68%),',
+ ' linear-gradient(180deg, rgba(0,0,0,0.62), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.62));',
+ ' border: 1px solid rgba(255,255,255,0.1);',
  ' cursor: grab; touch-action: none;',
- ' perspective: 900px;',
+ ' perspective: 1000px;',
  ' transform-style: preserve-3d;',
- ' mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);',
- ' -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);',
- ' box-shadow: 0 0 0 1px rgba(0,0,0,0.4) inset, 0 12px 28px -16px rgba(0,0,0,0.7);',
+ ' mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);',
+ ' -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);',
+ ' box-shadow: 0 0 0 1px rgba(0,0,0,0.45) inset, 0 16px 36px -14px rgba(0,0,0,0.8), 0 0 40px -20px var(--fw-glow);',
  ' transition: box-shadow 0.25s ease, border-color 0.25s ease;',
  '}',
  '.prog-fw-col.is-spinning .prog-fw-viewport {',
  ' border-color: var(--fw-border);',
- ' box-shadow: 0 0 28px -8px var(--fw-glow), 0 0 0 1px var(--fw-border) inset;',
+ ' box-shadow: 0 0 36px -6px var(--fw-glow), 0 0 0 1px var(--fw-border) inset, 0 0 60px -18px var(--fw-glow);',
  '}',
  '.prog-fw-col.is-hover .prog-fw-viewport { cursor: grab; }',
  '.prog-fw-col.is-dragging .prog-fw-viewport { cursor: grabbing; }',
@@ -437,8 +446,8 @@
  '<div class="prog-fw-dial-core">' + opts.emoji + '</div>' +
  '</div>' +
  '<div class="prog-fw-name">' + opts.label + '</div>' +
- '<div class="prog-fw-meta">' + list.length + ' programs · scroll to spin</div>' +
- '<div class="prog-fw-hint">hover + wheel</div>' +
+ '<div class="prog-fw-meta">' + list.length + ' programs · scroll to find yours</div>' +
+ '<div class="prog-fw-hint">hover · scroll · click</div>' +
  '</div>' +
  '<div class="prog-fw-viewport" data-viewport>' +
  '<div class="prog-fw-track" data-track></div>' +
@@ -525,9 +534,15 @@
  void track.offsetHeight;
  track.style.transition = '';
  }
- // dial spins with selection (extra flourish when moving)
+ // dial spins with selection — full gear feel (extra flourishes on multi-step)
  var step = 360 / Math.max(list.length, 1);
- var spinExtra = (!instant && index !== prev) ? (index > prev || (prev === list.length - 1 && index === 0) ? 18 : -18) : 0;
+ var deltaSteps = index - prev;
+ if (Math.abs(deltaSteps) > list.length / 2) {
+  deltaSteps = deltaSteps > 0 ? deltaSteps - list.length : deltaSteps + list.length;
+ }
+ var spinExtra = (!instant && index !== prev)
+  ? (deltaSteps >= 0 ? Math.max(22, Math.abs(deltaSteps) * 28) : -Math.max(22, Math.abs(deltaSteps) * 28))
+  : 0;
  ring.style.transform = 'rotate(' + (index * step + spinExtra) + 'deg)';
  if (!instant && spinExtra) {
  requestAnimationFrame(function () {
@@ -550,8 +565,10 @@
  e.stopPropagation();
  var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
  if (!dir && e.deltaX) dir = e.deltaX > 0 ? 1 : -1;
- // faster flicks jump 2 slots for epic spin
- if (dir && Math.abs(e.deltaY) > 80) dir = dir * 2;
+ // faster flicks jump more slots for a magnificent spin
+ var mag = Math.abs(e.deltaY || e.deltaX || 0);
+ if (dir && mag > 120) dir = dir * 3;
+ else if (dir && mag > 70) dir = dir * 2;
  if (dir) setIndex(index + dir);
  }
 
@@ -679,7 +696,7 @@
 
  var mission = document.createElement('p');
  mission.className = 'prog-fw-mission';
- mission.innerHTML = '<strong>2 flywheels</strong>, one everlasting snowball · scroll to find your program · when you are lifted, lift the next';
+ mission.innerHTML = '<strong>2 flywheels</strong> · scroll either wheel until your program locks in the center · click to open · when you are lifted, lift the next';
  mount.appendChild(mission);
  }
 
