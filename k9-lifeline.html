@@ -83,8 +83,12 @@
     radial-gradient(ellipse 40% 40% at 80% 60%, rgba(103, 232, 249, 0.1), transparent 50%),
     linear-gradient(180deg, #0c1428 0%, #080e1c 55%, #050814 100%);
   text-align: center;
-  /* Clear fixed site nav on first paint (panel JS then tunes spacing with path rail) */
-  padding: 7.25rem 1rem 3.5rem;
+  /* First paint before panels JS: clear fixed nav only. Panels mode zeros this and pads #k9x-panel-host. */
+  padding: 6.5rem 1rem 3rem;
+ }
+ body.k9x-panels:not(.k9x-mobile) .k9-hero {
+  /* Chrome is fixed; no giant top pad (avoids black gap + scroll jump) */
+  padding-top: 1.5rem;
  }
  .k9-hero::before {
   content: "";

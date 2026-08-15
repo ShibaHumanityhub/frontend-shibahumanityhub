@@ -194,27 +194,30 @@
     s.id = 'k9x-css';
     s.textContent = [
       ':root{--k9-gold:#fbbf24;--k9-beam:#fef3c7;--k9-cyan:#67e8f9;--k9-ink:#050814;--k9-line:rgba(103,232,249,.28)}',
-      'body.k9x-panels{scroll-behavior:auto;--k9-nav-h:5.75rem}',
-      '@media(min-width:768px){body.k9x-panels{--k9-nav-h:6rem}}',
+      'body.k9x-panels{scroll-behavior:auto;--k9-nav-h:5.5rem;--k9-rail-h:3.65rem}',
+      '@media(min-width:768px){body.k9x-panels{--k9-nav-h:5.75rem}}',
+      '@media(min-width:900px){body.k9x-panels{--k9-rail-h:4.1rem}}',
       'body.k9x-panels .k9x-panel{display:none;padding-bottom:2rem}',
       'body.k9x-panels .k9x-panel.is-on{display:block;animation:k9x-in .2s ease}',
       '@keyframes k9x-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}',
-      /* Desktop: fixed site nav is out of flow — pad body + stick path rail under it so hero is never clipped */
-      'body.k9x-panels:not(.k9x-mobile){padding-top:var(--k9-nav-h)}',
-      'body.k9x-panels:not(.k9x-mobile) > nav{z-index:60}',
-      '.k9x-rail{position:sticky;top:0;z-index:55;display:flex;gap:.35rem;padding:.55rem max(.7rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;background:rgba(5,8,20,.98);border-bottom:1px solid var(--k9-line);justify-content:flex-start;align-items:center}',
-      'body.k9x-panels:not(.k9x-mobile) .k9x-rail{top:var(--k9-nav-h);z-index:55;box-shadow:0 10px 28px -18px rgba(0,0,0,.85)}',
+      /* Desktop chrome: fixed nav + fixed path rail (no sticky jump, no body pad black gap) */
+      'body.k9x-panels:not(.k9x-mobile){padding-top:0!important;margin-top:0!important}',
+      'body.k9x-panels:not(.k9x-mobile) > nav{position:fixed;top:0;left:0;right:0;z-index:60}',
+      '.k9x-rail{position:relative;z-index:55;display:flex;gap:.35rem;padding:.5rem max(.7rem,env(safe-area-inset-left));overflow-x:auto;scrollbar-width:none;background:rgba(5,8,20,.98);border-bottom:1px solid var(--k9-line);justify-content:flex-start;align-items:center}',
+      'body.k9x-panels:not(.k9x-mobile) .k9x-rail{position:fixed;top:var(--k9-nav-h);left:0;right:0;z-index:55;height:auto;min-height:var(--k9-rail-h);box-shadow:0 10px 28px -18px rgba(0,0,0,.85);background:rgba(5,8,20,.99);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}',
+      'body.k9x-panels:not(.k9x-mobile) #k9x-panel-host{padding-top:calc(var(--k9-nav-h) + var(--k9-rail-h));margin-top:0}',
+      'body.k9x-panels:not(.k9x-mobile) .fixed.bottom-3{z-index:50}',
       '.k9x-rail::-webkit-scrollbar{display:none}',
-      '@media(min-width:900px){.k9x-rail{justify-content:center;flex-wrap:wrap}}',
+      '@media(min-width:900px){.k9x-rail{justify-content:center;flex-wrap:wrap;row-gap:.25rem}}',
       '.k9x-rail .k9x-rail-label{flex:0 0 auto;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,191,36,.65);padding-right:.35rem;margin-right:.15rem;border-right:1px solid rgba(103,232,249,.2)}',
       '@media(max-width:520px){.k9x-rail .k9x-rail-label{display:none}}',
-      '.k9x-rail button{flex:0 0 auto;display:inline-flex;align-items:center;gap:.35rem;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(103,232,249,.55);padding:.48rem .75rem;border-radius:999px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:inherit;font-weight:700;min-height:44px}',
+      '.k9x-rail button{flex:0 0 auto;display:inline-flex;align-items:center;gap:.35rem;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(103,232,249,.55);padding:.45rem .7rem;border-radius:999px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:inherit;font-weight:700;min-height:42px}',
       '.k9x-rail button .num{font-size:.55rem;opacity:.7;font-variant-numeric:tabular-nums}',
       '.k9x-rail button.is-on,.k9x-rail button:hover{color:#fef3c7;border-color:rgba(251,191,36,.5);background:linear-gradient(145deg,rgba(251,191,36,.14),rgba(103,232,249,.08))}',
       '.k9x-rail button.is-on .num{color:#fbbf24;opacity:1}',
-      /* Hero sits under nav + rail (both already cleared); keep modest internal padding only */
-      'body.k9x-panels:not(.k9x-mobile) header.k9-hero{padding-top:1.75rem!important;padding-bottom:1.6rem!important}',
-      'body.k9x-panels:not(.k9x-mobile) .k9x-panel.is-on > .k9x-section:first-child{padding-top:1.35rem}',
+      /* Hero: no extra top pad (host already clears fixed chrome) */
+      'body.k9x-panels:not(.k9x-mobile) header.k9-hero{padding-top:1.5rem!important;padding-bottom:1.5rem!important;margin-top:0!important}',
+      'body.k9x-panels:not(.k9x-mobile) .k9x-panel.is-on > .k9x-section:first-child{padding-top:1.15rem}',
       'body.k9x-panels:not(.k9x-mobile) .k9x-quick{display:none}',
       /* Path breadcrumb + step footer */
       '.k9x-path{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;margin:0 0 1rem;padding:.55rem .6rem;border-radius:1rem;border:1px solid rgba(103,232,249,.22);background:rgba(0,0,0,.28)}',
@@ -891,6 +894,20 @@
       var nav = document.querySelector('body > nav');
       if (nav && nav.nextSibling) document.body.insertBefore(rail, nav.nextSibling);
       else document.body.insertBefore(rail, document.body.firstChild);
+      /* Measure real chrome heights so content never sits under fixed bars or leaves a black gap */
+      try {
+        var navEl = document.querySelector('body > nav');
+        var nh = navEl ? navEl.getBoundingClientRect().height : 0;
+        var rh = rail.getBoundingClientRect().height || 0;
+        if (nh > 40) document.body.style.setProperty('--k9-nav-h', Math.ceil(nh) + 'px');
+        if (rh > 30) document.body.style.setProperty('--k9-rail-h', Math.ceil(rh) + 'px');
+        window.addEventListener('resize', function () {
+          var n2 = document.querySelector('body > nav');
+          var r2 = document.getElementById('k9x-rail');
+          if (n2) document.body.style.setProperty('--k9-nav-h', Math.ceil(n2.getBoundingClientRect().height) + 'px');
+          if (r2) document.body.style.setProperty('--k9-rail-h', Math.ceil(r2.getBoundingClientRect().height) + 'px');
+        }, { passive: true });
+      } catch (eH) { /* ignore */ }
     }
 
     if (!document.getElementById('k9x-panel-host')) {
