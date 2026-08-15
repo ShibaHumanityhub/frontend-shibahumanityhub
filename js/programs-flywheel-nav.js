@@ -293,10 +293,19 @@
  ' transition: width 0.32s cubic-bezier(0.16, 1, 0.3, 1);',
  '}',
  '.prog-fw-mission {',
- ' text-align: center; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;',
- ' color: rgba(228,228,231,0.5); padding: 6px 14px 8px;',
+ ' text-align: center; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase;',
+ ' color: rgba(228,228,231,0.55); padding: 8px 14px 10px; line-height: 1.45;',
  '}',
- '.prog-fw-mission strong { color: #e4e4e7; font-weight: 600; }',
+ '.prog-fw-mission strong { color: #fde68a; font-weight: 600; }',
+ /* Sitewide: never clamp dual wheels to a skinny list */
+ '#programs-menu:not(.prog-fw-ready) { min-width: min(280px, calc(100vw - 24px)); }',
+ 'nav #programs-dropdown { position: relative; }',
+ 'nav #programs-menu.prog-fw-ready {',
+ ' right: 0; left: auto;',
+ '}',
+ '@media (min-width: 1100px) {',
+ ' nav #programs-menu.prog-fw-ready { left: 50%; right: auto; transform: translateX(-40%); }',
+ '}',
  '.prog-fw-foot {',
  ' border-top: 1px solid rgba(255,255,255,0.08); padding: 6px 0 2px;',
  '}',
@@ -319,11 +328,46 @@
  document.head.appendChild(css);
  }
 
+ /* Flagship experiences beat classic program cards when they exist */
+ var EXPERIENCE_URLS = {
+  0: 'barn-pods.html',
+  2: 'pay-it-forward.html',
+  3: 'new-beginnings.html',
+  4: 'healing-hearts.html',
+  5: 'k9-lifeline.html',
+  8: 'golden-paws.html',
+  9: 'unified-rescue-registry.html',
+  14: 'silver-paws.html',
+  15: 'golden-years.html',
+  17: 'programs/orphan-christmas.html'
+ };
+
+ function inProgramsDir() {
+  try {
+   return /\/programs\//i.test(location.pathname || '');
+  } catch (e) {
+   return false;
+  }
+ }
+
+ function resolveSiteUrl(url) {
+  if (!url) return url;
+  if (/^https?:\/\//i.test(url) || url.charAt(0) === '#' || url.charAt(0) === '/') return url;
+  if (inProgramsDir()) {
+   if (url.indexOf('programs/') === 0) return url.replace(/^programs\//, '');
+   if (url.indexOf('../') === 0) return url;
+   return '../' + url;
+  }
+  return url;
+ }
+
  function openProgram(id) {
  var menu = document.getElementById('programs-menu');
  if (menu) menu.classList.add('hidden');
  var chevron = document.getElementById('programs-chevron');
  if (chevron) chevron.style.transform = 'rotate(0deg)';
+ var btn = document.getElementById('programs-dropdown-btn');
+ if (btn) btn.setAttribute('aria-expanded', 'false');
  // Close mobile drawer if open
  var mobile = document.getElementById('mobile-menu');
  if (mobile && !mobile.classList.contains('hidden')) {
@@ -336,27 +380,24 @@
  }
 
  var numId = typeof id === 'string' ? parseInt(id, 10) : id;
- // Dedicated program page (each program has its own URL)
- var url = null;
- if (typeof window.SHH_programPageUrl === 'function') {
- url = window.SHH_programPageUrl(numId);
- } else if (window.SHH_PROGRAM_PAGES) {
- url = window.SHH_PROGRAM_PAGES[numId] || window.SHH_PROGRAM_PAGES[String(numId)];
+ var url = EXPERIENCE_URLS[numId] || EXPERIENCE_URLS[String(numId)] || null;
+ if (!url) {
+  if (typeof window.SHH_programPageUrl === 'function') {
+   url = window.SHH_programPageUrl(numId);
+  } else if (window.SHH_PROGRAM_PAGES) {
+   url = window.SHH_PROGRAM_PAGES[numId] || window.SHH_PROGRAM_PAGES[String(numId)];
+  }
  }
  if (url) {
- // If already under /programs/, avoid double prefix
- if (location.pathname.indexOf('/programs/') !== -1 && url.indexOf('programs/') === 0) {
- url = url.replace(/^programs\//, '');
- }
- window.location.href = url;
- return;
+  window.location.href = resolveSiteUrl(url);
+  return;
  }
  // Fallback: modal or all-programs deep-link
  if (typeof window.showProgramModal === 'function') {
  window.showProgramModal(numId);
  return;
  }
- window.location.href = 'all-programs.html#program-' + numId;
+ window.location.href = resolveSiteUrl('all-programs.html#program-' + numId);
  }
 
  function shortTitle(title) {
@@ -637,7 +678,7 @@
 
  var mission = document.createElement('p');
  mission.className = 'prog-fw-mission';
- mission.innerHTML = '<strong>2 flywheels</strong>, one mission · scroll each wheel for every program';
+ mission.innerHTML = '<strong>2 flywheels</strong>, one everlasting snowball · scroll to find your program · when you are lifted, lift the next';
  mount.appendChild(mission);
  }
 
@@ -684,20 +725,21 @@
  var isAllPrograms = /all-programs\.html$/i.test(location.pathname);
  var isIndex = /index\.html$/i.test(location.pathname) || location.pathname === '/' || location.pathname.endsWith('/');
  var footLinks = [
- { href: isAllPrograms ? '#all-programs-grid' : 'all-programs.html', icon: '◉', text: 'All ' + totalN + ' Programs' },
- { href: 'spin-the-wheel.html', icon: '🎡', text: 'Spin the Mercy Wheel · Live' },
- { href: isAllPrograms ? '#nibbles' : 'all-programs.html#nibbles', icon: '🐾', text: 'All $NIBBLES · 16' },
- { href: isAllPrograms ? '#hopeseed' : 'all-programs.html#hopeseed', icon: '🌱', text: 'All $hopeseed · 14' }
+ { href: isAllPrograms ? '#all-programs-grid' : resolveSiteUrl('all-programs.html'), icon: '◉', text: 'All ' + totalN + ' Programs' },
+ { href: resolveSiteUrl('spin-the-wheel.html'), icon: '🎡', text: 'Spin the Mercy Wheel · Live' },
+ { href: resolveSiteUrl('pay-it-forward.html'), icon: '🔗❤️', text: 'Pay It Forward · the snowball' },
+ { href: isAllPrograms ? '#nibbles' : resolveSiteUrl('all-programs.html#nibbles'), icon: '🐾', text: 'All $NIBBLES · 16' },
+ { href: isAllPrograms ? '#hopeseed' : resolveSiteUrl('all-programs.html#hopeseed'), icon: '🌱', text: 'All $hopeseed · 14' }
  ];
  if (isIndex) {
  footLinks.splice(1, 0, { href: '#programs', icon: '✦', text: 'Featured on this page' });
  }
  if (isAllPrograms) {
- footLinks.splice(1, 0, { href: 'index.html', icon: '↻', text: 'Mercy Flywheel home' });
+ footLinks.splice(1, 0, { href: resolveSiteUrl('index.html'), icon: '↻', text: 'Mercy Flywheel home' });
  }
 
  menu.innerHTML =
- '<div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">' + totalN + ' programs</span></div>' +
+ '<div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">' + totalN + ' programs · spin to serve</span></div>' +
  '<div data-prog-fw-mount></div>' +
  '<div class="prog-fw-foot" data-prog-fw-foot></div>';
 
@@ -738,6 +780,47 @@
  foot.appendChild(gloss);
 
  buildMount(menu.querySelector('[data-prog-fw-mount]'));
+ watchMenuOpen(menu);
+ }
+
+ /* Soft welcome spin when the Programs dropdown opens */
+ function watchMenuOpen(menu) {
+  if (!menu || menu.getAttribute('data-fw-watch') === '1') return;
+  menu.setAttribute('data-fw-watch', '1');
+  var lastHidden = menu.classList.contains('hidden');
+  var mo = new MutationObserver(function () {
+   var hidden = menu.classList.contains('hidden');
+   if (lastHidden && !hidden) {
+    softInviteSpin(menu);
+   }
+   lastHidden = hidden;
+  });
+  mo.observe(menu, { attributes: true, attributeFilter: ['class'] });
+ }
+
+ function softInviteSpin(root) {
+  try {
+   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  } catch (e) { /* ignore */ }
+  var cols = (root || document).querySelectorAll('.prog-fw-col');
+  cols.forEach(function (col, i) {
+   setTimeout(function () {
+    col.classList.add('is-spinning', 'is-hover');
+    var ring = col.querySelector('[data-ring]');
+    if (ring) {
+     var cur = ring.style.transform || 'rotate(0deg)';
+     ring.style.transform = 'rotate(48deg)';
+     requestAnimationFrame(function () {
+      setTimeout(function () {
+       ring.style.transform = cur || 'rotate(0deg)';
+       col.classList.remove('is-spinning');
+      }, 280);
+     });
+    } else {
+     setTimeout(function () { col.classList.remove('is-spinning'); }, 420);
+    }
+   }, i * 90);
+  });
  }
 
  function init() {

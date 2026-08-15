@@ -34,7 +34,10 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
- <script src="js/shared-animations.js" defer></script>
+ <script src="js/programs-data.js" defer></script>
+<script src="js/program-pages-map.js" defer></script>
+<script src="js/programs-flywheel-nav.js" defer></script>
+<script src="js/shared-animations.js" defer></script>
  <script src="js/glossary.js" defer></script>
  <script src="js/program-actions.js" defer></script>
  <script src="js/golden-paws-experience.js" defer></script>
@@ -518,13 +521,11 @@
  <a href="all-programs.html" onclick="toggleProgramsDropdown(event)" class="hover:text-amber-300 transition-colors flex items-center gap-1">
  Programs <i class="fa-solid fa-chevron-down text-[10px]"></i>
  </a>
- <div id="programs-menu" class="absolute hidden mt-2 bg-zinc-900/95 border border-white/15 rounded-3xl py-3 min-w-[270px] z-[60] shadow-2xl">
- <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5">◉ All 30 Programs</a>
- <a href="golden-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 bg-white/5 text-amber-200">★ Golden Paws · Retirement</a>
- <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5">❤️ Golden Years · Companions</a>
- <a href="healing-hearts.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5">♥ Healing Hearts</a>
- <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5">🐾 Silver Paws</a>
- </div>
+ <div id="programs-menu" class="absolute hidden mt-2 bg-zinc-900/95 border border-white/15 rounded-3xl py-3 min-w-[270px] z-[60] shadow-2xl overflow-hidden">
+ <!-- Built by js/programs-flywheel-nav.js: dual $NIBBLES + $hopeseed wheels -->
+ <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
+ <div data-prog-fw-mount></div>
+</div>
  </div>
  <a href="pay-it-forward.html" class="pay-forward-nav font-medium">Pay It Forward</a>
  <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
@@ -538,14 +539,15 @@
 <div class="gp-aurora" aria-hidden="true"></div>
 
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 100px;">
- <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
- <a href="all-programs.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 Programs</a>
+ <div class="max-w-7xl mx-auto px-4 py-6 text-sm flex flex-col gap-1">
+ <div class="px-1 pb-2" id="mobile-prog-fw-mount" data-prog-fw-mount></div>
+ <p class="px-4 pb-3 text-[10px] tracking-wide text-zinc-500">2 flywheels · scroll each wheel · find every program</p>
+ <div class="my-1 border-t border-white/10"></div>
+ <a href="all-programs.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 programs board</a>
+ <a href="pay-it-forward.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-rose-200">Pay It Forward · the snowball</a>
  <a href="golden-paws.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-amber-200">★ Golden Paws</a>
- <a href="golden-years.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Golden Years</a>
- <a href="healing-hearts.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Healing Hearts</a>
- <a href="silver-paws.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Silver Paws</a>
+ <a href="index.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Flywheel home</a>
  <a href="shelters.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Beautiful Souls</a>
- <a href="index.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Home</a>
  </div>
 </div>
 

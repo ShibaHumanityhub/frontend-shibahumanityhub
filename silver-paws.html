@@ -42,7 +42,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
- <script src="js/shared-animations.js" defer></script>
+ <script src="js/programs-data.js" defer></script>
+<script src="js/program-pages-map.js" defer></script>
+<script src="js/programs-flywheel-nav.js" defer></script>
+<script src="js/shared-animations.js" defer></script>
  <script src="js/glossary.js" defer></script>
  <script src="js/silver-paws-locations.js"></script>
 
@@ -520,63 +523,10 @@
  <div id="programs-menu" 
  class="absolute hidden mt-2 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[260px] z-[60] shadow-2xl overflow-hidden"
  style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
- 
- <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
- <span>THE CIRCLE OF MERCY</span>
- </div>
- 
- <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
- <span>All 30 Programs</span>
- </a>
- <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="chain-heart text-base">🔗❤️</span> 
- <span>Pay It Forward Adoption Chain</span>
- </a>
- <a href="shiba-barn-table.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-orange-300/90">🍽️</span> 
- <span>Shiba Barn Table BBQ</span>
- </a>
-<a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
- <span>K9 Lifeline • Disaster Response</span>
- </a>
- <a href="healing-hearts.html#hhx-stars" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
- <span>Star Souls • Therapy Gigs</span>
- </a>
- <a href="healing-hearts.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-rose-300 group-hover/item:text-rose-200">♥</span> 
- <span>Healing Hearts • Network</span>
- </a>
- <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-[#c0c0c0] group-hover/item:text-white">🐾</span> 
- <span>Silver Paws • Senior Healing</span>
- </a>
- <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">❤️</span> 
- <span>Golden Years • Companion Matching</span>
- </a>
- <a href="unified-rescue-registry.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">🪪</span> 
- <span>Unified Rescue Registry • Soulbound Passports</span>
- </a>
- <a href="#reels" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
- <span>Virality • Reels &amp; Memories</span>
- </a>
- 
- <div class="my-1 border-t border-white/10"></div>
- 
- <a href="#" onclick="if(window.SHHGlossary) { window.SHHGlossary.showExplain('mercy flywheel'); } return false;" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item border-t border-white/10 mt-1 pt-3">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">?</span> 
- <span>Plain Terms Glossary ⓘ</span>
- </a>
- <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="chain-heart text-base">🔗❤️</span> 
- <span>Pay It Forward Adoption Chain</span>
- </a>
- </div>
+ <!-- Built by js/programs-flywheel-nav.js: dual $NIBBLES + $hopeseed wheels -->
+ <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
+ <div data-prog-fw-mount></div>
+</div>
  </div>
 
  <a href="pay-it-forward.html" class="pay-forward-nav flex items-center gap-1.5 hover:text-rose-400 transition-all font-medium group/pi" title="Helping another soul melts your heart. Be part of the solution.">
@@ -623,56 +573,16 @@
 <div class="silver-bg-layer paw-pattern"></div>
 <div id="scroll-warmth" class="scroll-warmth"></div>
 
-<!-- Mobile Menu -->
+<!-- Mobile Menu · dual flywheels + essential doors -->
 <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 110px;">
- <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
- <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center gap-2 border-b border-white/10 mb-1">
- <span>THE CIRCLE OF MERCY</span>
- </div>
- 
- <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">◉</span> 
- <span>All 30 Programs</span>
- </a>
- <a href="shiba-barn-table.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-orange-300/90">🍽️</span> 
- <span>Shiba Barn Table BBQ</span>
- </a>
-<a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">◆</span> 
- <span>K9 Lifeline • Disaster Response</span>
- </a>
- <a href="healing-hearts.html#hhx-stars" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80 group-hover/item:text-emerald-400">✿</span> 
- <span>Star Souls • Therapy Gigs</span>
- </a>
- <a href="healing-hearts.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-rose-300 group-hover/item:text-rose-200">♥</span> 
- <span>Healing Hearts • Network</span>
- </a>
- <a href="silver-paws.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🐾</span> 
- <span>Silver Paws • Senior Healing</span>
- </a>
- <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80 group-hover/item:text-amber-400">❤️</span> 
- <span>Golden Years • Companion Matching</span>
- </a>
- <a href="#reels" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80 group-hover/item:text-emerald-400">🌟</span> 
- <span>Virality • Reels &amp; Memories</span>
- </a>
- 
+ <div class="max-w-7xl mx-auto px-4 py-6 text-sm flex flex-col gap-1">
+ <div class="px-1 pb-2" id="mobile-prog-fw-mount" data-prog-fw-mount></div>
+ <p class="px-4 pb-3 text-[10px] tracking-wide text-zinc-500">2 flywheels · scroll each wheel · find every program · when lifted, lift the next</p>
  <div class="my-1 border-t border-white/10"></div>
- 
- <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80">◉</span> 
- <span>Flywheel Home</span>
- </a>
- <a href="shelters.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-red-400/80">❤️</span> 
- <span>Beautiful Souls</span>
- </a>
+ <a href="all-programs.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 programs board</a>
+ <a href="pay-it-forward.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl text-rose-200">Pay It Forward · the snowball</a>
+ <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">Flywheel home</a>
+ <a href="shelters.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 rounded-xl">Beautiful Souls</a>
  </div>
 </div>
 
