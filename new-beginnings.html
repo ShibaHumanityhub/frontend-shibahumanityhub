@@ -67,6 +67,7 @@
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  contain: strict;
   --nb-p: 0;
   --nb-phase: 0;
   --mesh-y: 0px;
@@ -75,6 +76,18 @@
   --bump-x: 50%;
   --bump-s: 1;
   --tide-op: 0.72;
+ }
+ /* Freeze heavy FX while scrolling — primary mobile flicker guard */
+ body.is-scrolling .nb-fx-mesh,
+ body.is-scrolling .nb-fx-mesh-cross,
+ body.is-scrolling .nb-fx-bump,
+ body.is-scrolling .nb-fx-aurora,
+ body.is-scrolling .nb-fx-tide,
+ body.is-scrolling .nb-fx-sheen,
+ body.is-scrolling .nb-fx-dust,
+ body.is-scrolling .nb-cta,
+ body.is-scrolling .nb-float {
+  animation-play-state: paused !important;
  }
  .nb-fx-wash {
   position: absolute;
@@ -225,13 +238,26 @@
   will-change: transform;
   opacity: 0.7;
  }
- body > *:not(.nb-fx) { position: relative; z-index: 1; }
+ /* Lift chrome only — avoid stacking-context thrash on every sibling */
+ nav, .nb-hero, #nbx-panel-host, footer, #mobile-menu, .fixed, .nbx-mtop, .nbx-mtabs {
+  position: relative;
+  z-index: 1;
+ }
+ nav, .nbx-mtop { z-index: 60; }
+ #mobile-menu { z-index: 40; }
+ .fixed { z-index: 60; }
+ .nbx-mtabs { z-index: 75; }
 
  nav.bg-black\/95, nav[class*="bg-black"] {
-  background: rgba(6, 16, 24, 0.92) !important;
+  background: rgba(6, 16, 24, 0.97) !important;
   border-bottom-color: var(--nb-line) !important;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+ }
+ @media (min-width: 768px) {
+  nav.bg-black\/95, nav[class*="bg-black"] {
+   background: rgba(6, 16, 24, 0.92) !important;
+   backdrop-filter: blur(14px);
+   -webkit-backdrop-filter: blur(14px);
+  }
  }
 
  .nb-hero {
@@ -529,10 +555,37 @@
   .nb-float { display: none; }
   .nb-hero { padding: 5.5rem 0.75rem 1.5rem; }
   .nb-media { max-width: min(240px, 78vw); }
-  .nb-fx-mesh { opacity: 0.38; height: 68%; }
-  .nb-fx-mesh-cross { opacity: 0.18; }
-  .nb-fx-tide { height: min(62vh, 480px); top: 12%; }
-  .nb-fx { --tide-op: 0.58; }
+  /* Static calm wash on mobile — no 3D mesh / canvas thrash */
+  .nb-fx-mesh,
+  .nb-fx-mesh-cross,
+  .nb-fx-bump,
+  .nb-fx-aurora,
+  .nb-fx-sheen,
+  .nb-fx-tide {
+   display: none !important;
+  }
+  .nb-fx-dust {
+   opacity: 0.22;
+   transform: none !important;
+   will-change: auto !important;
+   animation: none !important;
+  }
+  .nb-fx { --tide-op: 0; }
+  .nb-cta { animation: none !important; }
+  footer { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  /* Clearer type over dark mobile wash */
+  .nb-sub { color: #f0f9ff; text-shadow: 0 1px 2px rgba(0,0,0,.55); }
+  .nb-welcome {
+   color: #e8f6ff;
+   border-color: rgba(110, 231, 183, 0.5);
+   box-shadow:
+    0 0 0 1px rgba(125, 211, 252, 0.1),
+    0 18px 40px -22px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .nb-welcome-hook { font-size: 1.05rem; line-height: 1.4; }
+  .nb-welcome-body { font-size: 0.92rem; color: rgba(224, 242, 254, 0.95); }
+  .nb-stamp { color: rgba(253, 230, 138, 0.88); }
  }
  @media (prefers-reduced-motion: reduce) {
   .nb-float { animation: none !important; }
@@ -720,6 +773,16 @@ function toggleMobileMenu() {
   m.classList.toggle('hidden');
   if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
  }
+ /* Pause atmosphere while scrolling */
+ (function () {
+  var t = 0;
+  window.addEventListener('scroll', function () {
+   document.body.classList.add('is-scrolling');
+   clearTimeout(t);
+   t = setTimeout(function () { document.body.classList.remove('is-scrolling'); }, 140);
+  }, { passive: true });
+ })();
+
  (function () {
   /* Hero video: keep motion always. Never pause on scroll or off-screen. */
   var vid = document.getElementById('nb-hero-video');
@@ -754,25 +817,34 @@ function toggleMobileMenu() {
    new MutationObserver(function () { setTimeout(sync, 40); }).observe(document.body, {
     attributes: true, attributeFilter: ['class'], subtree: true
    });
-   /* Re-kick if anything else paused us; never tied to scroll position */
-   setInterval(function () {
-    if (!document.hidden && onHeartTab() && vid.paused) kick();
-   }, 900);
    kick();
-   setTimeout(kick, 200);
-   setTimeout(kick, 700);
-   setTimeout(kick, 1600);
+   setTimeout(kick, 280);
+   setTimeout(kick, 900);
   }
 
-  /* Living tidal atmosphere: mesh depth + 3D bump + scroll-linked crests */
+  /* Living tidal atmosphere: mesh depth + 3D bump + scroll-linked crests
+     Mobile: skip canvas + scroll-driven transforms (flicker). Soft static wash only. */
   var fx = document.getElementById('nb-fx');
   var canvas = document.getElementById('nb-tide');
   if (!fx || !canvas) return;
 
   var reduce = false;
+  var isMobile = false;
   try {
    reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+   isMobile = window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
   } catch (e3) { /* ignore */ }
+
+  if (isMobile || reduce) {
+   /* One calm paint path — no rAF thrash */
+   fx.style.setProperty('--mesh-y', '0px');
+   fx.style.setProperty('--mesh-s', '1');
+   fx.style.setProperty('--bump-y', '0%');
+   fx.style.setProperty('--bump-s', '1');
+   fx.style.setProperty('--tide-op', '0');
+   try { canvas.width = 1; canvas.height = 1; } catch (eM) { /* ignore */ }
+   return;
+  }
 
   var ctx = null;
   try { ctx = canvas.getContext('2d', { alpha: true }); } catch (e4) { ctx = null; }
