@@ -99,8 +99,55 @@
 
  <style>
  * { box-sizing: border-box; }
- body { margin:0; padding:0; overflow-x:hidden; background:#0a0f1c; color:white; font-family: 'Inter', system-ui, sans-serif; }
- .hero-bg { background: linear-gradient(180deg, #0a0f1c 0%, #151c2e 100%); }
+ body { margin:0; padding:0; overflow-x:hidden; background:#070b14; color:white; font-family: 'Inter', system-ui, sans-serif; }
+ .hero-bg {
+  position: relative;
+  overflow: hidden;
+  background:
+   radial-gradient(ellipse 90% 55% at 50% -8%, rgba(239,68,68,0.14), transparent 52%),
+   radial-gradient(ellipse 50% 40% at 100% 30%, rgba(251,191,36,0.08), transparent 50%),
+   linear-gradient(180deg, #0a0f1c 0%, #101828 48%, #070b14 100%);
+ }
+ /* Kennel corridor atmosphere — last four walls */
+ .bs-fx { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; contain: strict; }
+ .bs-fx-wash {
+  position: absolute; inset: 0;
+  background:
+   linear-gradient(90deg, rgba(0,0,0,0.55) 0%, transparent 18%, transparent 82%, rgba(0,0,0,0.55) 100%),
+   linear-gradient(180deg, rgba(7,11,20,0.35) 0%, transparent 40%, rgba(7,11,20,0.85) 100%);
+ }
+ .bs-fx-bars {
+  position: absolute; inset: 0;
+  opacity: 0.14;
+  background: repeating-linear-gradient(
+   90deg,
+   transparent 0 46px,
+   rgba(255,255,255,0.09) 46px 48px
+  );
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 20%, transparent 75%);
+ }
+ .bs-fx-light {
+  position: absolute; left: 50%; top: -10%; width: min(70vw, 420px); height: 70%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(254,243,199,0.12) 0%, rgba(251,191,36,0.05) 35%, transparent 75%);
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+  opacity: 0.7;
+ }
+ @media (min-width: 768px) {
+  .bs-fx-light { animation: bs-shaft 6.5s ease-in-out infinite; }
+ }
+ @keyframes bs-shaft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
+ }
+ .bs-fx-floor {
+  position: absolute; left: -8%; right: -8%; bottom: -5%; height: 34%;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.9));
+  opacity: 0.8;
+ }
+ .hero-bg > *:not(.bs-fx) { position: relative; z-index: 1; }
+ body.is-scrolling .bs-fx-light { animation-play-state: paused !important; }
 
  .soul-card {
  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.45s ease, border-color .3s;
@@ -175,86 +222,128 @@
  position: relative;
  max-width: 980px;
  margin: 0 auto;
- padding-left: 60px;
+ padding-left: 0;
  }
  .souls-timeline::before {
  content: '';
  position: absolute;
- left: 28px;
- top: 0;
- bottom: 0;
- width: 3px;
+ left: 18px;
+ top: 8px;
+ bottom: 8px;
+ width: 2px;
  background: linear-gradient(to bottom, #ef4444, #f59e0b, #10b981);
- opacity: 0.25;
+ opacity: 0.35;
  border-radius: 3px;
+ }
+ @media (max-width: 640px) {
+  .souls-timeline::before { left: 12px; }
  }
 
  .soul-entry {
  position: relative;
- margin-bottom: 2.25rem;
+ margin-bottom: 1.15rem;
+ margin-left: 2.35rem;
  display: flex;
- gap: 1.75rem;
- transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+ gap: 1.15rem;
+ align-items: flex-start;
+ transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s, box-shadow 0.35s;
+ }
+ @media (min-width: 768px) {
+  .soul-entry { gap: 1.4rem; margin-left: 2.75rem; margin-bottom: 1.35rem; }
  }
  .soul-entry:hover {
- transform: translateX(4px);
+ transform: translateY(-3px);
+ border-color: rgba(251,191,36,0.35);
  }
  .soul-entry .timeline-dot {
  position: absolute;
- left: 18px;
- top: 22px;
- width: 22px;
- height: 22px;
+ left: -2.15rem;
+ top: 1.35rem;
+ width: 14px;
+ height: 14px;
  border-radius: 9999px;
- border: 3px solid #0a0f1c;
+ border: 2px solid #070b14;
  z-index: 2;
  transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+ @media (min-width: 768px) {
+  .soul-entry .timeline-dot { left: -2.45rem; width: 16px; height: 16px; }
  }
  .soul-entry:hover .timeline-dot {
  transform: scale(1.15);
  }
  .soul-entry.urgent .timeline-dot {
  box-shadow: 0 0 0 6px rgba(239,68,68,0.2);
- animation: pulse-urgent 2.5s infinite;
+ }
+ @media (min-width: 768px) {
+  .soul-entry.urgent .timeline-dot { animation: pulse-urgent 2.5s infinite; }
  }
 
  .soul-entry .soul-visual {
  width: 108px;
  height: 108px;
  flex-shrink: 0;
- border-radius: 9999px;
+ border-radius: 1.15rem;
  overflow: hidden;
- border: 4px solid rgba(255,255,255,0.1);
- box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
+ border: 2px solid rgba(251,191,36,0.28);
+ box-shadow:
+  0 14px 36px -12px rgba(0,0,0,0.75),
+  0 0 28px -10px rgba(239,68,68,0.25),
+  inset 0 0 0 1px rgba(255,255,255,0.06);
  position: relative;
  background: #111827;
  }
+ /* Kennel bars over the face — last walls */
+ .soul-entry .soul-visual::before {
+ content: '';
+ position: absolute; inset: 0; z-index: 2; pointer-events: none;
+ background: repeating-linear-gradient(
+  90deg,
+  transparent 0 11px,
+  rgba(0,0,0,0.35) 11px 13px
+ );
+ opacity: 0.55;
+ mix-blend-mode: multiply;
+ }
+ .soul-entry:hover .soul-visual::before { opacity: 0.28; }
+ .soul-entry .kennel-tag {
+ position: absolute; left: 6px; bottom: 6px; z-index: 3;
+ font-size: 0.48rem; letter-spacing: 0.12em; text-transform: uppercase;
+ font-weight: 700; color: #fecaca;
+ background: rgba(0,0,0,0.72); border: 1px solid rgba(239,68,68,0.45);
+ padding: 0.15rem 0.4rem; border-radius: 999px;
+ }
+ .soul-entry {
+ background: linear-gradient(145deg, rgba(24,28,40,0.92), rgba(10,14,24,0.96));
+ border: 1px solid rgba(255,255,255,0.08);
+ border-radius: 1.35rem;
+ padding: 1rem 1.1rem 1.05rem;
+ box-shadow: 0 20px 50px -28px rgba(0,0,0,0.85);
+ }
+ .soul-entry.urgent {
+ border-color: rgba(239,68,68,0.35);
+ box-shadow: 0 0 40px -18px rgba(239,68,68,0.45), 0 20px 50px -28px rgba(0,0,0,0.85);
+ }
+ .soul-entry .hours-pill {
+ display: inline-flex; align-items: center; gap: 0.35rem;
+ font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+ padding: 0.28rem 0.55rem; border-radius: 999px;
+ border: 1px solid rgba(239,68,68,0.4); background: rgba(239,68,68,0.12); color: #fecaca;
+ }
+ .soul-entry .hours-pill.ok { border-color: rgba(52,211,153,0.35); background: rgba(16,185,129,0.1); color: #86efac; }
+ .soul-entry .hours-pill.warn { border-color: rgba(245,158,11,0.4); background: rgba(245,158,11,0.12); color: #fcd34d; }
 
  /* Super skinny mobile perfection ( <360px and below ) - timeline + passports look premium, tight, "mobile sick" */
  @media (max-width: 360px) {
- .souls-timeline { padding-left: 24px; }
- .soul-entry { gap: 0.6rem; margin-bottom: 1rem; }
- .soul-entry .soul-visual { width: 64px; height: 64px; border-width: 2px; }
- .soul-name { font-size: 1.25rem; letter-spacing: -1.2px; }
- .soul-clock { font-size: 1.45rem; }
- .trait-chip { font-size: 0.55rem; padding: 1px 5px; }
- .soul-content p { font-size: 0.75rem; line-height: 1.25; }
- .soul-save-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
- .soul-entry .soul-visual + .soul-content { font-size: 0.9rem; }
- }
-
- /* Ultra premium skinny mobile (<360px) - timeline + passports "mobile sick" (compact, elegant, no breakage, touch-friendly) */
- @media (max-width: 360px) {
- .souls-timeline { padding-left: 12px; }
- .soul-entry { gap: 0.35rem; margin-bottom: 0.6rem; }
- .soul-entry .soul-visual { width: 44px; height: 44px; border-width: 1px; }
- .soul-name { font-size: 0.95rem; letter-spacing: -0.6px; }
- .soul-clock { font-size: 1rem; }
- .trait-chip { font-size: 0.42rem; padding: 0 2px; }
- .soul-content p { font-size: 0.6rem; line-height: 1.1; }
- .soul-save-btn { padding: 0.25rem 0.45rem; font-size: 0.6rem; }
- .soul-entry .soul-visual + .soul-content { font-size: 0.75rem; }
- /* Passports: elegant single stack, generous touch areas */
+ .souls-timeline { padding-left: 0; }
+ .soul-entry { gap: 0.55rem; margin-bottom: 0.75rem; margin-left: 1.65rem; padding: 0.75rem; }
+ .soul-entry .timeline-dot { left: -1.55rem; top: 1.1rem; width: 11px; height: 11px; }
+ .soul-entry .soul-visual { width: 56px; height: 56px; border-width: 1px; border-radius: 0.85rem; }
+ .soul-name { font-size: 1.05rem; letter-spacing: -0.6px; }
+ .soul-clock { font-size: 1.15rem; }
+ .trait-chip { font-size: 0.5rem; padding: 1px 5px; }
+ .soul-content p { font-size: 0.72rem; line-height: 1.35; }
+ .soul-save-btn { padding: 0.45rem 0.75rem; font-size: 0.72rem; }
  .soul-passport-card {
  padding: 0.45rem !important;
  border-radius: 0.6rem;
@@ -314,7 +403,9 @@
  }
  .soul-entry.senior .soul-visual { border-color: #fcd34d; box-shadow: 0 0 40px -5px #fcd34d44; }
  .soul-entry.puppy .soul-visual { border-color: #34d399; box-shadow: 0 0 40px -5px #34d39944; }
- .soul-entry.high-energy .soul-visual { animation: energy-breath 3s ease-in-out infinite; }
+ @media (min-width: 768px) {
+  .soul-entry.high-energy .soul-visual { animation: energy-breath 3s ease-in-out infinite; }
+ }
  .soul-entry.gentle .soul-visual::after { background: radial-gradient(circle, rgba(52,211,153,0.15) 10%, transparent); }
 
  @keyframes pulse-urgent {
@@ -382,8 +473,10 @@
  }
 
  @media (max-width: 640px) {
- .souls-timeline { padding-left: 40px; }
+ .souls-timeline { padding-left: 0; }
  .soul-entry .soul-visual { width: 78px; height: 78px; }
+ .soul-entry { margin-left: 2rem; }
+ .soul-entry .timeline-dot { left: -1.85rem; }
  }
 
  .relic-frame {
@@ -488,40 +581,86 @@
  </div>
 </div>
 
-<!-- HERO: FACE GRABBING -->
-<header class="hero-bg pt-20 pb-14 text-center border-b border-red-500/10">
- <div class="max-w-4xl mx-auto px-6 pt-12">
- <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-red-500/10 text-red-400 text-xs tracking-[2.5px] mb-3">THE LIVING MERCY</div>
- <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-500/10 text-amber-200 text-[10px] tracking-[2px] mb-5 border border-amber-400/30">PROTOTYPE TIMELINE • NOT A LIVE SHELTER API</div>
- 
- <h1 class="text-[64px] md:text-[86px] leading-[0.82] font-bold tracking-[-5.6px] mb-3">Meet the<br>Beautiful Souls</h1>
- <p class="text-3xl md:text-4xl font-light text-amber-100 max-w-3xl mx-auto">Real souls are why the flywheel exists. These clocks are outreach prototypes until live partner feeds land.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span></p>
- 
- <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center items-center">
- <div class="inline-flex items-center bg-zinc-900 border border-red-400/30 rounded-3xl px-7 py-3 text-xl">
- <span class="text-red-400 mr-3">⏰</span> 
- <span id="global-clock" class="font-semibold text-red-200 clock">Illustrative: 47 souls in the prototype timeline</span>
- </div>
- <a href="#souls" class="soul-save-btn inline-flex items-center gap-3 px-10 py-4 text-lg font-bold">See Every Soul Now</a>
- </div>
- <p class="mt-5 text-xs text-zinc-400 max-w-md mx-auto">Honest label: demo and outreach scenarios we use while shelter partnerships go live. Not a live euthanasia API. Truth first.</p>
+<!-- HERO: last four walls — witness the souls -->
+<header class="hero-bg pt-20 pb-12 text-center border-b border-red-500/15">
+ <div class="bs-fx" aria-hidden="true">
+  <div class="bs-fx-wash"></div>
+  <div class="bs-fx-bars"></div>
+  <div class="bs-fx-light"></div>
+  <div class="bs-fx-floor"></div>
  </div>
 
- <!-- THE BEAUTIFUL TRUTH: costs nothing -->
- <div class="max-w-2xl mx-auto mt-6 mb-4 px-6">
- <div class="bg-gradient-to-r from-emerald-900/30 to-amber-900/20 border border-emerald-400/30 rounded-3xl p-6 text-center">
- <p class="text-lg text-emerald-200 font-medium">The question is not whether these dogs can be saved. The question is whether we will let the engine we already built do what it was designed for.</p>
- <p class="mt-2 text-emerald-100">The engine is designed so that when tax and impact rails are live, holding or transacting $NIBBLES or $hopeseed funds mercy without an extra ask. Until then, your attention and participation build the path. Not inflated claims that clocks stop today from holding alone.<span class="info-icon" data-term="hopeseed" title="Tap for plain terms">ⓘ</span></p>
- <p class="mt-3 text-xs text-emerald-300/80">This is first-principles compassion at scale. People helping people. Helping people. The dogs remember who turned the wheel.</p>
+ <div class="max-w-4xl mx-auto px-6 pt-10 sm:pt-12">
+  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/15 text-red-300 text-[10px] sm:text-xs tracking-[0.2em] mb-3 border border-red-400/30 font-semibold">
+   <span class="live-dot w-1.5 h-1.5 rounded-full bg-red-400 inline-block"></span>
+   WITNESS MODE · BEAUTIFUL SOULS
+  </div>
+  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 text-amber-100/80 text-[10px] tracking-[0.14em] mb-6 border border-amber-400/25">
+   PROTOTYPE TIMELINE · NOT A LIVE SHELTER API
+  </div>
+
+  <p class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-red-200/70 font-semibold mb-3">Behind those bars · time is the only currency</p>
+  <h1 class="font-bold tracking-[-0.04em] leading-[0.9] mb-4 text-[clamp(2.6rem,9vw,5.2rem)]" style="font-family:'Space Grotesk',sans-serif">
+   The last four walls<br>
+   <span class="bg-gradient-to-r from-amber-100 via-white to-red-200 bg-clip-text text-transparent">they may ever see.</span>
+  </h1>
+  <p class="text-lg sm:text-2xl md:text-3xl font-medium text-amber-50 max-w-2xl mx-auto leading-snug" style="font-family:'Space Grotesk',sans-serif;text-shadow:0 2px 24px rgba(0,0,0,.55)">
+   Innocent. Loving. Waiting.
+   <span class="block mt-2 text-base sm:text-xl font-normal text-red-100/90">You are looking at the kennel they hope is not the end of their story.</span>
+  </p>
+  <p class="mt-4 text-sm sm:text-base text-zinc-300 max-w-xl mx-auto leading-relaxed">
+   Every face here is why the flywheel exists. Clocks below are outreach prototypes until live partner feeds land. Truth first. Heart first. Act like someone is watching through the bars with you.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span>
+  </p>
+
+  <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
+   <div class="inline-flex items-center justify-center bg-black/55 border border-red-400/40 rounded-2xl px-5 py-3.5 text-left shadow-[0_0_40px_-12px_rgba(239,68,68,0.55)]">
+    <span class="text-red-400 mr-3 text-xl" aria-hidden="true">⏰</span>
+    <span id="global-clock" class="font-semibold text-red-100 clock text-sm sm:text-base leading-snug">Illustrative: 47 souls in the prototype timeline</span>
+   </div>
+   <a href="#souls" class="soul-save-btn inline-flex items-center justify-center gap-2 px-8 py-4 text-base sm:text-lg font-bold">
+    Open the kennel doors <i class="fa-solid fa-heart"></i>
+   </a>
+  </div>
+  <p class="mt-4 text-[11px] text-zinc-400 max-w-md mx-auto">Honest label: demo and outreach scenarios while shelter partnerships go live. Not a live euthanasia API.</p>
  </div>
+
+ <div class="max-w-3xl mx-auto mt-8 mb-2 px-6">
+  <div class="relative overflow-hidden rounded-[1.35rem] border border-amber-400/30 bg-gradient-to-br from-red-950/40 via-zinc-950/90 to-amber-950/30 p-5 sm:p-7 text-left sm:text-center shadow-[0_24px_60px_-28px_rgba(0,0,0,0.9)]">
+   <div class="absolute left-0 top-[12%] bottom-[12%] w-[3px] rounded-r bg-gradient-to-b from-red-400 via-amber-300 to-emerald-400" aria-hidden="true"></div>
+   <p class="text-[10px] tracking-[0.18em] uppercase text-amber-300/80 font-bold mb-2">First principle</p>
+   <p class="text-base sm:text-lg text-amber-50 font-semibold leading-snug" style="font-family:'Space Grotesk',sans-serif">
+    The question is not whether these dogs can be saved. The question is whether we will let the engine we already built do what it was designed for.
+   </p>
+   <p class="mt-3 text-sm text-zinc-200 leading-relaxed">
+    When tax and impact rails are live, holding $NIBBLES or $hopeseed is designed to fund mercy without an extra ask. Until then, your attention builds the path. Not inflated claims that clocks stop today from holding alone.<span class="info-icon" data-term="hopeseed" title="Tap for plain terms">ⓘ</span>
+   </p>
+   <p class="mt-3 text-xs text-emerald-300/85">People helping people. Helping people. The dogs remember who looked back.</p>
+  </div>
  </div>
 </header>
 
-<!-- WHY THIS EXISTS / RESONANCE INTRO -->
-<section class="max-w-5xl mx-auto px-6 pt-16 pb-10 text-center">
- <div class="max-w-2xl mx-auto">
- <p class="text-xl text-amber-200 leading-tight">These are not abstract numbers. They are named souls in an outreach prototype. When partner data and funding are live, the flywheel is built to buy real time for real dogs in real cities. That is the reason the programs exist.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span></p>
+<!-- WITNESS STRIP -->
+<section class="max-w-5xl mx-auto px-6 pt-12 pb-8">
+ <div class="grid gap-3 sm:grid-cols-3">
+  <div class="rounded-2xl border border-white/10 bg-zinc-950/80 p-4 text-center">
+   <div class="text-2xl mb-1" aria-hidden="true">👁️</div>
+   <p class="text-sm font-semibold text-amber-100" style="font-family:'Space Grotesk',sans-serif">You are witnessing</p>
+   <p class="text-xs text-zinc-400 mt-1 leading-relaxed">Named souls. Real cities. Real shelters in an outreach prototype.</p>
+  </div>
+  <div class="rounded-2xl border border-red-400/25 bg-red-950/20 p-4 text-center">
+   <div class="text-2xl mb-1" aria-hidden="true">🧱</div>
+   <p class="text-sm font-semibold text-red-100" style="font-family:'Space Grotesk',sans-serif">Four walls. One hope.</p>
+   <p class="text-xs text-zinc-400 mt-1 leading-relaxed">Concrete. Wire. Echo. A soft eyes looking for a hand that stays.</p>
+  </div>
+  <div class="rounded-2xl border border-emerald-400/25 bg-emerald-950/20 p-4 text-center">
+   <div class="text-2xl mb-1" aria-hidden="true">💛</div>
+   <p class="text-sm font-semibold text-emerald-100" style="font-family:'Space Grotesk',sans-serif">You can still move</p>
+   <p class="text-xs text-zinc-400 mt-1 leading-relaxed">When rails are live, the flywheel buys time. Today, choose a soul and stand with them.</p>
+  </div>
  </div>
+ <p class="mt-8 text-center text-base sm:text-lg text-amber-100/95 max-w-2xl mx-auto leading-snug" style="font-family:'Space Grotesk',sans-serif">
+  These are not abstract numbers. They are hearts behind bars asking if anyone will be the 1.<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span>
+ </p>
 </section>
 
 <!-- FILTERS - creative, high-end, addictive categorization -->
@@ -591,10 +730,13 @@
 
 <!-- THE SOULS - unique high-end non-grid experience -->
 <section id="souls" class="max-w-7xl mx-auto px-6 pb-20">
- <div class="text-center mb-6">
- <div class="uppercase text-xs tracking-[3.5px] text-red-400/80">THE LIVING MERCY TIMELINE</div>
- <h3 class="text-5xl tracking-tighter font-bold mt-1">Every minute matters.<br>Every soul has a story.</h3>
- <p class="mt-2 text-emerald-200/80 text-sm max-w-xs mx-auto">The most at-risk rise to the top. Click traits to filter. Hover to feel their presence.</p>
+ <div class="text-center mb-8">
+ <div class="uppercase text-[10px] sm:text-xs tracking-[0.28em] text-red-300/85 font-semibold">The living mercy timeline</div>
+ <h3 class="text-[clamp(1.85rem,5.5vw,3.25rem)] tracking-tight font-bold mt-2 leading-[1.05]" style="font-family:'Space Grotesk',sans-serif">
+  Every minute matters.<br>
+  <span class="text-amber-100">Every soul is looking back at you.</span>
+ </h3>
+ <p class="mt-3 text-emerald-100/85 text-sm sm:text-base max-w-md mx-auto leading-relaxed">Most at-risk rise first. Filter by trait or city. Open a kennel. Become the 1.</p>
  </div>
 
  <!-- Location search now integrated for states, provinces and cities (see above) -->
@@ -684,20 +826,24 @@
  </div>
 </section>
 
-<!-- FINAL CALL - high end, no escape -->
-<section class="py-20 text-center bg-black border-t border-red-500/10">
- <div class="max-w-xl mx-auto px-6">
- <p class="text-4xl font-light tracking-tight mb-3">You are already here.<br>You can already move.</p>
- <p class="text-xl text-amber-200">One soul. One ripple. The whole chain remembers.</p>
- 
- <div class="mt-9">
- <a href="#souls" class="soul-save-btn inline-flex px-14 py-5 text-2xl">Choose a Soul. Become the 1.</a>
- </div>
- <p class="mt-6 text-xs text-zinc-400">Connect your wallet on the main flywheel to turn real holdings into these programs. Or reach the shelters directly. Every path is mercy.</p>
+<!-- FINAL CALL — you already saw their eyes -->
+<section class="py-20 text-center bg-black border-t border-red-500/15 relative overflow-hidden">
+ <div class="absolute inset-0 pointer-events-none opacity-40" style="background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(239,68,68,0.18),transparent 60%);" aria-hidden="true"></div>
+ <div class="max-w-xl mx-auto px-6 relative z-[1]">
+ <p class="text-[10px] tracking-[0.22em] uppercase text-red-300/80 font-semibold mb-3">You already saw their eyes</p>
+ <p class="text-[clamp(1.75rem,5vw,2.75rem)] font-semibold tracking-tight mb-3 leading-[1.1]" style="font-family:'Space Grotesk',sans-serif">
+  You are already here.<br>You can already move.
+ </p>
+ <p class="text-lg sm:text-xl text-amber-100 leading-snug">One soul. One ripple. The whole chain remembers who looked back through the bars.</p>
 
- <div class="mt-10 text-center text-xs max-w-xs mx-auto">
- <span class="text-emerald-300/70">A simple direct Soul-Saving Dapp (one-click on-chain sponsorship) is being built so you can route support straight to individual lives.</span><br>
- <span class="text-emerald-400">Until then, every holding already moves the same mercy.</span>
+ <div class="mt-9">
+ <a href="#souls" class="soul-save-btn inline-flex px-10 sm:px-14 py-4 sm:py-5 text-xl sm:text-2xl">Choose a soul. Become the 1.</a>
+ </div>
+ <p class="mt-6 text-xs text-zinc-400 max-w-sm mx-auto leading-relaxed">Connect your wallet on the main flywheel to turn real holdings into these programs. Or reach the shelters directly. Every path is mercy.</p>
+
+ <div class="mt-10 text-center text-xs max-w-sm mx-auto leading-relaxed">
+ <span class="text-emerald-300/75">A direct soul-saving path is being designed so support can route to individual lives with receipts.</span><br>
+ <span class="text-emerald-400">Until then, standing with a name is how the flywheel learns who cared first.</span>
  </div>
  </div>
 </section>
@@ -1385,61 +1531,72 @@ function renderTimeline(filtered, container) {
  return `<span onclick="event.stopImmediatePropagation(); toggleFilterByTrait('${t}', this)" class="trait-chip">${icon} ${label}</span>`;
  }).join('');
 
+ const hoursPill = soul.hoursLeft < 24
+  ? 'hours-pill'
+  : soul.hoursLeft < 48
+  ? 'hours-pill warn'
+  : 'hours-pill ok';
+ const waitLine = isUrgent
+  ? 'Looking through the bars right now. Do not look away.'
+  : 'Still waiting for a hand that stays.';
+
  entry.innerHTML = `
  <div class="timeline-dot" style="background: ${soul.hoursLeft < 24 ? '#ef4444' : soul.hoursLeft < 48 ? '#f59e0b' : '#10b981'};"></div>
 
- <div class="soul-visual">
- <div class="w-full h-full flex items-center justify-center text-6xl relative" style="background: linear-gradient(135deg, #1f2937, #111827);">
- <span style="filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));">${soul.stage === 'senior' ? '🐕‍🦺' : soul.stage === 'puppy' ? '🐶' : '🐾'}</span>
- <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+ <div class="soul-visual" aria-hidden="true">
+ <div class="w-full h-full flex items-center justify-center text-5xl sm:text-6xl relative" style="background: linear-gradient(145deg, #1f2937, #0b1220 55%, #111827);">
+ <span style="filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6)); position:relative;z-index:1;">${soul.stage === 'senior' ? '🐕‍🦺' : soul.stage === 'puppy' ? '🐶' : '🐾'}</span>
+ <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40" style="z-index:1;"></div>
  </div>
+ <span class="kennel-tag">kennel</span>
  </div>
 
  <div class="soul-content">
- <div class="flex justify-between items-start gap-4">
- <div>
- <div class="flex items-baseline gap-3">
+ <div class="flex justify-between items-start gap-3 flex-wrap">
+ <div class="min-w-0">
+ <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
  <span class="soul-name">${soul.name}</span>
- <span class="text-sm text-zinc-400 tracking-tight">${soul.age} • ${soul.breed}</span>
+ <span class="text-sm text-zinc-300 tracking-tight">${soul.age} · ${soul.breed}</span>
  </div>
- <div class="text-xs text-emerald-300/70 mt-px">${soul.shelter} • ${soul.location}</div>
+ <div class="text-xs text-emerald-200/75 mt-1">${soul.shelter} · ${soul.location}</div>
+ <div class="mt-2 ${hoursPill}">${isUrgent ? 'Urgent clock' : 'Still on the clock'} · ${soul.hoursLeft}h design</div>
  </div>
 
  <div class="text-right flex-shrink-0">
- <div class="text-[10px] text-zinc-500 tracking-[1.5px]">TIME LEFT</div>
+ <div class="text-[10px] text-zinc-400 tracking-[0.16em] uppercase">Time left</div>
  <div class="soul-clock clock font-semibold ${urgentClass}" data-hours="${soul.hoursLeft}" id="clock-${soul.id}">${soul.hoursLeft}<span class="text-base align-super">h</span></div>
  </div>
  </div>
 
- <div class="my-3 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+ <p class="mt-3 text-[11px] tracking-[0.12em] uppercase text-red-200/70 font-semibold">${waitLine}</p>
+ <div class="my-2.5 h-px bg-gradient-to-r from-red-400/40 via-amber-300/25 to-transparent"></div>
 
- <p class="text-sm text-zinc-300 leading-relaxed">${soul.bio}</p>
+ <p class="text-sm text-zinc-200 leading-relaxed">${soul.bio}</p>
 
- <div class="mt-4 flex flex-wrap gap-1.5">
+ <div class="mt-3.5 flex flex-wrap gap-1.5">
  ${traitsHTML}
  </div>
 
- <div class="mt-3 text-[10px] text-emerald-300/70 tracking-widest">THIS SOUL IS DESTINED FOR</div>
+ <div class="mt-3 text-[10px] text-emerald-300/75 tracking-[0.14em] uppercase">Programs built for this soul</div>
  <div class="flex flex-wrap gap-1 mt-1">
  ${soul.programNames.map((pn, i) => `<span onclick="event.stopImmediatePropagation(); openProgramResonance(${soul.programs[i]})" class="mercy-pill cursor-pointer">${pn}</span>`).join('')}
  </div>
 
- <!-- Cool Passport Holder Feature - deep legacy + soulbound precision + high-tech elegance -->
- <div class="passport-holder mt-4 p-2 border border-emerald-400/30 rounded-xl bg-zinc-950/50 hover:bg-emerald-900/10 cursor-pointer transition-all group flex items-center gap-3" onclick="openSoulboundPassport(${soul.id})">
+ <div class="passport-holder mt-4 p-2.5 border border-emerald-400/30 rounded-xl bg-zinc-950/55 hover:bg-emerald-900/10 cursor-pointer transition-all group flex items-center gap-3" onclick="openSoulboundPassport(${soul.id})">
  <div class="w-8 h-8 flex-shrink-0 border-2 border-emerald-400/60 rounded flex items-center justify-center text-lg group-hover:scale-110 transition">📖</div>
  <div class="flex-1 min-w-0">
- <div class="text-emerald-300 text-xs font-semibold tracking-wider">SOULBOUND PASSPORT HOLDER</div>
- <div class="text-[10px] text-emerald-300/70">Click to open the eternal record • ${soul.name}'s living legacy</div>
+ <div class="text-emerald-300 text-xs font-semibold tracking-wider">SOULBOUND PASSPORT</div>
+ <div class="text-[10px] text-emerald-300/70">${soul.name}'s living record · open the eternal page</div>
  </div>
  <div class="text-emerald-400 text-xs opacity-60 group-hover:opacity-100">OPEN →</div>
  </div>
 
- <div class="mt-5 flex items-center gap-3">
- <button onclick="event.stopImmediatePropagation(); saveSoul(${soul.id})" 
- class="soul-save-btn flex-1 sm:flex-none px-8 py-3 text-sm font-bold rounded-3xl">
- SAVE THIS SOUL
+ <div class="mt-4 flex flex-wrap items-center gap-3">
+ <button onclick="event.stopImmediatePropagation(); saveSoul(${soul.id})"
+ class="soul-save-btn flex-1 sm:flex-none px-7 py-3 text-sm font-bold rounded-3xl">
+ Stand with ${soul.name}
  </button>
- <div class="text-[10px] text-emerald-300/60">• costs nothing extra</div>
+ <div class="text-[10px] text-emerald-300/65">Design intent · costs nothing extra</div>
  </div>
  </div>
  `;
