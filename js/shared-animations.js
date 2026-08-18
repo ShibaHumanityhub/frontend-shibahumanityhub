@@ -6,9 +6,78 @@
 (function() {
  // Respect reduced motion globally
  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const isCoarseMobile = (function () {
+  try {
+   return window.matchMedia('(max-width: 767px)').matches;
+  } catch (e) { return false; }
+ })();
 
  // Phase 4: global intensity for particle reactivity to holdings (set from updatePersonalView/simulate)
  window.mercyParticleIntensity = 1;
+
+ /* Sitewide paint stability: stop Ken Burns / sticky-blur / transform thrash on mobile */
+ function initPaintStability() {
+  if (document.getElementById('shh-paint-stability')) return;
+  const style = document.createElement('style');
+  style.id = 'shh-paint-stability';
+  style.textContent = [
+   '@media (max-width: 767px) {',
+   /* Hero Ken Burns / scale-loop washes */
+   ' .bp-hero-wash, .pif-hero-wash, .sq-hero-wash, .hero-bg::before,',
+   ' .home-flywheel-still, .ap-flywheel-wash, .ap-fw-still, .ap-hero-wash,',
+   ' [class*="hero-wash"] {',
+   '  animation: none !important;',
+   '  will-change: auto !important;',
+   ' }',
+   ' .bp-hero-wash, .pif-hero-wash, .sq-hero-wash, .hero-bg::before, .home-flywheel-still, .ap-flywheel-wash, .ap-fw-still {',
+   '  transform: scale(1.05) !important;',
+   ' }',
+   /* Sticky experience rails: blur over scrolling content = flicker */
+   ' .bp-tabs, .pifx-tabs, .sqx-tabs, .nbx-rail, .gpx-rail, .hhx-rail, .k9x-rail,',
+   ' .spx-rail, .sp-tabs, [class*="x-tabs"], [class*="x-rail"] {',
+   '  backdrop-filter: none !important;',
+   '  -webkit-backdrop-filter: none !important;',
+   ' }',
+   /* Heavy atmosphere loops */
+   ' .bp-fx-dust, .bp-hero-beam, .bp-fx-ridge, .gp-ingot-ring,',
+   ' .hh-ingot-ring, .hh-aurora, .sq-fx-dust, .sq-fx-light, .nb-fx-tide,',
+   ' .nb-fx-mesh, .nb-fx-mesh-cross, .nb-fx-bump, .nb-fx-aurora, .nb-fx-sheen {',
+   '  animation: none !important;',
+   '  will-change: auto !important;',
+   ' }',
+   ' .bp-fx-ridge, .gp-ingot-ring { transform: none !important; }',
+   ' .float-particle, .nb-float, .k9-float { display: none !important; }',
+   ' nav.bp-nav, nav.sq-nav, nav.pif-nav, nav.bg-black\\/95, nav[class*="bg-black"] {',
+   '  backdrop-filter: none !important;',
+   '  -webkit-backdrop-filter: none !important;',
+   ' }',
+   '}',
+   /* Pause continuous FX while scrolling on all viewports */
+   'body.is-scrolling .bp-hero-wash, body.is-scrolling .pif-hero-wash, body.is-scrolling .sq-hero-wash,',
+   'body.is-scrolling .hero-bg::before, body.is-scrolling .home-flywheel-still, body.is-scrolling .ap-flywheel-wash, body.is-scrolling .ap-fw-still,',
+   'body.is-scrolling .bp-fx-dust, body.is-scrolling .bp-hero-beam, body.is-scrolling .gp-ingot-ring,',
+   'body.is-scrolling .hh-ingot-ring, body.is-scrolling .hh-aurora, body.is-scrolling .float-particle,',
+   'body.is-scrolling .sq-fx-dust, body.is-scrolling .sq-fx-light, body.is-scrolling .nb-fx-tide,',
+   'body.is-scrolling [class*="hero-wash"] {',
+   ' animation-play-state: paused !important;',
+   '}'
+  ].join('\n');
+  document.head.appendChild(style);
+
+  /* Global is-scrolling freeze if page did not wire its own */
+  if (!window.__shhScrollFreeze) {
+   window.__shhScrollFreeze = true;
+   var st = 0;
+   window.addEventListener('scroll', function () {
+    document.body.classList.add('is-scrolling');
+    clearTimeout(st);
+    st = setTimeout(function () {
+     document.body.classList.remove('is-scrolling');
+    }, 140);
+   }, { passive: true });
+  }
+ }
+ initPaintStability();
 
  function initReducedMotion() {
  if (prefersReduced) {
@@ -287,6 +356,7 @@
 
  // Public init
  window.initPremiumAnimations = function() {
+ initPaintStability();
  initReducedMotion();
  initFloatingParticles();
  addPremiumHovers();

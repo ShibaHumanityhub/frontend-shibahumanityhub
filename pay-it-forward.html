@@ -90,7 +90,9 @@
   opacity: 0.2;
   filter: saturate(1.1);
   transform: scale(1.05);
-  animation: pif-ken 30s ease-in-out infinite alternate;
+ }
+ @media (min-width: 768px) {
+  .pif-hero-wash { animation: pif-ken 30s ease-in-out infinite alternate; }
  }
  .pif-hero-wash::after {
   content: '';

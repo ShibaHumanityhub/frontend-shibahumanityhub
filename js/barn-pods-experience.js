@@ -228,7 +228,9 @@
   s.textContent = [
    '.bp-board{--g:#fcd34d;--a:#f59e0b;--e:#34d399;--c:#fff8e7;--m:#c4b5a0;max-width:76rem;margin:0 auto;padding:0 1rem 7rem;position:relative}',
    '.bp-tabs{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.65rem 0 1.1rem;position:sticky;top:4.6rem;z-index:35;',
-   'background:linear-gradient(180deg,rgba(6,4,2,.98) 0%,rgba(6,4,2,.94) 80%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}',
+   'background:rgba(6,4,2,.98);border-bottom:1px solid rgba(252,211,77,.18);transform:translateZ(0)}',
+   '@media(min-width:768px){.bp-tabs{background:linear-gradient(180deg,rgba(6,4,2,.98) 0%,rgba(6,4,2,.94) 80%,transparent);border-bottom:0;',
+   'backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}}',
    '.bp-tabs::-webkit-scrollbar{display:none}',
    '.bp-tab{flex:0 0 auto;padding:.72rem 1.05rem;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);',
    'color:rgba(255,248,231,.72);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:46px;white-space:nowrap;',

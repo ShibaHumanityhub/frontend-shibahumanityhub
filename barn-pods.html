@@ -117,11 +117,16 @@
  body > *:not(.bp-fx) { position: relative; z-index: 1; }
 
  nav.bp-nav {
-  background: rgba(6, 4, 2, 0.94) !important;
+  background: rgba(6, 4, 2, 0.97) !important;
   border-bottom: 1px solid var(--bp-line) !important;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   z-index: 60;
+ }
+ @media (min-width: 768px) {
+  nav.bp-nav {
+   background: rgba(6, 4, 2, 0.94) !important;
+   backdrop-filter: blur(18px);
+   -webkit-backdrop-filter: blur(18px);
+  }
  }
 
  .bp-hero {
@@ -144,7 +149,9 @@
   opacity: 0.28;
   filter: saturate(1.2) contrast(1.08);
   transform: scale(1.06);
-  animation: bp-hero-ken 32s ease-in-out infinite alternate;
+ }
+ @media (min-width: 768px) {
+  .bp-hero-wash { animation: bp-hero-ken 32s ease-in-out infinite alternate; }
  }
  .bp-hero-wash::after {
   content: '';
@@ -483,6 +490,12 @@
   color: rgba(201, 184, 150, 0.65) !important;
  }
 
+ @media (max-width: 767px) {
+  .bp-fx-dust, .bp-hero-beam { animation: none !important; }
+  .bp-fx-ridge { transform: none !important; opacity: 0.35; }
+  .bp-fx-dust { opacity: 0.22; }
+  .bp-cta { animation: none !important; }
+ }
  @media (prefers-reduced-motion: reduce) {
   .bp-hero-wash, .bp-mega em, .bp-sig b, .bp-fx-hearth, .bp-fx-dust, .bp-hero-beam, .bp-cta { animation: none !important; }
   .bp-hero-wash { opacity: 0.16; transform: none; }

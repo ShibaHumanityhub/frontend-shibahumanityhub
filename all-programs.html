@@ -80,7 +80,10 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
    url('assets/images/imagine-dual-flywheel-hero.jpg') center 28% / cover no-repeat;
   opacity: 0.22;
   filter: saturate(1.15) contrast(1.05);
-  animation: ap-fw-ken 32s ease-in-out infinite alternate;
+  transform: scale(1.05);
+ }
+ @media (min-width: 768px) {
+  .ap-flywheel-wash { animation: ap-fw-ken 32s ease-in-out infinite alternate; }
  }
  .ap-flywheel-wash::after {
   content: '';

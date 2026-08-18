@@ -106,7 +106,9 @@
  opacity: 0.14;
  filter: saturate(1.1);
  transform: scale(1.06);
- animation: gp-hero-ken 28s ease-in-out infinite alternate;
+ }
+ @media (min-width: 768px) {
+  .hero-bg::before { animation: gp-hero-ken 28s ease-in-out infinite alternate; }
  }
  .hero-bg::after {
  content: '';

@@ -135,7 +135,8 @@
   s.textContent = [
    '.pifx{--rose:#fb7185;--pink:#f9a8d4;--gold:#fcd34d;--ink:#0a0610;max-width:74rem;margin:0 auto;padding:0 1rem 7rem}',
    '.pifx-tabs{display:flex;gap:.35rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.5rem 0 1rem;position:sticky;top:4.6rem;z-index:35;',
-   'background:linear-gradient(180deg,rgba(10,6,16,.98),rgba(10,6,16,.9) 90%,transparent);backdrop-filter:blur(14px)}',
+   'background:rgba(10,6,16,.98);border-bottom:1px solid rgba(251,113,133,.2);transform:translateZ(0)}',
+   '@media(min-width:768px){.pifx-tabs{background:linear-gradient(180deg,rgba(10,6,16,.98),rgba(10,6,16,.9) 90%,transparent);border-bottom:0;backdrop-filter:blur(14px)}}',
    '.pifx-tabs::-webkit-scrollbar{display:none}',
    '.pifx-tab{flex:0 0 auto;padding:.7rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);',
    'color:rgba(255,228,230,.75);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:46px;white-space:nowrap;transition:all .2s}',

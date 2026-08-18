@@ -1955,9 +1955,16 @@
 <!-- HOLD HEART · PAY LIFE -->
 <section id="hold-heart" data-chapter-section="hold-heart" class="py-14 md:py-16 bg-black border-t border-b border-amber-400/15 relative overflow-hidden">
  <div class="absolute inset-0 pointer-events-none opacity-40" style="background: radial-gradient(ellipse 70% 80% at 20% 50%, rgba(251,191,36,0.08), transparent 55%), radial-gradient(ellipse 60% 70% at 80% 40%, rgba(52,211,153,0.07), transparent 50%);" aria-hidden="true"></div>
- <div class="absolute inset-0 pointer-events-none opacity-[0.18] home-flywheel-still" aria-hidden="true" style="background: url('assets/images/imagine-dual-flywheel-hero.jpg') center / cover no-repeat; animation: home-fw-ken 28s ease-in-out infinite alternate;"></div>
+ <div class="absolute inset-0 pointer-events-none opacity-[0.18] home-flywheel-still" aria-hidden="true" style="background: url('assets/images/imagine-dual-flywheel-hero.jpg') center / cover no-repeat;"></div>
  <style>
   @keyframes home-fw-ken { from { transform: scale(1.05); } to { transform: scale(1.15); } }
+  @media (min-width: 768px) {
+   .home-flywheel-still { animation: home-fw-ken 28s ease-in-out infinite alternate; }
+  }
+  @media (max-width: 767px) {
+   .home-flywheel-still { transform: scale(1.06); }
+   .float-particle { display: none !important; }
+  }
   @media (prefers-reduced-motion: reduce) {
    .home-flywheel-still { animation: none !important; opacity: 0.12 !important; }
   }
