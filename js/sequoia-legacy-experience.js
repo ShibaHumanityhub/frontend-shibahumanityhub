@@ -126,18 +126,23 @@
   s.id = 'sqx-css';
   s.textContent = [
    '.sqx-board{--g:#34d399;--gold:#fcd34d;--mist:#a7f3d0;--ink:#03140f;max-width:76rem;margin:0 auto;padding:0 1rem 7rem;position:relative}',
-   '.sqx-tabs{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.65rem 0 1.1rem;position:sticky;top:4.6rem;z-index:35;',
-   'background:linear-gradient(180deg,rgba(3,20,15,.98) 0%,rgba(3,20,15,.94) 80%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}',
+   /* Solid sticky tabs on mobile (no backdrop-filter = no scroll flicker). Blur only on desktop. */
+   '.sqx-tabs{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.65rem 0 1.1rem;position:sticky;top:4.5rem;z-index:35;',
+   'background:rgba(3,20,15,.98);border-bottom:1px solid rgba(52,211,153,.18);transform:translateZ(0)}',
+   '@media(min-width:900px){.sqx-tabs{background:linear-gradient(180deg,rgba(3,20,15,.98) 0%,rgba(3,20,15,.94) 80%,transparent);border-bottom:0;',
+   'backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}}',
    '.sqx-tabs::-webkit-scrollbar{display:none}',
    '.sqx-tab{flex:0 0 auto;padding:.72rem 1.05rem;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);',
    'color:rgba(209,250,229,.75);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:46px;white-space:nowrap;',
-   'transition:border-color .2s,background .2s,color .2s,box-shadow .2s,transform .15s}',
-   '.sqx-tab:hover{border-color:rgba(52,211,153,.5);color:#fff;transform:translateY(-1px)}',
+   'transition:border-color .2s,background .2s,color .2s,box-shadow .2s}',
+   '.sqx-tab:hover{border-color:rgba(52,211,153,.5);color:#fff}',
    '.sqx-tab.is-on{background:linear-gradient(135deg,#a7f3d0 0%,#34d399 45%,#059669 100%);color:#03140f;border-color:transparent;',
-   'box-shadow:0 0 32px -6px rgba(52,211,153,.75),0 8px 24px -10px rgba(0,0,0,.6)}',
-   '.sqx-panel{display:none;animation:sqx-rise .42s cubic-bezier(.22,1,.36,1)}',
-   '.sqx-panel.is-on{display:block}',
-   '@keyframes sqx-rise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}',
+   'box-shadow:0 0 28px -6px rgba(52,211,153,.7)}',
+   /* Soft fade only — no scale (scale + sticky caused mobile flicker) */
+   '.sqx-panel{display:none}',
+   '.sqx-panel.is-on{display:block;animation:sqx-rise .28s ease}',
+   '@keyframes sqx-rise{from{opacity:0}to{opacity:1}}',
+   '@media(max-width:899px){.sqx-panel.is-on{animation:none}}',
    '.sqx-kicker{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(52,211,153,.9);margin:0 0 .55rem;font-weight:700}',
    '.sqx-h2{font-family:Space Grotesk,Inter,sans-serif;font-size:clamp(1.8rem,4.4vw,2.7rem);line-height:1.06;margin:0 0 .9rem;color:#fff;font-weight:700;letter-spacing:-.035em;text-wrap:balance;text-shadow:0 0 40px rgba(52,211,153,.15)}',
    '.sqx-lede{font-size:clamp(1.05rem,2.2vw,1.18rem);line-height:1.65;color:#d1fae5;margin:0 0 1.4rem;max-width:42rem;font-weight:500}',
@@ -152,7 +157,13 @@
    '.sqx-card{border-radius:1.3rem;border:1px solid rgba(52,211,153,.24);background:linear-gradient(155deg,rgba(8,36,28,.94),rgba(4,12,10,.96));',
    'padding:1.25rem 1.3rem;position:relative;overflow:hidden;transition:border-color .22s,transform .22s,box-shadow .28s}',
    '.sqx-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 50% at 0% 0%,rgba(52,211,153,.1),transparent 55%)}',
-   '.sqx-card:hover{border-color:rgba(52,211,153,.55);transform:translateY(-3px);box-shadow:0 22px 48px -22px rgba(0,0,0,.88),0 0 48px -18px rgba(52,211,153,.35)}',
+   '@media(hover:hover){.sqx-card:hover{border-color:rgba(52,211,153,.55);transform:translateY(-3px);box-shadow:0 22px 48px -22px rgba(0,0,0,.88),0 0 48px -18px rgba(52,211,153,.35)}}',
+   '.sqx-vigil{margin:0 0 1.35rem;padding:1.2rem 1.15rem;border-radius:1.35rem;border:1px solid rgba(252,211,77,.32);',
+   'background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(252,211,77,.12),transparent 55%),linear-gradient(155deg,rgba(12,32,24,.96),rgba(3,12,10,.98));',
+   'box-shadow:0 0 40px -16px rgba(252,211,77,.3),0 20px 48px -28px rgba(0,0,0,.85);text-align:center}',
+   '.sqx-vigil .sqx-kicker{color:rgba(252,211,77,.9)}',
+   '.sqx-vigil p{margin:0;font-size:clamp(1.02rem,2.2vw,1.18rem);line-height:1.55;color:#fef3c7;font-weight:600;font-family:Space Grotesk,sans-serif}',
+   '.sqx-vigil span{display:block;margin-top:.65rem;font-size:.78rem;line-height:1.45;color:rgba(209,250,229,.55);font-weight:500;font-family:Inter,system-ui,sans-serif}',
    '.sqx-card > *{position:relative;z-index:1}',
    '.sqx-card h3{margin:0 0 .5rem;font-size:1.1rem;color:#a7f3d0;font-weight:700;letter-spacing:-.015em;font-family:Space Grotesk,sans-serif}',
    '.sqx-card p,.sqx-card li{font-size:.98rem;line-height:1.62;color:#c6e7d8;margin:0}',
@@ -226,10 +237,15 @@
    '<section class="sqx-panel is-on" data-sqx="why">' +
    '<p class="sqx-kicker">01 · First principle</p>' +
    '<h2 class="sqx-h2">Warm care while they are here. Living trees when they are gone. A registry while they breathe.</h2>' +
+   '<div class="sqx-vigil">' +
+   '<p class="sqx-kicker" style="margin-bottom:.45rem">Vigil · everlasting memory</p>' +
+   '<p>Beautiful souls deserve more than a fading post. They deserve a warm last chapter and a living name in the sky.</p>' +
+   '<span>Sequoia is how memory stays kind: hospice dignity, a living registry, and Giant Sequoias planted with partners when love funds the ground.</span>' +
+   '</div>' +
    '<div class="sqx-grab">' +
    '<p><strong>No soul in our programs is meant to vanish into silence.</strong> Sequoia Living Legacy is the sky layer across Shibahumanityhub: every animal can sit on a living registry. Trees are planted on funded life events with real planting friends. Hospice stays hospice. Forests stay forests. Together they become forever.</p>' +
    '</div>' +
-   '<p class="sqx-lede">Barn campus is the warm floor. Golden Paws is the sofa. Healing Hearts is the visit. Sequoia is the living sky that remembers. Not greenwash. Not a second kennel. A legacy machine with partners who already put trees in the ground.</p>' +
+   '<p class="sqx-lede">Barn campus is the warm floor. Golden Paws is the sofa. Healing Hearts is the visit. Sequoia is the living sky that remembers. Not greenwash. Not a second kennel. A legacy of care with partners who already put trees in the ground.</p>' +
    '<div class="sqx-grid g4" style="margin-bottom:1.2rem">' +
    '<div class="sqx-metric"><b>All</b><span>Programs can join registry</span></div>' +
    '<div class="sqx-metric"><b>4</b><span>Tree life-event types</span></div>' +
@@ -352,6 +368,10 @@
    '<section class="sqx-panel" data-sqx="hospice">' +
    '<p class="sqx-kicker">05 · Rainbow Bridge hospice</p>' +
    '<h2 class="sqx-h2">No senior dog crosses cold or forgotten.</h2>' +
+   '<div class="sqx-vigil">' +
+   '<p>This is sacred ground. Soft beds. Soft hands. Time that is not rushed.</p>' +
+   '<span>When they leave, love does not end. A Bridge Tree stands so their name keeps breathing in the forest.</span>' +
+   '</div>' +
    '<p class="sqx-lede">The original heart of this program stays. Warmth. Pain relief. Bucket-list joy. Soft hands. Then, when the time comes, a Giant Sequoia in their name through our planting friends.</p>' +
    '<div class="sqx-grid g2">' +
    '<div class="sqx-card"><h3>While they are still here</h3><ul>' +
@@ -515,11 +535,27 @@
    p.classList.toggle('is-on', p.getAttribute('data-sqx') === id);
   });
   $$('.sqx-tab').forEach(function (t) {
-   t.classList.toggle('is-on', t.getAttribute('data-sqx-tab') === id);
+   var on = t.getAttribute('data-sqx-tab') === id;
+   t.classList.toggle('is-on', on);
+   t.setAttribute('aria-selected', on ? 'true' : 'false');
   });
   try {
+   var activeTab = document.querySelector('.sqx-tab.is-on');
+   if (activeTab && activeTab.scrollIntoView) {
+    activeTab.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+   }
+  } catch (e0) { /* ignore */ }
+  try {
    var board = $('#sqx-board');
-   if (board) board.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   /* Instant scroll on mobile avoids sticky+smooth flicker */
+   var reduce = false;
+   try {
+    reduce = window.matchMedia && (
+     window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+     window.matchMedia('(max-width: 899px)').matches
+    );
+   } catch (e1) { /* ignore */ }
+   if (board) board.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   } catch (e) { /* ignore */ }
   if (id === 'builder') setTimeout(wireBuilder, 30);
  }

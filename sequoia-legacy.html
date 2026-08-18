@@ -60,7 +60,7 @@
   font-family: Inter, system-ui, sans-serif;
  }
 
- .sq-fx { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+ .sq-fx { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; contain: strict; }
  .sq-fx-wash {
   position: absolute; inset: 0;
   background:
@@ -75,16 +75,20 @@
    radial-gradient(ellipse 40% 50% at 20% 40%, rgba(6, 78, 59, 0.45), transparent 60%),
    radial-gradient(ellipse 45% 55% at 80% 30%, rgba(6, 95, 70, 0.4), transparent 58%),
    radial-gradient(ellipse 50% 40% at 50% 20%, rgba(4, 120, 87, 0.25), transparent 55%);
-  filter: blur(8px);
   opacity: 0.85;
+ }
+ @media (min-width: 900px) {
+  .sq-fx-canopy { filter: blur(8px); }
  }
  .sq-fx-light {
   position: absolute; left: 50%; top: 0; width: min(80vw, 560px); height: 65%;
-  transform: translateX(-50%);
+  transform: translate3d(-50%, 0, 0);
   background: linear-gradient(180deg, rgba(254, 243, 199, 0.14) 0%, rgba(52, 211, 153, 0.08) 40%, transparent 75%);
   clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
-  animation: sq-shaft 7s ease-in-out infinite;
-  opacity: 0.8;
+  opacity: 0.72;
+ }
+ @media (min-width: 900px) {
+  .sq-fx-light { animation: sq-shaft 7s ease-in-out infinite; }
  }
  @keyframes sq-shaft {
   0%, 100% { opacity: 0.45; }
@@ -92,7 +96,7 @@
  }
  .sq-fx-dust {
   position: absolute; inset: -8%;
-  opacity: 0.4;
+  opacity: 0.28;
   background-image:
    radial-gradient(rgba(167, 243, 208, 0.2) 1px, transparent 1px),
    radial-gradient(rgba(252, 211, 77, 0.1) 1px, transparent 1px);
@@ -100,7 +104,9 @@
   background-position: 0 0, 16px 24px;
   mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 12%, transparent 78%);
   -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 12%, transparent 78%);
-  animation: sq-dust 45s linear infinite;
+ }
+ @media (min-width: 900px) {
+  .sq-fx-dust { opacity: 0.4; animation: sq-dust 45s linear infinite; }
  }
  @keyframes sq-dust {
   from { transform: translate3d(0, 0, 0); }
@@ -111,18 +117,43 @@
   background:
    linear-gradient(180deg, transparent, rgba(2, 12, 9, 0.9) 70%),
    repeating-linear-gradient(90deg, transparent 0 60px, rgba(52,211,153,0.04) 60px 61px);
-  transform: perspective(900px) rotateX(62deg);
-  transform-origin: 50% 100%;
-  opacity: 0.5;
+  opacity: 0.45;
  }
- body > *:not(.sq-fx) { position: relative; z-index: 1; }
+ @media (min-width: 900px) {
+  .sq-fx-ground {
+   transform: perspective(900px) rotateX(62deg);
+   transform-origin: 50% 100%;
+   opacity: 0.5;
+  }
+ }
+ /* Avoid stacking-context thrash: only lift main chrome, not every sibling */
+ .sq-nav, .sq-hero, .sq-faces, #sqx-experience, .sq-soul-strip, .sq-memorial, footer,
+ #mobile-menu, .fixed { position: relative; z-index: 1; }
+ .sq-nav { z-index: 60; }
+ #mobile-menu { z-index: 40; }
+ .fixed { z-index: 60; }
+
+ /* Freeze atmosphere while finger/wheel moves — kills mobile flicker */
+ body.is-scrolling .sq-fx-light,
+ body.is-scrolling .sq-fx-dust,
+ body.is-scrolling .sq-hero-wash,
+ body.is-scrolling .sq-mega em,
+ body.is-scrolling .sq-sig b,
+ body.is-scrolling .sq-cta {
+  animation-play-state: paused !important;
+ }
 
  nav.sq-nav {
-  background: rgba(3, 20, 15, 0.94) !important;
+  background: rgba(3, 20, 15, 0.97) !important;
   border-bottom: 1px solid var(--sq-line) !important;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   z-index: 60;
+ }
+ @media (min-width: 900px) {
+  nav.sq-nav {
+   backdrop-filter: blur(18px);
+   -webkit-backdrop-filter: blur(18px);
+   background: rgba(3, 20, 15, 0.94) !important;
+  }
  }
 
  .sq-hero {
@@ -141,15 +172,23 @@
  .sq-hero-wash {
   position: absolute; inset: 0; pointer-events: none;
   background: url('assets/images/Rainbowbridgehospice&sequoialegacyprogram.jpg') center 35% / cover no-repeat;
-  opacity: 0.26;
-  filter: saturate(1.15) contrast(1.05);
-  animation: sq-ken 34s ease-in-out infinite alternate;
+  opacity: 0.22;
+  filter: saturate(1.1) contrast(1.04);
+  /* Static on mobile — Ken Burns scale flicker is the main mobile paint bug */
+  transform: scale(1.06);
+  will-change: auto;
+ }
+ @media (min-width: 900px) {
+  .sq-hero-wash {
+   opacity: 0.26;
+   animation: sq-ken 34s ease-in-out infinite alternate;
+  }
  }
  .sq-hero-wash::after {
   content: '';
   position: absolute; inset: 0;
   background:
-   linear-gradient(180deg, rgba(3,20,15,0.82) 0%, rgba(3,20,15,0.4) 35%, rgba(3,20,15,0.75) 70%, #03140f 100%),
+   linear-gradient(180deg, rgba(3,20,15,0.86) 0%, rgba(3,20,15,0.48) 35%, rgba(3,20,15,0.78) 70%, #03140f 100%),
    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(52,211,153,0.14), transparent 60%),
    linear-gradient(90deg, rgba(3,20,15,0.55) 0%, transparent 42%, transparent 58%, rgba(3,20,15,0.5) 100%);
  }
@@ -192,7 +231,9 @@
  .sq-sig b {
   width: 8px; height: 8px; border-radius: 50%;
   background: #fcd34d; box-shadow: 0 0 14px #fcd34d;
-  animation: sq-dot 1.6s ease infinite;
+ }
+ @media (min-width: 900px) {
+  .sq-sig b { animation: sq-dot 1.6s ease infinite; }
  }
  @keyframes sq-dot { 0%,100%{opacity:1} 50%{opacity:.3} }
 
@@ -209,12 +250,17 @@
  }
  .sq-mega em {
   font-style: normal;
-  background: linear-gradient(100deg, #ecfdf5 0%, #6ee7b7 30%, #fcd34d 70%, #a7f3d0 100%);
-  background-size: 200% auto;
+  background: linear-gradient(100deg, #ecfdf5 0%, #6ee7b7 35%, #fcd34d 75%, #a7f3d0 100%);
+  background-size: 100% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: sq-grad 10s linear infinite;
+ }
+ @media (min-width: 900px) {
+  .sq-mega em {
+   background-size: 200% auto;
+   animation: sq-grad 10s linear infinite;
+  }
  }
  @keyframes sq-grad { to { background-position: 200% center; } }
 
@@ -302,7 +348,9 @@
   color: #03140f;
   text-decoration: none; min-height: 50px;
   box-shadow: 0 0 40px -8px rgba(52,211,153,.7);
-  animation: sq-cta 2.8s ease-in-out infinite;
+ }
+ @media (min-width: 900px) {
+  .sq-cta { animation: sq-cta 2.8s ease-in-out infinite; }
  }
  @keyframes sq-cta {
   0%, 100% { box-shadow: 0 0 36px -10px rgba(52,211,153,.55); }
@@ -388,7 +436,7 @@
  .sq-soul-strip {
   max-width: 44rem;
   margin: 0 auto;
-  padding: 1rem 1.25rem 3.5rem;
+  padding: 1rem 1.25rem 2rem;
   text-align: center;
  }
  .sq-soul-strip::before {
@@ -406,6 +454,78 @@
   margin: 0;
  }
 
+ /* Everlasting memory grove — quiet, reverent, mobile-solid */
+ .sq-memorial {
+  max-width: 52rem;
+  margin: 0 auto 2.5rem;
+  padding: 0 1.1rem 3rem;
+ }
+ .sq-memorial-card {
+  position: relative;
+  padding: 1.35rem 1.25rem 1.45rem;
+  border-radius: 1.45rem;
+  border: 1px solid rgba(252, 211, 77, 0.28);
+  background:
+   radial-gradient(ellipse 80% 60% at 50% 0%, rgba(252, 211, 77, 0.1), transparent 55%),
+   linear-gradient(165deg, rgba(8, 36, 28, 0.96), rgba(2, 12, 9, 0.98));
+  box-shadow: 0 28px 70px -30px rgba(0, 0, 0, 0.9), 0 0 48px -20px rgba(52, 211, 153, 0.3);
+  overflow: hidden;
+  text-align: center;
+ }
+ .sq-memorial-card::before {
+  content: '';
+  position: absolute; left: 12%; right: 12%; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(252, 211, 77, 0.55), rgba(52, 211, 153, 0.45), transparent);
+ }
+ .sq-memorial-card .sq-mem-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(252, 211, 77, 0.85);
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+ }
+ .sq-memorial-card h2 {
+  font-family: Space Grotesk, Inter, sans-serif;
+  font-size: clamp(1.35rem, 3.4vw, 1.85rem);
+  line-height: 1.25;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+ }
+ .sq-memorial-card p {
+  margin: 0 auto 1rem;
+  max-width: 34rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d1fae5;
+ }
+ .sq-memorial-card .sq-mem-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0 0 0.35rem;
+ }
+ .sq-memorial-card .sq-mem-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #a7f3d0;
+  letter-spacing: 0.04em;
+ }
+ .sq-memorial-card .sq-mem-chip b {
+  color: #fde68a;
+  font-weight: 700;
+ }
+
  footer {
   background: #020c09 !important;
   border-top: 1px solid var(--sq-line) !important;
@@ -414,7 +534,7 @@
 
  @media (prefers-reduced-motion: reduce) {
   .sq-hero-wash, .sq-mega em, .sq-sig b, .sq-fx-light, .sq-fx-dust, .sq-cta { animation: none !important; }
-  .sq-hero-wash { opacity: 0.16; transform: none; }
+  .sq-hero-wash { opacity: 0.18; transform: none; }
  }
  </style>
 </head>
@@ -565,6 +685,19 @@
  <p>Somewhere a grey face is still waiting for a floor that is warm. Somewhere a seedling is waiting for hands that plant. This is how those two prayers meet.</p>
 </section>
 
+<section class="sq-memorial" aria-label="Everlasting memory">
+ <div class="sq-memorial-card">
+  <p class="sq-mem-kicker">In memory · everlasting</p>
+  <h2>Beautiful souls do not end in silence.</h2>
+  <p>Sequoia Living Legacy is how love stays visible: a registry while they breathe, hospice dignity at the end of the road, and a Giant Sequoia planted in their name when funding and partners make the ground real. Warm care now. Living trees later. Forever names.</p>
+  <div class="sq-mem-line">
+   <span class="sq-mem-chip"><b>Registry</b> · living seat</span>
+   <span class="sq-mem-chip"><b>Hospice</b> · soft last chapter</span>
+   <span class="sq-mem-chip"><b>Forest</b> · partner proofs</span>
+  </div>
+ </div>
+</section>
+
 <footer class="py-14 text-center text-xs">
  <p class="text-emerald-100/90 text-sm mb-2 font-medium">People helping people. Helping dogs. Helping the earth breathe longer.</p>
  <p class="mb-1 tracking-wide text-emerald-100/70">Sequoia Living Legacy · Rainbow Bridge · $NIBBLES when funded</p>
@@ -579,8 +712,6 @@
  </div>
 </footer>
 
-<script>
- 
 <script>
 function toggleProgramsDropdown(e) {
  if (e) e.preventDefault();
@@ -602,7 +733,6 @@ document.addEventListener('click', function (ev) {
   if (chev) chev.style.transform = 'rotate(0deg)';
  }
 });
-</script>
 
 function toggleMobileMenu() {
   var m = document.getElementById('mobile-menu');
@@ -611,30 +741,50 @@ function toggleMobileMenu() {
   m.classList.toggle('hidden');
   if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
  }
+
+ /* Pause atmosphere FX while scrolling — primary mobile flicker guard */
+ (function () {
+  var t = 0;
+  window.addEventListener('scroll', function () {
+   document.body.classList.add('is-scrolling');
+   clearTimeout(t);
+   t = setTimeout(function () { document.body.classList.remove('is-scrolling'); }, 140);
+  }, { passive: true });
+ })();
+
  (function () {
   function kick(vid) {
-   if (!vid) return;
+   if (!vid || document.hidden) return;
    try {
     vid.muted = true;
     vid.setAttribute('playsinline', '');
-    var p = vid.play();
-    if (p && p.catch) p.catch(function () {});
+    vid.setAttribute('data-keep-playing', '1');
+    if (vid.paused) {
+     var p = vid.play();
+     if (p && p.catch) p.catch(function () {});
+    }
    } catch (e) { /* ignore */ }
   }
-  var vids = [
-   document.getElementById('sq-hero-video'),
-   document.getElementById('sq-hero-video-desk')
-  ];
+  var mobile = false;
+  try { mobile = window.matchMedia && window.matchMedia('(max-width: 899px)').matches; } catch (e2) {}
+  var vids = [];
+  var mVid = document.getElementById('sq-hero-video');
+  var dVid = document.getElementById('sq-hero-video-desk');
+  if (mobile) {
+   if (mVid) vids.push(mVid);
+   /* Do not fight desktop cinema clip on small screens */
+   if (dVid) { try { dVid.removeAttribute('autoplay'); dVid.pause(); } catch (e3) {} }
+  } else {
+   if (dVid) vids.push(dVid);
+   else if (mVid) vids.push(mVid);
+  }
   vids.forEach(function (vid) {
    kick(vid);
-   setTimeout(function () { kick(vid); }, 400);
-   setTimeout(function () { kick(vid); }, 1200);
+   setTimeout(function () { kick(vid); }, 500);
   });
-  setInterval(function () {
-   vids.forEach(function (vid) {
-    if (vid && vid.paused && !document.hidden) kick(vid);
-   });
-  }, 1200);
+  document.addEventListener('visibilitychange', function () {
+   if (!document.hidden) vids.forEach(kick);
+  });
  })();
 </script>
 </body>
