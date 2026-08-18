@@ -319,6 +319,18 @@
     'Rescuing a dog who is at high risk of being euthanized in a shelter because of time, space, or policy. Time-sensitive. Requires isolation and real capacity, not impulse.',
    impact: 'A clock stops. A life continues.'
   },
+  'shelter to barn': {
+   title: 'Shelter-To-Barn Lifelong',
+   simple:
+    'A pull path: get a high-risk shelter dog into Shiba Barn Campus soft landing, then into a loving family, a senior home, or stay in a barn cell as long as needed. Capacity and Open Gate come before any truck.',
+   impact: 'Off the cold list. Onto a warm floor. Then the right forever.'
+  },
+  'beautiful souls': {
+   title: 'Beautiful Souls',
+   simple:
+    'The shelters page: named dogs with clocks in an outreach prototype. Real cities and shelters we use while live partner feeds are built. Truth labeled. Not a fake live euthanasia API.',
+   impact: 'You meet faces, not abstract numbers. That is why the programs exist.'
+  },
   freight: {
    title: 'Freight',
    simple:

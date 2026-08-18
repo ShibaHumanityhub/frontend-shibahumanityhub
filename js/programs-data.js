@@ -595,12 +595,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/shelter-to-barnlifelongprogram.jpg",
- shortDesc: "Dogs pulled from death row within 72 hours and given a safe, livestreamed forever home in our Shiba Barns • no soul is ever left behind again.",
+ shortDesc: "Pull from the clock into Shiba Barn. Then a loving family, a senior sofa, or stay as long as needed. Soft land. Honest capacity. Proof when funded.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Death Row Rescue</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
+ <p class="mb-4"><a href="shelter-to-barn.html" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-300 hover:text-amber-200 underline">Open the full Shelter-To-Barn experience →</a></p>
  <h2 class="text-4xl font-bold mb-3">Shelter-To-Barn Lifelong Program</h2>
- <p class="text-amber-200 text-xl mb-6">I can’t stand the thought of a sweet dog running out of time on a shelter list when we have the power to change that story.</p>
- <p class="text-zinc-300 mb-8">Dogs will be pulled from death row within 72 hours and brought straight into our heated, livestreamed Shiba Barns. They will live in safety with loving guardians and big play yards. No soul will ever be left behind again.</p>
- <p class="text-zinc-300 mb-8">Every dog gets a second chance at life filled with warmth, care, and the knowledge that someone out there fought for them. And the whole world can watch their journey unfold in real time through the livestreams.</p>
+ <p class="text-amber-200 text-xl mb-6">I cannot watch a good dog run out of time on a shelter clock when we can build a door that opens in time.</p>
+ <p class="text-zinc-300 mb-8">Design: pull within 72 hours when Open Gate capacity is real. Soft land in heated Shiba Barn cells. Then a loving family, a senior sofa, or stay as long as needed. No warehouse packing. No fake hero counts.</p>
+ <p class="text-zinc-300 mb-8">Every dog gets warmth, care, and the knowledge that someone fought for them. When funded, journeys can be shared with receipts. Ambition without a receipt is noise.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">

@@ -347,6 +347,7 @@
   7: 'sequoia-legacy.html',
   8: 'golden-paws.html',
   9: 'unified-rescue-registry.html',
+  12: 'shelter-to-barn.html',
   14: 'silver-paws.html',
   15: 'golden-years.html',
   17: 'programs/orphan-christmas.html'

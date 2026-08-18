@@ -134,6 +134,12 @@
 
  <!-- Shiba Barn Campus -->
  <url>
+ <loc>https://shibahumanityhub.com/shelter-to-barn.html</loc>
+ <lastmod>2026-08-18</lastmod>
+ <changefreq>weekly</changefreq>
+ <priority>0.92</priority>
+ </url>
+ <url>
  <loc>https://shibahumanityhub.com/barn-pods.html</loc>
  <lastmod>2026-08-15</lastmod>
  <changefreq>weekly</changefreq>

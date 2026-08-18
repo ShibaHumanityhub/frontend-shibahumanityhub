@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style id="critical-shell">
+ html { background-color: #0c0a08; color-scheme: dark; }
+ </style>
+ <link rel="stylesheet" href="assets/css/tailwind.css">
+ <meta name="robots" content="index, follow">
+ <meta name="author" content="Shibahumanityhub">
+ <meta name="keywords" content="shelter to barn, death row rescue, Shiba Barn, lifelong sanctuary, NIBBLES, shelter dogs forever home">
+
+ <title>Shelter-To-Barn · Pull them home. Warm floor. Real next chapter.</title>
+ <meta name="description" content="Pull dogs from the clock into Shiba Barn Campus. Then family, senior sofa, or stay as long as needed. Circles of Mercy when funded. Truth first. Design until rails and barns are live.">
+
+ <meta property="og:title" content="Shelter-To-Barn · From the list to a warm floor">
+ <meta property="og:description" content="Death-row urgency meets barn soft landing. Family. Senior home. Or stay. No soul left on a cold list when capacity is real.">
+ <meta property="og:image" content="https://shibahumanityhub.com/assets/images/shelter-to-barnlifelongprogram.jpg">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://shibahumanityhub.com/shelter-to-barn.html">
+
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="Shelter-To-Barn Lifelong">
+ <meta name="twitter:description" content="Pull. Soft land. Then the right forever: family, senior sofa, or barn stay.">
+ <meta name="twitter:image" content="https://shibahumanityhub.com/assets/images/shelter-to-barnlifelongprogram.jpg">
+
+ <link rel="canonical" href="https://shibahumanityhub.com/shelter-to-barn.html">
+ <link rel="icon" href="assets/logos/favicon.png" type="image/png" sizes="512x512">
+ <link rel="apple-touch-icon" href="assets/logos/favicon.png" sizes="180x180">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+ <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+ <script src="js/programs-data.js" defer></script>
+ <script src="js/program-pages-map.js" defer></script>
+ <script src="js/programs-flywheel-nav.js" defer></script>
+ <script src="js/shared-animations.js" defer></script>
+ <script src="js/glossary.js" defer></script>
+ <script src="js/program-actions.js" defer></script>
+ <script src="js/shelter-to-barn-experience.js" defer></script>
+
+ <style>
+ :root {
+  --stb-ink: #0c0a08;
+  --stb-amber: #fbbf24;
+  --stb-hay: #fde68a;
+  --stb-em: #34d399;
+  --stb-line: rgba(251, 191, 36, 0.32);
+  --stb-cream: #fffbeb;
+ }
+ * { box-sizing: border-box; }
+ html { scroll-behavior: auto; }
+ body {
+  margin: 0; padding: 0; overflow-x: hidden;
+  background: #0c0a08;
+  color: var(--stb-cream);
+  font-family: Inter, system-ui, sans-serif;
+ }
+ .stb-fx {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; contain: strict;
+ }
+ .stb-fx-wash {
+  position: absolute; inset: 0;
+  background:
+   radial-gradient(ellipse 100% 55% at 50% -10%, rgba(251, 191, 36, 0.16), transparent 52%),
+   radial-gradient(ellipse 45% 40% at 100% 35%, rgba(52, 211, 153, 0.08), transparent 50%),
+   radial-gradient(ellipse 40% 35% at 0% 70%, rgba(239, 68, 68, 0.06), transparent 48%),
+   linear-gradient(180deg, #14100c 0%, #0c0a08 45%, #080604 100%);
+ }
+ .stb-fx-bars {
+  position: absolute; inset: 0; opacity: 0.1;
+  background: repeating-linear-gradient(90deg, transparent 0 52px, rgba(255,255,255,0.07) 52px 54px);
+  mask-image: radial-gradient(ellipse 75% 60% at 50% 40%, #000 15%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 40%, #000 15%, transparent 72%);
+ }
+ .stb-fx-glow {
+  position: absolute; left: 50%; top: 8%; width: min(70vw, 480px); height: 55%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(253, 230, 138, 0.14), transparent 65%);
+  opacity: 0.85;
+ }
+ nav, .stb-hero, .stb-paths, #stbx-experience, .stb-soul, footer, #mobile-menu, .fixed {
+  position: relative; z-index: 1;
+ }
+ nav, .fixed { z-index: 60; }
+ #mobile-menu { z-index: 40; }
+
+ nav.stb-nav {
+  background: rgba(12, 10, 8, 0.97) !important;
+  border-bottom: 1px solid var(--stb-line) !important;
+ }
+ @media (min-width: 768px) {
+  nav.stb-nav {
+   background: rgba(12, 10, 8, 0.94) !important;
+   backdrop-filter: blur(16px);
+   -webkit-backdrop-filter: blur(16px);
+  }
+ }
+
+ .stb-hero {
+  position: relative;
+  min-height: min(100vh, 920px);
+  padding: 6.75rem 1.1rem 2.5rem;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+ }
+ .stb-hero-wash {
+  position: absolute; inset: 0; pointer-events: none;
+  background: url('assets/images/shelter-to-barnlifelongprogram.jpg') center 38% / cover no-repeat;
+  opacity: 0.24;
+  filter: saturate(1.1) contrast(1.05);
+  transform: scale(1.05);
+ }
+ @media (min-width: 768px) {
+  .stb-hero-wash { animation: stb-ken 34s ease-in-out infinite alternate; }
+ }
+ .stb-hero-wash::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+   linear-gradient(180deg, rgba(12,10,8,0.82) 0%, rgba(12,10,8,0.42) 38%, rgba(12,10,8,0.88) 78%, #0c0a08 100%),
+   radial-gradient(ellipse 70% 50% at 50% 40%, rgba(251,191,36,0.12), transparent 60%);
+ }
+ @keyframes stb-ken {
+  from { transform: scale(1.04); }
+  to { transform: scale(1.12) translate3d(-1.2%, -1%, 0); }
+ }
+ .stb-hero-inner { position: relative; z-index: 2; max-width: 44rem; margin: 0 auto; width: 100%; }
+
+ .stb-sig {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: #fde68a; font-weight: 700; margin-bottom: 1rem;
+  padding: .42rem .85rem; border-radius: 999px;
+  border: 1px solid rgba(251,191,36,.4);
+  background: rgba(0,0,0,.4);
+ }
+ .stb-sig b {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #fbbf24; box-shadow: 0 0 12px #fbbf24;
+ }
+ .stb-mega {
+  font-family: 'Space Grotesk', Inter, sans-serif;
+  font-size: clamp(2.15rem, 7vw, 3.85rem);
+  font-weight: 700; letter-spacing: -0.04em; line-height: 0.98;
+  margin: 0 0 .85rem; color: #fff;
+  text-shadow: 0 2px 40px rgba(0,0,0,.55);
+ }
+ .stb-mega em {
+  font-style: normal;
+  background: linear-gradient(100deg, #fffbeb, #fde68a 40%, #34d399 85%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+ }
+ .stb-heart {
+  font-family: Space Grotesk, Inter, sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  font-weight: 600; line-height: 1.4; color: #fef3c7;
+  margin: 0 auto 1rem; max-width: 36rem;
+ }
+ .stb-sub {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 500; line-height: 1.45; color: #d1fae5;
+  margin: 0 auto 1.15rem; max-width: 36rem;
+ }
+ .stb-pull {
+  position: relative; max-width: 36rem; margin: 0 auto 1.35rem;
+  padding: 1rem 1.1rem 1.05rem 1.2rem; border-radius: 1.25rem; text-align: left;
+  border: 1px solid rgba(251,191,36,.4);
+  background:
+   radial-gradient(ellipse 80% 70% at 0% 0%, rgba(251,191,36,.14), transparent 55%),
+   linear-gradient(155deg, rgba(40,28,8,.92), rgba(8,6,4,.96));
+  box-shadow: 0 0 48px -16px rgba(251,191,36,.35);
+ }
+ .stb-pull::before {
+  content: ''; position: absolute; left: 0; top: 14%; bottom: 14%; width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #fbbf24, #34d399);
+ }
+ .stb-pull p { margin: 0; font-size: .95rem; line-height: 1.55; color: rgba(255,251,235,.92); }
+ .stb-pull strong { color: #fde68a; }
+
+ .stb-cta-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem; margin-bottom: .85rem;
+ }
+ .stb-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  padding: .95rem 1.4rem; border-radius: 999px; font-weight: 700; font-size: .95rem;
+  background: linear-gradient(135deg, #fef3c7, #fbbf24 45%, #34d399);
+  color: #1c1408; text-decoration: none; min-height: 50px;
+  box-shadow: 0 0 36px -8px rgba(251,191,36,.65);
+ }
+ .stb-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .95rem 1.2rem; border-radius: 999px; font-weight: 700; font-size: .9rem;
+  background: rgba(0,0,0,.4); color: #fde68a; border: 1px solid rgba(251,191,36,.4);
+  text-decoration: none; min-height: 50px;
+ }
+ .stb-path-note {
+  font-size: .72rem; color: rgba(253,230,138,.5); margin: 0 0 1.2rem; text-align: center;
+ }
+ .stb-media {
+  max-width: min(400px, 92vw); margin: 0 auto;
+  border-radius: 1.35rem; padding: 2px;
+  background: linear-gradient(135deg, rgba(251,191,36,.55), rgba(52,211,153,.3));
+  box-shadow: 0 28px 70px -28px rgba(0,0,0,.9), 0 0 50px -16px rgba(251,191,36,.4);
+ }
+ .stb-media-inner {
+  border-radius: calc(1.35rem - 2px); overflow: hidden; background: #0c0a08; aspect-ratio: 16/10;
+ }
+ .stb-media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+ .stb-media p {
+  margin: 0; padding: .65rem; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(253,230,138,.55); text-align: center; border-top: 1px solid rgba(255,255,255,.06);
+  background: rgba(0,0,0,.45);
+ }
+
+ .stb-paths {
+  max-width: 72rem; margin: 0 auto; padding: 0 1.1rem 1.75rem;
+  display: grid; gap: .65rem;
+ }
+ @media (min-width: 800px) {
+  .stb-paths { grid-template-columns: repeat(3, 1fr); gap: .9rem; padding: 0 1.5rem 2rem; }
+ }
+ .stb-path {
+  position: relative; padding: 1.15rem 1.15rem 1.2rem; border-radius: 1.25rem;
+  border: 1px solid rgba(251,191,36,.28);
+  background: linear-gradient(160deg, rgba(40,28,8,.9), rgba(8,6,4,.96));
+  overflow: hidden;
+ }
+ .stb-path::before {
+  content: ''; position: absolute; left: 0; top: 12%; bottom: 12%; width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #fbbf24, #34d399);
+ }
+ .stb-path .ic { font-size: 1.35rem; display: block; margin-bottom: .35rem; }
+ .stb-path h3 {
+  font-family: Space Grotesk, sans-serif; margin: 0 0 .4rem; font-size: 1.12rem; color: #fff;
+ }
+ .stb-path p { margin: 0; font-size: .9rem; line-height: 1.55; color: #e7e5e4; }
+
+ .stb-auth {
+  border: 1px solid rgba(251,191,36,.4);
+  background: linear-gradient(160deg, rgba(40, 28, 8, 0.96), rgba(8, 6, 4, 0.98));
+ }
+ .stb-soul {
+  max-width: 42rem; margin: 0 auto; padding: 1rem 1.25rem 3rem; text-align: center;
+ }
+ .stb-soul::before {
+  content: ''; display: block; width: 4rem; height: 2px; margin: 0 auto 1.15rem;
+  background: linear-gradient(90deg, transparent, #fbbf24, #34d399, transparent);
+ }
+ .stb-soul p {
+  font-family: Space Grotesk, Inter, sans-serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  line-height: 1.5; color: #fef3c7; font-weight: 600; margin: 0;
+ }
+
+ #mobile-menu { display: none; }
+ #mobile-menu:not(.hidden) { display: block; }
+ footer {
+  background: #080604 !important;
+  border-top: 1px solid var(--stb-line) !important;
+  color: rgba(180, 160, 120, 0.65) !important;
+ }
+ @media (prefers-reduced-motion: reduce) {
+  .stb-hero-wash { animation: none !important; opacity: 0.16; transform: none; }
+ }
+ @media (max-width: 767px) {
+  .stb-fx-bars { opacity: 0.07; }
+  .stb-cta { width: 100%; }
+ }
+ </style>
+</head>
+<body>
+
+<div class="stb-fx" aria-hidden="true">
+ <div class="stb-fx-wash"></div>
+ <div class="stb-fx-bars"></div>
+ <div class="stb-fx-glow"></div>
+</div>
+
+<div class="fixed bottom-3 left-3 right-3 md:left-auto md:right-4 md:max-w-sm z-[60] pointer-events-none">
+ <div class="stb-auth pointer-events-auto text-[11px] leading-snug px-3 py-2 rounded-2xl text-amber-50/90">
+ <strong class="text-amber-300">Truth:</strong> Pulls, barns, and forever placements are design until funding, partners, and Open Gate capacity are real. No fake rescue counts.
+ <button type="button" class="ml-2 underline text-amber-200/80" onclick="this.closest('div.fixed').remove()" aria-label="Dismiss">Dismiss</button>
+ </div>
+</div>
+
+<nav class="stb-nav fixed w-full z-50">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
+ <a href="index.html" class="flex items-center gap-3 group">
+ <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-amber-400/50 shadow-xl">
+ <video src="assets/videos/shibahumanityhub-logo-animated.mp4" autoplay loop muted playsinline preload="metadata"
+  poster="assets/logos/shibahumanityhublogo3d-new.jpg" width="56" height="56" aria-hidden="true" class="w-full h-full object-cover"></video>
+ </div>
+ <span class="hidden sm:block text-base font-bold tracking-tight bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
+ </a>
+ <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+ <a href="index.html" class="hover:text-amber-300 transition-colors">Flywheel</a>
+ <div class="relative" id="programs-dropdown">
+ <a href="all-programs.html" onclick="toggleProgramsDropdown(event)" class="hover:text-amber-300 transition-colors flex items-center gap-1">
+ Programs <i class="fa-solid fa-chevron-down text-[10px]" id="programs-chevron"></i>
+ </a>
+ <div id="programs-menu" class="absolute hidden mt-2 right-0 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 min-w-[280px] z-[60] shadow-2xl overflow-hidden">
+ <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
+ <div data-prog-fw-mount></div>
+ </div>
+ </div>
+ <a href="barn-pods.html" class="hover:text-amber-300 transition-colors">Barn Campus</a>
+ <a href="shelters.html" class="hover:text-red-300 transition-colors">Beautiful Souls</a>
+ </div>
+ <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1" aria-label="Menu"><i id="mobile-menu-icon" class="fa-solid fa-bars"></i></button>
+ <a href="#stbx-experience" class="stb-cta !py-2.5 !px-4 !text-sm hidden sm:inline-flex">Open the pull path</a>
+ </div>
+</nav>
+
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40" style="top: 72px;">
+ <div class="max-w-7xl mx-auto px-6 py-5 text-sm flex flex-col gap-1">
+ <div class="px-1 pb-2" id="mobile-prog-fw-mount" data-prog-fw-mount></div>
+ <p class="px-4 pb-3 text-[10px] tracking-wide text-zinc-500">2 flywheels · scroll each wheel · find every program</p>
+ <div class="my-1 border-t border-white/10"></div>
+ <a href="all-programs.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">All 30 Programs</a>
+ <a href="shelter-to-barn.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl text-amber-200">Shelter-To-Barn</a>
+ <a href="barn-pods.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Shiba Barn Campus</a>
+ <a href="shelters.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Beautiful Souls</a>
+ <a href="golden-paws.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Golden Paws</a>
+ <a href="index.html" class="px-4 py-2.5 hover:bg-white/5 rounded-xl">Home</a>
+ </div>
+</div>
+
+<header class="stb-hero">
+ <div class="stb-hero-wash" aria-hidden="true"></div>
+ <div class="stb-hero-inner">
+  <div class="stb-sig"><b></b> Shelter-To-Barn · $NIBBLES<span class="info-icon" data-term="nibbles" role="button" tabindex="0" aria-label="Plain language: nibbles">ⓘ</span><span class="info-icon" data-term="shelter to barn" role="button" tabindex="0" aria-label="Plain language: shelter to barn">ⓘ</span></div>
+  <h1 class="stb-mega">Off the list.<br>Onto a warm floor.<br><em>Then the right forever.</em></h1>
+  <p class="stb-heart">I cannot watch a good dog run out of time on a shelter clock when we can build a door that opens in time.</p>
+  <p class="stb-sub">Pull them into <a href="barn-pods.html" class="underline text-amber-200 hover:text-white">Shiba Barn Campus</a><span class="info-icon" data-term="barn campus" role="button" tabindex="0" aria-label="Plain language: barn campus">ⓘ</span>. Soft land. Heal. Then a loving family, a senior sofa, or stay as long as they need. No warehouse packing. No fake hero counts.</p>
+
+  <div class="stb-pull">
+   <p><strong>Three honest exits after the barn soft landing.</strong> A forever family when the match is real. A senior home when Golden Paws<span class="info-icon" data-term="golden paws" role="button" tabindex="0" aria-label="Plain language: golden paws">ⓘ</span> fits. Or stay in a barn cell for as long as life asks. Capacity comes first. Open Gate<span class="info-icon" data-term="open gate" role="button" tabindex="0" aria-label="Plain language: open gate">ⓘ</span> before any truck rolls.</p>
+  </div>
+
+  <div class="stb-cta-row">
+   <a href="#stbx-experience" class="stb-cta">Walk the pull path <i class="fa-solid fa-arrow-right"></i></a>
+   <a href="barn-pods.html" class="stb-ghost">Open Barn Campus</a>
+   <a href="shelters.html" class="stb-ghost">Beautiful Souls</a>
+  </div>
+  <p class="stb-path-note">Why · Pull · Barn soft land · Three forever paths · Circles · Stand</p>
+
+  <div class="stb-media">
+   <div class="stb-media-inner">
+    <video
+     id="stb-hero-video"
+     src="assets/videos/sheltertobarnlifelongprogram-animated.mp4"
+     muted loop playsinline preload="metadata"
+     data-keep-playing="1"
+     poster="assets/images/shelter-to-barnlifelongprogram.jpg"
+     aria-label="Shelter to barn preview"
+    ></video>
+    <p>Motion vision · not a live pull feed</p>
+   </div>
+  </div>
+ </div>
+</header>
+
+<section class="stb-paths" aria-label="Three forever paths after the barn">
+ <article class="stb-path">
+  <span class="ic" aria-hidden="true">🏠</span>
+  <h3>Loving family</h3>
+  <p>When the match is real, New Beginnings soft-lands the first weeks so forever sticks. Barn is the bridge, not a warehouse holding pattern.</p>
+ </article>
+ <article class="stb-path">
+  <span class="ic" aria-hidden="true">⭐</span>
+  <h3>Senior sofa</h3>
+  <p>Grey faces who already gave everything. Golden Paws path into a quiet home that earned their loyalty back. Dignity on the floor that stays.</p>
+ </article>
+ <article class="stb-path">
+  <span class="ic" aria-hidden="true">🌾</span>
+  <h3>Stay as long as needed</h3>
+  <p>Some souls are not ready for a house yet. Some never will be. A barn cell of 5 to 10 is still a home. Heat. Food. Soft hands. No rush. No discard.</p>
+ </article>
+</section>
+
+<main id="stbx-experience" style="scroll-margin-top:5rem">
+ <div class="max-w-xl mx-auto px-6 py-20 text-center text-amber-100/35 text-sm">Loading the pull path…</div>
+</main>
+
+<section class="stb-soul">
+ <p>Somewhere a dog is still watching the gate like someone might come. Somewhere a bay is waiting to be warm. This is how those two prayers meet.</p>
+</section>
+
+<footer class="py-14 text-center text-xs">
+ <p class="text-amber-100/90 text-sm mb-2 font-medium">Pull them. Soft land them. Love them forward or keep them safe.</p>
+ <p class="mb-1 tracking-wide text-amber-100/70">Shelter-To-Barn Lifelong · Shiba Barn Campus · $NIBBLES when funded</p>
+ <p class="mb-4 opacity-70">© Shibahumanityhub. Truth first. Design only until funding, Open Gate, and partner proofs are real.</p>
+ <div class="flex flex-wrap justify-center gap-4 text-sm">
+ <a href="programs/shelter-to-barn-lifelong-program.html" class="underline text-amber-200/80 hover:text-white">Classic card</a>
+ <a href="barn-pods.html" class="underline text-amber-200/80 hover:text-white">Barn Campus</a>
+ <a href="shelters.html" class="underline text-amber-200/80 hover:text-white">Beautiful Souls</a>
+ <a href="golden-paws.html" class="underline text-amber-200/80 hover:text-white">Golden Paws</a>
+ <a href="all-programs.html" class="underline text-amber-200/80 hover:text-white">All 30</a>
+ <a href="index.html" class="underline text-amber-200/80 hover:text-white">Home</a>
+ </div>
+</footer>
+
+<script>
+function toggleProgramsDropdown(e) {
+ if (e) e.preventDefault();
+ var menu = document.getElementById('programs-menu');
+ var chev = document.getElementById('programs-chevron');
+ if (!menu) return;
+ menu.classList.toggle('hidden');
+ if (chev) chev.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+ if (window.SHHProgFlywheelNav && window.SHHProgFlywheelNav.init) {
+  try { window.SHHProgFlywheelNav.init(); } catch (err) {}
+ }
+}
+document.addEventListener('click', function (ev) {
+ var dd = document.getElementById('programs-dropdown');
+ var menu = document.getElementById('programs-menu');
+ if (dd && menu && !dd.contains(ev.target)) {
+  menu.classList.add('hidden');
+  var chev = document.getElementById('programs-chevron');
+  if (chev) chev.style.transform = 'rotate(0deg)';
+ }
+});
+
+function toggleMobileMenu() {
+ var m = document.getElementById('mobile-menu');
+ var icon = document.getElementById('mobile-menu-icon');
+ if (!m) return;
+ m.classList.toggle('hidden');
+ if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
+}
+
+(function () {
+ var vid = document.getElementById('stb-hero-video');
+ if (!vid) return;
+ vid.muted = true;
+ vid.setAttribute('data-keep-playing', '1');
+ function kick() {
+  if (document.hidden) return;
+  try {
+   vid.muted = true;
+   var p = vid.play();
+   if (p && p.catch) p.catch(function () {});
+  } catch (e) { /* ignore */ }
+ }
+ kick();
+ setTimeout(kick, 400);
+ document.addEventListener('visibilitychange', function () { if (!document.hidden) kick(); });
+})();
+</script>
+</body>
+</html>
