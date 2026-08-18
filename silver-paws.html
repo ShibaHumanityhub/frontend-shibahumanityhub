@@ -469,11 +469,50 @@
  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
  color: rgba(200,210,225,0.5);
  }
+ @media (max-width: 767px) {
+  .sp-ingot-ring, .sp-forge-dust, .joy-float, .paw-pattern { animation: none !important; }
+  .sp-ingot-ring { opacity: 0.4; }
+  .sp-forge-dust { display: none !important; }
+  .joy-float { display: none !important; }
+  .hero-bg::before, .section-title, .level-bar, .sp-sig b, .chain-heart { animation: none !important; }
+  body.spx-ready .silver-card,
+  body.spx-ready #search .rounded-3xl,
+  body.spx-ready #package .silver-card,
+  body.spx-ready #soul-search .silver-card {
+   backdrop-filter: none !important;
+   -webkit-backdrop-filter: none !important;
+  }
+  body.spx-mobile #package-preview {
+   backdrop-filter: none !important;
+   -webkit-backdrop-filter: none !important;
+  }
+ }
+ body.is-scrolling .sp-ingot-ring,
+ body.is-scrolling .sp-forge-dust i,
+ body.is-scrolling .sp-sig b,
+ body.is-scrolling .joy-float,
+ body.is-scrolling .paw-pattern,
+ body.is-scrolling .hero-bg::before,
+ body.is-scrolling .section-title,
+ body.is-scrolling .level-bar,
+ body.is-scrolling .chain-heart {
+  animation-play-state: paused !important;
+ }
  @media (prefers-reduced-motion: reduce) {
  .sp-forge-dust i, .sp-ingot-ring, .sp-sig b { animation: none !important; }
  .sp-reveal { opacity: 1; transform: none; }
  }
  </style>
+ <script>
+ (function () {
+  var t;
+  window.addEventListener('scroll', function () {
+   document.body.classList.add('is-scrolling');
+   clearTimeout(t);
+   t = setTimeout(function () { document.body.classList.remove('is-scrolling'); }, 140);
+  }, { passive: true });
+ })();
+ </script>
 </head>
 <body>
 

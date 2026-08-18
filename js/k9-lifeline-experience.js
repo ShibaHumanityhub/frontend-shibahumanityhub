@@ -353,7 +353,7 @@
       '.k9x-board::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 20% 0%,rgba(251,191,36,.18),transparent 55%),radial-gradient(ellipse 50% 45% at 100% 80%,rgba(103,232,249,.1),transparent 50%);pointer-events:none}',
       '.k9x-board::after{content:"";position:absolute;left:10%;right:10%;top:14%;height:1px;background:linear-gradient(90deg,transparent,rgba(254,243,199,.45),transparent);animation:k9x-scan 3.6s ease-in-out infinite;pointer-events:none;opacity:.5}',
       '@keyframes k9x-scan{0%,100%{top:12%;opacity:.25}50%{top:78%;opacity:.55}}',
-      'body.is-scrolling .k9x-board::after,.k9x-heart,.k9x-pulse{animation-play-state:paused!important}',
+      'body.is-scrolling .k9x-board::after,body.is-scrolling .k9x-heart,body.is-scrolling .k9x-pulse{animation-play-state:paused!important}',
       '.k9x-board > *{position:relative;z-index:1}',
       '.k9x-br{position:absolute;width:14px;height:14px;border-color:rgba(251,191,36,.55);border-style:solid;pointer-events:none;z-index:2}',
       '.k9x-br.tl{top:10px;left:10px;border-width:2px 0 0 2px}',

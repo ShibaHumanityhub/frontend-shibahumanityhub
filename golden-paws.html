@@ -484,6 +484,15 @@
  .gp-ingot-ring { opacity: 0.25; }
  header.hero-bg { padding-top: 4.5rem !important; padding-bottom: 0.75rem !important; }
  }
+ body.is-scrolling .hero-bg::before,
+ body.is-scrolling .gp-mega,
+ body.is-scrolling .gp-ingot-ring,
+ body.is-scrolling .gp-sig b,
+ body.is-scrolling .gpx-scan,
+ body.is-scrolling .gpx-bar > i,
+ body.is-scrolling .gpx-kicker .pulse {
+  animation-play-state: paused !important;
+ }
  @media (prefers-reduced-motion: reduce) {
  .gp-ingot-ring, .gp-sig b { animation: none !important; }
  }
