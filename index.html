@@ -377,11 +377,11 @@
  }
 
  /* Phase 1: reliable touch targets for simulator (mobile perfection, 44px min) */
- #personal-engine button[onclick*="simulateHolding"],
- #personal-engine button[onclick*="resetSimulator"] {
+ #personal-engine .yr-chip,
+ #personal-engine .yr-cast,
+ #personal-engine .yr-reset,
+ #personal-engine .yr-token-tab {
  min-height: 44px;
- padding-top: 0.5rem;
- padding-bottom: 0.5rem;
  }
 
  /* Phase 3: real yet loving visual Mercy Circles - concentric progress with glows */
@@ -482,6 +482,402 @@
  transform: translateY(-1px) scale(1.02);
  box-shadow: 0 0 20px rgba(52,211,153,0.4);
  }
+
+ /* ===== Your Ripples simulator · premium rebuild ===== */
+ #personal-engine.yr-shell {
+ background:
+ radial-gradient(ellipse 80% 60% at 20% 0%, rgba(251,191,36,0.08), transparent 55%),
+ radial-gradient(ellipse 70% 50% at 90% 10%, rgba(52,211,153,0.07), transparent 50%),
+ rgba(9,9,11,0.72);
+ border: 1px solid rgba(255,255,255,0.12);
+ border-radius: 1.5rem;
+ padding: 1.25rem 1.25rem 1.5rem;
+ position: relative;
+ overflow: hidden;
+ isolation: isolate;
+ }
+ @media (min-width: 768px) {
+ #personal-engine.yr-shell { padding: 1.75rem 2rem 2rem; }
+ }
+ #personal-engine.yr-has-hold {
+ border-color: rgba(251,191,36,0.28);
+ box-shadow: 0 0 0 1px rgba(52,211,153,0.08), 0 24px 60px -36px rgba(0,0,0,0.85);
+ }
+ .yr-summary { list-style: none; }
+ .yr-summary::-webkit-details-marker { display: none; }
+ .yr-kicker {
+ display: block;
+ font-size: 0.65rem;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: rgba(252,211,77,0.8);
+ margin-bottom: 0.35rem;
+ }
+ .yr-title {
+ display: block;
+ font-size: 1.2rem;
+ font-weight: 650;
+ color: #fff;
+ letter-spacing: -0.02em;
+ }
+ @media (min-width: 768px) {
+ .yr-title { font-size: 1.45rem; }
+ }
+ .yr-sub {
+ display: block;
+ margin-top: 0.35rem;
+ font-size: 0.72rem;
+ color: #a1a1aa;
+ font-weight: 400;
+ }
+ .yr-stage {
+ position: relative;
+ border-radius: 1.25rem;
+ padding: 0.25rem;
+ }
+ .yr-pond {
+ pointer-events: none;
+ position: absolute;
+ inset: -8% -5%;
+ z-index: 0;
+ overflow: hidden;
+ opacity: 0.55;
+ }
+ .yr-pond i {
+ position: absolute;
+ left: 50%;
+ top: 42%;
+ width: 40px;
+ height: 40px;
+ margin: -20px 0 0 -20px;
+ border-radius: 999px;
+ border: 1px solid rgba(252,211,77,0.25);
+ opacity: 0;
+ transform: scale(0.4);
+ }
+ .yr-pond.is-pulse-n i,
+ .yr-pond.is-pulse-h i,
+ .yr-pond.is-pulse-both i {
+ animation: yr-ring 1.45s ease-out forwards;
+ }
+ .yr-pond.is-pulse-h i { border-color: rgba(52,211,153,0.35); }
+ .yr-pond.is-pulse-both i:nth-child(odd) { border-color: rgba(252,211,77,0.35); }
+ .yr-pond.is-pulse-both i:nth-child(even) { border-color: rgba(52,211,153,0.35); }
+ .yr-pond i:nth-child(2) { animation-delay: 0.18s; }
+ .yr-pond i:nth-child(3) { animation-delay: 0.36s; }
+ @keyframes yr-ring {
+ 0% { opacity: 0.7; transform: scale(0.35); }
+ 100% { opacity: 0; transform: scale(6.5); }
+ }
+ .yr-stage.yr-cast-flash {
+ animation: yr-flash 0.7s ease;
+ }
+ @keyframes yr-flash {
+ 0% { filter: brightness(1); }
+ 40% { filter: brightness(1.08); }
+ 100% { filter: brightness(1); }
+ }
+ @media (prefers-reduced-motion: reduce) {
+ .yr-pond i, .yr-stage.yr-cast-flash, .yr-prog { animation: none !important; }
+ }
+ .yr-grid {
+ position: relative;
+ z-index: 1;
+ display: grid;
+ gap: 1.5rem;
+ }
+ @media (min-width: 900px) {
+ .yr-grid { grid-template-columns: 1.05fr 0.95fr; gap: 2rem; }
+ }
+ .yr-lede {
+ font-size: 0.875rem;
+ color: #d4d4d8;
+ line-height: 1.55;
+ margin-bottom: 1rem;
+ }
+ .yr-status {
+ font-size: 0.75rem;
+ color: #6ee7b7;
+ background: rgba(6,78,59,0.35);
+ border: 1px solid rgba(52,211,153,0.25);
+ border-radius: 0.85rem;
+ padding: 0.55rem 0.75rem;
+ margin-bottom: 0.85rem;
+ }
+ .yr-explain {
+ font-size: 0.78rem;
+ color: #fde68a;
+ background: rgba(69,26,3,0.45);
+ border: 1px solid rgba(251,191,36,0.3);
+ border-radius: 0.85rem;
+ padding: 0.65rem 0.8rem;
+ margin-bottom: 0.85rem;
+ line-height: 1.45;
+ }
+ .yr-gauge {
+ width: 124px;
+ height: 124px;
+ }
+ .yr-amt {
+ font-size: 0.78rem;
+ font-weight: 700;
+ color: #fff;
+ margin: 0.1rem 0;
+ font-variant-numeric: tabular-nums;
+ }
+ .yr-token-tabs {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.4rem;
+ margin: 0.25rem 0 0.85rem;
+ }
+ .yr-token-tab {
+ min-height: 40px;
+ padding: 0.4rem 0.85rem;
+ border-radius: 999px;
+ border: 1px solid rgba(255,255,255,0.14);
+ background: rgba(0,0,0,0.35);
+ color: #e4e4e7;
+ font-size: 0.72rem;
+ font-weight: 600;
+ transition: border-color 0.2s, background 0.2s, transform 0.2s;
+ }
+ .yr-token-tab.is-on {
+ border-color: rgba(252,211,77,0.55);
+ background: linear-gradient(135deg, rgba(251,191,36,0.18), rgba(52,211,153,0.12));
+ color: #fff;
+ }
+ .yr-token-tab:hover { transform: translateY(-1px); }
+ .yr-presets {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.4rem;
+ margin-bottom: 0.9rem;
+ }
+ .yr-chip {
+ min-height: 40px;
+ padding: 0.4rem 0.7rem;
+ border-radius: 0.85rem;
+ font-size: 0.68rem;
+ font-weight: 600;
+ border: 1px solid rgba(255,255,255,0.12);
+ background: rgba(24,24,27,0.8);
+ color: #e4e4e7;
+ transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+ }
+ .yr-chip.is-n { border-color: rgba(251,191,36,0.28); }
+ .yr-chip.is-h { border-color: rgba(52,211,153,0.28); }
+ .yr-chip.is-both { border-color: rgba(167,139,250,0.35); }
+ .yr-chip.is-on {
+ box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 22px -8px rgba(251,191,36,0.55);
+ background: rgba(251,191,36,0.12);
+ color: #fff;
+ }
+ .yr-chip.is-h.is-on {
+ box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 22px -8px rgba(52,211,153,0.55);
+ background: rgba(52,211,153,0.12);
+ }
+ .yr-slider-wrap { margin-bottom: 0.9rem; }
+ .yr-slider-head {
+ display: flex;
+ justify-content: space-between;
+ font-size: 0.65rem;
+ letter-spacing: 0.08em;
+ text-transform: uppercase;
+ color: #a1a1aa;
+ margin-bottom: 0.35rem;
+ }
+ #yr-slider {
+ width: 100%;
+ accent-color: #fbbf24;
+ height: 0.35rem;
+ }
+ .yr-slider-ends {
+ display: flex;
+ justify-content: space-between;
+ font-size: 0.58rem;
+ color: #71717a;
+ margin-top: 0.25rem;
+ }
+ .yr-actions {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.55rem;
+ align-items: center;
+ margin-bottom: 1rem;
+ }
+ .yr-cast {
+ min-height: 46px;
+ padding: 0.65rem 1.25rem;
+ border-radius: 999px;
+ font-size: 0.82rem;
+ font-weight: 700;
+ letter-spacing: -0.01em;
+ color: #0a0a0a;
+ background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 42%, #34d399 100%);
+ border: none;
+ box-shadow: 0 10px 28px -12px rgba(251,191,36,0.65);
+ transition: transform 0.2s, filter 0.2s;
+ }
+ .yr-cast:hover { transform: translateY(-1px) scale(1.02); filter: brightness(1.05); }
+ .yr-reset {
+ min-height: 44px;
+ padding: 0.5rem 0.9rem;
+ font-size: 0.72rem;
+ color: #a1a1aa;
+ text-decoration: underline;
+ background: transparent;
+ border: none;
+ }
+ .yr-reset:hover { color: #fff; }
+ .yr-next {
+ margin-bottom: 0.9rem;
+ padding: 0.7rem 0.8rem;
+ border-radius: 0.95rem;
+ background: rgba(0,0,0,0.35);
+ border: 1px solid rgba(255,255,255,0.08);
+ }
+ .yr-next-label { font-size: 0.78rem; color: #f4f4f5; margin-bottom: 0.4rem; }
+ .yr-next-track {
+ height: 6px;
+ border-radius: 999px;
+ background: rgba(255,255,255,0.08);
+ overflow: hidden;
+ }
+ .yr-next-track i {
+ display: block;
+ height: 100%;
+ border-radius: 999px;
+ background: linear-gradient(90deg, #fbbf24, #34d399);
+ transition: width 0.55s cubic-bezier(0.4,0,0.2,1);
+ }
+ .yr-next-hint { font-size: 0.62rem; color: #71717a; margin-top: 0.4rem; line-height: 1.4; }
+ .yr-impact {
+ font-size: 0.875rem;
+ color: rgba(255,255,255,0.9);
+ line-height: 1.55;
+ margin-bottom: 0.75rem;
+ }
+ .yr-truth { color: #a1a1aa; font-size: 0.78rem; }
+ .yr-projection {
+ margin-top: 0.55rem;
+ font-size: 0.72rem;
+ color: rgba(167,243,208,0.85);
+ font-style: italic;
+ line-height: 1.45;
+ }
+ .yr-referral { margin-top: 1rem; }
+ .yr-stats {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 0.5rem;
+ margin-bottom: 1rem;
+ }
+ .yr-stat {
+ text-align: center;
+ padding: 0.7rem 0.4rem;
+ border-radius: 1rem;
+ background: rgba(0,0,0,0.4);
+ border: 1px solid rgba(255,255,255,0.08);
+ }
+ .yr-stat-val {
+ font-size: 1.15rem;
+ font-weight: 700;
+ color: #fde68a;
+ font-variant-numeric: tabular-nums;
+ line-height: 1.1;
+ }
+ .yr-stat-circle { font-size: 0.85rem; color: #6ee7b7; }
+ .yr-stat-lbl {
+ font-size: 0.58rem;
+ letter-spacing: 0.06em;
+ text-transform: uppercase;
+ color: #71717a;
+ margin-top: 0.3rem;
+ }
+ .yr-vignette-wrap {
+ margin-bottom: 1rem;
+ padding: 0.9rem 1rem;
+ border-radius: 1.1rem;
+ background: linear-gradient(145deg, rgba(251,191,36,0.08), rgba(52,211,153,0.06));
+ border: 1px solid rgba(255,255,255,0.1);
+ }
+ .yr-vignette-kicker {
+ font-size: 0.58rem;
+ letter-spacing: 0.16em;
+ text-transform: uppercase;
+ color: rgba(252,211,77,0.75);
+ margin-bottom: 0.35rem;
+ }
+ .yr-vignette {
+ font-size: 0.9rem;
+ color: #e4e4e7;
+ line-height: 1.55;
+ margin: 0;
+ }
+ .yr-vignette.is-lit { color: #fff; }
+ .yr-progs-head {
+ font-size: 0.65rem;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: #a1a1aa;
+ margin-bottom: 0.55rem;
+ }
+ .yr-progs {
+ display: flex;
+ flex-direction: column;
+ gap: 0.45rem;
+ max-height: 22rem;
+ overflow: auto;
+ padding-right: 0.25rem;
+ }
+ .yr-empty {
+ font-size: 0.78rem;
+ color: #71717a;
+ font-style: italic;
+ padding: 0.75rem;
+ border: 1px dashed rgba(255,255,255,0.12);
+ border-radius: 0.85rem;
+ }
+ .yr-prog {
+ display: flex;
+ align-items: flex-start;
+ gap: 0.55rem;
+ width: 100%;
+ text-align: left;
+ padding: 0.7rem 0.75rem;
+ border-radius: 0.95rem;
+ border: 1px solid rgba(255,255,255,0.1);
+ background: rgba(24,24,27,0.75);
+ color: inherit;
+ cursor: pointer;
+ transition: border-color 0.2s, transform 0.2s, background 0.2s;
+ animation: yr-prog-in 0.45s ease both;
+ }
+ @keyframes yr-prog-in {
+ from { opacity: 0; transform: translateY(6px); }
+ to { opacity: 1; transform: none; }
+ }
+ .yr-prog.is-n:hover { border-color: rgba(251,191,36,0.45); background: rgba(69,26,3,0.35); }
+ .yr-prog.is-h:hover { border-color: rgba(52,211,153,0.45); background: rgba(6,78,59,0.3); }
+ .yr-prog:hover { transform: translateY(-1px); }
+ .yr-prog-ico { font-size: 1rem; line-height: 1.2; }
+ .yr-prog-body { flex: 1; min-width: 0; }
+ .yr-prog-title {
+ display: block;
+ font-size: 0.78rem;
+ font-weight: 650;
+ color: #fafafa;
+ }
+ .yr-prog-desc {
+ display: block;
+ font-size: 0.65rem;
+ color: #a1a1aa;
+ margin-top: 0.15rem;
+ line-height: 1.35;
+ }
+ .yr-prog-go { color: #71717a; font-size: 0.85rem; padding-top: 0.1rem; }
+ body.is-scrolling .yr-pond i { animation-play-state: paused !important; }
 
  /* Phase 4: scroll-synced gentleness on the engine (subtle flywheel "turning" as you scroll the story) */
  #mercy-engine {
@@ -1264,6 +1660,7 @@
 <script src="js/shared-animations.js" defer></script>
 <script src="js/scroll-experience.js" defer></script>
 <script src="js/glossary.js" defer></script>
+<script src="js/ripples-simulator.js" defer></script>
 </head>
 
 <body>
@@ -2275,8 +2672,8 @@
  </a>
  </div>
  </div>
- <details class="shh-more mb-4">
- <summary>Watch the engine · simulator · circles →</summary>
+ <details class="shh-more mb-4" open>
+ <summary>Watch the engine · Your Ripples simulator · circles →</summary>
  <div class="mt-6 space-y-8">
  <p id="glossary" class="text-center text-xs text-zinc-500 px-2">
  Plain terms: tap any <span class="text-amber-300">ⓘ</span>.
@@ -2322,19 +2719,28 @@
  </div>
  <div id="pay-it-forward-adoption" class="hidden" aria-hidden="true"></div>
  <div id="shiba-barn-table" class="hidden" aria-hidden="true"></div>
- <details id="personal-engine" class="shh-more bg-zinc-900/60 border border-white/10 rounded-3xl p-5 md:p-8 group" open>
- <summary class="cursor-pointer text-left">
- <span class="text-lg md:text-xl font-semibold text-white">Your Ripples · simulator</span>
- <span class="block text-xs text-zinc-400 mt-1 font-normal">Circles · simulate · share</span>
+ <details id="personal-engine" class="yr-shell shh-more group" open>
+ <summary class="yr-summary cursor-pointer text-left">
+ <span class="yr-kicker">Your Ripples</span>
+ <span class="yr-title">Cast a holding. Watch mercy spread.</span>
+ <span class="yr-sub">Mercy · Guardian · Eternal · same thresholds as every program</span>
  </summary>
- <div class="flex flex-col md:flex-row gap-8 mt-4">
- <div class="flex-1">
- <p class="text-zinc-300 mb-4 text-sm">Connect or simulate to see how quiet holding co-creates mercy.</p>
- <div class="mb-5">
- <div class="text-xs uppercase tracking-widest text-zinc-400 mb-2 text-center">Visual circles</div>
- <div class="mercy-circle-container">
- <div class="mercy-circle nibbles cursor-pointer" onclick="showCircleExplanation('NIBBLES')" title="NIBBLES circles">
- <svg viewBox="0 0 120 120">
+
+ <div class="yr-stage mt-5">
+ <div id="yr-pond" class="yr-pond" aria-hidden="true">
+ <i></i><i></i><i></i>
+ </div>
+
+ <div class="yr-grid">
+ <div class="yr-controls">
+ <p class="yr-lede">This is not a game score. It is a preview of how quiet holding is designed to co-create care for dogs and children when funding and rails are live.</p>
+
+ <div id="personal-status" class="yr-status hidden"></div>
+ <div id="yr-explain" class="yr-explain" hidden></div>
+
+ <div class="yr-gauges mercy-circle-container">
+ <div class="mercy-circle nibbles yr-gauge cursor-pointer" onclick="showCircleExplanation('NIBBLES')" title="NIBBLES circles" role="button" tabindex="0">
+ <svg viewBox="0 0 120 120" aria-hidden="true">
  <circle class="mercy-circle-track" cx="60" cy="60" r="48" fill="none" stroke-width="9"/>
  <circle id="nibbles-progress-mercy" class="progress" cx="60" cy="60" r="48" fill="none" stroke-width="9" stroke-dasharray="301.6" stroke-dashoffset="301.6"/>
  <circle id="nibbles-progress-guardian" class="progress" cx="60" cy="60" r="38" fill="none" stroke-width="7" stroke-dasharray="238.8" stroke-dashoffset="238.8"/>
@@ -2342,11 +2748,12 @@
  </svg>
  <div class="label">
  <div class="font-bold text-amber-300 text-xs">$NIBBLES</div>
+ <div id="yr-n-amount" class="yr-amt">0</div>
  <div id="nibbles-circle-label" class="text-[9px] text-white/80">Supporter</div>
  </div>
  </div>
- <div class="mercy-circle hopeseed cursor-pointer" onclick="showCircleExplanation('HOPESEED')" title="hopeseed circles">
- <svg viewBox="0 0 120 120">
+ <div class="mercy-circle hopeseed yr-gauge cursor-pointer" onclick="showCircleExplanation('HOPESEED')" title="hopeseed circles" role="button" tabindex="0">
+ <svg viewBox="0 0 120 120" aria-hidden="true">
  <circle class="mercy-circle-track" cx="60" cy="60" r="48" fill="none" stroke-width="9"/>
  <circle id="hopeseed-progress-mercy" class="progress" cx="60" cy="60" r="48" fill="none" stroke-width="9" stroke-dasharray="301.6" stroke-dashoffset="301.6"/>
  <circle id="hopeseed-progress-guardian" class="progress" cx="60" cy="60" r="38" fill="none" stroke-width="7" stroke-dasharray="238.8" stroke-dashoffset="238.8"/>
@@ -2354,44 +2761,89 @@
  </svg>
  <div class="label">
  <div class="font-bold text-emerald-300 text-xs">$hopeseed</div>
+ <div id="yr-h-amount" class="yr-amt">0</div>
  <div id="hopeseed-circle-label" class="text-[9px] text-white/80">Supporter</div>
  </div>
  </div>
  </div>
+
+ <div class="yr-token-tabs" role="tablist" aria-label="Choose flywheel">
+ <button type="button" class="yr-token-tab is-on" data-token="NIBBLES" aria-pressed="true">🐾 $NIBBLES</button>
+ <button type="button" class="yr-token-tab" data-token="HOPESEED" aria-pressed="false">🌱 $hopeseed</button>
+ <button type="button" class="yr-token-tab" data-token="BOTH" aria-pressed="false">💫 Both</button>
  </div>
- <div id="personal-status" class="text-sm text-emerald-200 mb-4 hidden">Using your actual holdings from the wallet above.</div>
- <div class="mb-6">
- <div class="text-xs uppercase tracking-widest text-zinc-400 mb-2">Simulate holding</div>
- <div class="flex flex-wrap gap-2">
- <button aria-label="Simulate 25k NIBBLES" onclick="simulateHolding(MERCY_THRESHOLDS.MERCY, 'NIBBLES')" class="px-3 py-2 text-xs rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">25k $NIBBLES</button>
- <button aria-label="Simulate 100k NIBBLES" onclick="simulateHolding(MERCY_THRESHOLDS.GUARDIAN, 'NIBBLES')" class="px-3 py-2 text-xs rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">100k $NIBBLES</button>
- <button aria-label="Simulate 250k NIBBLES" onclick="simulateHolding(MERCY_THRESHOLDS.ETERNAL, 'NIBBLES')" class="px-3 py-2 text-xs rounded-2xl border border-amber-400/40 hover:bg-amber-900/30">250k+ $NIBBLES</button>
- <button aria-label="Simulate 25k hopeseed" onclick="simulateHolding(MERCY_THRESHOLDS.MERCY, 'HOPESEED')" class="px-3 py-2 text-xs rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">25k $hopeseed</button>
- <button aria-label="Simulate 100k hopeseed" onclick="simulateHolding(MERCY_THRESHOLDS.GUARDIAN, 'HOPESEED')" class="px-3 py-2 text-xs rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">100k $hopeseed</button>
- <button aria-label="Simulate 250k hopeseed" onclick="simulateHolding(MERCY_THRESHOLDS.ETERNAL, 'HOPESEED')" class="px-3 py-2 text-xs rounded-2xl border border-emerald-400/40 hover:bg-emerald-900/30">250k+ $hopeseed</button>
+
+ <div class="yr-presets" aria-label="Circle presets">
+ <button type="button" class="yr-chip is-n" data-amount="25000" data-token="NIBBLES" aria-pressed="false">25k dogs</button>
+ <button type="button" class="yr-chip is-n" data-amount="100000" data-token="NIBBLES" aria-pressed="false">100k dogs</button>
+ <button type="button" class="yr-chip is-n" data-amount="250000" data-token="NIBBLES" aria-pressed="false">250k dogs</button>
+ <button type="button" class="yr-chip is-h" data-amount="25000" data-token="HOPESEED" aria-pressed="false">25k kids</button>
+ <button type="button" class="yr-chip is-h" data-amount="100000" data-token="HOPESEED" aria-pressed="false">100k kids</button>
+ <button type="button" class="yr-chip is-h" data-amount="250000" data-token="HOPESEED" aria-pressed="false">250k kids</button>
+ <button type="button" class="yr-chip is-both" data-amount="100000" data-token="BOTH" aria-pressed="false">100k both</button>
  </div>
- <button aria-label="Reset simulation" onclick="resetSimulator()" class="mt-2 text-xs text-zinc-400 hover:text-white underline">Reset</button>
+
+ <div class="yr-slider-wrap">
+ <div class="yr-slider-head">
+ <span>Custom holding</span>
+ <span><span id="yr-amount-read">25,000</span> tokens</span>
  </div>
- <div id="personal-impact" class="text-sm text-white/90 leading-relaxed">Every holding sends gentle ripples. Simulate or connect to see programs touched.</div>
+ <input id="yr-slider" type="range" min="0" max="500000" step="5000" value="25000" aria-label="Custom holding amount">
+ <div class="yr-slider-ends"><span>0</span><span>Mercy</span><span>Guardian</span><span>Eternal</span></div>
+ </div>
+
+ <div class="yr-actions">
+ <button type="button" id="yr-cast" class="yr-cast">Cast this ripple</button>
+ <button type="button" id="yr-reset" class="yr-reset" aria-label="Reset simulation">Reset</button>
+ </div>
+
+ <div id="yr-next" class="yr-next" aria-live="polite"></div>
+
+ <div id="personal-impact" class="yr-impact">Every holding sends gentle ripples. Simulate or connect to see programs touched.</div>
+
  <div id="compounding-visual" class="compounding-visual">
  <div class="flex gap-1" id="compounding-links"></div>
- <div class="label">12-month compounding (estimate)</div>
+ <div class="label">12-month compounding chain (estimate)</div>
  </div>
- <div id="flywheel-projection" class="mt-3 text-xs text-emerald-200/80 italic"></div>
- <button onclick="copyMercyFootprint()" class="footprint-share-btn mt-4 inline-flex items-center gap-2 text-xs px-5 py-2 rounded-2xl">
- <span>📤</span> Share Your Mercy Footprint
+ <div id="flywheel-projection" class="yr-projection"></div>
+
+ <button type="button" onclick="copyMercyFootprint()" class="footprint-share-btn yr-share mt-4 inline-flex items-center gap-2 text-xs px-5 py-2.5 rounded-2xl">
+ <span aria-hidden="true">📤</span> Share Your Mercy Footprint
  </button>
- <div class="mt-4">
- <div class="text-[10px] text-zinc-400 mb-1">Referral name</div>
+
+ <div class="yr-referral">
+ <label for="referral-name" class="text-[10px] text-zinc-400 mb-1 block">Referral name</label>
  <input id="referral-name" type="text" placeholder="e.g. @yourhandle"
- class="bg-zinc-900 border border-white/10 text-sm px-3 py-1.5 rounded w-full focus:border-amber-400 focus:outline-none"
+ class="bg-zinc-950/80 border border-white/10 text-sm px-3 py-2 rounded-xl w-full focus:border-amber-400 focus:outline-none"
  oninput="saveReferralName(this.value)">
  <div id="your-referrals" class="mt-1 text-[9px] text-emerald-300/70">Newcomers credited: <span id="referral-count">0</span></div>
  </div>
  </div>
- <div class="flex-1">
- <div class="text-xs uppercase tracking-widest text-zinc-400 mb-2">Programs your ripples touch</div>
- <div id="personal-programs" aria-live="polite" class="text-sm grid grid-cols-1 gap-2 max-h-48 overflow-auto pr-2"></div>
+
+ <div class="yr-results">
+ <div class="yr-stats" aria-label="Ripple stats">
+ <div class="yr-stat">
+ <div class="yr-stat-val" id="yr-stat-lives">0</div>
+ <div class="yr-stat-lbl">Est. lives / 12 mo</div>
+ </div>
+ <div class="yr-stat">
+ <div class="yr-stat-val" id="yr-stat-progs">0</div>
+ <div class="yr-stat-lbl">Programs lit</div>
+ </div>
+ <div class="yr-stat">
+ <div class="yr-stat-val yr-stat-circle" id="yr-stat-circle">-</div>
+ <div class="yr-stat-lbl">Top circle</div>
+ </div>
+ </div>
+
+ <div class="yr-vignette-wrap">
+ <div class="yr-vignette-kicker">Soul note</div>
+ <p id="yr-vignette" class="yr-vignette">Cast a ripple. A single honest sentence will meet you here about what that holding is designed to mean.</p>
+ </div>
+
+ <div class="yr-progs-head">Programs your ripples touch</div>
+ <div id="personal-programs" aria-live="polite" class="yr-progs"></div>
+ </div>
  </div>
  </div>
  </details>
@@ -3446,8 +3898,10 @@ async function refreshMercyRipples() {
 // Current projection is a conservative client-side estimate (3x network effect). Replace/extend the "projected" calc with actual on-chain data when available, keeping the same loving copy.
 // Mainnet switch: use the SHIBARIUM_NETWORKS + TOKEN_ADDRESSES objects (already prepared in Phase 2). Add a simple chainId check or toggle if needed.
 
-let simN = 0;
-let simH = 0;
+var simN = 0;
+var simH = 0;
+window.simN = 0;
+window.simH = 0;
 
 function populateEngineNodes() {
  const container = document.getElementById('engine-nodes');
