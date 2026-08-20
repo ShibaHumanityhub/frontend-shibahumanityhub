@@ -15,12 +15,23 @@
  // Phase 4: global intensity for particle reactivity to holdings (set from updatePersonalView/simulate)
  window.mercyParticleIntensity = 1;
 
- /* Sitewide paint stability: stop Ken Burns / sticky-blur / transform thrash on mobile */
+ /* Sitewide paint stability + precision graphics (balanced cinematic speed) */
  function initPaintStability() {
   if (document.getElementById('shh-paint-stability')) return;
   const style = document.createElement('style');
   style.id = 'shh-paint-stability';
   style.textContent = [
+   /* Precision chrome: crisp type + GPU-friendly media */
+   'html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}',
+   'img,video,picture,canvas{max-width:100%}',
+   'video{transform:translateZ(0);backface-visibility:hidden}',
+   '.program-card,.soul-card,.star-card,.k9-card,.shh-cinema,.shh-story-stage{',
+   ' contain:layout style paint;content-visibility:auto;contain-intrinsic-size:auto 420px}',
+   '.shh-cinema,.shh-story-stage,.logo-3d-wrapper{',
+   ' transform:translateZ(0);isolation:isolate}',
+   '.shh-cinema{box-shadow:0 0 0 1px rgba(255,255,255,0.05),0 28px 70px -28px rgba(0,0,0,0.92),0 0 48px -28px rgba(251,191,36,0.28)}',
+   /* Soft card lift without continuous opacity thrash */
+   '.program-card,.soul-card,.star-card,.k9-card{will-change:auto}',
    '@media (max-width: 767px) {',
    /* Hero Ken Burns / scale-loop washes */
    ' .bp-hero-wash, .pif-hero-wash, .sq-hero-wash, .hero-bg::before,',
@@ -47,6 +58,7 @@
    ' }',
    ' .bp-fx-ridge, .gp-ingot-ring { transform: none !important; }',
    ' .float-particle, .nb-float, .k9-float { display: none !important; }',
+   ' #mercy-wheel, .mercy-atmosphere, .mercy-orbit { display: none !important; }',
    ' nav.bp-nav, nav.sq-nav, nav.pif-nav, nav.bg-black\\/95, nav[class*="bg-black"] {',
    '  backdrop-filter: none !important;',
    '  -webkit-backdrop-filter: none !important;',
@@ -58,8 +70,13 @@
    'body.is-scrolling .bp-fx-dust, body.is-scrolling .bp-hero-beam, body.is-scrolling .gp-ingot-ring,',
    'body.is-scrolling .hh-ingot-ring, body.is-scrolling .hh-aurora, body.is-scrolling .float-particle,',
    'body.is-scrolling .sq-fx-dust, body.is-scrolling .sq-fx-light, body.is-scrolling .nb-fx-tide,',
-   'body.is-scrolling [class*="hero-wash"] {',
+   'body.is-scrolling [class*="hero-wash"],',
+   'body.is-scrolling #mercy-wheel, body.is-scrolling .mercy-orbit, body.is-scrolling .mercy-atmosphere {',
    ' animation-play-state: paused !important;',
+   '}',
+   'body.is-scrolling #mercy-wheel { filter: none !important; }',
+   '@media (prefers-reduced-motion: reduce) {',
+   ' #mercy-wheel, .mercy-atmosphere, .mercy-orbit, .float-particle { display: none !important; }',
    '}'
   ].join('\n');
   document.head.appendChild(style);
@@ -355,9 +372,25 @@
  }
 
  // Public init
+ function initMediaPrecision() {
+  /* Native decode/lazy hints for crisp, non-blocking graphics */
+  try {
+   document.querySelectorAll('img:not([decoding])').forEach(function (img) {
+    img.setAttribute('decoding', 'async');
+    if (!img.hasAttribute('loading') && !img.closest('nav, header, .shh-hero, .logo-3d-wrapper')) {
+     img.setAttribute('loading', 'lazy');
+    }
+   });
+   document.querySelectorAll('video').forEach(function (v) {
+    if (!v.hasAttribute('playsinline')) v.setAttribute('playsinline', '');
+   });
+  } catch (eMedia) { /* ignore */ }
+ }
+
  window.initPremiumAnimations = function() {
  initPaintStability();
  initReducedMotion();
+ initMediaPrecision();
  initFloatingParticles();
  addPremiumHovers();
  initReveals();
@@ -398,19 +431,13 @@
  const modal = document.getElementById('program-modal');
  const isModalOpen = modal && !modal.classList.contains('hidden');
  document.querySelectorAll('video').forEach(v => {
- if (isModalOpen && v.closest('#program-modal')) {
- return; // leave the open modal's program preview alone (we start it explicitly in show)
+ if (isModalOpen && v.closest('#program-modal')) return;
+ if (v.closest('.logo-3d-wrapper')) return;
+ if (typeof window.shhReleaseVideoPlay === 'function') {
+  window.shhReleaseVideoPlay(v);
+  return;
  }
- if (v.closest('.logo-3d-wrapper')) {
- return; // keep the always-visible nav logo video running (it's decorative)
- }
- /* Site policy: play through scroll — keep-playing + flagship heroes stay live */
- if (v.getAttribute('data-keep-playing') === '1') return;
- if (v.getAttribute('data-allow-pause') !== '1' && (
-  v.id === 'nb-hero-video' || v.id === 'gp-hero-video' || v.id === 'hh-hero-video' ||
-  v.id === 'k9-hero-video' || v.id === 'pif-hero-video' || v.closest('.logo-3d-wrapper')
- )) return;
- try { v.pause(); v.removeAttribute('autoplay'); } catch (e) {}
+ try { v.pause(); } catch (e) {}
  });
  };
 
@@ -517,6 +544,8 @@
  // Ultra-faint so content always leads; leaves a warm, good taste.
  window.initMercyWheel = function() {
  if (prefersReduced) return;
+ /* Mobile: paint stability CSS already hides the wheel; skip build cost */
+ if (isCoarseMobile) return;
  if (document.getElementById('mercy-wheel')) return;
 
  const wheel = document.createElement('div');
@@ -529,41 +558,36 @@
  transform: translate(-50%, -50%);
  width: 118vmin;
  height: 118vmin;
- opacity: 0.032;
+ opacity: 0.034;
  pointer-events: none;
  z-index: -1;
  mix-blend-mode: screen;
- filter: drop-shadow(0 0 22px rgba(252,211,77,0.08)) drop-shadow(0 0 38px rgba(52,211,153,0.07));
- transition: transform 60ms linear;
+ /* Static glow only — animated filter is a major paint cost */
+ contain: strict;
  `;
 
- // Inject refined faint dual-tone (gold + hopeseed) breathing glow - softer, more frequencies
+ // Precision dual-tone presence without filter keyframes
  if (!document.getElementById('mercy-glow-style')) {
  const glowStyle = document.createElement('style');
  glowStyle.id = 'mercy-glow-style';
  glowStyle.textContent = `
- @keyframes mercyMidnightGlow {
- 0%, 100% {
- filter: drop-shadow(0 0 22px rgba(252,211,77,0.08)) drop-shadow(0 0 38px rgba(52,211,153,0.065));
- opacity: 0.032;
+ #mercy-wheel {
+ opacity: 0.034;
+ transition: opacity 1.2s ease;
  }
- 42% {
- filter: drop-shadow(0 0 30px rgba(252,211,77,0.12)) drop-shadow(0 0 46px rgba(52,211,153,0.09));
- opacity: 0.041;
+ @keyframes mercyWheelSoft {
+ 0%, 100% { opacity: 0.030; }
+ 50% { opacity: 0.040; }
  }
- 78% {
- filter: drop-shadow(0 0 18px rgba(52,211,153,0.10)) drop-shadow(0 0 35px rgba(252,211,77,0.07));
- opacity: 0.036;
+ @media (prefers-reduced-motion: no-preference) {
+ #mercy-wheel { animation: mercyWheelSoft 8s ease-in-out infinite; }
  }
- }
- #mercy-wheel { animation: mercyMidnightGlow 1.85s ease-in-out infinite; }
- 
- /* Extra frequency micro orbs - faint gold / hopeseed orbiting atmosphere */
  .mercy-orbit {
  position: absolute;
  border-radius: 50%;
  pointer-events: none;
  mix-blend-mode: screen;
+ will-change: transform;
  }
  .mercy-orbit.g { background: #fcd34d; box-shadow: 0 0 6px #fcd34d; }
  .mercy-orbit.h { background: #34d399; box-shadow: 0 0 5px #34d399; }
@@ -660,36 +684,31 @@
  if (innerG) innerG.setAttribute('transform', `rotate(${rotInner} ${cx} ${cy})`);
  if (symbolsG) symbolsG.setAttribute('transform', `rotate(${rotSymbols} ${cx} ${cy})`);
 
- // Orbiters at different frequencies + very slow independent drift
+ // Orbiters: rare updates only (scroll delta / idle). No Date.now breath.
  orbits.forEach((o, i) => {
  const freq = (i % 2 === 0) ? 0.009 : 0.014;
  const angle = (rotSymbols * freq * 1.6) + (o.phase * 9);
  const rad = angle * (Math.PI / 180);
- const r = 38 + (i % 2) * 4; // radius from center
+ const r = 38 + (i % 2) * 4;
  const ox = 50 + Math.cos(rad) * (r / 1.9);
  const oy = 50 + Math.sin(rad) * (r / 1.9);
- o.el.style.left = `${ox}%`;
- o.el.style.top = `${oy}%`;
- // gentle size breath at different rate
- const breath = 0.78 + Math.sin((Date.now() / 1800) + o.phase) * 0.22;
- o.el.style.transform = `scale(${breath.toFixed(3)})`;
- o.el.style.opacity = (0.09 + Math.sin((Date.now() / 2600) + i) * 0.025).toFixed(3);
+ o.el.style.left = `${ox.toFixed(2)}%`;
+ o.el.style.top = `${oy.toFixed(2)}%`;
  });
  }
 
  function onScroll() {
+ if (document.hidden) return;
  if (!ticking) {
  window.requestAnimationFrame(() => {
  const scrollY = window.scrollY;
  const delta = scrollY - lastScroll;
 
- if (Math.abs(delta) > 3) {
- // Different frequencies for the ultimate layered flywheel turning feel
- rotOuter += delta * 0.0062; // slow, majestic outer
- rotSpokes += delta * 0.0128; // medium spokes (core energy)
- rotInner += delta * -0.0041; // counter rotation for depth + parallax
- rotSymbols += delta * 0.017; // fastest inner symbols + hearts
-
+ if (Math.abs(delta) > 4) {
+ rotOuter += delta * 0.0062;
+ rotSpokes += delta * 0.0128;
+ rotInner += delta * -0.0041;
+ rotSymbols += delta * 0.017;
  applyRotations();
  }
  lastScroll = scrollY;
@@ -701,20 +720,20 @@
 
  window.addEventListener('scroll', onScroll, { passive: true });
 
- // Multiple idle frequencies for continuous aliveness when still (wholesome breathing)
+ // Idle spin: slower interval, skip when tab hidden or scrolling
  let idleTick = 0;
  const idleTimer = setInterval(() => {
+ if (document.hidden) return;
+ if (document.body.classList.contains('is-scrolling')) return;
  if (Math.abs(window.scrollY - lastScroll) < 4) {
  idleTick += 0.6;
- // Varied idle speeds (throttled for perf)
  rotOuter += 0.002;
  rotSpokes += 0.004;
  rotInner += -0.001;
  rotSymbols += 0.003 + Math.sin(idleTick / 11) * 0.001;
-
  applyRotations();
  }
- }, 1100);
+ }, 1800);
 
  // Also softly sync global scroll var for other elements (engine, subtle accents) to hook into
  const syncGlobalScroll = () => {
@@ -742,11 +761,19 @@
  if (shouldInitWheel() && window.initMercyWheel) window.initMercyWheel();
  }
 
- // === Sitewide video policy: PLAY THROUGH SCROLL ===
- // Never pause because the user scrolls or a clip leaves the viewport.
- // Pause only for: prefers-reduced-motion, hidden tab, or data-allow-pause="1".
- // Current + future videos inherit this via data-keep-playing and a page MutationObserver.
+ // === Sitewide video policy: PLAY THROUGH SCROLL (while visible) ===
+ // Visible clips keep playing during scroll (no stop-start jank).
+ // Offscreen clips pause. Concurrent budget: 1 mobile / 2 desktop (+ logo).
+ // Reduced motion + hidden tab always pause.
  window.SHH_VIDEO_PLAY_THROUGH_SCROLL = true;
+ window.SHH_VIDEO_MAX = isCoarseMobile ? 1 : 2;
+
+ var __shhVideoPlaying = [];
+ var __shhVideoIo = null;
+
+ function shhIsLogoVideo(video) {
+  return !!(video && (video.closest('.logo-3d-wrapper') || video.getAttribute('data-shh-logo') === '1'));
+ }
 
  function shhShouldKeepVideoPlaying(video) {
   if (!video || video.tagName !== 'VIDEO') return false;
@@ -756,7 +783,7 @@
   return true;
  }
 
- function shhKickVideo(video) {
+ function shhKickVideoRaw(video) {
   if (!video || !shhShouldKeepVideoPlaying(video)) return;
   try {
    video.muted = true;
@@ -773,18 +800,96 @@
   } catch (eKick) { /* ignore */ }
  }
 
+ function shhRequestVideoPlay(video) {
+  if (!video || !shhShouldKeepVideoPlaying(video)) return;
+  if (shhIsLogoVideo(video)) {
+   try { video.preload = 'metadata'; } catch (e0) { /* ignore */ }
+   shhKickVideoRaw(video);
+   return;
+  }
+  var idx = __shhVideoPlaying.indexOf(video);
+  if (idx === -1) {
+   while (__shhVideoPlaying.length >= (window.SHH_VIDEO_MAX || 2)) {
+    var old = __shhVideoPlaying.shift();
+    if (old && old !== video) {
+     try { old.pause(); } catch (e1) { /* ignore */ }
+     old.setAttribute('data-shh-budget-paused', '1');
+     try { old.preload = 'metadata'; } catch (e2) { /* ignore */ }
+    }
+   }
+   __shhVideoPlaying.push(video);
+  } else {
+   /* Promote to most-recent */
+   __shhVideoPlaying.splice(idx, 1);
+   __shhVideoPlaying.push(video);
+  }
+  video.removeAttribute('data-shh-budget-paused');
+  try { video.preload = 'auto'; } catch (e3) { /* ignore */ }
+  shhKickVideoRaw(video);
+ }
+
+ function shhReleaseVideoPlay(video) {
+  if (!video || shhIsLogoVideo(video)) return;
+  var idx = __shhVideoPlaying.indexOf(video);
+  if (idx !== -1) __shhVideoPlaying.splice(idx, 1);
+  try { video.pause(); } catch (e4) { /* ignore */ }
+  video.setAttribute('data-shh-budget-paused', '1');
+  try { video.preload = 'metadata'; } catch (e5) { /* ignore */ }
+ }
+
+ function shhKickVideo(video) {
+  shhRequestVideoPlay(video);
+ }
+
+ function shhObserveVideo(video) {
+  if (!video || video.getAttribute('data-shh-vid-obs') === '1') return;
+  video.setAttribute('data-shh-vid-obs', '1');
+  if (shhIsLogoVideo(video)) {
+   shhRequestVideoPlay(video);
+   return;
+  }
+  /* Start light: metadata until near viewport */
+  try {
+   if (video.preload === 'auto' || video.getAttribute('preload') === 'auto') {
+    video.preload = 'metadata';
+    video.setAttribute('preload', 'metadata');
+   }
+  } catch (e6) { /* ignore */ }
+
+  if (!window.IntersectionObserver) {
+   shhRequestVideoPlay(video);
+   return;
+  }
+  if (!__shhVideoIo) {
+   __shhVideoIo = new IntersectionObserver(
+    function (ents) {
+     ents.forEach(function (ent) {
+      var v = ent.target;
+      if (ent.isIntersecting && ent.intersectionRatio >= 0.05) {
+       shhRequestVideoPlay(v);
+      } else if (!ent.isIntersecting) {
+       shhReleaseVideoPlay(v);
+      }
+     });
+    },
+    { rootMargin: '140px 0px', threshold: [0, 0.05, 0.2] }
+   );
+  }
+  __shhVideoIo.observe(video);
+ }
+
  window.shhKickVideo = shhKickVideo;
+ window.shhRequestVideoPlay = shhRequestVideoPlay;
+ window.shhReleaseVideoPlay = shhReleaseVideoPlay;
+ window.shhObserveVideo = shhObserveVideo;
  window.shhShouldKeepVideoPlaying = shhShouldKeepVideoPlaying;
 
  function initLazyVideos() {
-  /* Tag every decorative/autoplay video for keep-playing, then kick. Never IO-pause. */
   var videos = document.querySelectorAll('video');
   if (!videos.length) return;
 
   videos.forEach(function (v) {
-   /* Skip explicit opt-out */
    if (v.getAttribute('data-allow-pause') === '1') return;
-   /* Logo, heroes, program clips, story videos: keep motion on scroll */
    var wantsAuto =
     v.hasAttribute('autoplay') ||
     v.hasAttribute('loop') ||
@@ -798,10 +903,9 @@
     (v.src && /assets\/videos\//.test(v.getAttribute('src') || v.currentSrc || ''));
    if (!wantsAuto) return;
    v.setAttribute('data-keep-playing', '1');
-   shhKickVideo(v);
+   shhObserveVideo(v);
   });
 
-  /* Future videos injected later (panels, amplify, modals) */
   if (!window.__shhVideoMo) {
    window.__shhVideoMo = new MutationObserver(function (muts) {
     muts.forEach(function (m) {
@@ -821,7 +925,7 @@
         (v.getAttribute('src') || '').indexOf('assets/videos/') !== -1
        ) {
         v.setAttribute('data-keep-playing', '1');
-        shhKickVideo(v);
+        shhObserveVideo(v);
        }
       });
      });
@@ -832,11 +936,29 @@
    } catch (eMo) { /* ignore */ }
   }
 
-  /* If tab returns, re-kick every keep-playing clip */
-  document.addEventListener('visibilitychange', function () {
-   if (document.hidden) return;
-   document.querySelectorAll('video[data-keep-playing="1"]').forEach(shhKickVideo);
-  });
+  if (!window.__shhVideoVis) {
+   window.__shhVideoVis = true;
+   document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+     document.querySelectorAll('video').forEach(function (v) {
+      if (shhIsLogoVideo(v)) {
+       try { v.pause(); } catch (e7) { /* ignore */ }
+       return;
+      }
+      shhReleaseVideoPlay(v);
+     });
+     return;
+    }
+    /* Restore only currently intersecting keep-playing clips via IO kick */
+    document.querySelectorAll('video[data-keep-playing="1"]').forEach(function (v) {
+     try {
+      var r = v.getBoundingClientRect();
+      var vh = window.innerHeight || 0;
+      if (r.bottom > -40 && r.top < vh + 40) shhRequestVideoPlay(v);
+     } catch (e8) { /* ignore */ }
+    });
+   });
+  }
  }
 
  if (document.readyState === 'loading') {
@@ -858,61 +980,50 @@
  gStyle.textContent = `
  :root { --mercy-flywheel-progress: 0; }
  
- /* Ultra faint global atmosphere layer - gold + hopeseed soft presence while scrolling */
+ /* Static atmosphere — no per-scroll gradient rewrites (major paint savings) */
  .mercy-atmosphere {
  position: fixed;
  inset: 0;
  pointer-events: none;
  z-index: -2;
- background: 
+ background:
  radial-gradient(ellipse at 38% 22%, rgba(252,211,77,0.018) 0%, transparent 58%),
  radial-gradient(ellipse at 72% 68%, rgba(52,211,153,0.015) 0%, transparent 64%);
- opacity: 0.6;
- transition: opacity 1200ms ease;
+ opacity: 0.58;
+ contain: strict;
  }
-
- /* Heartful slow breathing on primary containers (wholesome, not animated flash) */
- .hero-bg, main > section:first-of-type, .program-card, .soul-card, .star-card, .k9-card {
- animation: mercySoftBreath 19s ease-in-out infinite;
+ /* Hero soft breath only — never on every program card (was continuous opacity paint) */
+ @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+ .hero-bg, main > section:first-of-type {
+ animation: mercySoftBreath 22s ease-in-out infinite;
+ }
  }
  @keyframes mercySoftBreath {
  0%,100% { opacity: 1; }
- 50% { opacity: 0.985; }
- }
-
- /* Scroll-tied micro warmth on key text (very restrained, premium taste) */
- h1, h2.hero-title, .hero-title-wrapper {
- transition: filter 600ms ease;
+ 50% { opacity: 0.988; }
  }
  `;
  document.head.appendChild(gStyle);
  }
 
- // Create the atmosphere layer once
- if (!document.querySelector('.mercy-atmosphere')) {
+ // Create the atmosphere layer once (desktop only — mobile CSS hides it)
+ if (!isCoarseMobile && !document.querySelector('.mercy-atmosphere')) {
  const atm = document.createElement('div');
  atm.className = 'mercy-atmosphere';
  document.body.appendChild(atm);
  window.mercyAtmosphere = atm;
  }
 
- // Scroll-linked subtle frequency shift on atmosphere (different rate from wheel)
+ // Light scroll warmth: opacity only via CSS var (no background string thrash)
  let atmTick = false;
  window.addEventListener('scroll', () => {
+ if (isCoarseMobile || document.hidden) return;
  if (!atmTick) {
  requestAnimationFrame(() => {
  const atm = window.mercyAtmosphere;
  if (atm) {
  const p = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--mercy-flywheel-progress')) || 0;
- // Gentle position shift for parallax depth (other frequency)
- const shiftX = 48 + (p * 4);
- const shiftY = 38 + Math.sin(p * 6) * 3.5;
- atm.style.background = `
- radial-gradient(ellipse at ${shiftX}% ${shiftY}%, rgba(252,211,77,0.019) 0%, transparent 60%),
- radial-gradient(ellipse at ${72 - p*5}% ${64 + p*2}%, rgba(52,211,153,0.017) 0%, transparent 66%)
- `;
- // Very soft brightness modulation at scroll
- atm.style.opacity = (0.55 + p * 0.18).toFixed(2);
+ atm.style.opacity = (0.52 + p * 0.16).toFixed(2);
  }
  atmTick = false;
  });

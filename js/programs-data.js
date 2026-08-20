@@ -57,13 +57,13 @@ const programs = [ {
  category: "$NIBBLES",
  badgeColor: "emerald",
  image: "assets/images/rescuephotonftsoulbound.jpg",
- shortDesc: "Every dog’s full life story permanently written on the blockchain, never forgotten again.",
+ shortDesc: "One dog. One soulbound passport. Intake day, quirks, vet notes, and forever-home handoff stay on-chain when rails are live.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Soulbound Legacy</span><span class="px-4 py-1 bg-amber-500 text-white text-sm font-semibold rounded-2xl">$NIBBLES Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Rescue Passport Soulbound NFTs</h2>
- <p class="text-amber-200 text-xl mb-6">Every rescue dog finally gets a permanent, living digital soul on the blockchain.</p>
- <p class="text-zinc-300 mb-8">Too many rescue dogs walk into a shelter and basically disappear from history. Their stories, their little quirks, the exact day they were saved - it all gets lost forever.</p>
- <p class="text-zinc-300 mb-8">The Rescue Passport changes that forever. The moment a dog enters our world, we mint a soulbound NFT - a permanent, non-transferable digital soul that lives on the blockchain and can never be sold, lost, or faked. It becomes their living, growing Rescue Passport.</p>
- <p class="text-zinc-300 mb-8">Every vet visit, every training moment, every happy photo or bark video gets added safely on-chain. When they finally go to their forever home, the passport gently moves to the new family’s wallet and stays bound to them for life.</p>
+ <p class="text-amber-200 text-xl mb-6">Paper files get lost. A dog’s story should not.</p>
+ <p class="text-zinc-300 mb-8">Walk a kennel row and you meet a face with no durable record behind it. Intake notes vanish. Foster quirks stay in someone’s phone. The new family gets a folder that falls apart in a year.</p>
+ <p class="text-zinc-300 mb-8">Rescue Passport is the <strong>per-dog story token</strong>. When funded and rails are live, intake mints a soulbound NFT that cannot be sold or swapped like a collectible. Vet visits, training milestones, photos, and care notes append to that passport. When the dog goes home, the passport moves with the family wallet and stays bound for life.</p>
+ <p class="text-zinc-300 mb-8">This is not the network ops spine. That is <strong>Unified Rescue Registry</strong>. This card is the dog’s own page: who they are, what they needed, and who stayed.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -75,25 +75,25 @@ const programs = [ {
  muted 
  playsinline 
  preload="auto"
- aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
+ aria-label="Preview of a Rescue Passport for one dog. Story fields and care notes appear when funding and mint rails are live."
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Watch every rescue dog’s full life story become a permanent, glowing soulbound passport on the blockchain.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Preview of one dog’s passport page. Fields fill when mint and care rails are live.</p>
  </div>
 
  <div class="mb-10">
- <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy: How $NIBBLES Makes This Real (when funded)</h4>
+ <h4 class="text-xl font-semibold text-amber-200 mb-6">Circles of Mercy · How $NIBBLES Makes This Real (when funded)</h4>
  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
- <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>First 100 Passports</strong><br>Launch the registry for the next 100 rescued dogs</div>
- <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Regional Registry</strong><br>Full registry + live tracking for one shelter or rescue group</div>
- <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Global Legacy Registry</strong><br>Unlimited passports + your name lives on the blockchain forever</div>
+ <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Mercy Circle</div><strong>First 100 Passports</strong><br>Mint + first care appends for the next 100 dogs. Proof that each face has a page.</div>
+ <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400"><div class="text-amber-300 font-semibold mb-2">Guardian Circle</div><strong>Shelter Passport Desk</strong><br>Staffed minting and updates for one shelter or rescue partner.</div>
+ <div class="bg-amber-900/30 p-6 rounded-3xl text-center"><div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div><strong>Passport Founder Lane</strong><br>Sustains mint capacity at scale. Your holder mark can sit on founder passports by design.</div>
  </div>
  </div>
 
- <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, every single rescue dog will finally have their whole beautiful journey honored and remembered forever. No more stories lost to time. Just a permanent, gentle proof that their second chance truly mattered - a soulbound legacy that grows with them and travels softly with their forever family. This is how we turn forgotten lives into living legends on the blockchain.</p>
+ <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and rails are real, the next rescued dog leaves the intake desk with a page that cannot be thrown away. Quirks. Scars. Soft wins. Home. Written once, held for life.</p>
 
- <button onclick="sponsorProgram('rescue-passport')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Bring the First Rescue Passports to Life</button>`
+ <button onclick="sponsorProgram('rescue-passport')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Mint the First Rescue Passports</button>`
  },
  {
  id: 2,
@@ -948,12 +948,12 @@ const programs = [ {
  category: "$hopeseed",
  badgeColor: "emerald",
  image: "assets/images/nohungryweekendbackpacksphoto.jpg",
- shortDesc: "Every Friday kids quietly open a backpack full of food, a learning tablet, and a surprise toy so no child ever has to go hungry or feel forgotten on the weekend.",
+ shortDesc: "Friday handoff for verified school and shelter kids: weekend food, a small learning tablet, and one quiet surprise. School meals stop. The backpack does not.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Weekend Relief</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">No Hungry Weekend Backpacks Global Edition</h2>
- <p class="text-emerald-200 text-xl mb-6">I keep thinking about those kids who get excited for Friday because school is over, but then spend the whole weekend trying not to show how hungry they really are.</p>
- <p class="text-zinc-300 mb-8">Their family depends on school meals during the week, and when the weekend comes the fridge stays empty. That kind of hidden struggle should never happen to a child.</p>
- <p class="text-zinc-300 mb-8">So we created No Hungry Weekend Backpacks. Every Friday, kids quietly receive a backpack filled with healthy food for the entire weekend, a tablet loaded with learning games, and a small surprise toy that brings real joy without any shame. No child ever has to feel like a charity case. Just a kid who was remembered and cared for with love.</p>
+ <p class="text-emerald-200 text-xl mb-6">Friday feels free until the cafeteria closes. Then some kids spend Saturday and Sunday trying not to look hungry.</p>
+ <p class="text-zinc-300 mb-8">Weekday breakfast and lunch keep them going. When the bell rings for the weekend, the fridge at home can be empty. Teachers notice. Caseworkers notice. The kid usually pretends it is fine.</p>
+ <p class="text-zinc-300 mb-8">When funded, No Hungry Weekend Backpacks is a quiet Friday handoff through partner schools and shelters with verified need. Inside: enough food for Saturday and Sunday, a small tablet with learning apps, and one surprise toy that does not announce poverty to the hallway. No stage. No lunch line label. Just a bag that says someone planned for the gap.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -966,11 +966,11 @@ const programs = [ {
  muted 
  playsinline 
  preload="auto"
- aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
+ aria-label="Animated preview of weekend backpacks. Design only until funding and partners are live."
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Watch every child quietly receive the food, learning, and joy they deserve on the weekends when school meals stop.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Design preview: a Friday backpack packed for the two days school meals do not cover.</p>
  </div>
 
  <div class="mb-10">
@@ -978,19 +978,19 @@ const programs = [ {
  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
  <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
- <strong>Hold 25,000+ $hopeseed</strong><br>Sponsor one weekend backpack for a child
+ <strong>Hold 25,000+ $hopeseed</strong><br>Sponsor one weekend backpack for a verified child
  </div>
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center border-2 border-emerald-400">
  <div class="text-emerald-300 font-semibold mb-2">Guardian Circle</div>
- <strong>Hold 100,000+ $hopeseed</strong><br>Fund ten or more backpacks for a school or shelter
+ <strong>Hold 100,000+ $hopeseed</strong><br>Fund ten or more backpacks for a school or shelter run
  </div>
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
  <div class="text-emerald-300 font-semibold mb-2">Eternal Guardian Circle</div>
- <strong>Hold 250,000+ $hopeseed</strong><br>Become a Weekend Warrior with special impact updates
+ <strong>Hold 250,000+ $hopeseed</strong><br>Weekend Warrior circle with honest impact notes when rails are live
  </div>
  </div>
  </div>
- <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, kids who used to dread the weekend because they were hungry will instead look forward to it. They will know someone out there cared enough to make sure they have food, something fun to learn, and a little moment of joy. This is how we turn quiet struggle into quiet hope, one loving backpack at a time.</p>
+ <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and partners are live, the kid who used to shrink on Friday leaves with food for the gap, something to learn on, and one small thing that is just for fun. That is the whole design. Fill the weekend hole without putting a spotlight on the child.</p>
  <button onclick="sponsorProgram('no-hungry-weekends')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Feed Kids This Weekend</button>`
 },
  {
@@ -999,12 +999,12 @@ const programs = [ {
  category: "$hopeseed",
  badgeColor: "emerald",
  image: "assets/images/guardianangelwalletprogramphoto.jpg",
- shortDesc: "Every child who enters foster care gets their own Guardian Angel Wallet, a private $hopeseed wallet that starts growing the day they need it most.",
+ shortDesc: "Day one of foster care: a private Guardian Angel Wallet seeded with $hopeseed for that child. Birthday notes while they are still in care. Built to grow with them, not wait until exit day.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Guardian Angel</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Guardian Angel Wallet Program</h2>
- <p class="text-emerald-200 text-xl mb-6">I grew up in foster care. I lived exactly this. No family. No friends. No one who truly had my back.</p>
- <p class="text-zinc-300 mb-8">I know how heavy that loneliness feels, how scary it is to face the world completely alone with nothing to hold onto. That is why my heart aches for every child who walks through those doors today.</p>
- <p class="text-zinc-300 mb-8">This program wraps them in quiet, lasting love from the very first day. We create a private Guardian Angel Wallet just for them, seeded with $hopeseed that gently grows year after year through the kindness of our community and staking rewards. Every birthday a small, loving gift appears so they feel remembered and cherished. When they finally age out at 18 or 21, they do not start from zero.</p>
+ <p class="text-emerald-200 text-xl mb-6">I grew up in foster care. The first night is the one I still remember. New house. New rules. Nobody who knows your real stories yet.</p>
+ <p class="text-zinc-300 mb-8">That is the day this program is for. Not graduation. Not age-out paperwork. The day a child walks into care and needs to know someone already put something aside with their name on it.</p>
+ <p class="text-zinc-300 mb-8">When funded, we open a private Guardian Angel Wallet for each verified foster child at intake. It is seeded with $hopeseed and designed to grow over the years through community support and staking rewards while they are still in the system. On birthdays, a small gift and a quiet note land so they feel remembered in the middle of placements and moves. This is the long childhood wallet. College Bound Vault is the separate age-out tool for school, trade, or first housing when they leave care.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -1016,11 +1016,11 @@ const programs = [ {
  muted 
  playsinline 
  preload="auto"
- aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
+ aria-label="Animated preview of Guardian Angel Wallet. Design only until funding and rails are live."
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Watch the glowing moment a foster child feels truly loved and remembered through their Guardian Angel Wallet.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Design preview: a wallet that starts on day one of foster care, not on the day they leave.</p>
  </div>
 
  <div class="mb-10">
@@ -1028,19 +1028,19 @@ const programs = [ {
  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
  <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
- <strong>Hold 25,000+ $hopeseed</strong><br>Help seed one new Guardian Angel Wallet
+ <strong>Hold 25,000+ $hopeseed</strong><br>Help seed one new Guardian Angel Wallet at intake
  </div>
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center border-2 border-emerald-400">
  <div class="text-emerald-300 font-semibold mb-2">Guardian Circle</div>
- <strong>Hold 100,000+ $hopeseed</strong><br>Fund birthday love notes and growth for one child each year
+ <strong>Hold 100,000+ $hopeseed</strong><br>Fund birthday notes and yearly growth for one child in care
  </div>
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
  <div class="text-emerald-300 font-semibold mb-2">Eternal Guardian Circle</div>
- <strong>Hold 250,000+ $hopeseed</strong><br>Become a lifelong Guardian Angel with personal impact stories
+ <strong>Hold 250,000+ $hopeseed</strong><br>Stay with one child over years with private, honest updates
  </div>
  </div>
  </div>
- <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, no child will ever have to feel as alone as I once did. They will grow up knowing a whole community of loving hearts has been quietly rooting for them, investing in their future, and holding space for their dreams. This is love that lasts. This is family created by kindness. This is hope in the form of a wallet that was seeded with care the day they needed it most.</p>
+ <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and rails are live, a child who just entered care will not wait until 18 to learn someone was holding something for them. The wallet starts on the hard first day. Birthdays keep showing up. That is the promise we are designing toward.</p>
  <button onclick="sponsorProgram('guardian-angel-wallet')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Become a Guardian Angel</button>`
  },
  {
@@ -1049,12 +1049,12 @@ const programs = [ {
  category: "$hopeseed",
  badgeColor: "emerald",
  image: "assets/images/Bullyproofschoolsinitiative.jpg",
- shortDesc: "Making school feel safe again with real assemblies kids remember, a private virtual safe space, and rewards for every genuine act of kindness so no child ever feels alone or afraid.",
+ shortDesc: "Assemblies kids respect, a private digital cool-down space with counselor access, and small $hopeseed kindness tips. Built for schools that want hallways to feel safer.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Safe Schools</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">Bullyproof Schools Initiative</h2>
- <p class="text-emerald-200 text-xl mb-6">I have thought about this one a lot. Too many kids walk into school every single day carrying fear in their chest.</p>
- <p class="text-zinc-300 mb-8">Scared of the hallway, the lunchroom, or just being themselves. The old anti-bullying assemblies do not reach them anymore.</p>
- <p class="text-zinc-300 mb-8">I wanted to build something better, something schools are actually proud to have and kids actually respect. So we created the Bullyproof Schools Initiative: powerful, high-quality assemblies that feel real and relevant, plus a safe, private virtual world where any student who feels overwhelmed or alone can step away, breathe, talk to a counselor, sit with a therapy dog on live cam, and just feel protected. On top of that, we reward real kindness with small $hopeseed tips that kids earn and feel proud of.</p>
+ <p class="text-emerald-200 text-xl mb-6">Some kids already know which hallway to avoid before first period. Fear should not be part of the schedule.</p>
+ <p class="text-zinc-300 mb-8">Old anti-bullying slides and a one-hour pep talk do not reach the kid who gets shoved by the lockers or the one who deletes themselves online after class. Schools need tools students take seriously and a place to go when the day turns sharp.</p>
+ <p class="text-zinc-300 mb-8">When funded, Bullyproof Schools brings three pieces: sharp, age-true assemblies schools are proud to host; a private virtual campus where a student can step out, breathe, reach a counselor, or sit with a therapy dog on live cam; and small $hopeseed tips kids earn for verified acts of kindness. Peer culture gets a real reward path, not just a poster on the wall.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -1067,11 +1067,11 @@ const programs = [ {
  muted 
  playsinline 
  preload="auto"
- aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
+ aria-label="Animated preview of Bullyproof Schools. Design only until funding and school partners are live."
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Watch schools transform into places where every child feels safe, protected, and celebrated for choosing kindness.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Design preview: assembly energy, a private cool-down space, and kindness that earns a real tip.</p>
  </div>
 
  <div class="mb-10">
@@ -1079,19 +1079,19 @@ const programs = [ {
  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
  <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
- <strong>Hold 25,000+ $hopeseed</strong><br>Fund one powerful assembly for a school
+ <strong>Hold 25,000+ $hopeseed</strong><br>Fund one assembly for a partner school
  </div>
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center border-2 border-emerald-400">
  <div class="text-emerald-300 font-semibold mb-2">Guardian Circle</div>
- <strong>Hold 100,000+ $hopeseed</strong><br>Support the private safe campus and kindness rewards for one school
+ <strong>Hold 100,000+ $hopeseed</strong><br>Support the private safe campus and kindness tips for one school
  </div>
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
  <div class="text-emerald-300 font-semibold mb-2">Eternal Guardian Circle</div>
- <strong>Hold 250,000+ $hopeseed</strong><br>Become a Bullyproof Guardian with naming rights and school impact reports
+ <strong>Hold 250,000+ $hopeseed</strong><br>Bullyproof Guardian circle with naming rights and school impact reports
  </div>
  </div>
  </div>
- <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, kids who used to dread school will finally feel safe and seen. They will have a place to escape when things get heavy, real reasons to choose kindness every day, and the quiet pride of knowing their school is a Bullyproof campus that cares. Schools become places they are actually proud of. This is the kind of change I have always wanted to see.</p>
+ <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and school partners are live, a campus can run assemblies that land, give overwhelmed students a private exit hatch, and pay kindness in something kids can feel. Safer hallways. Clearer culture. That is the design.</p>
  <button onclick="sponsorProgram('bullyproof-schools')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Make Schools Safe Again</button>`
 },
  {
@@ -1100,12 +1100,12 @@ const programs = [ {
  category: "$hopeseed",
  badgeColor: "emerald",
  image: "assets/images/collegeboundvaultphoto.jpg",
- shortDesc: "Every foster teen who ages out gets their own College Bound Vault, a private loving $hopeseed wallet that starts growing the day they need it most so they never have to face the world alone.",
+ shortDesc: "Age-out vault for foster teens leaving care at 18 or 21. Tuition, trade school, or first-month rent. Separate from the day-one Guardian Angel Wallet.",
  fullHTML: `<div class="flex items-center gap-3 mb-6"><span class="px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-2xl">Future Builder</span><span class="px-4 py-1 bg-emerald-400 text-white text-sm font-semibold rounded-2xl">$hopeseed Powered</span></div>
  <h2 class="text-4xl font-bold mb-3">College Bound Vault</h2>
- <p class="text-emerald-200 text-xl mb-6">I can not stop thinking about that moment because I lived it. A kid turns 18 or 21, walks out of the foster system with a trash bag of clothes and nothing else.</p>
- <p class="text-zinc-300 mb-8">No money. No family. No plan. Just fear and emptiness. That is why my heart aches to create something different for every child who walks that same path.</p>
- <p class="text-zinc-300 mb-8">The College Bound Vault is a private, loving gift given the very day they need it most. It is a secure wallet seeded with $hopeseed that quietly grows year after year through community donations and gentle staking rewards, staying safe and protected until they are ready to step into their future. On every birthday a small, warm gift appears so they feel remembered and cherished.</p>
+ <p class="text-emerald-200 text-xl mb-6">I lived the exit day. You turn 18 or 21, get a trash bag for your clothes, and the system stops being your address.</p>
+ <p class="text-zinc-300 mb-8">No deposit for a room. No toolkit for a trade. No adult ready to co-sign anything. That cliff is what College Bound Vault is built for. Guardian Angel Wallet starts on day one of care and walks with a child through birthdays in placement. This vault is the launch pad when they leave.</p>
+ <p class="text-zinc-300 mb-8">When funded, each verified aging-out teen gets a private College Bound Vault seeded with $hopeseed and designed to grow until they are ready to use it for community college, trade school, certification, or a first housing deposit. Access rules stay clear and documented. The point is simple: exit day should not mean starting at zero.</p>
 
  <!-- PREMIUM ANIMATED VIDEO PREVIEW -->
  <div class="my-10 bg-gradient-to-br from-amber-900/30 to-emerald-900/30 border border-amber-400/40 rounded-3xl p-8 text-center">
@@ -1117,11 +1117,11 @@ const programs = [ {
  muted 
  playsinline 
  preload="auto"
- aria-label="Loving animated preview of this program. It shows the mercy it will deliver when the funding comes through."
+ aria-label="Animated preview of College Bound Vault. Design only until funding and rails are live."
  class="w-full rounded-2xl">
  </video>
  </div>
- <p class="text-emerald-200/80 text-sm mt-6">Watch the proud moment a foster teen graduates knowing their College Bound Vault has been quietly growing for them the whole time.</p>
+ <p class="text-emerald-200/80 text-sm mt-6">Design preview: a vault aimed at school, skills, or first housing when care ends.</p>
  </div>
 
  <div class="mb-10">
@@ -1129,19 +1129,19 @@ const programs = [ {
  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
  <div class="text-emerald-300 font-semibold mb-2">Mercy Circle</div>
- <strong>Hold 25,000+ $hopeseed</strong><br>Help seed one new College Bound Vault
+ <strong>Hold 25,000+ $hopeseed</strong><br>Help seed one new College Bound Vault for an aging-out teen
  </div>
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center border-2 border-emerald-400">
  <div class="text-emerald-300 font-semibold mb-2">Guardian Circle</div>
- <strong>Hold 100,000+ $hopeseed</strong><br>Fund birthday love gifts and growth for one teen each year
+ <strong>Hold 100,000+ $hopeseed</strong><br>Fund yearly growth toward tuition, trade, or first housing for one teen
  </div>
  <div class="bg-emerald-900/30 p-6 rounded-3xl text-center">
  <div class="text-emerald-300 font-semibold mb-2">Eternal Guardian Circle</div>
- <strong>Hold 250,000+ $hopeseed</strong><br>Become a Future Builder Guardian with personal impact stories
+ <strong>Hold 250,000+ $hopeseed</strong><br>Future Builder Guardian with honest progress notes when rails are live
  </div>
  </div>
  </div>
- <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, foster teens who used to face the world completely alone will know they were never truly forgotten. They will have something that has been growing quietly just for them since the day they needed it most. They will not start from zero. They will have real money for school, skills, or a safe place to call home. This is love that lasts. This is hope in the form of a wallet that was seeded with care the day they needed it most.</p>
+ <p class="text-center italic text-emerald-300 text-xl leading-relaxed max-w-2xl mx-auto">When funding and rails are live, an aging-out teen should leave care with something real for the next step: class fees, tools, or a bed that is theirs. Not a speech. A vault. That is the design.</p>
  <button onclick="sponsorProgram('college-bound-vault')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Give Them A Real Future</button>`
  },
  {

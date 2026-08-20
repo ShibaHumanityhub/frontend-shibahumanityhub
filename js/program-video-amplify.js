@@ -96,26 +96,32 @@
   video.setAttribute('playsinline', '');
   video.setAttribute('webkit-playsinline', '');
   video.setAttribute('autoplay', '');
-  /* Site policy: play through scroll for every amplified clip */
+  /* Keep-playing = play while visible through scroll; budget may pause offscreen */
   video.setAttribute('data-keep-playing', '1');
   video.removeAttribute('controls');
-  /* Top playback quality path: fetch enough to start smooth */
-  video.preload = 'auto';
-  video.setAttribute('preload', 'auto');
+  /* Metadata until near viewport — budget promotes to auto when playing */
+  video.preload = 'metadata';
+  video.setAttribute('preload', 'metadata');
   try {
    video.disablePictureInPicture = true;
   } catch (e2) { /* ignore */ }
+  try {
+   if ('disableRemotePlayback' in video) video.disableRemotePlayback = true;
+  } catch (e2b) { /* ignore */ }
   video.classList.add('shh-amplified');
  }
 
  function kickPlay(video) {
   if (!video || prefersReduced()) return;
+  if (typeof window.shhRequestVideoPlay === 'function') {
+   window.shhRequestVideoPlay(video);
+   return;
+  }
   try {
    video.muted = true;
    var p = video.play();
    if (p && typeof p.catch === 'function') {
     p.catch(function () {
-     /* Retry after metadata — common mobile policy */
      setTimeout(function () {
       try {
        video.muted = true;
@@ -151,21 +157,30 @@
  }
 
  function observe(video) {
-  /* Site policy: play through scroll. Never pause when leaving viewport.
-     IO only re-kicks play when the clip re-enters view (if something else paused it). */
+  /* Play through scroll while visible. Offscreen pause via shared budget. */
   try {
    video.setAttribute('data-keep-playing', '1');
   } catch (e0) { /* ignore */ }
+  if (typeof window.shhObserveVideo === 'function') {
+   window.shhObserveVideo(video);
+   return;
+  }
   kickPlay(video);
   if (!window.IntersectionObserver) return;
   var io = new IntersectionObserver(
    function (ents) {
     ents.forEach(function (ent) {
-     if (ent.isIntersecting) kickPlay(video);
-     /* deliberately no pause on leave */
+     if (ent.isIntersecting) {
+      if (typeof window.shhRequestVideoPlay === 'function') window.shhRequestVideoPlay(video);
+      else kickPlay(video);
+     } else if (typeof window.shhReleaseVideoPlay === 'function') {
+      window.shhReleaseVideoPlay(video);
+     } else {
+      try { video.pause(); } catch (eP) { /* ignore */ }
+     }
     });
    },
-   { threshold: [0, 0.05, 0.2] }
+   { rootMargin: '140px 0px', threshold: [0, 0.05, 0.2] }
   );
   io.observe(video);
  }
@@ -243,7 +258,7 @@
    src +
    '" ' +
    (poster ? 'poster="' + poster + '" ' : '') +
-   'muted loop playsinline webkit-playsinline autoplay preload="auto" ' +
+   'muted loop playsinline webkit-playsinline autoplay preload="metadata" ' +
    'aria-label="' +
    safeTitle +
    ' motion preview"></video>' +
@@ -274,9 +289,11 @@
   root = root || document;
   var list = root.querySelectorAll ? root.querySelectorAll('video') : [];
   Array.prototype.forEach.call(list, function (v) {
-   /* Site policy: play through scroll — never pause keep-playing clips */
-   if (v.getAttribute('data-keep-playing') === '1' && v.getAttribute('data-allow-pause') !== '1') return;
    if (v.closest && v.closest('.logo-3d-wrapper')) return;
+   if (typeof window.shhReleaseVideoPlay === 'function') {
+    window.shhReleaseVideoPlay(v);
+    return;
+   }
    try {
     v.pause();
    } catch (e) { /* ignore */ }
