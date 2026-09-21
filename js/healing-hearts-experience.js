@@ -855,9 +855,17 @@
  if (hash.indexOf('hhx-') === 0) goTab(hash.replace('hhx-', ''));
  else if (hash === 'pipeline') goTab('pipeline');
  else if (hash === 'settings') goTab('settings');
- else if (hash === 'dogs' || hash === 'stars' || hash === 'star-souls') goTab('stars');
+ else if (hash === 'dogs' || hash === 'stars' || hash === 'star-souls' || hash === 'hhx-stars') goTab('stars');
  else if (hash === 'network') goTab(isMobile() ? 'more' : 'network');
  else goTab('heart');
+
+ /* Deep links into Star Souls / board should land in view */
+ if (hash === 'hhx-stars' || hash === 'stars' || hash === 'star-souls' || hash === 'dogs' || hash === 'hhx-board') {
+  setTimeout(function () {
+   var board = document.getElementById('hhx-board');
+   if (board) board.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+  }, 60);
+ }
 
  /* After panels exist so visibility + heart tab drive play/pause */
  wireHeroVideo();

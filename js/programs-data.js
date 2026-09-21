@@ -277,19 +277,19 @@ const programs = [ {
  <div class="space-y-6">
  <div class="bg-amber-900/30 p-6 rounded-3xl">
  <div class="text-amber-300 font-semibold mb-1">Standby • Readiness (always on)</div>
- <div><strong>Mercy Circle: Hold 50,000+ $NIBBLES</strong></div>
+ <div><strong>Mercy Circle: Hold 25,000+ $NIBBLES</strong></div>
  <div class="text-sm text-zinc-300 mt-1">Keeps the team in permanent professional readiness. Funds handler living support, full dog care (food, veterinary, housing, daily training), equipment, and base costs so a fully trained unit can be wheels-up anywhere on Earth within 48 hours.</div>
  </div>
  
  <div class="bg-amber-900/30 p-6 rounded-3xl border-2 border-amber-400">
  <div class="text-amber-300 font-semibold mb-1">Active Deployment (when the call comes)</div>
- <div><strong>Guardian Circle: Hold 250,000+ $NIBBLES</strong></div>
+ <div><strong>Guardian Circle: Hold 100,000+ $NIBBLES</strong></div>
  <div class="text-sm text-zinc-300 mt-1">Releases additional funding the moment a team is activated. Covers rapid transport, field operations, handler deployment bonus, and extra support while they are in the disaster zone. A direct portion flows into post-mission recovery for both the dog and the handler.</div>
  </div>
  
  <div class="bg-amber-900/30 p-6 rounded-3xl">
  <div class="text-amber-300 font-semibold mb-1">Long-term Legacy</div>
- <div><strong>Eternal Guardian Circle: Hold 500,000+ $NIBBLES</strong></div>
+ <div><strong>Eternal Guardian Circle: Hold 250,000+ $NIBBLES</strong></div>
  <div class="text-sm text-zinc-300 mt-1">Lifeline Patron status. Your holding quietly sustains the entire lifecycle of the team, ongoing care, advanced training, retirement for the dog, and development of the next generation of rescuers. Includes private updates and the option for naming rights.</div>
  </div>
  </div>
@@ -523,8 +523,7 @@ const programs = [ {
  <strong>Hold 25,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES • the barn you support receives 20 percent more resources
  </div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
- <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
- <strong>Hold 50,000+ $NIBBLES</strong><br>Get early alerts when new dogs arrive at the barns
+ $1100,000$2<br>Get early alerts when new dogs arrive at the barns
  </div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
  <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
@@ -575,8 +574,7 @@ const programs = [ {
  <strong>Hold 25,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES and families receive extra support and resources
  </div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
- <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
- <strong>Hold 50,000+ $NIBBLES</strong><br>Get early alerts when the perfect dog for your family becomes available
+ $1100,000$2<br>Get early alerts when the perfect dog for your family becomes available
  </div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
  <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
@@ -628,8 +626,7 @@ const programs = [ {
  <strong>Hold 25,000+ $NIBBLES</strong><br>Pay with $NIBBLES and every donation releases pull fees, transport, and lifelong care instantly
  </div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
- <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
- <strong>Hold 50,000+ $NIBBLES</strong><br>Get early alerts when a dog matching your heart is on the euthanasia list
+ $1100,000$2<br>Get early alerts when a dog matching your heart is on the euthanasia list
  </div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
  <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
@@ -732,8 +729,7 @@ const programs = [ {
  <strong>Hold 25,000+ $NIBBLES</strong><br>Pay fully in $NIBBLES and your sponsored pair receives extra support
  </div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center border-2 border-amber-400">
- <div class="text-amber-300 font-semibold mb-2">Guardian Circle</div>
- <strong>Hold 50,000+ $NIBBLES</strong><br>Get early alerts when a new match becomes available
+ $1100,000$2<br>Get early alerts when a new match becomes available
  </div>
  <div class="bg-amber-900/30 p-6 rounded-3xl text-center">
  <div class="text-amber-300 font-semibold mb-2">Eternal Guardian Circle</div>
@@ -742,6 +738,7 @@ const programs = [ {
  </div>
  </div>
  <p class="text-center italic text-amber-300 text-xl leading-relaxed max-w-2xl mx-auto">When the funding comes through, seniors will get a loyal companion who gives them purpose again. Adult shelter dogs will finally get the calm forever home they have waited their whole lives for. Thousands of seniors will become proud long-term $NIBBLES holders and share simple, honest moments that remind the whole world why this project exists.</p>
+ <p class="text-center mb-4"><a href="golden-years.html" class="text-amber-300 underline font-semibold">Open the Golden Years experience →</a></p>
  <button onclick="sponsorProgram('golden-years-companion')" class="inline-block bg-white text-black font-bold text-xl px-10 py-5 rounded-3xl hover:scale-105 transition-all w-full mt-8">Help Launch the Golden Years Companion Program</button>`
 },
  {

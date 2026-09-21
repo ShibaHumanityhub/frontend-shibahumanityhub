@@ -2674,9 +2674,11 @@
  </a>
  </div>
  </div>
- <details class="shh-more mb-4" open>
- <summary>Watch the engine · Your Ripples simulator · circles →</summary>
- <div class="mt-6 space-y-8">
+ <div class="mt-6 mb-4 space-y-8">
+ <div class="text-center">
+ <div class="text-[10px] tracking-[0.18em] uppercase text-amber-300/80 mb-1">Watch the engine</div>
+ <div class="text-sm text-zinc-400">Your Ripples · circles · flywheel viz</div>
+ </div>
  <p id="glossary" class="text-center text-xs text-zinc-500 px-2">
  Plain terms: tap any <span class="text-amber-300">ⓘ</span>.
  <a href="whitepaper.html" class="text-emerald-300/80 underline ml-1">Whitepaper →</a>
@@ -2850,7 +2852,6 @@
  </div>
  </details>
  </div>
- </details>
  <p class="text-center mt-6 text-xs text-emerald-300/70 italic">This engine runs on truth. When funding comes through, ripples become lives.</p>
  <p class="text-center mt-2 text-[10px] text-zinc-500">Web3 home: <a href="https://shibahumanityhub.shib" class="text-emerald-400/80 underline" target="_blank">shibahumanityhub.shib</a></p>
  </div>
@@ -4072,13 +4073,19 @@ function updateRippleLayer(total) {
 }
 
 function showCircleExplanation(type) {
- // Loving explanation + open relevant programs
- const msg = type === 'NIBBLES' 
- ? "With $NIBBLES in the Mercy Circle and beyond, you quietly support senior dogs, therapy networks, disaster K9s, service dogs for veterans, and the Shiba Barn sanctuaries. Click a program card below to read the full story."
- : "With $hopeseed you plant real seeds for orphan Christmases, Guardian Angel wallets for foster kids, dream rooms in hospitals, no-hungry weekends, and the Miracle Fight Fund. Your ripples are building safety and joy for children.";
- alert("❤️ " + msg + "\n\n(These thresholds are the same ones written into every one of the 30 programs. When the funding comes through, the mercy flows.)");
- // Bonus: highlight the engine for that stream
- highlightEngineStream(type);
+ const msg = type === 'NIBBLES'
+ ? "With $NIBBLES in the Mercy Circle and beyond, you quietly support senior dogs, therapy networks, disaster K9s, service dogs for veterans, and the Shiba Barn sanctuaries. Tap a program card to read the full story."
+ : "With $hopeseed you plant real seeds for orphan Christmases, Guardian Angel wallets for foster kids, dream rooms in hospitals, no-hungry weekends, and the Miracle Fight Fund. Your ripples are designed to build safety and joy for children.";
+ const box = document.getElementById('yr-explain');
+ if (box) {
+  box.hidden = false;
+  box.textContent = msg + ' Same thresholds in every program: 25k · 100k · 250k. When funding comes through, mercy flows.';
+  clearTimeout(box._t);
+  box._t = setTimeout(function () { box.hidden = true; }, 8000);
+ } else if (window.SHHGlossary && window.SHHGlossary.showExplain) {
+  window.SHHGlossary.showExplain('circles of mercy');
+ }
+ if (typeof highlightEngineStream === 'function') highlightEngineStream(type);
 }
 
 let currentReferralName = '';
@@ -4240,8 +4247,10 @@ function updatePersonalView(nBal, hBal, isSim) {
  const projected = base * 3; // Conservative, first-principles estimate: each Mercy Circle threshold enables ~3x network effect (stories + emotional contagion + new voluntary holders) over 12 months, based on the 30 programs' described scale and patterns.
  projectionEl.innerHTML = `Your Quiet Compounding: Holding this amount today is already part of a self-reinforcing loop the people are building. In 12 months, through the stories and new participants your holding helps enable, this could touch approximately <strong><span id="projected-lives">0</span></strong> additional lives as the flywheel turns.`;
  const projNum = document.getElementById('projected-lives');
- if (projNum) {
- animateValue(projNum, 0, projected, 750);
+ if (projNum && typeof window.animateValue === 'function') {
+ window.animateValue(projNum, 0, projected, 750);
+ } else if (projNum) {
+ projNum.textContent = String(projected);
  }
  } else {
  projectionEl.innerHTML = '';

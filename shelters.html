@@ -1653,7 +1653,7 @@ function renderPassports(filtered, container) {
 
  <div class="mt-auto pt-4 flex gap-2">
  <button onclick="event.stopImmediatePropagation(); saveSoul(${soul.id})" class="soul-save-btn flex-1 text-sm py-3">Sponsor This Passport</button>
- <button onclick="event.stopImmediatePropagation(); alert('In the full system this would add a verified memory to the on-chain passport. Connect wallet coming soon.');" class="px-4 py-3 text-sm border border-emerald-400/30 hover:bg-emerald-900/10 rounded-3xl">Add Memory</button>
+ <button type="button" onclick="event.stopImmediatePropagation(); if(window.shhMemoryToast){window.shhMemoryToast();}else{var t=document.createElement('div');t.className='fixed bottom-4 left-1/2 -translate-x-1/2 z-[90] max-w-sm w-[calc(100%-1.5rem)] px-4 py-3 rounded-2xl text-sm text-center border border-emerald-400/40 bg-emerald-950/95 text-emerald-100 shadow-2xl';t.textContent='Memory append lands when passport rails are live. Design only for now.';document.body.appendChild(t);setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},4200);}" class="px-4 py-3 text-sm border border-emerald-400/30 hover:bg-emerald-900/10 rounded-3xl">Add Memory</button>
  </div>
  <div class="text-center text-[10px] text-emerald-300/50 mt-2">Soulbound • Non-transferable • Grows with the dog forever</div>
  `;
