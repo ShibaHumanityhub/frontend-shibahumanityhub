@@ -345,6 +345,7 @@
  };
  requestAnimationFrame(step);
  }
+ window.animateValue = animateValue;
 
  // Engine viz chain-link "connect" micro animation
  function enhanceEngineViz() {

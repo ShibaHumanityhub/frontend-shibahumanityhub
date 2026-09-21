@@ -894,7 +894,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
  <div class="absolute inset-[10px] rounded-full border border-amber-400/70 shadow-[0_0_40px_-8px_rgb(251,191,36),inset_0_0_60px_rgba(251,191,36,0.15)]"></div>
  <!-- Inner coin platform -->
  <div class="absolute inset-[22px] rounded-full bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-amber-400/40">
- <img loading="lazy" decoding="async" loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles logo.jpg" 
+ <img loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles%20logo.jpg" 
  class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
  alt="Mr. Nibbles, $NIBBLES, the living mercy token for dogs and the people they heal" loading="lazy">
  <!-- Subtle inner paw watermark for shape poetry -->
@@ -1764,6 +1764,24 @@ function positionMobileMenu() {
 window.addEventListener('load', positionMobileMenu);
 window.addEventListener('resize', positionMobileMenu);
 document.addEventListener('DOMContentLoaded', positionMobileMenu);
+
+/* Soft landing when arriving from "Sponsor With Love" */
+document.addEventListener('DOMContentLoaded', function () {
+ try {
+  if (sessionStorage.getItem('shh-sponsor-intent') !== '1') return;
+  sessionStorage.removeItem('shh-sponsor-intent');
+  var bar = document.createElement('div');
+  bar.setAttribute('role', 'status');
+  bar.className = 'fixed bottom-4 left-1/2 -translate-x-1/2 z-[80] max-w-md w-[calc(100%-1.5rem)] px-4 py-3 rounded-2xl text-sm text-center border border-emerald-400/40 bg-emerald-950/95 text-emerald-100 shadow-2xl';
+  bar.textContent = 'Thank you. Pick a program below. When charity rails are live, this path becomes receipts.';
+  document.body.appendChild(bar);
+  setTimeout(function () {
+   if (bar && bar.parentNode) bar.parentNode.removeChild(bar);
+  }, 5200);
+  var grid = document.getElementById('all-programs-grid');
+  if (grid) setTimeout(function () { grid.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 120);
+ } catch (e) { /* ignore */ }
+});
 
 function toggleProgramsDropdown(e) {
  if (e) e.preventDefault();

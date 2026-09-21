@@ -2111,12 +2111,12 @@
  </a>
  <a href="healing-hearts.html#hhx-stars" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
  <span class="text-emerald-400/80">✿</span> 
- <span>HH � Star Souls</span>
+ <span>★ Star Souls</span>
  </a>
  
  <div class="my-1 border-t border-white/10"></div>
  
- <a href="#glossary" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
+ <a href="#mercy-engine" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item" onclick="if(window.SHHGlossary&amp;&amp;window.SHHGlossary.showExplain){event.preventDefault();window.SHHGlossary.showExplain('circles of mercy');}">
  <span class="text-amber-400/80">?</span> 
  <span>Plain Terms Glossary</span>
  </a>
@@ -2168,6 +2168,8 @@
  </a>
  </div>
  <div class="mt-4 flex flex-wrap justify-center gap-3 px-4 text-sm shh-reveal shh-reveal-delay-2">
+ <a href="#personal-engine" class="text-emerald-300/95 hover:text-emerald-200 underline underline-offset-4">Your Ripples simulator</a>
+ <span class="text-zinc-600">·</span>
  <a href="pay-it-forward.html" class="text-rose-300/90 hover:text-rose-200 underline underline-offset-4">Adoption Chain</a>
  <span class="text-zinc-600">·</span>
  <a href="k9-lifeline.html" class="text-cyan-300/90 hover:text-cyan-200 underline underline-offset-4">Global K9</a>
@@ -2290,7 +2292,7 @@
  <!-- Inner coin platform -->
  <div class="absolute inset-[22px] rounded-full bg-gradient-to-br from-zinc-950 via-zinc-900 to-black flex items-center justify-center overflow-hidden ring-1 ring-amber-400/40">
  <!-- The logo itself, shaped and elevated -->
- <img loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles logo.jpg" 
+ <img loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles%20logo.jpg" 
  class="w-[82%] h-[82%] object-contain rounded-full scale-[1.04] transition-all duration-700 group-hover:scale-[1.09] drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]" 
  width="140" height="140" alt="Mr. Nibbles - $NIBBLES, the living mercy token for dogs and the people they heal">
  <!-- Subtle inner paw watermark for shape poetry -->
@@ -2516,7 +2518,7 @@
  <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto mb-8">
  <div class="bg-zinc-800/80 rounded-2xl p-5 border border-amber-400/25">
  <div class="flex items-center gap-3 mb-3">
- <img loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles logo.jpg" class="w-10 h-10 rounded-xl object-contain" alt="Mr. Nibbles">
+ <img loading="lazy" decoding="async" src="assets/logos/Mr.NIbbles%20logo.jpg" class="w-10 h-10 rounded-xl object-contain" alt="Mr. Nibbles">
  <div>
  <p class="text-amber-200 font-semibold">$NIBBLES</p>
  <p class="text-xs text-amber-300/70">Mercy for dogs</p>
@@ -3018,8 +3020,7 @@
  <div class="shh-chapter-kicker mb-2 shh-reveal">Where we go</div>
  <h2 class="shh-chapter-title text-3xl md:text-4xl font-bold mb-4 shh-reveal">Mercy that can last</h2>
  <p class="text-lg md:text-xl text-zinc-300 leading-relaxed max-w-2xl mx-auto">
- On-chain. Voluntary. Built so success multiplies capacity for kids, dogs, veterans, and families.
- when funding and delivery are live: transparent funding. No middlemen theater.
+ On-chain. Voluntary. Built so success multiplies capacity for kids, dogs, veterans, and families. When funding and delivery are live: transparent funding. No middlemen theater.
  </p>
  <a href="whitepaper.html" class="inline-flex mt-5 text-amber-200 underline text-sm">Full vision in the whitepaper →</a>
  </div>
@@ -3249,7 +3250,11 @@ function hideModal() {
 }
 
 function sponsorProgram() {
- alert("Thank you from the bottom of our hearts.\n\nWe are building real mercy with you. When charity rails and funding are live, your support becomes verifiable delivery with receipts.");
+ /* Lead with love, not an alert. Take them to the dual flywheels. */
+ try {
+  sessionStorage.setItem('shh-sponsor-intent', '1');
+ } catch (e) { /* ignore */ }
+ window.location.href = 'all-programs.html#all-programs-grid';
 }
 
 // Smooth scroll for nav links
@@ -3263,23 +3268,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // === LEAD MAGNET SUCCESS HANDLER ===
-document.getElementById('mercy-form').addEventListener('submit', function(e) {
+(function () {
+ const mercyForm = document.getElementById('mercy-form');
+ if (!mercyForm) return;
+ mercyForm.addEventListener('submit', function(e) {
  const btn = document.getElementById('submit-btn');
  const success = document.getElementById('success-message');
- 
  if (btn) btn.innerHTML = 'Sending... ❤️';
-
  setTimeout(() => {
  if (btn) btn.style.display = 'none';
  if (success) success.classList.remove('hidden');
-
- // Auto-download the blueprint immediately
  setTimeout(() => {
  const downloadLink = document.getElementById('direct-download-btn');
  if (downloadLink) downloadLink.click();
  }, 800);
  }, 1200);
-});
+ });
+})();
 
 // === PHASE 3 COMPLETE: DEEPER SHIBARIUM ON-CHAIN TRANSPARENCY & LIVING WALLET + RECENT RIPPLES ===
 // Real wallet connect (read-only), balances via eth_call, on-chain Recent Ripples via eth_getLogs (personal + public "Ripples in the Wild").
@@ -4152,7 +4157,7 @@ function copyMercyFootprint() {
  const btns = document.querySelectorAll('.footprint-share-btn');
  if (btns.length) {
  const orig = btns[0].innerHTML;
- btns[0].innerHTML = '✅ Copied. Thank you for sharing the truth.'
+ btns[0].innerHTML = '✅ Copied. Thank you for sharing the truth.';
  setTimeout(() => { if (btns[0]) btns[0].innerHTML = orig; }, 2400);
  } else {
  alert('✅ Copied to clipboard. Thank you for carrying the story forward.');
@@ -4162,16 +4167,6 @@ function copyMercyFootprint() {
  // fallback
  prompt('Copy this Mercy Footprint and share it:', text);
  if (currentReferralName) incrementReferralCount();
- });
-}
-
-function updateRippleLayer(total) {
- const layer = document.getElementById('ripple-layer');
- if (!layer) return;
- const intensity = Math.min(1.2, Math.max(0.4, total / 300000));
- layer.style.opacity = (0.45 * intensity).toFixed(2);
- layer.querySelectorAll('.ripple-path').forEach((p, idx) => {
- p.style.animationDuration = (2.2 + (idx % 2) * 0.6 - (intensity * 0.6)) + 's';
  });
 }
 

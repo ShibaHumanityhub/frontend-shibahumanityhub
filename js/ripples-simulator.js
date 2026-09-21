@@ -385,8 +385,8 @@
     projectionEl.innerHTML =
      'Quiet compounding (estimate): through stories and new holders your holding helps invite, this design could touch about <strong><span id="projected-lives">0</span></strong> additional lives over 12 months when funding and rails are live. Conservative. Not a promise.';
     var projNum = document.getElementById('projected-lives');
-    if (projNum && typeof animateValue === 'function' && !prefersReduced()) {
-     animateValue(projNum, 0, projected, 750);
+    if (projNum && typeof window.animateValue === 'function' && !prefersReduced()) {
+     window.animateValue(projNum, 0, projected, 750);
     } else if (projNum) {
      projNum.textContent = String(projected);
     }
