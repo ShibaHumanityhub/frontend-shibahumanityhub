@@ -104,8 +104,12 @@
   return (
    '<div class="shh-banner" role="status">' +
    '<div class="shh-banner-inner">' +
-   '<strong>Truth right now:</strong> Incorporated. Charity rails in progress. Receipts and full legal framing activate on approval. Contracts are live. Delivery claims wait for rails.' +
-   '</div></div>'
+   '<strong>Truth right now:</strong> Incorporated. Charity rails in progress. Receipts and full legal framing activate on approval. Contracts are live. Delivery claims wait for rails. ' +
+   '<span style="display:inline-block;margin-left:.35rem;font-size:10px;letter-spacing:.06em;text-transform:uppercase">' +
+   '<span style="border:1px solid rgba(251,191,36,.35);color:#fde68a;padding:1px 6px;border-radius:999px;margin-right:4px">rails In progress</span>' +
+   '<span style="border:1px solid rgba(251,191,36,.35);color:#fde68a;padding:1px 6px;border-radius:999px;margin-right:4px">receipts In progress</span>' +
+   '<span style="border:1px solid rgba(52,211,153,.3);color:#a7f3d0;padding:1px 6px;border-radius:999px">contracts Live</span>' +
+   '</span></div></div>'
   );
  }
 
@@ -141,8 +145,9 @@
    '<a href="/terms">Terms</a>' +
    '<a href="/how-it-works">Status</a>' +
    '</nav></div></div>' +
-   '<p class="text-emerald-300/90 text-xs max-w-2xl mx-auto leading-relaxed">© Shiba Humanity Hub · Incorporated entity · Pre-launch · Registered charity application in progress</p>' +
-   '<p class="text-zinc-500 text-[10px] mt-2 max-w-xl mx-auto">Not financial advice. Contracts live. Delivery claims wait for rails.</p>' +
+   '<p class="text-amber-100/90 text-xs max-w-2xl mx-auto leading-relaxed font-medium">Incorporated · Charity rails in progress · Contracts live on Shibarium · Delivery waits for rails</p>' +
+   '<p class="text-emerald-300/80 text-xs max-w-2xl mx-auto leading-relaxed mt-2">© Shiba Humanity Hub · Pre-launch · Registered charity application in progress</p>' +
+   '<p class="text-zinc-500 text-[10px] mt-2 max-w-xl mx-auto">Not financial advice. No delivery numbers claimed as live.</p>' +
    '</div></footer>'
   );
  }
