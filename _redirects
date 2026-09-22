@@ -1,11 +1,16 @@
-# Clean paths for trust + welcome pages (Netlify)
+# Trust stubs
 /privacy    /privacy.html    200
 /terms      /terms.html      200
 /contact    /contact.html    200
 /faq        /faq.html        200
 /about      /faq.html        302
 
-# Common pretty aliases (serve .html without forcing URL change)
+# P0 welcome routes
+/programs        /programs.html        200
+/how-it-works    /how-it-works.html    200
+/meet-the-souls  /shelters.html        302
+
+# Common pretty aliases
 /all-programs    /all-programs.html    200
 /shelters        /shelters.html        200
 /whitepaper      /whitepaper.html      200
@@ -15,3 +20,6 @@
 /healing-hearts  /healing-hearts.html  200
 /barn-pods       /barn-pods.html       200
 /spin-the-wheel  /spin-the-wheel.html  200
+/golden-years    /golden-years.html    200
+/golden-paws     /golden-paws.html     200
+/silver-paws     /silver-paws.html     200
