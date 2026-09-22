@@ -1,78 +1,51 @@
 # SHH claim-lock copy (Rails & Trust)
 
-**Single source of truth.** Repo editors must use these exact strings.  
-Story Voice may polish surrounding stub prose only — not these locked lines.  
-**Claim lock rev 2** · 2026-09-22 (America/Edmonton)
+**Single source of truth.** Repo editors must use these exact strings.
+Story Voice may polish surrounding stub prose only. Do not soften chips, footer string, or the not-sponsorship sentence without Rails & Trust.
+**Rev 3** · 2026-09-22 (America/Edmonton)
+Mirrored as Appendix A in `P0-IMPLEMENTATION-SPEC.md`.
 
 ---
 
-## A1 — Status chip labels + tooltips
+## A1. Status chips (exact)
 
-| Label (exact) | Tooltip (exact — from claim-lock rev 2 §10) |
-|---------------|-----------------------------------------------|
-| `Live` | Contracts on Shibarium; resolving pages (site, whitepaper, blueprint); Blueprint email capture only. Nothing else is Live without Rails & Trust. |
-| `In progress` | Charity rails, receipts / full legal framing, and partner feeds. Use this chip for those — not Planned-only, not Live. |
-| `Prototype` | Beautiful Souls clocks, Ripples simulator, and ledger previews. |
-| `Planned` | Program delivery, soulbound passports, and charity-rails benefits once approved. |
+| Chip | Exact label | Tooltip / helper (exact) |
+|------|-------------|---------------------------|
+| Live | `Live` | Real and usable today: on-chain contract, public page, or verified process you can complete now. |
+| In progress | `In progress` | Work started; not finished. Charity rails, receipts, partner agreements, legal framing. |
+| Prototype | `Prototype` | Demo / vision UI for learning. Simulated data; not a live placement, sponsor feed, or delivery. |
+| Planned | `Planned` | Intended after rails, funding, and partners. Do not present as available. |
 
-**Chip usage rules**
+**Never under Live:** Ground delivery · charity-complete / approved rails · sponsorship that moves money to a beneficiary today · "helping now" / "saves lives" as present-tense operations · partner names or euthanasia clocks as verified live cases · demo metrics / "Est. lives".
 
-- Never mark rails, receipts, or partner feeds as `Live`.
-- Never label a whole door or page `Live` without naming what is live (e.g. contracts Live · delivery waits).
-- Door 4 chip text (exact): `Status · pre-rails` with accompanying `rails In progress`.
+**Door 4 chip:** `In progress` or micro `Status · pre-rails`. Do not label the door bare Live without naming what is live.
+
+**Scoped chip pattern (UX):** Chip text stays exact (`Live` / `In progress` / `Prototype` / `Planned`). Scope words (Contracts / Rails / Delivery / Partner feeds) sit beside the chip so bare Live never reads as delivery.
 
 ---
 
-## A2 — Footer trust line (every page)
+## A2. Mandatory footer trust line (every page) - exact string
 
 ```
 Incorporated · Charity rails in progress · Contracts live on Shibarium · Delivery waits for rails
 ```
 
-Place below the footer link grid. Keep “not financial advice” disclaimer. Do not invent registration timelines beyond what is already approved.
-
 ---
 
-## A3 — Authenticity / truth strip
+## A3. Privacy - Blueprint email (live now) - locked paragraph
 
 ```
-Incorporated. Charity rails in progress. Receipts and full legal framing activate on approval. Contracts are live. Delivery claims wait for rails.
+On the homepage, "Get The Mercy Blueprint" asks for your email and submits it through a third-party form service so we can send or unlock the Blueprint materials. That capture is live. Submitting your email means you are asking us to share vision and program materials with you. It does not enroll you in a live sponsorship, donation receipt, or beneficiary program. You can use the direct Blueprint page without email where that link is offered.
+
+[PLACEHOLDER: Formspree (or successor) processor name, retention, and subprocessors - confirm with counsel]
+[PLACEHOLDER: whether Blueprint emails are also used for infrequent mission updates; if yes, say so and offer unsubscribe]
+[PLACEHOLDER: full legal entity name, jurisdiction, registered address, privacy contact email]
 ```
 
-Chip rails/receipts as `In progress`. Contracts as `Live`.
-
----
-
-## A4 — Blueprint email (Live capture)
-
-**Form microcopy (exact):**
+**One-line under the Blueprint form field (sitewide):**
 
 ```
 Email for Blueprint materials only. Not a live donation or sponsorship. Privacy
 ```
 
 (`Privacy` is a link to `/privacy`.)
-
-**Privacy page must disclose:** Formspree processes Blueprint email; purpose = Blueprint materials + honest updates; deletion via `/contact`; fuller policy on charity approval — do not pretend no collection exists today.
-
----
-
-## A5 — Hero tense (designed / when-rails)
-
-Prefer (Story Voice may polish, but keep designed / when-rails framing):
-
-```
-You hold. The flywheel is designed to turn. When rails are live, real lives get room to breathe.
-```
-
-Avoid present-tense delivery outcomes as if live today.
-
----
-
-## A6 — Stand with a program (not Sponsor)
-
-- Card title: `Stand with a program`
-- Subcopy: `Learn the story. Holding is how support is designed when rails are live.`
-- Button: `Explore seed programs` → `/programs`
-- Badge: `LEARN THE PATH`
-- Never dump to raw all-programs grid.

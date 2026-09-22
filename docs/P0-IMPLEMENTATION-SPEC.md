@@ -1,101 +1,66 @@
-# Shiba Humanity Hub — P0 Implementation Spec (rev 2)
+# Shiba Humanity Hub - P0 Implementation Spec (rev 3)
 
-**For:** whoever edits the Netlify/static repo  
-**Domain:** https://shibahumanityhub.com  
-**Tokens (exact spelling):** `$NIBBLES` · `$hopeseed`  
-**Owner:** Site & UX · Copy polish: Story Voice · Claim lock: Rails & Trust  
-**Date:** 2026-09-22 (America/Edmonton)  
-**Based on:** live HTML audit + desktop/mobile hero screenshots  
-**Claim lock:** Rails & Trust **APPROVE** overall with required CHANGEs (rev 2)
+**For:** whoever edits the Netlify/static repo
+**Domain:** https://shibahumanityhub.com
+**Tokens:** `$NIBBLES` · `$hopeseed`
+**Owner:** Site & UX · Copy polish: Story Voice · Claim lock: Rails & Trust
+**Date:** 2026-09-22 (America/Edmonton)
+**Claim lock:** Rails & Trust APPROVE (rev 2/3)
 
-**Locked claim paste:** see **Appendix A** below (same content as [`shh-claim-lock-copy.md`](./shh-claim-lock-copy.md)).  
-Repo editors must use those **exact strings**. Story Voice can polish surrounding stub prose only.
+**Rev 3:** Exact locked paste is **Appendix A** (mirrored at [`shh-claim-lock-copy.md`](./shh-claim-lock-copy.md)). Use exact chip labels/tooltips, exact footer string, and exact Blueprint privacy paragraph + form microcopy. Story Voice may polish surrounding stub prose only.
 
----
+**Jump:** [Appendix A](#appendix-a--locked-claim-paste-rails--trust--do-not-paraphrase)
 
-## 0. Goals (mass-adoption clarity)
+## Goals (summary)
 
-- First screen: one promise + four equal doors — no token addresses, wallet, or tax math above the fold.
-- One shared global nav + real footer on every page.
-- Programs entry = seed-first (4), then all ~30.
-- Sponsor With Love must not dump to the raw all-programs grid or imply live sponsorship.
-- Clean URLs + stubs: `/privacy` `/terms` `/contact` `/faq`.
-- Keep the authenticity / pre-rails banner. Never invent live impact metrics. Label **Live / Prototype / Planned / In progress**.
-- Approved as-is: Sponsor kill · seed hub · authenticity banner placement intent.
-
-## Six required CHANGEs before ship (Rails & Trust)
-
-1. `In progress` chip everywhere for rails, receipts, and partner feeds.
-2. Every footer gets the trust line (Appendix A2).
-3. Door 4 chip = `Status · pre-rails` + `rails In progress` — never whole-door Live without naming what is live.
-4. `/privacy` discloses live Blueprint email capture now.
-5. Live row = contracts, resolving pages, and Blueprint email capture only.
-6. Hero present-tense breath → designed / when-rails (Appendix A5).
-
-## Routes
-
-| Route | Purpose |
-|-------|---------|
-| `/` | Home (slimmed) |
-| `/programs` | Seed-focus hub (primary Programs entry) |
-| `/all-programs` | Full constellation |
-| `/shelters` | Beautiful Souls (Meet the Souls) |
-| `/how-it-works` | Flywheel + status |
-| `/whitepaper` `/mercy-blueprint` | Docs |
-| `/privacy` `/terms` `/contact` `/faq` | Trust stubs |
+- First screen: one promise + four equal doors
+- Shared nav + real footer on every page
+- Programs = seed-first (`/programs`), then all ~30
+- No Sponsor dump to raw grid
+- Stubs: `/privacy` `/terms` `/contact` `/faq`
+- Keep authenticity banner; chips: Live / In progress / Prototype / Planned
 
 ## Success criteria
 
-Phone visitor: promise → four doors → dogs/kids/faces/status in one tap; never raw 30-grid from Sponsor; footer has Privacy/Terms/Contact **and** trust line; Programs opens seed-first; token addresses only after doors; chips never call rails/receipts/partners Live.
+Phone: promise → four doors → dogs/kids/faces/status in one tap; never raw 30-grid from Sponsor; footer has Privacy/Terms/Contact and trust line; Programs opens seed-first; tokens after doors; chips never call rails/receipts/partners Live.
 
 ---
 
-## Appendix A — Locked claim paste
+## Appendix A - Locked claim paste (Rails & Trust · do not paraphrase)
 
-**Source of truth file:** [`shh-claim-lock-copy.md`](./shh-claim-lock-copy.md)
+**File:** [`shh-claim-lock-copy.md`](./shh-claim-lock-copy.md)
 
-*(Duplicated here so the build sheet is self-contained. If the two drift, `shh-claim-lock-copy.md` wins.)*
+### A1. Status chips (exact)
 
-### A1 — Status chip labels + tooltips
+| Chip | Exact label | Tooltip / helper (exact) |
+|------|-------------|---------------------------|
+| Live | Live | Real and usable today: on-chain contract, public page, or verified process you can complete now. |
+| In progress | In progress | Work started; not finished. Charity rails, receipts, partner agreements, legal framing. |
+| Prototype | Prototype | Demo / vision UI for learning. Simulated data; not a live placement, sponsor feed, or delivery. |
+| Planned | Planned | Intended after rails, funding, and partners. Do not present as available. |
 
-| Label (exact) | Tooltip (exact) |
-|---------------|-----------------|
-| `Live` | Contracts on Shibarium; resolving pages (site, whitepaper, blueprint); Blueprint email capture only. Nothing else is Live without Rails & Trust. |
-| `In progress` | Charity rails, receipts / full legal framing, and partner feeds. Use this chip for those — not Planned-only, not Live. |
-| `Prototype` | Beautiful Souls clocks, Ripples simulator, and ledger previews. |
-| `Planned` | Program delivery, soulbound passports, and charity-rails benefits once approved. |
+Never under Live: Ground delivery · charity-complete / approved rails · sponsorship that moves money to a beneficiary today · "helping now" / "saves lives" as present-tense operations · partner names or euthanasia clocks as verified live cases · demo metrics / "Est. lives".
 
-Door 4 chip text (exact): `Status · pre-rails` with `rails In progress`.
+Door 4 chip: In progress or micro Status · pre-rails. Do not label the door bare Live without naming what is live.
 
-### A2 — Footer trust line
+### A2. Mandatory footer trust line (every page) - exact string
 
 ```
 Incorporated · Charity rails in progress · Contracts live on Shibarium · Delivery waits for rails
 ```
 
-### A3 — Authenticity / truth strip
+### A3. Privacy - Blueprint email (live now) - locked paragraph
 
-```
-Incorporated. Charity rails in progress. Receipts and full legal framing activate on approval. Contracts are live. Delivery claims wait for rails.
-```
+On the homepage, "Get The Mercy Blueprint" asks for your email and submits it through a third-party form service so we can send or unlock the Blueprint materials. That capture is live. Submitting your email means you are asking us to share vision and program materials with you. It does not enroll you in a live sponsorship, donation receipt, or beneficiary program. You can use the direct Blueprint page without email where that link is offered.
 
-### A4 — Blueprint form microcopy
+[PLACEHOLDER: Formspree (or successor) processor name, retention, and subprocessors - confirm with counsel]
+[PLACEHOLDER: whether Blueprint emails are also used for infrequent mission updates; if yes, say so and offer unsubscribe]
+[PLACEHOLDER: full legal entity name, jurisdiction, registered address, privacy contact email]
+
+One-line under the Blueprint form field (sitewide):
 
 ```
 Email for Blueprint materials only. Not a live donation or sponsorship. Privacy
 ```
 
-(`Privacy` links to `/privacy`.)
-
-### A5 — Hero designed / when-rails
-
-```
-You hold. The flywheel is designed to turn. When rails are live, real lives get room to breathe.
-```
-
-### A6 — Stand with a program
-
-- Title: `Stand with a program`
-- Subcopy: `Learn the story. Holding is how support is designed when rails are live.`
-- Button: `Explore seed programs` → `/programs`
-- Badge: `LEARN THE PATH`
+Story Voice may polish surrounding stub prose; do not soften chips, footer string, or the not-sponsorship sentence without Rails & Trust.
