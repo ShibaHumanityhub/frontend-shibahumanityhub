@@ -1,0 +1,17 @@
+# Clean paths for trust + welcome pages (Netlify)
+/privacy    /privacy.html    200
+/terms      /terms.html      200
+/contact    /contact.html    200
+/faq        /faq.html        200
+/about      /faq.html        302
+
+# Common pretty aliases (serve .html without forcing URL change)
+/all-programs    /all-programs.html    200
+/shelters        /shelters.html        200
+/whitepaper      /whitepaper.html      200
+/mercy-blueprint /mercy-blueprint.html 200
+/pay-it-forward  /pay-it-forward.html  200
+/k9-lifeline     /k9-lifeline.html     200
+/healing-hearts  /healing-hearts.html  200
+/barn-pods       /barn-pods.html       200
+/spin-the-wheel  /spin-the-wheel.html  200

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Contact · Shiba Humanity Hub</title>
+ <meta name="description" content="Reach Shiba Humanity Hub for partners, press, privacy requests, and honest questions.">
+ <link rel="canonical" href="https://shibahumanityhub.com/contact">
+ <link rel="stylesheet" href="assets/css/tailwind.css">
+ <link rel="icon" href="assets/logos/favicon.png" type="image/png">
+ <script src="js/site-chrome.js" defer></script>
+ <style>
+  html { background:#05070f; color-scheme:dark; }
+  body { font-family: Inter, system-ui, sans-serif; background:#05070f; color:#e4e4e7; }
+  .doc h1 { font-size:1.75rem; font-weight:700; color:#fde68a; letter-spacing:-0.02em; }
+  .doc p, .doc li { font-size:0.95rem; line-height:1.65; color:#d4d4d8; }
+  .chip { display:inline-block; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:#a1a1aa; border:1px solid rgba(255,255,255,0.12); border-radius:999px; padding:0.25rem 0.65rem; }
+  label { display:block; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:#a1a1aa; margin-bottom:0.35rem; }
+  input, textarea, select {
+   width:100%; background:rgba(24,24,27,0.9); border:1px solid rgba(255,255,255,0.12);
+   border-radius:1rem; padding:0.85rem 1rem; color:#fff; outline:none;
+  }
+  input:focus, textarea:focus, select:focus { border-color:rgba(52,211,153,0.55); }
+ </style>
+</head>
+<body class="min-h-screen">
+ <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-emerald-400 focus:text-black focus:px-3 focus:py-2 focus:rounded-lg">Skip to content</a>
+ <header class="border-b border-white/10 px-4 py-4 flex items-center justify-between gap-3 max-w-3xl mx-auto">
+  <a href="/" class="text-sm font-semibold text-amber-200 hover:text-amber-100">← Shiba Humanity Hub</a>
+  <span class="chip">Human inbox</span>
+ </header>
+ <main id="main" class="doc max-w-3xl mx-auto px-5 py-10">
+  <h1>Contact</h1>
+  <p class="mt-3">Partners, press, privacy requests, and honest questions. We read slowly and answer with care.</p>
+
+  <div class="mt-6 grid sm:grid-cols-2 gap-3">
+   <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener" class="rounded-2xl border border-white/10 bg-zinc-900/60 p-4 hover:border-amber-400/40 transition-colors">
+    <div class="text-amber-200 font-semibold text-sm">Follow / message on X</div>
+    <div class="text-xs text-zinc-400 mt-1">Live times · AMA energy · community</div>
+   </a>
+   <a href="barn-pods.html" class="rounded-2xl border border-white/10 bg-zinc-900/60 p-4 hover:border-emerald-400/40 transition-colors">
+    <div class="text-emerald-200 font-semibold text-sm">Partner · Barn pods</div>
+    <div class="text-xs text-zinc-400 mt-1">Corporate and Guardian Circle paths</div>
+   </a>
+  </div>
+
+  <form class="mt-8 space-y-4" action="https://formspree.io/f/xvzlyrzb" method="POST">
+   <input type="hidden" name="_subject" value="SHH Contact">
+   <div>
+    <label for="contact-email">Email</label>
+    <input id="contact-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+   </div>
+   <div>
+    <label for="contact-intent">I am writing about</label>
+    <select id="contact-intent" name="intent">
+     <option>General question</option>
+     <option>Partner / sponsor</option>
+     <option>Press</option>
+     <option>Privacy / delete my email</option>
+     <option>Something else</option>
+    </select>
+   </div>
+   <div>
+    <label for="contact-msg">Message</label>
+    <textarea id="contact-msg" name="message" rows="5" required placeholder="Tell us what you need. Truth first."></textarea>
+   </div>
+   <p class="text-xs text-zinc-500">By sending, you agree we may email you back about this request. <a class="underline text-zinc-400" href="privacy.html">Privacy</a> · <a class="underline text-zinc-400" href="terms.html">Terms</a></p>
+   <button type="submit" class="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-full font-semibold text-black bg-gradient-to-r from-amber-300 via-amber-400 to-emerald-400">Send message</button>
+  </form>
+
+  <p class="mt-8 text-sm text-zinc-500">Prefer no form? Start on X, or read the <a class="text-emerald-300 underline" href="faq.html">FAQ</a> for what is live vs design.</p>
+ </main>
+ <div id="shh-site-footer" data-shh-footer></div>
+</body>
+</html>

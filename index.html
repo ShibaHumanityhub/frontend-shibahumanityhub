@@ -1661,6 +1661,7 @@
 <script src="js/scroll-experience.js" defer></script>
 <script src="js/glossary.js" defer></script>
 <script src="js/ripples-simulator.js" defer></script>
+<script src="js/site-chrome.js" defer></script>
 </head>
 
 <body>
@@ -2131,63 +2132,99 @@
  </div>
 </div>
 
-<!-- HERO - LEGENDARY + editorial laptop experience -->
-<header id="hero" data-chapter-section="hero" class="hero-bg shh-hero pt-24 pb-20 text-center flex items-center min-h-screen relative overflow-hidden">
+<a href="#welcome-main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-emerald-400 focus:text-black focus:px-3 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+<!-- HERO · welcome path: one promise · four doors -->
+<header id="hero" data-chapter-section="hero" class="hero-bg shh-hero pt-24 pb-16 md:pb-20 text-center flex items-center min-h-[92vh] md:min-h-screen relative overflow-hidden">
  <div class="absolute inset-0 bg-[radial-gradient(at_center,#10b98120_0%,transparent_70%)]"></div>
  <div class="absolute inset-0 pointer-events-none opacity-40" style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(251,191,36,0.08), transparent 60%);"></div>
  <div class="absolute inset-0 pointer-events-none opacity-[0.12] md:opacity-[0.16]" style="background: url('assets/images/imagine-dual-flywheel-hero.jpg') center 30% / cover no-repeat; filter: saturate(1.1);" aria-hidden="true"></div>
- 
- <div class="max-w-5xl mx-auto px-6 relative z-10 w-full">
- <p class="shh-hero-eyebrow shh-reveal hidden md:block">Two flywheels · one heart · Shibarium · Since 2025</p>
+
+ <div class="max-w-5xl mx-auto px-5 sm:px-6 relative z-10 w-full">
+ <p class="shh-hero-eyebrow shh-reveal">Two doors · one heart · Shibarium · Since 2025</p>
+
  <div class="hero-title-wrapper mx-auto max-w-[94%] shh-reveal">
- <h1 class="hero-title hidden md:block">SHIBA</h1>
- <h1 class="hero-title -mt-6 md:-mt-5 hidden md:block">HUMANITYHUB</h1>
- 
- <h1 class="hero-title md:hidden text-[2.35rem] leading-none tracking-[-3.2px]">
+ <h1 class="hero-title text-[2.2rem] sm:text-5xl md:text-6xl leading-none tracking-[-0.04em]">
  <span class="font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">SHIBA</span>
- <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-400 bg-clip-text text-transparent">HUMANITY</span>
+ <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-400 bg-clip-text text-transparent"> HUMANITY </span>
  <span class="font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">HUB</span>
  </h1>
  </div>
 
- <p class="mt-10 text-2xl sm:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight px-4 shh-reveal shh-reveal-delay-1">
- People helping people. Helping dogs. Helping people.<br>
- <span class="text-emerald-300 font-medium">You hold<span class="info-icon" data-term="hold" role="button" tabindex="0" aria-label="Plain language: hold">ⓘ</span>. The flywheel turns<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span>. Real lives get room to breathe.</span>
+ <p class="mt-8 text-xl sm:text-3xl md:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight px-2 shh-reveal shh-reveal-delay-1">
+ People helping people. Helping dogs. Helping people.
  </p>
 
- <p class="shh-hero-promise mt-5 max-w-2xl mx-auto text-[0.95rem] md:text-lg px-4 shh-reveal shh-reveal-delay-1 leading-relaxed">
- <strong class="shh-hero-token-n">$NIBBLES</strong><span class="info-icon" data-term="nibbles" role="button" tabindex="0" aria-label="Plain language: nibbles">ⓘ</span> for the dogs who waited too long. <strong class="shh-hero-token-h">$hopeseed</strong><span class="info-icon" data-term="hopeseed" role="button" tabindex="0" aria-label="Plain language: hopeseed">ⓘ</span> for the kids and families still rebuilding. Thirty programs. One promise: when rails<span class="info-icon" data-term="rails" role="button" tabindex="0" aria-label="Plain language: rails">ⓘ</span> are live, holding funds mercy you can prove<span class="info-icon" data-term="all are welcome" role="button" tabindex="0" aria-label="Plain language: all are welcome">ⓘ</span>.
+ <p class="shh-hero-promise mt-5 max-w-2xl mx-auto text-[0.98rem] md:text-lg px-2 shh-reveal shh-reveal-delay-1 leading-relaxed">
+ We turn quiet love into lasting care for <strong class="shh-hero-token-n">dogs</strong> and <strong class="shh-hero-token-h">kids</strong>. When rails<span class="info-icon" data-term="rails" role="button" tabindex="0" aria-label="Plain language: rails">ⓘ</span> are live, holding funds mercy you can prove.
  </p>
 
- <div class="mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4 shh-reveal shh-reveal-delay-2">
- <a href="#tokens" class="super-cta-btn whitepaper-btn inline-flex items-center justify-center gap-3 text-lg md:text-xl px-8 py-5 w-full sm:w-auto">
- Meet the tokens <span aria-hidden="true">🐾🌱</span>
+ <div class="mt-5 max-w-2xl mx-auto px-2 shh-reveal shh-reveal-delay-1">
+ <div class="text-left sm:text-center text-sm text-zinc-300 bg-zinc-950/70 border border-amber-400/25 rounded-2xl px-4 py-3 leading-relaxed">
+ <span class="font-semibold text-amber-200">Truth right now:</span> Incorporated. Charity rails in progress. Receipts and full legal framing activate on approval. Contracts are live. Delivery claims wait for rails.
+ </div>
+ </div>
+
+ <div id="welcome-doors" class="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl mx-auto px-1 shh-reveal shh-reveal-delay-2">
+ <a href="all-programs.html#nibbles" class="shh-door rounded-2xl border border-amber-400/35 bg-amber-950/30 p-4 text-left hover:border-amber-300/60 hover:bg-amber-950/45">
+ <div class="text-2xl mb-1" aria-hidden="true">🐾</div>
+ <div class="font-semibold text-amber-100">Help dogs</div>
+ <div class="text-xs text-zinc-400 mt-1">$NIBBLES · seniors, therapy, K9, forever homes</div>
  </a>
- <a href="all-programs.html" class="premium-sponsor-btn inline-flex items-center justify-center gap-3 text-lg md:text-xl px-8 py-5 w-full sm:w-auto">
- All 30 programs
+ <a href="all-programs.html#hopeseed" class="shh-door rounded-2xl border border-emerald-400/35 bg-emerald-950/25 p-4 text-left hover:border-emerald-300/60 hover:bg-emerald-950/40">
+ <div class="text-2xl mb-1" aria-hidden="true">🌱</div>
+ <div class="font-semibold text-emerald-100">Help kids &amp; families</div>
+ <div class="text-xs text-zinc-400 mt-1">$hopeseed · Christmas, weekends, birthdays, bridges</div>
+ </a>
+ <a href="shelters.html" class="shh-door rounded-2xl border border-rose-400/30 bg-rose-950/20 p-4 text-left hover:border-rose-300/55 hover:bg-rose-950/35">
+ <div class="text-2xl mb-1" aria-hidden="true">❤️</div>
+ <div class="font-semibold text-rose-100">Meet Beautiful Souls</div>
+ <div class="text-xs text-zinc-400 mt-1">Faces first. Shelter eyes. Living stories.</div>
+ </a>
+ <a href="whitepaper.html#treasury-path" class="shh-door rounded-2xl border border-white/15 bg-zinc-900/50 p-4 text-left hover:border-white/35 hover:bg-zinc-900/80">
+ <div class="text-2xl mb-1" aria-hidden="true">📜</div>
+ <div class="font-semibold text-zinc-100">How it works · status</div>
+ <div class="text-xs text-zinc-400 mt-1">Hold → move → convert → deliver → prove</div>
  </a>
  </div>
- <div class="mt-4 flex flex-wrap justify-center gap-3 px-4 text-sm shh-reveal shh-reveal-delay-2">
- <a href="#personal-engine" class="text-emerald-300/95 hover:text-emerald-200 underline underline-offset-4">Your Ripples simulator</a>
- <span class="text-zinc-600">·</span>
- <a href="pay-it-forward.html" class="text-rose-300/90 hover:text-rose-200 underline underline-offset-4">Adoption Chain</a>
- <span class="text-zinc-600">·</span>
- <a href="k9-lifeline.html" class="text-cyan-300/90 hover:text-cyan-200 underline underline-offset-4">Global K9</a>
- <span class="text-zinc-600">·</span>
- <a href="whitepaper.html#treasury-path" class="text-amber-300/90 hover:text-amber-200 underline underline-offset-4">How hold becomes help</a>
+
+ <div class="mt-7 flex flex-col sm:flex-row justify-center gap-3 px-2 shh-reveal shh-reveal-delay-2">
+ <a href="#blueprint" class="premium-sponsor-btn inline-flex items-center justify-center gap-2 text-base md:text-lg px-7 py-4 w-full sm:w-auto rounded-3xl">
+ Get the Mercy Blueprint
+ </a>
+ <a href="all-programs.html" class="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-3xl border border-white/20 text-sm text-zinc-200 hover:bg-white/5 w-full sm:w-auto">
+ See all 30 programs
+ </a>
  </div>
+
+ <p class="mt-4 text-xs text-zinc-500 shh-reveal shh-reveal-delay-2">
+ Prefer depth later: <a href="#tokens" class="text-amber-300/80 underline underline-offset-2">tokens</a>
+ · <a href="#personal-engine" class="text-emerald-300/80 underline underline-offset-2">Your Ripples</a>
+ · <a href="faq.html" class="text-zinc-400 underline underline-offset-2">FAQ</a>
+ </p>
  </div>
 
  <div class="shh-scroll-cue hidden md:flex" aria-hidden="true">
  <span>Scroll</span>
  <span class="line"></span>
  </div>
-
- <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-12 text-4xl opacity-30 pointer-events-none md:hidden">
- <span class="animate-bounce">🐾</span>
- <span class="animate-bounce" style="animation-delay:0.8s">🌱</span>
- </div>
 </header>
+
+<!-- Non-crypto help today -->
+<section id="welcome-main" class="shh-help-today border-b border-white/10 bg-zinc-950/90 py-8 md:py-10">
+ <div class="max-w-5xl mx-auto px-5">
+ <div class="text-center mb-5">
+ <div class="text-[10px] tracking-[0.18em] uppercase text-emerald-300/80 mb-1">Help today</div>
+ <p class="text-sm text-zinc-300">No wallet required. Holding stays optional until you are ready.</p>
+ </div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+ <a href="#blueprint" class="rounded-2xl border border-white/10 bg-black/40 px-3 py-3 text-center text-sm text-amber-100 hover:border-amber-400/40">Read Blueprint</a>
+ <a href="shelters.html" class="rounded-2xl border border-white/10 bg-black/40 px-3 py-3 text-center text-sm text-rose-100 hover:border-rose-400/40">Meet a soul</a>
+ <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener" class="rounded-2xl border border-white/10 bg-black/40 px-3 py-3 text-center text-sm text-zinc-100 hover:border-white/30">Follow on X</a>
+ <a href="barn-pods.html" class="rounded-2xl border border-white/10 bg-black/40 px-3 py-3 text-center text-sm text-emerald-100 hover:border-emerald-400/40">Partner / sponsor</a>
+ </div>
+ </div>
+</section>
 
 <!-- THE MERCY FLYWHEEL · Protocol cut -->
 <section id="flywheel" data-chapter-section="flywheel" class="shh-chapter py-16 md:py-20 bg-black border-b border-amber-400/10">
@@ -2203,15 +2240,23 @@
  <p class="text-zinc-300 leading-relaxed text-base md:text-lg">Hold $NIBBLES and $hopeseed and you are not buying a slogan. You are standing with kids who need a chance, seniors who deserve warmth, veterans who gave everything, and dogs who waited too long. No middleman skimming what belongs to mercy.</p>
  <p class="text-zinc-400 leading-relaxed text-sm md:text-base">I will buy and hold. I will never sell. My future is tied to the long success of this light. <span class="text-emerald-300/80 text-xs">Not financial advice. A personal oath.</span></p>
  <div class="text-sm text-zinc-400 bg-zinc-900/50 border border-white/10 rounded-2xl px-5 py-4">
- <span class="font-semibold text-amber-200">Truth right now:</span> Incorporated. Charity rails in progress. Receipts and full legal framing activate on approval. Contracts are live. Delivery claims wait for rails.
+ <span class="font-semibold text-amber-200">Status:</span> Same truth as the hero chip. Contracts live. Charity rails in progress. Delivery waits for rails.
  </div>
+
+ <div class="rounded-2xl border border-amber-400/20 bg-zinc-950/50 p-4">
+ <div class="text-[10px] tracking-[0.16em] uppercase text-amber-300/80 mb-2">Seed focus first</div>
+ <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+ <a href="healing-hearts.html" class="rounded-xl border border-white/10 px-3 py-2.5 text-zinc-200 hover:border-rose-400/40 hover:text-white">❤️ Healing Hearts</a>
+ <a href="k9-lifeline.html" class="rounded-xl border border-white/10 px-3 py-2.5 text-zinc-200 hover:border-cyan-400/40 hover:text-white">🔦 Global K9</a>
+ <a href="pay-it-forward.html" class="rounded-xl border border-white/10 px-3 py-2.5 text-zinc-200 hover:border-rose-400/40 hover:text-white">🔗 Pay It Forward</a>
+ <a href="programs/orphan-christmas.html" class="rounded-xl border border-white/10 px-3 py-2.5 text-zinc-200 hover:border-amber-400/40 hover:text-white">🎄 Orphan Christmas</a>
+ </div>
+ <p class="text-xs text-zinc-500 mt-3">Narrow first. Full constellation as capacity grows. <a href="all-programs.html" class="text-emerald-300/90 underline">See all 30 →</a></p>
+ </div>
+
  <details class="shh-more home-depth">
- <summary>Seed focus, partners, proof →</summary>
+ <summary>Partners &amp; proof →</summary>
  <div class="space-y-5 text-sm text-zinc-300">
- <div>
- <h3 class="text-base font-semibold text-amber-200 mb-2">Seed focus first</h3>
- <p class="text-zinc-400">Healing Hearts · Global K9 · Pay It Forward · Orphan Christmas. Narrow first. Full constellation as capacity grows.</p>
- </div>
  <div>
  <h3 class="text-base font-semibold text-amber-200 mb-2">Companies &amp; large holders</h3>
  <p class="text-zinc-400">Guardian Circle and beyond · pod sponsorship · on-chain attestations when live.</p>
@@ -2249,16 +2294,18 @@
  <p class="text-xs tracking-[0.2em] uppercase text-emerald-300/80 mb-3">Instant · No spam</p>
  <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-3">Get The Mercy Blueprint</h2>
  <p class="text-zinc-400 text-base md:text-lg mb-6 max-w-xl mx-auto">Vision, all 30 programs, how the flywheel is meant to fund real lives. Free.</p>
- <form id="mercy-form" action="https://formspree.io/f/xvzlyrzb" method="POST" class="max-w-lg mx-auto">
+ <form id="mercy-form" action="https://formspree.io/f/xvzlyrzb" method="POST" class="max-w-lg mx-auto text-left">
  <input type="hidden" name="_subject" value="New Mercy Blueprint Download!">
- <div class="flex flex-col sm:flex-row gap-3 items-center">
- <input type="email" name="email" id="email" placeholder="your@email.com" required
+ <label for="email" class="block text-xs tracking-wide uppercase text-zinc-400 mb-2 text-center sm:text-left">Email</label>
+ <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+ <input type="email" name="email" id="email" placeholder="your@email.com" required autocomplete="email"
  class="flex-1 bg-zinc-900 border border-amber-400/40 focus:border-emerald-400 rounded-3xl px-6 py-4 text-base placeholder-zinc-400 outline-none transition-all w-full">
  <button type="submit" id="submit-btn"
  class="super-cta-btn lead-magnet-btn inline-flex items-center justify-center gap-2 text-black font-semibold px-8 py-4 rounded-3xl text-base w-full sm:w-auto whitespace-nowrap">
  Send Blueprint
  </button>
  </div>
+ <p class="text-[11px] text-zinc-500 mt-3 text-center">By sending, you agree we may email the Blueprint and honest updates. <a href="privacy.html" class="underline hover:text-zinc-300">Privacy</a> · <a href="terms.html" class="underline hover:text-zinc-300">Terms</a></p>
  </form>
  <div id="success-message" class="hidden mt-6 p-6 bg-emerald-900/30 border border-emerald-400 rounded-3xl">
  <p class="text-emerald-300 text-lg mb-3">Thank you. Your Blueprint is ready.</p>
@@ -2865,7 +2912,13 @@
  <div class="shh-chapter-rule mx-auto mb-5 shh-reveal"></div>
  <h2 class="shh-chapter-title text-5xl font-bold shh-reveal">Programs that change lives</h2>
  <p class="text-amber-200 text-lg md:text-2xl mt-4">Two flywheels. One mission. A few of the thirty.</p>
- <p class="text-sm text-zinc-400 mt-3 max-w-2xl mx-auto">When funding lands we start narrow and real: Healing Hearts · Global K9 · Pay It Forward · Orphan Christmas. Then the full constellation as capacity grows.</p>
+ <p class="text-sm text-zinc-400 mt-3 max-w-2xl mx-auto">When funding lands we start narrow and real. Seed first, then the constellation.</p>
+ <div class="mt-5 flex flex-wrap justify-center gap-2 text-sm">
+ <a href="healing-hearts.html" class="px-3 py-1.5 rounded-full border border-rose-400/30 text-rose-100 hover:bg-rose-500/10">Healing Hearts</a>
+ <a href="k9-lifeline.html" class="px-3 py-1.5 rounded-full border border-cyan-400/30 text-cyan-100 hover:bg-cyan-500/10">Global K9</a>
+ <a href="pay-it-forward.html" class="px-3 py-1.5 rounded-full border border-rose-400/30 text-rose-100 hover:bg-rose-500/10">Pay It Forward</a>
+ <a href="programs/orphan-christmas.html" class="px-3 py-1.5 rounded-full border border-amber-400/30 text-amber-100 hover:bg-amber-500/10">Orphan Christmas</a>
+ </div>
  <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
  <a href="#nibbles-programs" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-amber-400/40 bg-amber-500/10 text-amber-100 text-sm font-semibold hover:bg-amber-500/20 transition-colors">
  <span aria-hidden="true">🐾</span> $NIBBLES · dogs
@@ -3056,19 +3109,7 @@
  </div>
 </section>
 
-<footer class="py-20 bg-black border-t border-amber-500/30 text-center relative overflow-hidden">
- <div class="max-w-4xl mx-auto px-6">
- <p class="text-3xl font-light text-amber-200 mb-4">Thank you for being here.</p>
- <p class="text-2xl font-light text-amber-100 flex items-center justify-center gap-3">
- People helping people. Helping people.
- <span class="text-4xl text-red-500 animate-pulse">❤️</span>
- </p>
- <p class="text-emerald-300 text-sm mt-6">No matter where we come from, no matter what we have, we all carry the same simple truth in our hearts.</p>
- <p class="text-lg text-amber-100 mt-2 max-w-md mx-auto">These souls deserve better lives.<br>And together, we can give it to them.</p>
- <p class="text-emerald-300 text-xs mt-10">© Shibahumanityhub • Incorporated entity • Pre-launch • Registered charity application in progress (expected within 7 months) • Corporate banking ready</p>
- <p class="text-zinc-400 text-[10px] mt-2">This is not financial advice. All commitments subject to final charity registration and applicable laws. Full on-chain treasury reporting and impact attestations will launch upon approval.</p>
- </div>
-</footer>
+<div id="shh-site-footer" data-shh-footer></div>
 
 <!-- MODAL (Phase 1 a11y upgrade: role=dialog + aria-modal + focus manager integration) -->
 <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Program story of mercy">

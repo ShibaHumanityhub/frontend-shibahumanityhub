@@ -31,6 +31,7 @@
 <script src="js/programs-flywheel-nav.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
  <script src="js/glossary.js" defer></script>
+ <script src="js/site-chrome.js" defer></script>
 <style>
  nav a { transition: color .15s, letter-spacing .2s; }
  nav a:hover { letter-spacing: .02em; }
@@ -439,10 +440,7 @@
  </div>
  </div>
 
- <footer class="border-t border-white/10 py-7 text-center text-xs text-zinc-400">
- This is not marketing.<br>
- This is a quiet, beautiful mirror.
- </footer>
+ <div id="shh-site-footer" data-shh-footer></div>
 <!-- Plain terms modal -->
 <div id="explain-modal" class="explain-modal" onclick="if (event.target.id === 'explain-modal') closeExplain()">
  <div class="explain-card" onclick="event.stopImmediatePropagation()">

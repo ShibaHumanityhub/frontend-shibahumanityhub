@@ -631,6 +631,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
 <script src="js/all-programs-command-nav.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
 <script src="js/glossary.js" defer></script>
+<script src="js/site-chrome.js" defer></script>
 </head>
 
 <body data-page="all-programs" class="ap-page">
@@ -1116,20 +1117,7 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
  </div>
 </section>
  
-<footer class="py-20 bg-black border-t border-amber-500/30 text-center relative">
- <div class="max-w-4xl mx-auto px-6">
- <p class="text-3xl font-light text-amber-200 mb-6">Thank you for being here.</p>
- <p class="text-2xl font-light text-amber-100 mb-8">People helping people. Helping people.</p>
- 
- <!-- Beautiful Closing Line -->
- <div class="flex items-center justify-center gap-4 text-2xl text-emerald-300 font-light tracking-wide">
- Designed so every transaction can save a life
- <span class="text-4xl animate-pulse">❤️</span>
- </div>
- 
- <p class="text-emerald-300 text-xs mt-12">© Shibahumanityhub • Incorporated • Pre-launch • Registered charity application in progress (7 months) • Built with love</p>
- </div>
-</footer>
+<div id="shh-site-footer" data-shh-footer></div>
 <!-- MODAL (Phase 1 a11y upgrade: role=dialog + aria-modal + focus manager integration) -->
 <div id="program-modal" onclick="if(event.target===this)hideModal()" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Program story of mercy">
  <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 relative">

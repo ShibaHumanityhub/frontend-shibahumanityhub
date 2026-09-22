@@ -89,6 +89,7 @@
 <script src="js/programs-flywheel-nav.js" defer></script>
 <script src="js/shared-animations.js" defer></script>
  <script src="js/glossary.js" defer></script>
+ <script src="js/site-chrome.js" defer></script>
 <style>
  @media (max-width: 480px) { nav { font-size: 0.875rem; } }
  nav a { transition: color .15s, letter-spacing .2s; }
@@ -848,12 +849,7 @@
  </div>
 </section>
 
-<footer class="py-12 bg-black border-t border-white/10 text-center text-xs text-zinc-400">
- <div class="max-w-md mx-auto px-6">
- People helping people. Helping people.<br>
- Designed so every transaction can save lives. • shibahumanityhub.shib
- </div>
-</footer>
+<div id="shh-site-footer" data-shh-footer></div>
 
 <!-- SOUL SAVE MODAL (shared visual language) -->
 <div id="soul-modal" onclick="if(event.target===this) hideSoulModal()" class="hidden fixed inset-0 bg-black/95 z-[130] flex items-center justify-center p-4">
