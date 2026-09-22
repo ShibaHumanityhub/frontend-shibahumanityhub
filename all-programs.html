@@ -947,6 +947,38 @@ Phase 6: holistic weave. Unified animations and particles across pages, tone che
  <p class="text-center text-xs text-emerald-200/70 mt-6">These tokens are the fuel for the Mercy Flywheel<span class="info-icon" data-term="mercy flywheel" title="Tap for plain terms">ⓘ</span>. When tax and impact rails are live, holding<span class="info-icon" data-term="hold" role="button" tabindex="0" aria-label="Plain language: hold">ⓘ</span> funds programs. Until then<span class="info-icon" data-term="when funded" role="button" tabindex="0" aria-label="Plain language: when funded">ⓘ</span>: contracts and an honest story.</p>
  </div>
 </section>
+<!-- Seed focus doorway -->
+<section id="seed-focus" class="py-14 md:py-16 bg-black border-b border-amber-400/15 scroll-mt-28">
+ <div class="max-w-5xl mx-auto px-6">
+ <div class="text-center mb-8">
+ <div class="text-[10px] tracking-[0.18em] uppercase text-amber-300/80 mb-2">Start here</div>
+ <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Four seed programs</h2>
+ <p class="text-zinc-400 text-sm mt-3 max-w-2xl mx-auto">Narrow first. The full constellation waits below when you are ready.</p>
+ </div>
+ <div class="grid md:grid-cols-2 gap-6">
+ <div id="seed-dogs" class="rounded-3xl border border-amber-400/30 bg-amber-950/20 p-5 scroll-mt-28">
+ <div class="text-amber-200 font-semibold mb-3">🐾 Help dogs · $NIBBLES</div>
+ <div class="space-y-2 text-sm">
+ <a href="healing-hearts.html" class="block rounded-xl border border-white/10 px-3 py-2.5 hover:border-amber-400/40">Healing Hearts</a>
+ <a href="k9-lifeline.html" class="block rounded-xl border border-white/10 px-3 py-2.5 hover:border-amber-400/40">Global K9</a>
+ <a href="pay-it-forward.html" class="block rounded-xl border border-white/10 px-3 py-2.5 hover:border-amber-400/40">Pay It Forward</a>
+ <a href="golden-paws.html" class="block rounded-xl border border-white/10 px-3 py-2.5 hover:border-amber-400/40">Senior soft landings · Golden Paws</a>
+ </div>
+ </div>
+ <div id="seed-kids" class="rounded-3xl border border-emerald-400/30 bg-emerald-950/20 p-5 scroll-mt-28">
+ <div class="text-emerald-200 font-semibold mb-3">🌱 Help kids &amp; families · $hopeseed</div>
+ <div class="space-y-2 text-sm">
+ <a href="programs/orphan-christmas.html" class="block rounded-xl border border-white/10 px-3 py-2.5 hover:border-emerald-400/40">Orphan Christmas</a>
+ <a href="programs/sibling-keepers-program.html" class="block rounded-xl border border-white/10 px-3 py-2.5 hover:border-emerald-400/40">Sibling Keepers</a>
+ <a href="programs/no-hungry-weekend-backpacks-global-edition.html" class="block rounded-xl border border-white/10 px-3 py-2.5 hover:border-emerald-400/40">Weekend food backpacks</a>
+ <a href="programs/birthday-guarantee-program.html" class="block rounded-xl border border-white/10 px-3 py-2.5 hover:border-emerald-400/40">Birthday guarantee</a>
+ </div>
+ </div>
+ </div>
+ <p class="text-center text-xs text-zinc-500 mt-6"><a href="#all-programs-grid" class="underline hover:text-zinc-300">See all 30 below →</a></p>
+ </div>
+</section>
+
 <!-- ALL PROGRAMS GRID + TABS + EPIC DIVIDER -->
 <section class="py-24 bg-zinc-950/90 ap-section-glow">
  <div class="max-w-7xl mx-auto px-6">
@@ -1753,21 +1785,14 @@ window.addEventListener('load', positionMobileMenu);
 window.addEventListener('resize', positionMobileMenu);
 document.addEventListener('DOMContentLoaded', positionMobileMenu);
 
-/* Soft landing when arriving from "Sponsor With Love" */
+/* Deep-link: scroll seed doorway into view */
 document.addEventListener('DOMContentLoaded', function () {
  try {
-  if (sessionStorage.getItem('shh-sponsor-intent') !== '1') return;
-  sessionStorage.removeItem('shh-sponsor-intent');
-  var bar = document.createElement('div');
-  bar.setAttribute('role', 'status');
-  bar.className = 'fixed bottom-4 left-1/2 -translate-x-1/2 z-[80] max-w-md w-[calc(100%-1.5rem)] px-4 py-3 rounded-2xl text-sm text-center border border-emerald-400/40 bg-emerald-950/95 text-emerald-100 shadow-2xl';
-  bar.textContent = 'Thank you. Pick a program below. When charity rails are live, this path becomes receipts.';
-  document.body.appendChild(bar);
-  setTimeout(function () {
-   if (bar && bar.parentNode) bar.parentNode.removeChild(bar);
-  }, 5200);
-  var grid = document.getElementById('all-programs-grid');
-  if (grid) setTimeout(function () { grid.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 120);
+  var hash = (location.hash || '').replace(/^#/, '');
+  if (hash === 'seed-focus' || hash === 'seed-dogs' || hash === 'seed-kids') {
+   var el = document.getElementById(hash);
+   if (el) setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+  }
  } catch (e) { /* ignore */ }
 });
 

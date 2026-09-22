@@ -1680,9 +1680,9 @@
 <!-- Desktop chapter rail -->
 <nav id="shh-chapter-rail" aria-label="Page chapters">
  <a href="#hero" data-chapter="hero" class="is-active"><span class="dot"></span><span class="label">Origin</span></a>
+ <a href="#how-it-works" data-chapter="how-it-works"><span class="dot"></span><span class="label">How</span></a>
  <a href="#flywheel" data-chapter="flywheel"><span class="dot"></span><span class="label">Flywheel</span></a>
  <a href="#tokens" data-chapter="tokens"><span class="dot"></span><span class="label">Tokens</span></a>
- <a href="#hold-heart" data-chapter="hold-heart"><span class="dot"></span><span class="label">Hold</span></a>
  <a href="#programs" data-chapter="programs"><span class="dot"></span><span class="label">Programs</span></a>
  <a href="#close" data-chapter="close"><span class="dot"></span><span class="label">Join</span></a>
 </nav>
@@ -1690,7 +1690,7 @@
 <!-- NAV -->
 <nav class="bg-black/95 backdrop-blur-lg fixed w-full z-50 border-b border-amber-500/30">
  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
- <a href="index.html" class="flex items-center gap-3 group">
+ <a href="/" class="flex items-center gap-3 group">
  <div class="logo-3d-wrapper w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-cyan-400/50 shadow-2xl transition-all duration-300 group-hover:scale-105">
  <video 
  src="assets/videos/shibahumanityhub-logo-animated.mp4" 
@@ -1707,48 +1707,46 @@
 </div>
  <span class="hidden sm:block text-xl sm:text-2xl font-bold tracking-[-1.2px] bg-gradient-to-r from-amber-200 via-white to-emerald-200 bg-clip-text text-transparent">SHIBAHUMANITYHUB</span>
  </a>
- <div class="hidden md:flex items-center gap-8 text-sm font-medium">
- <a href="#tokens" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">Tokens</a>
- 
- <div class="relative" id="programs-dropdown">
- <a href="#programs" 
- onclick="toggleProgramsDropdown(event)" 
- class="hover:text-amber-400 transition-colors flex items-center gap-1 group/nav">
- <span class="relative">
- Programs
- <span class="absolute -bottom-px left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-emerald-400 group-hover/nav:w-full transition-all"></span>
- </span>
- <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" id="programs-chevron"></i>
- <span class="ml-1 text-[9px] opacity-40 group-hover/nav:opacity-70">✧</span>
- </a>
- 
- <div id="programs-menu" 
- class="absolute hidden mt-3 bg-zinc-900/95 backdrop-blur-xl border border-white/15 rounded-3xl py-3 z-[999] shadow-2xl overflow-hidden"
- style="box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.6), 0 0 0 1px rgba(251,191,36,0.06) inset;">
- <!-- Built by js/programs-flywheel-nav.js: dual $NIBBLES + $hopeseed wheels -->
- <div class="prog-fw-head"><span>2 FLYWHEELS · 1 MISSION</span><span class="count">loading…</span></div>
- <div data-prog-fw-mount></div>
-</div>
+ <div class="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium">
+ <a href="/" class="hover:text-amber-400 transition-colors">Home</a>
+ <a href="/all-programs#seed-focus" class="hover:text-amber-400 transition-colors">Programs</a>
+ <a href="/shelters" class="hover:text-rose-300 transition-colors">Meet the Souls</a>
+ <a href="/#how-it-works" class="hover:text-amber-400 transition-colors">How it works</a>
+
+ <div class="relative group/docs">
+ <button type="button" class="hover:text-amber-400 transition-colors flex items-center gap-1" aria-haspopup="true">Docs <i class="fa-solid fa-chevron-down text-[9px] opacity-60"></i></button>
+ <div class="invisible opacity-0 group-hover/docs:visible group-hover/docs:opacity-100 transition-opacity absolute left-0 mt-2 min-w-[11rem] rounded-2xl border border-white/15 bg-zinc-900/95 backdrop-blur-xl py-2 z-[999] shadow-2xl">
+ <a href="/whitepaper" class="block px-4 py-2 text-sm hover:bg-white/5">Whitepaper</a>
+ <a href="/mercy-blueprint" class="block px-4 py-2 text-sm hover:bg-white/5">Mercy Blueprint</a>
+ <a href="/faq" class="block px-4 py-2 text-sm hover:bg-white/5">FAQ</a>
  </div>
- 
- <a href="pay-it-forward.html" class="pay-forward-nav flex items-center gap-1.5 font-medium group/pi relative" title="Helping another soul melts your heart. Be part of the solution.">
- <span>Pay It Forward</span>
- <span class="chain-heart text-lg leading-none">🔗❤️</span>
- <div class="electric-sparks"></div>
- </a>
- 
- <a href="shelters.html" class="hover:text-red-300 transition-colors font-medium hover:tracking-wider transition-all">Beautiful Souls</a>
- <a href="index.html" class="hover:text-amber-400 transition-colors hover:tracking-wider transition-all">The Flywheel</a>
  </div>
 
- <!-- Mobile hamburger -->
- <button onclick="toggleMobileMenu()" class="md:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu" aria-expanded="false" id="mobile-menu-btn">
+ <div class="relative group/comm">
+ <button type="button" class="hover:text-amber-400 transition-colors flex items-center gap-1" aria-haspopup="true">Community <i class="fa-solid fa-chevron-down text-[9px] opacity-60"></i></button>
+ <div class="invisible opacity-0 group-hover/comm:visible group-hover/comm:opacity-100 transition-opacity absolute left-0 mt-2 min-w-[12rem] rounded-2xl border border-white/15 bg-zinc-900/95 backdrop-blur-xl py-2 z-[999] shadow-2xl">
+ <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener" class="block px-4 py-2 text-sm hover:bg-white/5">X</a>
+ <a href="/spin-the-wheel" class="block px-4 py-2 text-sm hover:bg-white/5">Spin the Wheel</a>
+ <a href="/pay-it-forward" class="block px-4 py-2 text-sm hover:bg-white/5">Pay It Forward</a>
+ </div>
+ </div>
+
+ <!-- Keep dual-flywheel mount available for depth pages (hidden desktop chrome) -->
+ <div class="relative hidden" id="programs-dropdown" aria-hidden="true">
+ <div id="programs-menu" class="hidden"><div data-prog-fw-mount></div></div>
+ </div>
+ </div>
+
+ <button onclick="toggleMobileMenu()" class="lg:hidden text-xl px-3 py-1 text-white" aria-label="Toggle menu" aria-expanded="false" id="mobile-menu-btn">
  <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
  </button>
 
- <a href="all-programs.html" class="super-cta-btn inline-flex items-center gap-2.5 px-6 py-3 text-sm sm:text-base font-bold">
- All Programs <i class="fa-solid fa-paw bone-icon text-xl"></i>
+ <div class="flex items-center gap-3">
+ <a href="/mercy-blueprint" class="hidden sm:inline text-xs text-zinc-400 hover:text-emerald-300 underline underline-offset-2">Get the Blueprint</a>
+ <a href="#doors" class="super-cta-btn inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold">
+ See how we help
  </a>
+ </div>
  </div>
 </nav>
 
@@ -2066,141 +2064,86 @@
  font-weight: 600;
  }
 </style>
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 110px;">
- <div class="max-w-7xl mx-auto px-6 py-8 text-sm flex flex-col gap-1">
- <div class="px-5 pb-2 pt-1 text-[10px] tracking-[2px] text-emerald-300/70 font-medium flex items-center justify-between gap-2 border-b border-white/10 mb-1">
- <span>2 FLYWHEELS · 1 MISSION</span>
- <span class="text-[9px] tracking-normal text-zinc-500">scroll each wheel</span>
- </div>
- <div id="mobile-prog-fw-mount" data-prog-fw-mount></div>
- 
- <a href="#tokens" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80">◉</span> 
- <span>Tokens</span>
- </a>
- <a href="all-programs.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80">◉</span> 
- <span>All 30 Programs</span>
- </a>
- <a href="spin-the-wheel.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-300">🎡</span> 
- <span>Spin the Mercy Wheel</span>
- </a>
- <a href="#programs" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80">✦</span> 
- <span>Featured Programs</span>
- </a>
- <a href="pay-it-forward.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item font-medium" style="color:#f9a8d4;">
- <span class="chain-heart text-base">🔗❤️</span> 
- <span>Pay It Forward</span>
- </a>
- <a href="shiba-barn-table.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-orange-300/90">🍽️</span> 
- <span>Shiba Barn Table BBQ</span>
- </a>
- <a href="barn-pods.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-200">⌂</span> 
- <span>Corporate Barn Pods</span>
- </a>
- <a href="k9-lifeline.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80">◆</span> 
- <span>K9 Lifeline</span>
- </a>
- <a href="golden-years.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80">❤️</span> 
- <span>Golden Years</span>
- </a>
- <a href="healing-hearts.html#hhx-stars" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-emerald-400/80">✿</span> 
- <span>★ Star Souls</span>
- </a>
- 
- <div class="my-1 border-t border-white/10"></div>
- 
- <a href="#mercy-engine" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item" onclick="if(window.SHHGlossary&amp;&amp;window.SHHGlossary.showExplain){event.preventDefault();window.SHHGlossary.showExplain('circles of mercy');}">
- <span class="text-amber-400/80">?</span> 
- <span>Plain Terms Glossary</span>
- </a>
- <a href="shelters.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-red-400/80">❤️</span> 
- <span>Beautiful Souls</span>
- </a>
- <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm hover:bg-white/5 transition-colors group/item">
- <span class="text-amber-400/80">◉</span> 
- <span>The Flywheel</span>
- </a>
+<div id="mobile-menu" class="hidden lg:hidden bg-zinc-950 border-b border-white/10 fixed w-full z-40 pt-2" style="top: 110px;">
+ <div class="max-w-7xl mx-auto px-6 py-6 text-sm flex flex-col gap-1">
+ <a href="/" onclick="toggleMobileMenu()" class="px-5 py-2.5 hover:bg-white/5 rounded-xl">Home</a>
+ <a href="/all-programs#seed-focus" onclick="toggleMobileMenu()" class="px-5 py-2.5 hover:bg-white/5 rounded-xl">Programs</a>
+ <a href="/shelters" onclick="toggleMobileMenu()" class="px-5 py-2.5 hover:bg-white/5 rounded-xl">Meet the Souls</a>
+ <a href="/#how-it-works" onclick="toggleMobileMenu()" class="px-5 py-2.5 hover:bg-white/5 rounded-xl">How it works</a>
+ <div class="px-5 pt-3 pb-1 text-[10px] tracking-[0.16em] uppercase text-zinc-500">Docs</div>
+ <a href="/whitepaper" onclick="toggleMobileMenu()" class="px-5 py-2 hover:bg-white/5 rounded-xl">Whitepaper</a>
+ <a href="/mercy-blueprint" onclick="toggleMobileMenu()" class="px-5 py-2 hover:bg-white/5 rounded-xl">Mercy Blueprint</a>
+ <a href="/faq" onclick="toggleMobileMenu()" class="px-5 py-2 hover:bg-white/5 rounded-xl">FAQ</a>
+ <div class="px-5 pt-3 pb-1 text-[10px] tracking-[0.16em] uppercase text-zinc-500">Community</div>
+ <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener" class="px-5 py-2 hover:bg-white/5 rounded-xl">X</a>
+ <a href="/spin-the-wheel" onclick="toggleMobileMenu()" class="px-5 py-2 hover:bg-white/5 rounded-xl">Spin the Wheel</a>
+ <a href="/pay-it-forward" onclick="toggleMobileMenu()" class="px-5 py-2 hover:bg-white/5 rounded-xl">Pay It Forward</a>
+ <a href="#doors" onclick="toggleMobileMenu()" class="mx-5 mt-3 mb-2 text-center super-cta-btn py-3 rounded-2xl font-bold">See how we help</a>
+ <div id="mobile-prog-fw-mount" data-prog-fw-mount class="hidden" aria-hidden="true"></div>
  </div>
 </div>
 
-<a href="#welcome-main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-emerald-400 focus:text-black focus:px-3 focus:py-2 focus:rounded-lg">Skip to content</a>
+<a href="#doors" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-emerald-400 focus:text-black focus:px-3 focus:py-2 focus:rounded-lg">Skip to content</a>
 
-<!-- HERO · welcome path: one promise · four doors -->
-<header id="hero" data-chapter-section="hero" class="hero-bg shh-hero pt-24 pb-16 md:pb-20 text-center flex items-center min-h-[92vh] md:min-h-screen relative overflow-hidden">
+<!-- HERO · P0 copy pack -->
+<header id="hero" data-chapter-section="hero" class="hero-bg shh-hero pt-24 pb-16 md:pb-20 text-center flex items-center min-h-[90vh] md:min-h-screen relative overflow-hidden">
  <div class="absolute inset-0 bg-[radial-gradient(at_center,#10b98120_0%,transparent_70%)]"></div>
  <div class="absolute inset-0 pointer-events-none opacity-40" style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(251,191,36,0.08), transparent 60%);"></div>
  <div class="absolute inset-0 pointer-events-none opacity-[0.12] md:opacity-[0.16]" style="background: url('assets/images/imagine-dual-flywheel-hero.jpg') center 30% / cover no-repeat; filter: saturate(1.1);" aria-hidden="true"></div>
 
- <div class="max-w-5xl mx-auto px-5 sm:px-6 relative z-10 w-full">
- <p class="shh-hero-eyebrow shh-reveal">Two doors · one heart · Shibarium · Since 2025</p>
+ <div class="max-w-4xl mx-auto px-5 sm:px-6 relative z-10 w-full">
+ <p class="shh-hero-eyebrow shh-reveal text-amber-100/90">People helping people. Helping dogs. Helping people.</p>
 
- <div class="hero-title-wrapper mx-auto max-w-[94%] shh-reveal">
- <h1 class="hero-title text-[2.2rem] sm:text-5xl md:text-6xl leading-none tracking-[-0.04em]">
- <span class="font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">SHIBA</span>
- <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-400 bg-clip-text text-transparent"> HUMANITY </span>
- <span class="font-bold bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">HUB</span>
+ <div class="hero-title-wrapper mx-auto shh-reveal mt-4">
+ <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+ A home for mercy that strangers can walk into.
  </h1>
  </div>
 
- <p class="mt-8 text-xl sm:text-3xl md:text-4xl font-light text-amber-100 max-w-3xl mx-auto leading-tight px-2 shh-reveal shh-reveal-delay-1">
- People helping people. Helping dogs. Helping people.
- </p>
-
- <p class="shh-hero-promise mt-5 max-w-2xl mx-auto text-[0.98rem] md:text-lg px-2 shh-reveal shh-reveal-delay-1 leading-relaxed">
- We turn quiet love into lasting care for <strong class="shh-hero-token-n">dogs</strong> and <strong class="shh-hero-token-h">kids</strong>. When rails<span class="info-icon" data-term="rails" role="button" tabindex="0" aria-label="Plain language: rails">ⓘ</span> are live, holding funds mercy you can prove.
+ <p class="shh-hero-promise mt-6 max-w-2xl mx-auto text-base md:text-lg px-2 shh-reveal shh-reveal-delay-1 leading-relaxed text-zinc-200">
+ We are building a transparent way to help shelter dogs and kids who need a chance, with proof when the charity rails are live, and honesty until then.
  </p>
 
  <div class="mt-5 max-w-2xl mx-auto px-2 shh-reveal shh-reveal-delay-1">
  <div class="text-left sm:text-center text-sm text-zinc-300 bg-zinc-950/70 border border-amber-400/25 rounded-2xl px-4 py-3 leading-relaxed">
- <span class="font-semibold text-amber-200">Truth right now:</span> Incorporated. Charity rails in progress. Receipts and full legal framing activate on approval. Contracts are live. Delivery claims wait for rails.
+ <span class="font-semibold text-amber-200">Truth right now:</span> Incorporated. Charity rails in progress. Contracts live. Delivery claims wait for rails.
  </div>
  </div>
 
- <div id="welcome-doors" class="mt-9 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl mx-auto px-1 shh-reveal shh-reveal-delay-2">
- <a href="all-programs.html#nibbles" class="shh-door rounded-2xl border border-amber-400/35 bg-amber-950/30 p-4 text-left hover:border-amber-300/60 hover:bg-amber-950/45">
+ <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3 px-2 shh-reveal shh-reveal-delay-2">
+ <a href="#doors" class="super-cta-btn inline-flex items-center justify-center gap-2 text-base md:text-lg px-7 py-4 w-full sm:w-auto rounded-3xl font-bold">
+ See how we help
+ </a>
+ <a href="/mercy-blueprint" class="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-3xl border border-white/20 text-sm text-zinc-100 hover:bg-white/5 w-full sm:w-auto">
+ Get the Mercy Blueprint
+ </a>
+ </div>
+
+ <div id="doors" class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl mx-auto px-1 shh-reveal shh-reveal-delay-2 scroll-mt-28">
+ <a href="/all-programs#seed-dogs" class="shh-door rounded-2xl border border-amber-400/35 bg-amber-950/30 p-4 text-left hover:border-amber-300/60 hover:bg-amber-950/45">
  <div class="text-2xl mb-1" aria-hidden="true">🐾</div>
  <div class="font-semibold text-amber-100">Help dogs</div>
- <div class="text-xs text-zinc-400 mt-1">$NIBBLES · seniors, therapy, K9, forever homes</div>
+ <div class="text-xs text-zinc-400 mt-1">Healing Hearts · Global K9 · Pay It Forward · senior soft landings</div>
  </a>
- <a href="all-programs.html#hopeseed" class="shh-door rounded-2xl border border-emerald-400/35 bg-emerald-950/25 p-4 text-left hover:border-emerald-300/60 hover:bg-emerald-950/40">
+ <a href="/all-programs#seed-kids" class="shh-door rounded-2xl border border-emerald-400/35 bg-emerald-950/25 p-4 text-left hover:border-emerald-300/60 hover:bg-emerald-950/40">
  <div class="text-2xl mb-1" aria-hidden="true">🌱</div>
  <div class="font-semibold text-emerald-100">Help kids &amp; families</div>
- <div class="text-xs text-zinc-400 mt-1">$hopeseed · Christmas, weekends, birthdays, bridges</div>
+ <div class="text-xs text-zinc-400 mt-1">Orphan Christmas · Sibling Keepers · weekend food · birthday guarantee</div>
  </a>
- <a href="shelters.html" class="shh-door rounded-2xl border border-rose-400/30 bg-rose-950/20 p-4 text-left hover:border-rose-300/55 hover:bg-rose-950/35">
+ <a href="/shelters" class="shh-door rounded-2xl border border-rose-400/30 bg-rose-950/20 p-4 text-left hover:border-rose-300/55 hover:bg-rose-950/35">
  <div class="text-2xl mb-1" aria-hidden="true">❤️</div>
  <div class="font-semibold text-rose-100">Meet Beautiful Souls</div>
  <div class="text-xs text-zinc-400 mt-1">Faces first. Shelter eyes. Living stories.</div>
  </a>
- <a href="whitepaper.html#treasury-path" class="shh-door rounded-2xl border border-white/15 bg-zinc-900/50 p-4 text-left hover:border-white/35 hover:bg-zinc-900/80">
+ <a href="#how-it-works" class="shh-door rounded-2xl border border-white/15 bg-zinc-900/50 p-4 text-left hover:border-white/35 hover:bg-zinc-900/80">
  <div class="text-2xl mb-1" aria-hidden="true">📜</div>
- <div class="font-semibold text-zinc-100">How it works · status</div>
- <div class="text-xs text-zinc-400 mt-1">Hold → move → convert → deliver → prove</div>
+ <div class="font-semibold text-zinc-100">How it works + status</div>
+ <div class="text-xs text-zinc-400 mt-1">One clear path. No metaphor maze.</div>
  </a>
  </div>
 
- <div class="mt-7 flex flex-col sm:flex-row justify-center gap-3 px-2 shh-reveal shh-reveal-delay-2">
- <a href="#blueprint" class="premium-sponsor-btn inline-flex items-center justify-center gap-2 text-base md:text-lg px-7 py-4 w-full sm:w-auto rounded-3xl">
- Get the Mercy Blueprint
- </a>
- <a href="all-programs.html" class="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-3xl border border-white/20 text-sm text-zinc-200 hover:bg-white/5 w-full sm:w-auto">
- See all 30 programs
- </a>
- </div>
-
- <p class="mt-4 text-xs text-zinc-500 shh-reveal shh-reveal-delay-2">
- Prefer depth later: <a href="#tokens" class="text-amber-300/80 underline underline-offset-2">tokens</a>
- · <a href="#personal-engine" class="text-emerald-300/80 underline underline-offset-2">Your Ripples</a>
- · <a href="faq.html" class="text-zinc-400 underline underline-offset-2">FAQ</a>
+ <p class="mt-6 text-xs text-zinc-500 max-w-xl mx-auto leading-relaxed shh-reveal shh-reveal-delay-2">
+ Tokens and on-chain details live further down for holders who want them. New here? Start with a door above.
  </p>
  </div>
 
@@ -2210,19 +2153,25 @@
  </div>
 </header>
 
-<!-- Non-crypto help today -->
-<section id="welcome-main" class="shh-help-today border-b border-white/10 bg-zinc-950/90 py-8 md:py-10">
- <div class="max-w-5xl mx-auto px-5">
- <div class="text-center mb-5">
- <div class="text-[10px] tracking-[0.18em] uppercase text-emerald-300/80 mb-1">Help today</div>
- <p class="text-sm text-zinc-300">No wallet required. Holding stays optional until you are ready.</p>
+<!-- How it works · one status band -->
+<section id="how-it-works" class="border-b border-white/10 bg-zinc-950 py-12 md:py-16 scroll-mt-24">
+ <div class="max-w-4xl mx-auto px-5">
+ <div class="text-center mb-8">
+ <div class="text-[10px] tracking-[0.18em] uppercase text-amber-300/80 mb-2">How it works</div>
+ <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">One path. Honest status.</h2>
+ <div class="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-950/40 px-4 py-1.5 text-xs text-emerald-100">
+ <span class="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true"></span>
+ Contracts live · Charity rails in progress · Delivery not claimed yet
  </div>
- <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
- <a href="#blueprint" class="rounded-2xl border border-white/10 bg-black/40 px-3 py-3 text-center text-sm text-amber-100 hover:border-amber-400/40">Read Blueprint</a>
- <a href="shelters.html" class="rounded-2xl border border-white/10 bg-black/40 px-3 py-3 text-center text-sm text-rose-100 hover:border-rose-400/40">Meet a soul</a>
- <a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener" class="rounded-2xl border border-white/10 bg-black/40 px-3 py-3 text-center text-sm text-zinc-100 hover:border-white/30">Follow on X</a>
- <a href="barn-pods.html" class="rounded-2xl border border-white/10 bg-black/40 px-3 py-3 text-center text-sm text-emerald-100 hover:border-emerald-400/40">Partner / sponsor</a>
  </div>
+ <ol class="grid sm:grid-cols-5 gap-3 text-sm">
+ <li class="rounded-2xl border border-white/10 bg-black/40 p-4 text-center"><div class="text-amber-300 font-semibold mb-1">1</div>Hold with the mission</li>
+ <li class="rounded-2xl border border-white/10 bg-black/40 p-4 text-center"><div class="text-amber-300 font-semibold mb-1">2</div>Movement feeds the flywheel <span class="block text-[10px] text-zinc-500 mt-1">(when rails are live)</span></li>
+ <li class="rounded-2xl border border-white/10 bg-black/40 p-4 text-center"><div class="text-amber-300 font-semibold mb-1">3</div>Convert to steady care</li>
+ <li class="rounded-2xl border border-white/10 bg-black/40 p-4 text-center"><div class="text-amber-300 font-semibold mb-1">4</div>Deliver to real programs</li>
+ <li class="rounded-2xl border border-white/10 bg-black/40 p-4 text-center"><div class="text-amber-300 font-semibold mb-1">5</div>Prove with receipts</li>
+ </ol>
+ <p class="text-center text-xs text-zinc-500 mt-6"><a href="/whitepaper#treasury-path" class="underline hover:text-zinc-300">Full treasury path in the whitepaper →</a></p>
  </div>
 </section>
 
@@ -3095,7 +3044,7 @@
  <div class="mx-auto mb-3 text-[10px] tracking-[1.5px] font-bold px-3 py-1 rounded-full bg-emerald-400 text-black">MOST IMPACTFUL</div>
  <h3 class="text-xl mb-2 tracking-tight">Sponsor a Program</h3>
  <p class="text-zinc-400 text-sm mb-auto">Become the reason a dog or child feels loved.</p>
- <button onclick="sponsorProgram()" class="premium-sponsor-btn inline-flex items-center justify-center gap-2 text-black font-semibold px-6 py-3 mt-5 rounded-2xl text-base w-full">Sponsor With Love</button>
+ <button onclick="sponsorProgram()" class="premium-sponsor-btn inline-flex items-center justify-center gap-2 text-black font-semibold px-6 py-3 mt-5 rounded-2xl text-base w-full">Sponsor (coming with rails)</button>
  </div>
  <div class="help-card bg-zinc-900 rounded-2xl p-6 text-center border border-white/10 hover:border-white/30 transition-all flex flex-col sm:col-span-2 lg:col-span-1">
  <h3 class="text-xl mb-2 tracking-tight">Join the Movement</h3>
@@ -3292,11 +3241,8 @@ function hideModal() {
 }
 
 function sponsorProgram() {
- /* Lead with love, not an alert. Take them to the dual flywheels. */
- try {
-  sessionStorage.setItem('shh-sponsor-intent', '1');
- } catch (e) { /* ignore */ }
- window.location.href = 'all-programs.html#all-programs-grid';
+ /* Never dump strangers on the raw 30-grid. Honest sponsor path. */
+ window.location.href = '/contact?intent=sponsor';
 }
 
 // Smooth scroll for nav links

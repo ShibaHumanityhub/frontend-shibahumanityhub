@@ -53,11 +53,12 @@
    <div>
     <label for="contact-intent">I am writing about</label>
     <select id="contact-intent" name="intent">
-     <option>General question</option>
-     <option>Partner / sponsor</option>
-     <option>Press</option>
-     <option>Privacy / delete my email</option>
-     <option>Something else</option>
+     <option value="general">General question</option>
+     <option value="sponsor">Sponsor (coming with rails)</option>
+     <option value="partner">Partner / barn pods</option>
+     <option value="press">Press</option>
+     <option value="privacy">Privacy / delete my email</option>
+     <option value="other">Something else</option>
     </select>
    </div>
    <div>
@@ -71,5 +72,17 @@
   <p class="mt-8 text-sm text-zinc-500">Prefer no form? Start on X, or read the <a class="text-emerald-300 underline" href="faq.html">FAQ</a> for what is live vs design.</p>
  </main>
  <div id="shh-site-footer" data-shh-footer></div>
+ <script>
+  (function () {
+   try {
+    var q = new URLSearchParams(location.search).get('intent');
+    var sel = document.getElementById('contact-intent');
+    if (q && sel) {
+     var map = { sponsor: 'sponsor', partner: 'partner', press: 'press', privacy: 'privacy' };
+     if (map[q]) sel.value = map[q];
+    }
+   } catch (e) { /* ignore */ }
+  })();
+ </script>
 </body>
 </html>

@@ -18,21 +18,35 @@
   return (
    '<footer class="shh-site-footer border-t border-amber-500/25 bg-black">' +
    '<div class="max-w-5xl mx-auto px-5 py-12 text-center">' +
-   '<p class="text-2xl md:text-3xl font-light text-amber-200 mb-2">Thank you for being here.</p>' +
-   '<p class="text-lg text-amber-100/90 mb-6">People helping people. Helping people. <span aria-hidden="true">❤️</span></p>' +
-   '<nav class="shh-footer-nav flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm mb-8" aria-label="Footer">' +
-   '<a href="' + p + 'all-programs.html">Programs</a>' +
-   '<a href="' + p + 'shelters.html">Souls</a>' +
+   '<p class="text-2xl md:text-3xl font-light text-amber-200 mb-6">Thank you for being here.</p>' +
+   '<div class="shh-footer-grid text-left sm:text-center max-w-3xl mx-auto mb-8 space-y-4 text-sm">' +
+   '<div><div class="text-[10px] tracking-[0.14em] uppercase text-zinc-500 mb-2">Mission</div>' +
+   '<nav class="shh-footer-nav flex flex-wrap justify-center gap-x-4 gap-y-2">' +
+   '<a href="' + p + 'all-programs.html#seed-focus">Programs</a>' +
+   '<a href="' + p + 'shelters.html">Meet the Souls</a>' +
+   '<a href="/#how-it-works">How it works</a>' +
+   '</nav></div>' +
+   '<div><div class="text-[10px] tracking-[0.14em] uppercase text-zinc-500 mb-2">Docs</div>' +
+   '<nav class="shh-footer-nav flex flex-wrap justify-center gap-x-4 gap-y-2">' +
    '<a href="' + p + 'whitepaper.html">Whitepaper</a>' +
    '<a href="' + p + 'mercy-blueprint.html">Blueprint</a>' +
    '<a href="' + p + 'faq.html">FAQ</a>' +
+   '</nav></div>' +
+   '<div><div class="text-[10px] tracking-[0.14em] uppercase text-zinc-500 mb-2">Trust</div>' +
+   '<nav class="shh-footer-nav flex flex-wrap justify-center gap-x-4 gap-y-2">' +
    '<a href="' + p + 'contact.html">Contact</a>' +
    '<a href="' + p + 'privacy.html">Privacy</a>' +
    '<a href="' + p + 'terms.html">Terms</a>' +
+   '</nav></div>' +
+   '<div><div class="text-[10px] tracking-[0.14em] uppercase text-zinc-500 mb-2">Community</div>' +
+   '<nav class="shh-footer-nav flex flex-wrap justify-center gap-x-4 gap-y-2">' +
    '<a href="https://x.com/Shibhumanityhub" target="_blank" rel="noopener">X</a>' +
-   '</nav>' +
+   '<a href="' + p + 'spin-the-wheel.html">Spin the Wheel</a>' +
+   '<a href="' + p + 'pay-it-forward.html">Pay It Forward</a>' +
+   '</nav></div>' +
+   '</div>' +
    '<p class="text-emerald-300/90 text-xs max-w-2xl mx-auto leading-relaxed">© Shiba Humanity Hub · Incorporated entity · Pre-launch · Registered charity application in progress · Corporate banking ready</p>' +
-   '<p class="text-zinc-500 text-[10px] mt-2 max-w-xl mx-auto leading-relaxed">Not financial advice. Commitments subject to charity registration and applicable law. On-chain treasury reporting and impact attestations launch on approval. Contracts live. Delivery claims wait for rails.</p>' +
+   '<p class="text-zinc-500 text-[10px] mt-2 max-w-xl mx-auto leading-relaxed">Not financial advice. Contracts live. Delivery claims wait for rails.</p>' +
    '</div>' +
    '</footer>'
   );
@@ -45,7 +59,6 @@
   s.textContent = [
    '.shh-footer-nav a{color:rgba(252,211,77,0.85);text-decoration:none;border-bottom:1px solid transparent}',
    '.shh-footer-nav a:hover{color:#fff;border-bottom-color:rgba(52,211,153,0.5)}',
-   '.shh-help-today a{min-height:44px}',
    '.shh-door{transition:border-color .2s,transform .2s,background .2s}',
    '.shh-door:hover{transform:translateY(-2px)}'
   ].join('');
