@@ -1,4 +1,4 @@
-/* P0 hero doors — equal cards + status chips (Appendix A tooltips via title=) */
+/* P0 hero doors - equal cards + status chips (Appendix A tooltips via title=) */
 .shh-doors {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -30,12 +30,14 @@
   outline-offset: 3px;
 }
 
-.shh-door-icon {
+.shh-door-icon,
+.shh-door-ico {
   font-size: 1.5rem;
   line-height: 1;
   margin-bottom: 0.35rem;
 }
-.shh-door-label {
+.shh-door-label,
+.shh-door-title {
   font-weight: 600;
   font-size: 0.95rem;
   line-height: 1.25;
@@ -54,7 +56,7 @@
   margin-top: 0.65rem;
 }
 
-/* Exact chip labels — tooltips are on the HTML title attribute (Appendix A) */
+/* Exact chip labels - tooltips are on the HTML title attribute (Appendix A) */
 .shh-chip {
   display: inline-flex;
   align-items: center;
@@ -94,7 +96,13 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Quiet secondary under doors — not competing with equal doors */
+/* Pack A: emphasize Planned on dog/kid doors so delivery is never mistaken for Live */
+.shh-chip--emphasis {
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.35), 0 0 18px -6px rgba(251, 191, 36, 0.55);
+  font-weight: 700;
+}
+
+/* Quiet secondary under doors - not competing with equal doors */
 .shh-hero-quiet-link {
   display: inline-flex;
   align-items: center;
@@ -121,11 +129,3 @@
 .shh-door-chips .shh-chip-scope:first-child {
   margin-left: 0;
 }
-
-/* Pack A: emphasize Planned on dog/kid doors so delivery is never mistaken for Live */
-.shh-chip--emphasis {
-  box-shadow: 0 0 0 1px rgba(251,191,36,0.35), 0 0 18px -6px rgba(251,191,36,0.55);
-  font-weight: 700;
-}
-.shh-door-icon, .shh-door-ico { font-size: 1.5rem; line-height: 1; margin-bottom: 0.35rem; }
-.shh-door-label, .shh-door-title { font-weight: 600; font-size: 0.95rem; line-height: 1.25; }
