@@ -17,32 +17,39 @@
   var s = document.createElement('style');
   s.id = 'shh-site-chrome-css';
   s.textContent = [
-   '.shh-chrome-nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(5,7,15,.96);border-bottom:1px solid rgba(251,191,36,.28);backdrop-filter:blur(12px)}',
-   '.shh-chrome-inner{max-width:80rem;margin:0 auto;padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}',
-   '.shh-chrome-links{display:none;align-items:center;gap:1.1rem;font-size:.875rem;font-weight:500}',
+   /* Sticky stack (not fixed): content never sits under nav/banner on any viewport */
+   '.shh-chrome-nav{position:sticky;top:0;z-index:50;background:rgba(5,7,15,.98);border-bottom:1px solid rgba(251,191,36,.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}',
+   '.shh-chrome-inner{max-width:80rem;margin:0 auto;padding:.7rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:56px}',
+   '.shh-chrome-links{display:none;align-items:center;gap:1rem;font-size:.875rem;font-weight:500;flex-wrap:wrap}',
    '@media(min-width:1024px){.shh-chrome-links{display:flex}}',
-   '.shh-chrome-links a,.shh-chrome-links button{color:#e4e4e7;background:none;border:0;cursor:pointer;font:inherit}',
+   '.shh-chrome-links a,.shh-chrome-links button{color:#e4e4e7;background:none;border:0;cursor:pointer;font:inherit;min-height:40px}',
    '.shh-chrome-links a:hover,.shh-chrome-links button:hover{color:#fcd34d}',
    '.shh-chrome-drop{position:relative}',
-   '.shh-chrome-drop > div{display:none;position:absolute;left:0;top:100%;margin-top:.4rem;min-width:11rem;padding:.4rem 0;border-radius:1rem;border:1px solid rgba(255,255,255,.12);background:rgba(24,24,27,.97);z-index:60}',
+   '.shh-chrome-drop > div{display:none;position:absolute;left:0;top:100%;margin-top:.4rem;min-width:11rem;padding:.4rem 0;border-radius:1rem;border:1px solid rgba(255,255,255,.12);background:rgba(24,24,27,.98);z-index:60}',
    '.shh-chrome-drop:hover > div,.shh-chrome-drop:focus-within > div{display:block}',
-   '.shh-chrome-drop > div a{display:block;padding:.45rem 1rem;font-size:.8rem;color:#e4e4e7;text-decoration:none}',
+   '.shh-chrome-drop > div a{display:block;padding:.55rem 1rem;font-size:.8rem;color:#e4e4e7;text-decoration:none;min-height:40px}',
    '.shh-chrome-drop > div a:hover{background:rgba(255,255,255,.05);color:#fff}',
-   '.shh-chrome-cta{display:inline-flex;align-items:center;min-height:40px;padding:.45rem .9rem;border-radius:999px;font-size:.75rem;font-weight:700;color:#0a0a0a;background:linear-gradient(135deg,#fcd34d,#f59e0b);text-decoration:none}',
-   '.shh-chrome-burger{lg:hidden;background:none;border:0;color:#fff;font-size:1.25rem;padding:.35rem}',
+   '.shh-chrome-cta{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:.45rem .9rem;border-radius:999px;font-size:.75rem;font-weight:700;color:#0a0a0a;background:linear-gradient(135deg,#fcd34d,#f59e0b);text-decoration:none;white-space:nowrap}',
+   '.shh-chrome-burger{display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;font-size:1.25rem;padding:.35rem;min-width:44px;min-height:44px}',
    '@media(min-width:1024px){.shh-chrome-burger{display:none}}',
-   '.shh-chrome-mobile{display:none;position:fixed;left:0;right:0;top:64px;z-index:49;background:#09090b;border-bottom:1px solid rgba(255,255,255,.1);padding:1rem 1.25rem 1.25rem;max-height:70vh;overflow:auto}',
+   '.shh-chrome-mobile{display:none;background:#09090b;border-bottom:1px solid rgba(255,255,255,.1);padding:0.75rem 1.25rem 1rem;max-height:min(70vh,520px);overflow:auto}',
    '.shh-chrome-mobile.is-open{display:block}',
    '@media(min-width:1024px){.shh-chrome-mobile{display:none!important}}',
-   '.shh-chrome-mobile a{display:block;padding:.65rem 0;color:#e4e4e7;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06)}',
-   '.shh-banner{margin-top:64px;border-bottom:1px solid rgba(251,191,36,.2);background:rgba(9,9,11,.92)}',
-   '.shh-banner-inner{max-width:80rem;margin:0 auto;padding:.65rem 1rem;font-size:.78rem;line-height:1.45;color:#d4d4d8}',
+   '.shh-chrome-mobile a{display:block;padding:.7rem 0;color:#e4e4e7;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);min-height:44px}',
+   /* Banner sits in normal flow under sticky nav (no fake 64px margin that clips titles) */
+   '.shh-banner{position:relative;z-index:40;border-bottom:1px solid rgba(251,191,36,.2);background:rgba(9,9,11,.96)}',
+   '.shh-banner-inner{max-width:80rem;margin:0 auto;padding:.7rem 1rem;font-size:.78rem;line-height:1.5;color:#d4d4d8}',
+   '@media(max-width:640px){.shh-banner-inner{font-size:.72rem;padding:.65rem .85rem}.shh-banner{top:56px}}',
    '.shh-banner strong{color:#fde68a}',
    '.shh-footer-nav a{color:rgba(252,211,77,.85);text-decoration:none}',
    '.shh-footer-nav a:hover{color:#fff}',
    '.shh-door{transition:border-color .2s,transform .2s}',
    '.shh-door:hover{transform:translateY(-2px)}',
-   'body.shh-chrome-on{padding-top:0}'
+   /* Doc/stub pages: breathing room under sticky chrome on all screens */
+   'main.doc,main.shh-doc-main,.shh-doc-main{padding-top:1.5rem!important;padding-bottom:3.5rem;padding-left:max(1rem,env(safe-area-inset-left));padding-right:max(1rem,env(safe-area-inset-right));scroll-margin-top:8rem}',
+   '@media(min-width:768px){main.doc,main.shh-doc-main,.shh-doc-main{padding-top:2rem!important}}',
+   'main.doc h1,.shh-doc-main h1{line-height:1.15;overflow-wrap:anywhere;word-break:break-word}',
+   'body.shh-chrome-on{padding-top:0;overflow-x:hidden}'
   ].join('');
   document.head.appendChild(s);
  }
@@ -168,8 +175,19 @@
   if (!burger || !panel) return;
   panel.hidden = false;
   burger.addEventListener('click', function () {
-   panel.classList.toggle('is-open');
+   var open = panel.classList.toggle('is-open');
+   burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+ }
+
+ function syncBannerTop() {
+  /* Keep sticky math honest if nav height changes across breakpoints */
+  try {
+   var nav = document.querySelector('.shh-chrome-nav');
+   if (!nav) return;
+   var h = Math.ceil(nav.getBoundingClientRect().height) || 56;
+   document.documentElement.style.setProperty('--shh-nav-h', h + 'px');
+  } catch (e) { /* ignore */ }
  }
 
  function init() {
@@ -183,6 +201,8 @@
   /* If page already has static footer.shh-site-footer, leave it */
   document.body.classList.add('shh-chrome-on');
   wireMobile();
+  syncBannerTop();
+  window.addEventListener('resize', syncBannerTop, { passive: true });
  }
 
  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
