@@ -210,14 +210,10 @@
   var th = thresholds();
   var total = nBal + hBal;
   var base = Math.floor(total / th.MERCY);
-  var projected = Math.max(total > 0 ? 1 : 0, base * 3);
+  /* Est. lives counter retired: was floor(tokens/25k)*3 with no evidence base. */
   if (lives) {
-   if (window.animateValue && !prefersReduced()) {
-    var cur = parseInt(lives.textContent.replace(/\D/g, ''), 10) || 0;
-    window.animateValue(lives, cur, projected, 700);
-   } else {
-    lives.textContent = String(projected);
-   }
+   lives.textContent = total > 0 ? '—' : '—';
+   lives.setAttribute('title', 'We do not publish estimated lives. Delivery waits for rails and receipts.');
   }
   if (progs) progs.textContent = String(touched.length);
   if (circle) {

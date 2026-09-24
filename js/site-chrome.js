@@ -153,7 +153,7 @@
    '<a href="/how-it-works">Status</a>' +
    '</nav></div></div>' +
    '<p class="text-amber-100/90 text-xs max-w-2xl mx-auto leading-relaxed font-medium">Incorporated · Charity rails in progress · Contracts live on Shibarium · Delivery waits for rails</p>' +
-   '<p class="text-emerald-300/80 text-xs max-w-2xl mx-auto leading-relaxed mt-2">© Shiba Humanity Hub · Pre-launch · Registered charity application in progress</p>' +
+   '<p class="text-emerald-300/80 text-xs max-w-2xl mx-auto leading-relaxed mt-2">© Shiba Humanity Hub · Pre-launch</p>' +
    '<p class="text-zinc-500 text-[10px] mt-2 max-w-xl mx-auto">Not financial advice. No delivery numbers claimed as live.</p>' +
    '</div></footer>'
   );
