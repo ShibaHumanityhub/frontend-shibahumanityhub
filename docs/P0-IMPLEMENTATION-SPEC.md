@@ -9,8 +9,6 @@
 
 **Rev 3:** Exact locked paste is **Appendix A** (mirrored at `shh-claim-lock-copy.md`). Use exact chip labels/tooltips, exact footer string, and exact Blueprint privacy paragraph + form microcopy. Story Voice may polish surrounding stub prose only — do not soften those three locked strings.
 
-**Rev 4 (Rails & Trust confirm, 2026-09-24 America/Edmonton):** Claim-lock fold-in verified against `/workspace/shh-claim-lock-copy.md` — chips, footer string, Blueprint privacy paragraph, and form microcopy match exactly. Broken §L1/§L3 refs fixed → Appendix A1/A3. Full founder drafts for `/privacy` and `/terms` live at `/workspace/shh-legal-pages/privacy.md` and `/workspace/shh-legal-pages/terms.md` (paste into stubs; keep Appendix A3 locked sentences).
-
 → Jump: [Appendix A — Locked claim paste](#appendix-a--locked-claim-paste-rails--trust--do-not-paraphrase)
 
 ---
@@ -171,10 +169,7 @@ Example direction (Story Voice finalizes wording):
 | 3 | Meet Beautiful Souls | `/shelters` | Faces · clocks until partner feeds | **Prototype** · partner feeds **In progress** |
 | 4 | How it works + status | `/how-it-works` or `/#how-it-works` | Status · pre-rails | Chip: **`Status · pre-rails`** · rails **`In progress`** — **do not** label the door “Live” without naming what is live (e.g. “contracts Live · delivery waits”) |
 
-**Layout:** 2×2 mobile, 4-across `lg+`. Equal height cards/buttons.
-
-**Drop-in (repo):** `/workspace/shh-site-ux/hero-four-doors/` — `doors-snippet.html` + `doors-chips.css` + README.  
-Live already has a v1 four-door grid; patch removes competing hero CTAs, adds scoped Appendix A chips, retargets dogs/kids to `/programs#seed-*`, and enforces 2×2 / 4-across equal height.
+**Layout:** 2×2 mobile, 4-across `sm+`. Equal height cards/buttons.
 
 **Do not** put wallet connect or contract copy inside the doors.
 
@@ -278,18 +273,16 @@ Minimal shared chrome: nav + banner + footer (with trust line).
 
 ### `/privacy` (Rails & Trust — required)
 
-- Full draft: `/workspace/shh-legal-pages/privacy.md`
 - Title Privacy  
 - H2: Mercy Blueprint email capture (or under Information we collect)  
 - **Paste exact stub paragraph from Appendix A3** (present-tense; do not defer disclosure until charity approval)  
-- Keep counsel placeholders as listed in Appendix A3  
+- Keep counsel placeholders as listed in §L3  
 - Contact / deletion path via `/contact`  
 - Fuller policy may land on charity approval — but live capture must be disclosed **now**  
 - On homepage Blueprint form: paste **exact** form microcopy from Appendix A3  
 
 ### `/terms`
 
-- Full draft: `/workspace/shh-legal-pages/terms.md`
 - Title Terms of use  
 - Not financial advice; pre-rails; tokens info only; no delivery guarantee  
 - Link whitepaper  
@@ -307,7 +300,7 @@ Suggested topics: What is live today? What are `$NIBBLES` / `$hopeseed`? Can I s
 
 ## 10. Live / Prototype / Planned / In progress (sitewide hygiene)
 
-**Implement chips with exact labels + tooltips from Appendix A1.** Mapping summary (full “Never under Live” list is in Appendix A1):
+**Implement chips with exact labels + tooltips from Appendix A1.** Mapping summary (full “Never under Live” list is in §L1):
 
 | Label | Use for |
 |-------|---------|
@@ -334,8 +327,7 @@ Every CTA that implies money→life must be **Planned**-labeled (and rails **In 
 - [ ] Add `/programs` seed hub; point Programs nav there  
 - [ ] Slim homepage section order per §6  
 - [ ] Replace Sponsor close card + kill `sponsorProgram()` grid dump  
-- [ ] Add stub HTML + `_redirects`; **privacy covers live email capture**
-- [ ] Paste privacy/terms from `/workspace/shh-legal-pages/` (keep Appendix A3 locked sentences)  
+- [ ] Add stub HTML + `_redirects`; **privacy covers live email capture**  
 - [ ] Global link hygiene: prefer clean URLs; fix `all-programs.html` hard refs  
 - [ ] Mobile pass: four doors readable over gear BG; hamburger = new IA only  
 - [ ] a11y: door buttons as links with clear names; focus states; don’t rely on color alone for token names  
@@ -347,7 +339,7 @@ Every CTA that implies money→life must be **Planned**-labeled (and rails **In 
 | Who | Needs |
 |-----|-------|
 | **Story Voice** | Door micro-lines; Sponsor→Stand with rename; stub/FAQ voice; **hero designed/when-rails tense** (pack may already be with founder) |
-| **Rails & Trust** | Locked paste confirmed (rev 4 / Appendix A). Re-check only if copy drifts from exact strings. Full `/privacy` `/terms` drafts in `shh-legal-pages/` |
+| **Rails & Trust** | Locked paste applied (rev 3 / Appendix A). Re-check only if copy drifts from exact strings |
 | **Repo editor** | This file as build sheet; screenshots in `/workspace/shh-site-ux/` (`hero-desktop-before.png`, `hero-mobile-before.png`) |
 
 ---
