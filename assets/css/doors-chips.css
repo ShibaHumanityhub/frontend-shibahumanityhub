@@ -1,4 +1,4 @@
-/* P0 hero doors: equal cards + Appendix A status chips (tooltips via title=) */
+/* P0 hero doors — equal cards + status chips (Appendix A tooltips via title=) */
 .shh-doors {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -6,8 +6,6 @@
   max-width: 56rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2.5rem;
-  scroll-margin-top: 7rem;
 }
 @media (min-width: 1024px) {
   .shh-doors {
@@ -21,28 +19,23 @@
   flex-direction: column;
   height: 100%;
   min-height: 9.5rem;
-  text-align: left;
-  padding: 1rem;
-  border-radius: 1rem;
   text-decoration: none;
-  color: inherit;
   transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
-.shh-door:hover { transform: translateY(-2px); }
+.shh-door:hover {
+  transform: translateY(-2px);
+}
 .shh-door:focus-visible {
   outline: 2px solid #fbbf24;
   outline-offset: 3px;
 }
 
-/* Support both Bot drop-in names and our aliases */
-.shh-door-icon,
-.shh-door-ico {
+.shh-door-icon {
   font-size: 1.5rem;
   line-height: 1;
   margin-bottom: 0.35rem;
 }
-.shh-door-label,
-.shh-door-title {
+.shh-door-label {
   font-weight: 600;
   font-size: 0.95rem;
   line-height: 1.25;
@@ -57,12 +50,11 @@
 .shh-door-chips {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 0.3rem;
   margin-top: 0.65rem;
 }
 
-/* Exact chip labels. Tooltips are HTML title= (Appendix A). */
+/* Exact chip labels — tooltips are on the HTML title attribute (Appendix A) */
 .shh-chip {
   display: inline-flex;
   align-items: center;
@@ -75,7 +67,6 @@
   border: 1px solid transparent;
   cursor: help;
   white-space: nowrap;
-  text-transform: none;
 }
 .shh-chip--live {
   color: #bbf7d0;
@@ -103,6 +94,21 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Quiet secondary under doors — not competing with equal doors */
+.shh-hero-quiet-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: rgba(212, 212, 216, 0.9);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.shh-hero-quiet-link:hover {
+  color: #fef3c7;
+}
+
 .shh-chip-scope {
   font-size: 0.58rem;
   font-weight: 500;
@@ -116,40 +122,10 @@
   margin-left: 0;
 }
 
-/* Door color shells (optional; HTML may also set Tailwind borders) */
-.shh-door--dogs { border: 1px solid rgba(251, 191, 36, 0.35); background: rgba(69, 26, 3, 0.35); }
-.shh-door--dogs .shh-door-title,
-.shh-door--dogs .shh-door-label { color: #fef3c7; }
-.shh-door--kids { border: 1px solid rgba(52, 211, 153, 0.35); background: rgba(6, 78, 59, 0.3); }
-.shh-door--kids .shh-door-title,
-.shh-door--kids .shh-door-label { color: #d1fae5; }
-.shh-door--souls { border: 1px solid rgba(251, 113, 133, 0.3); background: rgba(76, 5, 25, 0.3); }
-.shh-door--souls .shh-door-title,
-.shh-door--souls .shh-door-label { color: #ffe4e6; }
-.shh-door--status { border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(24, 24, 27, 0.65); }
-.shh-door--status .shh-door-title,
-.shh-door--status .shh-door-label { color: #f4f4f5; }
-
-/* Quiet secondary under doors. Not competing with equal doors. */
-.shh-hero-quiet-link,
-.shh-doors-note a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.25rem;
-  font-size: 0.8rem;
-  color: rgba(212, 212, 216, 0.9);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+/* Pack A: emphasize Planned on dog/kid doors so delivery is never mistaken for Live */
+.shh-chip--emphasis {
+  box-shadow: 0 0 0 1px rgba(251,191,36,0.35), 0 0 18px -6px rgba(251,191,36,0.55);
+  font-weight: 700;
 }
-.shh-hero-quiet-link:hover,
-.shh-doors-note a:hover {
-  color: #fef3c7;
-}
-.shh-doors-note {
-  margin-top: 1rem;
-  font-size: 0.75rem;
-  color: #71717a;
-  text-align: center;
-  line-height: 1.45;
-}
+.shh-door-icon, .shh-door-ico { font-size: 1.5rem; line-height: 1; margin-bottom: 0.35rem; }
+.shh-door-label, .shh-door-title { font-weight: 600; font-size: 0.95rem; line-height: 1.25; }

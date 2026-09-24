@@ -3,65 +3,95 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SHH · Hero four doors preview (P0)</title>
+<title>SHH · Hero Pack A preview</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="doors-chips.css" />
 <style>
   body { margin: 0; background: #0a0f1c; color: #e4e4e7; font-family: system-ui, sans-serif; }
-  .wrap { max-width: 56rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; text-align: center; }
-  .eyebrow { color: rgba(254,243,199,.9); font-size: .85rem; }
-  .promise { color: #e4e4e7; max-width: 36rem; margin: 1rem auto 0; line-height: 1.55; }
-  .truth { text-align: left; max-width: 36rem; margin: 1.25rem auto 0; font-size: .875rem;
-    background: rgba(9,9,11,.7); border: 1px solid rgba(251,191,36,.25); border-radius: 1rem;
-    padding: .75rem 1rem; color: #d4d4d8; }
-  .truth strong { color: #fde68a; }
+  .wrap { max-width: 56rem; margin: 0 auto; padding: 2.5rem 1.25rem 3rem; text-align: center; }
+  .shh-hero-token-n { color: #fbbf24; font-weight: 600; }
+  .shh-hero-token-h { color: #34d399; font-weight: 600; }
   .note { margin-top: 2rem; font-size: .75rem; color: #71717a; }
+  .super-cta-btn {
+    background: linear-gradient(145deg, #f59e0b, #fbbf24, #f59e0b);
+    color: #0f172a; font-weight: 700;
+  }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <p class="eyebrow">People helping people. Helping dogs. Helping people.</p>
-    <h1 style="color:#fff;font-size:clamp(1.6rem,4vw,2.4rem);margin:1rem 0 0;letter-spacing:-.02em;">A home for mercy that strangers can walk into.</h1>
-    <p class="promise">We are building a transparent way to help shelter dogs and kids who need a chance, with proof when the charity rails are live, and honesty until then.</p>
-    <div class="truth"><strong>Truth right now:</strong> Incorporated. Charity rails in progress. Contracts live. Delivery claims wait for rails.</div>
+<div class="wrap">
+<!-- LOCKED Pack A (2026-09-24) + P0 four doors.
+     Replace the inner content of #hero (from eyebrow through doors note) with this block.
+     Keep existing hero-bg / gear layers. Paste doors-chips.css.
+     Chip labels + title= from Appendix A — do not paraphrase.
+     Footer trust line (every page): Incorporated · Charity rails in progress · Contracts live on Shibarium · Delivery waits for rails -->
 
-     Keep truth strip + promise above. Paste doors-chips.css into site CSS.
-     Scope words before chips (Contracts / Rails / Delivery) are Site & UX clarity; chip text stays exact. -->
+<p class="shh-hero-eyebrow shh-reveal text-amber-100/90">People helping people. Helping dogs. Helping people.</p>
 
+<div class="hero-title-wrapper mx-auto shh-reveal mt-4">
+  <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+    Mercy with a front door
+  </h1>
+</div>
 
+<p class="shh-hero-promise mt-6 max-w-2xl mx-auto text-base md:text-lg px-2 shh-reveal shh-reveal-delay-1 leading-relaxed text-zinc-200">
+  Walk in for dogs who waited too long, and for kids and families still rebuilding.
+  <span class="shh-hero-token-n">$NIBBLES</span> and <span class="shh-hero-token-h">$hopeseed</span> on Shibarium.
+  Designed so holding becomes help when rails and partners are live — until then, we tell the truth.
+</p>
+
+<div class="mt-5 max-w-2xl mx-auto px-2 shh-reveal shh-reveal-delay-1">
+  <div class="text-left sm:text-center text-sm text-zinc-300 bg-zinc-950/70 border border-amber-400/25 rounded-2xl px-4 py-3 leading-relaxed">
+    <span class="font-semibold text-amber-200">Truth right now:</span>
+    Incorporated. Charity rails in progress. Contracts live. Delivery claims wait for rails.
+  </div>
+  <p class="mt-2 text-xs text-zinc-500 leading-relaxed">
+    Designed so real lives can get room to breathe when rails and partners are live.
+  </p>
+</div>
+
+<!-- Pack A primary + secondary CTAs (above doors) -->
+<div class="mt-8 flex flex-col sm:flex-row justify-center gap-3 px-2 shh-reveal shh-reveal-delay-2">
+  <a href="/mercy-blueprint" class="super-cta-btn inline-flex items-center justify-center gap-2 text-base md:text-lg px-7 py-4 w-full sm:w-auto rounded-3xl font-bold">
+    Get the Mercy Blueprint
+  </a>
+  <a href="/whitepaper#treasury-path" class="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-3xl border border-white/20 text-sm text-zinc-100 hover:bg-white/5 w-full sm:w-auto">
+    How hold becomes help
+  </a>
+</div>
+
+<!-- Four equal doors -->
 <div id="doors" class="shh-doors mt-10 px-1 shh-reveal shh-reveal-delay-2 scroll-mt-28" role="navigation" aria-label="Four ways in">
 
-  <!-- Door 1 · Help dogs -->
+  <!-- Door 1 · Help dogs · Pack A micro + visible Planned -->
   <a href="/programs#seed-dogs" class="shh-door rounded-2xl border border-amber-400/35 bg-amber-950/30 p-4 text-left hover:border-amber-300/60 hover:bg-amber-950/45">
     <div class="shh-door-icon" aria-hidden="true">🐾</div>
-    <div class="shh-door-label text-amber-100">Help dogs</div>
-    <div class="shh-door-micro">$NIBBLES · dogs &amp; healers</div>
+    <div class="shh-door-label text-amber-100">Help dogs · $NIBBLES</div>
+    <div class="shh-door-micro">Shelter dogs, therapy partners, disaster K9 — holding designed to become care when rails and partners are live.</div>
     <div class="shh-door-chips" aria-label="Status">
+      <span class="shh-chip shh-chip--planned shh-chip--emphasis" title="Intended after rails, funding, and partners. Do not present as available.">Planned</span>
       <span class="shh-chip-scope">Contracts</span>
       <span class="shh-chip shh-chip--live" title="Real and usable today: on-chain contract, public page, or verified process you can complete now.">Live</span>
       <span class="shh-chip-scope">Rails</span>
       <span class="shh-chip shh-chip--progress" title="Work started; not finished. Charity rails, receipts, partner agreements, legal framing.">In progress</span>
-      <span class="shh-chip-scope">Delivery</span>
-      <span class="shh-chip shh-chip--planned" title="Intended after rails, funding, and partners. Do not present as available.">Planned</span>
     </div>
   </a>
 
-  <!-- Door 2 · Help kids & families -->
+  <!-- Door 2 · Help kids · Pack A micro + visible Planned -->
   <a href="/programs#seed-kids" class="shh-door rounded-2xl border border-emerald-400/35 bg-emerald-950/25 p-4 text-left hover:border-emerald-300/60 hover:bg-emerald-950/40">
     <div class="shh-door-icon" aria-hidden="true">🌱</div>
-    <div class="shh-door-label text-emerald-100">Help kids &amp; families</div>
-    <div class="shh-door-micro">$hopeseed · kids &amp; families</div>
+    <div class="shh-door-label text-emerald-100">Help kids · $hopeseed</div>
+    <div class="shh-door-micro">Kids and families still rebuilding — holding designed to become help when rails and partners are live.</div>
     <div class="shh-door-chips" aria-label="Status">
+      <span class="shh-chip shh-chip--planned shh-chip--emphasis" title="Intended after rails, funding, and partners. Do not present as available.">Planned</span>
       <span class="shh-chip-scope">Contracts</span>
       <span class="shh-chip shh-chip--live" title="Real and usable today: on-chain contract, public page, or verified process you can complete now.">Live</span>
       <span class="shh-chip-scope">Rails</span>
       <span class="shh-chip shh-chip--progress" title="Work started; not finished. Charity rails, receipts, partner agreements, legal framing.">In progress</span>
-      <span class="shh-chip-scope">Delivery</span>
-      <span class="shh-chip shh-chip--planned" title="Intended after rails, funding, and partners. Do not present as available.">Planned</span>
     </div>
   </a>
 
-  <!-- Door 3 · Meet Beautiful Souls -->
+  <!-- Door 3 · Meet Beautiful Souls (P0) -->
   <a href="/shelters" class="shh-door rounded-2xl border border-rose-400/30 bg-rose-950/20 p-4 text-left hover:border-rose-300/55 hover:bg-rose-950/35">
     <div class="shh-door-icon" aria-hidden="true">❤️</div>
     <div class="shh-door-label text-rose-100">Meet Beautiful Souls</div>
@@ -87,14 +117,11 @@
 
 </div>
 
-<p class="mt-4 text-center">
-  <a href="/mercy-blueprint" class="shh-hero-quiet-link">Get the Mercy Blueprint</a>
-</p>
-
-<p class="mt-4 text-xs text-zinc-500 max-w-xl mx-auto leading-relaxed shh-reveal shh-reveal-delay-2">
+<p class="mt-6 text-xs text-zinc-500 max-w-xl mx-auto leading-relaxed shh-reveal shh-reveal-delay-2">
   Tokens and on-chain details live further down for holders who want them. New here? Start with a door above.
 </p>
-<p class="note">P0 preview · Site &amp; UX · chips use Appendix A tooltips (hover)</p>
+
+<p class="note">Pack A locked 2026-09-24 · Site &amp; UX drop-in · hover chips for Appendix A tooltips</p>
 </div>
 </body>
 </html>
