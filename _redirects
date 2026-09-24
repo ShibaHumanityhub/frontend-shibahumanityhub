@@ -3,7 +3,8 @@
 /terms      /terms.html      200
 /contact    /contact.html    200
 /faq        /faq.html        200
-/about      /faq.html        302
+/about           /about.html      200
+/beautiful-souls /shelters.html   302
 
 # P0 welcome routes
 /programs        /programs.html        200
